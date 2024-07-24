@@ -2,7 +2,7 @@
     <td style="background-color: #ffffff; background-size: cover; text-align: center; vertical-align: middle; padding: 48px 10px; color: #333;">
         <div style="min-width: 300px; width: 100%; max-width: 420px; margin: 0 auto;">
             <isif condition="${pdict.heading && pdict.heading.length > 0}">
-                <a hreflang="${request.getLocale()}" href="${urlHelpers.setHostToUrl(URLUtils.https('Home-Show'))}" style="display: block; font-size: 16px; font-weight: normal; margin-bottom: 15px; color: #333; text-decoration: none;">
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${urlHelpers.setHostToUrl(URLUtils.https('Home-Show'))}" style="display: block; font-size: 16px; font-weight: normal; margin-bottom: 15px; color: #333; text-decoration: none;">
                     <isprint value="${pdict.heading}" encoding="on" />
                 </a>
             </isif>
@@ -25,7 +25,7 @@
                 </div>
             </isif>
             <isif condition="${pdict.cta && pdict.cta.length > 0 && pdict.url && pdict.url.length > 0}">
-                <a hreflang="${request.getLocale()}" href="${pdict.url}" style=" font-size: 14px; font-weight: bold; font-style: italic; letter-spacing: 1px; padding: 15px 80px; background-color: transparent; color: #333; border: 1px solid #fff; text-decoration: none; display: inline-block; text-transform: uppercase;">
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.url}" style=" font-size: 14px; font-weight: bold; font-style: italic; letter-spacing: 1px; padding: 15px 80px; background-color: transparent; color: #333; border: 1px solid #fff; text-decoration: none; display: inline-block; text-transform: uppercase;">
                     <isprint value="${pdict.cta}" encoding="on" />
                 </a>
             </isif>

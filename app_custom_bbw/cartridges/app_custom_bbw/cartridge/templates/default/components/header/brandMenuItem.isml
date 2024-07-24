@@ -6,7 +6,7 @@
             <isloop items="${menuItem.subCategories}" var="category">
                 <isif condition="${category.subCategories}">
                     <li class="dropdown-item dropdown level-2-li" role="presentation">
-                        <a hreflang="${request.getLocale()}" href="${category.url}" id="${category.id}"
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${category.url}" id="${category.id}"
                             class="level-2-link dropdown-link dropdown-toggle h-font-size--14 h-fw--semibold"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                             tabindex="0">${category.name}</a>
@@ -15,12 +15,12 @@
                     </li>
                 <iselse/>
                     <li class="dropdown-item no-sub-category" role="presentation">
-                        <a class="h-font-size--14 h-fw--semibold" hreflang="${request.getLocale()}" href="${category.url}" id="${category.id}" role="menuitem" tabindex="0">${category.name}</a>
+                        <a class="h-font-size--14 h-fw--semibold" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${category.url}" id="${category.id}" role="menuitem" tabindex="0">${category.name}</a>
                     </li>
                 </isif>
             </isloop>
             <li class="dropdown-item dropdown level-2-li explore-li" role="presentation">
-                <a hreflang="${request.getLocale()}" href="<isprint value=" ${exploreCategory.url}" encoding="htmldoublequote" />"
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value=" ${exploreCategory.url}" encoding="htmldoublequote" />"
                 class="level-2-link dropdown-link dropdown-toggle h-font-size--14 h-fw--semibold"
                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                 tabindex="0">${'Explore ' + exploreCategory.name}</a>

@@ -69,7 +69,7 @@
                                         <isinclude template="product/components/pidRating" />
                                     </div>
                                     <div class="review h-font-size--13">
-                                        <a class="h-clr--blue" hreflang="${request.getLocale()}" href="#">${Resource.msg('label.rating-review', 'product', null)}</a>
+                                        <a class="h-clr--blue" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#">${Resource.msg('label.rating-review', 'product', null)}</a>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                                         <button type="button" data-placement="top"
                                             class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
                                             data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                            title="<div class='pdp-title'></div>" data-content="<a hreflang="${request.getLocale()}" href='#' class='close cursor-pointer'></a>
+                                            title="<div class='pdp-title'></div>" data-content="<a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href='#' class='close cursor-pointer'></a>
                                                 <div class='popover-content pdp-pop-content ds-tooltip-content'>
                                                     <isprint value=" ${promotionDetails}" />
                                     </div>
@@ -167,7 +167,7 @@
                                 <button type="button" data-placement="top"
                                     class="soldout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
                                     data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" title="<div class='pdp-title'></div>"
-                                    data-content="<a hreflang="${request.getLocale()}" href='#' class='close cursor-pointer'></a>
+                                    data-content="<a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href='#' class='close cursor-pointer'></a>
                                     <div class='popover-content pdp-pop-content ds-tooltip-content'>
                                      <isprint value=" ${pdict.giftPopupHTML}" />
                                     </div>
@@ -213,7 +213,7 @@
                                             </label>
                                         </div>
                                         <div class="bopis-set-store-container bopis-pdp-set-store">
-                                            <a hreflang="${request.getLocale()}" href=""
+                                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href=""
                                                 class="h-fw--semibold h-clr--black-1">${Resource.msg('bopis.label.set.store', 'product', null)}</a>
                                         </div>
                                     </div>

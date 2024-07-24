@@ -5,7 +5,7 @@
 <div class="col-12 social-container hidden-sm-down">
     <ul class="social-icons social-icons d-flex justify-content-center">
         <li class="facebook d-flex justify-content-center align-items-center">
-            <a hreflang="${request.getLocale()}" href="https://www.facebook.com/share.php?u=${productUrlencode}&picture=${productImageLarge}"
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="https://www.facebook.com/share.php?u=${productUrlencode}&picture=${productImageLarge}"
                 title="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}"
                 data-share="facebook"
                 aria-label="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}"
@@ -14,7 +14,7 @@
             </a>
         </li>
         <li class="twitter d-flex justify-content-center align-items-center">
-            <a hreflang="${request.getLocale()}" href="https://twitter.com/share?text=${encodeURIComponent(Resource.msgf('link.product.post.twitter', 'common', null, product.productName))}&url=${productUrlencode}&via=${dw.system.Site.getCurrent().httpsHostName}" data-share="twitter"
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="https://twitter.com/share?text=${encodeURIComponent(Resource.msgf('link.product.post.twitter', 'common', null, product.productName))}&url=${productUrlencode}&via=${dw.system.Site.getCurrent().httpsHostName}" data-share="twitter"
                 title="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}"
                 aria-label="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}"
                 class="share-icons" target="_blank">
@@ -22,7 +22,7 @@
             </a>
         </li>
         <li class="instagram d-flex justify-content-center align-items-center">
-            <a hreflang="${request.getLocale()}" href="https://instagram.com/share?url=${productUrlencode}&text=${product.productName}"
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="https://instagram.com/share?url=${productUrlencode}&text=${product.productName}"
                 class="share-icons"
                 title="${Resource.msgf('label.social.instagram', 'product', null, product.productName)}"
                 data-share="Instagram"
@@ -32,7 +32,7 @@
             </a>
         </li>
         <li class="pinterest d-flex justify-content-center align-items-center">
-            <a hreflang="${request.getLocale()}" href="https://pinterest.com/pin/create/button/?url=${productUrlencode}&description=${escapedProductName}&media=${productImageLarge}"
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="https://pinterest.com/pin/create/button/?url=${productUrlencode}&description=${escapedProductName}&media=${productImageLarge}"
                 title="${Resource.msgf('label.social.pinterest', 'product', null, product.productName)}"
                 aria-label="${Resource.msgf('label.social.pinterest', 'product', null, product.productName)}"
                 class="share-icons" target="_blank">

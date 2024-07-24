@@ -27,7 +27,7 @@
             <isinclude template="product/components/removeGiftLineItem" />
         </div>
         <isif condition="${pdict.shopButtonLink !== ''}">
-            <a class="text-center" hreflang="${request.getLocale()}" href="${pdict.shopButtonLink}">
+            <a class="text-center" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.shopButtonLink}">
                 <isprint value="${pdict.shopButtonText}" encoding="off" />
             </a>
         </isif>

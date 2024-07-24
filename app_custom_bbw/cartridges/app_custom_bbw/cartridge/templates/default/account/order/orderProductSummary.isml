@@ -38,7 +38,7 @@
                                     <span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span>
                                 <iselse/>
                                     <a class="product-name" title="${lineItem.productName}"
-                                    hreflang="${request.getLocale()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span></a>
+                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span></a>
                                 </isif>
                                 <isif condition="${lineItem.titlePartB}">
                                     <span class="product-number d-block">${lineItem.titlePartB}</span>

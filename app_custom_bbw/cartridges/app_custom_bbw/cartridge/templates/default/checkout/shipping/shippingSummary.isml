@@ -42,7 +42,7 @@
             </div>
             <isinclude template="checkout/shipping/giftMessageSummary" />
             <isif condition="${!pdict.isGiftProductAvailable}">
-                <a hreflang="${request.getLocale()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}" class="edit-button pull-right h-clr--black-1  review-shipping-summary-content"
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}" class="edit-button pull-right h-clr--black-1  review-shipping-summary-content"
                     aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</a>
             </isif>
         </div>

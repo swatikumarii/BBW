@@ -29,7 +29,7 @@
                                     <isloop iterator="${ingredientGroup.value}" alias="ingredient" status="loopstate">
                                         <li class="level-2 text-justify mt-3 mb-3">
                                             <a class="h-clr--black-3"
-                                                hreflang="${request.getLocale()}" href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'ingredients', 'prefv1', ingredient.name)}"
+                                                hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'ingredients', 'prefv1', ingredient.name)}"
                                                 data-ingredientname="${ingredient.name}">
                                                 ${ingredient.name}</a>
                                         </li>

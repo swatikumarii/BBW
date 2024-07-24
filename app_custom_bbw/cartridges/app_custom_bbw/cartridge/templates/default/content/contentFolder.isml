@@ -2,7 +2,7 @@
 <isloop items="${folders}" var="folder">
     <div class="allcategories">
         <h3>
-            <a hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', folder.ID)}">
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', folder.ID)}">
                 <span>${folder.displayName}</span>
             </a>
         </h3>

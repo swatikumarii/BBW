@@ -18,7 +18,7 @@
                                     <td style="vertical-align:bottom;text-align:left;font-size:18px">
                                         ${Resource.msg('label.order.number', 'confirmation', null)}
                                         <div style="color:#005699;font-weight:bold;font-size:22px;padding-top:6px">
-                                            <a hreflang="${request.getLocale()}" href="${dw.web.URLUtils.abs('Order-Status')}"
+                                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${dw.web.URLUtils.abs('Order-Status')}"
                                                 title="${pdict.order.orderNumber}"
                                                 style="text-decoration:none;color:#005699;font-weight:bold;font-size:22px;"
                                                 target="_blank">
@@ -58,16 +58,16 @@
                             </p>
                             <div style="margin:0 0 15px;">
                                 <!--[if mso]>
-                                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" hreflang="${request.getLocale()}" href="${URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber, 'orderFilter', pdict.orderFilter)}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
+                                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber, 'orderFilter', pdict.orderFilter)}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
                                                 <w:anchorlock/>
                                                 <center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;">${Resource.msg('email.btn.view.order.status', 'confirmation', null)}</center>
                                             </v:rect>
                                         <![endif]--><a
-                                    hreflang="${request.getLocale()}" href="${URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber, 'orderFilter', pdict.orderFilter)}"
+                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber, 'orderFilter', pdict.orderFilter)}"
                                     style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.status', 'confirmation', null)}</a>
                             </div>
                             <div>
-                                <a hreflang="${request.getLocale()}" href="${pdict.order.invoiceDownloadUrl}"
+                                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.order.invoiceDownloadUrl}"
                                     style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.download.invoice', 'confirmation', null)}</a>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                             <td width="119"
                                                 style="vertical-align:middle;padding:20px 0 0;width:119px;text-align:center">
                                                 <a style="display:block;"
-                                                    hreflang="${request.getLocale()}" href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}">
+                                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}">
                                                     <img src="${lineItem.images.small[0].url}"
                                                         alt="${lineItem.images.small[0].alt}"
                                                         title="${lineItem.images.small[0].title}"
@@ -101,7 +101,7 @@
                                                 <div style="width:245px">
                                                     <div
                                                         style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
-                                                        <a hreflang="${request.getLocale()}" href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}"
+                                                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}"
                                                             title="${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}"
                                                             style="text-decoration:none;text-transform:uppercase;font-size:16px;color:#333;line-height:23px;margin-bottom:15px;font-family:'HelveticaNeue-Light',Arial,sans-serif"
                                                             target="_blank">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</a>
@@ -180,7 +180,7 @@
                             style="font-size:14px;line-height:14px;color:#666666;text-align:center;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;border-top: 3px solid #f2f2f2;padding: 20px 0;">
                             ${Resource.msg('email.order.looking.more.text', 'confirmation', null)}<a
                                 style="color:#005699;text-decoration:underline;"
-                                hreflang="${request.getLocale()}" href="${dw.web.URLUtils.abs('Order-History')}">
+                                hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${dw.web.URLUtils.abs('Order-History')}">
                                 ${Resource.msg('email.order.looking.more.here.text', 'confirmation', null)}</a>
                         </p>
                         <iscomment> Shipping Section </iscomment>
@@ -453,12 +453,12 @@
                     <td style="padding:15px 32px;vertical-align:top;text-align:center;">
                         <div>
                             <!--[if mso]>
-                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" hreflang="${request.getLocale()}" href="${dw.web.URLUtils.abs('Login-Show')}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
+                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${dw.web.URLUtils.abs('Login-Show')}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
                                 <w:anchorlock/>
                                 <center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;">${Resource.msg('email.btn.view.order.details', 'confirmation', null)}</center>
                             </v:rect>
                             <![endif]-->
-                            <a hreflang="${request.getLocale()}" href="${dw.web.URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber)}"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${dw.web.URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber)}"
                                 style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.details', 'confirmation', null)}</a>
                         </div>
                     </td>

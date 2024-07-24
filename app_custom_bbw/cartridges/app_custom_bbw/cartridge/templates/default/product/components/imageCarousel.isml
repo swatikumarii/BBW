@@ -24,11 +24,11 @@
         </div>
 
         <isif condition="${product.images['mediumLarge'].length > 1}">
-            <a class="carousel-control-prev" hreflang="${request.getLocale()}" href="${" #"}pdpCarousel-${product.id}" role="button" data-slide="prev">
+            <a class="carousel-control-prev" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${" #"}pdpCarousel-${product.id}" role="button" data-slide="prev">
                 <span class="fa icon-prev" aria-hidden="true"></span>
                 <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
             </a>
-            <a class="carousel-control-next" hreflang="${request.getLocale()}" href="${" #"}pdpCarousel-${product.id}" role="button" data-slide="next">
+            <a class="carousel-control-next" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${" #"}pdpCarousel-${product.id}" role="button" data-slide="next">
                 <span class="fa icon-next" aria-hidden="true"></span>
                 <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
             </a>

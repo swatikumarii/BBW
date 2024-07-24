@@ -19,7 +19,7 @@
             <isif condition="${product.promotions}">
                 <div class="b-product-tile__product-promo">
                     <div class="b-product-tile__promotional-message">
-                        <a hreflang="${request.getLocale()}" href="${pdict.urls.product}" class="b-product-tile__promo-link b-text-a text-decoration-none"
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.urls.product}" class="b-product-tile__promo-link b-text-a text-decoration-none"
                             title="${'Go to Product:' + product.productName}" data-name="${product.productName}"
                             data-pid="${pdict.product.id}">
                             <isloop items="${product.promotions}" var="promotion" status="promdet">

@@ -4,11 +4,11 @@
             <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopState">
                 <li class="breadcrumb-item">
                     <isif condition="${loopState.last}">
-                        <a hreflang="${request.getLocale()}" href="${breadcrumbValue.url}" aria-current="page">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${breadcrumbValue.url}" aria-current="page">
                             ${breadcrumbValue.htmlValue}
                         </a>
                     <iselse>
-                        <a hreflang="${request.getLocale()}" href="${breadcrumbValue.url}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${breadcrumbValue.url}">
                             ${breadcrumbValue.htmlValue}
                         </a>
                     </isif>

@@ -34,7 +34,7 @@
         <div class="col-12 text-left p-0">
             <p class="wishlist-text">${Resource.msg('wishlist.empty.text', 'wishlist', null)}</p>
             <div class="add-wishlist position-relative">
-                <a hreflang="${request.getLocale()}" href="${URLUtils.url('Home-Show')}"
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}"
                     class="btn wishlist-btn btn-primary text-white text-uppercase btn-hover"
                     aria-label="${Resource.msg('wishlist.add.btn', 'wishlist', null)}">${Resource.msg('wishlist.add.btn', 'wishlist', null)}</a>
             </div>

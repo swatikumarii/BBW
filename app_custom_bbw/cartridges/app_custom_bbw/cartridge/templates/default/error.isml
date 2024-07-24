@@ -17,22 +17,22 @@
                     </isif>
         </isif></p>
         <div>
-            <a hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}">
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}">
                 <button type="button" class="edit text-uppercase">
                     ${Resource.msg('body.care.button.label', 'error', null)}
                 </button>
             </a>
-            <a hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show', 'cgid', 'candles')}">
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', 'candles')}">
                 <button type="button" class="edit text-uppercase">
                     ${Resource.msg('candles.button.label', 'error', null)}
                 </button>
             </a>
-            <a hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show','cgid', 'hand-soaps')}">
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show','cgid', 'hand-soaps')}">
                 <button type="button" class="edit text-uppercase">
                     ${Resource.msg('hand-soaps.button.label', 'error', null)}
                 </button>
             </a>
-            <a hreflang="${request.getLocale()}" href="${URLUtils.url('Fragrance-Show')}">
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Fragrance-Show')}">
                 <button type="button" class="edit text-uppercase">
                     ${Resource.msg('fragrances.button.label', 'error', null)}
                 </button>
@@ -48,14 +48,14 @@
                                 <div class="col px-0">
                                     <div class="top  pt-3"><a
                                             class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
-                                          hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}" >
+                                          hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}" >
                                             <img class="w-100 d-block content-image"
                                                 src="${URLUtils.staticURL('/images/error/category1.jpg')}" alt="category images" />
                                         </a>
             
                                         <div class="w-100 d-block align-items-center text-center">
                                             <div class="col-12 px-0"><a class="text-center"
-                                                  hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}" ><span> <span
+                                                  hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}" ><span> <span
                                                             class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">
                                                             ${Resource.msg('body.care.button.label', 'error', null)}</span> </span>
                                                 </a></div>
@@ -70,14 +70,14 @@
                                 <div class="col px-0">
                                     <div class="top  pt-3"><a
                                             class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
-                                          hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show', 'cgid', 'candles')}" >
+                                          hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', 'candles')}" >
                                             <img class="w-100 d-block content-image"
                                                 src="${URLUtils.staticURL('/images/error/category2.jpg')}" alt="category images" />
                                         </a>
             
                                         <div class="w-100 d-block align-items-center text-center">
                                             <div class="col-12 px-0"><a class="text-center"
-                                                  hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show', 'cgid', 'candles')}" ><span> <span
+                                                  hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', 'candles')}" ><span> <span
                                                             class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">${Resource.msg('candles.button.label', 'error', null)}</span>
                                                     </span> </a></div>
                                         </div>
@@ -91,14 +91,14 @@
                                 <div class="col px-0">
                                     <div class="top  pt-3"><a
                                             class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
-                                           hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show', 'cgid', 'wallflowers')}" >
+                                           hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', 'wallflowers')}" >
                                             <img class="w-100 d-block content-image"
                                                 src="${URLUtils.staticURL('/images/error/category3.jpg')}" alt="category images" />
                                         </a>
             
                                         <div class="w-100 d-block align-items-center text-center">
                                             <div class="col-12 px-0"><a class="text-center"
-                                                  hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show', 'cgid', 'wallflowers')}" ><span>
+                                                  hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', 'wallflowers')}" ><span>
                                                         <span
                                                             class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">${Resource.msg('walflowers.button.label', 'error', null)}</span>
                                                     </span> </a></div>
@@ -113,14 +113,14 @@
                                 <div class="col px-0">
                                     <div class="top  pt-3"><a
                                             class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
-                                          hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show','cgid', 'hand-soaps')}" >
+                                          hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show','cgid', 'hand-soaps')}" >
                                             <img class="w-100 d-block content-image"
                                                 src="${URLUtils.staticURL('/images/error/category4.jpg')}" alt="category images" />
                                         </a>
             
                                         <div class="w-100 d-block align-items-center text-center">
                                             <div class="col-12 px-0"><a class="text-center"
-                                                  hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show','cgid', 'hand-soaps')}" ><span> <span
+                                                  hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show','cgid', 'hand-soaps')}" ><span> <span
                                                             class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">
                                                             ${Resource.msg('hand-soaps.button.label', 'error', null)}</span> </span>
                                                 </a></div>
@@ -135,14 +135,14 @@
                                 <div class="col px-0">
                                     <div class="top  pt-3"><a
                                             class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
-                                            hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show','cgid', 'travel-size')}"
+                                            hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show','cgid', 'travel-size')}"
                                             >
                                             <img class="w-100 d-block content-image"
                                                 src="${URLUtils.staticURL('/images/error/category5.jpg')}" alt="category images" />
                                         </a>
             
                                         <div class="w-100 d-block align-items-center text-center">
-                                            <div class="col-12 px-0"><a class="text-center"  hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show','cgid', 'travel-size')}"
+                                            <div class="col-12 px-0"><a class="text-center"  hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show','cgid', 'travel-size')}"
                                                     ><span>
                                                         <span
                                                             class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">
@@ -160,14 +160,14 @@
                                 <div class="col px-0">
                                     <div class="top  pt-3">
                                         <a class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
-                                            hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show','cgid', 'giftcards')}">
+                                            hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show','cgid', 'giftcards')}">
                                             <img class="w-100 d-block content-image"
                                                 src="${URLUtils.staticURL('/images/error/category7.jpg')}" alt="category images" />
                                         </a>
             
                                         <div class="w-100 d-block align-items-center text-center">
                                             <div class="col-12 px-0">
-                                            <a class="text-center" hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show','cgid', 'giftcards')}">
+                                            <a class="text-center" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show','cgid', 'giftcards')}">
                                                 <span>
                                                     <span class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">
                                                         ${Resource.msg('gift-sets.button.label', 'error', null)}

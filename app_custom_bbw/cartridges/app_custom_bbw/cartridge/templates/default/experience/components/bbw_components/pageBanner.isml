@@ -98,7 +98,7 @@
                     <iscomment> Banner - CTA </iscomment>
                     <isif condition="${pdict.buttonLink !== ''}">
                         <div class="content-banner-btn-wrapper">
-                            <a hreflang="${request.getLocale()}" href="${pdict.buttonLink}" 
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.buttonLink}" 
                                 class="clpShopNowBtn btn ${pdict.buttonColor == 'white' ? 'btn--white-filled' : ''} ${pdict.buttonColor == 'black' ? 'btn--banner' : ''} ${pdict.buttonColor == 'transparent' ? 'btn--white-black' : ''} ${pdict.buttonColor == 'tertiary' ? 'btn--tertiary' : ''} ${pdict.buttonColor == 'transparentWhite' ? 'btn--transparent-white' : ''}"
                                 data-scroll-linkid ="${pdict.buttonLinkScrollId}">
                                 <span>${pdict.button}</span>

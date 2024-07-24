@@ -23,7 +23,7 @@
                             <isloop items="${pdict.careers}" var="career" status="loopstatus">
                                 <div class="panel panel-default firstItem">
                                     <div class="panel-heading collapsed" data-toggle="collapse"
-                                        hreflang="${request.getLocale()}" href="${'#' + (career.city).replace(/\s/g, '')}" aria-expanded="true"
+                                        hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${'#' + (career.city).replace(/\s/g, '')}" aria-expanded="true"
                                         aria-controls="${'#' + (career.city).replace(/\s/g, '')}"
                                         >
                                         <h3 class="d-flex justify-content-between align-items-center text-uppercase">
@@ -35,7 +35,7 @@
                                         <div class="panel-body menu_list">
                                             <isloop items="${career.data}" var="job" status="loopstatus">
                                                 <ul>
-                                                    <li class="h-font-size--16 m-0"><span class="number-listing">${loopstatus.count}</span><a hreflang="${request.getLocale()}" href="${URLUtils.url('Careers-ApplyForJob', 'jobName', job.jobName, 'jobId', job.id)}"
+                                                    <li class="h-font-size--16 m-0"><span class="number-listing">${loopstatus.count}</span><a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Careers-ApplyForJob', 'jobName', job.jobName, 'jobId', job.id)}"
                                                             ><span class="job-roles">
                                                                 ${job.jobName} </span></a>
                                                     </li>

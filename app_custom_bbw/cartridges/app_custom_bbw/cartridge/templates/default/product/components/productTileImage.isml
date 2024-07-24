@@ -35,7 +35,7 @@
             data-next="${Resource.msg('button.next', 'common', null)}">
             <div class="carousel-inner" role="listbox">
                 <a class="d-block"
-                    hreflang="${request.getLocale()}" href="${pdict.urls.product}">
+                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.urls.product}">
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
                         <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">
@@ -51,11 +51,11 @@
             </div>
             <isif condition="${product.images['medium'].length > 1}">
                 <div class="carousel-controls-wrapper h-hidden-sm-down">
-                    <a class="carousel-control-prev slider-control" hreflang="${request.getLocale()}" href="${" #"}plpCarousel-${product.id}"
+                    <a class="carousel-control-prev slider-control" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${" #"}plpCarousel-${product.id}"
                         role="button" data-slide="prev">
                         <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
                     </a>
-                    <a class="carousel-control-next slider-control" hreflang="${request.getLocale()}" href="${" #"}plpCarousel-${product.id}"
+                    <a class="carousel-control-next slider-control" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${" #"}plpCarousel-${product.id}"
                         role="button" data-slide="next">
                         <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
                     </a>
@@ -65,7 +65,7 @@
     <iselseif condition="${product.images['medium'].length == 2}" />
         <isloop items="${product.images['medium']}" var="image" status="loopStatus">
             <a class="d-none d-md-none d-lg-block h-hidden-sm-down"
-                hreflang="${request.getLocale()}" href="${pdict.urls.product}">
+                hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.urls.product}">
                 <div class='img-inner-wrapper ${loopStatus.index == 0 ? ' main-img-wrapper' : 'hover-img-wrapper'}'>
                     <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}" data-srcset="${image.url} 1x, ${product.images['medium_2x'][loopStatus.index].url} 2x"
                         alt="${product.productName}"
@@ -79,7 +79,7 @@
             data-interval="0" data-prev="${Resource.msg('button.previous', 'common', null)}"
             data-next="${Resource.msg('button.next', 'common', null)}">
             <div class="carousel-inner" role="listbox">
-                <a class="d-block" hreflang="${request.getLocale()}" href="${pdict.urls.product}">
+                <a class="d-block" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.urls.product}">
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
                         <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">
@@ -95,11 +95,11 @@
             </div>
             <isif condition="${product.images['medium'].length > 1}">
                 <div class="carousel-controls-wrapper h-hidden-sm-down">
-                    <a class="carousel-control-prev slider-control" hreflang="${request.getLocale()}" href="${" #"}plpCarousel-${product.id}"
+                    <a class="carousel-control-prev slider-control" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${" #"}plpCarousel-${product.id}"
                         role="button" data-slide="prev">
                         <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
                     </a>
-                    <a class="carousel-control-next slider-control" hreflang="${request.getLocale()}" href="${" #"}plpCarousel-${product.id}"
+                    <a class="carousel-control-next slider-control" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${" #"}plpCarousel-${product.id}"
                         role="button" data-slide="next">
                         <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
                     </a>
@@ -109,7 +109,7 @@
     <iselseif condition="${product.images['medium'].length < 2}" />
         <isloop items="${product.images['medium']}" var="image" status="loopStatus">
             <a class="d-block"
-                hreflang="${request.getLocale()}" href="${pdict.urls.product}">
+                hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.urls.product}">
                 <div class='img-inner-wrapper lazy-skeleton'>
                     <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}" data-srcset="${image.url} 1x, ${product.images['medium_2x'][loopStatus.index].url} 2x"
                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
@@ -121,12 +121,12 @@
         </isloop>
     </isif>
     <isif condition="${product.images['medium'].length > 0}">
-        <link itemprop="image" hreflang="${request.getLocale()}" href="${product.images['medium'][0].url}" />
+        <link itemprop="image" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${product.images['medium'][0].url}" />
     </isif>
     <isif condition="${!product.isEgiftCard}">
         <iscomment> <a
                 class="b-product-tile__wishlistTile wishlistTile position-absolute add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
-                hreflang="${request.getLocale()}" href="${URLUtils.url('Wishlist-AddProduct')}"
+                hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Wishlist-AddProduct')}"
                 title="${Resource.msg('wishlist.addto.wishlist.heart', 'wishlist', null)}">
                 <span class="fa-stack fa-lg">
                     <i class="icon-wishlist icon-heart-o"></i>
