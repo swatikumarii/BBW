@@ -8,7 +8,7 @@
         <div class="d-flex ${pdict.imagePositionClass} ${pdict.customClass}">
             <a href="${pdict.link}"
                 class="image-link clpShopNowBtn w-100 h-100 d-block position-relative lazy-skeleton overflow-hidden"
-                hreflang="${request.getLocale()}" data-lazy="${pdict.disableLazyLoad}">
+                 data-lazy="${pdict.disableLazyLoad}">
                 <isif condition="${pdict.disableLazyLoad}">
                     <picture class="w-100 h-auto d-block content-image-block d-block">
                         <source srcset="${pdict.desktopImageSrcset}"
@@ -44,7 +44,7 @@
                         <isif condition="${pdict.linkText}">
                             <a class="text-center"
                                 href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}"
-                                hreflang="${request.getLocale()}">
+                                >
                                 <div>
                                     <isprint value="${pdict.linkText ? pdict.linkText : ''}" encoding="off" />
                                 </div>

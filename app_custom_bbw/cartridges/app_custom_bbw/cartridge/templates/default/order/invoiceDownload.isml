@@ -146,7 +146,7 @@
                                     <span
                                         class="shipping-method-title h-font-size--16">${Resource.msg('label.shipping', 'order', null)} : ${shippingModel.selectedShippingMethod.ID} ${Resource.msg('label.shipping', 'order', null)}
                                         <isif condition="${pdict.order.trackingNumber}">
-                                            <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" hreflang="${request.getLocale()}"
+                                            <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" 
                                                 target="_blank">
                                                 <span>${pdict.order.trackingNumber}</span>
                                             </a>
