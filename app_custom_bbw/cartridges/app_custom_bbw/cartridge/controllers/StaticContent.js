@@ -282,5 +282,65 @@ server.get('ShippedEmailContent', function (req, res, next) {
     next();
 });
 
+server.get('GiftcardConfirmationEmailContent', function (req, res, next) {
+    var OrderModel = require('*/cartridge/models/order');
+    var collections = require('*/cartridge/scripts/util/collections');
+    var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+    var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
+    var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
+    var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var Resource = require('dw/web/Resource');
+    var OrderMgr = require('dw/order/OrderMgr');
+    var Site = require('dw/system/Site');
+    var Mail = require('dw/net/Mail');
+    var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
+    var emailMarkup = '';
+    var barcodeEmailMarkup = '';
+    var orderNo = encryptionHelper.decryptPin(
+        decodeURIComponent(req.querystring.token)
+    );
+    var lineItemID = encryptionHelper.decryptPin(
+        decodeURIComponent(req.querystring.uuid)
+    );
+    var order = OrderMgr.getOrder(orderNo);
+    for (var index = 0; index < order.productLineItems.length; index++) {
+        if (order.productLineItems[index].UUID === lineItemID) {
+            if (
+                order.productLineItems[index] &&
+                !('custom' in order.productLineItems[index]
+                    && order.productLineItems[index].custom.eGiftCardNumber
+                )
+            ) {
+                var giftCardAPIResult = qwikcilverApis.createGiftCards(
+                    order,
+                    index
+                );
+                // Send GiftCard Email
+                if (
+                    giftCardAPIResult &&
+                    giftCardAPIResult.status === 'OK' &&
+                    giftCardAPIResult.object
+                ) {
+                    var giftCard = JSON.parse(giftCardAPIResult.object);
+                    if (giftCard.ResponseCode === 0) {
+                        qwikcilverHelpers.saveGiftCardDetails(
+                            order,
+                            giftCard,
+                            'Created',
+                            index
+                        );
+                    }
+                }
+            }
+            qwikcilverHelpers.sendGiftCardEmail(
+                order,
+                req.locale.id,
+                false,
+                true,
+                index
+            );
+        }
+    }
+});
 
 module.exports = server.exports();

@@ -86,13 +86,16 @@ function OrderDetails() {
 function ResendEmail() {
   var CurrentHttpParameterMap = request.httpParameterMap;
   var orderNo = CurrentHttpParameterMap.OrderNo.stringValue;
+  var lineItemID = CurrentHttpParameterMap.uuid.stringValue;
   var encodedOrderNumber = encodeURIComponent(
     encryptionHelper.encryptPin(orderNo)
   );
+  var encodedUUID = encodeURIComponent(encryptionHelper.encryptPin(lineItemID));
   var data = contentApi.callAPI(
     URLUtils.https(
       new URLAction("StaticContent-GiftcardConfirmationEmailContent", Site.current.ID),
-      new URLParameter("token", encodedOrderNumber)
+      new URLParameter("token", encodedOrderNumber),
+      new URLParameter("uuid", encodedUUID)
     ).toString()
   );
 }
