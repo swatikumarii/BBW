@@ -29,7 +29,7 @@ function getConfirmationEmailData(orderNo) {
   );
   var data = contentApi.callAPI(
     URLUtils.https(
-      new URLAction("StaticContent-GiftcardConfirmationEmailContent", Site.current.ID),
+      new URLAction("StaticContent-ConfirmationEmailContent", Site.current.ID),
       new URLParameter("token", encodedOrderNumber)
     ).toString()
   );

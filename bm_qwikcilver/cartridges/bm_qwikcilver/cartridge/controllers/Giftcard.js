@@ -14,6 +14,12 @@ var Site = require('dw/system/Site');
 var giftcardHelper = require('*/cartridge/scripts/giftcardHelper');
 var sendgridApi = require('*/cartridge/scripts/service/sendgridApi');
 var sendgridPref = require('*/cartridge/scripts/service/sendgridPreference');
+var Logger = require("dw/system/Logger");
+var URLUtils = require("dw/web/URLUtils");
+var URLAction = require("dw/web/URLAction");
+var URLParameter = require("dw/web/URLParameter");
+var contentApi = require("*/cartridge/scripts/service/contentApi");
+var encryptionHelper = require("*/cartridge/scripts/helpers/encryptionHelpers");
 
 /**
  * forEach method for dw.util.Collection subclass instances
@@ -79,78 +85,16 @@ function OrderDetails() {
 
 function ResendEmail() {
   var CurrentHttpParameterMap = request.httpParameterMap;
-  var orderID = CurrentHttpParameterMap.OrderNo.stringValue;
-  var lineItemID = CurrentHttpParameterMap.uuid.stringValue;
-  var order = OrderMgr.searchOrder('orderNo = {0}', orderID);
-  var giftLineItem;
-  var receipientMail;
-  var context;
-  var emailRequest;
-  var recipientGiftEmail;
-  forEach(order.allLineItems, function (currentLineItem) {
-    if (currentLineItem.UUID === lineItemID) {
-      giftLineItem = currentLineItem;
-    }
-  });
-  if ('custom' in giftLineItem && giftLineItem.custom.eGiftCardNumber
-    && giftLineItem.custom.eGiftCardNumber !== null
-    && giftLineItem.custom.eGiftCardNumber !== undefined
-    && giftLineItem.custom.eGiftCardNumber !== 'null' && giftLineItem.custom.eGiftCardNumber !== 'undefined') {
-    context = giftcardHelper.getContext(giftLineItem);
-  } else {
-    context = giftcardHelper.getNewContext(order, giftLineItem);
-  }
-
-  if (sendgridPref.isSendgridEnable) {
-    emailRequest = {
-      personalizations: [
-        {
-          to: [
-            {
-              email: giftLineItem.custom.eGiftReceiverEmail
-            }
-          ]
-        }
-      ],
-      from: {
-        email: sendgridPref.sendgridFromEmail
-      },
-      subject: (Resource.msg('subject.order.egift.detail.email', 'giftcards', null)),
-      content: [
-        {
-          type: 'text/html',
-          value: getRenderedHtml(context, 'confirmation/confirmationEgiftEmailToRecipient')
-        }
-      ],
-      tracking_settings: {
-        'click_tracking': {
-          'enable': true,
-          'enable_text': false
-        }
-      }
-    };
-    receipientMail = sendgridApi.sendEmail(emailRequest);
-  } else {
-    recipientGiftEmail = new Mail();
-    recipientGiftEmail.addTo(giftLineItem.custom.eGiftReceiverEmail);
-    recipientGiftEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'common', null));
-    recipientGiftEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail')
-     || 'no-reply@testorganization.com');
-    recipientGiftEmail.setContent(
-      getRenderedHtml(context, 'confirmation/confirmationEgiftEmailToRecipient'),
-      'text/html',
-      'UTF-8'
-    );
-    receipientMail = recipientGiftEmail.send();
-  }
-  if ((('code' in receipientMail && receipientMail.code === 'OK') || ('response' in receipientMail && receipientMail.response.status === 'OK')) && !receipientMail.error) {
-    CurrentHttpParameterMap = {
-      OrderNo: orderID, success: true, giftcardNumber: context.giftcardNumber
-    };
-    ISML.renderTemplate('order/orderDetails', CurrentHttpParameterMap);
-  } else {
-    ISML.renderTemplate('giftcard/resendError');
-  }
+  var orderNo = CurrentHttpParameterMap.OrderNo.stringValue;
+  var encodedOrderNumber = encodeURIComponent(
+    encryptionHelper.encryptPin(orderNo)
+  );
+  var data = contentApi.callAPI(
+    URLUtils.https(
+      new URLAction("StaticContent-GiftcardConfirmationEmailContent", Site.current.ID),
+      new URLParameter("token", encodedOrderNumber)
+    ).toString()
+  );
 }
 
 OrderList.public = true;
