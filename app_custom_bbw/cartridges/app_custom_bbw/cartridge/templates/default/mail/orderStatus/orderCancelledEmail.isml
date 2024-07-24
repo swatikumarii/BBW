@@ -18,7 +18,7 @@
                                     <td style="vertical-align:bottom;text-align:left;font-size:18px">
                                         ${Resource.msg('label.order.number', 'confirmation', null)}
                                         <div style="color:#005699;font-weight:bold;font-size:22px;padding-top:6px">
-                                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${dw.web.URLUtils.abs('Order-Status')}"
+                                            <a href="${dw.web.URLUtils.abs('Order-Status')}"
                                                 title="${pdict.order.orderNumber}"
                                                 style="text-decoration:none;color:#005699;font-weight:bold;font-size:22px;"
                                                 target="_blank">
@@ -66,7 +66,7 @@
                                             <td width="119"
                                                 style="vertical-align:middle;padding:20px 0 0;width:119px;text-align:center">
                                                 <a style="display:block;"
-                                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}">
+                                                    href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}">
                                                     <img src="${lineItem.images.small[0].url}"
                                                         alt="${lineItem.images.small[0].alt}"
                                                         title="${lineItem.images.small[0].title}"
@@ -78,7 +78,7 @@
                                                 <div style="width:245px">
                                                     <div
                                                         style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
-                                                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}"
+                                                        <a href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}"
                                                             title="${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}"
                                                             style="text-decoration:none;text-transform:uppercase;font-size:16px;color:#333;line-height:23px;margin-bottom:15px;font-family:'HelveticaNeue-Light',Arial,sans-serif"
                                                             target="_blank">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</a>
