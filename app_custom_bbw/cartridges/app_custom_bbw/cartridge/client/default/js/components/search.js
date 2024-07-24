@@ -178,6 +178,7 @@ function processResponse(response) {
                 $('input.search-field').removeAttr('aria-describedby');
             }
             lazyload.lazyLoad();
+            lazyload.lazyLoadSlotOnId('search-suggestions');
         }
     } else {
         $('.search-suggestions').find('.suggestions').empty().hide();

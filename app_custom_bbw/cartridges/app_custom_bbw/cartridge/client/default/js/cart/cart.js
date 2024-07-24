@@ -588,6 +588,8 @@ module.exports = function () {
             $('.minicart .popover').removeClass('show');
         }
 
+        var isInMiniCart = !($('body').find('.cart-lineitems').length > 0);
+
         url = appendToUrl(url, urlParams);
 
         $('body > .modal-backdrop').remove();
@@ -710,7 +712,7 @@ module.exports = function () {
                     updateApproachingDiscounts(
                         data.basket.orderApproachingDiscounts,
                         data.basket.shippingApproachingDiscounts,
-                        isMiniCart
+                        isInMiniCart
                     );
                     $('body').trigger(
                         'setShippingMethodSelection',
@@ -1164,6 +1166,10 @@ module.exports = function () {
                     isMiniCart
                 );
                 validateBasket(data);
+                if ($('.remove-giftcard-btn').length > 0) {
+                    $('.remove-giftcard-btn').click();
+                    $('.coupon-gc-error-wrap').removeClass('d-none');
+                }
                 $.spinner().stop();
                 $('body').trigger('promotion:success', data);
             },
