@@ -1,5 +1,7 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
-
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled')}">
+    <isinclude template="components/gtm/gtmBodyScript" />
+</isif>
 <header class="header h-bg--white h-auto" id="header">
     <div class="header-banner slide-up">
         <div class="container-fluid px-0">
