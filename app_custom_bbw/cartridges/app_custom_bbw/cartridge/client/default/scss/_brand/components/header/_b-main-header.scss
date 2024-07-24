@@ -30,6 +30,10 @@ header {
     .bbw-nav {
         border-bottom: 0.1875rem solid colour(gray, 1);
 
+        @include media-down(sm) {
+            min-height: 57px;
+        }
+
         .bbw-nav-wrap {
             z-index: 5;
             display: flex;
