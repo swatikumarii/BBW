@@ -282,56 +282,5 @@ server.get('ShippedEmailContent', function (req, res, next) {
     next();
 });
 
-server.get('GiftcardConfirmationEmailContent', function (req, res, next) {
-    var OrderModel = require('*/cartridge/models/order');
-    var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
-    var Resource = require('dw/web/Resource');
-    var Site = require('dw/system/Site');
-    var Mail = require('dw/net/Mail');
-    var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
-    var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
-    var emailMarkup = '';
-    var barcodeEmailMarkup = '';
-    var termsContent = ContentMgr.getContent('email-terms-and-conditions-block'); // Terms and Conditions Email Content
-    var youGotContent = ContentMgr.getContent('email-you-got-it-block'); // Terms and Conditions Email Content
-
-    if (!empty(termsContent) && termsContent.online) {
-        emailMarkup = termsContent.custom.body.markup;
-    }
-
-    if (!empty(youGotContent) && youGotContent.online) {
-        barcodeEmailMarkup = youGotContent.custom.body.markup;
-    }
-
-    var orderNo = encryptionHelper.decryptPin(
-        decodeURIComponent(req.querystring.token)
-    );
-    var order = OrderMgr.getOrder(orderNo);
-    var orderModel = new OrderModel(order, {
-        containerView: 'order'
-    });
-
-    for (var i=0; i < order.productLineItems.length; i++) {
-        var giftLineItem = order[i];
-        // qwikcilverHelpers.sendGiftCardEmail(order, req.locale.id, false, true, i);
-        // var context = {
-        //     recipientEmail: giftLineItem.custom.eGiftReceiverEmail,
-        //     recipientName: giftLineItem.custom.eGiftReceiver,
-        //     order: orderModel,
-        //     content: emailContentHelpers.getEmailContent('normal-footer', 'email-header'),
-        //     markup: emailMarkup,
-        //     barCodeMarkup: barcodeEmailMarkup,
-        //     giftcardNumber: i,
-        //     sendEmailNow: true
-        // };
-        // var confirmationEmail = new Mail();
-        // confirmationEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
-        // confirmationEmail.setSubject(Resource.msg('subject.egift.delivered.confirmation.email', 'giftcards', null));
-        // confirmationEmail.addTo(order.customerEmail);
-        // confirmationEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToSender'), 'text/html', 'UTF-8');
-        // var confirmationEmailSend = confirmationEmail.send();
-        // logger.info('confirmationEmail: GC email status, message and code of order id {0} is {1} {2} {3}',  orderModel.orderNumber, confirmationEmailSend.status, confirmationEmailSend.message, confirmationEmailSend.code);
-   // }
-});
 
 module.exports = server.exports();
