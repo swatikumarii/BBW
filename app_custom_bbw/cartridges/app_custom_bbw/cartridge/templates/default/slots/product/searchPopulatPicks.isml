@@ -1,10 +1,14 @@
 <iscontent type="text/html" charset="UTF-8" compact="true" />
 <isif condition="${slotcontent}">
-    <isloop items="${slotcontent.content}" var="product" begin="0" end="6">
-        <isobject object="${product}" view="recommendation">
-            <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView',
-                false, 'wishlist', false)}" />
-        </isobject>
-    </isloop>
-    <isinclude template="product/components/removeGiftLineItem" />
+    <div class="row no-gutters picked-just-recomm ds-smooth-scroll js-picked-just-recomm">
+        <isloop items="${slotcontent.content}" var="product" status="loopState">
+            <div class="picked-just-recomm__item col js-picked-just-recomm-item">
+                <isobject object="${product}" view="recommendation">
+                    <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView',
+                                    false, 'wishlist', false)}" />
+                </isobject>
+            </div>
+        </isloop>
+        <isinclude template="product/components/removeGiftLineItem" />
+    </div>
 </isif>
