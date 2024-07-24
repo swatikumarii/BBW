@@ -3,6 +3,7 @@
 var base = module.superModule;
 
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+var ProductFactory = require('*/cartridge/scripts/factories/product');
 var URLUtils = require('dw/web/URLUtils');
 var Site = require('dw/system/Site');
 var Money = require('dw/value/Money');
@@ -20,6 +21,42 @@ function getFreeShippingStatus(basket) {
         }
     }
     return status;
+}
+
+/**
+ * @param {string[]} pids - Product Ids
+ * @returns {Array} Products
+ */
+function recommendedProducts(pids) {
+    var products = [];
+    if (pids && pids.length > 0) {
+        for (var i = 0; i < pids.length; i++) {
+            var productTileParams = { pview: 'tile', pid: pids[i] };
+
+            var product;
+            var productUrl;
+
+            try {
+                product = ProductFactory.get(productTileParams);
+                productUrl = URLUtils.abs(
+                    'Product-Show',
+                    'pid',
+                    product.id
+                ).toString();
+            } catch (e) {
+                product = false;
+                productUrl = URLUtils.abs('Home-Show');
+            }
+            var context = {
+                product: product,
+                urls: {
+                    product: productUrl
+                }
+            };
+            products.push(context);
+        }
+    }
+    return products;
 }
 
 /**
@@ -54,7 +91,23 @@ function OrderModel(lineItemContainer, options) {
             this.shippingStatus = 'shippingStatus' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].shippingStatus : '';
             this.trackingNumber = 'trackingNumber' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].trackingNumber : '';
         }
-        this.emailRecommendationProducts = 'emailRecommendationPids' in lineItemContainer.custom && lineItemContainer.custom.emailRecommendationPids ? JSON.parse(lineItemContainer.custom.emailRecommendationPids) : null;
+        var emailRecommendationProducts = 'emailRecommendationPids' in lineItemContainer.custom && lineItemContainer.custom.emailRecommendationPids ? JSON.parse(lineItemContainer.custom.emailRecommendationPids) : null;
+        var emailRecommendationProductDetails = {};
+        if (emailRecommendationProducts) {
+            emailRecommendationProductDetails.confirmationEmailRecommendationProducts =
+                recommendedProducts(
+                    emailRecommendationProducts.confirmationEmailRecommendationPIDs
+                );
+            emailRecommendationProductDetails.shipmentEmailRecommendationProducts =
+                recommendedProducts(
+                    emailRecommendationProducts.shipmentEmailRecommendationPIDs
+                );
+            emailRecommendationProductDetails.deliveryEmailRecommendationProducts =
+                recommendedProducts(
+                    emailRecommendationProducts.deliveryEmailRecommendationPIDs
+                );
+        }
+        this.emailRecommendationProducts = emailRecommendationProductDetails;
     }
 }
 
