@@ -7,7 +7,7 @@
         <div class="mb-1 h-font-size--12 product-name">
             ${giftContent.productName}
         </div>
-        <div class="mb-1 h-font-size--12">
+        <div class="mb-1 h-font-size--12 product-pricee">
             ${giftContent.price.sales.formatted}
         </div>
     </div>

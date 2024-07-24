@@ -69,7 +69,7 @@
                                         <isinclude template="product/components/pidRating" />
                                     </div>
                                     <div class="review h-font-size--13">
-                                        <a class="h-clr--blue" href="#">${Resource.msg('label.rating-review', 'product', null)}</a>
+                                        <a class="h-clr--blue" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#">${Resource.msg('label.rating-review', 'product', null)}</a>
                                     </div>
                                 </div>
                             </div>
@@ -213,7 +213,7 @@
                                             </label>
                                         </div>
                                         <div class="bopis-set-store-container bopis-pdp-set-store">
-                                            <a href=""
+                                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href=""
                                                 class="h-fw--semibold h-clr--black-1">${Resource.msg('bopis.label.set.store', 'product', null)}</a>
                                         </div>
                                     </div>

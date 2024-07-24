@@ -16,7 +16,7 @@
 
 <div class="popover popover-bottom ${dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup') ? 'minicart-popup': ''}"></div>
 <div class="minicart-total hide-link-med position-relative d-block d-md-none" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
-    <a href="${URLUtils.url('Cart-Show')}" class="minicart-link" title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
+    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Cart-Show')}" class="minicart-link" title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
         aria-label="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}" aria-haspopup="true">
         <div class="cart-icon"></div>
         <span
