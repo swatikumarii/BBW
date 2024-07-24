@@ -44,4 +44,43 @@ server.append(
     }
 );
 
+/**
+ * This route is only for email recommendation tile
+ */
+server.get(
+    'EmailShow',
+    function (req, res, next) {
+        var URLUtils = require('dw/web/URLUtils');
+        var ProductFactory = require('*/cartridge/scripts/factories/product');
+
+        var productTileParams = { pview: 'tile' };
+        Object.keys(req.querystring).forEach(function (key) {
+            productTileParams[key] = req.querystring[key];
+        });
+
+        var product;
+        var productUrl;
+
+        try {
+            product = ProductFactory.get(productTileParams);
+            productUrl = URLUtils.abs('Product-Show', 'pid', product.id)
+                .toString();
+        } catch (e) {
+            product = false;
+            productUrl = URLUtils.abs('Home-Show');
+        }
+
+        var context = {
+            product: product,
+            urls: {
+                product: productUrl
+            }
+        };
+
+        res.render('product/productEmailTile.isml', context);
+
+        next();
+    }
+);
+
 module.exports = server.exports();

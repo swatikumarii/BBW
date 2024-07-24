@@ -202,7 +202,6 @@ function createProductLineItemsObject(allLineItems, view) {
                 newLineItem.greetingCardMessage =
                     item.custom.greetingCardMessage;
             }
-            greetingCardLineItem = newLineItem;
         } else if ('isWrapped' in item.custom && 'wrappedQuantity' in item.custom) {
             newLineItem.wrap = {
                 isWrapped: item.custom.isWrapped,

@@ -22,5 +22,5 @@
 <iscomment> ### Custom Adyen cartridge start ### </iscomment>
 <isinclude template="adyenActionModal" />
 <iscomment> ### Custom Adyen cartridge end ### </iscomment>
-    <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}" class="edit-button pull-right h-clr--black-1 "
+    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}" class="edit-button pull-right h-clr--black-1 "
     aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</a>

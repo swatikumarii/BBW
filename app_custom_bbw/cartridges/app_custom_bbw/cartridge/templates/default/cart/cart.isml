@@ -2,6 +2,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/afterpay.js');
+        assets.addJs('/js/cartEinstein.js');
         assets.addJs('/js/productDetail.js');
         assets.addCss('/css/cart.css');
         assets.addCss('/css/afterpaystyle.css');
@@ -14,7 +15,7 @@
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
     </isif>
-    <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}"
+    <a class="continue-shopping-link" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}"
         title="${Resource.msg('link.continue.shopping', 'cart', null)}">
         <img src="${URLUtils.staticURL('/images/cart/arrow-left-dark-grey.svg')}"
             alt="${Resource.msg('global.storename', 'common', null)}" />
@@ -33,7 +34,7 @@
                         ${Resource.msg('info.cart.empty.msg', 'cart', null)}</h1>
                 </div>
             </div>
-            <a href="${URLUtils.url('Home-Show')}"
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}"
                 class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">${Resource.msg('link.continue.shopping', 'cart', null)}</a>
             <div class="empty-recommendation-container cart-page-add-to-bag">
                 <div class="empty-cart-recommendations">
@@ -160,6 +161,13 @@
             <isinclude template="cart/cartRemoveProductModal" />
 
             <isinclude template="cart/cartRemoveCouponModal" />
+
+            <div class="d-none">
+                <input type="hidden" name="email-recommendations-url" value="${URLUtils.url('Checkout-SetEmailRecommendations')}" />
+                <isslot id="confirmation-email-recommendations" context="global" description="Recommendations for confirmation email" context-object="${dw.order.BasketMgr.getCurrentBasket()}"/>
+                <isslot id="shipment-email-recommendations" context="global" description="Recommendations for shipment email" context-object="${}"/>
+                <isslot id="delivery-email-recommendations" context="global" description="Recommendations for delivery email" context-object="${dw.order.BasketMgr.getCurrentBasket()}"/>
+            </div>
         </isif>
         <div class="container">
             <isslot id="cart-recommendations-m" description="Recommended products" context="global" />

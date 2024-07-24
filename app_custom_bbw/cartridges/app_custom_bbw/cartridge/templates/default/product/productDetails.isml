@@ -69,7 +69,7 @@
                                         <isinclude template="product/components/pidRating" />
                                     </div>
                                     <div class="review h-font-size--13">
-                                        <a class="h-clr--blue" href="#">${Resource.msg('label.rating-review', 'product', null)}</a>
+                                        <a class="h-clr--blue" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#">${Resource.msg('label.rating-review', 'product', null)}</a>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                                         <button type="button" data-placement="top"
                                             class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
                                             data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                            title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
+                                            title="<div class='pdp-title'></div>" data-content="<a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href='#' class='close cursor-pointer'></a>
                                                 <div class='popover-content pdp-pop-content ds-tooltip-content'>
                                                     <isprint value=" ${promotionDetails}" />
                                     </div>
@@ -159,21 +159,24 @@
                             </isloop>
                         </div>
                         <isif condition="${product.priceIfSoldSeparatly && product.giftContent}">
-                            <div class="row">
-                                <div class="ml-3 mr-1">
+                            <div class="row d-block">
+                                <div class="ml-3 ">
                                     <isprint value="${product.priceIfSoldSeparatly}" encoding="off" />
                                 </div>
+                               <div class="ml-3 giftset-details">
                                 <button type="button" data-placement="top"
                                     class="soldout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                                    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                    title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
-                                        <div class='popover-content pdp-pop-content ds-tooltip-content'>
-                                            <isprint value=" ${pdict.giftPopupHTML}" />
-                                         </div>
-                                    <div class='arrow-fill'></div>" data-html="true" data-original-title="" aria-describedby="popover14574">
-                                 </button>
-                             </div>
-                        </isif>
+                                    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" title="<div class='pdp-title'></div>"
+                                    data-content="<a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href='#' class='close cursor-pointer'></a>
+                                    <div class='popover-content pdp-pop-content ds-tooltip-content'>
+                                     <isprint value=" ${pdict.giftPopupHTML}" />
+                                    </div>
+                                    <div class='arrow-fill'></div>" data-html="true" data-original-title=""
+                                     aria-describedby="popover14574">
+                                </button>
+                               </div>
+                    </div>
+                    </isif>
                     <iscomment> Hiding Bopis Options for now </iscomment>
                     <iscomment>
                         <div class="bopis-delivery-options border-left-0 border-right-0">
@@ -185,7 +188,7 @@
                                     <input class="bopis-shipping-option bopis-delivery-option-input" type="radio"
                                         value="shipping" checked="" />
                                     <label class="ship-it-msg mb-0 h-clr--black-1 h-fw--bold"
-                                     for="pdp-shippingOption">
+                                    for="pdp-shippingOption">
                                         <span class="ship-it-truck-icon"></span>
                                         <span>${Resource.msg('bopis.label.ship', 'product', null)}</span>
                                     </label>
@@ -210,7 +213,7 @@
                                             </label>
                                         </div>
                                         <div class="bopis-set-store-container bopis-pdp-set-store">
-                                            <a href=""
+                                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href=""
                                                 class="h-fw--semibold h-clr--black-1">${Resource.msg('bopis.label.set.store', 'product', null)}</a>
                                         </div>
                                     </div>

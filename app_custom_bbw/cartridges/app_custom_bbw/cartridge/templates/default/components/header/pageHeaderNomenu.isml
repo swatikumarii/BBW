@@ -13,7 +13,7 @@
     <nav class="bbw-nav h-bg--white">
         <div class="header bbw-nav-wrap h-maxwidth--1400 mx-auto position-relative">
             <div class="navbar-header brand primary-logo">
-                <a class="logo-home d-block" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg( 'global.home', 'common', null))}">
+                <a class="logo-home d-block" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg( 'global.home', 'common', null))}">
                     <isset name="headerImage"
                         value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
                         scope="page" />
@@ -26,7 +26,7 @@
                 <iscomment>Minicart</iscomment>
                 <div class="minicart-overlay ${dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup') ? 'd-none': ''}"></div>
                 <div class="minicart fa-pull-right position-relative">
-                    <a href="${URLUtils.url('Cart-Show')}">
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Cart-Show')}">
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </a>
                 </div>

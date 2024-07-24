@@ -38,7 +38,7 @@
         </div> </iscomment>
         <iscomment> <div class="b-product-tile__in-store-availability">
             <span class="b-product-tile__set-store b-text-a text-decoration-none h-fw--bold h-clr--black-3">To See Availability</span>
-            <a class="b-product-tile__choose-store b-text-a" href="javascript:void(0)"
+            <a class="b-product-tile__choose-store b-text-a" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="javascript:void(0)"
                 role="button">Set Store</a>
         </div> </iscomment>
     <iscomment> </div> </iscomment>
