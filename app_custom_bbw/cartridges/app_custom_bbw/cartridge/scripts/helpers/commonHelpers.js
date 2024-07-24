@@ -204,11 +204,29 @@ function checkProductAvailability(productId) {
     return response;
 }
 
+/**
+ * getTrackingUrl Returns Tracking Url using according ro carrier name
+ * @param {string} carrier - Career Name of the tracking service
+ * @param {string }trackingNumber - Tracking Number of the order
+ * @returns {string} - returns a tracking URL or false
+ */
+function getTrackingUrl(carrier, trackingNumber){
+    if(!carrier || !trackingNumber){
+        return false;
+    }
+    var allTrackingUrls = Site.current.getCustomPreferenceValue('allTrackingUrls');
+    allTrackingUrls = JSON.parse(allTrackingUrls);
+    var trackingUrl = '';
+    trackingUrl = allTrackingUrls[carrier] + trackingNumber;
+    return trackingUrl;
+}
+
 module.exports = {
     sendNewsLetterSubscribeEmail: sendNewsLetterSubscribeEmail,
     zeroOrderEmail: zeroOrderEmail,
     sendChangePasswordEmail: sendChangePasswordEmail,
     getAvailability: getAvailability,
     getBreadcrumbForContentAsset: getBreadcrumbForContentAsset,
-    checkProductAvailability: checkProductAvailability
+    checkProductAvailability: checkProductAvailability,
+    getTrackingUrl: getTrackingUrl
 };
