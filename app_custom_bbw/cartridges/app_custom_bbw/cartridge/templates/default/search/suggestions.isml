@@ -128,7 +128,7 @@
         </isif>
 
         <iscomment> Suggestions </iscomment>
-        <isif condition="${pdict.suggestions.product.phrases.length > 0}">
+        <isif condition="${pdict.suggestions.product && pdict.suggestions.product.phrases && pdict.suggestions.product.phrases.length > 0}">
             <div class="popular-suggestions suggestions__list">
                 <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.suggest.suggestions', 'search', null)}</h2>
                 <div class="search-popular-list sub-list" role="list">

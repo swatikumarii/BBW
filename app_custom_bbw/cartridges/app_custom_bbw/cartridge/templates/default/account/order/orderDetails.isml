@@ -6,6 +6,8 @@
     scope="page" />
 <isset name="showShippingHandlingTaxes"
     value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
+<isset name="showAdjustedMerchandizeSubtotal"
+    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showAdjustedMerchandizeSubtotal')}" scope="page" />
 <div class="account-profile">
     <div class="profile-heading">
         <h1>${Resource.msg('order.title.receipt', 'order', null)}</h1>
@@ -114,6 +116,11 @@
                                 <span
                                     class="shipping-method-title text-capitalize h-font-size--16 h-fw--bold label h-clr--black-1">${shippingModel.selectedShippingMethod.shippingCost}</span>
                             </p>
+                            <isif condition="${!(pdict.order.trackOrderShippingUrl === '' || pdict.order.trackOrderShippingUrl === null)}">
+                                <p class="shipping-method">
+                                    <a class="btn btn-hover btn-secondary h-fw--bold h-p h-pb--5 h-pt--5" href="${pdict.order.trackOrderShippingUrl}" target="_blank">${Resource.msg('msg.track.order', 'order', null)}</a>
+                                </p>
+                            </isif>
                         </div>
                     </div>
                 </isif>
@@ -217,16 +224,18 @@
                         </isif>
                     </isif>
 
-                    <div class="row leading-lines subtotal-item">
-                        <div class="col-6 start-lines">
-                            <p class="order-receipt-label mb-0">
-                                <span>${Resource.msg('label.adjusted.merchandise.subtotal', 'cart', null)}</span>
-                            </p>
+                    <isif condition="${showAdjustedMerchandizeSubtotal}">
+                        <div class="row leading-lines subtotal-item">
+                            <div class="col-6 start-lines">
+                                <p class="order-receipt-label mb-0">
+                                    <span>${Resource.msg('label.adjusted.merchandise.subtotal', 'cart', null)}</span>
+                                </p>
+                            </div>
+                            <div class="col-6 end-lines">
+                                <p class="text-right"><span class="sub-total">${pdict.order.totals.miniCartSubTotal}</span></p>
+                            </div>
                         </div>
-                        <div class="col-6 end-lines">
-                            <p class="text-right"><span class="sub-total">${pdict.order.totals.miniCartSubTotal}</span></p>
-                        </div>
-                    </div>
+                    </isif>
 
                     <!--- Shipping Cost --->
                     <isif condition="${!pdict.isEgiftCard}">

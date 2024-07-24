@@ -84,10 +84,10 @@ exports.afterPATCH = function (order, orderInput) {
             shipment[0].tracking_number.substring(0, 1) === 'c'
         ) {
             trackingUrl = trackingUrl[0];
-            carrier = carrier[0];
+            carrier = carrier[0].trim();
         } else {
             trackingUrl = trackingUrl[1];
-            carrier = carrier[1];
+            carrier = carrier[1].trim();
         }
     }
     if (

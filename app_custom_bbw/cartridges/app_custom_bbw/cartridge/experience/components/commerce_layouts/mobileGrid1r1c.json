@@ -1,0 +1,39 @@
+{
+    "name": "1 Row x 1 Col (Mobile, Desktop)",
+    "description": "This is a layout component of 1 row by 1 column for mobile and desktop/tablet.",
+    "group": "commerce_layouts",
+    "attribute_definition_groups": [
+        {
+            "id": "grid1r1cGenericOptions",
+            "name": "Grid1r1c generic options",
+            "description": "Grid1r1c generic options",
+            "attribute_definitions": [
+                {
+                    "id": "sectionCustomClass",
+                    "name": "Section Custom Class",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "rowCustomClass",
+                    "name": "Row Custom Class",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "columnCustomClass",
+                    "name": "Column Custom Class",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id":"column1",
+            "name":"Column 1",
+            "component_type_exclusions": []
+        }
+    ]
+}

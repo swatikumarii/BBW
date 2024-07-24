@@ -685,6 +685,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="showAdjustedMerchandizeSubtotal">
+                <display-name xml:lang="x-default">Show Adjusted Merchandize Subtotal</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="merchantEmailforGiftCardFailure">
                 <display-name xml:lang="x-default">Merchant Email for GiftCard Failure</display-name>
                 <type>string</type>
@@ -1893,6 +1900,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="allTrackingUrls">
+                <display-name xml:lang="x-default">Tracking URLs along with carrier</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -2025,6 +2038,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
                 <attribute attribute-id="estimatedDelivery"/>
+                <attribute attribute-id="allTrackingUrls"/>
             </attribute-group>
             <attribute-group group-id="Integration_Afterpay">
                 <display-name xml:lang="x-default">Integration Afterpay</display-name>
@@ -2054,6 +2068,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showShippingExcludingTaxes"/>
                 <attribute attribute-id="showSalesTaxes"/>
                 <attribute attribute-id="showShippingHandlingTaxes"/>
+                <attribute attribute-id="showAdjustedMerchandizeSubtotal"/>
             </attribute-group>
             <attribute-group group-id="sendgrid">
                 <display-name xml:lang="x-default">Sendgrid</display-name>

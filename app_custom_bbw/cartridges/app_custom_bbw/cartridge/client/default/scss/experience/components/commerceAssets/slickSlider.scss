@@ -4,8 +4,12 @@
 .slick-list {
     margin: 0 calc(var(--slides-gap-sm) / -2);
 
-    @include media-up(md) {
+    @include media-btw(sm, md) {
         margin: 0 calc(var(--slides-gap-md) / -2);
+    }
+
+    @include media-up(md) {
+        margin: 0 calc(var(--slides-gap-lg) / -2);
     }
 
     .slick-track {
@@ -15,8 +19,12 @@
     .slick-slide {
         margin: 0 calc(var(--slides-gap-sm) / 2);
 
-        @include media-up(md) {
+        @include media-btw(sm, md) {
             margin: 0 calc(var(--slides-gap-md) / 2);
+        }
+
+        @include media-up(md) {
+            margin: 0 calc(var(--slides-gap-lg) / 2);
         }
     }
 }
@@ -138,11 +146,11 @@
 
     // Slick - Arrow
     .slick-arrow {
-        opacity: 0;
+        // opacity: 0;
         display: none;
         visibility: visible;
         position: absolute;
-        top: calc(50% - 20px);
+        top: 50%;
         transform: translateY(-50%);
         transition: opacity 0.6s cubic-bezier(0.05, 0.5, 0.3, 1);
         z-index: 1;
@@ -169,18 +177,28 @@
 
         &.slick-next {
             right: 20px;
+
+            @include media-up(sm) {
+                right: -53px;
+            }
         }
 
         // Slick - Pre - Arrow
+
         &.slick-prev {
-            left: 20px;
+            left: -20px;
+
+            @include media-up(sm) {
+                left: -52px;
+            }
         }
     }
 
     .slider-button {
         opacity: 1;
-        top: 50%;
-        transform: translateY(-50%);
+
+        // top: 50%;
+        // transform: translateY(-50%);
         visibility: visible;
         z-index: 5;
 

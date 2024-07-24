@@ -471,7 +471,10 @@ function createFreeLineItem(lineItemContainer) {
             }
         }
         Transaction.wrap(function () {
-            productLineItem.custom.proratedPrice = productLineItem.proratedPrice.value;
+            try {
+                productLineItem.custom.proratedPrice = productLineItem.proratedPrice.value;
+            } catch (error) {
+            }
         });
         if (breakLoop) {
             changes = true;

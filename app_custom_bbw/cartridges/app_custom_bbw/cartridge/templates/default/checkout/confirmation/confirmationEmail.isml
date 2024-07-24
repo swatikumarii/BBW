@@ -282,6 +282,8 @@
                             scope="page" />
                         <isset name="showShippingHandlingTaxes"
                             value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
+                        <isset name="showAdjustedMerchandizeSubtotal"
+                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showAdjustedMerchandizeSubtotal')}" scope="page" />
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <tbody>
                                 <tr>
@@ -345,14 +347,16 @@
                                                 </isif>
 
                                                 <iscomment> Adjusted Merchandise Subtotal </iscomment>
-                                                <tr>
-                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;">
-                                                        ${Resource.msg('email.order.adjusted.merchandise.subtotal', 'confirmation', null)}
-                                                    </td>
-                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                        ${pdict.order.totals.miniCartSubTotal}
-                                                    </td>
-                                                </tr>
+                                                <isif condition="${showAdjustedMerchandizeSubtotal}">
+                                                    <tr>
+                                                        <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;">
+                                                            ${Resource.msg('email.order.adjusted.merchandise.subtotal', 'confirmation', null)}
+                                                        </td>
+                                                        <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                            ${pdict.order.totals.miniCartSubTotal}
+                                                        </td>
+                                                    </tr>
+                                                </isif>
 
                                                 <iscomment> Shipping Charge </iscomment>
                                                 <isif condition="${pdict.order.items.items[0].isEgiftCard !== true}">
@@ -458,6 +462,22 @@
                                 style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.details', 'confirmation', null)}</a>
                         </div>
                     </td>
+                </tr>
+                <iscomment> Email einstein recommendations </iscomment>
+                <tr>
+                    <isif
+                        condition="${'emailRecommendationProducts' in pdict.order && pdict.order.emailRecommendationProducts &&
+                                'confirmationEmailRecommendationPIDs' in pdict.order.emailRecommendationProducts && pdict.order
+                                .emailRecommendationProducts.confirmationEmailRecommendationPIDs}">
+                        <div class="picked-just-header-wrapper mb-3">
+                            <h2 class="picked-just-header-wrapper__title text-center h-fw--bold h-clr--black-1 mb-3 h-font-size--24">
+                                ${Resource.msg('slot.recommendation.picked.for.you', 'common', null)}
+                            </h2>
+                        </div>
+                        <isset name="productIds" value="${pdict.order.emailRecommendationProducts.confirmationEmailRecommendationPIDs}"
+                            scope="page" />
+                        <isinclude template="/product/emailGridTile" />
+                    </isif>
                 </tr>
                 <iscomment> Order Email Content Asset - Content </iscomment>
                 <tr style="padding: 0;">
