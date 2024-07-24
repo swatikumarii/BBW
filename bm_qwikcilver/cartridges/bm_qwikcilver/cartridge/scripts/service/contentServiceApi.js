@@ -7,7 +7,7 @@ var URLAction = require('dw/web/URLAction');
 var URLParameter = require('dw/web/URLParameter');
 var Site = require('dw/system/Site');
 
-function callAPI(url) {
+function callServiceAPI(url) {
   var service = contentAssetAPI.contentAssetAPI;
   var serviceResult;
   service.setURL(url);
@@ -18,14 +18,13 @@ function callAPI(url) {
     Logger.info(
       "Service response : serviceResult.status : " + serviceResult.status
     );
-    return serviceResult.object;
   }
   Logger.info(
     "Service response : serviceResult.status : " + serviceResult.status
   );
-  return "";
+  return serviceResult;
 }
 
 module.exports = {
-  callAPI: callAPI
+  callServiceAPI: callServiceAPI,
 };

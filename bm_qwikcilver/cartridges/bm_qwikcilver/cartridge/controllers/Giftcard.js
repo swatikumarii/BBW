@@ -18,7 +18,7 @@ var Logger = require("dw/system/Logger");
 var URLUtils = require("dw/web/URLUtils");
 var URLAction = require("dw/web/URLAction");
 var URLParameter = require("dw/web/URLParameter");
-var contentApi = require("*/cartridge/scripts/service/contentApi");
+var contentServiceApi = require("*/cartridge/scripts/service/contentServiceApi");
 var encryptionHelper = require("*/cartridge/scripts/helpers/encryptionHelpers");
 
 /**
@@ -91,13 +91,30 @@ function ResendEmail() {
     encryptionHelper.encryptPin(orderNo)
   );
   var encodedUUID = encodeURIComponent(encryptionHelper.encryptPin(lineItemID));
-  var data = contentApi.callAPI(
+  var data = contentServiceApi.callServiceAPI(
     URLUtils.https(
-      new URLAction("StaticContent-GiftcardConfirmationEmailContent", Site.current.ID),
+      new URLAction(
+        "StaticContent-GiftcardConfirmationEmailContent",
+        Site.current.ID
+      ),
       new URLParameter("token", encodedOrderNumber),
       new URLParameter("uuid", encodedUUID)
     ).toString()
   );
+  if (data.status === "OK") {
+    var object = JSON.parse(data.object);
+    if (object.code === "OK") {
+      var CurrentHttpParameterMap = {
+        OrderNo: orderNo,
+        success: true,
+      };
+      ISML.renderTemplate("order/orderDetails", CurrentHttpParameterMap);
+    } else {
+      ISML.renderTemplate("giftcard/resendError");
+    }
+  } else {
+    ISML.renderTemplate("giftcard/resendError");
+  }
 }
 
 OrderList.public = true;
