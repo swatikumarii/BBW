@@ -48,6 +48,9 @@
         Refrain from calling processing intensive logic in here
         do not include shopper specific information.
 </iscomment>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled')}">
+    <isinclude template="components/gtm/gtmScript" />
+</isif>
 ${dw.system.HookMgr.callHook('app.template.htmlHead', 'htmlHead', pdict) || ''}
 <iscomment>
     Module to overlay skinning css

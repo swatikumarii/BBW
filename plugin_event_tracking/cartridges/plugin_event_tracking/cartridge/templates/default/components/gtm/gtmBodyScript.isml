@@ -1,0 +1,3 @@
+<iscomment>This is where GTM events are initialized</iscomment>
+<isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmBodyScript')}" encoding="off" />
+<script defer="defer" src="${URLUtils.staticURL('/js/gtm.js')}"></script>

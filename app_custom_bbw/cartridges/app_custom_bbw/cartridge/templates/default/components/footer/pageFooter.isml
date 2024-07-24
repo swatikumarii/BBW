@@ -134,9 +134,6 @@
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('sendProfileCompletionReminderPopup')}">
     <isinclude template="profileCompletion" />
 </isif>
-<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled')}">
-    <isinclude template="components/gtm/gtmScript" />
-</isif>
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('metaPixelEnabled')}">
     <isinclude template="components/metaPixel/metaPixelScript" />
 </isif>
