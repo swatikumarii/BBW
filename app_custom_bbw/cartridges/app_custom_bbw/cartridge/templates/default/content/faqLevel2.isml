@@ -1,14 +1,14 @@
-<link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+<link rel="stylesheet" hreflang="${request.getLocale()}" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
 
 <div class="container">
     <nav class="sub-nav d-flex justify-content-between">
         <ul class="breadcrumbs p-0">
             <isinclude template="/content/faqRootBreadcrumb" />
             <li title="${pdict.parentFolder.displayName}">
-                <a class="text-uppercase" href="${URLUtils.url('Page-Show', 'cid', pdict.parentFolder.ID)}">${pdict.parentFolder.displayName}</a>
+                <a class="text-uppercase" hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', pdict.parentFolder.ID)}">${pdict.parentFolder.displayName}</a>
             </li>
             <li title="${pdict.folder.displayName}">
-                <a href="${URLUtils.url('Page-Show', 'cid', pdict.folder.ID)}">${pdict.folder.displayName}</a>
+                <a hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', pdict.folder.ID)}">${pdict.folder.displayName}</a>
             </li>
         </ul>
 
@@ -31,7 +31,7 @@
                                 </path>
                             </svg>
                         </isif>
-                        <a href="${URLUtils.url('Page-Show', 'cid', content.ID)}"
+                        <a hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}"
                             class="article-list-link">${content.name}</a>
                     </li>
                 </isloop>

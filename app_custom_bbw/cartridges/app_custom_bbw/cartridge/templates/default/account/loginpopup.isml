@@ -21,13 +21,13 @@
                     </p>
                     <isinclude template="account/components/loginModalForm" />
                   <div class="privacy-block w-100 text-center h-clr--black-3 h-font-size--14">
-                    <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="text-center">
+                    <a hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="text-center">
                         ${Resource.msg('link.privacypolicy.registration', 'login', null)}
                     </a>
                     </div>
                     <iscomment>
                         <div>
-                            <a href="${URLUtils.https('Login-Show')}" role="button"
+                            <a hreflang="${request.getLocale()}" href="${URLUtils.https('Login-Show')}" role="button"
                                 aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>
                         </div>
                     </iscomment>
@@ -39,7 +39,7 @@
                         <p class="h-font-size--16 mb-0">
                             <iscomment> ${Resource.msg('join.para', 'login', null)} </iscomment>
                             ${Resource.msg('create.para', 'login', null)}
-                            <a id="log-in-page-url" href="${URLUtils.https('Login-CreateAccount')}" role="button" class="h-clr--black-3 h-font-size--16"
+                            <a id="log-in-page-url" hreflang="${request.getLocale()}" href="${URLUtils.https('Login-CreateAccount')}" role="button" class="h-clr--black-3 h-font-size--16"
                                 aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>
                         </p>
                     </div>

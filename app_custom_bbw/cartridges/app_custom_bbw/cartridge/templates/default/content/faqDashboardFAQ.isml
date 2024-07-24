@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+<link rel="stylesheet" hreflang="${request.getLocale()}" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
 <script src="${URLUtils.staticURL('/js/faqSearch.js')}"></script>
 
 <div class="faq-search text-center h-clr--black position-relative">
     <h1 class="text-capitalize h-font-size--24 h-fw--bold mb-1">
         ${Resource.msg('faq.header.how.can.we.help.you', 'faq', null)}
     </h1>
-    <small class="px-4 mb-4 d-block h-clr--gray">${Resource.msg('faq.need.help', 'faq', null)} <br/> ${Resource.msg('faq.enquiries', 'faq', null)} <a class="b-link--underlined" href="${URLUtils.url('Page-Show', 'cid', 'contact-us')}">${Resource.msg('faq.customer.service', 'faq', null)}</a> ${Resource.msg('faq.team', 'faq', null)}</small>
+    <small class="px-4 mb-4 d-block h-clr--gray">${Resource.msg('faq.need.help', 'faq', null)} <br/> ${Resource.msg('faq.enquiries', 'faq', null)} <a class="b-link--underlined" hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', 'contact-us')}">${Resource.msg('faq.customer.service', 'faq', null)}</a> ${Resource.msg('faq.team', 'faq', null)}</small>
 
     <div class="header-search mx-auto position-relative">
         <input type="hidden" class="faq-search-url" data-url="${URLUtils.url('Faq-Content', 'query')}"/>
@@ -36,18 +36,18 @@
                     <isbreak/>
                 </isif>
                 <li>
-                    <a href="${URLUtils.url('Page-Show', 'cid', content.ID)}">${content.name}</a>
+                    <a hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">${content.name}</a>
                 </li>
             </isloop>
         </ul>
         <isif condition="${pdict.isWrapped}">
             <isif condition="${pdict.folder.onlineContent.length > 7}">
-                <a href="${URLUtils.url('Page-Show', 'cid', pdict.folder.ID)}" class="morequestions">
+                <a hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', pdict.folder.ID)}" class="morequestions">
                     ${Resource.msg('faq.link.more.frequently.asked.questions', 'faq', null)}
                 </a>
             </isif>
         <iselse/>
-            <a href="${URLUtils.url('Page-Show', 'cid', 'help-faq-dashboard')}" class="morequestions">
+            <a hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', 'help-faq-dashboard')}" class="morequestions">
                 ${Resource.msg('faq.link.show.all.customer.service.topics', 'faq', null)}
             </a>
         </isif>

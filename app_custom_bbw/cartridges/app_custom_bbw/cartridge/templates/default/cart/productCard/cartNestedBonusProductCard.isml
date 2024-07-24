@@ -9,7 +9,7 @@
                     srcset="${productLineItem.images.small[0].url} 1x, ${productLineItem.images.small_2x[0].url} 2x"
                     alt="${productLineItem.images.small[0].alt}" title="${productLineItem.images.small[0].title}" />
             <iselse/>
-                <a href="${URLUtils.url('Product-Show', 'pid', productLineItem.id)}">
+                <a hreflang="${request.getLocale()}" href="${URLUtils.url('Product-Show', 'pid', productLineItem.id)}">
                     <img class="product-image" src="${productLineItem.images.small[0].url}"
                         srcset="${productLineItem.images.small[0].url} 1x, ${productLineItem.images.small_2x[0].url} 2x"
                         alt="${productLineItem.images.small[0].alt}" title="${productLineItem.images.small[0].title}" />
@@ -17,7 +17,7 @@
             </isif>
         </div>
         <div class="item-attributes d-flex flex-column">
-            <a href="${URLUtils.url('Product-Show', 'pid', productLineItem.id)}">
+            <a hreflang="${request.getLocale()}" href="${URLUtils.url('Product-Show', 'pid', productLineItem.id)}">
                 <div class="line-item-header">
                     <div class="line-item-name">
                         ${productLineItem.fragranceName && productLineItem.fragranceName !== '' ? productLineItem.fragranceName : productLineItem

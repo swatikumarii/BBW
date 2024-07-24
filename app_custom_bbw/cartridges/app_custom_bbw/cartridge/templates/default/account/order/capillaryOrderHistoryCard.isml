@@ -34,7 +34,7 @@
             </div>
             <div class="d-flex flex-column h-grid-gap--5">
                 <a class="btn btn-hover"
-                    href="${URLUtils.url('Order-StoreDetails', 'orderID', order.id)}"
+                    hreflang="${request.getLocale()}" href="${URLUtils.url('Order-StoreDetails', 'orderID', order.id)}"
                     aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, order.id)}">${Resource.msg('order.link.view.details', 'account', null)}</a>
             </div>
         </div>

@@ -33,14 +33,14 @@
                         <isinclude template="account/order/orderDetails" />
                         <div class="d-md-flex">
                             <div class="order-btn mr-2 mb-2 mb-md-0">
-                                <a class="btn btn-hover btn-block" href="${URLUtils.url('Order-History')}"
+                                <a class="btn btn-hover btn-block" hreflang="${request.getLocale()}" href="${URLUtils.url('Order-History')}"
                                     title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
                                     aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
                                     ${pdict.exitLinkText}
                                 </a>
                             </div>
                             <div class="order-btn">
-                                <a class="continue-shopping-link btn-block" href="${URLUtils.url('Home-Show')}"
+                                <a class="continue-shopping-link btn-block" hreflang="${request.getLocale()}" href="${URLUtils.url('Home-Show')}"
                                     title="${Resource.msg('link.continue.shopping', 'cart', null)}">
                                     ${Resource.msg('link.continue.shopping', 'cart', null)}
                                 </a>

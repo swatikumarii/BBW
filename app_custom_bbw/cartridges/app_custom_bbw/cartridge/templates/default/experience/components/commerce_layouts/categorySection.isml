@@ -14,7 +14,7 @@
     <isif condition="${pdict.viewAllButtonLink !== ''}">
         <div class="h-flex-center w-100">
             <a class="show-all-link text-center btn shop b-text-letter-space-0 h-fw--normal w-auto"
-                href="${pdict.viewAllButtonLink}">
+                hreflang="${request.getLocale()}" href="${pdict.viewAllButtonLink}">
                 <isprint value="${pdict.viewAllButtonText}" encoding="off" />
             </a>
         </div>

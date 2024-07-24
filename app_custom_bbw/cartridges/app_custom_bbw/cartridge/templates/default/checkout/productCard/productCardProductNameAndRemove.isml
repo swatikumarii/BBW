@@ -2,7 +2,7 @@
     <isif condition="${lineItem.isEgiftCard}">
             <span class="d-block h-fw--bold h-clr--black-1 h-font-size--16">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
     <iselse/>
-        <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+        <a hreflang="${request.getLocale()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
             <span class="d-block h-fw--bold h-clr--black-1 h-font-size--16">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
         </a>
     </isif>

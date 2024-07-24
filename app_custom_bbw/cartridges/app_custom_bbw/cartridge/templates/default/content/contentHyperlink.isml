@@ -2,7 +2,7 @@
 <isloop items="${contents}" var="content">
     <li>
         <a class=""
-            href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+            hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
             <span>${content.name}</span>
         </a>
     </li>

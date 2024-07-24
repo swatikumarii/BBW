@@ -47,7 +47,7 @@
                         <div class="row">
                             <iscomment>
                                 <div class="col">
-                                    <a href="${URLUtils.url('Account-Show')}" class="text-center back-to-account-link"
+                                    <a hreflang="${request.getLocale()}" href="${URLUtils.url('Account-Show')}" class="text-center back-to-account-link"
                                         aria-label="${Resource.msg('label.addressbook.myaccount', 'account', null)}">
                                         ${Resource.msg('link.profile.backtomyaccount', 'account', null)}
                                     </a>
@@ -55,7 +55,7 @@
                             </iscomment>
                             <isif condition="${pdict.addPaymentUrl}">
                                 <div class="col">
-                                    <a href="${pdict.addPaymentUrl}" class="btn btn-save btn-hover"
+                                    <a hreflang="${request.getLocale()}" href="${pdict.addPaymentUrl}" class="btn btn-save btn-hover"
                                         aria-label="${Resource.msg('label.payment.addnewpayment', 'payment', null)}">${Resource.msg('label.payment.addnewpayment', 'payment', null)}</a>
                                 </div>
                             </isif>

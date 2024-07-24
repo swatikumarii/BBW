@@ -37,11 +37,11 @@
 
                     <div class="store-direction">
                         <a class="h-fw--semibold h-clr--black-1" target='_blank'
-                            href="${store.storeMapLink}">
+                            hreflang="${request.getLocale()}" href="${store.storeMapLink}">
                             ${Resource.msg('label.get.directions', 'storeLocator', null)}
                         </a>
                         <a class="h-fw--semibold h-clr--black-1 mt-1 d-block" target='_blank'
-                            href="${STORE_DETAIL_URL}">
+                            hreflang="${request.getLocale()}" href="${STORE_DETAIL_URL}">
                             ${Resource.msg('label.get.details', 'storeLocator', null)}
                         </a>
                     </div>

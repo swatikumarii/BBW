@@ -2,37 +2,37 @@
 <ul class="m-0 p-0">
     <li <isif condition="${pdict.action == 'Account-EditProfile'}"> class="active" </isif>>
         <span></span>
-        <a title="${Resource.msg('label.info.title', 'account', null)}" href="${URLUtils.url('Account-EditProfile')}">
+        <a title="${Resource.msg('label.info.title', 'account', null)}" hreflang="${request.getLocale()}" href="${URLUtils.url('Account-EditProfile')}">
             ${Resource.msg('label.info', 'account', null)}
         </a>
     </li>
     <li <isif condition="${pdict.action == 'Order-History'}"> class="active" </isif>>
         <span></span>
-        <a title="${Resource.msg('label.orderhistory.title', 'account', null)}" href="${URLUtils.url('Order-History')}">
+        <a title="${Resource.msg('label.orderhistory.title', 'account', null)}" hreflang="${request.getLocale()}" href="${URLUtils.url('Order-History')}">
             ${Resource.msg('label.orderhistory', 'account', null)}
         </a>
     </li>
     <iscomment> <li <isif condition="${pdict.action == 'Order-StoreOrders'}"> class="active" </isif>>
         <span></span>
-        <a title="${Resource.msg('label.orderhistory.title', 'account', null)}" href="${URLUtils.url('Order-StoreOrders')}">
+        <a title="${Resource.msg('label.orderhistory.title', 'account', null)}" hreflang="${request.getLocale()}" href="${URLUtils.url('Order-StoreOrders')}">
             ${Resource.msg('label.store.orderhistory', 'account', null)}
         </a>
     </li> </iscomment>
     <li <isif condition="${pdict.action == 'PaymentInstruments-List'}"> class="active" </isif>>
         <span></span>
-        <a title="${Resource.msg('label.payment.title', 'account', null)}" href="${URLUtils.url('PaymentInstruments-List')}">
+        <a title="${Resource.msg('label.payment.title', 'account', null)}" hreflang="${request.getLocale()}" href="${URLUtils.url('PaymentInstruments-List')}">
             ${Resource.msg('label.payment', 'account', null)}
         </a>
     </li>
     <li <isif condition="${pdict.action == 'Address-List'}"> class="active" </isif>>
         <span></span>
-        <a title="${Resource.msg('label.address.title', 'account', null)}" href="${URLUtils.url('Address-List')}">
+        <a title="${Resource.msg('label.address.title', 'account', null)}" hreflang="${request.getLocale()}" href="${URLUtils.url('Address-List')}">
             ${Resource.msg('label.address', 'account', null)}
         </a>
     </li>
     <li <isif condition="${pdict.action == 'Wishlist-Show'}"> class="active" </isif>>
         <span></span>
-        <a title="${Resource.msg('label.wishlist.title', 'account', null)}" href="${URLUtils.url('Wishlist-Show')}">
+        <a title="${Resource.msg('label.wishlist.title', 'account', null)}" hreflang="${request.getLocale()}" href="${URLUtils.url('Wishlist-Show')}">
             ${Resource.msg('label.wishlist', 'account', null)}
         </a>
     </li>

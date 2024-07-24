@@ -2,7 +2,7 @@
     <isloop items="${menuItem.subCategories}" var="category">
         <isif condition="${category.subCategories}">
             <li class="dropdown-item dropdown level-3-li p-0 border-0" role="presentation">
-                <a href="${category.url}" id="${category.id}"
+                <a hreflang="${request.getLocale()}" href="${category.url}" id="${category.id}"
                     class="level-2-link dropdown-link dropdown-toggle h-font-size--16 h-fw--semibold text-uppercase h-clr--gray-4 d-block"
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     tabindex="0">${category.name}</a>
@@ -11,7 +11,7 @@
             </li>
         <iselse/>
             <li class="dropdown-item p-0 border-0" role="presentation">
-                <a href="${category.url}" id="${category.id}" role="menuitem"
+                <a hreflang="${request.getLocale()}" href="${category.url}" id="${category.id}" role="menuitem"
                     class="dropdown-link h-font-size--16 h-clr--gray-4 d-block" tabindex="0">${category.name}</a>
             </li>
         </isif>

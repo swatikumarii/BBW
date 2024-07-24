@@ -11,7 +11,7 @@
                             width="100" />
                     </div>
                 <iselse/>
-                    <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                    <a hreflang="${request.getLocale()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
                         <div class="item-image">
                             <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
                                 alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"

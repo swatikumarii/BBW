@@ -22,7 +22,7 @@
                     <isloop iterator="${pdict.fragranceCategories}" alias="fragranceCategories" status="loopstate">
                         <li class="new-row">
                             <a
-                                href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories
+                                hreflang="${request.getLocale()}" href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories
                                       .fragrance)}">
                                 <img width="221" height="100"
                                     src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, fragranceCategories.image)}"
@@ -96,7 +96,7 @@
                                         <isloop iterator="${fragranceGroup.value}" alias="fragrance" status="loopstate">
                                             <li class="level-2 text-start mt-3 mb-3">
                                                 <a class="h-clr--gray"
-                                                    href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragrance.name)}"
+                                                    hreflang="${request.getLocale()}" href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragrance.name)}"
                                                     data-fragrancename="${fragrance.name}">
                                                     ${fragrance.name}</a>
                                                 <isif condition="${fragrance.topFragrance}">

@@ -4,7 +4,7 @@
             <div class="allcategories">
                 <img src="${folder.custom.image.absURL}" alt="${folder.custom.image.alt}" />
                 <h3>
-                    <a href="${URLUtils.url('Page-Show', 'cid', folder.ID)}" class="article-list-link">
+                    <a hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', folder.ID)}" class="article-list-link">
                         <span>${folder.displayName}</span>
                     </a>
                 </h3>
@@ -13,7 +13,7 @@
                     <ul>
                         <isloop items="${folder.onlineSubFolders}" var="content">
                             <li>
-                                <a class="article-list-link" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+                                <a class="article-list-link" hreflang="${request.getLocale()}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
                                     <span>${content.displayName}</span>
                                 </a>
                             </li>

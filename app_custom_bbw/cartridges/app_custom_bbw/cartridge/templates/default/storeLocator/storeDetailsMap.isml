@@ -34,7 +34,7 @@
 
                     <div class="store-direction">
                         <a class="h-fw--semibold h-clr--black-1" target='_blank'
-                            href="${store.storeMapLink}">
+                            hreflang="${request.getLocale()}" href="${store.storeMapLink}">
                             ${Resource.msg('label.get.directions', 'storeLocator', null)}
                         </a>
                     </div>

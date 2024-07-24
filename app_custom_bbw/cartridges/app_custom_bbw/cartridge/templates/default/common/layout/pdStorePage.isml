@@ -23,7 +23,7 @@
         <!--<![endif]-->
         <isinclude template="/common/htmlHead" />
         <isif condition="${pdict.canonicalUrl}" >
-            <link rel="canonical" href="${pdict.canonicalUrl}"/>
+            <link rel="canonical" hreflang="${request.getLocale()}" href="${pdict.canonicalUrl}"/>
         </isif>
         <isactivedatahead/>
         <isinclude template="/components/schema" />

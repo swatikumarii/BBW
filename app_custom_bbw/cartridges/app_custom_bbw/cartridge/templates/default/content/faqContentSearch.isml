@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+<link rel="stylesheet" hreflang="${request.getLocale()}" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
 <script src="${URLUtils.staticURL('/js/faqContent.js')}"></script>
 
 <isif condition="${pdict.contentSearch.contents.length > 0}">
@@ -7,7 +7,7 @@
             ${Resource.msg('faq.search.suggestion.title', 'faq', null)}
         </div>
         <isloop items="${pdict.contentSearch.contents}" var="content">
-            <a href="${content.url}">
+            <a hreflang="${request.getLocale()}" href="${content.url}">
                 <div class="card-body card-info-group">
                     ${content.name}
 

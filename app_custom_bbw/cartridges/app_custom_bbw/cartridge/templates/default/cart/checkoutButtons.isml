@@ -1,8 +1,8 @@
 <isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
 <isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="page" />
 <script src="${pdict.AdyenHelper.getCheckoutUrl()}" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="${pdict.AdyenHelper.getCheckoutCSS()}" />
-<link rel="stylesheet" href="${URLUtils.staticURL('/css/adyenCss.css')}" />
+<link rel="stylesheet" type="text/css" hreflang="${request.getLocale()}" href="${pdict.AdyenHelper.getCheckoutCSS()}" />
+<link rel="stylesheet" hreflang="${request.getLocale()}" href="${URLUtils.staticURL('/css/adyenCss.css')}" />
 <isif
     condition="${request.getHttpQueryString() && request.getHttpQueryString().indexOf('amazonCheckoutSessionId') > -1} ">
     <script type="text/javascript">
@@ -62,12 +62,12 @@
         </script>
         <isif condition="${miniCart}">
             <div class="d-flex minicart-buttons">
-                <a href="${URLUtils.https('Cart-Show')}"
+                <a hreflang="${request.getLocale()}" href="${URLUtils.https('Cart-Show')}"
                     class="btn btn-block mr-1 h-bg--blue-1 h-fw--semibold h-font-size--13" role="button">
                     ${Resource.msg('button.view.cart', 'cart', null)}
                 </a>
 
-                <a href="${URLUtils.https('Checkout-Begin')}"
+                <a hreflang="${request.getLocale()}" href="${URLUtils.https('Checkout-Begin')}"
                     class="btn btn-block ml-1 h-bg--blue-1 h-fw--semibold h-font-size--13 checkout-btn ${pdict.valid.error ? 'disabled' : ''}"
                     role="button">
                     ${Resource.msg('button.checkout', 'cart', null)}
@@ -75,7 +75,7 @@
             </div>
         <iselse/>
             <div class="mb-sm-3">
-                <a href="${URLUtils.https('Checkout-Begin')}"
+                <a hreflang="${request.getLocale()}" href="${URLUtils.https('Checkout-Begin')}"
                     data-check-motivator="${URLUtils.https('Cart-MissingFree')}"
                     class="btn btn-primary btn-block checkout-btn h-fw--semibold h-font-size--16 cart-checkout-btn ${pdict.valid.error ? 'disabled' : ''}"
                     role="button" id="cart-mobile-checkout">
@@ -150,7 +150,7 @@
     <isinclude template="product/components/afterpayexpresscheckout" />
     <div class="mb-sm-3">
         <isif condition="${isExpressCheckoutFinalize}">
-            <a href="${URLUtils.url('AfterpayExpress-ContinueFinalize')}"
+            <a hreflang="${request.getLocale()}" href="${URLUtils.url('AfterpayExpress-ContinueFinalize')}"
                 class="${checkoutButtonClass} btn btn-block checkout-btn ${pdict.valid.error ? 'disabled' : ''}">
                 &nbsp;
             </a>

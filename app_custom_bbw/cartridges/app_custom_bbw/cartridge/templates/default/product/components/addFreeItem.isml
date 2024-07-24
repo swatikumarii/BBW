@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="modal-footer border-0 p-0 mt-3 m-0 justify-content-md-end justify-content-center">
-                <a href="${URLUtils.https('Checkout-Begin')}" class="m-0">
+                <a hreflang="${request.getLocale()}" href="${URLUtils.https('Checkout-Begin')}" class="m-0">
                     <button type="button" class="btn free-item-btn btn-primary  h-font-size-md--16 h-font-size-sm--16 h-font-size--14">${Resource.msg('button.confirm.free', 'checkout', null)}</button>
                 </a>
                 <button type="button" class="btn btn-primary free-close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14"

@@ -34,7 +34,7 @@
                                                         var="levelThreeCategory">
                                                         <li>
                                                             <a class="${pdict.content.category.id === levelThreeCategory.ID ? 'active' : ''} h-font-size--16 d-block"
-                                                                href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
+                                                                hreflang="${request.getLocale()}" href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
                                                         </li>
                                                     </isloop>
                                                 </ul>
