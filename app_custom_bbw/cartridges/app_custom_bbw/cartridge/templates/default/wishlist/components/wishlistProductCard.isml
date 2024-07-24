@@ -5,7 +5,7 @@
     <table class="table">
         <tr>
             <td class="item-image">
-                <a href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
                     <div class="item-image">
                         <img width="70px" height="70px" class="product-image" src="${item.imageObj.small[0].url}" srcset="${item.imageObj.small[0].url} 1x, ${item.imageObj.small_2x[0].url} 2x"
                             alt="${item.imageObj.small[0].alt}" title="${item.imageObj.small[0].title}" />
@@ -16,7 +16,7 @@
             <td class="item-details">
                 <div class="product-list-item">
                     <div class="line-item-name">
-                        <a href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
                             ${item.name}
                         </a>
                     </div>

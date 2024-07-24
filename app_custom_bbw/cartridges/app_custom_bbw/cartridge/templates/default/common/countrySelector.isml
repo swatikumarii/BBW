@@ -29,7 +29,7 @@
                 <div class="location-para  h-clr--gray-4 h-font-size--14">
                 ${Resource.msg('label.location', 'common', null)}
                     <a class="store-redirect h-clr--gray-4 h-font-size--14"
-                        href="${URLUtils.url('Stores-Find')}" data-link-text="find a store"
+                        hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Stores-Find')}" data-link-text="find a store"
                         data-formname="international-redirect-modal">${Resource.msg('label.store', 'common', null)}</a>
                    ${Resource.msg('label.near', 'common', null)}
                 </div>

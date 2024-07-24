@@ -34,7 +34,7 @@
                     </h3>
                     <ul class="multibrand-filter-list multibrand-filter-list--collapsed">
                         <li>
-                            <a href="${URLUtils.url('Faq-Search', 'query', pdict.searchPhrase)}"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Faq-Search', 'query', pdict.searchPhrase)}"
                                 class="sidenav-item <isif condition="${pdict.selectedCategoryId === null}">current</isif>" aria-current="page">
                                 <span class="sidenav-subitem filter-name">${Resource.msg('faq.all.categories', 'faq', null)}</span>
                                 <span class="sidenav-subitem doc-count">${'(' +pdict.allResultCount+ ')'}</span>
@@ -42,7 +42,7 @@
                         </li>
                         <isloop items="${pdict.folders}" var="folder">
                             <li>
-                                <a href="${URLUtils.url('Faq-Search', 'categoryId', folder.folderId, 'query', pdict.searchPhrase)}"
+                                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Faq-Search', 'categoryId', folder.folderId, 'query', pdict.searchPhrase)}"
                                     class="sidenav-item <isif condition="${pdict.selectedCategoryId !== null && folder.folderId === pdict.selectedCategoryId}">current</isif>">
                                     <span class="sidenav-subitem filter-name">${folder.folderName}</span>
                                     <span class="sidenav-subitem doc-count">${'(' + folder.searchResultCount + ')'}</span>
@@ -67,7 +67,7 @@
                     <isloop items="${pdict.contentSearch.contents}" var="content">
                         <li class="search-result-list-item result-article">
                             <h2 class="search-result-title">
-                                <a href="${content.url}" class="results-list-item-link">${content.name}</a>
+                                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${content.url}" class="results-list-item-link">${content.name}</a>
                             </h2>
                             <div class="search-result-icons">
 
@@ -109,14 +109,14 @@
             <ul class="pagination-list">
                 <isif condition="${pdict.contentSearch.firstPageUrl}">
                     <li class="pagination-first">
-                        <a href="${pdict.contentSearch.firstPageUrl}"
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.contentSearch.firstPageUrl}"
                             class="pagination-first-link" rel="nofollow">
                             <span class="pagination-first-icon" aria-hidden="true">«</span>
                             <span class="pagination-first-text">${Resource.msg('faq.first', 'faq', null)}</span>
                         </a>
                     </li>
                     <li class="pagination-prev">
-                        <a href="${pdict.contentSearch.previousPageUrl}"
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.contentSearch.previousPageUrl}"
                             class="pagination-prev-link" rel="prev nofollow">
                             <span class="pagination-prev-icon" aria-hidden="true">‹</span>
                             <span class="pagination-prev-text">${Resource.msg('faq.previous', 'faq', null)}</span>
@@ -125,14 +125,14 @@
                 </isif>
                 <isif condition="${pdict.contentSearch.nextPageUrl}">
                     <li class="pagination-next">
-                        <a href="${pdict.contentSearch.nextPageUrl}"
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.contentSearch.nextPageUrl}"
                             class="pagination-next-link" rel="next nofollow">
                             <span class="pagination-next-text">${Resource.msg('faq.next', 'faq', null)}</span>
                             <span class="pagination-next-icon" aria-hidden="true">›</span>
                         </a>
                     </li>
                     <li class="pagination-last">
-                        <a href="${pdict.contentSearch.lastPageUrl}"
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.contentSearch.lastPageUrl}"
                             class="pagination-last-link" rel="nofollow">
                             <span class="pagination-last-text">${Resource.msg('faq.last', 'faq', null)}</span>
                             <span class="pagination-last-icon" aria-hidden="true">»</span>

@@ -41,7 +41,7 @@
         <ul class="recent-article-ul">
             <isloop items="${pdict.relatedArticles}" var="relatedArticle">
                 <li>
-                    <a href="${URLUtils.url('Page-Show', 'cid', relatedArticle.ID)}">
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', relatedArticle.ID)}">
                         ${relatedArticle.name}
                     </a>
                 </li>
@@ -53,7 +53,7 @@
         <ul>
             <isloop items="${pdict.relatedArticles}" var="relatedArticle">
                 <li>
-                    <a href="${URLUtils.url('Page-Show', 'cid', relatedArticle.ID)}">
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', relatedArticle.ID)}">
                         ${relatedArticle.name}
                     </a>
                 </li>
