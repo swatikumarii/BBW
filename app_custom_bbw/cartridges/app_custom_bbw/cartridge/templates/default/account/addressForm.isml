@@ -239,7 +239,7 @@
 <!-- Cancel and Save Buttons -->
 <div class="row">
     <div class="col-12 text-center">
-        <a href="#" class="h-font-size--12 h-clr--black-3 privacy-policy">
+        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#" class="h-font-size--12 h-clr--black-3 privacy-policy">
             ${Resource.msg('label.privacy', 'account', null)}
         </a>
     </div>
@@ -255,7 +255,7 @@
         </div>
     </isif>
     <div class="col-12 text-center">
-        <a href="${URLUtils.url('Address-List')}" class="btn-cancel">${Resource.msg('button.cancel', 'account', null)}</a>
+        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Address-List')}" class="btn-cancel">${Resource.msg('button.cancel', 'account', null)}</a>
     </div>
 </div>
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">

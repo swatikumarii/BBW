@@ -26,15 +26,15 @@
     </isif>
 </isloop>
 <isprint value="${dw.system.HookMgr.callHook('app.template.htmlHead.seo', 'htmlHead', pdict) || ''}" encoding="off" />
-<link rel="icon" type="image/png" href="${URLUtils.staticURL('/images/favicons/favicon-196x196.png')}" sizes="196x196" />
-<link rel="icon" type="image/png" href="${URLUtils.staticURL('/images/favicons/favicon-96x96.png')}" sizes="96x96" />
-<link rel="icon" type="image/png" href="${URLUtils.staticURL('/images/favicons/favicon-32x32.png')}" sizes="32x32" />
-<link rel="icon" type="image/png" href="${URLUtils.staticURL('/images/favicons/favicon-16x16.png')}" sizes="16x16" />
-<link rel="icon" type="image/png" href="${URLUtils.staticURL('/images/favicons/favicon-128.png')}" sizes="128x128" />
+<link rel="icon" type="image/png" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/images/favicons/favicon-196x196.png')}" sizes="196x196" />
+<link rel="icon" type="image/png" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/images/favicons/favicon-96x96.png')}" sizes="96x96" />
+<link rel="icon" type="image/png" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/images/favicons/favicon-32x32.png')}" sizes="32x32" />
+<link rel="icon" type="image/png" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/images/favicons/favicon-16x16.png')}" sizes="16x16" />
+<link rel="icon" type="image/png" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/images/favicons/favicon-128.png')}" sizes="128x128" />
 
-<link rel="stylesheet" href="${URLUtils.staticURL('/css/global.css')}" />
+<link rel="stylesheet" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/css/global.css')}" />
 <isloop items="${ require('*/cartridge/scripts/assets.js').styles }" var="style">
-    <link rel="stylesheet" href="${style.src}" <isif condition="${style.integrity != null}">integrity="${style.integrity}" crossorigin="anonymous"</isif> />
+    <link rel="stylesheet" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${style.src}" <isif condition="${style.integrity != null}">integrity="${style.integrity}" crossorigin="anonymous"</isif> />
 </isloop>
 
 <isif condition="${'GoogleVerificationTag' in dw.system.Site.current.preferences.custom && dw.system.Site.current.preferences.custom.GoogleVerificationTag!=''}">
@@ -48,6 +48,9 @@
         Refrain from calling processing intensive logic in here
         do not include shopper specific information.
 </iscomment>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled')}">
+    <isinclude template="components/gtm/gtmScript" />
+</isif>
 ${dw.system.HookMgr.callHook('app.template.htmlHead', 'htmlHead', pdict) || ''}
 <iscomment>
     Module to overlay skinning css
@@ -57,7 +60,7 @@ ${dw.system.HookMgr.callHook('app.template.htmlHead', 'htmlHead', pdict) || ''}
         This hook will be executed with encoding disabled. Please sanitize output in the hook.
 </iscomment>
 <iscomment> <isprint value="${require('*/cartridge/scripts/theming/skin.js').renderSkin()}" encoding="off"> </iscomment>
-<iscomment> <link rel="stylesheet" href="${URLUtils.staticURL('/css/skin/skin.css')}" /> </iscomment>
+<iscomment> <link rel="stylesheet" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/css/skin/skin.css')}" /> </iscomment>
 <script>
     // ** Image not Found Error Function ** //
     window.addEventListener("error", function(e) {

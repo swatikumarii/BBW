@@ -36,9 +36,6 @@
         ${dw.system.HookMgr.callHook('app.template.afterFooter', 'afterFooter', pdict) || ''}
 
         <isinclude url="${URLUtils.url('ConsentTracking-Check')}"/>
-        <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled')}">
-            <isinclude template="components/gtm/gtmScript" />
-        </isif>
         <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('metaPixelEnabled')}">
             <isinclude template="components/metaPixel/metaPixelScript" />
         </isif>

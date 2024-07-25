@@ -22,6 +22,7 @@ function appendToUrl(url, params) {
     return newUrl;
 }
 
+
 /**
  * Clear error notification
  */
@@ -99,6 +100,7 @@ function updateCartTotals(data) {
     } else {
         $('.sub-total').empty().append(data.totals.subTotal);
     }
+    $('.adj-sub-total').empty().append(data.totals.miniCartSubTotal);
     $('.tax-total').empty().append(data.totals.totalTax);
     $('.grand-total').empty().append(data.totals.grandTotal);
     $('.minicart-quantity').empty().append(data.numItems);
@@ -213,10 +215,12 @@ function createErrorNotification(message) {
  * re-renders the approaching discount messages
  * @param {object} orderApproachingDiscounts - updated approaching discounts for the cart
  * @param {object} shippingApproachingDiscounts - updated approaching discounts for the cart
+ * @param {boolean} isMiniCart - to check minicart or cart page
  */
 function updateApproachingDiscounts(
     orderApproachingDiscounts,
-    shippingApproachingDiscounts
+    shippingApproachingDiscounts,
+    isMiniCart
 ) {
     var orderhtml = '';
     var shippinghtml = '';
@@ -239,7 +243,7 @@ function updateApproachingDiscounts(
         orderhtml += '</div>';
     }
 
-    if (shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
+    if (shippingApproachingDiscounts && shippingApproachingDiscounts.length && !isMiniCart) {
         shippinghtml =
             '<div class="row align-items-center">\n' +
             '<div class="d-flex flex-column col-12 py-0">\n' +
@@ -270,6 +274,15 @@ function updateApproachingDiscounts(
             shippingApproachingDiscounts[0].formattedConditionThreshold +
             '</span>\n' +
             '</div>\n' +
+            '</div>\n' +
+            '</div>';
+    } else if (shippingApproachingDiscounts && shippingApproachingDiscounts.length && isMiniCart) {
+        shippinghtml =
+            '<div class="row align-items-center">\n' +
+            '<div class="d-flex flex-column col-12 py-0">\n' +
+            '<p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">' +
+            shippingApproachingDiscounts[0].discountMsg +
+            '</p>\n' +
             '</div>\n' +
             '</div>';
     }
@@ -575,6 +588,8 @@ module.exports = function () {
             $('.minicart .popover').removeClass('show');
         }
 
+        var isInMiniCart = !($('body').find('.cart-lineitems').length > 0);
+
         url = appendToUrl(url, urlParams);
 
         $('body > .modal-backdrop').remove();
@@ -696,7 +711,8 @@ module.exports = function () {
                     updateCartTotals(data.basket);
                     updateApproachingDiscounts(
                         data.basket.orderApproachingDiscounts,
-                        data.basket.shippingApproachingDiscounts
+                        data.basket.shippingApproachingDiscounts,
+                        isInMiniCart
                     );
                     $('body').trigger(
                         'setShippingMethodSelection',
@@ -708,7 +724,34 @@ module.exports = function () {
                         $('.cart-error-messaging').addClass('d-none');
                     }
                 }
-
+                if ($('#product-search-results').length > 0) {
+                    var qtyObj = {};
+                    for (var index = 0; index < data.basket.items.length; index++) {
+                        var item = data.basket.items[index];
+                        if (item.id in qtyObj) {
+                            qtyObj[item.id] += item.quantity;
+                        } else {
+                            qtyObj[item.id] = item.quantity;
+                        }
+                    }
+                    var qtySlectorElements = $('.plp-simple-quantity').filter(function () {
+                        return $(this).css('display') === 'block';
+                    });
+                    $.each(qtySlectorElements,function (a,element) {
+                        var pid = $(element).siblings('button.add-to-cart').data('pid');
+                        var selectorString = 'button.add-to-cart[data-pid="'+pid+'"]';
+                        if (Object.keys(qtyObj).indexOf(pid.toString()) !== -1) {
+                            $(element).find('.quantity-select-plp').val(qtyObj[pid]);
+                            if (qtyObj[pid] < parseInt($(element).find('input[name=maxorderqty]').val(),10)) {
+                                $(element).find('.plp-increase').removeClass('disable');
+                            }
+                        } else {
+                            var $button = $(selectorString);
+                            $button.show();
+                            $button.siblings('.plp-simple-quantity').hide();
+                        }
+                    });
+                }
                 $('body').trigger('cart:update', data);
 
                 $.spinner().stop();
@@ -767,6 +810,7 @@ module.exports = function () {
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = Number($(this).val());
         var self = $(this);
+        var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
         var isMiniCartTrigger = $(this).parents('.popover').length > 0;
         var isCartPageTrigger = $(this).parents('.cart-page').length > 0;
         var productID = $(this).data('pid');
@@ -839,7 +883,8 @@ module.exports = function () {
                 updateCartTotals(data);
                 updateApproachingDiscounts(
                     data.orderApproachingDiscounts,
-                    data.shippingApproachingDiscounts
+                    data.shippingApproachingDiscounts,
+                    isMiniCart
                 );
                 updateAvailability(data, uuid);
                 validateBasket(data);
@@ -890,6 +935,7 @@ module.exports = function () {
 
     $('.shippingMethods').change(function () {
         clearErrorNotification();
+        var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
         var url = $(this).attr('data-actionUrl');
         var urlParams = {
             methodID: $(this).find(':selected').attr('data-shipping-id')
@@ -913,7 +959,8 @@ module.exports = function () {
                     updateCartTotals(data);
                     updateApproachingDiscounts(
                         data.orderApproachingDiscounts,
-                        data.shippingApproachingDiscounts
+                        data.shippingApproachingDiscounts,
+                        isMiniCart
                     );
                     validateBasket(data);
                 }
@@ -953,6 +1000,7 @@ module.exports = function () {
         $('.promo-code-form .form-control').removeClass('is-invalid');
         $('.coupon-error-message').empty();
         $('body').trigger('promotion:beforeUpdate');
+        var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
 
         $.ajax({
             url: $form.attr('action'),
@@ -986,7 +1034,8 @@ module.exports = function () {
                     updateCartTotals(data);
                     updateApproachingDiscounts(
                         data.orderApproachingDiscounts,
-                        data.shippingApproachingDiscounts
+                        data.shippingApproachingDiscounts,
+                        isMiniCart
                     );
                     validateBasket(data);
                     $('body').trigger('promotion:success', data);
@@ -1011,6 +1060,7 @@ module.exports = function () {
         'click',
         '.checkout-promo-code-form .promo-code-form button',
         function () {
+            var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
             $.ajax({
                 url: $('.promo-code-form').attr('action'),
                 type: 'GET',
@@ -1045,7 +1095,8 @@ module.exports = function () {
                         updateCartTotals(data);
                         updateApproachingDiscounts(
                             data.orderApproachingDiscounts,
-                            data.shippingApproachingDiscounts
+                            data.shippingApproachingDiscounts,
+                            isMiniCart
                         );
                         validateBasket(data);
                         $('body').trigger('promotion:success', data);
@@ -1087,6 +1138,7 @@ module.exports = function () {
     $('body').on('click', '.delete-coupon-confirmation-btn', function (e) {
         e.preventDefault();
         clearErrorNotification();
+        var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
         var url = $(this).data('action');
         var uuid = $(this).data('uuid');
         var couponCode = $(this).data('code');
@@ -1110,9 +1162,14 @@ module.exports = function () {
                 updateCartTotals(data);
                 updateApproachingDiscounts(
                     data.orderApproachingDiscounts,
-                    data.shippingApproachingDiscounts
+                    data.shippingApproachingDiscounts,
+                    isMiniCart
                 );
                 validateBasket(data);
+                if ($('.remove-giftcard-btn').length > 0) {
+                    $('.remove-giftcard-btn').click();
+                    $('.coupon-gc-error-wrap').removeClass('d-none');
+                }
                 $.spinner().stop();
                 $('body').trigger('promotion:success', data);
             },
@@ -1289,6 +1346,7 @@ module.exports = function () {
     $('body').on('click', '.update-cart-product-global', function (e) {
         e.preventDefault();
         clearErrorNotification();
+        var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
         var updateProductUrl = $(this)
             .closest('.cart-and-ipay')
             .find('.update-cart-url')
@@ -1333,7 +1391,8 @@ module.exports = function () {
                     updateCartTotals(data.cartModel);
                     updateApproachingDiscounts(
                         data.cartModel.orderApproachingDiscounts,
-                        data.cartModel.shippingApproachingDiscounts
+                        data.cartModel.shippingApproachingDiscounts,
+                        isMiniCart
                     );
                     updateAvailability(data.cartModel, uuid);
                     updateProductDetails(data, uuid);
