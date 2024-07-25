@@ -1,6 +1,6 @@
 <div class="home-email-signup bg-transparent">
     <div class="container">
-        <form role="form" class="newsletter" data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
+        <form class="newsletter" data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
             <div class="row">
                 <div class="col-12 p-0">
                     <div data-required-text="">
