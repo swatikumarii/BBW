@@ -55,14 +55,15 @@ function showTimeoutPopup() {
         $('#autologout').find('.logout').show();
         $('#autologout').find('#logout-refresh').show();
         $('#autologout').modal();
-        // force logout customer
-        var logoutAction = $('.customLogoutUrl').val();
-        $.ajax({
-            url: logoutAction,
-            type: 'GET',
-            success: function () {
-            }
-        });
+        if(localStorage.getItem('isLoggedIn')){
+            // force logout customer
+            var logoutAction = $('.customLogoutUrl').val();
+            $.ajax({
+                url: logoutAction,
+                type: 'GET',
+                success: function () {}
+            });
+        } 
     }, warningDuration * 60000);
 }
 /**
@@ -99,7 +100,6 @@ module.exports = function () {
     $(function () {
         // Add event listeners to reset the timeout on user activity
         document.addEventListener('click', resetTimeout);
-
         /**
          * attach event on auto logout continue button
          */
@@ -124,5 +124,12 @@ module.exports = function () {
 
         // Initialize the timeout on page load
         resetTimeout();
+
+        // calling open popup function after 30 Minutes of page load to force customer for a refresh
+        setTimeout(function () {
+            showTimeoutPopup();
+        }, 1800000);
+
+
     });
 };
