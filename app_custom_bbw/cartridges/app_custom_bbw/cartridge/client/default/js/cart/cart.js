@@ -604,33 +604,7 @@ module.exports = function () {
             dataType: 'json',
             success: function (data) {
                 if (data.basket.items.length === 0) {
-                    if (isMiniCart) {
-                        var minicartURL = $('.minicart').data('action-url');
-                        if (isPopupMinicart) {
-                            $('.minicart .popover').removeClass('show');
-                        } else {
-                            $.get(minicartURL, function (dataMinicart) {
-                                $('.minicart .popover')
-                                    .empty()
-                                    .append(dataMinicart);
-                            });
-                        }
-                    } else {
-                        $('.cart').remove();
-                        $('.cartContainer .container').removeClass('d-none');
-                    }
-                    $('.number-of-items')
-                        .empty()
-                        .append(data.basket.resources.numberOfItems);
-                    $('.minicart-quantity')
-                        .empty()
-                        .append(data.basket.numItems);
-                    $('.minicart-link').attr({
-                        'aria-label':
-                            data.basket.resources.minicartCountOfItems,
-                        title: data.basket.resources.minicartCountOfItems
-                    });
-                    $('html').removeClass('veiled');
+                    window.location.reload();
                 } else {
                     if (
                         data.toBeDeletedUUIDs &&

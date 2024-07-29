@@ -61,7 +61,10 @@ function init() {
  */
 function elementHeight() {
     var elementsToSync = [
-        '.pdp-link',
+        '.b-product-tile__badge',
+        '.b-product-tile__link',
+        '.b-product-tile__name',
+        '.b-product-tile__product-type',
         '.b-product-tile__img-wrapper',
         '.tile-body',
         '.price',
