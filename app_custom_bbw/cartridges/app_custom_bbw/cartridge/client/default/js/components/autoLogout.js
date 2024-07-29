@@ -55,8 +55,8 @@ function showTimeoutPopup() {
         $('#autologout').find('.logout').show();
         $('#autologout').find('#logout-refresh').show();
         $('#autologout').modal();
-        if(localStorage.getItem('isLoggedIn')){
-            // force logout customer
+        // force logout customer when for loggedin user
+        if (localStorage.getItem('isLoggedIn')) {
             var logoutAction = $('.customLogoutUrl').val();
             $.ajax({
                 url: logoutAction,
