@@ -55,8 +55,16 @@
                 </div>
             </div>
 
-            <div class="col-md-5 col-3 pr-0">
+            <div class="col-md-5 col-3 p-0">
                 <div class="d-flex">
+                    <div class="">
+                        <input type="number" class="quantity form-control h-fw--semibold border-0 p-0" data-uuid="${lineItem.UUID}"
+                            data-pid="${lineItem.id}" data-action="${pdict.actionUrls.updateQuantityUrl}"
+                            data-pre-select-qty="${StringUtils.formatInteger(lineItem.quantity)}" id="quantity-${lineItem.UUID}"
+                            name="quantity-${lineItem.UUID}" data-max-order-qty="${lineItem.maxOrderQty}"
+                            aria-label="quantity: ${StringUtils.formatInteger(lineItem.quantity)}"
+                            value="${StringUtils.formatInteger(lineItem.quantity)}" ${lineItem.isFreeItem || lineItem.isEgiftCard ? 'disabled' : ''} />
+                    </div>
                     <!---item price--->
                     <div class="text-right w-100 line-item-price line-item-total-price">
                         <div class="item-total-${lineItem.UUID} price">
