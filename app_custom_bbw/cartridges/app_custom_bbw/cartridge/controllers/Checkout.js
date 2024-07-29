@@ -47,12 +47,14 @@ server.post('SetEmailRecommendations', function (req, res, next) {
     var confirmationEmailRecommendationPIDs = req.httpParameterMap.confirmationEmailRecommendationPIDs.value ? req.httpParameterMap.confirmationEmailRecommendationPIDs.value.split(',').slice(0,3) : null;
     var shipmentEmailRecommendationPIDs = req.httpParameterMap.shipmentEmailRecommendationPIDs.value ? req.httpParameterMap.shipmentEmailRecommendationPIDs.value.split(',').slice(0,3) : null;
     var deliveryEmailRecommendationPIDs = req.httpParameterMap.deliveryEmailRecommendationPIDs.value ? req.httpParameterMap.deliveryEmailRecommendationPIDs.value.split(',').slice(0,3) : null;
+    var gcEmailRecommendationPIDs = req.httpParameterMap.gcEmailRecommendationPIDs.value ? req.httpParameterMap.gcEmailRecommendationPIDs.value.split(',').slice(0,3) : null;
     var currentBasket = BasketMgr.getCurrentBasket();
     if (currentBasket) {
         var emailRecommendationPIDs = {
             confirmationEmailRecommendationPIDs: confirmationEmailRecommendationPIDs,
             shipmentEmailRecommendationPIDs: shipmentEmailRecommendationPIDs,
-            deliveryEmailRecommendationPIDs: deliveryEmailRecommendationPIDs
+            deliveryEmailRecommendationPIDs: deliveryEmailRecommendationPIDs,
+            gcEmailRecommendationPIDs: gcEmailRecommendationPIDs
         };
         Transaction.wrap(function () {
             currentBasket.custom.emailRecommendationPids = JSON.stringify(emailRecommendationPIDs);
