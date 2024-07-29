@@ -184,6 +184,16 @@
                 }
             }
         }
+
+        div[id^="cq_recomm_slot-"] {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+
+            @include media-btw(sm, md) {
+                row-gap: 30px;
+            }
+        }
     }
 
     &__search-product-header {

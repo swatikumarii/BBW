@@ -165,8 +165,8 @@
             <div class="d-none">
                 <input type="hidden" name="email-recommendations-url" value="${URLUtils.url('Checkout-SetEmailRecommendations')}" />
                 <isslot id="confirmation-email-recommendations" context="global" description="Recommendations for confirmation email" context-object="${dw.order.BasketMgr.getCurrentBasket()}"/>
-                <isslot id="shipment-email-recommendations" context="global" description="Recommendations for shipment email" context-object="${}"/>
-                <isslot id="delivery-email-recommendations" context="global" description="Recommendations for delivery email" context-object="${dw.order.BasketMgr.getCurrentBasket()}"/>
+                <isslot id="shipment-email-recommendations" context="global" description="Recommendations for shipment email" context-object="${dw.order.BasketMgr.getCurrentBasket()}"/>
+                <isslot id="delivery-email-recommendations" context="global" description="Recommendations for delivery email"/>
             </div>
         </isif>
         <div class="container">
