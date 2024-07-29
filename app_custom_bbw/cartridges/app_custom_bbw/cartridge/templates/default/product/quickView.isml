@@ -111,8 +111,8 @@
                         <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
                             <button type="button" data-placement="top"
                                 class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                                data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                title="<div class='pdp-title'></div>" data-content="<a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href='#' class='close cursor-pointer'></a>
+                                data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" aria-label="Detail PopUp"
+                                title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
                                                                                                         <div class='popover-content pdp-pop-content ds-tooltip-content'>
                                                                                                             <isprint value="
                                 ${promotionDetails}" />

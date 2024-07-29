@@ -218,15 +218,15 @@
             padding-bottom: 4px;
         }
 
-        @include media-down(sm) {
-            .promotions-wrap {
-                min-height: 52px;
+        // @include media-down(sm) {
+        //     .promotions-wrap {
+        //         min-height: 52px;
 
-                .callout-message span {
-                    min-height: 23px;
-                }
-            }
-        }
+        //         .callout-message span {
+        //             min-height: 23px;
+        //         }
+        //     }
+        // }
 
         .promotion-callout {
             line-height: 1.25rem;
@@ -513,8 +513,8 @@
 
         .add-to-wish-list.authenticated-user {
             &:hover {
-                background: url("../../images/pdp/PDP-Wishlist-3.svg") no-repeat 
-                50%;
+                background: url("../../images/pdp/PDP-Wishlist-3.svg") no-repeat
+                    50%;
             }
         }
 
@@ -530,7 +530,7 @@
 
             &:hover {
                 background: url("../../images/pdp/PDP-Wishlist-5.svg") no-repeat
-                50%;
+                    50%;
             }
         }
     }
@@ -776,9 +776,9 @@
 
 // ------giftcard-popup-------
 .giftset-details {
-    letter-spacing: .005em;
+    letter-spacing: 0.005em;
     line-height: 1.25rem;
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
     width: 100%;
 
     .soldout-detail {
@@ -798,7 +798,7 @@
         }
 
         .popover-body {
-            padding: 0 15px 0 15px;
+            padding: 0 15px;
         }
     }
 }
@@ -815,5 +815,12 @@
 
     .product-name {
         width: 48%;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .product-pricee {
+        text-wrap: nowrap;
     }
 }
