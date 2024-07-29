@@ -121,6 +121,10 @@ function OrderModel(lineItemContainer, options) {
                 recommendedProducts(
                     emailRecommendationProducts.deliveryEmailRecommendationPIDs
                 );
+            emailRecommendationProductDetails.gcEmailRecommendationProducts =
+                recommendedProducts(
+                    emailRecommendationProducts.gcEmailRecommendationPIDs
+                );
         }
         this.emailRecommendationProducts = emailRecommendationProductDetails;
     }
