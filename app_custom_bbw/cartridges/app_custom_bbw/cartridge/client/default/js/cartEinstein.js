@@ -3,6 +3,7 @@
 var confirmationEmailRecommendations = [];
 var shipmentEmailRecommendations = [];
 var deliveryEmailRecommendations = [];
+var gcEmailRecommendations = [];
 
 /**
  * updateEmailRecommendor
@@ -12,6 +13,7 @@ function updateEmailRecommendor() {
     var confirmationEmailRecommendationPIDs = [];
     var shipmentEmailRecommendationPIDs = [];
     var deliveryEmailRecommendationPIDs = [];
+    var gcEmailRecommendationPIDs = [];
     $('.confirmation-email-pids').each(function () {
         confirmationEmailRecommendationPIDs.push($(this).val());
     });
@@ -21,15 +23,20 @@ function updateEmailRecommendor() {
     $('.delivery-email-pids').each(function () {
         deliveryEmailRecommendationPIDs.push($(this).val());
     });
+    $('.gc-email-pids').each(function () {
+        gcEmailRecommendationPIDs.push($(this).val());
+    });
     var setEmailRecommendationsURL = $(
         'input[name="email-recommendations-url"'
     ).val();
     if (
         setEmailRecommendationsURL &&
-        confirmationEmailRecommendationPIDs.length > 0 &&
+        (confirmationEmailRecommendationPIDs.length > 0 ||
+            gcEmailRecommendationPIDs.length > 0) &&
         (confirmationEmailRecommendations.length !== confirmationEmailRecommendationPIDs.length ||
-        shipmentEmailRecommendations.length !== shipmentEmailRecommendationPIDs.length ||
-        deliveryEmailRecommendations.length !== deliveryEmailRecommendationPIDs.length)
+            shipmentEmailRecommendations.length !== shipmentEmailRecommendationPIDs.length ||
+            deliveryEmailRecommendations.length !== deliveryEmailRecommendationPIDs.length ||
+            gcEmailRecommendations.length !== gcEmailRecommendationPIDs.length)
     ) {
         $.ajax({
             url: setEmailRecommendationsURL,
@@ -40,13 +47,15 @@ function updateEmailRecommendor() {
                 shipmentEmailRecommendationPIDs:
                     shipmentEmailRecommendationPIDs.toString(),
                 deliveryEmailRecommendationPIDs:
-                    deliveryEmailRecommendationPIDs.toString()
+                    deliveryEmailRecommendationPIDs.toString(),
+                gcEmailRecommendationPIDs: gcEmailRecommendationPIDs.toString()
             }
         });
     }
     confirmationEmailRecommendations = confirmationEmailRecommendationPIDs;
     shipmentEmailRecommendations = shipmentEmailRecommendationPIDs;
-    deliveryEmailRecommendations = deliveryEmailRecommendationPIDs;;
+    deliveryEmailRecommendations = deliveryEmailRecommendationPIDs;
+    gcEmailRecommendations = gcEmailRecommendationPIDs;
 }
 
 $(document).ready(function () {
