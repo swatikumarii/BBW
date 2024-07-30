@@ -78,8 +78,8 @@
             <div class="site-offline">
                 <picture class="site-offline-picture">
                     <source media="(min-width: 769px)"
-                        srcset="${URLUtils.staticURL('/images/maintenance/en_SG/Splash-Screen_IN_desktop-1440_SG.jpg')}"/>
-                    <img src="${URLUtils.staticURL('/images/maintenance/en_SG/Splash-Screen_IN_mobile_737_SG.jpg')}"
+                        srcset="${URLUtils.staticURL('/images/maintenance/Splash-Screen_IN_desktop-1440_SG.jpg')}"/>
+                    <img src="${URLUtils.staticURL('/images/maintenance/Splash-Screen_IN_mobile_737_SG.jpg')}"
                         alt="${Resource.msg('siteoffline.img.alt', 'error', null)}" style="width:100%;"/>
                 </picture>
             </div>
