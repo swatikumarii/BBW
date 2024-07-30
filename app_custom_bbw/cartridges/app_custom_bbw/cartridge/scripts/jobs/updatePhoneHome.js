@@ -16,7 +16,7 @@ function execute() {
             var cp = customerProfiles.next();
             cp.custom.dialCode = '61';
             if (cp.phoneHome) {
-                while (cp.phoneHome.startsWith('0')) {
+                if (cp.phoneHome.startsWith('0')) {
                     cp.phoneHome = cp.phoneHome.substr(1);
                 }
                 cp.phoneHome = cp.phoneHome.split(' ').join('');
