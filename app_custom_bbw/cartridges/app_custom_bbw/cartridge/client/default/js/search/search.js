@@ -753,7 +753,8 @@ module.exports = {
         $(function () {
             $('.left-navigation-top-offers .category-top-items ul').removeClass('dropdown-menu');
             $('.left-navigation-top-offers .category-top-items li').removeClass('dropdown-item');
-            $('.left-navigation-top-offers .category-top-offers span').text('TOP OFFERS').css('font-weight', 'bold');
+            var dataText = $('.left-navigation-top-offers').data('text');
+            $('.left-navigation-top-offers .category-top-offers span').text(dataText.toUpperCase()).css('font-weight', 'bold');
         });
 
     }
