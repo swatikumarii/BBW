@@ -340,6 +340,36 @@
                 }
               ]
             }
+          },
+          {
+            "@type-id": "custom.updatePhoneHome",
+            "@supports-parallel-execution": "false",
+            "@supports-site-context": "true",
+            "@supports-organization-context": "false",
+            "description": "update status of a field",
+            "module": "app_custom_bbw/cartridge/scripts/jobs/updatePhoneHome.js",
+            "function": "execute",
+            "transactional": "true",
+            "timeout-in-seconds": "900",
+            "parameters": {
+              "parameter": []
+            },
+            "status-codes": {
+              "status": [
+                {
+                  "@code": "ERROR",
+                  "description": "Used when the step failed with an error."
+                },
+                {
+                  "@code": "FINISHED",
+                  "description": "Used when the step finished successfully."
+                },
+                {
+                  "@code": "FINISHED_WITH_WARNINGS",
+                  "description": "Used when the step finished with warnings."
+                }
+              ]
+            }
           }
       ]
     }
