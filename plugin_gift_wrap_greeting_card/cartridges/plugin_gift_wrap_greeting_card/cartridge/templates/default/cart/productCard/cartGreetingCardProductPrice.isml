@@ -29,7 +29,7 @@
 
         <isif condition="${!lineItem.isBonusProductLineItem}">
             <div class="hidden-md-down">
-                <button type="button" class="remove-btn-lg remove-product border-0 bg-white" data-toggle="modal"
+                <button type="button" class="remove-btn-lg remove-product border-0 bg-white cart-delete-confirmation-btn" data-toggle="modal"
                     data-target=".cart.cart-page #removeProductModal" data-pid="${lineItem.id}"
                     data-name="${lineItem.productName}" data-action="${pdict.actionUrls.removeProductLineItemUrl}"
                     data-uuid="${lineItem.UUID}"
