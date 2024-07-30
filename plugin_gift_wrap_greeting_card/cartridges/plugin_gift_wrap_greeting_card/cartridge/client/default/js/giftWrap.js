@@ -415,3 +415,7 @@ $(document).ready(function () {
     });
 
 });
+
+$('body').on('cart:update', function () {
+    resetGiftWrapIsml();
+});

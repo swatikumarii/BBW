@@ -75,6 +75,8 @@ function createProductLineItemsObject(allLineItems, view) {
     var Site = require('dw/system/Site');
     var lineItems = [];
     var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
+    var greetingCardPLI;
+    var giftwrapPLI;
 
     collections.forEach(allLineItems, function (item) {
         var product = Object.create(null);
@@ -202,13 +204,19 @@ function createProductLineItemsObject(allLineItems, view) {
                 newLineItem.greetingCardMessage =
                     item.custom.greetingCardMessage;
             }
-        } else if ('isWrapped' in item.custom && 'wrappedQuantity' in item.custom) {
+            greetingCardPLI = newLineItem;
+        } else if (newLineItem.isGiftWrapCategory) {
+            giftwrapPLI = newLineItem;
+        } else if (
+            'isWrapped' in item.custom &&
+            'wrappedQuantity' in item.custom
+        ) {
             newLineItem.wrap = {
                 isWrapped: item.custom.isWrapped,
                 wrappedQuantity: item.custom.wrappedQuantity
             };
+            lineItems.push(newLineItem);
         }
-        lineItems.push(newLineItem);
         if (!('available' in newLineItem)){
             newLineItem.available = 'available' in product ? product.available : false;
         }
@@ -224,6 +232,12 @@ function createProductLineItemsObject(allLineItems, view) {
         }
         newLineItem.enableNotifyMe = product.enableNotifyMe;
     });
+    if (greetingCardPLI) {
+        lineItems.push(greetingCardPLI);
+    }
+    if (giftwrapPLI) {
+        lineItems.push(giftwrapPLI);
+    }
     return lineItems;
 }
 

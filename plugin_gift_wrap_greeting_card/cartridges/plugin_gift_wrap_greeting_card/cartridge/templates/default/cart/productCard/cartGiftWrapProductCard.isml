@@ -74,16 +74,12 @@
 
                     <isif condition="${!lineItem.isBonusProductLineItem}">
 
-                        <button type="button" class="cart-delete-confirmation-btn remove-btn-lg remove-product bg-white border-0" data-toggle="modal"
-                            data-target=".cart.cart-page #removeProductModal" data-pid="${lineItem.id}"
-                            data-name="${lineItem.productName}"
-                            data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}"
-                            aria-label="${Resource.msgf('text.remove.line.item', 'cart', null, lineItem.productName)}">
-                            <span aria-hidden="true">
-                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon"
-                                    width="20" />
+                        <div class="line-item-remove">
+                            <span class="cart-delete-confirmation-btn" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
+                                data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}">
+                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
                             </span>
-                        </button>
+                        </div>
 
                     </isif>
                 </div>

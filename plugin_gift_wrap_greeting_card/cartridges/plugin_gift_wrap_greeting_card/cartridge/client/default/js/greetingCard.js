@@ -371,6 +371,6 @@ $(document).ready(function () {
     });
 });
 
-module.exports = {
-    resetGreetingCardIsml: resetGreetingCardIsml
-};
+$('body').on('cart:update', function () {
+    resetGreetingCardIsml();
+});
