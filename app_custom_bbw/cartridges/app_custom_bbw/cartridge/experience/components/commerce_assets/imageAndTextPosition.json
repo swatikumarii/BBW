@@ -131,6 +131,27 @@
             "description": "Add Tracker Classes here (Use track-banner-promotion for GA/GTM)",
             "type": "string",
             "required": false
+        },
+        {
+          "id": "creativeId",
+          "name": "Creative Id Custom Value",
+          "description": "Add Data Creative Id Tracker Value here (For GA/GTM)",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "creativeSlot",
+          "name": "Creative Slot Custom Value",
+          "description": "Add Data Creative Slot Tracker Value here (For GA/GTM)",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "promotionId",
+          "name": "Promotion ID Custom Value",
+          "description": "Add Data Promotion Id Tracker Value here (For GA/GTM)",
+          "type": "string",
+          "required": false
         }
       ]
     }
