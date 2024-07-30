@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>${Resource.msg('siteoffline.header', 'error', null)}</title>
+        <meta charset=UTF-8 />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            height: 100%;
+        }
+        .container {
+            max-width: 100%;
+            margin: auto;
+            padding: 0;
+            position: relative;
+            height: 100%;
+        }
+        .site-offline {
+            max-width: 100%;
+            margin: 0 auto;
+            display: block;
+            height: 100%;
+        }
+        .siteoffline-para {
+            text-align: center;
+            font-size: 23px;
+            line-height: 34px;
+            max-width: 81%;
+            margin: 0 auto;
+        }
+        .site-offline-picture {
+            margin: auto;
+        }
+        img {
+            width: 100%;
+        }
+        span {
+            text-align: center;
+        }
+        .site-offline-assistance {
+            margin-top: 30%;
+        }
+        .site-offline-assistance p {
+            text-align: center;
+        }
+        .site-offline-assistance p span {
+            color: #005699;
+            cursor: pointer;
+        }
+        @media (max-width: 575.98px) {
+            .container {
+                padding: 0;
+                height: 100%;
+            }
+            .site-offline {
+                box-sizing: border-box;
+                line-height: 0;
+                text-align: center;
+                max-width: 100%;
+                margin: 0 auto;
+                display: flex;
+                height: 100%;
+            }
+            .site-offline-picture {
+                margin-top: 15%;
+            }
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="site-offline">
+                <picture class="site-offline-picture">
+                    <source media="(min-width: 769px)"
+                        srcset="${URLUtils.staticURL('/images/maintenance/en_ID/Splash-Screen_IN_desktop-1440_ID.jpg')}"/>
+                    <img src="${URLUtils.staticURL('/images/maintenance/en_ID/Splash-Screen_IN_mobile_737_ID.jpg')}"
+                        alt="${Resource.msg('siteoffline.img.alt', 'error', null)}" style="width:100%;"/>
+                </picture>
+            </div>
+        </div>
+    </body>
+</html>
