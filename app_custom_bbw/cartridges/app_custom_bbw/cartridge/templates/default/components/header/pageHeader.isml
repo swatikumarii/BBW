@@ -20,6 +20,7 @@
     </div>
     <nav class="bbw-nav h-bg--white">
         <div class="header bbw-nav-wrap h-maxwidth--1400 mx-auto position-relative">
+        <iscomment> <isinclude url="${URLUtils.url('Page-Locale')}" /> </iscomment>
             <div class="navbar-header brand primary-logo">
                 <a class="logo-home d-block h-100" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}"
                     title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
@@ -63,7 +64,6 @@
                 <iscomment>Login</iscomment>
                 <div class="utility-user position-relative fa-pull-right">
                     <isinclude url="${URLUtils.url('Account-Header')}" />
-                    <iscomment> <isinclude url="${URLUtils.url('Page-Locale')}" /> </iscomment>
                 </div>
                 <iscomment>Search</iscomment>
                 <div class="search custom-search d-none d-md-block position-absolute w-100 m-0 fa-pull-right">
