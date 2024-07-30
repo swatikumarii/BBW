@@ -5,7 +5,7 @@
         <tr>
             <td>
                 <div class="img-wrapper" style="width: 100%;text-align: center;margin: 0 auto;">
-                    <a class="product-ing-link" href="${pdict.urls.product}" style="display: block;width: 100%;">
+                    <a class="product-ing-link" href="${productObj.urls.product}" style="display: block;width: 100%;">
                         <img class="product-image" src="${product.images['medium'][0].absURL}"
                             alt="${product.productName}" title="${product.images['medium'][0].title}" itemprop="image" style="width: 100%;margin: 0 auto;" />
                     </a>
