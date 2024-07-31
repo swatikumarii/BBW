@@ -2,13 +2,13 @@
     <iscomment> Fragrance Card </iscomment>
     <isif condition="${product.fragranceDescription}">
         <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
-            <div class="fragrance card-head" id="fragrance">
+            <div class="fragrance card-head" id="pdp-fragrance">
                 <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
                     data-target="#collapse-fragrance" aria-expanded="true" aria-controls="collapse-fragrance">
                     ${Resource.msg('label.fragrance.details', 'product', null)}
                 </h2>
 
-                <div class="value content collapse" id="collapse-fragrance" aria-labelledby="fragrance"
+                <div class="value content collapse" id="collapse-fragrance" aria-labelledby="pdp-fragrance"
                     data-parent="#pdp-accordion">
                     <p class="h-font-size--16 h-clr--gray-4 card-body">
                         <isprint value="${product.fragranceDescription}" encoding="off" />

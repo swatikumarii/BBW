@@ -18,7 +18,7 @@
                                 id="filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
                                 <a class="ref-toggle mb-0 b-text-body-2-bold d-flex align-items-center justify-content-between"
                                     aria-label="filter" data-toggle="collapse"
-                                    href="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-') + '-desktop'}"
+                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-') + '-desktop'}"
                                     aria-expanded="false" aria-controls="filter" role="button">
                                     ${refinement.displayName}
                                     <i class="ref-toggle__icon d-inline-block"></i>

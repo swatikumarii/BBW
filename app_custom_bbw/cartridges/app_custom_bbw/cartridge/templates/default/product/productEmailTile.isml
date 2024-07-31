@@ -1,12 +1,11 @@
-<isset name="product" value="${pdict.product}" scope="page" />
+<isset name="product" value="${productObj.product}" scope="page" />
 <td align="center" style="padding:0 5px 20px;vertical-align:top;text-align:center;">
     <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" class="product-tile"
         style="width: 100%;max-width: 200px;margin: 0 auto;">
         <tr>
             <td>
                 <div class="img-wrapper" style="width: 100%;text-align: center;margin: 0 auto;">
-                    <a class="product-ing-link" href="${pdict.urls.product}"
-                        hreflang="${request.getLocale()}" style="display: block;width: 100%;">
+                    <a class="product-ing-link" href="${productObj.urls.product}" style="display: block;width: 100%;">
                         <img class="product-image" src="${product.images['medium'][0].absURL}"
                             alt="${product.productName}" title="${product.images['medium'][0].title}" itemprop="image" style="width: 100%;margin: 0 auto;" />
                     </a>

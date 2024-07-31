@@ -86,6 +86,9 @@ module.exports.render = function (context, modelIn) {
     model.link = content.link ? content.link : '#';
     model.customClass = content.customClass ? content.customClass : '';
     model.trackerClass = content.trackerClass ? content.trackerClass : '';
+    model.creativeId = content.creativeId ? content.creativeId : '';
+    model.creativeSlot = content.creativeSlot ? content.creativeSlot : '';
+    model.promotionId = content.promotionId ? content.promotionId : '';
 
     return new Template('experience/components/commerce_assets/imageAndTextPosition').render(model).text;
 };
