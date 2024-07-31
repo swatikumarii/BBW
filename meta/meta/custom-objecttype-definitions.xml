@@ -34,6 +34,26 @@
         </group-definitions>
     </custom-type>
 
+    <custom-type type-id="dokuPendingStatus">
+        <display-name xml:lang="x-default">Doku Payment Status</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <retention-days>1</retention-days>
+        <key-definition attribute-id="orderID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="dokuLog">
+                <display-name xml:lang="x-default">dokuLog</display-name>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+    </custom-type>
+
     <custom-type type-id="notifyBackInStock">
         <staging-mode>no-staging</staging-mode>
         <storage-scope>site</storage-scope>
