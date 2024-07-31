@@ -69,7 +69,6 @@ server.append('Show', function (req, res, next) {
 
 /**
  * Page-Locale : The Page-Locale endpoint is used as a remote include that renders the country selector ISML template
- * @name Base/Page-Locale
  * @function
  * @memberof Page
  */
@@ -83,7 +82,25 @@ server.get('ProfileLocale', function (req, res, next) {
     var allowedLocales = currentSite.allowedLocales;
     var currentLocale = Locale.getLocale(req.locale.id);
     var localeModel = new LocaleModel(currentLocale, allowedLocales, siteId);
-
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    var loggedInCustomer =
+        'currentCustomer' in req &&
+        'raw' in req.currentCustomer &&
+        req.currentCustomer.raw.authenticated;
+    var customerNo;
+    localeModel.preferredLocale = false;
+    if (loggedInCustomer) {
+        customerNo = req.currentCustomer.profile.customerNo;
+        if (customerNo) {
+            var customer = CustomerMgr.getCustomerByCustomerNumber(customerNo);
+            localeModel.preferredLocale =
+                'profile' in customer &&
+                'custom' in customer.profile &&
+                'preferredLocale' in customer.profile.custom
+                    ? customer.profile.custom.preferredLocale
+                    : false;
+        }
+    }
     var template = req.querystring.mobile
         ? '/account/components/mobileLocaleSelectorProfile'
         : '/account/components/localeSelectorProfile';
@@ -92,4 +109,37 @@ server.get('ProfileLocale', function (req, res, next) {
     next();
 });
 
+/**
+ * Page-SetDefaultLocale : The Page-SetDefaultLocale endpoint is used as a remote include that renders the country selector ISML template
+ * @function
+ * @memberof Page
+ */
+server.post('SetDefaultLocale', function (req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
+    var Transaction = require('dw/system/Transaction');
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    var selectedLocale = req.form.selectedLocale;
+    var loggedInCustomer =
+        'currentCustomer' in req &&
+        'raw' in req.currentCustomer &&
+        req.currentCustomer.raw.authenticated;
+    var customerNo;
+    if (loggedInCustomer) {
+        customerNo = req.currentCustomer.profile.customerNo;
+        if (selectedLocale && req.setLocale(selectedLocale)) {
+            var redirectUrl = URLUtils.url('Account-EditProfile').toString();
+            var customer = CustomerMgr.getCustomerByCustomerNumber(customerNo);
+            if (customer) {
+                Transaction.wrap(function () {
+                    customer.profile.custom.preferredLocale = selectedLocale;
+                });
+            }
+            res.json({
+                success: true,
+                redirectUrl: redirectUrl
+            });
+        }
+    }
+    next();
+});
 module.exports = server.exports();

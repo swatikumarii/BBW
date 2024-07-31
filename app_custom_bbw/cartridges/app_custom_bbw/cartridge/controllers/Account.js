@@ -154,6 +154,13 @@ server.append('Login', function (req, res, next) {
     var accountHelper = require('*/cartridge/scripts/helpers/accountHelpers');
     var email = req.form.loginEmail;
     var viewData = res.getViewData();
+    var preferredLocale;
+    if ('authenticatedCustomer' in viewData && viewData.authenticatedCustomer.authenticated) {
+        preferredLocale = viewData.authenticatedCustomer.profile.custom.preferredLocale;
+        if (preferredLocale) {
+            req.setLocale(preferredLocale);
+        }
+    }
     var remainingLoginAttempts = accountHelper.remainingLoginAttempts(email);
     if (remainingLoginAttempts === 'USER_NOT_FOUND') {
         viewData.error = [
