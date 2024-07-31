@@ -1,8 +1,10 @@
-<isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
-<isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="page" />
-<script src="${pdict.AdyenHelper.getCheckoutUrl()}" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="${pdict.AdyenHelper.getCheckoutCSS()}" />
-<link rel="stylesheet" href="${URLUtils.staticURL('/css/adyenCss.css')}" />
+<isif condition="${dw.system.Site.getCurrent.getCustomPreferenceValue(" enableAdyen")}">
+    <isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
+    <isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="page" />
+    <script src="${pdict.AdyenHelper.getCheckoutUrl()}" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="${pdict.AdyenHelper.getCheckoutCSS()}" />
+    <link rel="stylesheet" href="${URLUtils.staticURL('/css/adyenCss.css')}" />
+</isif>
 <isif
     condition="${request.getHttpQueryString() && request.getHttpQueryString().indexOf('amazonCheckoutSessionId') > -1} ">
     <script type="text/javascript">

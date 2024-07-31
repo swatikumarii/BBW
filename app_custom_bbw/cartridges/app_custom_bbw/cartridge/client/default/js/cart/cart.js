@@ -1560,16 +1560,18 @@ module.exports = function () {
     document.addEventListener('scroll', function () {
         var myDiv = document.getElementById('secure-checkout-mbl-btn');
         var targetElement = document.getElementById('cart-mobile-checkout');
-        var targetPosition = targetElement.getBoundingClientRect();
-        var windowHeight =
-            window.innerHeight || document.documentElement.clientHeight;
+        if (targetElement) {
+            var targetPosition = targetElement.getBoundingClientRect();
+            var windowHeight =
+                window.innerHeight || document.documentElement.clientHeight;
 
-        if (targetPosition.top <= windowHeight && targetPosition.top >= 0) {
-            myDiv.style.display = 'none';
-        } else if (targetPosition.top < 0) {
-            myDiv.style.display = 'none';
-        } else {
-            myDiv.style.display = 'block';
+            if (targetPosition.top <= windowHeight && targetPosition.top >= 0) {
+                myDiv.style.display = 'none';
+            } else if (targetPosition.top < 0) {
+                myDiv.style.display = 'none';
+            } else {
+                myDiv.style.display = 'block';
+            }
         }
     });
 

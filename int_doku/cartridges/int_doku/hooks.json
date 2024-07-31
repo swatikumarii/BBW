@@ -1,0 +1,20 @@
+{
+    "hooks": [
+        {
+            "name": "app.payment.form.processor.doku",
+            "script": "./cartridge/scripts/hooks/payment/processor/doku_form_processor"
+        },
+        {
+            "name": "app.payment.processor.doku",
+            "script": "./cartridge/scripts/hooks/payment/processor/doku"
+        },
+        {
+            "name": "app.payment.form.processor.ovo",
+            "script": "./cartridge/scripts/hooks/payment/processor/ovo_form_processor"
+        },
+        {
+            "name": "app.payment.processor.ovo",
+            "script": "./cartridge/scripts/hooks/payment/processor/ovo"
+        }
+    ]
+}

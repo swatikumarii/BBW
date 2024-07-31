@@ -126,15 +126,17 @@
                     </div>
 
                     <iscomment> Step 1: Customer </iscomment>
-                    <iscomment>Start of Afterpay</iscomment>
-                    <iscomment>Afterpay error message</iscomment>
-                    <isset name="afterpayError" value="${pdict.afterpayApiError}" scope="page" />
-                    <isif condition="${!empty(afterpayError)}">
-                        <div class="alert alert-danger " role="alert">
-                            <isprint value="${afterpayError}" encoding="on" />
-                        </div>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableAfterpay')}">
+                        <iscomment>Start of Afterpay</iscomment>
+                        <iscomment>Afterpay error message</iscomment>
+                        <isset name="afterpayError" value="${pdict.afterpayApiError}" scope="page" />
+                        <isif condition="${!empty(afterpayError)}">
+                            <div class="alert alert-danger " role="alert">
+                                <isprint value="${afterpayError}" encoding="on" />
+                            </div>
+                        </isif>
+                        <iscomment>End of Afterpay</iscomment>
                     </isif>
-                    <iscomment>End of Afterpay</iscomment>
                     <iscomment>We only allow edits for non-registered customers</iscomment>
                     <div class="checkout-blocks customer ${!pdict.customer.registeredUser ? 'guest' : 'registered'}">
                         <div class="h-maxwidth-perc-md--90 mx-auto mx-md-0 accordion">
@@ -209,9 +211,11 @@
                                     <iscomment>End of CashAppPay</iscomment>
                                     <iscomment>Start of Afterpay</iscomment>
                                 </div>
-                                <input id="afterpay-placeorder-button"
-                                    class="afterpay-widget-hideuntilready ${buttonPlaceOrderClass} btn btn-block ap-checkout-pay-tab-ecf ap-checkout-po-ecf"
-                                    type="button" />
+                                <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableAfterpay')}">
+                                    <input id="afterpay-placeorder-button"
+                                        class="afterpay-widget-hideuntilready ${buttonPlaceOrderClass} btn btn-block ap-checkout-pay-tab-ecf ap-checkout-po-ecf"
+                                        type="button" />
+                                </isif>
                                 <iscomment>End of Afterpay</iscomment>
                             </div>
                         </div>
@@ -277,9 +281,11 @@
                             <iscomment>End of CashAppPay</iscomment>
                             <iscomment>Start of Afterpay</iscomment>
                         </div>
-                        <input id="afterpay-placeorder-button"
-                            class="afterpay-widget-hideuntilready ${buttonPlaceOrderClass} btn btn-block ap-checkout-pay-tab-ecf ap-checkout-po-ecf"
-                            type="button" />
+                        <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableAfterpay')}">
+                            <input id="afterpay-placeorder-button"
+                                class="afterpay-widget-hideuntilready ${buttonPlaceOrderClass} btn btn-block ap-checkout-pay-tab-ecf ap-checkout-po-ecf"
+                                type="button" />
+                        </isif>
                         <iscomment>End of Afterpay</iscomment>
                     </div>
                 </div>
