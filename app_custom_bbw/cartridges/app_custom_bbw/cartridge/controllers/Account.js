@@ -156,7 +156,7 @@ server.append('Login', function (req, res, next) {
     var viewData = res.getViewData();
     var preferredLocale;
     if ('authenticatedCustomer' in viewData && viewData.authenticatedCustomer.authenticated) {
-        preferredLocale = viewData.authenticatedCustomer.profile.custom.preferredLocale;
+        preferredLocale = 'preferredLocale' in viewData.authenticatedCustomer.profile.custom ? viewData.authenticatedCustomer.profile.custom.preferredLocale : false;
         if (preferredLocale) {
             req.setLocale(preferredLocale);
         }
