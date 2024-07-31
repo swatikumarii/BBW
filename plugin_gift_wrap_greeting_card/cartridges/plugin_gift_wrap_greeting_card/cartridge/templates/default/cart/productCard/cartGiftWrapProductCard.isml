@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <div class="col-md-5 col-3 p-0">
+            <div class="col-md-5 col-3 pr-0">
                 <div class="d-flex">
                     <div class="">
                         <input type="number" class="quantity form-control h-fw--semibold border-0 p-0" data-uuid="${lineItem.UUID}"
