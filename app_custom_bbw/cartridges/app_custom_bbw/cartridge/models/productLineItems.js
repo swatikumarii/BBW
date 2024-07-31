@@ -207,14 +207,16 @@ function createProductLineItemsObject(allLineItems, view) {
             greetingCardPLI = newLineItem;
         } else if (newLineItem.isGiftWrapCategory) {
             giftwrapPLI = newLineItem;
-        } else if (
-            'isWrapped' in item.custom &&
-            'wrappedQuantity' in item.custom
-        ) {
-            newLineItem.wrap = {
-                isWrapped: item.custom.isWrapped,
-                wrappedQuantity: item.custom.wrappedQuantity
-            };
+        } else {
+            if (
+                'isWrapped' in item.custom &&
+                'wrappedQuantity' in item.custom
+            ) {
+                newLineItem.wrap = {
+                    isWrapped: item.custom.isWrapped,
+                    wrappedQuantity: item.custom.wrappedQuantity
+                };
+            }
             lineItems.push(newLineItem);
         }
         if (!('available' in newLineItem)){
