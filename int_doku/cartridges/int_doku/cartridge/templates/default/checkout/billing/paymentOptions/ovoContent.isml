@@ -15,7 +15,8 @@
                     <label class="form-control-label" for="ovoID">
                     <isprint value="${pdict.forms.billingForm.ovoFields.ovoID.label}" encoding="htmlcontent"/>
                     </label>
-                    <input type="text" class="form-control ovoID w-100"  id="ovoID" <isprint value=${pdict.forms.billingForm.ovoFields.ovoID.attributes} encoding="off"/> aria-describedby="ovoIDInvalidMessage"/>
+
+                    <input placeholder="Ovo ID" type="text" class="form-control ovoID w-100"  id="ovoID" <isprint value=${pdict.forms.billingForm.ovoFields.ovoID.attributes} encoding="off"/> aria-describedby="ovoIDInvalidMessage"/>
                                 <div class="invalid-feedback" id="ovoIDInvalidMessage"></div>
                 </div>
             </div>

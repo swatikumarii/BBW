@@ -1,6 +1,6 @@
 <!--- Generic Component--->
 <isinclude template="/components/modules" sf-toolkit="off" />
-<div class="tab-pane active doku-component-content mb-4" id="doku-component-content" role="tabpanel">
+<div class="tab-pane active doku-component-content mb-4 d-flex justify-content-between" id="doku-component-content" role="tabpanel">
     <fieldset class="payment-form-fields">
         <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}"
             value="Doku">
