@@ -1,5 +1,11 @@
 <div class="left-navigation-wrapper h-hidden-sm-down">
     <div class="left-navigation">
+        <isset name="categorySlotId" value="${pdict.productSearch.levelOneCategory.custom.slotId}" scope="page" />
+        <isif condition="${categorySlotId}">
+            <div class="left-navigation-top-offers" data-text="${Resource.msg('nav.top.offer', 'search', null)}">
+                <isinclude template="components/header/menuItemSlot" />
+            </div>
+        </isif>
         <isloop items="${pdict.productSearch.levelOneCategory.onlineSubCategories}" var="levelTwoCategory">
             <isif condition="${levelTwoCategory.custom && levelTwoCategory.custom.showInMenu}">
                 <div

@@ -2,7 +2,7 @@
     <div class="user">
         <div class="account-dropdown">
             <button class="user-btn border-0 h-bg--white p-0 dropdown-toggle" type="button" data-toggle="dropdown">
-                <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+                <img class="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" data-src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
                     alt="${Resource.msg('global.storename', 'common', null)}" width="36px" height="36px"/>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
@@ -19,7 +19,7 @@
             <button class="user-btn border-0 h-bg--white p-0 dropdown-toggle" id="myaccount"
                 aria-haspopup="true" type="button" data-toggle="dropdown"
                 aria-label="${Resource.msg('link.header.myaccount', 'account', null)}" role="button">
-                <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+                <img class="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" data-src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
                     alt="${Resource.msg('global.storename', 'common', null)}" width="36px" height="36px"/>
             </button>
 
