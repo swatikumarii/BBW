@@ -68,7 +68,7 @@
 			formid="phone"
 			label="label.input.phone.profile"
 			mandatory="true"
-        	regexp="^(0?[0-9\s]{8,13})$"
+        	regexp="^(?!0)[0-9\s]{8,13}$"
            	missing-error="error.phone.number"
            	parse-error="error.message.pattern.phone"
 			type="string"/>
@@ -133,6 +133,16 @@
 			formid="addtoemaillist"
 			label="description.checkbox.emailsignup.profile"
 			type="boolean"/>
+
+		<field
+            formid="dialCode"
+            type="string">
+        </field>
+
+		<field
+            formid="dialCodeCountry"
+            type="string">
+        </field>
 	</group>
 
 	<group formid="login">

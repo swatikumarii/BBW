@@ -237,7 +237,7 @@
                     id="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}"
                     aria-describedby="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"
                     data-missing-error="${Resource.msg('error.phone.missing', 'forms', null)}"
-                    data-pattern-mismatch="${Resource.msg('valid.phone.number', 'forms', null)}"
+                    data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
                     value="${shippingAddress.phone || ''}" <isprint value="${addressFields.phone.attributes}"
                     encoding="off" />>
                 <span class="info-icon">

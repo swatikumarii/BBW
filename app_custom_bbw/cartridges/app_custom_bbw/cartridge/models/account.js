@@ -22,6 +22,8 @@ function account(currentCustomer, addressModel, orderModel) {
             this.profile.salutation = currentCustomer.raw.profile.salutation;
             this.profile.isProfileComplete =
                 currentCustomer.raw.profile.custom.isProfileComplete;
+            this.profile.dialCode = currentCustomer.raw.profile.custom.dialCode ? currentCustomer.raw.profile.custom.dialCode : '61';
+            this.profile.dialCodeCountry = currentCustomer.raw.profile.custom.dialCodeCountry ? currentCustomer.raw.profile.custom.dialCodeCountry : 'au';
         }
     }
 };
