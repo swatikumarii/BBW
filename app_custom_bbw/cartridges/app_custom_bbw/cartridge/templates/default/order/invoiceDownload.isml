@@ -326,7 +326,7 @@
                     <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                         <div class="col-md-10">
                             <p class="h-font-size--16 h-clr--red-1" style=" margin-bottom: 0px;">
-                                <strong>${Resource.msg('label.merchandise.subtotal.excluding.taxes', 'cart', null)}:</strong>
+                                <strong>${Resource.msg('label.subtotal.excluding.taxes', 'cart', null)}:</strong>
                             </p>
                         </div>
                         <div class="col-md-2" style=" margin-left: 31px;">
@@ -340,7 +340,7 @@
                     <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                         <div class="col-md-10">
                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                                <strong>${Resource.msg('label.merchandise.subtotal', 'cart', null)}:</strong>
+                                <strong>${Resource.msg('label.subtotal.inclusive.taxes', 'cart', null)}:</strong>
                             </p>
                         </div>
                         <div class="col-md-2" style=" margin-left: 31px;">
@@ -356,7 +356,7 @@
                     <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                         <div class="col-md-10">
                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                                <strong>${Resource.msg('label.order.savings', 'common', null)}:</strong>
+                                <strong>${Resource.msg('label.order.total.discount', 'common', null)}:</strong>
                             </p>
                         </div>
                         <div class="col-md-2" style=" margin-left: 31px;">
@@ -408,7 +408,7 @@
                         <div class="row" style="display:flex; justify-content: flex-end;">
                             <div class="col-md-10">
                                 <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                                    <strong>${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}:</strong>
+                                    <strong>${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}:</strong>
                                 </p>
                             </div>
                             <div class="col-md-2" style=" margin-left: 38px;">
@@ -425,7 +425,7 @@
                         <div class="row" style="display:flex; justify-content: flex-end;">
                             <div class="col-md-10">
                                 <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                                    <strong>${Resource.msg('label.shipping.and.handling', 'cart', null)}:</strong>
+                                    <strong>${Resource.msg('label.shipping.fee.inclusive.tax', 'cart', null)}:</strong>
                                 </p>
                             </div>
                             <div class="col-md-2" style=" margin-left: 35px;">
@@ -501,11 +501,11 @@
                             <div class="col-md-10">
                                 <isif condition="${totalExclusiveTax}">
                                     <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
-                                        <strong>${Resource.msg('label.sales.tax', 'cart', null)}:</strong>
+                                        <strong>${Resource.msg('label.total.sales.tax.exclusive', 'cart', null)}:</strong>
                                     </p>
                                 <iselse/>
                                     <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
-                                        <strong>${Resource.msg('label.sales.tax.inclusive', 'cart', null)}:</strong>
+                                        <strong>${Resource.msg('label.total.sales.tax.inclusive', 'cart', null)}:</strong>
                                     </p>
                                 </isif>
                             </div>
@@ -530,7 +530,7 @@
                 <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                     <div class="col-md-10">
                         <p class="h-font-size--18 h-clr--black-1 h-fw--semibold" style=" margin-bottom: 0px;">
-                            <strong>${Resource.msg('label.estimatedtotal', 'cart', null)}:</strong>
+                            <strong>${Resource.msg('label.grand.total', 'cart', null)}:</strong>
                         </p>
                     </div>
                     <div class="col-md-2" style=" margin-left: 26px;">
