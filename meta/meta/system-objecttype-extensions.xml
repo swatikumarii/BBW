@@ -605,6 +605,14 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="dialCodeCountry">
+                <display-name xml:lang="x-default">Dial Code Country</display-name>
+                <description xml:lang="x-default">Dial Code Country</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -631,6 +639,7 @@
                 <attribute attribute-id="activatedDate"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="dialCodeCountry"/>
             </attribute-group>
             <attribute-group group-id="dynamicBadgesAttribute">
                 <display-name xml:lang="x-default">Dynamic Badges Attribute</display-name>
