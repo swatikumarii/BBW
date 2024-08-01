@@ -166,6 +166,8 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
         );
         if ('SID' in product.custom && product.custom.SID) {
             productLineItem.custom.SID = product.custom.SID;
+        } else {
+            productLineItem.custom.SID = '-';
         }
         // add category tree in product lineitem custom attribute
         var categoryTree = '';

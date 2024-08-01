@@ -31,7 +31,7 @@
 </div>
 <isif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === pdict.orderStatusVal.ORDER_STATUS_CREATED}">
     <div class="purhase-pending">
-        <p class="mb-0">${Resource.msg('message.order.pending', 'order', null)} <p>
+        <p class="mb-0">${Resource.msg('message.order.pending', 'order', null)} </p>
     </div>
 <iselseif condition="${pdict.order.orderStatus && (pdict.order.orderStatus.value === pdict.orderStatusVal.ORDER_STATUS_FAILED || pdict.order.orderStatus.value === pdict.orderStatusVal.ORDER_STATUS_CANCELLED)}">
     <div class="purhase-failed">
