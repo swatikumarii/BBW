@@ -489,6 +489,14 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="preferredLocale">
+                <display-name xml:lang="x-default">Preferred Locale</display-name>
+                <description xml:lang="x-default">Preferred Locale of the User</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="zipCode">
                 <display-name xml:lang="x-default">zipCode</display-name>
                 <type>string</type>
