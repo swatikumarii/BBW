@@ -263,10 +263,10 @@ function resetGreetingCardIsml() {
     var greetingCardMessageLimit = $('.js-personal-message-textarea').attr(
         'maxLength'
     );
+    var messageLen = $('.js-personal-message-textarea').val();
     $('.js-char-left').html(
         '(' +
-            (greetingCardMessageLimit -
-                $('.js-personal-message-textarea').val().length) +
+            (greetingCardMessageLimit - ((messageLen && messageLen > 0) ? messageLen.length: 0)) +
             ' / ' +
             greetingCardMessageLimit +
             ')'
