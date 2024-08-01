@@ -346,17 +346,31 @@ $(document).ready(function () {
             $('.greeting-block-options').css('display', 'none');
             $('.greeting-block').removeClass('open-greeting-card');
             if ($('.greeting-card').data('pid')) {
-                removeGreetingCardFromCart(
-                    $('#addGreetingCardProduct').data('removeurl'),
-                    $('.greeting-card').data('uuid'),
-                    $('.greeting-card').data('pid')
-                );
-                clearGreetingCardIsml();
+                $('#greeting-card-warning-modal').modal();
             }
+        }
+    });
+
+    $(document).on('click', '.greeting-card-warning-model-close', function () {
+        $('#greetingcard').prop('checked', true);
+    });
+
+    $(document).on('click', '.greeting-card-warning-modal-yes', function () {
+        if ($('.greeting-card').data('pid')) {
+            removeGreetingCardFromCart(
+                $('#addGreetingCardProduct').data('removeurl'),
+                $('.greeting-card').data('uuid'),
+                $('.greeting-card').data('pid')
+            );
+            clearGreetingCardIsml();
         }
     });
 
     $(document).on('click', '.greetingCardProductOptionsRadio', function () {
         $('.selected-greetingcard-price').html($(this).data('price'));
     });
+});
+
+$('body').on('cart:update', function () {
+    resetGreetingCardIsml();
 });

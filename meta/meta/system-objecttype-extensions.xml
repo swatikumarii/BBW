@@ -1914,6 +1914,45 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="paymentDueDate">
+                <display-name xml:lang="x-default">Payment Due Date</display-name>
+                <description xml:lang="x-default">Payment Due Date For Doku in Minutes</description>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="enableDoku">
+                <display-name xml:lang="x-default">Enable Doku Payment</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuClientID">
+                <display-name xml:lang="x-default">Doku Client ID</display-name>
+                <type>password</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuClientSecret">
+                <display-name xml:lang="x-default">Doku Client Secret</display-name>
+                <type>password</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuPaymentMethodTypes">
+                <display-name xml:lang="x-default">Doku Payment Method Types</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuRequest_Id">
+                <display-name xml:lang="x-default">Doku Request Id</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -2127,6 +2166,15 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="search">
                 <display-name xml:lang="x-default">Search</display-name>
                 <attribute attribute-id="collectionSort"/>
+            </attribute-group>
+            <attribute-group group-id="Doku">
+                <display-name xml:lang="x-default">Doku</display-name>
+                <attribute attribute-id="enableDoku"/>
+                <attribute attribute-id="dokuClientID"/>
+                <attribute attribute-id="dokuClientSecret"/>
+                <attribute attribute-id="dokuPaymentMethodTypes"/>
+                <attribute attribute-id="dokuRequest_Id"/>
+                <attribute attribute-id="paymentDueDate"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3228,6 +3276,27 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="dokuPaymentMethod">
+                <display-name xml:lang="x-default">doku Payment Method</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuRequestId">
+                <display-name xml:lang="x-default">doku Request Id</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokutransactionID">
+                <display-name xml:lang="x-default">doku transaction ID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -3396,6 +3465,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuLog">
+                <display-name xml:lang="x-default">dokuLog</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>

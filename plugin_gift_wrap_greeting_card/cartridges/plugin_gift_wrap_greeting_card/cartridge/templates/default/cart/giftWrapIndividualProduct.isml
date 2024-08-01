@@ -29,10 +29,10 @@
                             </div>
                             <div class="giftservice-products vertical-tile-list">
                                 <isloop items="${pdict.wrappableProducts}" var="wrappableProduct" status="loopstate">
-                                    <isloop begin="1" end="${wrappableProduct.quantity}">
+                                    <isloop begin="1" end="${wrappableProduct.quantity}" status="status">
                                         <div class="checkout-tile gift-wrap-individual-js">
                                             <div class="input-type-radio">
-                                                <input class="input-wrap-individual" type="checkbox"
+                                                <input class="input-wrap-individual" type="checkbox" ${status.index <= wrappableProduct.wrap.wrappedQuantity ? 'checked="checked"' : ''}
                                                     id="individual-lineItem-${loopstate.count}"
                                                     name="individual-lineItem" value="${wrappableProduct.id}" />
                                                 <label for="${wrappableProduct.id}">

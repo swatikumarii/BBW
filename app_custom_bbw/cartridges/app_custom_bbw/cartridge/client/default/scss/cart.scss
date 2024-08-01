@@ -781,6 +781,16 @@ footer {
     }
 }
 
+.greeting-card-message {
+    height: 32px;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+
 .promotion-callout {
     line-height: 1.25rem;
     letter-spacing: 0.005em;

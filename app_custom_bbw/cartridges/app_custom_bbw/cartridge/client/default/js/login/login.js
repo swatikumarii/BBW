@@ -37,20 +37,20 @@ window.submitRegistration = function (token) {
             reject();
         }
         if (token !== '') {
-            var form = $(".registration").closest('form');
-                setTimeout(function () {
-                    var element = form.find(
-                        '.form-control.is-invalid, .selectric-form-control.is-invalid'
+            var form = $('.registration').closest('form');
+            setTimeout(function () {
+                var element = form.find(
+                    '.form-control.is-invalid, .selectric-form-control.is-invalid'
+                );
+                if (element && element.length) {
+                    $('body,html').animate(
+                        {
+                            scrollTop: element.offset().top - 250
+                        },
+                        500
                     );
-                    if (element && element.length) {
-                        $('body,html').animate(
-                            {
-                                scrollTop: element.offset().top - 250
-                            },
-                            500
-                        );
-                    }
-                }, 100);
+                }
+            }, 100);
             $('.g-recaptcha').closest('form.registration').submit();
             resolve();
         }
@@ -166,7 +166,9 @@ function login() {
                                 isForgotUrl = true;
                             }
                         });
-                        if (isForgotUrl) {
+                        if ($('#sign-up-url').val() === window.location.href) {
+                            window.location.href = $('#my-account-url').val();
+                        } else if (isForgotUrl) {
                             window.location.href = $('.home-show-url').val();
                         } else if (data.redirectUrl.indexOf('Page-Show') !== -1) {
                             window.location.reload();
@@ -364,7 +366,7 @@ $(document).ready(function () {
     $(document.body).on('click', '.password-hide-show', function () {
         togglePasswordVisibility($('#newPasswordConfirm'), $(this));
     });
-    $(document).on("keyup",'#newPassword', function () {
+    $(document).on('keyup', '#newPassword', function () {
         validatePasswordFieldWithValidation($(this));
     });
     $('#newPassword').click(function () {
