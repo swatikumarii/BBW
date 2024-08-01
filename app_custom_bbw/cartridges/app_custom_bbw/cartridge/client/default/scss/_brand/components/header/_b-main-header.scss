@@ -470,51 +470,52 @@ header {
     }
 }
 
+.bbw-locale-links {
+    .nav-flag {
+        width: 2.5rem;
+        height: 1.875rem;
+        margin-right: 1.25rem;
+
+        @include media-up(md) {
+            width: 1.75rem;
+            height: 1.2rem;
+            margin-right: 0.9375rem;
+            border: 1px solid colour(black);
+        }
+    }
+
+    .dropdown-country-selector {
+        .bbw-country-link {
+            color: colour(gray);
+
+            &.selected-locale {
+                @include media-down(sm) {
+                    &::after {
+                        content: "✓";
+                        margin-left: 20px;
+                    }
+                }
+
+                @include media-up(md) {
+                    color: colour(black, 3);
+
+                    &:hover {
+                        color: colour(black, 3);
+                    }
+                }
+            }
+
+            &:hover {
+                color: colour(gray);
+            }
+        }
+    }
+}
+
 .in-id {
     header .bbw-nav .bbw-nav-wrap .primary-logo {
         @include media-up(md) {
             left: 28px;
-        }
-    }
-
-    .bbw-locale-links {
-        .nav-flag {
-            width: 2.5rem;
-            height: 1.875rem;
-            margin-right: 1.25rem;
-
-            @include media-up(md) {
-                width: 1.75rem;
-                height: 1.25rem;
-                margin-right: 0.9375rem;
-            }
-        }
-
-        .dropdown-country-selector {
-            .bbw-country-link {
-                color: colour(gray);
-
-                &.selected-locale {
-                    @include media-down(sm) {
-                        &::after {
-                            content: "✓";
-                            margin-left: 20px;
-                        }
-                    }
-
-                    @include media-up(md) {
-                        color: colour(black, 3);
-
-                        &:hover {
-                            color: colour(black, 3);
-                        }
-                    }
-                }
-
-                &:hover {
-                    color: colour(gray);
-                }
-            }
         }
     }
 }
@@ -523,47 +524,6 @@ header {
     header .bbw-nav .bbw-nav-wrap .primary-logo {
         @include media-up(md) {
             left: 28px;
-        }
-    }
-
-    .bbw-locale-links {
-        .nav-flag {
-            width: 2.5rem;
-            height: 1.875rem;
-            margin-right: 1.25rem;
-
-            @include media-up(md) {
-                width: 1.75rem;
-                height: 1.25rem;
-                margin-right: 0.9375rem;
-            }
-        }
-
-        .dropdown-country-selector {
-            .bbw-country-link {
-                color: colour(gray);
-
-                &.selected-locale {
-                    @include media-down(sm) {
-                        &::after {
-                            content: "✓";
-                            margin-left: 20px;
-                        }
-                    }
-
-                    @include media-up(md) {
-                        color: colour(black, 3);
-
-                        &:hover {
-                            color: colour(black, 3);
-                        }
-                    }
-                }
-
-                &:hover {
-                    color: colour(gray);
-                }
-            }
         }
     }
 }

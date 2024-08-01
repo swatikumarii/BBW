@@ -1,4 +1,4 @@
-<isif condition="${dw.system.Site.getCurrent.getCustomPreferenceValue(" enableAdyen")}">
+<isif condition="${dw.system.Site.getCurrent.getCustomPreferenceValue("enableAdyen")}">
     <isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
     <isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="page" />
     <script src="${pdict.AdyenHelper.getCheckoutUrl()}" type="text/javascript"></script><link rel="stylesheet" type="text/css" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
