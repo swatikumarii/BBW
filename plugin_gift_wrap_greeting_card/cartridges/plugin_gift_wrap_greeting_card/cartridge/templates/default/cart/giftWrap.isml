@@ -24,7 +24,7 @@
                 <div class="giftwrap-block-radio-wrapper">
                     <isif condition="${pdict.wrapItemMethod == constants.WRAP_TOGETHER_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants
                             .WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
-                        <iscomment> <div id="giftwrap-block-radio" class="giftwrap-block-radio gift-wrap-toggle">
+                        <div id="giftwrap-block-radio" class="giftwrap-block-radio gift-wrap-toggle">
                             <isif condition="${pdict.isDisableTogetherOption}">
                                 <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}"
                                     value="${constants.WRAP_TOGETHER_VALUE}" disabled />
@@ -38,7 +38,7 @@
                                 <span class="gift-wrap-price disabled"> (
                                     <span class="selected-giftwrap-product-price"></span> )</span>
                             </label>
-                        </div> </iscomment>
+                        </div>
                     </isif>
 
                     <isif condition="${pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants
@@ -51,8 +51,7 @@
                                 <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}"
                                     value="${constants.WRAP_INDIVIDUAL_VALUE}" />
                             </isif>
-                            <label class="wrapIndividuallyLabel" data-toggle="modal" data-target="#gift-wrap-modal"
-                                for="${constants.WRAP_INDIVIDUAL_ID}">
+                            <label class="wrapIndividuallyLabel" for="${constants.WRAP_INDIVIDUAL_ID}">
                                 <span>${Resource.msg('wrap.items.individually', 'giftWrap', null)}</span>
                                 <span class="gift-wrap-price disabled">(
                                     <span class="selected-giftwrap-product-price"></span>
@@ -115,4 +114,5 @@
             </div>
         </div>
     </div>
+    <isinclude template="cart/deleteGiftwrapModal" />
 </isif>

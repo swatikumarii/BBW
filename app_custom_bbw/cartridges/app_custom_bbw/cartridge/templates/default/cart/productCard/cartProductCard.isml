@@ -72,6 +72,9 @@
                                                                 .eGiftMessage : ''}</span>
                         </div>
                     </isif>
+                    <isif condition="${lineItem.greetingCardMessage}">
+                        <span class="label greeting-card-message">${Resource.msg('greeting.card.message', 'greetingCard', null)}${lineItem.greetingCardMessage}</span>
+                    </isif>
                 <!--- promotions --->
                 <div class="line-item-promo item-${lineItem.UUID}">
                     <isset name="cartPage" value="${true}" scope="page" />

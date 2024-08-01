@@ -72,8 +72,10 @@
                 <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-PasswordReset')}" />
                 <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-SetNewPassword')}" />
                 <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-DoSetNewPassword')}" />
-                <input type="hidden" class="cart-merge-url" value="${URLUtils.url('Cart-Merge')}">
-                <input type="hidden" class="redirect-url" value="${pdict.loginRedirectUrl}">
+                <input type="hidden" id="sign-up-url" value="${URLUtils.abs('Login-CreateAccount')}" />
+                <input type="hidden" id="my-account-url" value="${URLUtils.https('Account-Show')}" />
+                <input type="hidden" class="cart-merge-url" value="${URLUtils.url('Cart-Merge')}"/>
+                <input type="hidden" class="redirect-url" value="${pdict.loginRedirectUrl}"/>
                 <button type="button" class="merge btn h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0 mr-1" data-dismiss="modal" aria-label="Close">
                     ${Resource.msg('merge.cart.button1', 'login', null)}
                 </button>
