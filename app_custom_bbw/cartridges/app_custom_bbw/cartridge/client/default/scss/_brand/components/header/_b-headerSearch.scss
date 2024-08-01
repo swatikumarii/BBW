@@ -173,11 +173,25 @@
                     .add-to-cart {
                         display: none;
                     }
+
+                    .plp-simple-quantity {
+                        display: none !important;
+                    }
                 }
 
                 square-placement {
                     display: none;
                 }
+            }
+        }
+
+        div[id^="cq_recomm_slot-"] {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+
+            @include media-btw(sm, md) {
+                row-gap: 30px;
             }
         }
     }

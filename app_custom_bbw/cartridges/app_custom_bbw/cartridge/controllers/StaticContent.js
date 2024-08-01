@@ -282,4 +282,102 @@ server.get('ShippedEmailContent', function (req, res, next) {
     next();
 });
 
+server.get('GiftcardConfirmationEmailContent', function (req, res, next) {
+    var OrderModel = require('*/cartridge/models/order');
+    var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+    var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
+    var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
+    var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var Resource = require('dw/web/Resource');
+    var OrderMgr = require('dw/order/OrderMgr');
+    var Site = require('dw/system/Site');
+    var Mail = require('dw/net/Mail');
+    var Locale = require('dw/util/Locale');
+    var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
+    var emailMarkup = '';
+    var barcodeEmailMarkup = '';
+    var currentLocale = Locale.getLocale(req.locale.id);
+    var orderNo = encryptionHelper.decryptPin(
+        decodeURIComponent(req.querystring.token)
+    );
+    var lineItemID = encryptionHelper.decryptPin(
+        decodeURIComponent(req.querystring.uuid)
+    );
+    var order = OrderMgr.getOrder(orderNo);
+    var termsContent = ContentMgr.getContent('email-terms-and-conditions-block'); // Terms and Conditions Email Content
+    var youGotContent = ContentMgr.getContent('email-you-got-it-block'); // Terms and Conditions Email Content
+
+    if (!empty(termsContent) && termsContent.online) {
+        emailMarkup = termsContent.custom.body.markup;
+    }
+
+    if (!empty(youGotContent) && youGotContent.online) {
+        barcodeEmailMarkup = youGotContent.custom.body.markup;
+    }
+    var index = 0;
+    while (index < order.productLineItems.length) {
+        if (order.productLineItems[index].UUID === lineItemID) {
+            break;
+        }
+        index++;
+    }
+    if (
+        order.productLineItems[index] &&
+        !('custom' in order.productLineItems[index]
+            && order.productLineItems[index].custom.eGiftCardNumber
+        )
+    ) {
+        var giftCardAPIResult = qwikcilverApis.createGiftCards(
+            order,
+            index
+        );
+        // Send GiftCard Email
+        if (
+            giftCardAPIResult &&
+            giftCardAPIResult.status === 'OK' &&
+            giftCardAPIResult.object
+        ) {
+            var giftCard = JSON.parse(giftCardAPIResult.object);
+            if (giftCard.ResponseCode === 0) {
+                qwikcilverHelpers.saveGiftCardDetails(
+                    order,
+                    giftCard,
+                    'Created',
+                    index
+                );
+            }
+        }
+        order = OrderMgr.getOrder(orderNo);
+    }
+    var orderModel = new OrderModel(order, {
+        countryCode: currentLocale.country,
+        containerView: 'order'
+    });
+    var giftLineItem = order.productLineItems[index];
+    var context = {
+        recipientEmail: giftLineItem.custom.eGiftReceiverEmail,
+        recipientName: giftLineItem.custom.eGiftReceiver,
+        order: orderModel,
+        content: emailContentHelpers.getEmailContent(
+            'normal-footer',
+            'email-header'
+        ),
+        markup: emailMarkup,
+        barCodeMarkup: barcodeEmailMarkup,
+        giftcardNumber: index,
+        sendEmailNow: true
+    };
+    var recipientGiftEmail = new Mail();
+    recipientGiftEmail.addTo(giftLineItem.custom.eGiftReceiverEmail);
+    recipientGiftEmail.setSubject(Resource.msg('subject.order.egift.detail.email', 'giftcards', null));
+    recipientGiftEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
+    recipientGiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient'), 'text/html', 'UTF-8');
+    var receipientMail = recipientGiftEmail.send();
+    res.json({
+        emailStatus: receipientMail.status,
+        code: receipientMail.code
+    });
+    next();
+});
+
 module.exports = server.exports();

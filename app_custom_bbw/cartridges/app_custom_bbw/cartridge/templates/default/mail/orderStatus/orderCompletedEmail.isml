@@ -407,6 +407,21 @@
                             </tbody>
                         </table>
                     </td>
+                </tr><iscomment> Email einstein recommendations </iscomment>
+                <tr>
+                    <isif
+                        condition="${'emailRecommendationProducts' in pdict.order && pdict.order.emailRecommendationProducts &&
+                                   'deliveryEmailRecommendationProducts' in pdict.order.emailRecommendationProducts && pdict.order
+                                   .emailRecommendationProducts.deliveryEmailRecommendationProducts}">
+                        <div class="picked-just-header-wrapper mb-3">
+                            <h2 class="picked-just-header-wrapper__title text-center h-fw--bold h-clr--black-1 mb-3 h-font-size--24">
+                                ${Resource.msg('slot.recommendation.picked.for.you', 'common', null)}
+                            </h2>
+                        </div>
+                        <isset name="products" value="${pdict.order.emailRecommendationProducts.deliveryEmailRecommendationProducts}"
+                            scope="page" />
+                        <isinclude template="/product/emailGridTile" />
+                    </isif>
                 </tr>
                 <iscomment> Order Email Content Asset - Content </iscomment>
                 <tr style="padding: 0;">

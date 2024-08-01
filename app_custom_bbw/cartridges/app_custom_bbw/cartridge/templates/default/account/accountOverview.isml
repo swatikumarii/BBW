@@ -5,7 +5,7 @@
             ${Resource.msg('account.header', 'account', null)}
             <isprint value="${pdict.CurrentCustomer.profile.firstName}" />
 
-            <a class="pull-right h-font-size--12 h-clr--black-3" href="${URLUtils.url('Login-Logout')}" role="menuitem"
+            <a class="pull-right h-font-size--12 h-clr--black-3" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Login-Logout')}" role="menuitem"
                 tabindex="0">${Resource.msg('link.account.logout', 'account', null)}</a>
         </h1>
     </div>
@@ -13,7 +13,7 @@
         <ul class="account-options h-dsp--grid">
             <li>
                 <a title="${Resource.msg('label.info.title', 'account', null)} ${Resource.msg('label.info.title.span', 'account', null)}"
-                    href="${URLUtils.url('Account-EditProfile')}">
+                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Account-EditProfile')}">
                     <img class="pull-left" src="${URLUtils.staticURL('/images/account/account-your-info-icon.svg')}"
                         alt="${Resource.msg('label.info', 'account', null)}" />
                     <div class="info h-font-size--11 h-clr--gray">
@@ -26,7 +26,7 @@
 
             <li>
                 <a title="${Resource.msg('label.orderhistory.title', 'account', null)}"
-                    href="${URLUtils.url('Order-History')}">
+                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-History')}">
                     <img class="pull-left" src="${URLUtils.staticURL('/images/account/account-orders-icon.svg')}"
                         alt="${Resource.msg('label.orderhistory', 'account', null)}" />
                     <div class="info h-font-size--11 h-clr--gray">
@@ -38,7 +38,7 @@
 
             <li>
                 <a title="${Resource.msg('label.payment.title', 'account', null)}"
-                   href="${URLUtils.url('PaymentInstruments-List')}">
+                   hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('PaymentInstruments-List')}">
                     <img class="pull-left"
                         src="${URLUtils.staticURL('/images/account/desktop-my-payment-methods-icon.svg')}"
                         alt="${Resource.msg('label.payment', 'account', null)}" />
@@ -51,7 +51,7 @@
 
             <li>
                 <a title="${Resource.msg('label.address.title', 'account', null)}"
-                    href="${URLUtils.url('Address-List')}">
+                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Address-List')}">
                     <img class="pull-left" src="${URLUtils.staticURL('/images/account/account-addresses-icon.svg')}"
                         alt="${Resource.msg('label.address', 'account', null)}" />
                     <div class="info h-font-size--11 h-clr--gray">
@@ -63,7 +63,7 @@
 
             <li>
                 <a title="${Resource.msg('label.wishlist.title', 'account', null)}"
-                    href="${URLUtils.url('Wishlist-Show')}">
+                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Wishlist-Show')}">
                     <img class="pull-left" src="${URLUtils.staticURL('/images/account/account-wish-list-icon.svg')}"
                         alt="${Resource.msg('label.wishlist', 'account', null)}" />
                     <div class="info h-font-size--11 h-clr--gray">

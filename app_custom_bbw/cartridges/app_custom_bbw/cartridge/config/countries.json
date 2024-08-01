@@ -17,4 +17,12 @@
 {
     "id": "en_MY",
     "currencyCode": "MYR"
+},
+{
+    "id": "en_ID",
+    "currencyCode": "IDR"
+},
+{
+    "id": "in_ID",
+    "currencyCode": "IDR"
 }]

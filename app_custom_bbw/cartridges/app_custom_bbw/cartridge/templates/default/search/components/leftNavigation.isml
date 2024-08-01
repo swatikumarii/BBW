@@ -1,5 +1,11 @@
 <div class="left-navigation-wrapper h-hidden-sm-down">
     <div class="left-navigation">
+        <isset name="categorySlotId" value="${pdict.productSearch.levelOneCategory.custom.slotId}" scope="page" />
+        <isif condition="${categorySlotId}">
+            <div class="left-navigation-top-offers" data-text="${Resource.msg('nav.top.offer', 'search', null)}">
+                <isinclude template="components/header/menuItemSlot" />
+            </div>
+        </isif>
         <isloop items="${pdict.productSearch.levelOneCategory.onlineSubCategories}" var="levelTwoCategory">
             <isif condition="${levelTwoCategory.custom && levelTwoCategory.custom.showInMenu}">
                 <div
@@ -16,7 +22,7 @@
                                 <isif condition="${levelThreeCategory.custom && levelThreeCategory.custom.showInMenu}">
                                     <li>
                                         <a class="${pdict.productSearch.category.id === levelThreeCategory.ID ? 'active' : ''} h-font-size--16 d-block"
-                                            href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
+                                            hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
                                     </li>
                                 </isif>
                             </isloop>

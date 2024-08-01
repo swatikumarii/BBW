@@ -264,14 +264,14 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
                         merchantGiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient'), 'text/html', 'UTF-8');
                         logger.info('merchantGiftEmail: GC email status, message and code of order id {0} is {1} {2} {3}',  orderModel.orderNumber, merchantGiftEmail.status, merchantGiftEmail.message, merchantGiftEmail.code);
                     }
-                    if (giftLineItem.custom.eGiftReceiverEmail !== order.customerEmail) {
-                        var acknowledgeEgiftEmail = new Mail();
-                        acknowledgeEgiftEmail.setSubject(Resource.msg('subject.order.acknowledge.email', 'eGiftCard', null));
-                        acknowledgeEgiftEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
-                        acknowledgeEgiftEmail.addTo(order.customerEmail);
-                        acknowledgeEgiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/acknowledgeEgiftEmail'), 'text/html', 'UTF-8');
-                        acknowledgeEgiftEmail.send();
-                    }
+                    // if (giftLineItem.custom.eGiftReceiverEmail !== order.customerEmail) {
+                    //     var acknowledgeEgiftEmail = new Mail();
+                    //     acknowledgeEgiftEmail.setSubject(Resource.msg('subject.order.acknowledge.email', 'eGiftCard', null));
+                    //     acknowledgeEgiftEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
+                    //     acknowledgeEgiftEmail.addTo(order.customerEmail);
+                    //     acknowledgeEgiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/acknowledgeEgiftEmail'), 'text/html', 'UTF-8');
+                    //     acknowledgeEgiftEmail.send();
+                    // }
                     // Store Recipient's Email to check if Email is already sent or not
                     sentEmailRecipients.push(giftLineItem.custom.eGiftReceiverEmail);
                     // When Email sent successfully
@@ -304,6 +304,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
                 order.custom.eGiftEmailPending = true;
             }
         } catch (error) {
+            var a = error;
             logger.info('Error in GC status update or email is {0}', JSON.stringify(error));
         }
     });

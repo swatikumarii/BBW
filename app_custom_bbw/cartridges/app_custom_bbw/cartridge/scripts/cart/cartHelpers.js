@@ -471,7 +471,11 @@ function createFreeLineItem(lineItemContainer) {
             }
         }
         Transaction.wrap(function () {
-            productLineItem.custom.proratedPrice = productLineItem.proratedPrice.value;
+            try {
+                productLineItem.custom.proratedPrice = productLineItem.proratedPrice.value;
+                productLineItem.custom.proratedDiscount = Number((productLineItem.price.value - productLineItem.proratedPrice.value).toFixed(2));
+            } catch (error) {
+            }
         });
         if (breakLoop) {
             changes = true;
