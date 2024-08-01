@@ -226,11 +226,13 @@ exports.afterPATCH = function (order, orderInput) {
             markup: cancelEmailMarkup,
             footermarkup: cancelEmailFooterMarkup
         };
-        emailHelpers.sendEmail(
-            emailObj,
-            'mail/orderStatus/orderCancelledEmail',
-            cancelorderObject
-        );
+        if (!(order.custom && 'isEgiftOrder' in order.custom && order.custom.isEgiftOrder)) {
+            emailHelpers.sendEmail(
+                emailObj,
+                'mail/orderStatus/orderCancelledEmail',
+                cancelorderObject
+            );
+        }
     }
     // trigger ready to ship email
     if (readyToShip === true && order.custom.readyToShip !== true) {

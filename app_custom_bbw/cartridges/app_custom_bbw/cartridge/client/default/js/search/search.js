@@ -749,5 +749,13 @@ module.exports = {
                 $(this).closest('.plp-simple-quantity').hide();
             }
         });
+
+        $(function () {
+            $('.left-navigation-top-offers .category-top-items ul').removeClass('dropdown-menu');
+            $('.left-navigation-top-offers .category-top-items li').removeClass('dropdown-item');
+            var dataText = $('.left-navigation-top-offers').data('text');
+            $('.left-navigation-top-offers .category-top-offers span').text(dataText.toUpperCase()).css('font-weight', 'bold');
+        });
+
     }
 };
