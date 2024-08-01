@@ -661,8 +661,16 @@ server.append(
             currentBasket ? currentBasket.getAllProductQuantities().length : 0;
         var loginRedirectUrl = req.form.loginRedirectUrl;
         var loginRedirectQueryString = req.form.loginRedirectQueryString || false;
-        var queryStringArr =
-            loginRedirectQueryString ? loginRedirectQueryString.split('=') : [];
+        var queryStringAttrs =
+            loginRedirectQueryString ? loginRedirectQueryString.split('&') : [];
+        var queryStringArr = [];
+        for (var i = 0; i < queryStringAttrs.length; i++) {
+            var attrValue = queryStringAttrs[i].split('=');
+            if (attrValue && attrValue.length === 2) {
+                queryStringArr.push(attrValue[0]);
+                queryStringArr.push(attrValue[1]);
+            }
+        }
         loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl) ?
             'Account-Show' :
             loginRedirectUrl;
