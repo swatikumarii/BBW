@@ -651,6 +651,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="dialCodeCountry">
+				<display-name xml:lang="x-default">Country DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
 			<attribute-definition attribute-id="lastModified">
                 <display-name xml:lang="x-default">Last Modified</display-name>
                 <type>datetime</type>
@@ -1906,6 +1913,20 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="defaultDialCode">
+				<display-name xml:lang="x-default">Default Phone DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="defaultDialCodeCountry">
+				<display-name xml:lang="x-default">Default Phone DialCode Country</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1973,6 +1994,8 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showTopOffers"/>
                 <attribute attribute-id="showMinicartPopup"/>
                 <attribute attribute-id="homePageSchema"/>
+                <attribute attribute-id="defaultDialCode"/>
+                <attribute attribute-id="defaultDialCodeCountry"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>

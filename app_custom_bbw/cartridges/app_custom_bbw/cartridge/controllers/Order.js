@@ -543,7 +543,7 @@ server.append(
                 var customerData = {
                     firstName : billingAddress.firstName,
                     lastName: billingAddress.lastName,
-                    phone: billingAddress.phone,
+                    phone: billingAddress.dialCode + billingAddress.phone,
                     email: viewData.order.orderEmail
                 };
                 var crmCustomerID = capillaryAPI.createCustomer(customerData, order);

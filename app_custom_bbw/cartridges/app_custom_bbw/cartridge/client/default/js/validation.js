@@ -135,7 +135,7 @@ $(document).ready(function () {
      * @returns {boolean} valid or not
      */
     function validPhoneNumber(input) {
-        var pattern = /^(?!0)[0-9\s]{8,13}$/;
+        var pattern = /^(?!0)[0-9\s-]{8,13}$/;
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error

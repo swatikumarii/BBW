@@ -1,6 +1,5 @@
 <form action="${URLUtils.url('Address-SaveAddress', 'addressId', pdict.addressId)}" class="address-form" method="POST"
     <isprint value="${pdict.addressForm.attributes}" encoding="off" />>
-
 <!-- Address Title -->
 <div class="form-group">
     <div class="form-label-require d-flex align-items-center justify-content-between">
@@ -227,6 +226,7 @@
         </span> </iscomment>
     </div>
     <input type="tel" class="form-control addressPhoneNumber" id="phone"
+        placeholder="412 345 678"
         data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
         data-missing-error="${Resource.msg('error.phone.number', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.parse.phonevalid.form', 'forms', null)}" <isprint
@@ -234,6 +234,11 @@
     <div class="invalid-feedback"></div>
 </div>
 
+<input type="hidden" class="dialCode" <isprint value=${pdict.addressForm.dialCode.attributes} encoding="off" />
+/>
+<input type="hidden" class="dialCodeCountry" <isprint value=${pdict.addressForm.dialCodeCountry.attributes}
+    encoding="off" />
+/>
 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
 <!-- Cancel and Save Buttons -->

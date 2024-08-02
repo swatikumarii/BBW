@@ -93,13 +93,18 @@ $(document).ready(function () {
         addressAutocomplete.initializeBilling
     );
     var phone = document.querySelector('.shippingPhoneNumber');
-    intlTelInput(phone, {
+    var intl = intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au',
+        initialCountry: $('.dialCodeCountry').val(),
         countryOrder: ['au']
+    });
+    $('.shippingPhoneNumber').on('countrychange', function() {
+        var countryData = intl.getSelectedCountryData();
+        $('.dialCode').val(countryData.dialCode);
+        $('.dialCodeCountry').val(countryData.iso2);
     });
 
     $('.accordion-title').click(function () {

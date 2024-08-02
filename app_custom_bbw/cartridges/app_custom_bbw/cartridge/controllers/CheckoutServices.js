@@ -45,6 +45,8 @@ server.prepend('SubmitPayment', function (req, res, next) {
                     stateCode: paymentForm.addressFields.states.stateCode.value,
                     countryCode: paymentForm.addressFields.country.value,
                     phone: paymentForm.addressFields.phone.value,
+                    dialCode: paymentForm.addressFields.dialCode.value,
+                    dialCodeCountry: paymentForm.addressFields.dialCodeCountry.value
                 }
             }, null);
         }
@@ -86,7 +88,7 @@ server.append(
                         stateCode: paymentForm.addressFields.states.stateCode.value},
                     postalCode: paymentForm.addressFields.postalCode.value,
                     countryCode: paymentForm.addressFields.country.value,
-                    phone: paymentForm.addressFields.phone.value
+                    phone: paymentForm.addressFields.phone.value,
                 };
 
                 if (

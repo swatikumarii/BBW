@@ -54,30 +54,40 @@ function generateAddressName(address) {
  * @param {*} address - Address to copy from
  */
 function updateAddressFields(newAddress, address) {
-    newAddress.setAddress1(address.address1 || '');
-    newAddress.setAddress2(address.address2 || '');
-    newAddress.setCity(address.city || '');
-    newAddress.setFirstName(address.firstName || '');
-    newAddress.setLastName(address.lastName || '');
-    newAddress.setPhone(address.phone || '');
-    newAddress.setPostalCode(address.postalCode || '');
+    var Site = require('dw/system/Site');
+    var newCreatedAddress = newAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
+    var phoneNumber = '';
+    if (address.phone) {
+        phoneNumber = address.phone.replace(/[-\s]/g, '');
+    }
+    newCreatedAddress.setAddress1(address.address1 || '');
+    newCreatedAddress.setAddress2(address.address2 || '');
+    newCreatedAddress.setCity(address.city || '');
+    newCreatedAddress.setFirstName(address.firstName || '');
+    newCreatedAddress.setLastName(address.lastName || '');
+    newCreatedAddress.setPhone(phoneNumber);
+    newCreatedAddress.setPostalCode(address.postalCode || '');
 
     if (address.states && address.states.stateCode) {
-        newAddress.setStateCode(address.states.stateCode);
+        newCreatedAddress.setStateCode(address.states.stateCode);
     }
 
     if (address.country) {
-        newAddress.setCountryCode(address.country);
+        newCreatedAddress.setCountryCode(address.country);
     }
 
-    newAddress.setJobTitle(address.jobTitle || '');
-    newAddress.setPostBox(address.postBox || '');
-    newAddress.setSalutation(address.salutation || '');
-    newAddress.setSecondName(address.secondName || '');
-    newAddress.setCompanyName(address.companyName || '');
-    newAddress.setSuffix(address.suffix || '');
-    newAddress.setSuite(address.suite || '');
-    newAddress.setTitle(address.title || '');
+    newCreatedAddress.setJobTitle(address.jobTitle || '');
+    newCreatedAddress.setPostBox(address.postBox || '');
+    newCreatedAddress.setSalutation(address.salutation || '');
+    newCreatedAddress.setSecondName(address.secondName || '');
+    newCreatedAddress.setCompanyName(address.companyName || '');
+    newCreatedAddress.setSuffix(address.suffix || '');
+    newCreatedAddress.setSuite(address.suite || '');
+    newCreatedAddress.setTitle(address.title || '');
+    newCreatedAddress.custom.dialCode = address.dialCode || defaultDialCode;
+    newCreatedAddress.custom.dialCodeCountry = address.dialCodeCountry || defaultDialCodeCountry;
 }
 
 /**

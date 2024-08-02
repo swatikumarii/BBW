@@ -87,7 +87,7 @@ server.replace(
             req.session.privacyCache.set(currentBasket.defaultShipment.UUID, 'valid');
 
             // remove spaces between phone number digits
-            var phoneNumber = form.shippingAddress.addressFields.phone.value.replace(/\s+/g, '');
+            var phoneNumber = form.shippingAddress.addressFields.phone.value.replace(/[-\s]/g, '');
 
             result.address = {
                 firstName: form.shippingAddress.addressFields.firstName.value,
@@ -97,7 +97,9 @@ server.replace(
                 city: form.shippingAddress.addressFields.city.value,
                 postalCode: form.shippingAddress.addressFields.postalCode.value,
                 countryCode: form.shippingAddress.addressFields.country.value,
-                phone: phoneNumber
+                phone: phoneNumber,
+                dialCode: form.shippingAddress.addressFields.dialCode.value,
+                dialCodeCountry: form.shippingAddress.addressFields.dialCodeCountry.value
             };
             if (Object.prototype.hasOwnProperty
                 .call(form.shippingAddress.addressFields, 'states')) {

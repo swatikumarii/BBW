@@ -15,6 +15,7 @@ var OrderMgr = require('dw/order/OrderMgr');
 var HookMgr = require('dw/system/HookMgr');
 var Logger = require('dw/system/Logger');
 var loggerOrderConfirmation = Logger.getLogger('CheckoutHelpersOrder');
+var ShippingHelper = require('*/cartridge/scripts/checkout/shippingHelpers');
 
 /**
  * Validates payment
@@ -298,6 +299,8 @@ function placeOrder(order, fraudDetectionStatus) {
 function copyBillingAddressToBasket(address) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var billingAddress = currentBasket && currentBasket.billingAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
 
     Transaction.wrap(function () {
         if (!billingAddress) {
@@ -314,6 +317,13 @@ function copyBillingAddressToBasket(address) {
         var countryCode = address.countryCode;
         billingAddress.setCountryCode(countryCode.value);
         billingAddress.setPhone(address.phone);
+        if ('raw' in address) {
+            billingAddress.custom.dialCode = address.raw.custom.dialCode ? address.raw.custom.dialCode : defaultDialCode;
+            billingAddress.custom.dialCodeCountry = address.raw.custom.dialCodeCountry ? address.raw.custom.dialCodeCountry : defaultDialCodeCountry;
+        } else {
+            billingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
+            billingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
+        }
     });
 }
 
@@ -377,6 +387,115 @@ function createOrder(currentBasket) {
     return order;
 }
 
+/**
+ * Copies a CustomerAddress to a Shipment as its Shipping Address
+ * @param {dw.customer.CustomerAddress} address - The customer address
+ * @param {dw.order.Shipment} [shipmentOrNull] - The target shipment
+ */
+function copyCustomerAddressToShipment(address, shipmentOrNull) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var shipment = shipmentOrNull || currentBasket.defaultShipment;
+    var shippingAddress = shipment.shippingAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
+
+    Transaction.wrap(function () {
+        if (shippingAddress === null) {
+            shippingAddress = shipment.createShippingAddress();
+        }
+
+        shippingAddress.setFirstName(address.firstName);
+        shippingAddress.setLastName(address.lastName);
+        shippingAddress.setAddress1(address.address1);
+        shippingAddress.setAddress2(address.address2);
+        shippingAddress.setCity(address.city);
+        shippingAddress.setPostalCode(address.postalCode);
+        shippingAddress.setStateCode(address.stateCode);
+        var countryCode = address.countryCode;
+        shippingAddress.setCountryCode(countryCode.value);
+        shippingAddress.setPhone(address.phone);
+        if ('raw' in address) {
+            shippingAddress.custom.dialCode = address.raw.custom.dialCode ? address.raw.custom.dialCode : defaultDialCode;
+            shippingAddress.custom.dialCodeCountry = address.raw.custom.dialCodeCountry ? address.raw.custom.dialCodeCountry : defaultDialCodeCountry;
+        } else {
+            shippingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
+            shippingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
+        }
+    });
+}
+
+/**
+ * Copies a CustomerAddress to a Basket as its Billing Address
+ * @param {dw.customer.CustomerAddress} address - The customer address
+ */
+function copyCustomerAddressToBilling(address) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var billingAddress = currentBasket.billingAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
+
+    Transaction.wrap(function () {
+        if (!billingAddress) {
+            billingAddress = currentBasket.createBillingAddress();
+        }
+
+        billingAddress.setFirstName(address.firstName);
+        billingAddress.setLastName(address.lastName);
+        billingAddress.setAddress1(address.address1);
+        billingAddress.setAddress2(address.address2);
+        billingAddress.setCity(address.city);
+        billingAddress.setPostalCode(address.postalCode);
+        billingAddress.setStateCode(address.stateCode);
+        var countryCode = address.countryCode;
+        billingAddress.setCountryCode(countryCode.value);
+        if (!billingAddress.phone) {
+            billingAddress.setPhone(address.phone);
+        }
+        if ('raw' in address) {
+            billingAddress.custom.dialCode = address.raw.custom.dialCode ? address.raw.custom.dialCode : defaultDialCode;
+            billingAddress.custom.dialCodeCountry = address.raw.custom.dialCodeCountry ? address.raw.custom.dialCodeCountry : defaultDialCodeCountry;
+        } else {
+            billingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
+            billingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
+        }
+    });
+}
+
+/**
+ * Copies information from the shipping form to the associated shipping address
+ * @param {object} shippingData - the shipping data
+ * @param {dw.order.Shipment} [shipmentOrNull] - the target Shipment
+ */
+function copyShippingAddressToShipment(shippingData, shipmentOrNull) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var shipment = shipmentOrNull || currentBasket.defaultShipment;
+
+    var shippingAddress = shipment.shippingAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
+
+    Transaction.wrap(function () {
+        if (shippingAddress === null) {
+            shippingAddress = shipment.createShippingAddress();
+        }
+
+        shippingAddress.setFirstName(shippingData.address.firstName);
+        shippingAddress.setLastName(shippingData.address.lastName);
+        shippingAddress.setAddress1(shippingData.address.address1);
+        shippingAddress.setAddress2(shippingData.address.address2);
+        shippingAddress.setCity(shippingData.address.city);
+        shippingAddress.setPostalCode(shippingData.address.postalCode);
+        shippingAddress.setStateCode(shippingData.address.stateCode);
+        var countryCode = shippingData.address.countryCode.value ? shippingData.address.countryCode.value : shippingData.address.countryCode;
+        shippingAddress.setCountryCode(countryCode);
+        shippingAddress.setPhone(shippingData.address.phone);
+        shippingAddress.custom.dialCode = shippingData.address.dialCode ? shippingData.address.dialCode : defaultDialCode;
+        shippingAddress.custom.dialCodeCountry = shippingData.address.dialCodeCountry ? shippingData.address.dialCodeCountry : defaultDialCodeCountry;
+
+        ShippingHelper.selectShippingMethod(shipment, shippingData.shippingMethod);
+    });
+}
+
 base.placeOrder = placeOrder;
 base.validatePayment = validatePayment;
 base.sendConfirmationEmail = sendConfirmationEmail;
@@ -384,5 +503,8 @@ base.calculatePaymentTransaction = calculatePaymentTransaction;
 base.copyBillingAddressToBasket = copyBillingAddressToBasket;
 base.sendFailedOrderEmail = sendFailedOrderEmail;
 base.createOrder = createOrder;
+base.copyCustomerAddressToShipment = copyCustomerAddressToShipment;
+base.copyCustomerAddressToBilling = copyCustomerAddressToBilling;
+base.copyShippingAddressToShipment = copyShippingAddressToShipment;
 
 module.exports = base;

@@ -14,8 +14,7 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: $('.profileDialCodeCountry').val(),
-        countryOrder: ['au'],
-        formatAsYouType: false
+        countryOrder: ['au']
     });
     $('#profilePhone').on('countrychange', function() {
         var countryData = profileIti.getSelectedCountryData();
