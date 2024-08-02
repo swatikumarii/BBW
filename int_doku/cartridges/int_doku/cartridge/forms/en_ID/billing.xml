@@ -6,6 +6,8 @@
 
     <include formid="addressFields" name="address"/>
 
+    <field formid="saveAddress" label="checkout.saveAddress" type="boolean" mandatory="false" />
+
     <include formid="contactInfoFields" name="contactInfo"/>
 
     <field formid="paymentMethod" type="string" mandatory="true" />
