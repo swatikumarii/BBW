@@ -605,6 +605,14 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="dialCodeCountry">
+                <display-name xml:lang="x-default">Dial Code Country</display-name>
+                <description xml:lang="x-default">Dial Code Country</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -631,6 +639,7 @@
                 <attribute attribute-id="activatedDate"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="dialCodeCountry"/>
             </attribute-group>
             <attribute-group group-id="dynamicBadgesAttribute">
                 <display-name xml:lang="x-default">Dynamic Badges Attribute</display-name>
@@ -3297,6 +3306,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="emailRecommendationPids">
+                <display-name xml:lang="x-default">Recommendations Pids for email</display-name>
+                <description xml:lang="x-default">Recommendations Pids for email</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -3333,6 +3350,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="capillaryResponse"/>
                 <attribute attribute-id="capillaryFailed"/>
                 <attribute attribute-id="capillaryRequest"/>
+            </attribute-group>
+            <attribute-group group-id="emailRecommendation">
+                <display-name xml:lang="x-default">Email Recommendation</display-name>
+                <attribute attribute-id="emailRecommendationPids"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3787,6 +3808,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="emailRecommendationPids">
+                <display-name xml:lang="x-default">Recommendations Pids for email</display-name>
+                <description xml:lang="x-default">Recommendations Pids for email</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Giftcard">
@@ -3801,6 +3830,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="adyenGiftCards"/>
                 <attribute attribute-id="adyenGiftCardsOrderNo"/>
                 <attribute attribute-id="amazonExpressShopperDetails"/>
+            </attribute-group>
+            <attribute-group group-id="emailRecommendation">
+                <display-name xml:lang="x-default">Email Recommendation</display-name>
+                <attribute attribute-id="emailRecommendationPids"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
