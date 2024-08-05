@@ -246,7 +246,7 @@ function placeOrder(order, isDokuCallback, dokuRes, server, req, res, next) {
     transactionID = transaction[0].value;
   } else if (paymentService === 'VIRTUAL_ACCOUNT') {
     transaction = queryParam.virtual_account_payment.identifier.filter(function (e) {
-      return e.name === 'TRANSAKSI_ID' || e.name === 'TRANSACTION_ID' || e.name === 'REFERENCE' || e.name === 'BANK_REFERENCE' || e.name === 'TRANSACTION_NUMBER' || e.name === 'TRX_ID' || e.name === 'USER_REF_NO' || e.name === 'TRACE_NUMBER';
+      return e.name === 'TRANSAKSI_ID' || e.name === 'TRANSACTION_ID' || e.name === 'REFERENCE' || e.name === 'BANK_REFERENCE' || e.name === 'TRANSACTION_NUMBER' || e.name === 'TRX_ID' || e.name === 'USER_REF_NO' || e.name === 'TRACE_NUMBER' || e.name === 'VI_TRACENO';
     });
     transactionID = transaction[0].value;
   }
