@@ -142,4 +142,66 @@ server.post('SetDefaultLocale', function (req, res, next) {
     }
     next();
 });
+
+/**
+ * Page-SetLocale : This end point is used to change the locale, language and currency of the site, it is not used in the base site, but it is in the base cartridge
+ * @function
+ * @memberof Page
+ */
+server.replace('SetLocale', function (req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
+    var Currency = require('dw/util/Currency');
+    var Site = require('dw/system/Site');
+    var BasketMgr = require('dw/order/BasketMgr');
+    var Transaction = require('dw/system/Transaction');
+
+    var currentBasket = BasketMgr.getCurrentBasket();
+
+    var QueryString = server.querystring;
+    var currency;
+    var currentSite = Site.getCurrent();
+    var allowedCurrencies = currentSite.allowedCurrencies;
+    var queryStringObj = new QueryString(req.querystring.queryString || '');
+
+    if (Object.hasOwnProperty.call(queryStringObj, 'lang')) {
+        delete queryStringObj.lang;
+    }
+
+    if (req.setLocale(req.querystring.code)) {
+        currency = Currency.getCurrency(req.querystring.CurrencyCode);
+        if (allowedCurrencies.indexOf(req.querystring.CurrencyCode) > -1
+            && (req.querystring.CurrencyCode !== req.session.currency.currencyCode)) {
+            req.session.setCurrency(currency);
+
+            if (currentBasket && currency && currentBasket.currencyCode !== currency.currencyCode) {
+                Transaction.wrap(function () {
+                    currentBasket.updateCurrency();
+                });
+            }
+        }
+
+        var redirectUrl = URLUtils.url(req.querystring.action).toString();
+        var qsConnector = redirectUrl.indexOf('?') >= 0 ? '&' : '?';
+
+        redirectUrl = Object.keys(queryStringObj).length === 0
+            ? redirectUrl += queryStringObj.toString()
+            : redirectUrl += qsConnector + queryStringObj.toString();
+
+                
+        if (req.querystring.action === 'Page-Show' && queryStringObj && queryStringObj.cid) {
+            redirectUrl = URLUtils.https(req.querystring.action, 'cid', queryStringObj.cid).toString();
+            if (queryStringObj.cid === 'homepage') {
+                redirectUrl = URLUtils.https('Home-Show').toString();
+            }
+        }
+
+        res.json({
+            success: true,
+            redirectUrl: redirectUrl
+        });
+    } else {
+        res.json({ error: true }); // TODO: error message
+    }
+    next();
+});
 module.exports = server.exports();

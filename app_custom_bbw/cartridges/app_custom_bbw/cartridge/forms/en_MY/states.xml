@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
+		<options>
+			<option optionid="" 	label="resource.select" 		value=""/>
+
+			<!-- regular MY states -->
+			<option label="Johor" 		value="Johor"/>
+			<option label="Kedah" 		value="Kedah"/>
+			<option label="Kelantan" 		value="Kelantan"/>
+			<option label="Kuala Lumpur" 		value="Kuala Lumpur"/>
+			<option label="Labuan" 		value="Labuan"/>
+			<option label="Melaka" 		value="Melaka"/>
+			<option label="Victoria" 		value="Victoria"/>
+			<option label="Negeri Sembilan" 		value="Negeri Sembilan"/>
+			<option label="Pahang" 		value="Pahang"/>
+			<option label="Perak" 		value="Perak"/>
+			<option label="Perlis" 		value="Perlis"/>
+			<option label="Pulau Pinang" 		value="Pulau Pinang"/>
+			<option label="Putrajaya" 		value="Putrajaya"/>
+			<option label="Sabah" 		value="Sabah"/>
+			<option label="Sarawak" 		value="Sarawak"/>
+			<option label="Selangor" 		value="Selangor"/>
+			<option label="Terengganu" 		value="Terengganu"/>
+		</options>
+	</field>
+</form>
