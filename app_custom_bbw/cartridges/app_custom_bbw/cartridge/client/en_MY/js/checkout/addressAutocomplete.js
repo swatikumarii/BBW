@@ -5,7 +5,7 @@ module.exports = {
         var input = document.getElementById('shippingAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'AU' },
+            componentRestrictions: { country: 'MY' },
             fields: [
                 'formatted_address',
                 'geometry',
