@@ -52,8 +52,6 @@
                         </div>
                     </div>
 
-                    <isinclude url="${URLUtils.url('Page-ProfileLocale')}" sf-toolkit="on" />
-
                     <div class="account-profile">
                         <div class="profile-heading">
                             <h3 class="account-info-header h-clr--black-3 h-font-size--14 text-uppercase">
