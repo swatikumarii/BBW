@@ -15,7 +15,8 @@
     "upload": "sgmf-scripts --upload -- ",
     "uploadCartridge": "sgmf-scripts --uploadCartridge plugin_notify_back_in_stock",
     "compile:js": "sgmf-scripts --compile js",
-    "compile:scss": "sgmf-scripts --compile css"
+    "compile:scss": "sgmf-scripts --compile css",
+    "build": "npm run compile:scss"
   },
   "lint-staged": {
     "*.{js,ts}": [
