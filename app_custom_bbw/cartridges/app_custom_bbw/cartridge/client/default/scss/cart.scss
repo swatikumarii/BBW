@@ -782,7 +782,7 @@ footer {
 }
 
 .greeting-card-message {
-    height: 32px;
+    max-height: 42px;
     -webkit-line-clamp: 2;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -988,20 +988,18 @@ footer {
     }
 
     @keyframes slide-out {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(100%);
-            }
+        0% {
+            transform: translateY(0);
         }
+
+        100% {
+            transform: translateY(100%);
+        }
+    }
 
     &.show {
         .modal-dialog-bottom {
             animation: slide-in 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
         }
-
-        
     }
 }
