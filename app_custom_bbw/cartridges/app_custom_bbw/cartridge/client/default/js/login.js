@@ -115,7 +115,7 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'au',
-        countryOrder: ['au']
+        formatOnDisplay: false
     });
     var initCountryData = iti.getSelectedCountryData();
     $('.dialCode').val(initCountryData.dialCode);

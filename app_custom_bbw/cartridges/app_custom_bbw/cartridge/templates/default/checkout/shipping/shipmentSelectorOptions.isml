@@ -11,7 +11,7 @@
         data-address1="${address.address1||''}" data-address2="${address.address2||''}"
         data-city="${address.city||''}" data-state-code="${address.stateCode||''}"
         data-country-code="${address.countryCode.value||''}" data-postal-code="${address.postalCode||''}"
-        data-phone="${address.phone||''}">
+        data-phone="${address.phone||''}" data-dial-code="${address.dialCode||''}" data-dial-code-country="${address.dialCodeCountry||''}">
         ${address.ID ? '(' + address.ID + ')' : ''} - ${address.firstName || ''} ${address.lastName || ''} ${address.stateCode||''} ${address.postalCode||''}
         </option>
     </isloop>

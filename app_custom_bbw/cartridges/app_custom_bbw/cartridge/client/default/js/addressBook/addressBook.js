@@ -175,7 +175,7 @@ $(document).on('click', '#editAddress', function () {
                 strictMode: true,
                 showSelectedDialCode: true,
                 initialCountry: $('.addressDialCodeCountry').val(),
-                countryOrder: ['au']
+                formatOnDisplay: false
             });
             $('.editAddressPhone').on('countrychange', function() {
                 var countryData = editIntl.getSelectedCountryData();
@@ -276,7 +276,7 @@ module.exports = $.extend({}, base, {
             strictMode: true,
             showSelectedDialCode: true,
             initialCountry: 'au',
-            countryOrder: ['au']
+            formatOnDisplay: false
         });
         var initCountryData = iti.getSelectedCountryData();
         $('.dialCode').val(initCountryData.dialCode);

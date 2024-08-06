@@ -70,6 +70,7 @@ server.append(
     csrfProtection.validateAjaxRequest,
     function (req, res, next) {
         var BasketMgr = require('dw/order/BasketMgr');
+        var Transaction = require('dw/system/Transaction');
         var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
         var currentBasket = BasketMgr.getCurrentBasket();
         if (currentBasket) {
@@ -89,6 +90,8 @@ server.append(
                     postalCode: paymentForm.addressFields.postalCode.value,
                     countryCode: paymentForm.addressFields.country.value,
                     phone: paymentForm.addressFields.phone.value,
+                    dialCode: paymentForm.addressFields.dialCode.value,
+                    dialCodeCountry: paymentForm.addressFields.dialCodeCountry.value
                 };
 
                 if (
@@ -105,6 +108,12 @@ server.append(
                     );
                 }
             }
+            this.on('route:BeforeComplete', function () {
+                Transaction.wrap(function () {
+                    currentBasket.billingAddress.custom.dialCode = paymentForm.addressFields.dialCode.value;
+                    currentBasket.billingAddress.custom.dialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
+                });
+            });
         }
 
         next();

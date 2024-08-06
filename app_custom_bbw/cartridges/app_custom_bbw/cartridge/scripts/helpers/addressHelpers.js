@@ -17,7 +17,9 @@ function checkIfAddressStored(address, storedAddresses) {
             && storedAddresses[i].city === address.city
             && storedAddresses[i].firstName === address.firstName
             && storedAddresses[i].lastName === address.lastName
-            && storedAddresses[i].phone === address.phone) {
+            && storedAddresses[i].phone === address.phone
+            && storedAddresses[i].dialCode === address.dialCode
+            && storedAddresses[i].dialCodeCountry === address.dialCodeCountry) {
             return true;
         }
     }
@@ -110,11 +112,64 @@ function saveAddress(address, customer, addressId, shouldSaveAddress) {
 
 }
 
+/**
+ * Copy dwscript address object into JavaScript object
+ * @param {dw.order.OrderAddress} address - Address to be copied
+ * @returns {object} - Plain object that represents an address
+ */
+function copyShippingAddress(address) {
+    return {
+        address1: address.address1,
+        address2: address.address2,
+        city: address.city,
+        firstName: address.firstName,
+        lastName: address.lastName,
+        phone: address.phone,
+        postalCode: address.postalCode,
+        states: {
+            stateCode: address.stateCode
+        },
+        country: address.countryCode,
+        jobTitle: address.jobTitle,
+        postBox: address.postBox,
+        salutation: address.salutation,
+        secondName: address.secondName,
+        companyName: address.companyName,
+        suffix: address.suffix,
+        suite: address.suite,
+        title: address.title,
+        dialCode: address.custom.dialCode,
+        dialCodeCountry: address.custom.dialCodeCountry
+    };
+}
+
+/**
+ * Gather all addresses from shipments and return as an array
+ * @param {dw.order.Basket} order - current order
+ * @returns {Array} - Array of shipping addresses
+ */
+function gatherShippingAddresses(order) {
+    var collections = require('*/cartridge/scripts/util/collections');
+    var allAddresses = [];
+
+    if (order.shipments) {
+        collections.forEach(order.shipments, function (shipment) {
+            if (shipment.shippingAddress) {
+                allAddresses.push(copyShippingAddress(shipment.shippingAddress));
+            }
+        });
+    } else {
+        allAddresses.push(order.defaultShipment.shippingAddress);
+    }
+    return allAddresses;
+}
+
 module.exports = {
     checkIfAddressStored: checkIfAddressStored,
     generateAddressName: generateAddressName,
     saveAddress: saveAddress,
-    updateAddressFields: updateAddressFields
+    updateAddressFields: updateAddressFields,
+    gatherShippingAddresses: gatherShippingAddresses
 };
 
 Object.keys(base).forEach(function (prop) {

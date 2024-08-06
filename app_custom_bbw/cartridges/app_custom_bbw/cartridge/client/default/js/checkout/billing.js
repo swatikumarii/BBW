@@ -340,6 +340,8 @@ module.exports = {
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
             var postalCode = attrs.postalCode.toString();
+            var dialCodeCountry = attrs.dialCodeCountry;
+            var dialCode = attrs.dialCode;
             if (stateCode) {
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
@@ -375,6 +377,10 @@ module.exports = {
                         return false;
                     }
                 });
+            }
+            if (dialCodeCountry && dialCode) {
+                $('.payment-form .dialCode').val(dialCode);
+                $('.payment-form .dialCodeCountry').val(dialCodeCountry);
             }
 
             Object.keys(attrs).forEach(function (attr) {

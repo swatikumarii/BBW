@@ -99,8 +99,10 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: $('.dialCodeCountry').val(),
-        countryOrder: ['au']
+        formatOnDisplay: false
     });
+    // Attach the instance to a global variable
+    window.itiInstance = intl;
     $('.shippingPhoneNumber').on('countrychange', function() {
         var countryData = intl.getSelectedCountryData();
         $('.dialCode').val(countryData.dialCode);
