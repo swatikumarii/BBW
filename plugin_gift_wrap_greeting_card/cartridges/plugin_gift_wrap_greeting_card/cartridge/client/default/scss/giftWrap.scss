@@ -412,6 +412,9 @@
 
                             .vertical-tile-list {
                                 margin-bottom: 40px;
+                                max-height: 350px;
+                                min-height: 130px;
+                                overflow: auto;
                             }
 
                             .checkout-tile {
