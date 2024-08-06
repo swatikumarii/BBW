@@ -5,7 +5,7 @@ var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 
 $(document).ready(function () {
-    processInclude(require('base/profile/profile'));
+    processInclude(require('./profile/profile'));
     // intltel on profile page
     var profilePhone = document.querySelector('#profilePhone');
     var profileIti = intlTelInput(profilePhone, {
@@ -21,4 +21,5 @@ $(document).ready(function () {
         $('.profileDialCode').val(countryData.dialCode);
         $('.profileDialCodeCountry').val(countryData.iso2);
     });
+
 });

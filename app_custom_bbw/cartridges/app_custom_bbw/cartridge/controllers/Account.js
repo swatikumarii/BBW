@@ -156,6 +156,13 @@ server.append('Login', function (req, res, next) {
     var accountHelper = require('*/cartridge/scripts/helpers/accountHelpers');
     var email = req.form.loginEmail;
     var viewData = res.getViewData();
+    var preferredLocale;
+    if ('authenticatedCustomer' in viewData && viewData.authenticatedCustomer.authenticated) {
+        preferredLocale = 'preferredLocale' in viewData.authenticatedCustomer.profile.custom ? viewData.authenticatedCustomer.profile.custom.preferredLocale : false;
+        if (preferredLocale) {
+            req.setLocale(preferredLocale);
+        }
+    }
     var remainingLoginAttempts = accountHelper.remainingLoginAttempts(email);
     if (remainingLoginAttempts === 'USER_NOT_FOUND') {
         viewData.error = [
@@ -652,8 +659,16 @@ server.append(
             currentBasket ? currentBasket.getAllProductQuantities().length : 0;
         var loginRedirectUrl = req.form.loginRedirectUrl;
         var loginRedirectQueryString = req.form.loginRedirectQueryString || false;
-        var queryStringArr =
-            loginRedirectQueryString ? loginRedirectQueryString.split('=') : [];
+        var queryStringAttrs =
+            loginRedirectQueryString ? loginRedirectQueryString.split('&') : [];
+        var queryStringArr = [];
+        for (var i = 0; i < queryStringAttrs.length; i++) {
+            var attrValue = queryStringAttrs[i].split('=');
+            if (attrValue && attrValue.length === 2) {
+                queryStringArr.push(attrValue[0]);
+                queryStringArr.push(attrValue[1]);
+            }
+        }
         loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl) ?
             'Account-Show' :
             loginRedirectUrl;

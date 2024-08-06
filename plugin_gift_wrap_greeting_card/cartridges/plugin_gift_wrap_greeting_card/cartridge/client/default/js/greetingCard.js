@@ -263,10 +263,10 @@ function resetGreetingCardIsml() {
     var greetingCardMessageLimit = $('.js-personal-message-textarea').attr(
         'maxLength'
     );
+    var messageLen = $('.js-personal-message-textarea').val();
     $('.js-char-left').html(
         '(' +
-            (greetingCardMessageLimit -
-                $('.js-personal-message-textarea').val().length) +
+            (greetingCardMessageLimit - ((messageLen && messageLen > 0) ? messageLen.length: 0)) +
             ' / ' +
             greetingCardMessageLimit +
             ')'
@@ -346,17 +346,31 @@ $(document).ready(function () {
             $('.greeting-block-options').css('display', 'none');
             $('.greeting-block').removeClass('open-greeting-card');
             if ($('.greeting-card').data('pid')) {
-                removeGreetingCardFromCart(
-                    $('#addGreetingCardProduct').data('removeurl'),
-                    $('.greeting-card').data('uuid'),
-                    $('.greeting-card').data('pid')
-                );
-                clearGreetingCardIsml();
+                $('#greeting-card-warning-modal').modal();
             }
+        }
+    });
+
+    $(document).on('click', '.greeting-card-warning-model-close', function () {
+        $('#greetingcard').prop('checked', true);
+    });
+
+    $(document).on('click', '.greeting-card-warning-modal-yes', function () {
+        if ($('.greeting-card').data('pid')) {
+            removeGreetingCardFromCart(
+                $('#addGreetingCardProduct').data('removeurl'),
+                $('.greeting-card').data('uuid'),
+                $('.greeting-card').data('pid')
+            );
+            clearGreetingCardIsml();
         }
     });
 
     $(document).on('click', '.greetingCardProductOptionsRadio', function () {
         $('.selected-greetingcard-price').html($(this).data('price'));
     });
+});
+
+$('body').on('cart:update', function () {
+    resetGreetingCardIsml();
 });

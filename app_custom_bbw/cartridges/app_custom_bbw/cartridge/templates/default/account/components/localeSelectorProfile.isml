@@ -1,0 +1,44 @@
+<div class="account-profile">
+  <div class="profile-heading">
+    <h3 class="account-info-header h-clr--black-3 h-font-size--14 text-uppercase">
+      ${Resource.msg('label.profile.yourlocale', 'account', null)}</h3>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="account-info">
+    <div class="form-group">
+      <label class="form-control-label" for="email">
+              ${Resource.msg('label.profile.locale', 'account', null)}
+      </label>
+      <isif condition="${pdict.localeModel.locale.localeLinks.length > 0}">
+        <div class="form-group select-box">
+          <div class="dropdown country-selector" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0">
+
+            <div class="select-wrap w-100 dropdown-country-selector" aria-labelledby="dropdownCountrySelector">
+              <select class="form-control h-clr--black-1 w-100 locale-selector-dropdown">
+                <isloop items="${pdict.localeModel.locale.localeLinks}" var="localeLink">
+                <isif condition="${pdict.localeModel.preferredLocale === localeLink.localID}">
+                    <option class="" data-locale="${localeLink.localID}" data-currencycode="${localeLink.currencyCode}" selected='selected'>
+                      <i class="fi fi-${localeLink.country.toLowerCase()}"></i>
+                      ${localeLink.displayName}
+                    </option>
+                <iselse/>
+                  <option class="" data-locale="${localeLink.localID}" data-currencycode="${localeLink.currencyCode}">
+                    <i class="fi fi-${localeLink.country.toLowerCase()}"></i>
+                    ${localeLink.displayName}
+                  </option>
+                </isif>
+                </isloop>
+              </select>
+            </div>
+          </div>
+        </div>
+      </isif>
+      <div class="row justify-content-center form-group">
+        <button type="submit" name="save" class="btn btn-save text-uppercase btn-hover btn-primary locale-selector-button" data-action="${URLUtils.url('Page-SetDefaultLocale')}">
+          ${Resource.msg('button.update', 'account', null)}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

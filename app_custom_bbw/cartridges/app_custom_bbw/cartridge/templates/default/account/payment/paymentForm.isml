@@ -1,4 +1,5 @@
 <iscomment> ### Custom Adyen cartridge start ### </iscomment>
+<isif condition="${dw.system.Site.getCurrent.getCustomPreferenceValue("enableAdyen")}">
 <isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
 <isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="pdict" />
 <div>
@@ -25,9 +26,13 @@
                 <span>${Resource.msg('error.card.information.error', 'creditCard', null)}</span>
             </div>
             <script type="text/javascript">
-                if(window.location.href.indexOf("isAuthorised") > -1){
-                    document.getElementById("cardError").style.display = "block";
-                }
+                window.Configuration = {
+                    locale: '${request.locale}',
+                    clientKey: '${pdict.adyen.clientKey}',
+                    environment: '${pdict.adyen.environment}'
+                };
+                window.redirectUrl = "${URLUtils.url('PaymentInstruments-List')}";
+                window.sessionsUrl = "${URLUtils.https('Adyen-Sessions')}";
             </script>
             <input id="adyenStateData" type="hidden" name="${pdict.paymentForm.adyenStateData.htmlName}" />
             <input id="cardNumber" type="hidden" class="form-control cardNumber"
@@ -50,6 +55,32 @@
                     <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('PaymentInstruments-List')}"
                         class="btn-cancel">${Resource.msg('button.cancel', 'account', null)}</a>
                 </div>
+                <script type="text/javascript">
+                    if(window.location.href.indexOf("isAuthorised") > -1){
+                        document.getElementById("cardError").style.display = "block";
+                    }
+                </script>
+                <input id="adyenStateData" type="hidden" name="${pdict.paymentForm.adyenStateData.htmlName}" />
+                <input id="cardNumber" type="hidden" class="form-control cardNumber"
+                    name="${pdict.paymentForm.cardNumber.htmlName}">
+                <input id="cardType" type="hidden" class="form-control" name="${pdict.paymentForm.htmlName}">
+                <span id="errorLoadComponent"></span>
+                <div id="card"></div>
+
+                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+
+                <!-- Cancel and Save Buttons -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" name="save" class="btn btn-save btn-hover"
+                            value="add-new-payment">
+                            ${Resource.msg('button.save.card', 'account', null)}
+                        </button>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="${URLUtils.url('PaymentInstruments-List')}"
+                            class="btn-cancel">${Resource.msg('button.cancel', 'account', null)}</a>
+                    </div>
 
             </div>
         </form>
@@ -61,10 +92,20 @@
                     <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('PaymentInstruments-List')}"
                         class="btn btn-block btn-outline-primary">${Resource.msg('button.cancel', 'account', null)}</a>
                 </div>
-                <div class="col"></div>
-            </div>
-        </iselse>
-    </isif>
-</div>
-<isinclude template="adyenActionModal" />
+            </form>
+            <iselse>
+                <span>${Resource.msg('myAccount.SaveCard', 'adyen', null)}</span>
+                <br /><br />
+                <div class="row">
+                    <div class="col">
+                        <a href="${URLUtils.url('PaymentInstruments-List')}"
+                            class="btn btn-block btn-outline-primary">${Resource.msg('button.cancel', 'account', null)}</a>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </iselse>
+        </isif>
+    </div>
+    <isinclude template="adyenActionModal" />
+</isif>
 <iscomment> ### Custom Adyen cartridge end ### </iscomment>

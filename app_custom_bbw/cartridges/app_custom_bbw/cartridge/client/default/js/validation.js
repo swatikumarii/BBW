@@ -349,7 +349,7 @@ $('body').click(function (event) {
     }
 
     var form = $(this).closest('form.edit-profile-form');
-    if (!$(event.target).closest(form).length) {
+    if (!$(event.target).closest(form).length && !$(event.target).hasClass('locale-selector-dropdown')) {
         var submitButton = $('button.submit-edit-profile');
         var field = $('#password');
         if (field.val() === '') {

@@ -489,6 +489,14 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="preferredLocale">
+                <display-name xml:lang="x-default">Preferred Locale</display-name>
+                <description xml:lang="x-default">Preferred Locale of the User</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="zipCode">
                 <display-name xml:lang="x-default">zipCode</display-name>
                 <type>string</type>
@@ -597,6 +605,14 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="dialCodeCountry">
+                <display-name xml:lang="x-default">Dial Code Country</display-name>
+                <description xml:lang="x-default">Dial Code Country</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -623,6 +639,7 @@
                 <attribute attribute-id="activatedDate"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="dialCodeCountry"/>
             </attribute-group>
             <attribute-group group-id="dynamicBadgesAttribute">
                 <display-name xml:lang="x-default">Dynamic Badges Attribute</display-name>
@@ -678,6 +695,7 @@
                 <attribute attribute-id="email"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="dialCodeCountry"/>
                 <attribute attribute-id="addressType"/>
             </attribute-group>
         </group-definitions>
@@ -1582,6 +1600,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="countryName">
+                <display-name xml:lang="x-default">Country Name</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="enableQwikcilver">
                 <display-name xml:lang="x-default">Enable Qwikcilver</display-name>
                 <type>boolean</type>
@@ -1913,15 +1938,40 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="defaultDialCode">
-				<display-name xml:lang="x-default">Default Phone DialCode</display-name>
+            <attribute-definition attribute-id="paymentDueDate">
+                <display-name xml:lang="x-default">Payment Due Date</display-name>
+                <description xml:lang="x-default">Payment Due Date For Doku in Minutes</description>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="enableDoku">
+                <display-name xml:lang="x-default">Enable Doku Payment</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuClientID">
+                <display-name xml:lang="x-default">Doku Client ID</display-name>
+                <type>password</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuClientSecret">
+                <display-name xml:lang="x-default">Doku Client Secret</display-name>
+                <type>password</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuPaymentMethodTypes">
+                <display-name xml:lang="x-default">Doku Payment Method Types</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
-            <attribute-definition attribute-id="defaultDialCodeCountry">
-				<display-name xml:lang="x-default">Default Phone DialCode Country</display-name>
+            <attribute-definition attribute-id="dokuRequest_Id">
+                <display-name xml:lang="x-default">Doku Request Id</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -1986,6 +2036,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="softTimeout"/>
                 <attribute attribute-id="popupDuration"/>
                 <attribute attribute-id="countrySiteMapping"/>
+                <attribute attribute-id="countryName"/>
                 <attribute attribute-id="sendProfileCompletionReminderEmail"/>
                 <attribute attribute-id="sendProfileCompletionReminderPopup"/>
                 <attribute attribute-id="dangerousGoodsMessage"/>
@@ -2142,6 +2193,15 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="search">
                 <display-name xml:lang="x-default">Search</display-name>
                 <attribute attribute-id="collectionSort"/>
+            </attribute-group>
+            <attribute-group group-id="Doku">
+                <display-name xml:lang="x-default">Doku</display-name>
+                <attribute attribute-id="enableDoku"/>
+                <attribute attribute-id="dokuClientID"/>
+                <attribute attribute-id="dokuClientSecret"/>
+                <attribute attribute-id="dokuPaymentMethodTypes"/>
+                <attribute attribute-id="dokuRequest_Id"/>
+                <attribute attribute-id="paymentDueDate"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3243,6 +3303,35 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="dokuPaymentMethod">
+                <display-name xml:lang="x-default">doku Payment Method</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuRequestId">
+                <display-name xml:lang="x-default">doku Request Id</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokutransactionID">
+                <display-name xml:lang="x-default">doku transaction ID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="emailRecommendationPids">
+                <display-name xml:lang="x-default">Recommendations Pids for email</display-name>
+                <description xml:lang="x-default">Recommendations Pids for email</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -3279,6 +3368,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="capillaryResponse"/>
                 <attribute attribute-id="capillaryFailed"/>
                 <attribute attribute-id="capillaryRequest"/>
+            </attribute-group>
+            <attribute-group group-id="emailRecommendation">
+                <display-name xml:lang="x-default">Email Recommendation</display-name>
+                <attribute attribute-id="emailRecommendationPids"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3411,6 +3504,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dokuLog">
+                <display-name xml:lang="x-default">dokuLog</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
@@ -3727,6 +3826,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="emailRecommendationPids">
+                <display-name xml:lang="x-default">Recommendations Pids for email</display-name>
+                <description xml:lang="x-default">Recommendations Pids for email</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Giftcard">
@@ -3741,6 +3848,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="adyenGiftCards"/>
                 <attribute attribute-id="adyenGiftCardsOrderNo"/>
                 <attribute attribute-id="amazonExpressShopperDetails"/>
+            </attribute-group>
+            <attribute-group group-id="emailRecommendation">
+                <display-name xml:lang="x-default">Email Recommendation</display-name>
+                <attribute attribute-id="emailRecommendationPids"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
