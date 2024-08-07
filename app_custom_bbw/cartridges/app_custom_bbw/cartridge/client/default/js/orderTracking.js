@@ -18,7 +18,7 @@ function validateOrderNumber() {
  */
 function validateEmail() {
     var emailInput = $('#orderEmail');
-    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+    var pattern = /^[\w.%+-]+@[\w.-]+\.\w{2,}$/i;
     if (!emailInput.val()) {
         emailInput.addClass('is-invalid'); // Add class for input border error
         return false;
