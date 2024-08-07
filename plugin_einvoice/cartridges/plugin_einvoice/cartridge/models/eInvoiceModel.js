@@ -72,10 +72,10 @@ function eInvoice(order, refData, buyersData) {
   // Calculate tax summary based on whether shipping tax is enabled
   if (enableShippingTax && order.custom.isEgiftOrder == false) {
     taxSummery.total_excluding_tax =
-      order.getAdjustedMerchandizeTotalGrossPrice().value -
-      order.getAdjustedShippingTotalTax().value;
-    taxSummery.total_including_tax =
       order.getAdjustedMerchandizeTotalGrossPrice().value;
+    taxSummery.total_including_tax =
+        order.getAdjustedMerchandizeTotalGrossPrice().value +
+        order.getAdjustedShippingTotalTax().value;
     taxSummery.total_tax_amount = order.getAdjustedShippingTotalTax().value;
     taxSummery.total_net_amount =
       order.getAdjustedMerchandizeTotalGrossPrice().value -
