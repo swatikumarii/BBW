@@ -36,6 +36,7 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
 
     var category;
     var product;
+    var useAlternateUrl = true;
     if (pid) {
         product = ProductMgr.getProduct(pid);
         if (
@@ -45,6 +46,7 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
             product.custom.isEgiftCard
         ) {
             category = product.primaryCategory;
+            useAlternateUrl = false;
         } else {
             category = product.variant
                 ? product.masterProduct.primaryCategory
@@ -55,7 +57,7 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
     }
 
     if (category) {
-        if(category.custom.alternativeUrl && category.custom.alternativeUrl !== '') {
+        if(useAlternateUrl && category.custom.alternativeUrl && category.custom.alternativeUrl !== '') {
             breadcrumbs.push({
                 htmlValue: category.displayName,
                 url: category.custom.alternativeUrl
