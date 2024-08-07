@@ -72,7 +72,7 @@ function postSubmission(requestBody, tokeninfo, refData) {
             'eInvoice_json';
         service.addHeader('User-Agent', userAgent);
         service.setURL(url);
-        serviceResponse = service.call(requestBody.jsonBody);
+        serviceResponse = service.call(JSON.stringify(requestBody.jsonBody));
         return serviceResponse;
     } catch (error) {
         return serviceResponse;
