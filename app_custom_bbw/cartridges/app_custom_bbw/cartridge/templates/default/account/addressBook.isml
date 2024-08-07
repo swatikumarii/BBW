@@ -84,10 +84,10 @@
                                         <div>${address.address.city}, ${address.address.stateCode}
                                             ${address.address.postalCode}
                                         </div>
-                                        <isif condition="${address.address.district !== null}">
+                                        <isif condition="${address.address.district}">
                                             <div>${address.address.district}</div>
                                         </isif>
-                                        <isif condition="${address.address.subDistrict !== null}">
+                                        <isif condition="${address.address.subDistrict}">
                                             <div>${address.address.subDistrict}</div>
                                         </isif>
                                         <div>${address.address.countryCode.displayValue}</div>
