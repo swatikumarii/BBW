@@ -1,0 +1,186 @@
+
+.cust-modal-btn {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  min-height: auto;
+  padding: 0 2.8125em;
+}
+
+.cust-modal {
+  .modal-title {
+      border-bottom: 3px solid #f2f2f2;
+      letter-spacing: 0.005em;
+      line-height: 20px;
+      line-height: 1.25rem;
+      margin: 2.1875em 35px 1.5em;
+      padding-bottom: 0.375em;
+  }
+
+  .close {
+      background-image: url("../../images/account/UI-Close-dark.svg");
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: 15px;
+      border: 1px solid #f2f2f2;
+      height: 34px;
+      opacity: 1;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 34px;
+  }
+
+  .modal-body {
+      padding: 3px 35px 20px;
+
+      .select-address-wrap {
+          &:after {
+              background: url(../../images/UI-Carat.svg) no-repeat 50%;
+              background-size: 15px;
+              border-left: 1px solid #828282;
+              content: "";
+              height: 50px;
+              pointer-events: inherit;
+              position: absolute;
+              right: 0;
+              top: 0;
+              width: 35px;
+          }
+
+          select {
+              border: 1px solid #828282;
+              height: 50px;
+              appearance: none;
+              background: transparent;
+              cursor: pointer;
+              padding: 0 2.25rem 0 0.625rem;
+              z-index: 1;
+              border-radius: 0;
+          }
+      }
+  }
+}
+
+.required-e-invoice:after {
+  content: " *";
+  color: red;
+}
+
+/* Icons */
+.icon-e-invoice {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  fill: currentcolor;
+  cursor: pointer;
+}
+
+.icon-close-einvoice {
+  width: 24px;
+  height: 24px;
+  fill: #000; /* Default color for the close icon */
+  cursor: pointer;
+  transition: fill 0.3s ease; /* Smooth transition for color changes */
+}
+
+.icon-close-einvoice:hover {
+  fill: #ff0000; /* Change color on hover */
+}
+
+/* 1. Ensure this sits above everything when visible */
+.modal-e-invoice {
+    position: fixed;
+    z-index: 10000; /* 1 */
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-e-invoice.is-visible {
+    visibility: visible;
+}
+
+.modal-overlay-e-invoice {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 0%, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s;
+}
+
+.modal-e-invoice.is-visible .modal-overlay-e-invoice {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.modal-wrapper-e-invoice {
+  position: absolute;
+  z-index: 9999;
+  top: 12em;
+  left: 50%;
+  width: 32em;
+  margin-left: -16em;
+  background-color: #fff;
+  box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
+}
+
+.modal-transition-e-invoice {
+  transition: all 0.3s 0.12s;
+  transform: translateY(-10%);
+  opacity: 0;
+}
+
+.modal-e-invoice.is-visible .modal-transition-e-invoice {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-header-e-invoice,
+.modal-content-e-invoice {
+  padding: 1em;
+}
+
+.modal-header-e-invoice {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.06);
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.modal-close-e-invoice {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  color: #aaa;
+  background: none;
+  border: 0;
+}
+
+.modal-close-e-invoice:hover {
+  color: #777;
+}
+
+.modal-heading-e-invoice {
+  font-size: 1.125em;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.modal-content-e-invoice > *:first-child {
+  margin-top: 0;
+}
+
+.modal-content-e-invoice > *:last-child {
+  margin-bottom: 0;
+}
