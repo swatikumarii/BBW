@@ -15,5 +15,6 @@
     "files.insertFinalNewline": true,
     "[isml]": {
         "editor.defaultFormatter": "SqrTT.prophet"
-    }
+    },
+    "extension.prophet.sitecontext.selectedSiteID": ""
 }

@@ -13,8 +13,8 @@ function eInvoice(order, refData, buyersData) {
   const einvoiveStatesCode = require("*/cartridge/scripts/constant/einvoice_states");
 
   // Retrieve supplier information from custom preferences
-  const supplierInformation =
-    Site.getCurrent().getCustomPreferenceValue("eInvoice_supplier_info") || {};
+ var supplierInformation =
+    Site.getCurrent().getCustomPreferenceValue("eInvoice_supplier_info");
   supplierInformation = JSON.parse(supplierInformation);
 
   // Generate invoice number using the eRP_ID
