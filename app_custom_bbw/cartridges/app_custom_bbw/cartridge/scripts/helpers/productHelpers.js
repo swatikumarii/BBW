@@ -38,9 +38,18 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
     var product;
     if (pid) {
         product = ProductMgr.getProduct(pid);
-        category = product.variant
-            ? product.masterProduct.primaryCategory
-            : product.primaryCategory;
+        if (
+            'custom' in product &&
+            product.custom &&
+            'isEgiftCard' in product.custom &&
+            product.custom.isEgiftCard
+        ) {
+            category = product.primaryCategory;
+        } else {
+            category = product.variant
+                ? product.masterProduct.primaryCategory
+                : product.primaryCategory;
+        }
     } else if (cgid) {
         category = CatalogMgr.getCategory(cgid);
     }

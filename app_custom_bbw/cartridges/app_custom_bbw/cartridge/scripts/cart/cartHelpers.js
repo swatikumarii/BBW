@@ -195,17 +195,23 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
  * @param {Array} allLineItemsForProduct - allLineItemsForProduct
  * @param {number} indexOfMainItem - indexOfMainItem
  * @param {number} mergeQty - mergeQty
+ * @param {object} lineItemContainer - lineItemContainer
  */
 function callBackTransferToFree(
     productLineItem,
     qtyUpdateFreeItem,
     allLineItemsForProduct,
     indexOfMainItem,
-    mergeQty
+    mergeQty,
+    lineItemContainer
 ) {
-    Transaction.wrap(function(){
+    Transaction.wrap(function () {
         // reducing qty from free product
-        productLineItem.setQuantityValue(qtyUpdateFreeItem);
+        if (qtyUpdateFreeItem === 0) {
+            lineItemContainer.removeProductLineItem(productLineItem);
+        } else {
+            productLineItem.setQuantityValue(qtyUpdateFreeItem);
+        }
         // increasing the diff in main product
         allLineItemsForProduct[indexOfMainItem].setQuantityValue(mergeQty);
     });
@@ -239,16 +245,22 @@ function callBackTransferToMain (
  * @param {Array} allLineItemsForProduct - allLineItemsForProduct
  * @param {number} indexOfFreeItem - indexOfFreeItem
  * @param {number} qtyUpdateFreeItem - qtyUpdateFreeItem
+ * @param {object} lineItemContainer - lineItemContainer
  */
 function callBackMergeToFreeFromMain(
     productLineItem,
     productQtyAfterReduce,
     allLineItemsForProduct,
     indexOfFreeItem,
-    qtyUpdateFreeItem
+    qtyUpdateFreeItem,
+    lineItemContainer
 ) {
-    Transaction.wrap(function(){
-        productLineItem.setQuantityValue(productQtyAfterReduce);
+    Transaction.wrap(function () {
+        if (productQtyAfterReduce === 0) {
+            lineItemContainer.removeProductLineItem(productLineItem);
+        } else {
+            productLineItem.setQuantityValue(productQtyAfterReduce);
+        }
         var updatedQtyFreeItem =
             allLineItemsForProduct[indexOfFreeItem].quantityValue +
             qtyUpdateFreeItem;
@@ -272,7 +284,11 @@ function callBackCreateNewFreeItem(
     qtyUpdateFreeItem
 ) {
     Transaction.wrap(function(){
-        productLineItem.setQuantityValue(productQtyAfterReduce);
+        if (productQtyAfterReduce === 0) {
+            lineItemContainer.removeProductLineItem(productLineItem);
+        } else {
+            productLineItem.setQuantityValue(productQtyAfterReduce);
+        }
         var newProductLineItem = lineItemContainer.createProductLineItem(
             productLineItem.productID,
             lineItemContainer.defaultShipment
@@ -413,7 +429,8 @@ function createFreeLineItem(lineItemContainer) {
                         qtyUpdateFreeItem,
                         allLineItemsForProduct,
                         indexOfMainItem,
-                        mergeQty
+                        mergeQty,
+                        lineItemContainer
                     );
                     breakLoop = true;
                 }
@@ -455,7 +472,8 @@ function createFreeLineItem(lineItemContainer) {
                     productQtyAfterReduce,
                     allLineItemsForProduct,
                     indexOfFreeItem,
-                    qtyUpdateFreeItem
+                    qtyUpdateFreeItem,
+                    lineItemContainer
                 );
                 breakLoop = true;
             } else {
@@ -477,6 +495,7 @@ function createFreeLineItem(lineItemContainer) {
                 productLineItem.custom.proratedPrice = productLineItem.proratedPrice.value;
                 productLineItem.custom.proratedDiscount = Number((productLineItem.price.value - productLineItem.proratedPrice.value).toFixed(2));
             } catch (error) {
+                // eslint-disable-line no-empty
             }
         });
         if (breakLoop) {
