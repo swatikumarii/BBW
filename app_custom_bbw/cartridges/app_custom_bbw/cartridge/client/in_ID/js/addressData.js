@@ -1,6 +1,5 @@
 'use strict';
 
-alert('ID add data');
 module.exports = {
     Bali: {
         Gianyar: {

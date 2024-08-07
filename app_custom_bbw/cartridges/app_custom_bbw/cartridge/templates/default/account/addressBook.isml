@@ -84,6 +84,12 @@
                                         <div>${address.address.city}, ${address.address.stateCode}
                                             ${address.address.postalCode}
                                         </div>
+                                        <isif condition="${address.address.district !== null}">
+                                            <div>${address.address.district}</div>
+                                        </isif>
+                                        <isif condition="${address.address.subDistrict !== null}">
+                                            <div>${address.address.subDistrict}</div>
+                                        </isif>
                                         <div>${address.address.countryCode.displayValue}</div>
                                         <isif condition="${address.address.phone}">
                                             <div>${Resource.msg('lable.address.phone', 'account', null)}

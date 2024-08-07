@@ -4244,7 +4244,7 @@ module.exports = {
                     'Air Sebakul',
                     'Bukit',
                     'Jaya Karta',
-                    "Jum'at (Jumat)",
+                    'Jum’at (Jumat)',
                     'Kembang Seri',
                     'Lagan',
                     'Lagan Bungin',
@@ -7956,7 +7956,7 @@ module.exports = {
                 subDistrict: [
                     'Biluhu Barat',
                     'Biluhu Tengah',
-                    "Botubolu'o (Botuboluo)",
+                    'Botubolu’o (Botuboluo)',
                     'Huwongo',
                     'Lobuto',
                     'Lobuto Timur',
@@ -9228,7 +9228,7 @@ module.exports = {
                     'Bedaro',
                     'Datar',
                     'Mangun Jayo',
-                    "Pekan Jum'at",
+                    'Pekan Jum’at',
                     'Suka Jaya',
                     'Tanjung Agung',
                     'Tebat',
@@ -31321,7 +31321,7 @@ module.exports = {
                     'Karang Panasan',
                     'Karangnangka',
                     'Karpote',
-                    "Kojolan (Ko'olan)",
+                    'Kojolan (Ko’olan)',
                     'Lomaer',
                     'Lombang Daya',
                     'Lombang Laok',
@@ -31418,7 +31418,7 @@ module.exports = {
                     'Karang Asem',
                     'Klampis Barat',
                     'Klampis Timur',
-                    "Ko'ol",
+                    'Ko’ol',
                     'Larangan Glintong',
                     'Larangan Sorjan',
                     'Lergunong',
@@ -31427,7 +31427,7 @@ module.exports = {
                     'Muarah (Moarah)',
                     'Panyaksagan',
                     'Polongan',
-                    "Ra'as",
+                    'Ra’as',
                     'Tenggun Daya',
                     'Tobaddung',
                     'Tolbuk (Tolluk)',
@@ -31447,7 +31447,7 @@ module.exports = {
                     'Kokop',
                     'Lembung Gunung/Gunong',
                     'Mandung',
-                    "Mano'an",
+                    'Mano’an',
                     'Tlokoh',
                     'Tramok'
                 ],
@@ -31494,7 +31494,7 @@ module.exports = {
             },
             Labang: {
                 subDistrict: [
-                    "Ba'engas",
+                    'Ba’engas',
                     'Bringin (Bringen)',
                     'Bunajih',
                     'Jukong',
@@ -38832,7 +38832,7 @@ module.exports = {
                     'Pagagan',
                     'Prekbun',
                     'Sentol',
-                    "Sopa'ah",
+                    'Sopa’ah',
                     'Sumedangan',
                     'Tambung',
                     'Tanjung'
@@ -38856,7 +38856,7 @@ module.exports = {
                 ],
                 zipcode: [69352]
             },
-            "Palenga'an": {
+            'Palenga’an': {
                 subDistrict: [
                     'Akkor',
                     'Angsanah',
@@ -38933,10 +38933,10 @@ module.exports = {
                     'Badung',
                     'Banyu Bulu',
                     'Batu Kalangan',
-                    "Billa'an",
+                    'Billa’an',
                     'Campor',
                     'Candi Burung',
-                    "Gro'om",
+                    'Gro’om',
                     'Jambringin',
                     'Karanganyar',
                     'Klampar',
@@ -38975,7 +38975,7 @@ module.exports = {
                     'Larangan Tokol',
                     'Mangar',
                     'Panglegur',
-                    "Taro'an",
+                    'Taro’an',
                     'Terrak',
                     'Tlanakan',
                     'Tlesa'
@@ -41286,7 +41286,7 @@ module.exports = {
                     'Kesambi Rampak',
                     'Landangan',
                     'Peleyan',
-                    "Poka'an",
+                    'Poka’an',
                     'Seletreng',
                     'Wonokoyo'
                 ],
@@ -41788,7 +41788,7 @@ module.exports = {
                 ],
                 zipcode: [69465]
             },
-            "Ra'as": {
+            'Ra’as': {
                 subDistrict: [
                     'Alasmalang',
                     'Brakas',
@@ -41825,7 +41825,7 @@ module.exports = {
                     'Paleyat',
                     'Sadulang',
                     'Sakala',
-                    "Sase'el",
+                    'Sase’el',
                     'Saunten',
                     'Saur Saebus',
                     'Sepanjang',
@@ -43307,7 +43307,7 @@ module.exports = {
                     'Bukit Serayan',
                     'Marunsu',
                     'Pasti Jaya',
-                    "Saba'u",
+                    'Saba’u',
                     'Samalantan',
                     'Tumiang'
                 ],
@@ -43429,7 +43429,7 @@ module.exports = {
             'Batang Lupar': {
                 subDistrict: [
                     'Labian',
-                    "Labian Ira'ang",
+                    'Labian Ira’ang',
                     'Lanjak Deras',
                     'Melemba',
                     'Mensiau',
@@ -44498,7 +44498,7 @@ module.exports = {
                     'Parigi',
                     'Sabaka',
                     'Sailo',
-                    "Sala'as",
+                    'Sala’as',
                     'Salumang',
                     'Sampuro',
                     'Sei/Sungai Laki',
@@ -51640,7 +51640,7 @@ module.exports = {
                     'Intu Lingau',
                     'Jontai',
                     'Lakan Bilem',
-                    "Mu'ut",
+                    'Mu’ut',
                     'Sembuan',
                     'Sentalar',
                     'Temula',
@@ -62548,7 +62548,7 @@ module.exports = {
                 ],
                 zipcode: [23353]
             },
-            "Lhoknga (Lho'nga)": {
+            'Lhoknga (Lho’nga)': {
                 subDistrict: [
                     'Ateuk Paya',
                     'Kueh',
@@ -64862,7 +64862,7 @@ module.exports = {
                     'Kuala Peudawa Puntong',
                     'Kuta Blang',
                     'Kuta Lawah',
-                    "Meunasah Pu'uk",
+                    "Meunasah Pu’uk",
                     'Sampoimah',
                     'Seuneubok Bacee',
                     'Seuneubok Rambong',
@@ -68922,7 +68922,7 @@ module.exports = {
                     'Balohan',
                     'Beurawang',
                     'Cot Abeuk',
-                    "Cot Ba'U",
+                    "Cot Ba’U",
                     'Ie Meulee',
                     'Jaboi',
                     'Keunekai',
@@ -69362,7 +69362,7 @@ module.exports = {
                     'Mbawa',
                     'Mpili',
                     "Ndano Na'e",
-                    "O'o",
+                    "O’o",
                     'Palama',
                     'Rora'
                 ],
@@ -69400,7 +69400,7 @@ module.exports = {
             },
             Langgudu: {
                 subDistrict: [
-                    "Doro O'o",
+                    "Doro O’o",
                     'Dumu',
                     'Kalodu',
                     'Kangga',
@@ -69506,7 +69506,7 @@ module.exports = {
                     'Oi Maci',
                     'Parangina',
                     'Poja',
-                    "Rai O'i",
+                    "Rai O’i",
                     'Rasabou',
                     'Sangia',
                     'Sari',
@@ -69607,7 +69607,7 @@ module.exports = {
                     'Mangge Nae',
                     'Manggeasi',
                     'Mbawi',
-                    "O'o",
+                    "O’o",
                     'Potu',
                     'Sori Sakolo'
                 ],
@@ -96813,7 +96813,7 @@ module.exports = {
                     'Lawua',
                     'Lempelero',
                     'Moa',
-                    "O'o",
+                    "O’o",
                     'Palamaki',
                     'Palimakijawa (Pilimakujawa/Makujawa)',
                     'Salutome',
@@ -98071,7 +98071,7 @@ module.exports = {
             'Kulisusu Utara': {
                 subDistrict: [
                     'Bira',
-                    "E'erinere",
+                    "E’erinere",
                     'Kurolabu',
                     'Laanosangia (Lanosangia)',
                     'Labelete',
@@ -113824,9 +113824,9 @@ module.exports = {
                 ],
                 zipcode: [22873]
             },
-            "O'o'u (Oou)": {
+            "O’o’u (Oou)": {
                 subDistrict: [
-                    "Balohili O'o'u",
+                    "Balohili O’o’u",
                     "Bawosalo'o Bawoluo",
                     'Hilimbowo',
                     'Hilimbuasi',
@@ -113835,7 +113835,7 @@ module.exports = {
                     'Hilioru dua',
                     'Lolomaya',
                     'Simandraolo / Simandaolo',
-                    "Simandraolo O'ou",
+                    "Simandraolo O’ou",
                     'Suka Maju'
                 ],
                 zipcode: [22864]
