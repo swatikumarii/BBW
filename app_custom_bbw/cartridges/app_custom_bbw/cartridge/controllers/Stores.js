@@ -7,6 +7,7 @@
 var server = require('server');
 server.extend(module.superModule);
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+var Site = require('dw/system/Site');
 
 var storeHelpers = require('*/cartridge/scripts/helpers/storeHelpers');
 
@@ -38,7 +39,7 @@ server.append(
         var showMap = 'true';
         var horizontalView = 'true';
         var isForm = 'true';
-
+        var countryName = Site.current.getCustomPreferenceValue('countryName');
         var storeType = req.querystring.storeType;
 
         var stores = storeHelpers.getStores(
@@ -68,7 +69,8 @@ server.append(
             isForm: isForm,
             showMap: showMap,
             breadcrumbs: breadcrumbs,
-            geolocation: geolocation
+            geolocation: geolocation,
+            countryName: countryName
         };
 
         res.render('storeLocator/storeLocator', viewData);
@@ -132,7 +134,6 @@ server.append('FindStores', function (req, res, next) {
 server.get('Detail', server.middleware.https, consentTracking.consent, function(req, res, next){
     var storeId = req.querystring.storeId;
     var StoreMgr = require('dw/catalog/StoreMgr');
-    var Site = require('dw/system/Site');
     var storeMgrResult = StoreMgr.getStore(storeId);
     var StoreModel = require('*/cartridge/models/store');
     var storeModel = new StoreModel(storeMgrResult);  

@@ -9,7 +9,7 @@
                             title="${lineItem.images.small[0].title}" width="100" />
                     </div>
                 <iselse/>
-                    <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
                         <div class="item-image">
                             <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
                                 alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
@@ -49,7 +49,7 @@
                     <isif condition="${lineItem.isEgiftCard}">
                         <span class="d-block h-fw--semibold h-clr--black-1 h-font-size--16">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
                     <iselse/>
-                        <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
                             <span class="d-block h-fw--semibold h-clr--black-1 h-font-size--16">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
                         </a>
                     </isif>
@@ -94,6 +94,9 @@
                             ${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
                             .eGiftMessage : ''}</span>
                     </div>
+                </isif>
+                <isif condition="${lineItem.greetingCardMessage}">
+                    <span class="label greeting-card-message">${Resource.msg('greeting.card.message', 'greetingCard', null)}${lineItem.greetingCardMessage}</span>
                 </isif>
                 <iscomment> Quantity </iscomment>
                 <div class="d-flex flex-column justify-content-between">

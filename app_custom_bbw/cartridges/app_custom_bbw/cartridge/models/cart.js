@@ -7,11 +7,16 @@ var collections = require('*/cartridge/scripts/util/collections');
 var Money = require('dw/value/Money');
 
 var TotalsModel = require('*/cartridge/models/totals');
-var apUtilities = require('*/cartridge/scripts/util/afterpayUtilities');
 var Resource = require('dw/web/Resource');
 var URLUtils = require('dw/web/URLUtils');
 var PromotionMgr = require('dw/campaign/PromotionMgr');
 var ProductMgr = require('dw/catalog/ProductMgr');
+var Site = require('dw/system/Site');
+var isAfterPayAvailable = Site.getCurrent().getCustomPreferenceValue('enableAfterpay');
+var apUtilities;
+if (isAfterPayAvailable) {
+    apUtilities = require('*/cartridge/scripts/util/afterpayUtilities');
+}
 
 /**
  * Generates an object of approaching discounts
@@ -231,8 +236,10 @@ function CartModel(basket) {
     var totalsModel = new TotalsModel(basket);
     this.totalPrice =  totalsModel.subTotal;
     this.hasFreeShipping = getFreeShippingStatus(basket);
-    this.apEligible = apUtilities.brandUtilities.isAfterpayApplicable();
-    this.classname = 'cart-afterpay-message';
+    if (isAfterPayAvailable) {
+        this.apEligible = apUtilities.brandUtilities.isAfterpayApplicable();
+        this.classname = 'cart-afterpay-message';
+    }
     this.continueShoppingLink = URLUtils.url('Home-Show').toString();
     // get free item count
     this.freeItemCount = getFreeItemCount(this.items);

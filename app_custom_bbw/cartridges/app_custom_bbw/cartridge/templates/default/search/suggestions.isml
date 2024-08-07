@@ -3,7 +3,7 @@
     <input type="hidden" class="cart-page-url" value="${URLUtils.abs('Cart-Show')}" />
     <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
     <input type="hidden" class="searchTerms" value="${pdict.suggestions.searchTerms}" />
-    <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available}">
+    <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available && pdict.suggestions.product.length > 0}">
         <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
             <isif condition="${pdict.suggestions.product.phrases.length > 0}">
                 <isset name="phrase" value="${pdict.suggestions.product.phrases[0]}" scope="page"/>
@@ -28,7 +28,7 @@
                         </isif>
                     </div>
                 </div>
-                <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', phrase.value)}"
+                <a data-viewall="" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Search-Show', 'q', phrase.value)}"
                     class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
             <iselse/>
                 <div class="items" id="phrase-1-0" role="option">
@@ -39,7 +39,7 @@
                         </span>
                     </div>
                 </div>
-                <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', pdict.suggestions.searchTerms)}"
+                <a data-viewall="" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Search-Show', 'q', pdict.suggestions.searchTerms)}"
                     class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
             </isif>
         </div>
@@ -58,12 +58,16 @@
         <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
             <div class="row no-gutters header">
                 <div class="col">
-                    <isif condition="${pdict.suggestions.searchTerms && pdict.suggestions.searchTerms !== ''}">
-                        <p class="h-clr--black">
-                            <isprint
-                                value="${Resource.msgf('message.when.no.search.result.found', 'search', null, pdict.suggestions.searchTerms)}"
-                                encoding="off" />
-                        </p>
+                    <isif condition="${pdict.suggestions.searchTerms}">
+                        <isif condition="${pdict.suggestions.searchTerms.trim().length > 0}">
+                            <p class="h-clr--black">
+                                <isprint
+                                    value="${Resource.msgf('message.when.no.search.result.found', 'search', null, pdict.suggestions.searchTerms)}"
+                                    encoding="off" />
+                            </p>
+                        <iselse/>
+                            <h2 class="h-fw--bold">${Resource.msg('label.trending.now', 'search', null)}</h2>
+                        </isif>
                     <iselse/>
                         <h2 class="h-fw--bold">${Resource.msg('label.trending.now', 'search', null)}</h2>
                     </isif>
@@ -110,7 +114,7 @@
                             </isif>
                         </div>
                     </div>
-                    <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', phrase.value)}"
+                    <a data-viewall="" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Search-Show', 'q', phrase.value)}"
                         class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
                 <iselse/>
                     <div class="items" id="phrase-1-0" role="option">
@@ -121,7 +125,7 @@
                             </span>
                         </div>
                     </div>
-                    <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', pdict.suggestions.searchTerms)}"
+                    <a data-viewall="" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Search-Show', 'q', pdict.suggestions.searchTerms)}"
                         class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
                 </isif>
             </div>
@@ -136,7 +140,7 @@
                         <div
                             class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5">
                             <span class="search-popular-list__icon sub-list__item__icon d-inline-block"></span>
-                            <a href="${URLUtils.url('Search-Show', 'q', phrase.value)}"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'q', phrase.value)}"
                                 class="search-popular-list__link sub-list__item__link">${phrase.value}</a>
                         </div>
                     </isloop>
@@ -153,7 +157,7 @@
                         <div
                             class="search-history-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5">
                             <span class="search-history-list__icon sub-list__item__icon d-inline-block"></span>
-                            <a href="${phrase.url}"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${phrase.url}"
                                 class="search-history-list__link sub-list__item__link">${phrase.value}</a>
                         </div>
                     </isloop>
@@ -169,7 +173,7 @@
                             <div
                                 class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5">
                                 <span class="search-trending-list__icon sub-list__item__icon d-inline-block"></span>
-                                <a href="${phrase.url}"
+                                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${phrase.url}"
                                     class="search-popular-list__link sub-list__item__link">${phrase.value}</a>
                             </div>
                         </isloop>
@@ -190,7 +194,7 @@
                     <isloop items="${pdict.suggestions.category.categories}" var="category" status="listindex">
                         <div
                             class="search-category-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5">
-                            <a href="${category.url}" class="search-category-list__link sub-list__item__link">
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${category.url}" class="search-category-list__link sub-list__item__link">
                                 <span class="h-fw--semibold">${category.name}</span>
                                 <isif condition="${category.parentID !== 'root'}">
                                     <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)}
@@ -214,7 +218,7 @@
                     <isloop items="${pdict.suggestions.collections.categories}" var="collections" status="listindex">
                         <div
                             class="search-category-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5">
-                            <a href="${collections.url}" class="search-category-list__link sub-list__item__link">
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${collections.url}" class="search-category-list__link sub-list__item__link">
                                 <span class="h-fw--semibold">${collections.name}</span>
                                 <isif condition="${collections.parentID !== 'root'}">
                                     <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)}
@@ -236,7 +240,7 @@
                     <isloop items="${pdict.suggestions.content.contents}" var="content" status="listindex">
                         <div
                             class="search-content-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5">
-                            <a href="${content.url}"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${content.url}"
                                 class="search-content-list__link sub-list__item__link">${content.name}</a>
                         </div>
                     </isloop>

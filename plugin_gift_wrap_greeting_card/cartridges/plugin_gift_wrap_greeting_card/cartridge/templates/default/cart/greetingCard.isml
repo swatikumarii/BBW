@@ -1,9 +1,9 @@
-<isscript>
-    var assets = require('*/cartridge/scripts/assets.js');
-    assets.addCss('/css/greetingCard.css');
-    assets.addJs('/js/greetingCard.js');
-</isscript>
 <isif condition="${pdict.isGreetingCardEnable}">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/greetingCard.css');
+        assets.addJs('/js/greetingCard.js');
+    </isscript>
     <div class="greeting-block js-greetingcard">
         <div class="js-greetingcard-block">
             <div class="d-flex jusitfy-content-between">
@@ -85,4 +85,5 @@
             </div>
         </div>
     </div>
+    <isinclude template="cart/deleteGreetingCardModal" />
 </isif>

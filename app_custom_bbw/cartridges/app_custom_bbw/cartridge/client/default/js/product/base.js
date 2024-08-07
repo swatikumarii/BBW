@@ -788,7 +788,7 @@ module.exports = $.extend({}, base, {
                     pid: pid,
                     pidsObj: pidsObj,
                     childProducts: getChildProducts(),
-                    quantity: parseInt(base.getQuantitySelected($(this)), 10) || 1,
+                    quantity: $(this).closest('.product-tile').length ? 1 : parseInt(base.getQuantitySelected($(this)), 10) || 1,
                     egiftCardDetails: egiftCardDetailsObj
                 };
 
@@ -870,9 +870,9 @@ module.exports = $.extend({}, base, {
                             $('body').trigger('product:afterAddToCart', data);
 
 
-                            if (data.pdpPromotions) {
-                                currentAction.parents('.product-detail-wrapper').find('.promotions-wrap').empty().append(data.pdpPromotions);
-                            }
+                            // if (data.pdpPromotions) {
+                            //     currentAction.parents('.product-detail-wrapper').find('.promotions-wrap').empty().append(data.pdpPromotions);
+                            // }
 
                             if ($('.gift-card-form').length > 0) {
                                 $('.gift-card-form')[0].reset();

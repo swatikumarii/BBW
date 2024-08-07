@@ -28,22 +28,22 @@
             <isif condition="${pdict.isGiftProductAvailable}">
                 <div class="checkout-steps d-flex justify-content-between">
                     <div class="step-1 d-flex align-items-center flex-column h-width-perc-md--100 step-connect shipping-step">
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
                             <span class="step-text h-font-size--14 d-block">
                                 ${Resource.msg('checkout.step.billing', 'checkout', null)}
                             </span>
                         </a>
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
                             <span class="d-block step-count h-fw--semibold">
                                 ${Resource.msg('checkout.step.1', 'checkout', null)}
                             </span>
                         </a>
                     </div>
                     <div class="step-2 d-flex align-items-center flex-column h-width-perc-md--100 payment-step">
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
                             <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.review', 'checkout', null)}</span>
                         </a>
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
                             <span class="d-block step-count h-fw--semibold ">
                                 ${Resource.msg('checkout.step.2', 'checkout', null)}
                             </span>
@@ -53,34 +53,34 @@
             <iselse/>
                 <div class="checkout-steps d-flex justify-content-between">
                     <div class="step-1 d-flex align-items-center flex-column h-width-perc-md--100 step-connect shipping-step">
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
                             <span class="step-text h-font-size--14 d-block">
                                 ${Resource.msg('checkout.step.shipping', 'checkout', null)}
                             </span>
                         </a>
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
                             <span class="d-block step-count h-fw--semibold">
                                 ${Resource.msg('checkout.step.1', 'checkout', null)}
                             </span>
                         </a>
                     </div>
                     <div class="step-2 d-flex align-items-center flex-column h-width-perc-md--100 step-connect payment-step">
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
                             <span class="step-text h-font-size--14 d-block">
                                 ${Resource.msg('checkout.step.billing', 'checkout', null)}
                             </span>
                         </a>
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
                             <span class="d-block step-count h-fw--semibold">
                                 ${Resource.msg('checkout.step.2', 'checkout', null)}
                             </span>
                         </a>
                     </div>
                     <div class="step-3 d-flex align-items-center flex-column h-width-perc-md--100 place-order-step">
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
                             <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.review', 'checkout', null)}</span>
                         </a>
-                        <a href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
+                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
                             <span class="d-block step-count h-fw--semibold ">
                                 ${Resource.msg('checkout.step.3', 'checkout', null)}
                             </span>
@@ -117,7 +117,7 @@
 
                         <div class="col-md-12 text-center">
                             <a class="h-clr--white btn h-font-size--14 h-fw--semibold retry-payment-btn"
-                                href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
+                                hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
                                 <span class="step-text h-font-size--16 d-block">
                                     ${Resource.msg('label.go.back.btn', 'checkout', null)}
                                 </span>
@@ -126,15 +126,17 @@
                     </div>
 
                     <iscomment> Step 1: Customer </iscomment>
-                    <iscomment>Start of Afterpay</iscomment>
-                    <iscomment>Afterpay error message</iscomment>
-                    <isset name="afterpayError" value="${pdict.afterpayApiError}" scope="page" />
-                    <isif condition="${!empty(afterpayError)}">
-                        <div class="alert alert-danger " role="alert">
-                            <isprint value="${afterpayError}" encoding="on" />
-                        </div>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableAfterpay')}">
+                        <iscomment>Start of Afterpay</iscomment>
+                        <iscomment>Afterpay error message</iscomment>
+                        <isset name="afterpayError" value="${pdict.afterpayApiError}" scope="page" />
+                        <isif condition="${!empty(afterpayError)}">
+                            <div class="alert alert-danger " role="alert">
+                                <isprint value="${afterpayError}" encoding="on" />
+                            </div>
+                        </isif>
+                        <iscomment>End of Afterpay</iscomment>
                     </isif>
-                    <iscomment>End of Afterpay</iscomment>
                     <iscomment>We only allow edits for non-registered customers</iscomment>
                     <div class="checkout-blocks customer ${!pdict.customer.registeredUser ? 'guest' : 'registered'}">
                         <div class="h-maxwidth-perc-md--90 mx-auto mx-md-0 accordion">
@@ -209,9 +211,11 @@
                                     <iscomment>End of CashAppPay</iscomment>
                                     <iscomment>Start of Afterpay</iscomment>
                                 </div>
-                                <input id="afterpay-placeorder-button"
-                                    class="afterpay-widget-hideuntilready ${buttonPlaceOrderClass} btn btn-block ap-checkout-pay-tab-ecf ap-checkout-po-ecf"
-                                    type="button" />
+                                <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableAfterpay')}">
+                                    <input id="afterpay-placeorder-button"
+                                        class="afterpay-widget-hideuntilready ${buttonPlaceOrderClass} btn btn-block ap-checkout-pay-tab-ecf ap-checkout-po-ecf"
+                                        type="button" />
+                                </isif>
                                 <iscomment>End of Afterpay</iscomment>
                             </div>
                         </div>
@@ -277,9 +281,11 @@
                             <iscomment>End of CashAppPay</iscomment>
                             <iscomment>Start of Afterpay</iscomment>
                         </div>
-                        <input id="afterpay-placeorder-button"
-                            class="afterpay-widget-hideuntilready ${buttonPlaceOrderClass} btn btn-block ap-checkout-pay-tab-ecf ap-checkout-po-ecf"
-                            type="button" />
+                        <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableAfterpay')}">
+                            <input id="afterpay-placeorder-button"
+                                class="afterpay-widget-hideuntilready ${buttonPlaceOrderClass} btn btn-block ap-checkout-pay-tab-ecf ap-checkout-po-ecf"
+                                type="button" />
+                        </isif>
                         <iscomment>End of Afterpay</iscomment>
                     </div>
                 </div>

@@ -19,7 +19,7 @@
         <div class="button-container d-flex justify-content-end">
           <button type="button" class="btn btn-secondary btn-close border-0 h-font-size--16 h-fw--semibold text-uppercase align-items-center"
             data-dismiss="modal">${Resource.msg('label.close', 'wishlist', null)}</button>
-          <a id="copyWishlistUrl" data-copied="${Resource.msg('label.copied', 'wishlist', null)}" class="btn copy-url copy-code h-font-size--16 h-fw--semibold text-uppercase align-items-center" href="#" tabindex="0"
+          <a id="copyWishlistUrl" data-copied="${Resource.msg('label.copied', 'wishlist', null)}" class="btn copy-url copy-code h-font-size--16 h-fw--semibold text-uppercase align-items-center" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#" tabindex="0"
             data-analytics-trigger="share-love-it-list-copy-link">${Resource.msg('label.copy', 'wishlist', null)}</a>
         </div>
       </div>

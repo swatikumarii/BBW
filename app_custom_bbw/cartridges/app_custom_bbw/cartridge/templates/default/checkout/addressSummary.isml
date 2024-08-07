@@ -19,6 +19,12 @@
     <span class="city">
         <isif condition="${address && address.city}">${address.city},</isif>
     </span>
+    <span class="district">
+        <isif condition="${address && address.district}">${address.district},</isif>
+    </span>
+    <span class="subDistrict">
+        <isif condition="${address && address.subDistrict}">${address.subDistrict},</isif>
+    </span>
     <span class="stateCode">
        <isif condition="${address && address.stateCode}">${address.stateCode}</isif>
     </span>

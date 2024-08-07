@@ -156,7 +156,8 @@
     }
 }
 
-#rb_scheme { /* stylelint-disable-line */
+#rb_scheme {
+    /* stylelint-disable-line */
     margin-top: 13px;
     width: 19px;
     height: 18px;
@@ -198,7 +199,8 @@
     margin: 0 0.3125em;
 }
 
-#lb_scheme { /* stylelint-disable-line */
+#lb_scheme {
+    /* stylelint-disable-line */
     font-size: 18px;
     margin-top: 10px;
 }
@@ -207,7 +209,8 @@
     display: block;
 }
 
-#rb_googlepay { /* stylelint-disable-line */
+#rb_googlepay {
+    /* stylelint-disable-line */
     float: right;
     height: 18px;
     margin-right: 10px;
@@ -215,7 +218,8 @@
     width: 19px;
 }
 
-#lb_googlepay { /* stylelint-disable-line */
+#lb_googlepay {
+    /* stylelint-disable-line */
     font-size: 18px;
     margin-top: 10px;
 }
@@ -229,14 +233,15 @@
     cursor: pointer;
 }
 
-.afterpay-tab {
+.afterpay-tab,
+.ovo-component-content {
     background-color: colour(gray, 29);
     padding: 12px 15px;
     border: 1px solid colour(gray, 32);
     border-radius: 2px;
     cursor: pointer;
 
-    input {
+    input[type="radio"] {
         float: right;
         width: 30px;
         height: 18px;
@@ -250,6 +255,62 @@
     .afterpay-logo {
         width: var(--logo-badge-width, 106px) !important;
     }
+}
+
+.doku-component-content {
+    margin: 16px 0;
+    background-color: colour(gray, 29);
+    border: 1px solid colour(gray, 32);
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 12px 15px;
+
+    .payment-form-fields {
+        font-size: 18px;
+    }
+
+    input {
+        height: 18px;
+        width: 19px;
+    }
+}
+
+.ovo-component-content {
+    .ovoID {
+        background-color: colour(white) !important;
+        border: 3px solid colour(gray, 31);
+
+        &:focus {
+            border: 3px solid colour(gray, 31);
+        }
+    }
+}
+
+.ovo-modal {
+    background: $clr-black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 98;
+    opacity: 0.5;
+}
+
+.ovo-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    letter-spacing: 1.5px;
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: $clr-white;
+    z-index: 99;
+    opacity: 1;
 }
 
 .adyen-checkout__threeds2__challenge--02 {

@@ -1,5 +1,7 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
-
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled')}">
+    <isinclude template="components/gtm/gtmBodyScript" />
+</isif>
 <header class="header h-bg--white h-auto" id="header">
     <div class="header-banner slide-up">
         <div class="container-fluid px-0">
@@ -18,14 +20,19 @@
     </div>
     <nav class="bbw-nav h-bg--white">
         <div class="header bbw-nav-wrap h-maxwidth--1400 mx-auto position-relative">
+            <isset name="allowedLocales" value="${dw.system.Site.getCurrent().allowedLocales}" scope="page" />
+            <isif condition="${allowedLocales.length > 2}">
+                <isinclude url="${URLUtils.url('Page-Locale')}" />
+            </isif>
             <div class="navbar-header brand primary-logo">
-                <a class="logo-home d-block h-100" href="${URLUtils.url('Home-Show')}"
-                    title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
-                           'global.home', 'common', null))}">
+                <a class="logo-home d-block h-100" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                    href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
+                                                               'global.home', 'common', null))}">
                     <isset name="headerImage"
                         value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
                         scope="page" />
-                    <img width="100%" height="100%" src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/Logos-main.svg')}"
+                    <img width="100%" height="100%"
+                        src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/Logos-main.svg')}"
                         alt="${Resource.msg('global.storename', 'common', null)}" />
                 </a>
             </div>
@@ -40,28 +47,32 @@
                 <iscomment>Mobile Menu</iscomment>
                 <div id="mobile-custom-search"
                     class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center js-mobile-custom-search">
-                    <a href="" role="button">
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="" role="button">
                         <img class="" src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}"
                             alt="${Resource.msg('global.search', 'common', null)}" />
                     </a>
                 </div>
                 <iscomment>Minicart</iscomment>
-                <div class="minicart-overlay ${dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup') ? 'd-none': ''}"></div>
-                <div class="minicart ${dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup') ? 'popup': ''} fa-pull-right position-relative"
-                    data-action-url="${URLUtils.url('Cart-MiniCartShow')}" data-redirect-url="${URLUtils.url('Cart-Show')}">
+                <div
+                    class="minicart-overlay ${dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup') ? 'd-none' : ''}">
+                </div>
+                <div class="minicart ${dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup') ? 'popup' : ''} fa-pull-right position-relative"
+                    data-action-url="${URLUtils.url('Cart-MiniCartShow')}"
+                    data-redirect-url="${URLUtils.url('Cart-Show')}">
                     <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                 </div>
                 <iscomment>Offers</iscomment>
                 <div class="offers d-md-none fa-pull-right m-0">
-                    <a href="${URLUtils.url('Page-Show', 'cid', 'top-offers')}" title="offers">
-                        <img class="" width="20px" height="29px" src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}"
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                        href="${URLUtils.url('Page-Show', 'cid', 'top-offers')}" title="offers">
+                        <img class="" width="20px" height="29px"
+                            src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}"
                             alt="${Resource.msg('global.offers', 'common', null)}" />
                     </a>
                 </div>
                 <iscomment>Login</iscomment>
                 <div class="utility-user position-relative fa-pull-right">
                     <isinclude url="${URLUtils.url('Account-Header')}" />
-                    <iscomment> <isinclude url="${URLUtils.url('Page-Locale')}" /> </iscomment>
                 </div>
                 <iscomment>Search</iscomment>
                 <div class="search custom-search d-none d-md-block position-absolute w-100 m-0 fa-pull-right">
@@ -76,8 +87,10 @@
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
         </div>
     </nav>
-<div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
+    <div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
 </header>
 <iscomment> Search Suggestions - Overlay </iscomment>
 <iscontentasset aid="top-header-ticker-promo" />
-<iscomment> <div class="mobile-search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>/ </iscomment>
+<iscomment>
+    <div class="mobile-search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>/
+</iscomment>

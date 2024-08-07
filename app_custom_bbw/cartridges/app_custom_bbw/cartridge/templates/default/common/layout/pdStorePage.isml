@@ -23,7 +23,7 @@
         <!--<![endif]-->
         <isinclude template="/common/htmlHead" />
         <isif condition="${pdict.canonicalUrl}" >
-            <link rel="canonical" href="${pdict.canonicalUrl}"/>
+            <link rel="canonical" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.canonicalUrl}"/>
         </isif>
         <isactivedatahead/>
         <isinclude template="/components/schema" />
@@ -35,7 +35,7 @@
     <body>
         ${dw.system.HookMgr.callHook('app.template.beforeHeader', 'beforeHeader', pdict) || ''}
 
-        <div class="page" data-action="${pdict.action}" data-querystring="${pdict.queryString}" >
+        <div class="page ${request.getLocale().replace('_', '-').toLowerCase()}" data-action="${pdict.action}" data-querystring="${pdict.queryString ? pdict.queryString : ('cid='+pdict.page.ID)}" >
             <isinclude template="/components/header/pageHeader" />
             <div role="main" id="maincontent">
                 <isreplace/>
@@ -56,14 +56,5 @@
         </iscomment>
         ${dw.system.HookMgr.callHook('app.template.afterFooter', 'afterFooter', pdict) || ''}
         <isinclude url="${URLUtils.url('ConsentTracking-Check')}"/>
-        <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled')}">
-            <isinclude template="components/gtm/gtmScript" />
-        </isif>
-        <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('metaPixelEnabled')}">
-            <isinclude template="components/metaPixel/metaPixelScript" />
-        </isif>
-        <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('emarsysEnabled')}">
-            <isinclude template="components/emarsys/emarsysScript" />
-        </isif>
     </body>
 </html>
