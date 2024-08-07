@@ -672,6 +672,17 @@
                     display: none;
                 }
             }
+
+            .modal-body {
+                max-height: 600px;
+                overflow: auto;
+
+                .carousel-item img {
+                    max-height: 180px;
+                    object-fit: contain;
+                    margin: 0 auto;
+                }
+            }
         }
     }
 
