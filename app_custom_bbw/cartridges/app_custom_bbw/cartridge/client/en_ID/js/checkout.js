@@ -248,6 +248,37 @@ $(document).ready(function () {
                 }
             });
         }
+
+        var selectedDistrict = $('body')
+            .find('.shippingAddressDistrict')
+            .attr('data-selected');
+        if (selectedDistrict !== 'null') {
+            $('.shippingAddressDistrict option').each(function () {
+                if ($(this).val() === selectedDistrict) {
+                    $('.shippingAddressDistrict option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.shippingAddressDistrict').trigger('change');
+                    return false;
+                }
+            });
+        }
+
+        var selectedSubDistrict = $('body')
+            .find('.shippingAddressSubdistrict')
+            .attr('data-selected');
+        if (selectedSubDistrict !== 'null') {
+            $('.shippingAddressSubdistrict option').each(function () {
+                if ($(this).val() === selectedSubDistrict) {
+                    $('.shippingAddressSubdistrict option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body')
+                        .find('.shippingAddressSubdistrict')
+                        .trigger('change');
+                    return false;
+                }
+            });
+        }
+
         var selectedPostalCode = $('body')
             .find('.shippingZipCode')
             .attr('data-selected');
@@ -290,6 +321,33 @@ $(document).ready(function () {
                 }
             });
         }
+        var selectedBillingDistrict = $('body')
+            .find('.billingAddressDistrict')
+            .attr('data-selected');
+        if (selectedBillingDistrict !== 'null') {
+            $('.billingAddressDistrict option').each(function () {
+                if ($(this).val() === selectedBillingDistrict) {
+                    $('.billingAddressDistrict option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.billingAddressDistrict').trigger('change');
+                    return false;
+                }
+            });
+        }
+        var selectedBillingSubDistrict = $('body')
+            .find('.billingAddressSubdistrict')
+            .attr('data-selected');
+        if (selectedBillingSubDistrict !== 'null') {
+            $('.billingAddressSubdistrict option').each(function () {
+                if ($(this).val() === selectedBillingSubDistrict) {
+                    $('.billingAddressSubdistrict option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.billingAddressSubdistrict').trigger('change');
+                    return false;
+                }
+            });
+        }
+
         var selectedBillingPostalCode = $('body')
             .find('.billingZipCode')
             .attr('data-selected');
@@ -414,21 +472,76 @@ $('.shippingState').change(function () {
 $('.shippingAddressCity').change(function () {
     var selectedState = $('.shippingState').val();
     var selectedSuburb = $(this).val();
+    var districtDropdown = $('.shippingAddressDistrict');
+    districtDropdown.empty(); // clear existing options
+
+    if (addressData[selectedState] && addressData[selectedState][selectedSuburb]) 
+    {
+        districtDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select District ----'
+            }).attr('selected', 'selected')
+        );
+        var districtMappingObj = addressData[selectedState][selectedSuburb];
+        $.each(Object.keys(districtMappingObj), function (district) {
+            districtDropdown.append(
+                $('<option>', {
+                    value: Object.keys(districtMappingObj)[district],
+                    text: Object.keys(districtMappingObj)[district]
+                })
+            );
+        });
+        districtDropdown.trigger('change');
+    } else {
+        $(this).val('');
+        districtDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select City First----'
+            }).attr('selected', 'selected')
+        );
+        districtDropdown.trigger('change');
+    }
+});
+
+$('.shippingAddressDistrict').change(function () {
+    var selectedState = $('.shippingState').val();
+    var selectedSuburb = $('.shippingAddressCity').val();
+    var selectedDistrict = $(this).val();
+    var subDistrictDropdown = $('.shippingAddressSubdistrict');
     var zipDropdown = $('.shippingZipCode');
+    subDistrictDropdown.empty(); // clear existing options
     zipDropdown.empty(); // clear existing options
 
     if (
         addressData[selectedState] &&
-        addressData[selectedState][selectedSuburb]
+        addressData[selectedState][selectedSuburb] &&
+        addressData[selectedState][selectedSuburb][selectedDistrict]
     ) {
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select Sub District ----'
+            }).attr('selected', 'selected')
+        );
         zipDropdown.prepend(
             $('<option>', {
                 value: '',
                 text: '---- Select Zip Code ----'
             }).attr('selected', 'selected')
         );
-        var zipCodes = addressData[selectedState][selectedSuburb];
-        zipCodes.forEach((zip) => {
+        var districtMappingObj =
+            addressData[selectedState][selectedSuburb][selectedDistrict];
+        districtMappingObj['subDistrict'].forEach((subDistrict) => {
+            subDistrictDropdown.append(
+                $('<option>', {
+                    value: subDistrict,
+                    text: subDistrict
+                })
+            );
+        });
+        districtMappingObj['zipcode'].forEach((zip) => {
             zipDropdown.append(
                 $('<option>', {
                     value: zip,
@@ -436,16 +549,21 @@ $('.shippingAddressCity').change(function () {
                 })
             );
         });
-        zipDropdown.trigger('change');
+        subDistrictDropdown.trigger('change');
     } else {
         $(this).val('');
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select District First----'
+            }).attr('selected', 'selected')
+        );
         zipDropdown.prepend(
             $('<option>', {
                 value: '',
-                text: '---- Select City First----'
+                text: '---- Select District First----'
             }).attr('selected', 'selected')
         );
-        zipDropdown.trigger('change');
     }
 });
 
@@ -501,21 +619,78 @@ $('.billingState').change(function () {
 $('.billingAddressCity').change(function () {
     var selectedState = $('.billingState').val();
     var selectedSuburb = $(this).val();
-    var zipDropdown = $('.billingZipCode');
-    zipDropdown.empty(); // clear existing options
+    var districtDropdown = $('.billingAddressDistrict');
+    districtDropdown.empty(); // clear existing options
 
     if (
         addressData[selectedState] &&
         addressData[selectedState][selectedSuburb]
     ) {
+        districtDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select Zip Code ----'
+            }).attr('selected', 'selected')
+        );
+        var districtMappingObj = addressData[selectedState][selectedSuburb];
+        $.each(Object.keys(districtMappingObj), function (district) {
+            districtDropdown.append(
+                $('<option>', {
+                    value: Object.keys(districtMappingObj)[district],
+                    text: Object.keys(districtMappingObj)[district]
+                })
+            );
+        });
+        districtDropdown.trigger('change');
+    } else {
+        $(this).val('');
+        districtDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select City First----'
+            }).attr('selected', 'selected')
+        );
+        districtDropdown.trigger('change');
+    }
+});
+
+$('.billingAddressDistrict').change(function () {
+    var selectedState = $('.billingState').val();
+    var selectedSuburb = $('.billingAddressCity').val();
+    var selectedDistrict = $(this).val();
+    var subDistrictDropdown = $('.billingAddressSubdistrict');
+    var zipDropdown = $('.billingZipCode');
+    subDistrictDropdown.empty(); // clear existing options
+    zipDropdown.empty(); // clear existing options
+
+    if (
+        addressData[selectedState] &&
+        addressData[selectedState][selectedSuburb] &&
+        addressData[selectedState][selectedSuburb][selectedDistrict]
+    ) {
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select Sub District ----'
+            }).attr('selected', 'selected')
+        );
         zipDropdown.prepend(
             $('<option>', {
                 value: '',
                 text: '---- Select Zip Code ----'
             }).attr('selected', 'selected')
         );
-        var zipCodes = addressData[selectedState][selectedSuburb];
-        zipCodes.forEach((zip) => {
+        var districtMappingObj =
+            addressData[selectedState][selectedSuburb][selectedDistrict];
+        districtMappingObj['subDistrict'].forEach((subDistrict) => {
+            subDistrictDropdown.append(
+                $('<option>', {
+                    value: subDistrict,
+                    text: subDistrict
+                })
+            );
+        });
+        districtMappingObj['zipcode'].forEach((zip) => {
             zipDropdown.append(
                 $('<option>', {
                     value: zip,
@@ -523,16 +698,21 @@ $('.billingAddressCity').change(function () {
                 })
             );
         });
-        zipDropdown.trigger('change');
+        subDistrictDropdown.trigger('change');
     } else {
         $(this).val('');
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select District First----'
+            }).attr('selected', 'selected')
+        );
         zipDropdown.prepend(
             $('<option>', {
                 value: '',
-                text: '---- Select City First----'
+                text: '---- Select District First----'
             }).attr('selected', 'selected')
         );
-        zipDropdown.trigger('change');
     }
 });
 
