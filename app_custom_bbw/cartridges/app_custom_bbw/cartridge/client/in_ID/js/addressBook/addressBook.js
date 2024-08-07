@@ -401,8 +401,8 @@ module.exports = $.extend({}, base, {
             showFlags: true,
             strictMode: true,
             showSelectedDialCode: true,
-            initialCountry: 'au',
-            countryOrder: ['au']
+            initialCountry: 'id',
+            countryOrder: ['id']
         });
     }
 });
