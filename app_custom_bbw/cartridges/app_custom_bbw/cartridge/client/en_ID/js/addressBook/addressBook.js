@@ -173,7 +173,7 @@ $(document).on('click', '#editAddress', function () {
             )[0];
             var options = {
                 placeholder: ' ',
-                componentRestrictions: { country: 'AU' },
+                componentRestrictions: { country: 'ID' },
                 fields: [
                     'formatted_address',
                     'geometry',
@@ -401,8 +401,8 @@ module.exports = $.extend({}, base, {
             showFlags: true,
             strictMode: true,
             showSelectedDialCode: true,
-            initialCountry: 'au',
-            countryOrder: ['au']
+            initialCountry: 'id',
+            countryOrder: ['id']
         });
     }
 });

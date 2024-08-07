@@ -473,8 +473,8 @@ $('.billingState').change(function () {
         $.each(addressData[selectedState], function (suburb) {
             suburbDropdown.append(
                 $('<option>', {
-                    value: suburb,
-                    text: suburb
+                    value: addressData[selectedState][suburb],
+                    text: addressData[selectedState][suburb]
                 })
             );
         });
