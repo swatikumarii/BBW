@@ -314,10 +314,10 @@ function copyBillingAddressToBasket(address) {
         var countryCode = address.countryCode;
         billingAddress.setCountryCode(countryCode.value);
         billingAddress.setPhone(address.phone);
-        if (address.custom.district) {
+        if ('district' in address.custom) {
             billingAddress.custom.district = address.custom.district;
         }
-        if (address.custom.subDistrict) {
+        if ('subDistrict' in address.custom) {
             billingAddress.custom.subDistrict = address.custom.subDistrict;
         }
     });
@@ -385,7 +385,7 @@ function createOrder(currentBasket) {
 
 /**
  * Copies information from the shipping form to the associated shipping address
- * @param {Object} shippingData - the shipping data
+ * @param {object} shippingData - the shipping data
  * @param {dw.order.Shipment} [shipmentOrNull] - the target Shipment
  */
 function copyShippingAddressToShipment(shippingData, shipmentOrNull) {
