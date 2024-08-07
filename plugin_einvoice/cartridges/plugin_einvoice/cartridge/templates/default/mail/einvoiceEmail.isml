@@ -1,0 +1,8 @@
+${Resource.msg('email.body.einvoice', 'einvoice', null)}
+<br />
+<a href="${pdict.invoiceUrl}"
+    style="background-color:#000000;font-size:12px;line-height:12px;letter-spacing:2px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:normal;text-transform:uppercase;text-decoration:none;padding:15px 29px;color:#ffffff;display:inline-block;border:solid 1px #000000"
+    target="_blank">
+    <span> ${Resource.msg('invoice.download', 'common', null)}
+    </span>
+</a>
