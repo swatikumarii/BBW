@@ -5,9 +5,34 @@ var CustomObjectMgr = require('dw/object/CustomObjectMgr');
 var EInvoiceApi = require('*/cartridge/scripts/service/eInvoiceApis');
 
 /**
- * @description This function is run by the job to send EInvoice to the customers.
+ * Get new token from PWC API
+ * @param {object} tokenInfo - token object
+ * @returns {object} - token object
  */
-function sendEInvoice() {
+function getTokenFromPWC(tokenInfo) {
+    var tokenApiResponse = EInvoiceApi.getEInvoiceToken();
+    if (tokenApiResponse.ok) {
+        var apiResponse = JSON.parse(tokenApiResponse.object);
+        Transaction.wrap(function () {
+            // eslint-disable-next-line no-param-reassign
+            tokenInfo.custom.token = JSON.stringify({
+                type: apiResponse.token_type,
+                token: apiResponse.access_token,
+                createDate: apiResponse.createdDate,
+                validTill: apiResponse.validTill
+            });
+        });
+    } else {
+        // TODO: handle error
+    }
+    return tokenInfo;
+}
+
+/**
+ * Get token from custom object or PWC API
+ * @returns {object} - token object
+ */
+function getToken() {
     var tokenInfo = CustomObjectMgr.getCustomObject(
         'eInvoice_token_info',
         'token-info'
@@ -16,150 +41,158 @@ function sendEInvoice() {
         !tokenInfo ||
         !('token' in tokenInfo.custom && tokenInfo.custom.token)
     ) {
-        Transaction.wrap(function () {
-            var tokenApiResponse = EInvoiceApi.getEInvoiceToken();
-            if (tokenApiResponse.ok) {
-                var response = JSON.parse(tokenApiResponse.object);
-                tokenInfo = CustomObjectMgr.createCustomObject(
-                    'eInvoice_token_info',
-                    'token-info'
-                );
-                tokenInfo.custom.token = JSON.stringify({
-                    type: response.token_type,
-                    token: response.access_token,
-                    createDate: response.createdDate,
-                    validTill: response.validTill
-                });
-            } else {
-                // TODO: handle error
-            }
-        });
+        return getTokenFromPWC(tokenInfo);
     }
+    return tokenInfo;
+}
 
+/**
+ * @description This function will send EInvoice to the customers.
+ * @param {object} tokenInfo - token object
+ * @param {object} submission - submission custom object
+ * @param {boolean} isRecursive - is recursive call or not
+ */
+function updateSubmission(tokenInfo, submission, isRecursive) {
+    if (!tokenInfo) {
+        return;
+    }
+    // Get EInvoice
+    var submissionAPIResponse = EInvoiceApi.getSubmission(
+        JSON.parse(tokenInfo.custom.token),
+        {
+            erpId: submission.custom.erp_id
+        }
+    );
+    if (submissionAPIResponse.ok) {
+        var responseObject = JSON.parse(submissionAPIResponse.object);
+        if (
+            responseObject &&
+            responseObject.submissions &&
+            responseObject.submissions.length > 0
+        ) {
+            var currentSubmission = responseObject.submissions[0];
+            var Resource = require('dw/web/Resource');
+            var Site = require('dw/system/Site');
+            var URLUtils = require('dw/web/URLUtils');
+            var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+            var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+            var OrderMgr = require('dw/order/OrderMgr');
+            var einvoiveStatusCode = require('*/cartridge/scripts/constant/einvoice_constant');
+            var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+            var order = OrderMgr.getOrder(submission.custom.order_id);
+            if (
+                currentSubmission.status === 'Valid' &&
+                currentSubmission.invoiceId
+            ) {
+                var qrCodeApiResponse = EInvoiceApi.GetQRCode(
+                    JSON.parse(tokenInfo.custom.token),
+                    {
+                        invoiceId: currentSubmission.invoiceId
+                    }
+                );
+                if (qrCodeApiResponse.ok) {
+                    var qrCodeResponse = JSON.parse(qrCodeApiResponse.object);
+                    if (qrCodeResponse.qrcode) {
+                        // eslint-disable-next-line no-loop-func
+                        Transaction.wrap(function () {
+                            order.custom.qrCode = qrCodeResponse.qrcode;
+                            order.custom.eInvoice_status =
+                                einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS;
+
+                            CustomObjectMgr.remove(submission);
+                        });
+
+                        var emailObj = {
+                            to: order.customerEmail,
+                            subject: Resource.msg(
+                                'email.subject.einvoice',
+                                'einvoice',
+                                null
+                            ),
+                            from:
+                                Site.current.getCustomPreferenceValue(
+                                    'customerServiceEmail'
+                                ) || 'no-reply@testorganization.com'
+                        };
+                        var encodedOrderNumber = encodeURIComponent(
+                            encryptionHelper.encryptPin(order.orderNo)
+                        );
+                        emailHelpers.sendEmail(emailObj, 'mail/einvoiceEmail', {
+                            invoiceUrl: URLUtils.https(
+                                'Order-InvoiceDownload',
+                                'token',
+                                encodedOrderNumber
+                            ).toString(),
+                            content: emailContentHelpers.getEmailContent(
+                                'normal-footer',
+                                'email-header'
+                            )
+                        });
+                    }
+                }
+            } else if (
+                // response[0].status === 'Invalid' ||
+                currentSubmission.status === 'Rejected'
+            ) {
+                // eslint-disable-next-line no-loop-func
+                Transaction.wrap(function () {
+                    order.custom.eInvoice_status =
+                        einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
+                    CustomObjectMgr.remove(submission);
+                });
+                var rejectedEmailObj = {
+                    to: order.customerEmail,
+                    subject: Resource.msg(
+                        'email.subject.einvoice.rejected',
+                        'einvoice',
+                        null
+                    ),
+                    from:
+                        Site.current.getCustomPreferenceValue(
+                            'customerServiceEmail'
+                        ) || 'no-reply@testorganization.com'
+                };
+                emailHelpers.sendEmail(
+                    rejectedEmailObj,
+                    'mail/einvoiceEmailRejected',
+                    {
+                        orderId: submission.custom.order_id,
+                        content: emailContentHelpers.getEmailContent(
+                            'normal-footer',
+                            'email-header'
+                        )
+                    }
+                );
+            } else {
+                // TODO: log error in logs
+                // eslint-disable-next-line no-loop-func
+                Transaction.wrap(function () {
+                    order.custom.eInvoice_status =
+                        einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
+                    CustomObjectMgr.remove(submission);
+                });
+            }
+        } else {
+            // TODO: log error if there is no response from API
+        }
+    } else if (!isRecursive && submissionAPIResponse.error === 401) {
+        // TODO: log token errors in logger
+        updateSubmission(getTokenFromPWC(tokenInfo), submission, true);
+    }
+}
+
+/**
+ * @description This function is run by the job to send EInvoice to the customers.
+ */
+function sendEInvoice() {
+    var tokenInfo = getToken();
+    if (!tokenInfo) {
+        return;
+    }
     var submissions = CustomObjectMgr.getAllCustomObjects('eInvoice_details');
     while (submissions.hasNext()) {
         var submission = submissions.next();
-
-        // Get EInvoice
-        var submissionAPIResponse = EInvoiceApi.getSubmission(
-            JSON.parse(tokenInfo.custom.token),
-            {
-                erpId: submission.custom.erp_id
-            }
-        );
-        if (submissionAPIResponse.ok) {
-            var responseObject = JSON.parse(submissionAPIResponse.object);
-            if (
-                responseObject &&
-                responseObject.submissions &&
-                responseObject.submissions.length > 0
-            ) {
-                var currentSubmission = responseObject.submissions[0];
-                var Resource = require('dw/web/Resource');
-                var Site = require('dw/system/Site');
-                var URLUtils = require('dw/web/URLUtils');
-                var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
-                var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
-                var OrderMgr = require('dw/order/OrderMgr');
-                var order = OrderMgr.getOrder(submission.custom.order_id);
-                if (
-                    currentSubmission.status === 'Valid' &&
-                    currentSubmission.invoiceId
-                ) {
-                    var qrCodeApiResponse = EInvoiceApi.GetQRCode(tokenInfo, {
-                        invoiceId: currentSubmission.invoiceId
-                    });
-                    if (qrCodeApiResponse.ok) {
-                        var qrCodeResponse = JSON.parse(
-                            qrCodeApiResponse.object
-                        );
-                        if (qrCodeResponse.qrcode) {
-                            // eslint-disable-next-line no-loop-func
-                            Transaction.wrap(function () {
-                                order.custom.qrCode = qrCodeResponse.qrcode;
-                                order.custom.eInvoiceStatus = 'Completed';
-
-                                CustomObjectMgr.remove(submission);
-                            });
-
-                            var emailObj = {
-                                to: order.customerEmail,
-                                subject: Resource.msg(
-                                    'email.subject.einvoice',
-                                    'einvoice',
-                                    null
-                                ),
-                                from:
-                                    Site.current.getCustomPreferenceValue(
-                                        'customerServiceEmail'
-                                    ) || 'no-reply@testorganization.com'
-                            };
-                            var encodedOrderNumber = encodeURIComponent(
-                                encryptionHelper.encryptPin(
-                                    submission.custom.order_id
-                                )
-                            );
-                            emailHelpers.sendEmail(
-                                emailObj,
-                                'mail/einvoiceEmail',
-                                {
-                                    invoiceUrl: URLUtils.https(
-                                        'Order-InvoiceDownload',
-                                        'token',
-                                        encodedOrderNumber
-                                    ).toString()
-                                }
-                            );
-                        }
-                    }
-                } else if (
-                    // response[0].status === 'Invalid' ||
-                    currentSubmission.status === 'Rejected'
-                ) {
-                    // eslint-disable-next-line no-loop-func
-                    Transaction.wrap(function () {
-                        order.custom.einvoiceStatus =
-                            response.submissions[0].errorDetails;
-                        CustomObjectMgr.remove(submission);
-                    });
-                    var rejectedEmailObj = {
-                        to: order.customerEmail,
-                        subject: Resource.msg(
-                            'email.subject.einvoice.rejected',
-                            'einvoice',
-                            null
-                        ),
-                        from:
-                            Site.current.getCustomPreferenceValue(
-                                'customerServiceEmail'
-                            ) || 'no-reply@testorganization.com'
-                    };
-                    emailHelpers.sendEmail(
-                        rejectedEmailObj,
-                        'mail/einvoiceEmailRejected',
-                        {
-                            orderId: submission.custom.order_id
-                        }
-                    );
-                } else {
-                    // TODO: log error in logs
-                    // eslint-disable-next-line no-loop-func
-                    Transaction.wrap(function () {
-                        order.custom.einvoiceStatus =
-                            currentSubmission.errorDetails;
-                        CustomObjectMgr.remove(submission);
-                    });
-                }
-            } else {
-                // TODO: log error if there is no response from API
-            }
-        } else {
-            // res.json({
-            //     status: false,
-            //     error: 'Error while getting submission.'
-            // });
-            // TODO: log errors in logger
-        }
+        updateSubmission(tokenInfo, submission);
     }
 }
 

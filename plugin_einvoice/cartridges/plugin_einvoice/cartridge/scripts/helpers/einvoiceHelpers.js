@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Checks if the provided date is in the same month as the current date.
@@ -6,13 +6,12 @@
  * @returns {boolean} - True if the date is in the same month as the current date, otherwise false
  */
 function isValidDate(date) {
-  if (date.getMonth() == new Date().getMonth()) {
-    return true;
-  } else {
+    if (date.getMonth() === new Date().getMonth()) {
+        return true;
+    }
     return false;
-  }
 }
 
 module.exports = {
-  isValidDate : isValidDate
-}
+    isValidDate: isValidDate,
+};
