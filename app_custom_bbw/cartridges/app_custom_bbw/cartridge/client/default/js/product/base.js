@@ -788,7 +788,7 @@ module.exports = $.extend({}, base, {
                     pid: pid,
                     pidsObj: pidsObj,
                     childProducts: getChildProducts(),
-                    quantity: parseInt(base.getQuantitySelected($(this)), 10) || 1,
+                    quantity: $(this).closest('.product-tile').length ? 1 : parseInt(base.getQuantitySelected($(this)), 10) || 1,
                     egiftCardDetails: egiftCardDetailsObj
                 };
 
