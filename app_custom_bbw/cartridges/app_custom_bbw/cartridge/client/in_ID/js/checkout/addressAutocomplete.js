@@ -40,11 +40,19 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'locality':
+                    case 'administrative_area_level_2':
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
                         addressObject.state = element.long_name;
+                        break;
+                    case 'administrative_area_level_3':
+                        addressObject.shippingAddressDistrict =
+                            element.long_name;
+                        break;
+                    case 'administrative_area_level_4':
+                        addressObject.shippingAddressSubdistrict =
+                            element.long_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
@@ -68,6 +76,12 @@ module.exports = {
                 .trigger('change');
             form.find('#shippingZipCodedefault')
                 .val(addressObject.zipcode)
+                .trigger('change');
+            form.find('#shippingAddressDistrictdefault')
+                .val(addressObject.shippingAddressDistrict)
+                .trigger('change');
+            form.find('#shippingAddressSubdistrictdefault')
+                .val(addressObject.shippingAddressSubdistrict)
                 .trigger('change');
         });
     },
@@ -110,11 +124,17 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'locality':
+                    case 'administrative_area_level_2':
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
                         addressObject.state = element.long_name;
+                        break;
+                    case 'administrative_area_level_3':
+                        addressObject.addressDistrict = element.long_name;
+                        break;
+                    case 'administrative_area_level_4':
+                        addressObject.addressSubdistrict = element.long_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
@@ -138,6 +158,12 @@ module.exports = {
                 .trigger('change');
             form.find('#billingZipCode')
                 .val(addressObject.zipcode)
+                .trigger('change');
+            form.find('#billingAddressDistrict')
+                .val(addressObject.addressDistrict)
+                .trigger('change');
+            form.find('#billingAddressSubdistrict')
+                .val(addressObject.addressSubdistrict)
                 .trigger('change');
         });
     },
@@ -180,11 +206,17 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'locality':
+                    case 'administrative_area_level_2':
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
                         addressObject.state = element.long_name;
+                        break;
+                    case 'administrative_area_level_3':
+                        addressObject.addressDistrict = element.long_name;
+                        break;
+                    case 'administrative_area_level_4':
+                        addressObject.addressSubdistrict = element.long_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
@@ -202,6 +234,12 @@ module.exports = {
                 .trigger('change');
             form.find('#state').val(addressObject.state).trigger('change');
             form.find('#city').val(addressObject.city).trigger('change');
+            form.find('#shippingAddressDistrict')
+                .val(addressObject.addressDistrict)
+                .trigger('change');
+            form.find('#shippingAddressSubdistrict')
+                .val(addressObject.addressSubdistrict)
+                .trigger('change');
             form.find('#zipCode').val(addressObject.zipcode).trigger('change');
         });
     }
