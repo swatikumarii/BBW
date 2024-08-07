@@ -41,24 +41,33 @@ function sendEInvoice() {
         var submission = submissions.next();
 
         // Get EInvoice
-        var submissionResponse = EInvoiceApi.getSubmission(tokenInfo, {
-            erpId: submission.custom.erp_id
-        });
-        if (submissionResponse.ok) {
-            var response = JSON.parse(submissionResponse.object);
-            if (response && response.length > 0) {
+        var submissionAPIResponse = EInvoiceApi.getSubmission(
+            JSON.parse(tokenInfo.custom.token),
+            {
+                erpId: submission.custom.erp_id
+            }
+        );
+        if (submissionAPIResponse.ok) {
+            var responseObject = JSON.parse(submissionAPIResponse.object);
+            if (
+                responseObject &&
+                responseObject.submissions &&
+                responseObject.submissions.length > 0
+            ) {
+                var currentSubmission = responseObject.submissions[0];
                 var Resource = require('dw/web/Resource');
                 var Site = require('dw/system/Site');
                 var URLUtils = require('dw/web/URLUtils');
                 var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
                 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
                 var OrderMgr = require('dw/order/OrderMgr');
-                var order = OrderMgr.getOrder(
-                    submission.custom.order_id
-                );
-                if (response[0].status === 'Valid' && response[0].invoiceId) {
+                var order = OrderMgr.getOrder(submission.custom.order_id);
+                if (
+                    currentSubmission.status === 'Valid' &&
+                    currentSubmission.invoiceId
+                ) {
                     var qrCodeApiResponse = EInvoiceApi.GetQRCode(tokenInfo, {
-                        invoiceId: response[0].invoiceId
+                        invoiceId: currentSubmission.invoiceId
                     });
                     if (qrCodeApiResponse.ok) {
                         var qrCodeResponse = JSON.parse(
@@ -105,11 +114,12 @@ function sendEInvoice() {
                     }
                 } else if (
                     // response[0].status === 'Invalid' ||
-                    response[0].status === 'Rejected'
+                    currentSubmission.status === 'Rejected'
                 ) {
                     // eslint-disable-next-line no-loop-func
                     Transaction.wrap(function () {
-                        order.custom.einvoiceStatus = response[0].errorDetails;
+                        order.custom.einvoiceStatus =
+                            response.submissions[0].errorDetails;
                         CustomObjectMgr.remove(submission);
                     });
                     var rejectedEmailObj = {
@@ -131,6 +141,14 @@ function sendEInvoice() {
                             orderId: submission.custom.order_id
                         }
                     );
+                } else {
+                    // TODO: log error in logs
+                    // eslint-disable-next-line no-loop-func
+                    Transaction.wrap(function () {
+                        order.custom.einvoiceStatus =
+                            currentSubmission.errorDetails;
+                        CustomObjectMgr.remove(submission);
+                    });
                 }
             } else {
                 // TODO: log error if there is no response from API

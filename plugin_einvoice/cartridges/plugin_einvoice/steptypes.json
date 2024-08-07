@@ -2,11 +2,11 @@
     "step-types": {
         "script-module-step": [
             {
-                "@type-id": "custom.sendEInvoice",
+                "@type-id": "custom.SendEInvoice",
                 "@supports-parallel-execution": "true",
                 "@supports-site-context": "true",
                 "@supports-organization-context": "false",
-                "description": "Send email notification if einvoice is generated.",
+                "description": "Send email notification if e invoice is generated.",
                 "module": "plugin_einvoice/cartridge/scripts/jobs/sendEInvoice.js",
                 "function": "sendEInvoice",
                 "transactional": "true",
