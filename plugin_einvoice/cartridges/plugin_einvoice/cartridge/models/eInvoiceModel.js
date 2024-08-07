@@ -13,8 +13,8 @@ function eInvoice(order, refData, buyersData) {
   const einvoiveStatesCode = require("*/cartridge/scripts/constant/einvoice_states");
 
   // Retrieve supplier information from custom preferences
-  const supplierInformation =
-    Site.getCurrent().getCustomPreferenceValue("eInvoice_supplier_info") || {};
+ var supplierInformation =
+    Site.getCurrent().getCustomPreferenceValue("eInvoice_supplier_info");
   supplierInformation = JSON.parse(supplierInformation);
 
   // Generate invoice number using the eRP_ID
@@ -72,10 +72,10 @@ function eInvoice(order, refData, buyersData) {
   // Calculate tax summary based on whether shipping tax is enabled
   if (enableShippingTax && order.custom.isEgiftOrder == false) {
     taxSummery.total_excluding_tax =
-      order.getAdjustedMerchandizeTotalGrossPrice().value -
-      order.getAdjustedShippingTotalTax().value;
-    taxSummery.total_including_tax =
       order.getAdjustedMerchandizeTotalGrossPrice().value;
+    taxSummery.total_including_tax =
+        order.getAdjustedMerchandizeTotalGrossPrice().value +
+        order.getAdjustedShippingTotalTax().value;
     taxSummery.total_tax_amount = order.getAdjustedShippingTotalTax().value;
     taxSummery.total_net_amount =
       order.getAdjustedMerchandizeTotalGrossPrice().value -
