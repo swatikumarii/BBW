@@ -350,16 +350,22 @@ module.exports = {
                 });
             }
             if (city) {
-                $('.billingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
-                $('.billingZipCode').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+                $('.billingAddressCity').prepend(
+                    $('<option></option>')
+                        .attr('value', '')
+                        .attr('selected', 'selected')
+                );
+                $('.billingZipCode').prepend(
+                    $('<option></option>')
+                        .attr('value', '')
+                        .attr('selected', 'selected')
+                );
                 $('.billingAddressCity option').each(function () {
                     if ($(this).val() === city) {
                         $('.billingAddressCity option').removeAttr('selected');
                         $('.billingAddressCity option')[0].remove();
                         $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.billingAddressCity')
-                            .trigger('change');
+                        $('body').find('.billingAddressCity').trigger('change');
                         return false;
                     }
                     $('.billingZipCode option').slice(1).remove();
@@ -380,7 +386,9 @@ module.exports = {
                 if (!['stateCode', 'city', 'postalCode'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     if (element === 'cardNumber') {
-                        $('.cardNumber').data('cleave').setRawValue(attrs[attr]);
+                        $('.cardNumber')
+                            .data('cleave')
+                            .setRawValue(attrs[attr]);
                     } else {
                         $('[name$=' + element + ']', form).val(attrs[attr]);
                     }
@@ -466,8 +474,25 @@ module.exports = {
             $(this).parents('.summary-details.billing').slideUp();
             var billingAddrSummary = $(this).siblings('.address-summary');
             var stateCode = billingAddrSummary.find('.stateCode').text().trim();
-            var city = billingAddrSummary.find('.city').text().trim().replace(',','');
-            var postalCode = billingAddrSummary.find('.postalCode').text().trim();
+            var city = billingAddrSummary
+                .find('.city')
+                .text()
+                .trim()
+                .replace(',', '');
+            var district = billingAddrSummary
+                .find('.district')
+                .text()
+                .trim()
+                .replace(',', '');
+            var subDistrict = billingAddrSummary
+                .find('.subDistrict')
+                .text()
+                .trim()
+                .replace(',', '');
+            var postalCode = billingAddrSummary
+                .find('.postalCode')
+                .text()
+                .trim();
             if (stateCode !== 'null') {
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
@@ -484,6 +509,34 @@ module.exports = {
                         $('.billingAddressCity option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingAddressCity').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (district !== 'null') {
+                $('.billingAddressDistrict option').each(function () {
+                    if ($(this).val() === district) {
+                        $('.billingAddressDistrict option').removeAttr(
+                            'selected'
+                        );
+                        $(this).attr('selected', 'selected');
+                        $('body')
+                            .find('.billingAddressDistrict')
+                            .trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (subDistrict !== 'null') {
+                $('.billingAddressSubdistrict option').each(function () {
+                    if ($(this).val() === subDistrict) {
+                        $('.billingAddressSubdistrict option').removeAttr(
+                            'selected'
+                        );
+                        $(this).attr('selected', 'selected');
+                        $('body')
+                            .find('.billingAddressSubdistrict')
+                            .trigger('change');
                         return false;
                     }
                 });
