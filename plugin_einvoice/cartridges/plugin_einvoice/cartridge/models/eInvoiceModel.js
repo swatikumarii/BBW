@@ -63,7 +63,7 @@ function eInvoice(order, refData, buyersData) {
   var taxType = {
     tax_type: "06",
     tax_amount: 0,
-    tax_exemption: "",
+    tax_exemption: "NA",
     exempted_tax_amount: 0,
     taxable_amount: 0,
   };
@@ -85,7 +85,7 @@ function eInvoice(order, refData, buyersData) {
     var taxType = {
       tax_type: "02",
       tax_amount: order.getAdjustedShippingTotalTax().value || 0,
-      tax_exemption: "",
+      tax_exemption: "NA",
       exempted_tax_amount: 0,
       taxable_amount: order.getAdjustedShippingTotalNetPrice().value || 0,
     };
@@ -118,19 +118,20 @@ function eInvoice(order, refData, buyersData) {
         tax_type: "06",
         tax_rate: 0,
         tax_amount: 0,
-        tax_exemption: "",
+        tax_exemption: "NA",
         exempted_tax_amount: 0,
         subtotal: orderLineItems[i].getAdjustedGrossPrice().value,
         total_excluding_tax: orderLineItems[i].getAdjustedGrossPrice().value,
         quantity: orderLineItems[i].quantityValue        
       };
+       lineItemList.push(lineItem);
     } else if (orderLineItems[i] instanceof dw.order.ShippingLineItem) {
       // Create shipping line item
       var lineItem = {
         classification: "008",
         description: orderLineItems[i].getID(),
         unit_price: orderLineItems[i].getAdjustedGrossPrice().value || 0,
-        tax_exemption: "",
+        tax_exemption: "NA",
         exempted_tax_amount: 0,
         quantity: 1     
       };
@@ -148,10 +149,11 @@ function eInvoice(order, refData, buyersData) {
         lineItem.subtotal = orderLineItems[i].getAdjustedGrossPrice().value;
         lineItem.total_excluding_tax = orderLineItems[i].getAdjustedGrossPrice().value;
       }
+       lineItemList.push(lineItem);
     }
 
     // Add line item to the list
-    lineItemList.push(lineItem);
+   
   }
 
   // Return the constructed e-invoice JSON object
@@ -200,7 +202,7 @@ function eInvoice(order, refData, buyersData) {
         currency_code: "MYR",
         bill_reference_number: order.invoiceNo,
         tax_summary: taxSummery,
-        line: lineItemList,
+        line: lineItemList
       },
     },
   };
