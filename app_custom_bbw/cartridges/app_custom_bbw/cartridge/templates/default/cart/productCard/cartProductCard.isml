@@ -23,21 +23,21 @@
                     <isif condition="${lineItem.badge1}">
                         <div class="b-product-tile__social-badge">
                             <div
-                                class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--semibold justify-content-center b-text-a text-decoration-none">
+                                class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
                                 ${lineItem.badge1}</div>
                         </div>
                     </isif>
                     <isif condition="${lineItem.badge2}">
                         <div class="b-product-tile__social-badge">
                             <div
-                                class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--semibold justify-content-center b-text-a text-decoration-none">
+                                class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
                                 ${lineItem.badge2}</div>
                         </div>
                     </isif>
                     <isif condition="${lineItem.badge3}">
                         <div class="b-product-tile__social-badge">
                             <div
-                                class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--semibold justify-content-center b-text-a text-decoration-none">
+                                class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
                                 ${lineItem.badge3}</div>
                         </div>
                     </isif>
