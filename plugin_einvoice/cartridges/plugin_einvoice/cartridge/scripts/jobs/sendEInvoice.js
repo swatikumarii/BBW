@@ -71,14 +71,14 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
             responseObject.submissions.length > 0
         ) {
             var currentSubmission = responseObject.submissions[0];
-            var Resource = require('dw/web/Resource');
-            var Site = require('dw/system/Site');
-            var URLUtils = require('dw/web/URLUtils');
-            var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
-            var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+            // var Resource = require('dw/web/Resource');
+            // var Site = require('dw/system/Site');
+            // var URLUtils = require('dw/web/URLUtils');
+            // var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+            // var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
             var OrderMgr = require('dw/order/OrderMgr');
             var einvoiveStatusCode = require('*/cartridge/scripts/constant/einvoice_constant');
-            var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+            // var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
             var order = OrderMgr.getOrder(submission.custom.order_id);
             if (
                 currentSubmission.status === 'Valid' &&
@@ -101,33 +101,44 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
 
                             CustomObjectMgr.remove(submission);
                         });
-
-                        var emailObj = {
-                            to: order.customerEmail,
-                            subject: Resource.msg(
-                                'email.subject.einvoice',
-                                'einvoice',
-                                null
-                            ),
-                            from:
-                                Site.current.getCustomPreferenceValue(
-                                    'customerServiceEmail'
-                                ) || 'no-reply@testorganization.com'
-                        };
-                        var encodedOrderNumber = encodeURIComponent(
-                            encryptionHelper.encryptPin(order.orderNo)
-                        );
-                        emailHelpers.sendEmail(emailObj, 'mail/einvoiceEmail', {
-                            invoiceUrl: URLUtils.https(
-                                'Order-InvoiceDownload',
-                                'token',
-                                encodedOrderNumber
-                            ).toString(),
-                            content: emailContentHelpers.getEmailContent(
-                                'normal-footer',
-                                'email-header'
+                        // Fire a hook to send email from higher cartridges
+                        if (
+                            require('dw/system/HookMgr').hasHook(
+                                'einvoice.email.send'
                             )
-                        });
+                        ) {
+                            require('dw/system/HookMgr').callHook(
+                                'einvoice.email.send',
+                                'sendEmail',
+                                order
+                            );
+                        }
+                        // var emailObj = {
+                        //     to: order.customerEmail,
+                        //     subject: Resource.msg(
+                        //         'email.subject.einvoice',
+                        //         'einvoice',
+                        //         null
+                        //     ),
+                        //     from:
+                        //         Site.current.getCustomPreferenceValue(
+                        //             'customerServiceEmail'
+                        //         ) || 'no-reply@testorganization.com'
+                        // };
+                        // var encodedOrderNumber = encodeURIComponent(
+                        //     encryptionHelper.encryptPin(order.orderNo)
+                        // );
+                        // emailHelpers.sendEmail(emailObj, 'mail/einvoiceEmail', {
+                        //     invoiceUrl: URLUtils.https(
+                        //         'Order-InvoiceDownload',
+                        //         'token',
+                        //         encodedOrderNumber
+                        //     ).toString(),
+                        //     content: emailContentHelpers.getEmailContent(
+                        //         'normal-footer',
+                        //         'email-header'
+                        //     )
+                        // });
                     }
                 }
             } else if (
@@ -140,29 +151,39 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                         einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
                     CustomObjectMgr.remove(submission);
                 });
-                var rejectedEmailObj = {
-                    to: order.customerEmail,
-                    subject: Resource.msg(
-                        'email.subject.einvoice.rejected',
-                        'einvoice',
-                        null
-                    ),
-                    from:
-                        Site.current.getCustomPreferenceValue(
-                            'customerServiceEmail'
-                        ) || 'no-reply@testorganization.com'
-                };
-                emailHelpers.sendEmail(
-                    rejectedEmailObj,
-                    'mail/einvoiceEmailRejected',
-                    {
-                        orderId: submission.custom.order_id,
-                        content: emailContentHelpers.getEmailContent(
-                            'normal-footer',
-                            'email-header'
-                        )
-                    }
-                );
+                // Fire a hook to send email from higher cartridges
+                if (
+                    require('dw/system/HookMgr').hasHook('einvoice.email.send')
+                ) {
+                    require('dw/system/HookMgr').callHook(
+                        'einvoice.email.send',
+                        'sendFailedEmail',
+                        order
+                    );
+                }
+                // var rejectedEmailObj = {
+                //     to: order.customerEmail,
+                //     subject: Resource.msg(
+                //         'email.subject.einvoice.rejected',
+                //         'einvoice',
+                //         null
+                //     ),
+                //     from:
+                //         Site.current.getCustomPreferenceValue(
+                //             'customerServiceEmail'
+                //         ) || 'no-reply@testorganization.com'
+                // };
+                // emailHelpers.sendEmail(
+                //     rejectedEmailObj,
+                //     'mail/einvoiceEmailRejected',
+                //     {
+                //         orderId: submission.custom.order_id,
+                //         content: emailContentHelpers.getEmailContent(
+                //             'normal-footer',
+                //             'email-header'
+                //         )
+                //     }
+                // );
             } else {
                 // TODO: log error in logs
                 // eslint-disable-next-line no-loop-func
