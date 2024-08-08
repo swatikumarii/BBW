@@ -110,8 +110,10 @@ server.append(
             }
             this.on('route:BeforeComplete', function () {
                 Transaction.wrap(function () {
-                    currentBasket.billingAddress.custom.dialCode = paymentForm.addressFields.dialCode.value;
-                    currentBasket.billingAddress.custom.dialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
+                    if (currentBasket.billingAddress) {
+                        currentBasket.billingAddress.custom.dialCode = paymentForm.addressFields.dialCode.value;
+                        currentBasket.billingAddress.custom.dialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
+                    }
                 });
             });
         }

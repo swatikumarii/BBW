@@ -46,7 +46,7 @@
                             ${pdict.forms.billingForm.contactInfoFields.phone.htmlName}">
                         <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label h-line-height--20 b-text-letter-space-01" for="phoneNumber"><span class="h-clr--red-9">${'* '}</span>${Resource.msg('field.customer.phone.number', 'checkout', null)}</label>
 
-                        <input type="tel" class="form-control phone" id="phoneNumber"
+                        <input type="tel" class="form-control phone" id="phoneNumber" initOptions.allowDropdown="true" 
                             value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.phone || '' : ''}"
                             <isprint value=${pdict.forms.billingForm.contactInfoFields.phone.attributes} encoding="off" />
                             aria-describedby="phoneInvalidMessage" >

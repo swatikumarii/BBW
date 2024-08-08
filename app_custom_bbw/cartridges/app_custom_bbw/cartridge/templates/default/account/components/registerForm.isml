@@ -272,10 +272,10 @@
                 class="h-clr--black-1 h-font-size--16 d-block text-left b-link--underlined">${Resource.msg('label.read.here', 'forms', null)}</a>
         </label>
     </div>
-    <input type="hidden" class="dialCode" <isprint value=${pdict.profileForm.customer.dialCode.attributes}
+    <input type="hidden" class="dialCode" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCode')}" <isprint value=${pdict.profileForm.customer.dialCode.attributes}
         encoding="off" />
     />
-    <input type="hidden" class="dialCodeCountry" <isprint value=${pdict.profileForm.customer.dialCodeCountry.attributes} encoding="off" />
+    <input type="hidden" class="dialCodeCountry" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCodeCountry')}" value="" <isprint value=${pdict.profileForm.customer.dialCodeCountry.attributes} encoding="off" />
     />
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <div class="text-center register-privacy">

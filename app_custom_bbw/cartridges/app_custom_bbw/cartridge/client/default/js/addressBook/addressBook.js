@@ -350,7 +350,7 @@ module.exports = $.extend({}, base, {
             showFlags: true,
             strictMode: true,
             showSelectedDialCode: true,
-            initialCountry: 'au',
+            initialCountry: $('.dialCodeCountry').val(),
             formatOnDisplay: false
         });
         var initCountryData = iti.getSelectedCountryData();

@@ -2,6 +2,7 @@
 
 var logger = require('dw/system/Logger').getLogger('ServiceCapillary', 'Capillary');
 var StringUtils = require('dw/util/StringUtils');
+var Site = require('dw/system/Site');
 
 /**
  * Capillary API Call
@@ -81,8 +82,11 @@ module.exports = {
                 gender = 'Other';
                 break;
         };
+        var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+        var dialCode = registrationForm.dialCode || defaultDialCode;
         var phoneNumber = registrationForm.phone.replace('+', '');
         phoneNumber = phoneNumber.replace(' ', '');
+        phoneNumber = dialCode + phoneNumber;
         var requestObj = {
             profiles: [{
                 firstName: registrationForm.firstName,

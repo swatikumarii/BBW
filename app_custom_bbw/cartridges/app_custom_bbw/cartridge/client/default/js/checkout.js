@@ -109,6 +109,25 @@ $(document).ready(function () {
         $('.dialCodeCountry').val(countryData.iso2);
     });
 
+    // country selector on billing address
+    var billingDialCode = $('.payment-form .dialCodeCountry').val() || $('.dialCodeCountry').val();
+    var billingPhone = document.querySelector('#phoneNumber');
+    var billingIntl = intlTelInput(billingPhone, {
+        utilsScript: utils,
+        showFlags: true,
+        strictMode: true,
+        showSelectedDialCode: true,
+        initialCountry: billingDialCode,
+        formatOnDisplay: false
+    });
+    // Attach the instance to a global variable
+    window.billingInstance = billingIntl;
+    $('#phoneNumber').on('countrychange', function() {
+        var billCountryData = billingIntl.getSelectedCountryData();
+        $('.payment-form .dialCode').val(billCountryData.dialCode);
+        $('.payment-form .dialCodeCountry').val(billCountryData.iso2);
+    });
+
     $('.accordion-title').click(function () {
         $(this).next('.accordion-content').slideToggle();
         $(this).toggleClass('rotate-down');

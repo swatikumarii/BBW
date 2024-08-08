@@ -99,7 +99,7 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'au',
-        formatOnDisplay: false
+        countryOrder: ['au']
     });
 
     $('.accordion-title').click(function () {

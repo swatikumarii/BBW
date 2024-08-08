@@ -50,7 +50,8 @@ function execute() {
                         firstName : billingAddress.firstName,
                         lastName: billingAddress.lastName,
                         phone: billingAddress.phone,
-                        email: orderModel.orderEmail
+                        email: orderModel.orderEmail,
+                        dialCode: billingAddress.dialCode
                     };
                     var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
                     if (crmCustomerID) {
