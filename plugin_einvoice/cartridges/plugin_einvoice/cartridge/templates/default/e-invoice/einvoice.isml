@@ -5,7 +5,7 @@
     </isscript>
 
 <iscomment>Use this button to submit einvoice</iscomment>
-<button class="btn btn-info modal-toggle-e-invoice" data-order-id="00003202">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+<button class="btn btn-info modal-toggle-e-invoice" data-order-id="00000502">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
 
 <div id="download_EInvoice" class="d-none" data-BRN="${Resource.msg('einvoice.modal.popup.input.brn', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.brn', 'einvoice_modal', null)}" 
   data-NRIC="${Resource.msg('einvoice.modal.popup.input.nric', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.nric', 'einvoice_modal', null)}"
