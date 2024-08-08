@@ -9,6 +9,8 @@ var URLUtils = require("dw/web/URLUtils");
 var Resource = require("dw/web/Resource");
 var csrfProtection = require("*/cartridge/scripts/middleware/csrf");
 var einvoiceHelpers = require('*/cartridge/scripts/helpers/einvoiceHelpers');
+var Logger = require('dw/system/Logger');
+var loggerEinvoice = Logger.getLogger('EInvoice');
 
 /**
  * Handles GET requests to show e-invoice data
@@ -61,11 +63,16 @@ server.post(
         type: "field_error",
         errorMsg: Resource.msg("field.server.error", "einvoice_modal", null),
       });
+
+      loggerEinvoice.error("Tin number and registery number is required.")
+
       return next();
     }
 
     try {
       var order = OrderMgr.getOrder(orderId); // Retrieve order using orderId
+
+      loggerEinvoice.info('Order-id : ' + orderId);
 
       // Validate order creation date
       if (!einvoiceHelpers.isValidDate(order.creationDate)) {
@@ -73,6 +80,9 @@ server.post(
           status: false,
           errorMsg: Resource.msg("einvoice.submittion.date.error", "einvoice_modal", null),
         });
+
+        loggerEinvoice.error('User trying to submit the invoice in different month.');
+
         return next();
       }
 
@@ -81,10 +91,14 @@ server.post(
         order.custom.eInvoice_status === einvoiveStatusCode.EINVOICESTATUSCODES.ERROR ||
         order.custom.eInvoice_status === einvoiveStatusCode.EINVOICESTATUSCODES.EMPTY) {
         
+        loggerEinvoice.info('No e-invoice associated with this order.');
+
         // Get e-invoice token
         var tokenApiResponse = EInvoiceApi.getEInvoiceToken();
         if (tokenApiResponse.ok) {
           var response = JSON.parse(tokenApiResponse.object);
+
+          loggerEinvoice.info('Got token.');
 
           // Prepare buyer's data
           const buyersData = {
@@ -108,12 +122,26 @@ server.post(
             validTill: response.validTill,
           };
 
+          loggerEinvoice.info('Invoice reference data : ' + referenceData);
+
           // Create invoice request JSON
           const invoiceRequestJson = EInvoiceMdl.eInvoice(order, referenceData, buyersData);
 
+          loggerEinvoice.info(
+              'Invoice request : ' + JSON.stringify(invoiceRequestJson)
+          );
+
           // Submit e-invoice
           var submissionApiResponse = EInvoiceApi.postSubmission(invoiceRequestJson, tokenInfo, referenceData);
+
+          loggerEinvoice.info(
+              'Submission Api response : ' + submissionApiResponse
+          );
+
           if (submissionApiResponse.ok) {
+
+            loggerEinvoice.info('Invoice submitted successfully');
+
             referenceData.invoiceId = invoiceRequestJson.invoiceId;
             referenceData.orderId = invoiceRequestJson.orderId;
 
@@ -136,7 +164,11 @@ server.post(
               status: true,
               successMsg: Resource.msg("einvoice.submittion.success", "einvoice_modal", null),
             });
+
+            loggerEinvoice.info('Response captured successfully');
+
           } else {
+            loggerEinvoice.error("Invoice submission error");
             // Handle submission error
             res.json({
               status: false,
@@ -144,6 +176,7 @@ server.post(
             });
           }
         } else {
+          loggerEinvoice.error('Token error');
           // Handle token validation error
           res.json({
             status: false,
@@ -151,6 +184,7 @@ server.post(
           });
         }
       } else if (order.custom.eInvoice_status === einvoiveStatusCode.EINVOICESTATUSCODES.PENDING) {
+        loggerEinvoice.info('E-invoice already submitted status: pending');
         // Handle pending e-invoice status
         res.json({
           status: false,
@@ -158,6 +192,8 @@ server.post(
           errorMsg: Resource.msg("einvoice.pending.status", "einvoice_modal", null),
         });
       } else {
+         
+        loggerEinvoice.info('E-invoice already generated status: success');
         // Handle other e-invoice statuses
         Transaction.wrap(function () {
           var backInStockObj = customObjectMgr.createCustomObject("eInvoice_details", order.custom.eInvoice_erp_id);
@@ -169,9 +205,11 @@ server.post(
             status: true,
             successMsg: Resource.msg("einvoice.submittion.success", "einvoice_modal", null),
           });
+          loggerEinvoice.info('response captured successfully.');
         });
       }
     } catch (ex) {
+      loggerEinvoice.info('Unhandeled exception: ' + ex);
       // Handle any unexpected errors
       res.json({
         status: false,
