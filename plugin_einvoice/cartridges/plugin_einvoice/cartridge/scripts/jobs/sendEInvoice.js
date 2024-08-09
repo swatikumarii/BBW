@@ -141,6 +141,12 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                 Transaction.wrap(function () {
                     order.custom.eInvoiceStatus =
                         einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
+
+                    order.custom.einvoiceErrorMsg = JSON.stringify({
+                        errorSource: currentSubmission.errorSource,
+                        detailedMessage: currentSubmission.detailedMessage
+                    }); 
+
                     CustomObjectMgr.remove(submission);
                 });
                 loggerEinvoice.info(
@@ -183,6 +189,10 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                 Transaction.wrap(function () {
                     order.custom.eInvoiceStatus =
                         einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
+                    order.custom.einvoiceErrorMsg = JSON.stringify({
+                         errorSource: currentSubmission.errorSource,
+                         detailedMessage: currentSubmission.detailedMessage
+                    });     
                     CustomObjectMgr.remove(submission);
                 });
             }

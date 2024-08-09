@@ -68,9 +68,9 @@
                 </button>
                 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
                     <button class="btn btn-info modal-toggle-e-invoice"
-                        data-order-id="00000501">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+                        data-order-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+                    <isinclude template="e-invoice/einvoice" />
                 </isif>
-                <isinclude template="e-invoice/einvoice" />
             </div>
             <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
         </div>
