@@ -30,7 +30,7 @@ server.append('Show', function (req, res, next) {
         viewData.product.fragranceDescription ||
         viewData.product.shortDescription ||
         viewData.product.longDescription
-    );
+    ).markup.replace(/<[^>]*>/g, '');
     currentPageMeta.pageMetaTags = currentPageMeta.pageMetaTags || [];
     if (currentPageMeta.description) {
         currentPageMeta.pageMetaTags.push({
@@ -59,9 +59,9 @@ server.append('Show', function (req, res, next) {
     
     var Template = require('dw/util/Template');
     var HashMap = require('dw/util/HashMap');
-    var giftPopupTemplate = new Template('product/giftpopup')
+    var giftPopupTemplate = new Template('product/giftpopup');
     var context = new HashMap();
-    context.put('a',viewData.product.giftContent)
+    context.put('a',viewData.product.giftContent);
     var giftPopupHTML = giftPopupTemplate.render(context).text;
 
     res.setViewData({
