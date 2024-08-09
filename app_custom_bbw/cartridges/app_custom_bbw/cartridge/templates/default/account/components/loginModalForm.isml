@@ -34,7 +34,7 @@
             <div class="invalid-feedback" id="form-password-error">${Resource.msg('error.message.password', 'forms', null)}
             </div>
             <button type="button" id="toggle-password"
-                class="login-modal-password-hide bg-white border-0 d-flex justify-content-center align-items-center text-captialize position-absolute p-0 h-clr--black-3"
+                class="login-modal-password-hide bg-white border-0 d-flex justify-content-center align-items-center text-captialize position-absolute p-0 h-clr--black-3" data-lang="${request.getLocale().replace('_', '-').toLowerCase()}"
                 aria-label="Show Password">
                 <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
             </button>
