@@ -34,7 +34,7 @@ function getTokenFromPWC(tokenInfo) {
  */
 function getToken() {
     var tokenInfo = CustomObjectMgr.getCustomObject(
-        'eInvoice_token_info',
+        'eInvoiceTokenInfo',
         'token-info'
     );
     if (
@@ -60,7 +60,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
     var submissionAPIResponse = EInvoiceApi.getSubmission(
         JSON.parse(tokenInfo.custom.token),
         {
-            erpId: submission.custom.erp_id
+            erpId: submission.custom.erpId
         }
     );
     if (submissionAPIResponse.ok) {
@@ -79,7 +79,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
             var OrderMgr = require('dw/order/OrderMgr');
             var einvoiveStatusCode = require('*/cartridge/scripts/constant/einvoice_constant');
             // var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
-            var order = OrderMgr.getOrder(submission.custom.order_id);
+            var order = OrderMgr.getOrder(submission.custom.orderId);
             if (
                 currentSubmission.status === 'Valid' &&
                 currentSubmission.invoiceId
@@ -96,7 +96,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                         // eslint-disable-next-line no-loop-func
                         Transaction.wrap(function () {
                             order.custom.qrCode = qrCodeResponse.qrcode;
-                            order.custom.eInvoice_status =
+                            order.custom.eInvoiceStatus =
                                 einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS;
 
                             CustomObjectMgr.remove(submission);
@@ -147,7 +147,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
             ) {
                 // eslint-disable-next-line no-loop-func
                 Transaction.wrap(function () {
-                    order.custom.eInvoice_status =
+                    order.custom.eInvoiceStatus =
                         einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
                     CustomObjectMgr.remove(submission);
                 });
@@ -177,7 +177,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                 //     rejectedEmailObj,
                 //     'mail/einvoiceEmailRejected',
                 //     {
-                //         orderId: submission.custom.order_id,
+                //         orderId: submission.custom.orderId,
                 //         content: emailContentHelpers.getEmailContent(
                 //             'normal-footer',
                 //             'email-header'
@@ -188,7 +188,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                 // TODO: log error in logs
                 // eslint-disable-next-line no-loop-func
                 Transaction.wrap(function () {
-                    order.custom.eInvoice_status =
+                    order.custom.eInvoiceStatus =
                         einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
                     CustomObjectMgr.remove(submission);
                 });
@@ -210,7 +210,7 @@ function sendEInvoice() {
     if (!tokenInfo) {
         return;
     }
-    var submissions = CustomObjectMgr.getAllCustomObjects('eInvoice_details');
+    var submissions = CustomObjectMgr.getAllCustomObjects('eInvoiceDetails');
     while (submissions.hasNext()) {
         var submission = submissions.next();
         updateSubmission(tokenInfo, submission);

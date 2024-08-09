@@ -1,7 +1,7 @@
 $(document).ready(function () {
-  const downloadInvoiceRenderElement = $("#download_EInvoice");
-  const orderId = $(".modal-toggle-e-invoice").attr("data-order-id");
-  const btnShowUrl = downloadInvoiceRenderElement.attr("data-btn-show");
+  let downloadInvoiceRenderElement = $("#download_EInvoice");
+  let orderId = $(".modal-toggle-e-invoice").attr("data-order-id");
+  let btnShowUrl = downloadInvoiceRenderElement.attr("data-btn-show");
 
   // Function to get label, placeholder, and options from attribute
   function getAttributeInfo(
@@ -10,7 +10,7 @@ $(document).ready(function () {
     defaultPlaceholder,
     optionsCount = 0
   ) {
-    const info = downloadInvoiceRenderElement.attr(attribute)?.split(":") || [];
+    let info = downloadInvoiceRenderElement.attr(attribute)?.split(":") || [];
     return {
       label: info[0] || defaultLabel,
       placeholder: info[1] || defaultPlaceholder,
@@ -19,7 +19,7 @@ $(document).ready(function () {
   }
 
   // BRN Info
-  const { label: popupbRNInputLabel, placeholder: popupbRNInputPlaceHolder } =
+  let { label: popupbRNInputLabel, placeholder: popupbRNInputPlaceHolder } =
     getAttributeInfo(
       "data-BRN",
       "Business Registration Number",
@@ -27,11 +27,11 @@ $(document).ready(function () {
     );
 
   // NRIC Info
-  const { label: popupNRICInputLabel, placeholder: popupNRICInputPlaceHolder } =
+  let { label: popupNRICInputLabel, placeholder: popupNRICInputPlaceHolder } =
     getAttributeInfo("data-NRIC", "NRIC Number", "Enter NRIC Number.");
 
   // Passport Info
-  const {
+  let {
     label: popupPassportInputLabel,
     placeholder: popupPassportInputPlaceHolder,
   } = getAttributeInfo(
@@ -41,11 +41,11 @@ $(document).ready(function () {
   );
 
   // Army Info
-  const { label: popuparmyInputLabel, placeholder: popuparmyInputPlaceHolder } =
+  let { label: popuparmyInputLabel, placeholder: popuparmyInputPlaceHolder } =
     getAttributeInfo("data-army", "Army Number", "Enter Army Number.");
 
-  const EInvoice = function () {
-    const showAlert = function (data) {
+  let EInvoice = function () {
+    let showAlert = function (data) {
       if (data.status) {
         if ($(".add-to-cart-messages").length === 0) {
           $("body").append('<div class="add-to-cart-messages"></div>');
@@ -75,19 +75,19 @@ $(document).ready(function () {
       }
     };
 
-    this.showEinvoiceButton = function (url) {
-      var csrfToken = $('input[name="csrf_token"]').val();
-      $.ajax({
-        type: "GET",
-        url: url + "?csrf_token=" + csrfToken,
-        success: function success(response) {
-          if (response.isValid) {
-            $(".modal-toggle-e-invoice").show();
-          } else {
-            $(".modal-toggle-e-invoice").hide();
-          }
-        },
-      });
+    this.showEinvoiceButton = function (url, odrId) {
+        var csrfToken = $('input[name="csrf_token"]').val();
+        $.ajax({
+            type: 'GET',
+            url: url + '?orderId=' + odrId + '&csrf_token=' + csrfToken,
+            success: function success(response) {
+                if (response.isValid) {
+                    $('.modal-toggle-e-invoice').show();
+                } else {
+                    $('.modal-toggle-e-invoice').hide();
+                }
+            }
+        });
     };
 
     this.submitForm = function (url, data, odrId) {
@@ -110,8 +110,8 @@ $(document).ready(function () {
     };
   };
 
-  const eInvoice = new EInvoice();
-  eInvoice.showEinvoiceButton(btnShowUrl);
+  let eInvoice = new EInvoice();
+  eInvoice.showEinvoiceButton(btnShowUrl, orderId);
 
   $("body").on("submit", "#submitEInvoiceDownloadForm", function (e) {
     e.preventDefault();

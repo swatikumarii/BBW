@@ -22,7 +22,7 @@ server.get(
     csrfProtection.validateAjaxRequest,
     function (req, res, next) {
         var OrderMgr = require('dw/order/OrderMgr');
-        var order = OrderMgr.getOrder(orderId); // Retrieve order using orderId (orderId should be defined or passed in some way)
+        var order = OrderMgr.getOrder(req.querystring.orderId); // Retrieve order using orderId (orderId should be defined or passed in some way)
 
         // Return JSON response with the validity of the order's creation date
         res.json({
@@ -42,20 +42,20 @@ server.post(
     csrfProtection.validateAjaxRequest,
     function (req, res, next) {
         var OrderMgr = require('dw/order/OrderMgr');
-        const UUIDUtils = require('dw/util/UUIDUtils');
+        var UUIDUtils = require('dw/util/UUIDUtils');
         var EInvoiceApi = require('*/cartridge/scripts/service/eInvoiceApis');
         var EInvoiceMdl = require('*/cartridge/models/eInvoiceModel');
         var customObjectMgr = require('dw/object/CustomObjectMgr');
         var Transaction = require('dw/system/Transaction');
-        const einvoiveStatusCode = require('*/cartridge/scripts/constant/einvoice_constant');
+        var einvoiveStatusCode = require('*/cartridge/scripts/constant/einvoice_constant');
 
         // Retrieve parameters from the request
-        const tinNumber = req.httpParameterMap.get('tinNumber').stringValue;
-        const regNumber = req.httpParameterMap.get('regNumber').stringValue;
-        const orderId = req.httpParameterMap.get('orderID').stringValue;
-        const identificationType =
+        var tinNumber = req.httpParameterMap.get('tinNumber').stringValue;
+        var regNumber = req.httpParameterMap.get('regNumber').stringValue;
+        var orderId = req.httpParameterMap.get('orderID').stringValue;
+        var identificationType =
             req.httpParameterMap.get('identificationType').stringValue;
-        const sstNumber =
+        var sstNumber =
             req.httpParameterMap.get('sSTNumber').stringValue || 'NA';
 
         // Validate mandatory fields
@@ -102,10 +102,10 @@ server.post(
 
             // Check e-invoice status of the order
             if (
-                !order.custom.hasOwnProperty('eInvoice_status') ||
-                order.custom.eInvoice_status ===
+                !order.custom.hasOwnProperty('eInvoiceStatus') ||
+                order.custom.eInvoiceStatus ===
                     einvoiveStatusCode.EINVOICESTATUSCODES.ERROR ||
-                order.custom.eInvoice_status ===
+                order.custom.eInvoiceStatus ===
                     einvoiveStatusCode.EINVOICESTATUSCODES.EMPTY
             ) {
                 loggerEinvoice.info('No e-invoice associated with this order.');
@@ -118,7 +118,7 @@ server.post(
                     loggerEinvoice.info('Got token.');
 
                     // Prepare buyer's data
-                    const buyersData = {
+                    var buyersData = {
                         tinNumber: tinNumber,
                         sstNumber: sstNumber,
                         identificationType: identificationType,
@@ -128,11 +128,11 @@ server.post(
                     // Prepare reference data
                     var referenceData = {
                         currentDateTime: new Date(),
-                        eRP_ID: UUIDUtils.createUUID()
+                        erpId: UUIDUtils.createUUID()
                     };
 
                     // Prepare token information
-                    const tokenInfo = {
+                    var tokenInfo = {
                         type: response.token_type,
                         token: response.access_token,
                         createDate: response.createdDate,
@@ -144,7 +144,7 @@ server.post(
                     );
 
                     // Create invoice request JSON
-                    const invoiceRequestJson = EInvoiceMdl.eInvoice(
+                    var invoiceRequestJson = EInvoiceMdl.eInvoice(
                         order,
                         referenceData,
                         buyersData
@@ -180,23 +180,22 @@ server.post(
                             Transaction.wrap(function () {
                                 var backInStockObj =
                                     customObjectMgr.createCustomObject(
-                                        'eInvoice_details',
-                                        referenceData.eRP_ID
+                                        'eInvoiceDetails',
+                                        referenceData.erpId
                                     );
-                                backInStockObj.custom.order_id =
+                                backInStockObj.custom.orderId =
                                     referenceData.orderId;
-                                backInStockObj.custom.eInvoice_id =
-                                    referenceData.invoiceId;
-                                backInStockObj.custom.mail_try_sent = false;
+                                backInStockObj.custom.eInvoiceId =
+                                    referenceData.invoiceId;                               
 
                                 // Update order custom attributes with e-invoice details
-                                order.custom.eInvoice_submittion_date =
+                                order.custom.eInvoiceSubmittionDate =
                                     referenceData.currentDateTime;
-                                order.custom.eInvoice_erp_id =
-                                    referenceData.eRP_ID;
-                                order.custom.eInvoice_number =
+                                order.custom.eInvoiceErpId =
+                                    referenceData.erpId;
+                                order.custom.eInvoiceNumber =
                                     referenceData.invoiceId;
-                                order.custom.eInvoice_status = 'pending';
+                                order.custom.eInvoiceStatus = 'pending';
                             });
 
                             // Return success response
@@ -250,7 +249,7 @@ server.post(
                     });
                 }
             } else if (
-                order.custom.eInvoice_status ===
+                order.custom.eInvoiceStatus ===
                 einvoiveStatusCode.EINVOICESTATUSCODES.PENDING
             ) {
                 loggerEinvoice.info(
@@ -273,14 +272,13 @@ server.post(
                 // Handle other e-invoice statuses
                 Transaction.wrap(function () {
                     var backInStockObj = customObjectMgr.createCustomObject(
-                        'eInvoice_details',
-                        order.custom.eInvoice_erp_id
+                        'eInvoiceDetails',
+                        order.custom.eInvoiceErpId
                     );
-                    backInStockObj.custom.order_id =
-                        order.custom.eInvoice_erp_id;
-                    backInStockObj.custom.eInvoice_id =
-                        order.custom.eInvoice_number;
-                    backInStockObj.custom.mail_try_sent = false;
+                    backInStockObj.custom.orderId =
+                        order.custom.eInvoiceErpId;
+                    backInStockObj.custom.eInvoiceId =
+                        order.custom.eInvoiceNumber;                   
 
                     res.json({
                         status: true,

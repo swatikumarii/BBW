@@ -17,7 +17,7 @@ function getEInvoiceToken() {
         var url = serviceCredentials.getURL();
         var params = {
             scope:
-                Site.getCurrent().getCustomPreferenceValue('eInvoice_scope') ||
+                Site.getCurrent().getCustomPreferenceValue('eInvoiceScope') ||
                 '/.default',
             // eslint-disable-next-line camelcase
             client_id: serviceCredentials.user,
@@ -42,7 +42,7 @@ function getEInvoiceToken() {
         serviceResponse.createdDate = new Date();
         serviceResponse.validTill = serviceResponse.created_Date.setSeconds(
             serviceResponse.created_Date.getSeconds() +
-                serviceResponse.expires_in
+                serviceResponse.expiresIn
         );
         return serviceResponse;
     } catch (error) {
@@ -69,9 +69,9 @@ function postSubmission(requestBody, tokeninfo, refData) {
             'Authorization',
             tokeninfo.type + ' ' + tokeninfo.token
         );
-        service.addHeader('ErpId', refData.eRP_ID);
+        service.addHeader('ErpId', refData.erpId);
         var userAgent =
-            Site.getCurrent().getCustomPreferenceValue('eInvoice_user_agent') ||
+            Site.getCurrent().getCustomPreferenceValue('eInvoiceUserAgent') ||
             'eInvoice_json';
         service.addHeader('User-Agent', userAgent);
         service.setURL(url);
@@ -102,9 +102,9 @@ function getSubmission(tokeninfo, refData) {
             'Authorization',
             tokeninfo.type + ' ' + tokeninfo.token
         );
-        // service.addHeader('ErpId', refData.eRP_ID);
+        // service.addHeader('ErpId', refData.erpId);
         var userAgent =
-            Site.getCurrent().getCustomPreferenceValue('eInvoice_user_agent') ||
+            Site.getCurrent().getCustomPreferenceValue('eInvoiceUserAgent') ||
             'eInvoice_json';
         service.addHeader('User-Agent', userAgent);
         service.setURL(url);
@@ -137,9 +137,9 @@ function GetQRCode(tokeninfo, refData) {
             'Authorization',
             tokeninfo.type + ' ' + tokeninfo.token
         );
-        // service.addHeader('ErpId', refData.eRP_ID);
+        // service.addHeader('ErpId', refData.erpId);
         var userAgent =
-            Site.getCurrent().getCustomPreferenceValue('eInvoice_user_agent') ||
+            Site.getCurrent().getCustomPreferenceValue('eInvoiceUserAgent') ||
             'eInvoice_json';
         service.addHeader('User-Agent', userAgent);
         service.setURL(url);
