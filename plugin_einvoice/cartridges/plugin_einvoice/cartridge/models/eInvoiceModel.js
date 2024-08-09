@@ -341,6 +341,9 @@ function eInvoice(order, refData, buyersData) {
             }
         };
     } else {
+         loggerEinvoice.info(
+             'Supplier Information not present.');
+        return null;
     }
 }
 
