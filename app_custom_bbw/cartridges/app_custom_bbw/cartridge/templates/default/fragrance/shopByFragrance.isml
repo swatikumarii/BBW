@@ -73,8 +73,7 @@
                             <fieldset class="text-justify seatch-text">
                                 <span class="h-clr--gray h-font-size--14 ">
                                     ${Resource.msg('lable.fragrance.name.search', 'fragrance', null)} </span>
-                                <input class="search-input-box" type="text" id="search-input"
-                                    placeholder="What are you looking for" name="search-input" autocomplete="off" />
+                                <input class="search-input-box" type="text" id="search-input" placeholder="${Resource.msg('fragrance.search.placeholder', 'fragrance', null)}" name="search-input" autocomplete="off" />
                                 <div class="search-icon-details">
                                     <img width="20" class="h-auto"
                                         src="${URLUtils.staticURL('/images/shopByFragrance/UI-Search.svg')}"
