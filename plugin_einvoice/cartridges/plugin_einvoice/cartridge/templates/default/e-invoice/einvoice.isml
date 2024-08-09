@@ -5,14 +5,17 @@
     </isscript>
 
 <iscomment>Use this button to submit einvoice</iscomment>
-<button class="btn btn-info modal-toggle-e-invoice" data-order-id="00003202">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoice_enable') == true}">
+  <button class="btn btn-info modal-toggle-e-invoice"
+    data-order-id="00000502">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+</isif>
 
-<div id="download_EInvoice" class="d-none" data-BRN="${Resource.msg('einvoice.modal.popup.input.brn', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.brn', 'einvoice_modal', null)}" 
+<div id="download_EInvoice" class="d-none"
+  data-BRN="${Resource.msg('einvoice.modal.popup.input.brn', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.brn', 'einvoice_modal', null)}"
   data-NRIC="${Resource.msg('einvoice.modal.popup.input.nric', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.nric', 'einvoice_modal', null)}"
   data-passport="${Resource.msg('einvoice.modal.popup.input.passport', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.passport', 'einvoice_modal', null)}"
   data-army="${Resource.msg('einvoice.modal.popup.input.army', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.army', 'einvoice_modal', null)}"
-  data-btn-show="${URLUtils.url('Einvoice-Show')}"
-  ></div>
+  data-btn-show="${URLUtils.url('Einvoice-Show')}"></div>
 <div class="modal-e-invoice">
   <div class="modal-overlay-e-invoice modal-toggle-e-invoice"></div>
   <div class="modal-wrapper-e-invoice modal-transition-e-invoice">
@@ -32,39 +35,47 @@
           <input type="hidden" name="orderId" value="" />
           <div class="form-group">
             <label for="tinTB" class"required-e-invoice">${Resource.msg('einvoice.modal.popup.input.tin', 'einvoice_modal', null)}</label>
-            <input 
-            type="text" 
-            id="tinTB" 
-            name="tinTB" 
-            placeholder="${Resource.msg('einvoice.modal.popup.input.placeholder.tin', 'einvoice_modal', null)}"
-            data-missing-error="${Resource.msgf('field.required.error', 'einvoice_modal', null,Resource.msg('einvoice.modal.popup.input.tin', 'einvoice_modal', null))}"
-            class="form-control" required/>
+            <input type="text" id="tinTB" name="tinTB"
+              placeholder="${Resource.msg('einvoice.modal.popup.input.placeholder.tin', 'einvoice_modal', null)}"
+              data-missing-error="${Resource.msgf('field.required.error', 'einvoice_modal', null, Resource.msg('einvoice.modal.popup.input.tin',
+                                'einvoice_modal', null))}"
+              class="form-control" required />
             <div class="invalid-feedback" id="form-tinTB-error"></div>
           </div>
           <div class="form-group">
             <label for="identificationType">${Resource.msg('einvoice.modal.popup.select.label', 'einvoice_modal', null)}</label>
             <select class="form-control" name="identificationType" id="identificationType" placeholder="select"
-            data-missing-error="${Resource.msgf('field.required.error', 'einvoice_modal', null,Resource.msg('einvoice.modal.popup.select.label', 'einvoice_modal', null))}"
-             required>
-              <option value="">${Resource.msg('einvoice.modal.popup.select.selectoption.text', 'einvoice_modal', null)}</option>
-              <option value="BRN">${Resource.msg('einvoice.modal.popup.select.option.first', 'einvoice_modal', null)}</option>
-              <option value="NRIC">${Resource.msg('einvoice.modal.popup.select.option.second', 'einvoice_modal', null)}</option>
+              data-missing-error="${Resource.msgf('field.required.error', 'einvoice_modal', null, Resource.msg('einvoice.modal.popup.select.label',
+                                'einvoice_modal', null))}"
+              required>
+              <option value="">${Resource.msg('einvoice.modal.popup.select.selectoption.text', 'einvoice_modal', null)}
+              </option>
+              <option value="BRN">${Resource.msg('einvoice.modal.popup.select.option.first', 'einvoice_modal', null)}
+              </option>
+              <option value="NRIC">${Resource.msg('einvoice.modal.popup.select.option.second', 'einvoice_modal', null)}
+              </option>
               <option value="PASSPORT">${Resource.msg('einvoice.modal.popup.select.option.third', 'einvoice_modal', null)}</option>
-              <option value="ARMY">${Resource.msg('einvoice.modal.popup.select.option.forth', 'einvoice_modal', null)}</option>
+              <option value="ARMY">${Resource.msg('einvoice.modal.popup.select.option.forth', 'einvoice_modal', null)}
+              </option>
             </select>
             <div class="invalid-feedback einvoice-select-error" id="form-identificationType-error"></div>
           </div>
           <div class="form-group d-none regNumber">
             <label for="regTB" id="regTBLbl"></label>
-            <input type="text" id="regTB" name="regTB" placeholder="" class="form-control" data-missing-error="${Resource.msg('reg.field.required.error', 'einvoice_modal', null)}" required />
-             <div class="invalid-feedback" id="form-regTB-error"></div>
+            <input type="text" id="regTB" name="regTB" placeholder="" class="form-control"
+              data-missing-error="${Resource.msg('reg.field.required.error', 'einvoice_modal', null)}" required />
+            <div class="invalid-feedback" id="form-regTB-error"></div>
           </div>
           <iscomment> <a href="javascript:void(0)" class="haveSst-js">Have SST?</a>
-          <div class="form-group haveSst-js-group d-none">
-            <label for="SSTTB">${Resource.msg('einvoice.modal.popup.input.sst', 'einvoice_modal', null)}</label>
-            <input type="text" id="SSTTB" name="SSTTB" placeholder="${Resource.msg('einvoice.modal.popup.input.placeholder.sst', 'einvoice_modal', null)}" class="form-control" />
-          </div> </iscomment>
-          <button type="submit" class="modal-submit-button-e-invoice btn btn-info">${Resource.msg('einvoice.modal.popup.from.btn.submit.text', 'einvoice_modal', null)}</button>
+            <div class="form-group haveSst-js-group d-none">
+              <label for="SSTTB">${Resource.msg('einvoice.modal.popup.input.sst', 'einvoice_modal', null)}</label>
+              <input type="text" id="SSTTB" name="SSTTB"
+                placeholder="${Resource.msg('einvoice.modal.popup.input.placeholder.sst', 'einvoice_modal', null)}"
+                class="form-control" />
+            </div>
+          </iscomment>
+          <button type="submit"
+            class="modal-submit-button-e-invoice btn btn-info">${Resource.msg('einvoice.modal.popup.from.btn.submit.text', 'einvoice_modal', null)}</button>
         </form>
       </div>
     </div>

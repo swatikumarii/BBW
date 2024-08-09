@@ -1,6 +1,8 @@
 'use strict';
 
 var Site = require('dw/system/Site');
+var Logger = require('dw/system/Logger');
+var loggerEinvoice = Logger.getLogger('EInvoice');
 
 /**
  * This is the Authentication service to communicate with PWC
@@ -44,6 +46,7 @@ function getEInvoiceToken() {
         );
         return serviceResponse;
     } catch (error) {
+        loggerEinvoice.error('Unhandled token exception : ' + error);
         return serviceResponse;
     }
 }
@@ -75,6 +78,7 @@ function postSubmission(requestBody, tokeninfo, refData) {
         serviceResponse = service.call(JSON.stringify(requestBody.jsonBody));
         return serviceResponse;
     } catch (error) {
+        loggerEinvoice.error('Unhandled invoice submission exception : ' + error);
         return serviceResponse;
     }
 }
@@ -107,6 +111,9 @@ function getSubmission(tokeninfo, refData) {
         serviceResponse = service.call();
         return serviceResponse;
     } catch (error) {
+        loggerEinvoice.error(
+            'Unhandled get submission exception : ' + error
+        );
         return serviceResponse;
     }
 }
@@ -139,6 +146,7 @@ function GetQRCode(tokeninfo, refData) {
         serviceResponse = service.call();
         return serviceResponse;
     } catch (error) {
+         loggerEinvoice.error('Unhandled QR code exception : ' + error);
         return serviceResponse;
     }
 }
