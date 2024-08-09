@@ -88,9 +88,13 @@
                     </div>
                 </isif>
                 <iscomment> wishlist </iscomment>
-                <isinclude template="wishlist/components/addToWishListButtonCart" sf-toolkit="on" />
+                <isif condition="${!lineItem.isBonusProductLineItem}">
+                    <isinclude template="wishlist/components/addToWishListButtonCart" sf-toolkit="on" />
+                </isif>
                 <isif condition="${lineItem.isBonusProductLineItem}">
-                   <span class="change-bonus-product" data-uuid="${lineItem.bonusProductLineItemUUID}">Change Bonus Product</span>
+                   <span class="change-bonus-product mt-3 text-decoration-underline" data-uuid="${lineItem.bonusProductLineItemUUID}">Choose a different gift</span>
+                    <iscomment> TODO: Implement remove </iscomment>
+                   <iscomment> <span class="change-bonus-product mt-2 text-decoration-underline" data-uuid="${lineItem.bonusProductLineItemUUID}">Remove Gift</span> </iscomment>
                 </isif>
             </div>
             <div class="row">
@@ -101,9 +105,8 @@
 
         <iscomment> Price, Qty, Total Price </iscomment>
 
-        <isinclude template="cart/productCard/cartProductCardProductPrice" />
-
         <isif condition="${!lineItem.isBonusProductLineItem}">
+            <isinclude template="cart/productCard/cartProductCardProductPrice" />
             <div class="line-item-remove">
                 <span class="cart-delete-confirmation-btn" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
                     data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}">

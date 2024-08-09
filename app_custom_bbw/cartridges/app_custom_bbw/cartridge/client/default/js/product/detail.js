@@ -68,6 +68,7 @@ function chooseBonusProducts(data) {
         '<div class="modal-header">' +
         '    <span class="">' +
         data.labels.selectprods +
+        data.labels.selectedprods +
         '</span>' +
         '    <button type="button" class="close pull-right" data-dismiss="modal">' +
         '        <span aria-hidden="true">&times;</span>' +
@@ -87,6 +88,13 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
+            if (response.initialAddBonusProduct) {
+                $.ajax({
+                    type: 'POST',
+                    url: response.initialAddBonusProductUrl,
+                    async: false
+                });
+            }
             var parsedHtml = parseHtml(response.renderedTemplate);
             $('#chooseBonusProductModal .modal-body').empty();
             $('#chooseBonusProductModal .enter-message').text(

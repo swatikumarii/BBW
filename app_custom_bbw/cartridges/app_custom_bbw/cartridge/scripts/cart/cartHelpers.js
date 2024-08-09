@@ -5,6 +5,9 @@ var Resource = require('dw/web/Resource');
 var ProductMgr = require('dw/catalog/ProductMgr');
 var Transaction = require('dw/system/Transaction');
 var BasketMgr = require('dw/order/BasketMgr');
+var collections = require('*/cartridge/scripts/util/collections');
+var BONUS_PRODUCTS_PAGE_SIZE = 6;
+var URLUtils = require('dw/web/URLUtils');
 
 /**
  * @param {number} pid - ProductId
@@ -128,7 +131,7 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
         product.custom.isEgiftCard &&
         product.custom.isEgiftCard === true;
     result.message = isGiftCard ? Resource.msg('cart.updated.giftcard', 'giftcards', null) : result.message;
-    if (productInCart && !isGiftCard) {
+    if (productInCart && !isGiftCard && !productInCart.bonusProductLineItem) {
         productQuantityInCart = productInCart.quantity.value;
         quantityToSet = quantity
             ? quantity + productQuantityInCart
@@ -708,6 +711,68 @@ function getTopOffers(currentBasket) {
     return topOffers;
 }
 
+
+/**
+ * Gets the newly added bonus discount line item
+ * @param {dw.order.Basket} currentBasket -
+ * @param {dw.util.Collection} previousBonusDiscountLineItems - contains BonusDiscountLineItems
+ *                                                              already processed
+ * @param {object} urlObject - Object with data to be used in the choice of bonus products modal
+ * @param {string} pliUUID - the uuid of the qualifying product line item.
+ * @returns {object} - either the object that represents data needed for the choice of
+ *                    bonus products modal window or undefined
+ */
+function getNewBonusDiscountLineItem(
+    currentBasket,
+    previousBonusDiscountLineItems,
+    urlObject,
+    pliUUID
+) {
+    var bonusDiscountLineItems = currentBasket.getBonusDiscountLineItems();
+    var newBonusDiscountLineItem;
+    var result = {};
+
+    newBonusDiscountLineItem = collections.find(bonusDiscountLineItems, function (item) {
+        return !previousBonusDiscountLineItems.contains(item);
+    });
+
+    collections.forEach(bonusDiscountLineItems, function (item) {
+        if (!previousBonusDiscountLineItems.contains(item)) {
+            Transaction.wrap(function () {
+                item.custom.bonusProductLineItemUUID = pliUUID; // eslint-disable-line no-param-reassign
+            });
+        }
+    });
+
+    if (newBonusDiscountLineItem) {
+        result.bonusChoiceRuleBased = newBonusDiscountLineItem.bonusChoiceRuleBased;
+        result.bonuspids = [];
+        var iterBonusProducts = newBonusDiscountLineItem.bonusProducts.iterator();
+        while (iterBonusProducts.hasNext()) {
+            var newBProduct = iterBonusProducts.next();
+            result.bonuspids.push(newBProduct.ID);
+        }
+        result.uuid = newBonusDiscountLineItem.UUID;
+        result.pliUUID = pliUUID;
+        result.maxBonusItems = newBonusDiscountLineItem.maxBonusItems;
+        result.addToCartUrl = urlObject.addToCartUrl;
+        result.showProductsUrl = urlObject.configureProductstUrl;
+        result.showProductsUrlListBased = URLUtils.url('Product-ShowBonusProducts', 'DUUID', newBonusDiscountLineItem.UUID, 'pids', result.bonuspids.toString(), 'maxpids', newBonusDiscountLineItem.maxBonusItems).toString();
+        result.showProductsUrlRuleBased = URLUtils.url('Product-ShowBonusProducts', 'DUUID', newBonusDiscountLineItem.UUID, 'pagesize', BONUS_PRODUCTS_PAGE_SIZE, 'pagestart', 0, 'maxpids', newBonusDiscountLineItem.maxBonusItems).toString();
+        result.pageSize = BONUS_PRODUCTS_PAGE_SIZE;
+        result.configureProductstUrl = URLUtils.url('Product-ShowBonusProducts', 'pids', result.bonuspids.toString(), 'maxpids', newBonusDiscountLineItem.maxBonusItems).toString();
+        result.newBonusDiscountLineItem = newBonusDiscountLineItem;
+        result.labels = {
+            close: Resource.msg('link.choiceofbonus.close', 'product', null),
+            selectprods: Resource.msgf('modal.header.selectproducts', 'product', null, null),
+            selectedprods:  Resource.msgf('modal.header.selected.products', 'product', null,0, newBonusDiscountLineItem.maxBonusItems),
+            maxprods: Resource.msgf('label.choiceofbonus.selectproducts', 'product', null, newBonusDiscountLineItem.maxBonusItems)
+        };
+    }
+    return newBonusDiscountLineItem ? result : undefined;
+}
+
+base.getNewBonusDiscountLineItem = getNewBonusDiscountLineItem;
 base.createFreeLineItem = createFreeLineItem;
 base.checkCouponCodeError = checkCouponCodeError;;
 base.addProductToCart = addProductToCart;
