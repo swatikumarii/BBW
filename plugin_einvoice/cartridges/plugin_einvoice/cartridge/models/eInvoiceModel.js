@@ -28,8 +28,7 @@ function eInvoice(order, refData, buyersData) {
         );
 
         // Generate invoice number using the erpId
-        var invoiceNumber =
-            'INV' + order.invoiceNo || refData.erpId.toUpperCase();
+        var invoiceNumber = order.invoiceNo || refData.erpId.toUpperCase();
 
         // Retrieve shipping and billing addresses
         var shippingInfo = order.shipments[0].shippingAddress;
