@@ -47,6 +47,10 @@ $(document).ready(function () {
   let EInvoice = function () {
     let showAlert = function (data) {
       if (data.status) {
+         $('.modal-e-invoice').toggleClass('is-visible');
+         $('#submitEInvoiceDownloadForm')[0].reset();
+         $('.invalid-submittion').html(''); 
+         $.spinner().stop();
         if ($(".add-to-cart-messages").length === 0) {
           $("body").append('<div class="add-to-cart-messages"></div>');
         }
@@ -60,18 +64,8 @@ $(document).ready(function () {
           $(".add-to-basket-alert").remove();
         }, 1500);
       } else {
-        if ($(".add-to-cart-messages").length === 0) {
-          $("body").append('<div class="add-to-cart-messages"></div>');
-        }
-        $(".add-to-cart-messages").append(
-          '<div class="alert alert-danger add-to-basket-alert text-center text-left h-fw--semibold show"' +
-            ' role="alert">' +
-            data.errorMsg +
-            "</div>"
-        );
-        setTimeout(function () {
-          $(".add-to-basket-alert").remove();
-        }, 1500);
+        $.spinner().stop();
+        $('.invalid-submittion').html(data.errorMsg);       
       }
     };
 
@@ -103,8 +97,7 @@ $(document).ready(function () {
           sSTNumber: "NA",
         },
         success: function success(response) {
-          showAlert(response);
-          $("#submitEInvoiceDownloadForm")[0].reset()
+          showAlert(response);         
         },
       });
     };
@@ -115,9 +108,8 @@ $(document).ready(function () {
 
   $("body").on("submit", "#submitEInvoiceDownloadForm", function (e) {
     e.preventDefault();
-    
-    eInvoice.submitForm($(this)[0].action, $(this).serializeArray(), orderId);
-    $(".modal-e-invoice").toggleClass("is-visible");
+    $.spinner().start();
+    eInvoice.submitForm($(this)[0].action, $(this).serializeArray(), orderId);    
   });
 
   // Quick & dirty toggle to demonstrate modal toggle behavior

@@ -66,6 +66,11 @@
                     class="invoice-download btn btn-secondary btn-hover  text-uppercase h-fw--bold"
                     data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
                 </button>
+                <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
+                    <button class="btn btn-info modal-toggle-e-invoice"
+                        data-order-id="00000501">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+                </isif>
+                <isinclude template="e-invoice/einvoice" />
             </div>
             <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
         </div>
