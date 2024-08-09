@@ -26,11 +26,14 @@ server.append('Show', function (req, res, next) {
 
     var viewData = res.getViewData();
     var currentPageMeta = viewData.CurrentPageMetaData || {};
-    currentPageMeta.description = (
+    var description = (
         viewData.product.fragranceDescription ||
         viewData.product.shortDescription ||
         viewData.product.longDescription
-    ).markup.replace(/<[^>]*>/g, '');
+    );
+    currentPageMeta.description = description
+        ? description.markup.replace(/<[^>]*>/g, '')
+        : description;
     currentPageMeta.pageMetaTags = currentPageMeta.pageMetaTags || [];
     if (currentPageMeta.description) {
         currentPageMeta.pageMetaTags.push({
