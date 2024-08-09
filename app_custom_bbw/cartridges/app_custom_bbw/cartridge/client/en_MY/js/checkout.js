@@ -98,8 +98,8 @@ $(document).ready(function () {
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au',
-        countryOrder: ['au']
+        initialCountry: 'my',
+        countryOrder: ['my']
     });
 
     $('.accordion-title').click(function () {

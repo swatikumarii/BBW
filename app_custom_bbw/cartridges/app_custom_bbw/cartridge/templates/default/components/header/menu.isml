@@ -55,7 +55,7 @@
                 name="simpleSearch">
                 <fieldset>
                     <input class="h-font-size--18 p-0" type="search" id="mobile-slide-search" value=""
-                        placeholder="Search" name="q" />
+                        placeholder="${Resource.msg('label.mobile.menu.search', 'common', null)}" name="q" />
                     <button type="submit" id="menusearch" class="position-absolute h-100 border-0 p-0 h-bg--white ">
                         <img class="h-width--20 menu-sidebar-search black-search-icon" width="19px" height="29px"
                             src="${URLUtils.staticURL('/images/header/UI-Search.svg')}"
