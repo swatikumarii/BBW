@@ -22,7 +22,7 @@ server.get(
     csrfProtection.validateAjaxRequest,
     function (req, res, next) {
         var OrderMgr = require('dw/order/OrderMgr');
-        var order = OrderMgr.getOrder(orderId); // Retrieve order using orderId (orderId should be defined or passed in some way)
+        var order = OrderMgr.getOrder(req.querystring.orderId); // Retrieve order using orderId (orderId should be defined or passed in some way)
 
         // Return JSON response with the validity of the order's creation date
         res.json({

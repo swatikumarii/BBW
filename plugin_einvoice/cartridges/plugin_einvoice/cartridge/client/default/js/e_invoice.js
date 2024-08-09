@@ -75,19 +75,19 @@ $(document).ready(function () {
       }
     };
 
-    this.showEinvoiceButton = function (url) {
-      var csrfToken = $('input[name="csrf_token"]').val();
-      $.ajax({
-        type: "GET",
-        url: url + "?csrf_token=" + csrfToken,
-        success: function success(response) {
-          if (response.isValid) {
-            $(".modal-toggle-e-invoice").show();
-          } else {
-            $(".modal-toggle-e-invoice").hide();
-          }
-        },
-      });
+    this.showEinvoiceButton = function (url, odrId) {
+        var csrfToken = $('input[name="csrf_token"]').val();
+        $.ajax({
+            type: 'GET',
+            url: url + '?orderId=' + odrId + '&csrf_token=' + csrfToken,
+            success: function success(response) {
+                if (response.isValid) {
+                    $('.modal-toggle-e-invoice').show();
+                } else {
+                    $('.modal-toggle-e-invoice').hide();
+                }
+            }
+        });
     };
 
     this.submitForm = function (url, data, odrId) {
@@ -111,7 +111,7 @@ $(document).ready(function () {
   };
 
   const eInvoice = new EInvoice();
-  eInvoice.showEinvoiceButton(btnShowUrl);
+  eInvoice.showEinvoiceButton(btnShowUrl, orderId);
 
   $("body").on("submit", "#submitEInvoiceDownloadForm", function (e) {
     e.preventDefault();
