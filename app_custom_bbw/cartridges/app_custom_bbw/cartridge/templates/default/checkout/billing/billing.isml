@@ -51,7 +51,7 @@
                             aria-describedby="phoneInvalidMessage"
                             data-missing-error="${Resource.msg('error.phone.missing', 'forms', null)}"
                             data-pattern-mismatch="${Resource.msg('valid.phone.number', 'forms', null)}"
-                            <isprint value="${pdict.forms.billingForm.addressFields.phone.attributes}" encoding="off" /> >
+                            <isprint value="${pdict.forms.billingForm.contactInfoFields.phone.attributes}" encoding="off" /> >
                         <div class="invalid-feedback" id="phoneInvalidMessage"></div>
                     </div>
                 </div>
