@@ -3,20 +3,20 @@
 /**
  * Generates an e-invoice JSON object for a given order.
  * @param {dw.order.Order} order - The order object
- * @param {Object} refData - Reference data including eRP_ID and currentDateTime
+ * @param {Object} refData - Reference data including erpId and currentDateTime
  * @param {Object} buyersData - Buyer information including tinNumber, regNumber, identificationType, and sstNumber
  * @returns {Object} - The e-invoice JSON object
  */
 function eInvoice(order, refData, buyersData) {
     var Site = require('dw/system/Site');
     var System = require('dw/system/System');
-    const einvoiveStatesCode = require('*/cartridge/scripts/constant/einvoice_states');
+    var einvoiveStatesCode = require('*/cartridge/scripts/constant/einvoice_states');
     var Logger = require('dw/system/Logger');
     var loggerEinvoice = Logger.getLogger('EInvoice');
 
     // Retrieve supplier information from custom preferences
     var supplierInformation = Site.getCurrent().getCustomPreferenceValue(
-        'eInvoice_supplier_info'
+        'eInvoiceSupplierInfo'
     );
 
     if (supplierInformation) {
@@ -27,12 +27,12 @@ function eInvoice(order, refData, buyersData) {
                 supplierInformation.supplier_name
         );
 
-        // Generate invoice number using the eRP_ID
-        const invoiceNumber = 'INV' + refData.eRP_ID;
+        // Generate invoice number using the erpId
+        var invoiceNumber = 'INV' + refData.erpId;
 
         // Retrieve shipping and billing addresses
-        const shippingInfo = order.shipments[0].shippingAddress;
-        const billingInfo = order.billingAddress;
+        var shippingInfo = order.shipments[0].shippingAddress;
+        var billingInfo = order.billingAddress;
 
         var billingStateCode;
         var shippingStateCode;
@@ -62,17 +62,17 @@ function eInvoice(order, refData, buyersData) {
         }
 
         // Determine if shipping tax should be included
-        const enableShippingTax =
+        var enableShippingTax =
             Site.getCurrent().getCustomPreferenceValue(
-                'eInvoice_enable_shipping_tax'
+                'eInvoiceEnableShippingTax'
             ) || false;
 
         loggerEinvoice.info(
             'Is enable shipping tax calculations : ' +
                 Site.getCurrent().getCustomPreferenceValue(
-                    'eInvoice_enable_shipping_tax'
+                    'eInvoiceEnableShippingTax'
                 )
-        );    
+        );
 
         // Initialize tax summary and tax type list
         var taxSummery = {};

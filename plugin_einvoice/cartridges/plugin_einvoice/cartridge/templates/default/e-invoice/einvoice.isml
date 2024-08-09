@@ -5,7 +5,7 @@
     </isscript>
 
 <iscomment>Use this button to submit einvoice</iscomment>
-<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoice_enable') == true}">
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
   <button class="btn btn-info modal-toggle-e-invoice"
     data-order-id="00000502">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
 </isif>

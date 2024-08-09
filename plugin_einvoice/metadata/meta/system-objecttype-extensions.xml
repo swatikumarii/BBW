@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
      <type-extension type-id="Order">
-       <custom-attribute-definitions>
-          <attribute-definition attribute-id="eInvoiceStatus">
-                <display-name xml:lang="x-default">E-Invoice Status</display-name>
-                <type>string</type>
-                <mandatory-flag>false</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-                <min-length>0</min-length>
-            </attribute-definition>
-            <attribute-definition attribute-id="eInvoice_erp_id">
+       <custom-attribute-definitions>         
+            <attribute-definition attribute-id="eInvoiceErpId">
                 <display-name xml:lang="x-default">E-Invoice Erp_Id</display-name>
                 <description xml:lang="x-default">Used to fetch invoice-related data.</description>
                 <type>string</type>
@@ -17,7 +10,7 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
-            <attribute-definition attribute-id="eInvoice_number">
+            <attribute-definition attribute-id="eInvoiceNumber">
                 <display-name xml:lang="x-default">E-Invoice Number</display-name>
                 <description xml:lang="x-default">Invoice Number.</description>
                 <type>string</type>
@@ -25,13 +18,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
-            <attribute-definition attribute-id="eInvoice_qr_code">
+            <attribute-definition attribute-id="eInvoiceQrCode">
                 <display-name xml:lang="x-default">E-Invoice QR Code</display-name>
                 <type>text</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="eInvoice_status">
+            <attribute-definition attribute-id="eInvoiceStatus">
                 <display-name xml:lang="x-default">E-Invoice Status</display-name>
                 <description xml:lang="x-default">Status of E-Invoice.</description>
                 <type>string</type>
@@ -39,7 +32,7 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
-            <attribute-definition attribute-id="eInvoice_submittion_date">
+            <attribute-definition attribute-id="eInvoiceSubmittionDate">
                 <display-name xml:lang="x-default">E-Invoice Submission Date</display-name>
                 <description xml:lang="x-default">Created date of E-Invoice.</description>
                 <type>string</type>
@@ -51,25 +44,25 @@
               <group-definitions>
                <attribute-group group-id="eInvoice">
                 <display-name xml:lang="x-default">E-Invoice Details</display-name>
-                <attribute attribute-id="eInvoice_submittion_date"/>
-                <attribute attribute-id="eInvoice_erp_id"/>
-                <attribute attribute-id="eInvoice_number"/>
-                <attribute attribute-id="eInvoice_qr_code"/>
-                <attribute attribute-id="eInvoice_status"/>
+                <attribute attribute-id="eInvoiceSubmittionDate"/>
+                <attribute attribute-id="eInvoiceErpId"/>
+                <attribute attribute-id="eInvoiceNumber"/>
+                <attribute attribute-id="eInvoiceQrCode"/>
+                <attribute attribute-id="eInvoiceStatus"/>
             </attribute-group>
              </group-definitions>
     </type-extension>  
 
     <type-extension type-id="SitePreferences">
         <custom-attribute-definitions>
-            <attribute-definition attribute-id="eInvoice_enable">
+            <attribute-definition attribute-id="eInvoiceEnable">
                 <display-name xml:lang="x-default">Enable E-Invoice</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <default-value>false</default-value>
             </attribute-definition>
-            <attribute-definition attribute-id="eInvoice_enable_shipping_tax">
+            <attribute-definition attribute-id="eInvoiceEnableShippingTax">
                 <display-name xml:lang="x-default">E-Invoice Enable Shipping Tax</display-name>
                 <description xml:lang="x-default">Apply tax to shipping services.</description>
                 <type>boolean</type>
@@ -77,7 +70,7 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <default-value>true</default-value>
             </attribute-definition>
-            <attribute-definition attribute-id="eInvoice_scope">
+            <attribute-definition attribute-id="eInvoiceScope">
                 <display-name xml:lang="x-default">E-Invoice Scope</display-name>
                 <description xml:lang="x-default">Scope of E-Invoice should be followed by ".default". Ex. 0001-1234-5678/.default</description>
                 <type>string</type>
@@ -85,14 +78,14 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
-            <attribute-definition attribute-id="eInvoice_supplier_info">
+            <attribute-definition attribute-id="eInvoiceSupplierInfo">
                 <display-name xml:lang="x-default">E-Invoice Supplier Info</display-name>
                 <description xml:lang="x-default">Supplier Information</description>
                 <type>text</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="eInvoice_user_agent">
+            <attribute-definition attribute-id="eInvoiceUserAgent">
                 <display-name xml:lang="x-default">E-Invoice User Agent</display-name>
                 <description xml:lang="x-default">User-agent name while submitting the invoice.</description>
                 <type>string</type>
@@ -104,11 +97,11 @@
         <group-definitions>
             <attribute-group group-id="eInvoice">
                 <display-name xml:lang="x-default">E-Invoice Config</display-name>
-                <attribute attribute-id="eInvoice_enable"/>
-                <attribute attribute-id="eInvoice_scope"/>
-                <attribute attribute-id="eInvoice_user_agent"/>
-                <attribute attribute-id="eInvoice_supplier_info"/>
-                <attribute attribute-id="eInvoice_enable_shipping_tax"/>
+                <attribute attribute-id="eInvoiceEnable"/>
+                <attribute attribute-id="eInvoiceScope"/>
+                <attribute attribute-id="eInvoiceUserAgent"/>
+                <attribute attribute-id="eInvoiceSupplierInfo"/>
+                <attribute attribute-id="eInvoiceEnableShippingTax"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
