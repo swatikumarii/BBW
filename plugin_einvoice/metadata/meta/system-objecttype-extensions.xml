@@ -40,6 +40,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+             <attribute-definition attribute-id="einvoiceErrorMsg">
+                <display-name xml:lang="x-default">E-Invoice Error Msg</display-name>
+                <description xml:lang="x-default">E-Invoice Error Msg</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>                
+            </attribute-definition>
              </custom-attribute-definitions>
               <group-definitions>
                <attribute-group group-id="eInvoice">
@@ -49,6 +56,7 @@
                 <attribute attribute-id="eInvoiceNumber"/>
                 <attribute attribute-id="eInvoiceQrCode"/>
                 <attribute attribute-id="eInvoiceStatus"/>
+                <attribute attribute-id="einvoiceErrorMsg"/>
             </attribute-group>
              </group-definitions>
     </type-extension>  
