@@ -41,6 +41,12 @@ function getToken() {
         !tokenInfo ||
         !('token' in tokenInfo.custom && tokenInfo.custom.token)
     ) {
+        if (!tokenInfo) {
+            tokenInfo = CustomObjectMgr.createCustomObject(
+                'eInvoiceTokenInfo',
+                'token-info'
+            );
+        }
         return getTokenFromPWC(tokenInfo);
     }
     return tokenInfo;
