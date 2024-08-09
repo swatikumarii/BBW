@@ -104,8 +104,7 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
 
 if (
     !localStorage.getItem('is-country-selector') &&
-    $('.countrySelectPopup').data('country-selector-enabled') &&
-    ($('#is-home-page').val() === 'true')
+    $('.countrySelectPopup').data('country-selector-enabled')
 ) {
     var reqCountryDiv = $('#request-country-name');
     var countryCode = reqCountryDiv.data('country-code');
