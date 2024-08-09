@@ -102,6 +102,17 @@ $(document).ready(function () {
         countryOrder: ['au']
     });
 
+    var billingPhone = document.querySelector('#phoneNumber');
+    intlTelInput(billingPhone, {
+        utilsScript: utils,
+        showFlags: true,
+        strictMode: true,
+        showSelectedDialCode: true,
+        initialCountry: 'au',
+        countryOrder: ['au']
+    });
+
+
     $('.accordion-title').click(function () {
         $(this).next('.accordion-content').slideToggle();
         $(this).toggleClass('rotate-down');
