@@ -42,6 +42,7 @@
                 </div>
             </div>
         </div>
+        <isset name="showBonusTitle" value="${true}" scope="page" />
         <isif condition="${pdict.items.length !== 0}">
             <div class="container cart cart-page">
                 <h1 class="shoppingBagTitle h-clr--black-1 h-fw--bold h-font-size--24">
@@ -100,6 +101,10 @@
                 </div>
                 <div class="cart-lineitems">
                     <isloop items="${pdict.items}" var="lineItem">
+                        <isif condition="${showBonusTitle && lineItem.isBonusProductLineItem}">
+                            <span class="bonus-product-title h-font-size--20 h-clr--black-1 ml-3">Your Free Gift(s)</span>
+                            <isset name="showBonusTitle" value="${false}" scope="page" />
+                        </isif>
                         <isif condition="${lineItem.isGiftWrapCategory}">
                             <isset name="giftWrapItem" value="${lineItem}" scope="page" />
                         <iselseif condition="${lineItem.isGreetingCardCategory}"/>

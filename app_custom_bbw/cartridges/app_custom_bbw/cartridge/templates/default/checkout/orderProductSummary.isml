@@ -7,15 +7,15 @@
             </isif>
 
             <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
-                <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+                <iscomment> <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
                     <div class="card ${miniCart ? 'bonus-product-line-item' : ''} uuid-${lineItem.UUID}">
                         <div class="card-body">
                             <isinclude template="checkout/productCard/bonusProductCard" />
                         </div>
                     </div>
-                <iselse/>
+                <iselse/> </iscomment>
                     <isinclude template="checkout/productCard/productCard" />
-                </isif>
+                <iscomment> </isif> </iscomment>
             </isloop>
         </isloop>
     </div>
