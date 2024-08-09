@@ -3,6 +3,8 @@
 var Transaction = require('dw/system/Transaction');
 var CustomObjectMgr = require('dw/object/CustomObjectMgr');
 var EInvoiceApi = require('*/cartridge/scripts/service/eInvoiceApis');
+var Logger = require('dw/system/Logger');
+var loggerEinvoice = Logger.getLogger('EInvoice');
 
 /**
  * Get new token from PWC API
@@ -23,6 +25,7 @@ function getTokenFromPWC(tokenInfo) {
             });
         });
     } else {
+        loggerEinvoice.info('Unable to get token from PWC.'); 
         // TODO: handle error
     }
     return tokenInfo;
@@ -59,7 +62,10 @@ function getToken() {
  * @param {boolean} isRecursive - is recursive call or not
  */
 function updateSubmission(tokenInfo, submission, isRecursive) {
+    loggerEinvoice.info('Submission update called.');
+
     if (!tokenInfo) {
+        loggerEinvoice.error('Submission update no token error return false.');
         return;
     }
     // Get EInvoice
@@ -69,7 +75,13 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
             erpId: submission.custom.erpId
         }
     );
+    loggerEinvoice.info('Submission get by erp id :' + submission.custom.erpId);
+
     if (submissionAPIResponse.ok) {
+        loggerEinvoice.info(
+            'Got submission successfully get by erp id :' +
+                submission.custom.erpId
+        );
         var responseObject = JSON.parse(submissionAPIResponse.object);
         if (
             responseObject &&
@@ -90,6 +102,9 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                 currentSubmission.status === 'Valid' &&
                 currentSubmission.invoiceId
             ) {
+                loggerEinvoice.info(
+                    'Submission is valid : ' + submission.custom.erpId
+                );
                 var qrCodeApiResponse = EInvoiceApi.GetQRCode(
                     JSON.parse(tokenInfo.custom.token),
                     {
@@ -107,6 +122,10 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
 
                             CustomObjectMgr.remove(submission);
                         });
+                        loggerEinvoice.info(
+                            'QR code updated successfully : ' +
+                                submission.custom.erpId
+                        );
                         // Fire a hook to send email from higher cartridges
                         if (
                             require('dw/system/HookMgr').hasHook(
@@ -117,6 +136,9 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                                 'einvoice.email.send',
                                 'sendEmail',
                                 order
+                            );
+                            loggerEinvoice.info(
+                                'Mail hook called : ' + submission.custom.erpId
                             );
                         }
                         // var emailObj = {
@@ -151,12 +173,21 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                 // response[0].status === 'Invalid' ||
                 currentSubmission.status === 'Rejected'
             ) {
+                loggerEinvoice.info(
+                    'Submission is rejected : ' + submission.custom.erpId
+                );
                 // eslint-disable-next-line no-loop-func
                 Transaction.wrap(function () {
                     order.custom.eInvoiceStatus =
                         einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
                     CustomObjectMgr.remove(submission);
                 });
+                loggerEinvoice.info(
+                    'Rejection error source : ' + currentSubmission.errorSource
+                );
+                loggerEinvoice.info(
+                    'Rejection reason : ' + currentSubmission.detailedMessage
+                );
                 // Fire a hook to send email from higher cartridges
                 if (
                     require('dw/system/HookMgr').hasHook('einvoice.email.send')
@@ -165,6 +196,10 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                         'einvoice.email.send',
                         'sendFailedEmail',
                         order
+                    );
+                    loggerEinvoice.info(
+                        'Rejection mail hook called : ' +
+                            submission.custom.erpId
                     );
                 }
                 // var rejectedEmailObj = {
@@ -191,6 +226,13 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                 //     }
                 // );
             } else {
+
+                 loggerEinvoice.info(
+                     'Rejection error source : ' + currentSubmission.errorSource
+                 );
+                 loggerEinvoice.info(
+                     'Rejection reason : ' + currentSubmission.detailedMessage
+                 );
                 // TODO: log error in logs
                 // eslint-disable-next-line no-loop-func
                 Transaction.wrap(function () {
@@ -200,10 +242,14 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                 });
             }
         } else {
-            // TODO: log error if there is no response from API
+            loggerEinvoice.info(
+                'Submission not found : ' + submission.custom.erpId + " Date : " + new Date()
+            )           
         }
     } else if (!isRecursive && submissionAPIResponse.error === 401) {
         // TODO: log token errors in logger
+         loggerEinvoice.info(
+             'Token Unauthorized');  
         updateSubmission(getTokenFromPWC(tokenInfo), submission, true);
     }
 }
@@ -215,10 +261,18 @@ function sendEInvoice() {
     var tokenInfo = getToken();
     if (!tokenInfo) {
         return;
+        loggerEinvoice.info('Used token found : ' + JSON.stringify(tokenInfo));
     }
+    loggerEinvoice.info('No token found');
+
     var submissions = CustomObjectMgr.getAllCustomObjects('eInvoiceDetails');
+
+    loggerEinvoice.info('Submission found : ' + submissions.length);
+
     while (submissions.hasNext()) {
         var submission = submissions.next();
+        loggerEinvoice.info('Submission : ' + JSON.stringify(submission));
+
         updateSubmission(tokenInfo, submission);
     }
 }
