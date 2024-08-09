@@ -379,7 +379,9 @@ function chooseBonusProducts(data) {
             $('#chooseBonusProductModal .modal-header .close .sr-only').text(
                 response.closeButtonText
             );
-            $('#chooseBonusProductModal .modal-body').html(parsedHtml.body);
+            var modalBodybody = '<div class="modal-body-wrap"></div>';
+            $('#chooseBonusProductModal .modal-body').html(modalBodybody);
+            $('#chooseBonusProductModal .modal-body-wrap').html(parsedHtml.body);
             $('#chooseBonusProductModal .modal-footer').html(parsedHtml.footer);
             $('#chooseBonusProductModal').modal('show');
             $.spinner().stop();
