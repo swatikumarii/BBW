@@ -101,6 +101,12 @@ server.replace(
                 dialCode: form.shippingAddress.addressFields.dialCode.value,
                 dialCodeCountry: form.shippingAddress.addressFields.dialCodeCountry.value
             };
+            if ('district' in form.shippingAddress.addressFields && form.shippingAddress.addressFields.district.value) {
+                result.address.district = form.shippingAddress.addressFields.district.value;
+            }
+            if ('subdistrict' in form.shippingAddress.addressFields && form.shippingAddress.addressFields.subdistrict.value) {
+                result.address.subDistrict = form.shippingAddress.addressFields.subdistrict.value;
+            }
             if (Object.prototype.hasOwnProperty
                 .call(form.shippingAddress.addressFields, 'states')) {
                 result.address.stateCode = form.shippingAddress.addressFields.states.stateCode.value;

@@ -90,6 +90,8 @@ function updateAddressFields(newAddress, address) {
     newCreatedAddress.setTitle(address.title || '');
     newCreatedAddress.custom.dialCode = address.dialCode || defaultDialCode;
     newCreatedAddress.custom.dialCodeCountry = address.dialCodeCountry || defaultDialCodeCountry;
+    newCreatedAddress.custom.district = address.district ? address.district : '';
+    newCreatedAddress.custom.subDistrict = address.subdistrict ? address.subdistrict : '';
 }
 
 /**

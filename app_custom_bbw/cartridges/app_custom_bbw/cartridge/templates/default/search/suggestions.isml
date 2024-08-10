@@ -3,7 +3,7 @@
     <input type="hidden" class="cart-page-url" value="${URLUtils.abs('Cart-Show')}" />
     <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
     <input type="hidden" class="searchTerms" value="${pdict.suggestions.searchTerms}" />
-    <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available}">
+    <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available && pdict.suggestions.product.products.length > 0}">
         <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
             <isif condition="${pdict.suggestions.product.phrases.length > 0}">
                 <isset name="phrase" value="${pdict.suggestions.product.phrases[0]}" scope="page"/>
@@ -58,12 +58,16 @@
         <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
             <div class="row no-gutters header">
                 <div class="col">
-                    <isif condition="${pdict.suggestions.searchTerms && pdict.suggestions.searchTerms !== ''}">
-                        <p class="h-clr--black">
-                            <isprint
-                                value="${Resource.msgf('message.when.no.search.result.found', 'search', null, pdict.suggestions.searchTerms)}"
-                                encoding="off" />
-                        </p>
+                    <isif condition="${pdict.suggestions.searchTerms}">
+                        <isif condition="${pdict.suggestions.searchTerms.trim().length > 0}">
+                            <p class="h-clr--black">
+                                <isprint
+                                    value="${Resource.msgf('message.when.no.search.result.found', 'search', null, pdict.suggestions.searchTerms)}"
+                                    encoding="off" />
+                            </p>
+                        <iselse/>
+                            <h2 class="h-fw--bold">${Resource.msg('label.trending.now', 'search', null)}</h2>
+                        </isif>
                     <iselse/>
                         <h2 class="h-fw--bold">${Resource.msg('label.trending.now', 'search', null)}</h2>
                     </isif>

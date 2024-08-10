@@ -39,7 +39,7 @@ function getOrderDetailsByID(orderID, locale) {
  */
 function validateTrackingData(orderNumber, orderEmail, billingZipCode) {
     var Resource = require('dw/web/Resource');
-    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+    var pattern = /^[\w.%+-]+@[\w.-]+\.\w{2,}$/i;
     var error = [];
     if (!orderNumber) {
         error.push({

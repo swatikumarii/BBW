@@ -324,6 +324,12 @@ function copyBillingAddressToBasket(address) {
             billingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
             billingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
         }
+        if ('district' in address.custom) {
+            billingAddress.custom.district = address.custom.district;
+        }
+        if ('subDistrict' in address.custom) {
+            billingAddress.custom.subDistrict = address.custom.subDistrict;
+        }
     });
 }
 
@@ -492,6 +498,12 @@ function copyShippingAddressToShipment(shippingData, shipmentOrNull) {
         shippingAddress.custom.dialCode = shippingData.address.dialCode ? shippingData.address.dialCode : defaultDialCode;
         shippingAddress.custom.dialCodeCountry = shippingData.address.dialCodeCountry ? shippingData.address.dialCodeCountry : defaultDialCodeCountry;
 
+        if (shippingData.address.district) {
+            shippingAddress.custom.district = shippingData.address.district;
+        }
+        if (shippingData.address.subDistrict) {
+            shippingAddress.custom.subDistrict = shippingData.address.subDistrict;
+        }
         ShippingHelper.selectShippingMethod(shipment, shippingData.shippingMethod);
     });
 }

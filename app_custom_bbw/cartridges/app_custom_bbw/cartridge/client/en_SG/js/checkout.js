@@ -98,8 +98,8 @@ $(document).ready(function () {
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au',
-        countryOrder: ['au']
+        initialCountry: 'sg',
+        countryOrder: ['sg']
     });
 
     $('.accordion-title').click(function () {
@@ -473,8 +473,8 @@ $('.billingState').change(function () {
         $.each(addressData[selectedState], function (suburb) {
             suburbDropdown.append(
                 $('<option>', {
-                    value: suburb,
-                    text: suburb
+                    value: addressData[selectedState][suburb],
+                    text: addressData[selectedState][suburb]
                 })
             );
         });
