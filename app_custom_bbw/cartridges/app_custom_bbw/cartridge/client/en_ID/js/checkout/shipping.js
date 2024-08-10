@@ -869,7 +869,7 @@ module.exports = {
                 });
             }
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     $('[name$=' + element + ']', form).val(attrs[attr]);
                     // validate an hide/show errors
