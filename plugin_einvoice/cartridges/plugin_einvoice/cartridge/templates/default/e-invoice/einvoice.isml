@@ -18,18 +18,19 @@
   data-btn-show="${URLUtils.url('Einvoice-Show')}"></div>
 <div class="modal-e-invoice">
   <div class="modal-overlay-e-invoice modal-toggle-e-invoice"></div>
-  <div class="modal-wrapper-e-invoice modal-transition-e-invoice">
-    <div class="modal-header-e-invoice">
-      <button class="modal-close-e-invoice modal-toggle-e-invoice">
-        <svg class="icon-close icon-e-invoice" viewBox="0 0 32 32">
+  <div class="modal-wrapper-e-invoice modal-transition-e-invoice cust-modal text-left">
+    <div class="modal-header-e-invoice modal-title">
+      
+      <h2 class="modal-heading-e-invoice">${Resource.msg('heading.einvoice.modal', 'einvoice_modal', null)}</h2>
+    <button class="modal-close-e-invoice modal-toggle-e-invoice close">
+      <iscomment> <svg class="icon-close icon-e-invoice" viewBox="0 0 32 32">
           <path
             d="M16 14.6l-9.8-9.8-1.4 1.4 9.8 9.8-9.8 9.8 1.4 1.4 9.8-9.8 9.8 9.8 1.4-1.4-9.8-9.8 9.8-9.8-1.4-1.4-9.8 9.8z">
           </path>
-        </svg>
-      </button>
-      <h2 class="modal-heading-e-invoice">${Resource.msg('heading.einvoice.modal', 'einvoice_modal', null)}</h2>
+        </svg> </iscomment>
+    </button>
     </div>
-    <div class="modal-body-e-invoice">
+    <div class="modal-body-e-invoice modal-body">
       <div class="modal-content-e-invoice">
         <form id="submitEInvoiceDownloadForm" method="POST" action="${URLUtils.url('Einvoice-Submit')}">
           <input type="hidden" name="orderId" value="" />
@@ -42,22 +43,24 @@
               class="form-control" required />
             <div class="invalid-feedback" id="form-tinTB-error"></div>
           </div>
-          <div class="form-group">
+          <div class="form-group select-box">
             <label for="identificationType">${Resource.msg('einvoice.modal.popup.select.label', 'einvoice_modal', null)}</label>
-            <select class="form-control" name="identificationType" id="identificationType" placeholder="select"
-              data-missing-error="${Resource.msgf('field.required.error', 'einvoice_modal', null, Resource.msg('einvoice.modal.popup.select.label',
-                                'einvoice_modal', null))}"
-              required>
-              <option value="">${Resource.msg('einvoice.modal.popup.select.selectoption.text', 'einvoice_modal', null)}
-              </option>
-              <option value="BRN">${Resource.msg('einvoice.modal.popup.select.option.first', 'einvoice_modal', null)}
-              </option>
-              <option value="NRIC">${Resource.msg('einvoice.modal.popup.select.option.second', 'einvoice_modal', null)}
-              </option>
-              <option value="PASSPORT">${Resource.msg('einvoice.modal.popup.select.option.third', 'einvoice_modal', null)}</option>
-              <option value="ARMY">${Resource.msg('einvoice.modal.popup.select.option.forth', 'einvoice_modal', null)}
-              </option>
-            </select>
+            <div class="select-address-wrap position-relative">
+              <select class="form-control" name="identificationType" id="identificationType" placeholder="select"
+                data-missing-error="${Resource.msgf('field.required.error', 'einvoice_modal', null, Resource.msg('einvoice.modal.popup.select.label',
+                                  'einvoice_modal', null))}"
+                required>
+                <option value="">${Resource.msg('einvoice.modal.popup.select.selectoption.text', 'einvoice_modal', null)}
+                </option>
+                <option value="BRN">${Resource.msg('einvoice.modal.popup.select.option.first', 'einvoice_modal', null)}
+                </option>
+                <option value="NRIC">${Resource.msg('einvoice.modal.popup.select.option.second', 'einvoice_modal', null)}
+                </option>
+                <option value="PASSPORT">${Resource.msg('einvoice.modal.popup.select.option.third', 'einvoice_modal', null)}</option>
+                <option value="ARMY">${Resource.msg('einvoice.modal.popup.select.option.forth', 'einvoice_modal', null)}
+                </option>
+              </select>
+            </div>
             <div class="invalid-feedback einvoice-select-error" id="form-identificationType-error"></div>
           </div>
           <div class="form-group d-none regNumber">

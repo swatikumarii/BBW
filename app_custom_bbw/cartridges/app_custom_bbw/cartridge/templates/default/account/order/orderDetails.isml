@@ -63,11 +63,11 @@
                 <input type="hidden" class="add-order-to-cart-url"
                     value="${URLUtils.url('Cart-AddProductFromOrder')}" />
                 <button id="invoiceDownload"
-                    class="invoice-download btn btn-secondary btn-hover  text-uppercase h-fw--bold"
+                    class="invoice-download btn btn-secondary btn-hover  text-uppercase h-fw--bold mb-2"
                     data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
                 </button>
                 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
-                    <button class="btn btn-info modal-toggle-e-invoice"
+                    <button class="btn btn-secondary modal-toggle-e-invoice btn-hover  text-uppercase h-fw--bold"
                         data-order-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
                     <isinclude template="e-invoice/einvoice" />
                 </isif>
