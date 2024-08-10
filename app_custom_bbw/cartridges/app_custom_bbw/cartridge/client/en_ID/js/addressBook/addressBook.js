@@ -173,7 +173,7 @@ $(document).on('click', '#editAddress', function () {
             )[0];
             var options = {
                 placeholder: ' ',
-                componentRestrictions: { country: 'AU' },
+                componentRestrictions: { country: 'ID' },
                 fields: [
                     'formatted_address',
                     'geometry',
@@ -249,8 +249,8 @@ $(document).on('click', '#editAddress', function () {
                 showFlags: true,
                 strictMode: true,
                 showSelectedDialCode: true,
-                initialCountry: 'au',
-                countryOrder: ['au']
+                initialCountry: 'id',
+                countryOrder: ['id']
             });
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
@@ -401,8 +401,8 @@ module.exports = $.extend({}, base, {
             showFlags: true,
             strictMode: true,
             showSelectedDialCode: true,
-            initialCountry: 'au',
-            countryOrder: ['au']
+            initialCountry: 'id',
+            countryOrder: ['id']
         });
     }
 });

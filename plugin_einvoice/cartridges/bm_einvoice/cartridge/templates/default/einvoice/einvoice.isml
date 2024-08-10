@@ -1,0 +1,35 @@
+<isdecorate template="common/MenuFrame">
+   <iscontent type="text/html" charset="UTF-8" />
+   <isinclude template="custom/modules" />
+
+   <h1>Resend E-Invoice</h1>
+   <isif condition="${pdict.message}">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+         <tbody>
+            <tr>
+               <td colspan="5" class="overview_title">${pdict.message}</td>
+            </tr>
+         </tbody>
+      </table>
+   </isif>
+   <form id="einvoiceForm" action="${URLUtils.url('EInvoice-ResendEmail')}" method="get" name="simple">
+      <table border="0" cellpadding="4" cellspacing="0" width="100%" class="infobox n">
+         <tbody>
+            <tr>
+               <td class="table_detail left e w s" nowrap="nowrap">
+                  <div class="form-group">
+                     <label class="form-title mb-0" for="charityName">Order Number</label>
+                     <div class="input-fields">
+                        <input type="text" class="form-control" name="orderNumber" id="orderNumber"/>
+                     </div>
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td class="table_detail left e s" nowrap="nowrap" width="75%">
+                  <button name="simpleSearch" class="btn btn-primary border formButton">Send Email</button></td>
+            </tr>
+         </tbody>
+      </table>
+   </form>
+</isdecorate>

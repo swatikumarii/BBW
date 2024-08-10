@@ -25,9 +25,12 @@
         <div class="col-8 pr-1 pr-md-0">
             <div class="line-item-header flex-column">
                 <iscomment> Display Name </iscomment>
+                <isif condition="${lineItem.isBonusProductLineItem}">
+                    <span>${Resource.msg('label.free.gift', 'common', null)}</span>
+                </isif>
                 <isif condition="${miniCart}">
                     <isinclude template="checkout/productCard/productCardProductNameAndRemove" />
-                    <iselse>
+                <iselse>
                         <isinclude template="checkout/productCard/productCardProductName" />
                 </isif>
                 <iscomment> Variation Attributes </iscomment>

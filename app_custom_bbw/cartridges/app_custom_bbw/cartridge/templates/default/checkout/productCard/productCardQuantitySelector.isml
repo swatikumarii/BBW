@@ -1,10 +1,14 @@
 <div class="quantity-form">
-    <span class="quantity-minus ${lineItem.isFreeItem || lineItem.isEgiftCard? 'd-none' : ''}">-</span>
+    <isif condition="${!lineItem.isBonusProductLineItem}">
+        <span class="quantity-minus ${lineItem.isFreeItem || lineItem.isEgiftCard? 'd-none' : ''}">-</span>
+    </isif>
     <input type="number" class="quantity form-control h-fw--semibold" data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}"
         data-action="${pdict.actionUrls.updateQuantityUrl}" data-pre-select-qty="${StringUtils.formatInteger(lineItem.quantity)}"
         id="quantity-${lineItem.UUID}" name="quantity-${lineItem.UUID}" data-max-order-qty="${lineItem.maxOrderQty}"
         aria-label="quantity: ${StringUtils.formatInteger(lineItem.quantity)}" value="${StringUtils.formatInteger(lineItem.quantity)}" ${lineItem.isFreeItem || lineItem.isEgiftCard ? 'disabled' : ''}>
-    <span class="quantity-plus ${lineItem.isFreeItem || lineItem.isEgiftCard ? 'd-none' : ''}">+</span>
+    <isif condition="${!lineItem.isBonusProductLineItem}">
+        <span class="quantity-plus ${lineItem.isFreeItem || lineItem.isEgiftCard ? 'd-none' : ''}">+</span>
+    </isif>
 </div>
 <isif condition="${!lineItem.isFreeItem && !lineItem.isEgiftCard && lineItem.qtyAddedMoreThanStock && !lineItem.maxOrderQty}">
     <isif condition="${lineItem.maxOrderQty<=0}">
