@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
+		<options>
+			<option optionid="" 	label="resource.select" 		value=""/>
+
+			<!-- regular ID states -->
+			<option label="Bali" value="Bali"/>
+			<option label="Bangka Belitung" value="Bangka Belitung"/>
+			<option label="Banten" value="Banten"/>
+			<option label="Bengkulu" value="Bengkulu"/>
+			<option label="DI Yogyakarta" value="DI Yogyakarta"/>
+			<option label="DKI Jakarta" value="DKI Jakarta"/>
+			<option label="Gorontalo" value="Gorontalo"/>
+			<option label="Jambi" value="Jambi"/>
+			<option label="Jawa Barat" value="Jawa Barat"/>
+			<option label="Jawa Tengah" value="Jawa Tengah"/>
+			<option label="Jawa Timur" value="Jawa Timur"/>
+			<option label="Kalimantan Barat" value="Kalimantan Barat"/>
+			<option label="Kalimantan Selatan" value="Kalimantan Selatan"/>
+			<option label="Kalimantan Tengah" value="Kalimantan Tengah"/>
+			<option label="Kalimantan Timur" value="Kalimantan Timur"/>
+			<option label="Kalimantan Utara" value="Kalimantan Utara"/>
+			<option label="Kepulauan Riau" value="Kepulauan Riau"/>
+			<option label="Lampung" value="Lampung"/>
+			<option label="Maluku" value="Maluku"/>
+			<option label="Maluku Utara" value="Maluku Utara"/>
+			<option label="Nanggroe Aceh Darussalam (NAD)" value="Nanggroe Aceh Darussalam (NAD)"/>
+			<option label="Nusa Tenggara Barat (NTB)" value="Nusa Tenggara Barat (NTB)"/>
+			<option label="Nusa Tenggara Timur (NTT)" value="Nusa Tenggara Timur (NTT)"/>
+			<option label="Papua" value="Papua"/>
+			<option label="Papua Barat" value="Papua Barat"/>
+			<option label="Riau" value="Riau"/>
+			<option label="Sulawesi Barat" value="Sulawesi Barat"/>
+			<option label="Sulawesi Selatan" value="Sulawesi Selatan"/>
+			<option label="Sulawesi Tengah" value="Sulawesi Tengah"/>
+			<option label="Sulawesi Tenggara" value="Sulawesi Tenggara"/>
+			<option label="Sulawesi Utara" value="Sulawesi Utara"/>
+			<option label="Sumatera Barat" value="Sumatera Barat"/>
+			<option label="Sumatera Selatan" value="Sumatera Selatan"/>
+			<option label="Sumatera Utara" value="Sumatera Utara"/>
+		</options>
+	</field>
+</form>

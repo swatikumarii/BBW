@@ -50,10 +50,10 @@
            max-length="50" missing-error="address.city.missing" range-error="error.message.between2and50"/>
 
     <!--  postal code -->
-       <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="true" min-length="4" max-length="4"
+       <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="true" min-length="5" max-length="5"
        regexp="^[0-9]*$"
        binding="postalCode"
-       range-error="error.message.zip.upto4"
+       range-error="error.message.zip.upto5"
        missing-error="error.zip.code"
        parse-error="error.message.parse.zip"/>
 

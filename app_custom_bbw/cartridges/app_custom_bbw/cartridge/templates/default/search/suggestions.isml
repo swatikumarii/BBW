@@ -3,7 +3,7 @@
     <input type="hidden" class="cart-page-url" value="${URLUtils.abs('Cart-Show')}" />
     <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
     <input type="hidden" class="searchTerms" value="${pdict.suggestions.searchTerms}" />
-    <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available && pdict.suggestions.product.length > 0}">
+    <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available && pdict.suggestions.product.products.length > 0}">
         <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
             <isif condition="${pdict.suggestions.product.phrases.length > 0}">
                 <isset name="phrase" value="${pdict.suggestions.product.phrases[0]}" scope="page"/>

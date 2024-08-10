@@ -34,7 +34,7 @@ function validateFields($input) {
             $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
         }
     } catch (error) {
-        console.log(error);
+        console.log(error); // eslint-disable-line
     }
 }
 
@@ -127,8 +127,8 @@ $(document).ready(function () {
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au',
-        countryOrder: ['au']
+        initialCountry: 'id',
+        countryOrder: ['id']
     });
 
     $('.accordion-title').click(function () {
@@ -226,7 +226,7 @@ $(document).ready(function () {
             .find('.shippingState')
             .attr('data-selected');
         if (selectedState !== 'null') {
-            $('.shippingState option').each(function () {
+            $('.shippingState option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedState) {
                     $('.shippingState option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -239,7 +239,7 @@ $(document).ready(function () {
             .find('.shippingAddressCity')
             .attr('data-selected');
         if (selectedCity !== 'null') {
-            $('.shippingAddressCity option').each(function () {
+            $('.shippingAddressCity option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedCity) {
                     $('.shippingAddressCity option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -253,7 +253,7 @@ $(document).ready(function () {
             .find('.shippingAddressDistrict')
             .attr('data-selected');
         if (selectedDistrict !== 'null') {
-            $('.shippingAddressDistrict option').each(function () {
+            $('.shippingAddressDistrict option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedDistrict) {
                     $('.shippingAddressDistrict option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -267,7 +267,7 @@ $(document).ready(function () {
             .find('.shippingAddressSubdistrict')
             .attr('data-selected');
         if (selectedSubDistrict !== 'null') {
-            $('.shippingAddressSubdistrict option').each(function () {
+            $('.shippingAddressSubdistrict option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedSubDistrict) {
                     $('.shippingAddressSubdistrict option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -283,7 +283,7 @@ $(document).ready(function () {
             .find('.shippingZipCode')
             .attr('data-selected');
         if (selectedPostalCode !== 'null') {
-            $('.shippingZipCode option').each(function () {
+            $('.shippingZipCode option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedPostalCode) {
                     $('.shippingZipCode option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -299,7 +299,7 @@ $(document).ready(function () {
             .find('.billingState')
             .attr('data-selected');
         if (selectedBillingState !== 'null') {
-            $('.billingState option').each(function () {
+            $('.billingState option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedBillingState) {
                     $('.billingState option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -312,7 +312,7 @@ $(document).ready(function () {
             .find('.billingAddressCity')
             .attr('data-selected');
         if (selectedBillingCity !== 'null') {
-            $('.billingAddressCity option').each(function () {
+            $('.billingAddressCity option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedBillingCity) {
                     $('.billingAddressCity option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -325,7 +325,7 @@ $(document).ready(function () {
             .find('.billingAddressDistrict')
             .attr('data-selected');
         if (selectedBillingDistrict !== 'null') {
-            $('.billingAddressDistrict option').each(function () {
+            $('.billingAddressDistrict option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedBillingDistrict) {
                     $('.billingAddressDistrict option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -338,7 +338,7 @@ $(document).ready(function () {
             .find('.billingAddressSubdistrict')
             .attr('data-selected');
         if (selectedBillingSubDistrict !== 'null') {
-            $('.billingAddressSubdistrict option').each(function () {
+            $('.billingAddressSubdistrict option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedBillingSubDistrict) {
                     $('.billingAddressSubdistrict option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -352,7 +352,7 @@ $(document).ready(function () {
             .find('.billingZipCode')
             .attr('data-selected');
         if (selectedBillingPostalCode !== 'null') {
-            $('.billingZipCode option').each(function () {
+            $('.billingZipCode option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedBillingPostalCode) {
                     $('.billingZipCode option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -533,7 +533,7 @@ $('.shippingAddressDistrict').change(function () {
         );
         var districtMappingObj =
             addressData[selectedState][selectedSuburb][selectedDistrict];
-        districtMappingObj['subDistrict'].forEach((subDistrict) => {
+        districtMappingObj.subDistrict.forEach((subDistrict) => {
             subDistrictDropdown.append(
                 $('<option>', {
                     value: subDistrict,
@@ -541,7 +541,7 @@ $('.shippingAddressDistrict').change(function () {
                 })
             );
         });
-        districtMappingObj['zipcode'].forEach((zip) => {
+        districtMappingObj.zipcode.forEach((zip) => {
             zipDropdown.append(
                 $('<option>', {
                     value: zip,
@@ -682,7 +682,7 @@ $('.billingAddressDistrict').change(function () {
         );
         var districtMappingObj =
             addressData[selectedState][selectedSuburb][selectedDistrict];
-        districtMappingObj['subDistrict'].forEach((subDistrict) => {
+        districtMappingObj.subDistrict.forEach((subDistrict) => {
             subDistrictDropdown.append(
                 $('<option>', {
                     value: subDistrict,
@@ -690,7 +690,7 @@ $('.billingAddressDistrict').change(function () {
                 })
             );
         });
-        districtMappingObj['zipcode'].forEach((zip) => {
+        districtMappingObj.zipcode.forEach((zip) => {
             zipDropdown.append(
                 $('<option>', {
                     value: zip,

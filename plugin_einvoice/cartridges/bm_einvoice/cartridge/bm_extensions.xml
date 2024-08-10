@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+    <menuaction id="einvoice_resend" menupath="orders" position="900" site="true">
+        <name xml:lang="x-default">Send E-Invoice</name>
+        <short_description xml:lang="x-default">
+			Send E-Invoice.
+        </short_description>
+        <description xml:lang="x-default">
+			Order level Send E-Invoice.
+        </description>
+        <!-- no icon specified -->
+        <exec pipeline="EInvoice" node="Show" />
+        <sub-pipelines>
+            <pipeline name="EInvoice-Show" />
+            <pipeline name="EInvoice-ResendEmail" />
+        </sub-pipelines>
+        <icon>einvoice_logo.svg</icon>
+    </menuaction>
+</extensions>
