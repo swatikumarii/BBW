@@ -297,6 +297,11 @@ server.replace('UpdateQuantity', function (req, res, next) {
     basketModel.maxProductQtyLeft = maxProductQtyLeft;
     basketModel.updatedQty = matchingLineItem.quantityValue;
     maxProductQty = productValidationHelpers.getProductMaxOrderQty(matchingLineItem.product);
+    if (!newBonusDiscountLineItem && previousBonusDiscountLineItems) {
+        basketModel.loosingBonus = true;
+    } else {
+        basketModel.loosingBonus = false;
+    }
     if (matchingLineItem && canBeUpdated) {
         res.json(basketModel);
     } else if (updateQuantity < existingPliQty) {
@@ -413,6 +418,14 @@ server.append(
     }
 );
 
+server.prepend('RemoveProductLineItem', function (req, res, next) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var viewData = res.getViewData();
+    viewData.previousBonusDiscountLineItems = currentBasket.getBonusDiscountLineItems();
+    res.setViewData(viewData);
+    next();
+});
+
 server.append('RemoveProductLineItem', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var changes = cartHelper.createFreeLineItem(currentBasket, 0);
@@ -429,6 +442,13 @@ server.append('RemoveProductLineItem', function (req, res, next) {
         viewData.refreshItemsTemplateMinicart =
             miniCartTemplate.render(context).text;
     }
+    viewData.basket= basketModel;
+    var newBonusDiscountLineItem = currentBasket.getBonusDiscountLineItems();
+    if (viewData.previousBonusDiscountLineItems && newBonusDiscountLineItem.length !== viewData.previousBonusDiscountLineItems.length) {
+        viewData.basket.loosingBonus = true;
+    } else {
+        viewData.basket.loosingBonus = false;
+    }
     if (
         req.currentCustomer &&
         req.currentCustomer.raw &&
@@ -438,7 +458,6 @@ server.append('RemoveProductLineItem', function (req, res, next) {
             req.currentCustomer.raw.profile
         );
     }
-    viewData.basket= basketModel;
     // free item count
     viewData.basket.freeItemCount = basketModel.freeItemCount;
     viewData.basket.freeItemToastMessage = basketModel.freeItemToastMessage;
@@ -448,7 +467,7 @@ server.append('RemoveProductLineItem', function (req, res, next) {
 });
 
 /**
- * 
+ *
  * @param {object} order - Order or Current Basket Object
  * @param {string} UUID - UUID of the lineItem
  * @returns {string} - Prorated Price
@@ -819,6 +838,14 @@ server.get('MissingFree', function (req, res, next) {
         }
     });
     res.json({ loosingFree: loosingFree });
+    next();
+});
+
+server.append('EditBonusProduct', function (req, res, next) {
+    var Resource = require('dw/web/Resource');
+    var viewData = res.getViewData();
+    viewData.labels.selectedprods =  Resource.msgf('modal.header.selected.products', 'product', null,viewData.selectedBonusProducts.length, viewData.maxBonusItems);
+    res.setViewData(viewData);
     next();
 });
 

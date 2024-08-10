@@ -36,17 +36,28 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
 
     var category;
     var product;
+    var useAlternateUrl = true;
     if (pid) {
         product = ProductMgr.getProduct(pid);
-        category = product.variant
-            ? product.masterProduct.primaryCategory
-            : product.primaryCategory;
+        if (
+            'custom' in product &&
+            product.custom &&
+            'isEgiftCard' in product.custom &&
+            product.custom.isEgiftCard
+        ) {
+            category = product.primaryCategory;
+            useAlternateUrl = false;
+        } else {
+            category = product.variant
+                ? product.masterProduct.primaryCategory
+                : product.primaryCategory;
+        }
     } else if (cgid) {
         category = CatalogMgr.getCategory(cgid);
     }
 
     if (category) {
-        if(category.custom.alternativeUrl && category.custom.alternativeUrl !== '') {
+        if(useAlternateUrl && category.custom.alternativeUrl && category.custom.alternativeUrl !== '') {
             breadcrumbs.push({
                 htmlValue: category.displayName,
                 url: category.custom.alternativeUrl

@@ -75,7 +75,7 @@ module.exports = {
         var input = document.getElementById('billingAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'AU' },
+            componentRestrictions: { country: 'MY' },
             fields: [
                 'formatted_address',
                 'geometry',
@@ -145,7 +145,7 @@ module.exports = {
         var input = document.getElementById('accountAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'AU' },
+            componentRestrictions: { country: 'MY' },
             fields: [
                 'formatted_address',
                 'geometry',
