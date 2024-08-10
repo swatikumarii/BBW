@@ -99,7 +99,7 @@ function eInvoice(order, refData, buyersData) {
             order.getShippingTotalPrice().value;
 
         // Calculate tax summary based on whether shipping tax is enabled
-        if (enableShippingTax && order.custom.isEgiftOrder == false) {
+        if (enableShippingTax && (!('isEgiftOrder' in  order.custom) || order.custom.isEgiftOrder == false)) {
             //totalExcludingTax further decuctions are through lineitems
             taxSummery.total_excluding_tax = orderTotalPrice - orderDiscount;
 
@@ -214,7 +214,11 @@ function eInvoice(order, refData, buyersData) {
                         taxSummery.total_including_tax - adjustedPrice;
                 }
 
-                if (enableShippingTax && order.custom.isEgiftOrder == false) {
+                if (
+                    enableShippingTax &&
+                    (!('isEgiftOrder' in order.custom) ||
+                        order.custom.isEgiftOrder == false)
+                ) {
                     var totalExcludingTax = 0;
                     var subTotal = 0;
                     var taxRate = 0;

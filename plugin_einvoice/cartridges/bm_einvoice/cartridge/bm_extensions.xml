@@ -11,8 +11,7 @@
         </description>
         <!-- no icon specified -->
         <exec pipeline="EInvoice" node="Show" />
-        <sub-pipelines>
-            <pipeline name="EInvoice-Show" />
+        <sub-pipelines>            
             <pipeline name="EInvoice-ResendEmail" />
         </sub-pipelines>
         <icon>einvoice_logo.svg</icon>
