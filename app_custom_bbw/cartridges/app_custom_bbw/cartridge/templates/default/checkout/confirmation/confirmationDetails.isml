@@ -29,9 +29,10 @@
             data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('label.print', 'confirmation', null)}</button>
             <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
                 <button class="btn btn-info modal-toggle-e-invoice"
-                    data-order-id="00000501">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+                    data-order-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+                    <isinclude template="e-invoice/einvoice" />
             </isif>
-            <isinclude template="e-invoice/einvoice" />
+           
     </div>
 </div>
 <isif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === pdict.orderStatusVal.ORDER_STATUS_CREATED}">
