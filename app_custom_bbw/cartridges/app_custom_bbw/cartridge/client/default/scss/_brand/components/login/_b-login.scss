@@ -1039,7 +1039,9 @@
                     min-height: 40px;
                     max-height: 40px;
                     text-transform: capitalize;
-                    width: 102px;
+                    min-width: 102px;
+                    width: auto;
+                    word-wrap: break-word;
                 }
 
                 .dont-merge {
