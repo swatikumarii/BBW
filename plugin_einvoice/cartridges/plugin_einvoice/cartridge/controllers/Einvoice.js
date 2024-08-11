@@ -269,25 +269,44 @@ server.post(
                 loggerEinvoice.info(
                     'E-invoice already generated status: success'
                 );
-                // Handle other e-invoice statuses
-                Transaction.wrap(function () {
-                    var eInvoiceObj = customObjectMgr.createCustomObject(
-                        'eInvoiceDetails',
-                        order.custom.eInvoiceErpId
-                    );
-                    eInvoiceObj.custom.orderId = order.custom.eInvoiceErpId;
-                    eInvoiceObj.custom.eInvoiceId = order.custom.eInvoiceNumber;                   
 
+                var eInvoiceDetails = customObjectMgr.getCustomObject(
+                    'eInvoiceDetails',
+                    order.custom.eInvoiceErpId
+                );
+                if (!eInvoiceDetails){
+                    // Handle other e-invoice statuses
+                    Transaction.wrap(function () {
+                        var eInvoiceObj = customObjectMgr.createCustomObject(
+                            'eInvoiceDetails',
+                            order.custom.eInvoiceErpId
+                        );
+                        eInvoiceObj.custom.orderId = order.orderNo;
+                        eInvoiceObj.custom.eInvoiceId =
+                            order.custom.eInvoiceNumber;
+
+                        res.json({
+                            status: true,
+                            successMsg: Resource.msg(
+                                'einvoice.submittion.success',
+                                'einvoice_modal',
+                                null
+                            )
+                        });
+                        loggerEinvoice.info('response captured successfully.');
+                    });
+                }
+                else{
                     res.json({
-                        status: true,
-                        successMsg: Resource.msg(
-                            'einvoice.submittion.success',
+                        status: false,
+                        type: 'e_invoice_status',
+                        errorMsg: Resource.msg(
+                            'einvoice.pending.status',
                             'einvoice_modal',
                             null
                         )
                     });
-                    loggerEinvoice.info('response captured successfully.');
-                });
+                }
             }
         } catch (ex) {
             loggerEinvoice.info('Unhandeled exception: ' + ex);
