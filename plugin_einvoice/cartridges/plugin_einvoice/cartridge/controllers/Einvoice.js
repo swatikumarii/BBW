@@ -5,7 +5,6 @@
  */
 
 var server = require('server');
-var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var einvoiceHelpers = require('*/cartridge/scripts/helpers/einvoiceHelpers');
@@ -186,7 +185,7 @@ server.post(
                                 backInStockObj.custom.orderId =
                                     referenceData.orderId;
                                 backInStockObj.custom.eInvoiceId =
-                                    referenceData.invoiceId;                               
+                                    referenceData.invoiceId;
 
                                 // Update order custom attributes with e-invoice details
                                 order.custom.eInvoiceSubmittionDate =
@@ -276,7 +275,7 @@ server.post(
                         order.custom.eInvoiceErpId
                     );
                     eInvoiceObj.custom.orderId = order.custom.eInvoiceErpId;
-                    eInvoiceObj.custom.eInvoiceId = order.custom.eInvoiceNumber;                   
+                    eInvoiceObj.custom.eInvoiceId = order.custom.eInvoiceNumber;
 
                     res.json({
                         status: true,
