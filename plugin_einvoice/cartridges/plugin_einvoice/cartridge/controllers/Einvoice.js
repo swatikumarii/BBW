@@ -271,14 +271,12 @@ server.post(
                 );
                 // Handle other e-invoice statuses
                 Transaction.wrap(function () {
-                    var backInStockObj = customObjectMgr.createCustomObject(
+                    var eInvoiceObj = customObjectMgr.createCustomObject(
                         'eInvoiceDetails',
                         order.custom.eInvoiceErpId
                     );
-                    backInStockObj.custom.orderId =
-                        order.custom.eInvoiceErpId;
-                    backInStockObj.custom.eInvoiceId =
-                        order.custom.eInvoiceNumber;                   
+                    eInvoiceObj.custom.orderId = order.custom.eInvoiceErpId;
+                    eInvoiceObj.custom.eInvoiceId = order.custom.eInvoiceNumber;                   
 
                     res.json({
                         status: true,

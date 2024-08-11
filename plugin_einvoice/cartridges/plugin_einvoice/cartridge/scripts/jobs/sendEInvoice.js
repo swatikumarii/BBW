@@ -103,7 +103,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                     if (qrCodeResponse.qrcode) {
                         // eslint-disable-next-line no-loop-func
                         Transaction.wrap(function () {
-                            order.custom.qrCode = qrCodeResponse.qrcode;
+                            order.custom.eInvoiceQrCode = qrCodeResponse.qrcode;
                             order.custom.eInvoiceStatus =
                                 einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS;
 
@@ -175,26 +175,39 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                     );
                 }
             } else {
-                loggerEinvoice.info(
-                    order.orderNo +
-                        ' Rejection error source : ' +
-                        currentSubmission.errorSource
-                );
-                loggerEinvoice.info(
-                    order.orderNo +
-                        ' Rejection reason : ' +
-                        currentSubmission.detailedMessage
-                );
-                // eslint-disable-next-line no-loop-func
-                Transaction.wrap(function () {
-                    order.custom.eInvoiceStatus =
-                        einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
-                    order.custom.einvoiceErrorMsg = JSON.stringify({
-                         errorSource: currentSubmission.errorSource,
-                         detailedMessage: currentSubmission.detailedMessage
-                    });     
-                    CustomObjectMgr.remove(submission);
-                });
+
+                if (currentSubmission.erpId && currentSubmission.status === 'Error'){
+                    loggerEinvoice.info(
+                        order.orderNo +
+                            ' Rejection error source : ' +
+                            currentSubmission.errorSource
+                    );
+                    loggerEinvoice.info(
+                        order.orderNo +
+                            ' Rejection reason : ' +
+                            currentSubmission.detailedMessage
+                    );
+                    // eslint-disable-next-line no-loop-func
+                    Transaction.wrap(function () {
+                        order.custom.eInvoiceStatus =
+                            einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
+                        order.custom.einvoiceErrorMsg = JSON.stringify({
+                            errorSource: currentSubmission.errorSource,
+                            detailedMessage: currentSubmission.detailedMessage
+                        });
+                        CustomObjectMgr.remove(submission);
+                    });
+                }
+                else{
+                    loggerEinvoice.info(
+                        'Submission not found : ' +
+                            submission.custom.erpId +
+                            ' Date : ' +
+                            new Date()
+                    );
+
+                    return;
+                }
             }
         } else {
             loggerEinvoice.info(
