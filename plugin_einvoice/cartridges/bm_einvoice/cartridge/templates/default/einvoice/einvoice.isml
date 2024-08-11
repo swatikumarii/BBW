@@ -36,42 +36,42 @@
 </form>
 <script type="text/javascript">
 jQuery(document).ready(function () {
-jQuery('body').on('submit', '#js-updateRecords', function (e) {
-e.preventDefault();
-let orderNo = jQuery(this).serializeArray()[0].value;
-let url = jQuery(this)[0].action;
-let eInvoiceResendMail = new EInvoiceResendMail();
-eInvoiceResendMail.sent(orderNo, url);
-});
+   jQuery('body').on('submit', '#js-updateRecords', function (e) {
+   e.preventDefault();
+   let orderNo = jQuery(this).serializeArray()[0].value;
+   let url = jQuery(this)[0].action;
+   let eInvoiceResendMail = new EInvoiceResendMail();
+   eInvoiceResendMail.sent(orderNo, url);
+   });
 
-let EInvoiceResendMail = function () {
+   let EInvoiceResendMail = function () {
 
-this.sent = function (orderNo, url) {
-jQuery.ajax({
-url: url,
-type: 'POST',
-data: { orderNumber: orderNo },
-success: function (response) {
-if (response.message) {
+   this.sent = function (orderNo, url) {
+   jQuery.ajax({
+   url: url,
+   type: 'POST',
+   data: { orderNumber: orderNo },
+   success: function (response) {
+   if (response.message) {
    if(response.type ==="error"){
-      jQuery('.filterMsg').css("color","red");      
-jQuery('.filterMsg').html(response.message);
+   jQuery('.filterMsg').css("color","red");
+   jQuery('.filterMsg').html(response.message);
    }
    else{
-      jQuery('.filterMsg').css("color","green");
-      jQuery('.filterMsg').addClass("text-success")
-jQuery('.filterMsg').html(response.message);
+   jQuery('.filterMsg').css("color","green");
+   jQuery('.filterMsg').addClass("text-success")
+   jQuery('.filterMsg').html(response.message);
    }
 
-}
-},
-error: function (xhr, status, error) {
-// Handle error
-console.error(error);
-}
-});
-};
-};
+   }
+   },
+   error: function (xhr, status, error) {
+   // Handle error
+   console.error(error);
+   }
+   });
+   };
+   };
 });
 </script>
 </isdecorate>

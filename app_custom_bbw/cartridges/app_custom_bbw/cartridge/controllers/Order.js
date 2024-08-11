@@ -138,12 +138,14 @@ server.get('InvoiceDownload', function (req, res, next) {
                 }
             }
         }
-        
+
         res.render('order/invoiceDownload', {
             order: orderModel,
             taxRate: taxRate,
             isEgiftCard: isEgiftCard,
-            eInvoiceQrCode: order.custom.eInvoiceQrCode || false
+            eInvoiceQrCode:
+                ('eInvoiceQrCode' in order.custom && order.custom.eInvoiceQrCode) ||
+                false
         });
     } else {
         res.redirect(URLUtils.url('Order-History'));

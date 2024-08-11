@@ -145,7 +145,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                     order.custom.einvoiceErrorMsg = JSON.stringify({
                         errorSource: currentSubmission.errorSource,
                         detailedMessage: currentSubmission.detailedMessage
-                    }); 
+                    });
 
                     CustomObjectMgr.remove(submission);
                 });
@@ -174,40 +174,37 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                             submission.custom.erpId
                     );
                 }
-            } else {
-
-                if (currentSubmission.erpId && currentSubmission.status === 'Error'){
-                    loggerEinvoice.info(
-                        order.orderNo +
+            } else if (
+                currentSubmission.erpId &&
+                    currentSubmission.status === 'Error'
+            ) {
+                loggerEinvoice.info(
+                    order.orderNo +
                             ' Rejection error source : ' +
                             currentSubmission.errorSource
-                    );
-                    loggerEinvoice.info(
-                        order.orderNo +
+                );
+                loggerEinvoice.info(
+                    order.orderNo +
                             ' Rejection reason : ' +
                             currentSubmission.detailedMessage
-                    );
-                    // eslint-disable-next-line no-loop-func
-                    Transaction.wrap(function () {
-                        order.custom.eInvoiceStatus =
+                );
+                // eslint-disable-next-line no-loop-func
+                Transaction.wrap(function () {
+                    order.custom.eInvoiceStatus =
                             einvoiveStatusCode.EINVOICESTATUSCODES.ERROR;
-                        order.custom.einvoiceErrorMsg = JSON.stringify({
-                            errorSource: currentSubmission.errorSource,
-                            detailedMessage: currentSubmission.detailedMessage
-                        });
-                        CustomObjectMgr.remove(submission);
+                    order.custom.einvoiceErrorMsg = JSON.stringify({
+                        errorSource: currentSubmission.errorSource,
+                        detailedMessage: currentSubmission.detailedMessage
                     });
-                }
-                else{
-                    loggerEinvoice.info(
-                        'Submission not found : ' +
+                    CustomObjectMgr.remove(submission);
+                });
+            } else {
+                loggerEinvoice.info(
+                    'Submission not found : ' +
                             submission.custom.erpId +
                             ' Date : ' +
                             new Date()
-                    );
-
-                    return;
-                }
+                );
             }
         } else {
             loggerEinvoice.info(
