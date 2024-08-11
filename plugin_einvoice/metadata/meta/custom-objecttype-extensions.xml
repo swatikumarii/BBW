@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="eInvoiceDetails">
+        <display-name xml:lang="x-default">E-Invoice Details</display-name>
+        <description xml:lang="x-default">Details of the submitted E-Invoice.</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="erpId">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="eInvoiceId">
+                <display-name xml:lang="x-default">E-Invoice Id</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="errorDetails">
+                <display-name xml:lang="x-default">Error Details</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>           
+            <attribute-definition attribute-id="orderId">
+                <display-name xml:lang="x-default">Order Id</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="eInvoiceDetails">
+                <display-name xml:lang="x-default">E-Invoice Details</display-name>
+                <attribute attribute-id="errorDetails"/>
+                <attribute attribute-id="erpId"/>
+                <attribute attribute-id="orderId"/>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="eInvoiceId"/>
+                <attribute attribute-id="lastModified" system="true"/>                
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="eInvoiceTokenInfo">
+        <display-name xml:lang="x-default">E-Invoice Token Info</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="Id">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="expiresIn">
+                <display-name xml:lang="x-default">Expires In</display-name>
+                <description xml:lang="x-default">Token expires in seconds.</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="token">
+                <display-name xml:lang="x-default">Token</display-name>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="validTillDate">
+                <display-name xml:lang="x-default">Valid Till Date</display-name>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="eInvoiceTokenInfo">
+                <display-name xml:lang="x-default">E-Invoice Token Info</display-name>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="expiresIn"/>
+                <attribute attribute-id="Id"/>
+                <attribute attribute-id="token"/>
+                <attribute attribute-id="lastModified" system="true"/>
+                <attribute attribute-id="validTillDate"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+</metadata>

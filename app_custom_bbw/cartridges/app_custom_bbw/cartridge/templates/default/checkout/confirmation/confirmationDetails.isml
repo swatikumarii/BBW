@@ -25,8 +25,14 @@
             <span class="summary-details order-number h-fw--semibold">${pdict.order.orderEmail}</span>
             </p>
         </isif>
-        <button id="invoiceDownload" class="h-fw--normal print-text h-clr--gray bg-white border-0 h-font-size--16"
+        <button id="invoiceDownload" class="w-100 mb-3 h-fw--normal print-text h-clr--gray bg-white border-0 h-font-size--16"
             data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('label.print', 'confirmation', null)}</button>
+            <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
+                <button class="btn-hover btn btn-info modal-toggle-e-invoice cust-modal-btn"
+                    data-order-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+                    <isinclude template="e-invoice/einvoice" />
+            </isif>
+           
     </div>
 </div>
 <isif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === pdict.orderStatusVal.ORDER_STATUS_CREATED}">
