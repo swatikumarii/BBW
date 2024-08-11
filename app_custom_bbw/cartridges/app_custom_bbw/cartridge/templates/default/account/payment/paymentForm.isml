@@ -1,9 +1,11 @@
 <iscomment> ### Custom Adyen cartridge start ### </iscomment>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue("enableAdyen")}">
 <isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
 <isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="pdict" />
 <div>
     <isif condition="${pdict.AdyenConfigs.getAdyenRecurringPaymentsEnabled()}">
-        <link rel="stylesheet" type="text/css" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.AdyenHelper.getCheckoutCSS()}" />
+        <link rel="stylesheet" type="text/css" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+            href="${pdict.AdyenHelper.getCheckoutCSS()}" />
         <script src="${pdict.AdyenHelper.getCheckoutUrl()}" type="text/javascript"></script>
         <isscript>
             var assets = require('*/cartridge/scripts/assets.js');
@@ -41,13 +43,13 @@
             <!-- Cancel and Save Buttons -->
             <div class="row">
                 <div class="col-md-12">
-                    <button type="submit" name="save" class="btn btn-save btn-hover"
-                        value="add-new-payment">
+                    <button type="submit" name="save" class="btn btn-save btn-hover" value="add-new-payment">
                         ${Resource.msg('button.save.card', 'account', null)}
                     </button>
                 </div>
                 <div class="col-md-12">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('PaymentInstruments-List')}"
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                        href="${URLUtils.url('PaymentInstruments-List')}"
                         class="btn-cancel">${Resource.msg('button.cancel', 'account', null)}</a>
                 </div>
 
@@ -58,7 +60,8 @@
             <br /><br />
             <div class="row">
                 <div class="col">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('PaymentInstruments-List')}"
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                        href="${URLUtils.url('PaymentInstruments-List')}"
                         class="btn btn-block btn-outline-primary">${Resource.msg('button.cancel', 'account', null)}</a>
                 </div>
                 <div class="col"></div>
@@ -67,4 +70,5 @@
     </isif>
 </div>
 <isinclude template="adyenActionModal" />
+</isif>
 <iscomment> ### Custom Adyen cartridge end ### </iscomment>

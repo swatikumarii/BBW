@@ -260,7 +260,7 @@
         <div class="invalid-feedback text-left" id="dob-error=">${Resource.msg('error.message.dob.required', 'forms', null)}</div>
     </div>
 
-    <div class="form-group register-form text-center custom-control custom-checkbox">
+    <div class="form-group register-form text-center custom-control custom-checkbox p-0">
         <input type="checkbox" id="add-to-email-list" class="custom-control-input" required <isprint
             value=${pdict.profileForm.customer.addtoemaillist.attributes} encoding="off" />
         />
@@ -270,6 +270,7 @@
             <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', 'terms-of-use')}"
                 class="h-clr--black-1 h-font-size--16 d-block text-left b-link--underlined">${Resource.msg('label.read.here', 'forms', null)}</a>
         </label>
+        <div class="invalid-feedback p-0" id="tnc-checkbox-error"></div>
     </div>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />

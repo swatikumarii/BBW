@@ -31,6 +31,9 @@ $font-family: (
     quickpen: unquote("QuickPen, sans-serif"),
     system: unquote("SourceSansPro, Corbel, Segoe UI, Arial, sans-serif")
 );
+$font-family-sans-serif: "SourceSansPro, Corbel, Segoe UI, Arial, sans-serif" !default;
+$font-family-monospace: "SourceSansPro, Corbel, Segoe UI, Arial, sans-serif" !default;
+$font-family-base: $font-family-sans-serif !default;
 
 // Letter spacing
 $letter-spacing: (

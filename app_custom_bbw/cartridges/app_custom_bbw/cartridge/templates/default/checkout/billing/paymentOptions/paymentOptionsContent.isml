@@ -1,7 +1,9 @@
-<isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
-<isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="pdict" />
-<script src="${pdict.AdyenHelper.getCheckoutUrl()}"></script>
-<isset name="adyenPaymentFields" value="${pdict.forms.billingForm.adyenPaymentFields}" scope="page" />
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue("enableAdyen")}">
+    <isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
+    <isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="pdict" />
+    <script src="${pdict.AdyenHelper.getCheckoutUrl()}"></script>
+    <isset name="adyenPaymentFields" value="${pdict.forms.billingForm.adyenPaymentFields}" scope="page" />
+</isif>
 <isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption">
     <div class="payment-method-options" data-payment-method-id="${paymentOption.ID}">
         <isif condition="${paymentOption.ID === 'AdyenComponent'}">
@@ -14,6 +16,10 @@
             <isinclude template="checkout/billing/paymentOptions/clearpayContent" />
         <iselseif condition="${paymentOption.ID === 'CASHAPPPAY' && pdict.priceContext.cashAppApplicable}" />
             <isinclude template="checkout/billing/paymentOptions/cashAppContent" />
+        <iselseif condition="${paymentOption.ID === 'Doku'}" />
+            <isinclude template="checkout/billing/paymentOptions/dokuContent" />
+        <iselseif condition="${paymentOption.ID === 'ovo'}" />
+            <isinclude template="checkout/billing/paymentOptions/ovoContent" />
         </isif>
     </div>
 </isloop>

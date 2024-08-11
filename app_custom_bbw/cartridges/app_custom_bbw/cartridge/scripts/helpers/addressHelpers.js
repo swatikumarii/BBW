@@ -69,7 +69,8 @@ function updateAddressFields(newAddress, address) {
     if (address.country) {
         newAddress.setCountryCode(address.country);
     }
-
+    newAddress.custom.district = address.district ? address.district : '';
+    newAddress.custom.subDistrict = address.subdistrict ? address.subdistrict : '';
     newAddress.setJobTitle(address.jobTitle || '');
     newAddress.setPostBox(address.postBox || '');
     newAddress.setSalutation(address.salutation || '');

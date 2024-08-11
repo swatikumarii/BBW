@@ -6,7 +6,8 @@
                 <isloop items="${pdict.categories}" var="category">
                     <isif condition="${category.subCategories && category.isMobileSpecific === false}">
                         <li class="nav-item dropdown level-1-li" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value="
+                                ${category.url}" encoding="htmldoublequote" />"
                             id="${category.id}" class="level-1-link nav-link h-fw--semibold text-capitalize
                             dropdown-toggle"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -19,9 +20,10 @@
                                 <isinclude template="components/header/menuItem" />
                             </isif>
                         </li>
-                    <iselseif condition="${category.isMobileSpecific === false}"/>
+                    <iselseif condition="${category.isMobileSpecific === false}" />
                         <li class="nav-item" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value="
+                                ${category.url}" encoding="htmldoublequote" />"
                             id="${category.id}" class="nav-link h-font-size--14 h-fw--semibold" role="link"
                             tabindex="0">${category.name}</a>
                         </li>
@@ -53,7 +55,7 @@
                 name="simpleSearch">
                 <fieldset>
                     <input class="h-font-size--18 p-0" type="search" id="mobile-slide-search" value=""
-                        placeholder="Search" name="q" />
+                        placeholder="${Resource.msg('label.mobile.menu.search', 'common', null)}" name="q" />
                     <button type="submit" id="menusearch" class="position-absolute h-100 border-0 p-0 h-bg--white ">
                         <img class="h-width--20 menu-sidebar-search black-search-icon" width="19px" height="29px"
                             src="${URLUtils.staticURL('/images/header/UI-Search.svg')}"
@@ -73,7 +75,8 @@
                 <isloop items="${pdict.categories}" var="category">
                     <isif condition="${category.id == 'top-offers'}">
                         <li class="nav-top-offers nav-item level-1-li" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value="
+                                ${category.url}" encoding="htmldoublequote" />"
                             class="level-1-link nav-link h-font-size--18
                             h-fw--semibold">${Resource.msg('mobile.menu.topOffers', 'common', null)}</a>
                         </li>
@@ -83,7 +86,8 @@
                 <isloop items="${pdict.categories}" var="category">
                     <isif condition="${category.subCategories}">
                         <li class="nav-item dropdown level-1-li" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value="
+                                ${category.url}" encoding="htmldoublequote" />"
                             id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold
                             dropdown-toggle"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -94,7 +98,8 @@
                     <iselse/>
                         <isif condition="${category.id != 'top-offers'}">
                             <li class="nav-item level-1-li position-relative" role="menuitem">
-                                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                                    href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
                                 id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold"
                                 role="link"
                                 tabindex="0">${category.name}</a>
@@ -104,11 +109,13 @@
                 </isloop>
             </isif>
             <li class="nav-store-locator nav-item level-1-li" role="menuitem">
-                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Stores-Find')}"
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                    href="${URLUtils.url('Stores-Find')}"
                     class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.storeLocator', 'common', null)}</a>
             </li>
             <li class="nav-my-account nav-item level-1-li dropdown" role="menuitem">
-                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold dropdown-toggle" role="button"
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#"
+                    class="level-1-link nav-link h-font-size--18 h-fw--semibold dropdown-toggle" role="button"
                     data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
                 <isif condition="${pdict.customerName === null}">
@@ -119,15 +126,18 @@
                                 class="border-0 bg-white loginPopupBtn level-2-link h-clr--gray h-font-size--16">${Resource.msg('mobile.menu.signIn', 'common', null)}</button>
                         </li>
                         <li class="level-2-li p-0" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-Status')}" class="level-2-link h-clr--gray h-font-size--16"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                                href="${URLUtils.url('Order-Status')}" class="level-2-link h-clr--gray h-font-size--16"
                                 role="button">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
                         </li>
                         <li class="level-2-li p-0" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                                href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
                                 role="button">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
                         </li>
                         <li class="level-2-li p-0" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                                href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
                                 role="button">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a>
                         </li>
                     </ul>
@@ -139,37 +149,44 @@
                             ${Resource.msg('mobile.menu.exclamation', 'common', null)}
                         </li>
                         <li class="level-2-li p-0" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Account-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                                href="${URLUtils.url('Account-Show')}" class="level-2-link h-clr--gray h-font-size--16"
                                 role="button">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
                         </li>
                         <li class="level-2-li p-0" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-History')}" class="level-2-link h-clr--gray h-font-size--16"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                                href="${URLUtils.url('Order-History')}" class="level-2-link h-clr--gray h-font-size--16"
                                 role="button">${Resource.msg('label.myorders', 'account', null)}</a>
                         </li>
                         <li class="level-2-li p-0" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Wishlist-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                                href="${URLUtils.url('Wishlist-Show')}" class="level-2-link h-clr--gray h-font-size--16"
                                 role="button">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a>
                         </li>
                         <li class="level-2-li p-0" role="menuitem">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Login-Logout')}" class="level-2-link h-clr--gray h-font-size--16"
+                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                                href="${URLUtils.url('Login-Logout')}" class="level-2-link h-clr--gray h-font-size--16"
                                 role="button">${Resource.msg('link.header.logout', 'account', null)}</a>
                         </li>
                     </ul>
                 </isif>
             </li>
-            <isinclude url="${URLUtils.url('Page-Locale', 'mobile', true)}" />
         </ul>
 
         <div class="utility-links-container d-block d-md-none">
             <ul class="utility-links mobile-only">
+                <isinclude url="${URLUtils.url('Page-Locale', 'mobile', true)}" />
                 <li class="link">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-Status')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                        href="${URLUtils.url('Order-Status')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
                 </li>
                 <li class="link">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', 'help-faq-dashboard')}">${Resource.msg('mobile.menu.shipping', 'common', null)}</a>
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                        href="${URLUtils.url('Page-Show', 'cid', 'help-faq-dashboard')}">${Resource.msg('mobile.menu.shipping', 'common', null)}</a>
                 </li>
                 <li class="link">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Fragrance-Show')}">${Resource.msg('mobile.menu.shopByFragrance', 'common', null)}</a>
+                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                        href="${URLUtils.url('Fragrance-Show')}">${Resource.msg('mobile.menu.shopByFragrance', 'common', null)}</a>
                 </li>
             </ul>
         </div>

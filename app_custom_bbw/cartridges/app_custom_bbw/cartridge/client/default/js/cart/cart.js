@@ -508,6 +508,7 @@ function chooseBonusProducts(data) {
         '<div class="modal-header">' +
         '    <span class="">' +
         data.labels.selectprods +
+        data.labels.selectedprods +
         '</span>' +
         '    <button type="button" class="close pull-right" data-dismiss="modal">' +
         '        <span aria-hidden="true">&times;</span>' +
@@ -527,18 +528,33 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-            var parsedHtml = parseBonusHtml(response.renderedTemplate);
-            $('#chooseBonusProductModal .modal-body').empty();
-            $('#chooseBonusProductModal .enter-message').text(
-                response.enterDialogMessage
-            );
-            $('#chooseBonusProductModal .modal-header .close .sr-only').text(
-                response.closeButtonText
-            );
-            $('#chooseBonusProductModal .modal-body').html(parsedHtml.body);
-            $('#chooseBonusProductModal .modal-footer').html(parsedHtml.footer);
-            $('#chooseBonusProductModal').modal('show');
-            $.spinner().stop();
+            if (response.initialAddBonusProduct) {
+                $.ajax({
+                    type: 'POST',
+                    url: response.initialAddBonusProductUrl,
+                    async: false,
+                    success: function (dataAdded) {
+                        if (!dataAdded.error) {
+                            window.location.reload();
+                        }
+                    }
+                });
+            } else {
+                var parsedHtml = parseBonusHtml(response.renderedTemplate);
+                $('#chooseBonusProductModal .modal-body').empty();
+                $('#chooseBonusProductModal .enter-message').text(
+                    response.enterDialogMessage
+                );
+                $('#chooseBonusProductModal .modal-header .close .sr-only').text(
+                    response.closeButtonText
+                );
+                var modalBodybody = '<div class="modal-body-wrap"></div>';
+                $('#chooseBonusProductModal .modal-body').html(modalBodybody);
+                $('#chooseBonusProductModal .modal-body-wrap').html(parsedHtml.body);
+                $('#chooseBonusProductModal .modal-footer').html(parsedHtml.footer);
+                $('#chooseBonusProductModal').modal('show');
+                $.spinner().stop();
+            }
         },
         error: function () {
             $.spinner().stop();
@@ -606,6 +622,9 @@ module.exports = function () {
                 if (data.basket.items.length === 0) {
                     window.location.reload();
                 } else {
+                    if (data.basket.loosingBonus) {
+                        window.location.reload();
+                    }
                     if (
                         data.toBeDeletedUUIDs &&
                         data.toBeDeletedUUIDs.length > 0
@@ -816,6 +835,9 @@ module.exports = function () {
                         $.spinner().stop();
                     }
                     return;
+                }
+                if (data.loosingBonus) {
+                    window.location.reload();
                 }
                 $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
                 var totalExistingQuantity = 0;
@@ -1166,7 +1188,7 @@ module.exports = function () {
             method: 'GET',
             dataType: 'json',
             success: function (data) {
-                base.methods.editBonusProducts(data);
+                chooseBonusProducts(data);
                 $.spinner().stop();
             },
             error: function () {
@@ -1534,16 +1556,18 @@ module.exports = function () {
     document.addEventListener('scroll', function () {
         var myDiv = document.getElementById('secure-checkout-mbl-btn');
         var targetElement = document.getElementById('cart-mobile-checkout');
-        var targetPosition = targetElement.getBoundingClientRect();
-        var windowHeight =
-            window.innerHeight || document.documentElement.clientHeight;
+        if (targetElement) {
+            var targetPosition = targetElement.getBoundingClientRect();
+            var windowHeight =
+                window.innerHeight || document.documentElement.clientHeight;
 
-        if (targetPosition.top <= windowHeight && targetPosition.top >= 0) {
-            myDiv.style.display = 'none';
-        } else if (targetPosition.top < 0) {
-            myDiv.style.display = 'none';
-        } else {
-            myDiv.style.display = 'block';
+            if (targetPosition.top <= windowHeight && targetPosition.top >= 0) {
+                myDiv.style.display = 'none';
+            } else if (targetPosition.top < 0) {
+                myDiv.style.display = 'none';
+            } else {
+                myDiv.style.display = 'block';
+            }
         }
     });
 

@@ -179,6 +179,12 @@
             margin-bottom: 0.75rem;
 
             .callout-detail {
+                &.in-id {
+                    &::after {
+                        content: "Rincian";
+                    }
+                }
+
                 &::after {
                     font-size: 0.875rem;
                     line-height: 1rem;

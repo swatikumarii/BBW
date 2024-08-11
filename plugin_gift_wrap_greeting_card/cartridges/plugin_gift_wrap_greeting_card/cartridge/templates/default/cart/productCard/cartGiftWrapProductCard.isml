@@ -57,6 +57,14 @@
 
             <div class="col-md-5 col-3 pr-0">
                 <div class="d-flex">
+                    <div class="">
+                        <input type="number" class="quantity form-control h-fw--semibold border-0 p-0" data-uuid="${lineItem.UUID}"
+                            data-pid="${lineItem.id}" data-action="${pdict.actionUrls.updateQuantityUrl}"
+                            data-pre-select-qty="${StringUtils.formatInteger(lineItem.quantity)}" id="quantity-${lineItem.UUID}"
+                            name="quantity-${lineItem.UUID}" data-max-order-qty="${lineItem.maxOrderQty}"
+                            aria-label="quantity: ${StringUtils.formatInteger(lineItem.quantity)}"
+                            value="${StringUtils.formatInteger(lineItem.quantity)}" ${lineItem.isFreeItem || lineItem.isEgiftCard ? 'disabled' : ''} />
+                    </div>
                     <!---item price--->
                     <div class="text-right w-100 line-item-price line-item-total-price">
                         <div class="item-total-${lineItem.UUID} price">
@@ -66,16 +74,12 @@
 
                     <isif condition="${!lineItem.isBonusProductLineItem}">
 
-                        <button type="button" class="remove-btn-lg remove-product bg-white border-0" data-toggle="modal"
-                            data-target=".cart.cart-page #removeProductModal" data-pid="${lineItem.id}"
-                            data-name="${lineItem.productName}"
-                            data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}"
-                            aria-label="${Resource.msgf('text.remove.line.item', 'cart', null, lineItem.productName)}">
-                            <span aria-hidden="true">
-                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon"
-                                    width="20" />
+                        <div class="line-item-remove">
+                            <span class="cart-delete-confirmation-btn" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
+                                data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}">
+                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
                             </span>
-                        </button>
+                        </div>
 
                     </isif>
                 </div>

@@ -335,6 +335,7 @@ function handleUpdateQuantity(
  */
 function getGiftWrapLineItemCart(currentBasket) {
     var CartModel = require('*/cartridge/models/cart');
+    var URLUtils = require('dw/web/URLUtils');
     var basketModel = new CartModel(currentBasket);
     var individuallyWrappableUI = null;
     var giftWrapProductCard = null;
@@ -352,7 +353,12 @@ function getGiftWrapLineItemCart(currentBasket) {
     });
     if (giftWrapItem && giftWrapItem.length > 0) {
         var context = {
-            giftWrapItem: giftWrapItem[0]
+            giftWrapItem: giftWrapItem[0],
+            actionUrls: {
+                removeProductLineItemUrl: URLUtils.url(
+                    'Cart-RemoveProductLineItem'
+                ).toString()
+            }
         };
         giftWrapProductCard = renderTemplateHelper.getRenderedHtml(
             context,

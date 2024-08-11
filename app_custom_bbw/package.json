@@ -17,7 +17,8 @@
         "uploadCartridge": "sgmf-scripts --uploadCartridge app_custom_bbw",
         "compile:js": "sgmf-scripts --compile js",
         "compile:scss": "sgmf-scripts --compile css",
-        "prepare": "cd .. && husky app_custom_bbw/.husky"
+        "prepare": "cd .. && husky app_custom_bbw/.husky",
+        "build": "npm run compile:js && npm run compile:scss"
     },
     "lint-staged": {
         "*.{js,ts}": [

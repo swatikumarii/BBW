@@ -1,0 +1,32 @@
+<!--- Generic Component--->
+<isinclude template="/components/modules" sf-toolkit="off" />
+<div class="tab-pane ovo-component-content" id="ovo-component-content" role="tabpanel">
+    <fieldset class="payment-form-fields">
+        <input type="hidden" class="form-control"
+               name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+               value="ovo"
+        >
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group
+                    ${pdict.forms.billingForm.ovoFields.ovoID.mandatory === true ? 'required' : ''}
+                    ${pdict.forms.billingForm.ovoFields.ovoID.htmlName}">
+
+                    <label class="form-control-label" for="ovoID">
+                    <isprint value="${pdict.forms.billingForm.ovoFields.ovoID.label}" encoding="htmlcontent"/>
+                    </label>
+
+                    <input placeholder="Ovo ID" type="text" class="form-control ovoID w-100"  id="ovoID" <isprint value=${pdict.forms.billingForm.ovoFields.ovoID.attributes} encoding="off"/> aria-describedby="ovoIDInvalidMessage"/>
+                                <div class="invalid-feedback" id="ovoIDInvalidMessage"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ovoPayPopup d-none">
+            <div class="ovo-modal"></div>
+            <div class="ovo-popup">
+                <iscontentasset aid="ovo-logo" />
+                ${Resource.msg('complete.payment.ovo','checkout', null)} <span></span>
+             </div>
+        </div>
+    </fieldset>
+</div>

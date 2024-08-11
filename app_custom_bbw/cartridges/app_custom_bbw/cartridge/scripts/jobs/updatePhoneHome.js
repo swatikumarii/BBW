@@ -15,6 +15,7 @@ function execute() {
         while (customerProfiles !== null && customerProfiles.hasNext()) {
             var cp = customerProfiles.next();
             cp.custom.dialCode = '61';
+            cp.custom.dialCodeCountry = 'au';
             if (cp.phoneHome) {
                 if (cp.phoneHome.startsWith('0')) {
                     cp.phoneHome = cp.phoneHome.substr(1);

@@ -95,6 +95,9 @@
                             .eGiftMessage : ''}</span>
                     </div>
                 </isif>
+                <isif condition="${lineItem.greetingCardMessage}">
+                    <span class="label greeting-card-message">${Resource.msg('greeting.card.message', 'greetingCard', null)}${lineItem.greetingCardMessage}</span>
+                </isif>
                 <iscomment> Quantity </iscomment>
                 <div class="d-flex flex-column justify-content-between">
                     <div class="line-item-quantity">

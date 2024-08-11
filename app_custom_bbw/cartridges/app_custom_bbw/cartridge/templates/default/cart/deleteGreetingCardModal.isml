@@ -1,0 +1,34 @@
+<div class="modal fade" id="greeting-card-warning-modal" tabindex="-1" role="dialog"
+    aria-labelledby="giftwrapWarningModalTitle">
+    <div class="modal-dialog delete-payment-dialog" role="document">
+        <div class="modal-content delete-payment-content border-0">
+            <div class="modal-header delete-payment-header border-0 p-0">
+                <h2 class="modal-title delete-header h-font-size--18 h-clr--black-3 m-0 h-fw--semibold"
+                    id="deletePaymentModalTitle" aria-label="${Resource.msg('header.please.confirm', 'common', null)}">
+                    ${Resource.msg('header.please.confirm', 'common', null)}
+                </h2>
+                <button type="button" class="close close-icon-btn pull-right greeting-card-warning-model-close"
+                    data-dismiss="modal">
+                    <span aria-hidden="true">
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body delete-payment-body  p-0 mt-2">
+                <div class="col-12 p-0">
+                    <span class=" h-clr--black-1 h-font-size--16 ">
+                        ${Resource.msg('msg.delete.greetingcard.product.confirmation.modal', 'common', null)}
+                    </span>
+                </div>
+            </div>
+            <div class="modal-footer border-0 p-0">
+                <button type="button" class="btn btn-outline-primary greeting-card-warning-model-close h-font-size--16 mr-3"
+                    data-dismiss="modal">${Resource.msg('button.cancel', 'common', null)}</button>
+                <button type="button" class="btn btn-secondary greeting-card-warning-modal-yes h-clr--gray h-font-size--16"
+                    data-dismiss="modal">
+                    ${Resource.msg('button.confirm', 'common', null)}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

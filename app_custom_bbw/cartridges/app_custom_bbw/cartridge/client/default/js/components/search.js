@@ -344,6 +344,7 @@ function chooseBonusProducts(data) {
         '<div class="modal-header">' +
         '    <span class="">' +
         data.labels.selectprods +
+        data.labels.selectedprods +
         '</span>' +
         '    <button type="button" class="close pull-right" data-dismiss="modal">' +
         '        <span aria-hidden="true">&times;</span>' +
@@ -363,6 +364,13 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
+            if (response.initialAddBonusProduct) {
+                $.ajax({
+                    type: 'POST',
+                    url: response.initialAddBonusProductUrl,
+                    async: false
+                });
+            }
             var parsedHtml = parseHtml(response.renderedTemplate);
             $('#chooseBonusProductModal .modal-body').empty();
             $('#chooseBonusProductModal .enter-message').text(
@@ -371,7 +379,9 @@ function chooseBonusProducts(data) {
             $('#chooseBonusProductModal .modal-header .close .sr-only').text(
                 response.closeButtonText
             );
-            $('#chooseBonusProductModal .modal-body').html(parsedHtml.body);
+            var modalBodybody = '<div class="modal-body-wrap"></div>';
+            $('#chooseBonusProductModal .modal-body').html(modalBodybody);
+            $('#chooseBonusProductModal .modal-body-wrap').html(parsedHtml.body);
             $('#chooseBonusProductModal .modal-footer').html(parsedHtml.footer);
             $('#chooseBonusProductModal').modal('show');
             $.spinner().stop();

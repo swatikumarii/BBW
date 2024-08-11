@@ -781,6 +781,16 @@ footer {
     }
 }
 
+.greeting-card-message {
+    max-height: 42px;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+
 .promotion-callout {
     line-height: 1.25rem;
     letter-spacing: 0.005em;
@@ -978,20 +988,30 @@ footer {
     }
 
     @keyframes slide-out {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(100%);
-            }
+        0% {
+            transform: translateY(0);
         }
+
+        100% {
+            transform: translateY(100%);
+        }
+    }
 
     &.show {
         .modal-dialog-bottom {
             animation: slide-in 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
         }
-
-        
     }
+}
+
+.change-bonus-product {
+    cursor: pointer;
+}
+
+.text-decoration-underline {
+    text-decoration: underline;
+}
+
+.social-badge-wrapper {
+    margin-bottom: 6px;
 }

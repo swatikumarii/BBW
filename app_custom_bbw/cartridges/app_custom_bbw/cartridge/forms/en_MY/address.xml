@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+
+       <field
+              formid="addressId"
+              label="label.input.addressid"
+              type="string"
+              mandatory="true"
+              max-length="20"
+              missing-error="error.address.title"
+              range-error="error.message.20orless"
+       />
+
+       <field formid="firstName"
+              label="label.input.firstname.profile"
+              type="string"
+              mandatory="true"
+              binding="firstName"
+              min-length="1"
+              max-length="50"
+              regexp="^[a-zA-Z0-9 ''\-]+$"
+              missing-error="error.first.name"
+              parse-error="error.message.parse.fname"
+              range-error="error.message.50orless.fname"/>
+
+       <field formid="lastName"
+              label="label.input.lastname.profile"
+              type="string"
+              mandatory="true"
+              binding="lastName"
+              min-length="1"
+              max-length="50"
+              regexp="^[a-zA-Z0-9 ''\-]+$"
+              missing-error="error.last.name"
+              parse-error="error.message.parse.lname"
+              range-error="error.message.50orless.lname"/>
+
+       <field formid="address1"
+              label="label.input.address1"
+              type="string" mandatory="true"
+              binding="address1"
+              max-length="50"
+              missing-error="address.address1.missing"
+              range-error="error.message.50orless"/>
+
+    <field formid="address2" label="label.input.address2" type="string" mandatory="false" binding="address2"
+           max-length="50" range-error="error.message.50orless"/>
+
+    <field formid="city" label="label.input.city" type="string" mandatory="true" binding="city" min-length="2"
+           max-length="50" missing-error="address.city.missing" range-error="error.message.between2and50"/>
+
+    <!--  postal code -->
+       <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="true" min-length="5" max-length="5"
+       regexp="^[0-9]*$"
+       binding="postalCode"
+       range-error="error.message.zip.upto5"
+       missing-error="error.zip.code"
+       parse-error="error.message.parse.zip"/>
+
+    <!-- use set of supported countries -->
+    <field formid="country" label="label.input.country" type="string" mandatory="true" binding="countryCode"
+           missing-error="address.country.missing">
+        <options>
+            <option optionid="MY" label="select.option.country.malaysia" value="MY"/>
+        </options>
+    </field>
+
+    <!-- use global state list -->
+    <include formid="states" name="states" missing-error="address.state.missing" parse-error="error.message.required" value-error="error.message.required"/>
+
+    <!-- phone is mandatory for addresses -->
+       <field formid="phone" label="label.input.phonenumber" description="address.phone.example" type="string" mandatory="true"
+           binding="phone" min-length="8" max-length="12"
+           regexp="^(0?[0-9\s]{8,13})$"
+           missing-error="error.phone.number"
+           range-error="error.message.phonebetween8and12"
+           parse-error="error.message.pattern.phone"/>
+
+    <!-- actions provided by the edit shipping address dialog -->
+    <action formid="apply" valid-form="true"/>
+    <action formid="remove" valid-form="false"/>
+</form>

@@ -1,6 +1,3 @@
-<isif condition="${lineItem.isBonusProductLineItem}">
-    <div class="d-block">${Resource.msg('msg.bonus.product', 'cart', null)}</div>
-</isif>
 <isif condition="${lineItem.isEgiftCard}">
     <div class="line-item-header">
         <div class="line-item-name">
