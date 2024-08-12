@@ -98,15 +98,15 @@ $(document).ready(function () {
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: $('.dialCodeCountry').val(),
+        initialCountry: $('.shipping-form .dialCodeCountry').val(),
         formatOnDisplay: false
     });
     // Attach the instance to a global variable
     window.itiInstance = intl;
     $('.shippingPhoneNumber').on('countrychange', function() {
         var countryData = intl.getSelectedCountryData();
-        $('.dialCode').val(countryData.dialCode);
-        $('.dialCodeCountry').val(countryData.iso2);
+        $('.shipping-form .dialCode').val(countryData.dialCode);
+        $('.shipping-form .dialCodeCountry').val(countryData.iso2);
     });
 
     // country selector on billing address
@@ -126,16 +126,6 @@ $(document).ready(function () {
         var billCountryData = billingIntl.getSelectedCountryData();
         $('.payment-form .dialCode').val(billCountryData.dialCode);
         $('.payment-form .dialCodeCountry').val(billCountryData.iso2);
-    });
-
-    var billingPhone = document.querySelector('#phoneNumber');
-    intlTelInput(billingPhone, {
-        utilsScript: utils,
-        showFlags: true,
-        strictMode: true,
-        showSelectedDialCode: true,
-        initialCountry: 'au',
-        countryOrder: ['au']
     });
 
 

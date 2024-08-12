@@ -179,11 +179,13 @@
                 <div class="invalid-feedback shipping-select-error"></div>
             </div>
             <input type="hidden" class="dialCode"
-                value="${billingFields.dialCode.htmlValue || addressFields.dialCode.htmlValue}"
+                value="${billingFields.dialCode.htmlValue || dw.system.Site.getCurrent().getCustomPreferenceValue(
+                       'defaultDialCode')}"
                 <isprint value="${billingFields.dialCode.attributes}" encoding="off" />
             />
             <input type="hidden" class="dialCodeCountry"
-                value="${billingFields.dialCodeCountry.htmlValue || addressFields.dialCodeCountry.htmlValue}"
+                value="${billingFields.dialCodeCountry.htmlValue || dw.system.Site.getCurrent().getCustomPreferenceValue(
+                       'defaultDialCodeCountry')}"
                 <isprint value="${billingFields.dialCodeCountry.attributes}" encoding="off" />
             />
         </div>
