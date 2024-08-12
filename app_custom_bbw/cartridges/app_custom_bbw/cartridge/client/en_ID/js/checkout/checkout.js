@@ -342,7 +342,9 @@ function ovoStart(orderID) {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
-                                    $('.edit-billing-address').click();
+                                    if ($('.summary-details.billing').is(":visible")) {
+                                        $('.edit-billing-address').click();
+                                    }
                                     data.fieldErrors.forEach(function (error) {
                                         if (Object.keys(error).length) {
                                             formHelpers.loadFormErrors('.payment-form', error);
