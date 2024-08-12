@@ -18,11 +18,11 @@
             </div>
             </div>
             <div class="modal-footer border-0 p-0 justify-content-md-end justify-content-center m-0">
-                <isif condition="${isBundlePage}">
+                <isif condition="${pdict.isBundlePage}">
                     <button type="button" class="btn delete-egiftitem-confirmation-btn h-font-size-md--16 h-font-size-sm--16 h-font-size--14 mr-1 m-0"
                         data-dismiss="modal"
-                        data-addtocarturl="${addToCartUrl}"
-                        data-action="${removeLineItemURL}"
+                        data-addtocarturl="${pdict.addToCartUrl}"
+                        data-action="${pdict.removeLineItemURL}"
                     >${Resource.msg('giftcard.added.button','giftcards',null)}</button>
                     <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14 mr-1 m-0" data-dismiss="modal"
                         data-oid="${pdict.order && pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"

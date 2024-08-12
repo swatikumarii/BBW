@@ -186,7 +186,7 @@
                             aria-label="${Resource.msg('label.addressbook.addnewaddress', 'account', null)}">${Resource.msg('button.addnew', 'account', null)}</a>
 
                     </div>
-                <iselseif condition="${pdict.addressBook[0].address.ID}" />
+                <iselseif condition="${pdict.addressBook.length > 0 &&  pdict.addressBook[0].address.ID}" />
                     <div class="add-address-create-modal position-relative">
                         <isset name="prevoiusAddress"
                             value="${Resource.msg('label.addressbook.otheraddress', 'account', null)}" scope="page" />
