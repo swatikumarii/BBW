@@ -41,7 +41,7 @@
                 ${Resource.msg('heading.contact.info', 'checkout', null)}</h2>
             <div class="row pt-3">
                 <div class="col-sm-12">
-                    <div class="form-group
+                    <div class="form-group billing-address
                             <isif condition=${pdict.forms.billingForm.contactInfoFields.phone.mandatory === true}>required</isif>
                             ${pdict.forms.billingForm.contactInfoFields.phone.htmlName}">
                         <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label h-line-height--20 b-text-letter-space-01" for="phoneNumber"><span class="h-clr--red-9">${'* '}</span>${Resource.msg('field.customer.phone.number', 'checkout', null)}</label>
