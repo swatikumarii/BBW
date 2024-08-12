@@ -228,13 +228,22 @@
                     id="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}"
                     aria-describedby="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"
                     data-missing-error="${Resource.msg('error.phone.missing', 'forms', null)}"
-                    data-pattern-mismatch="${Resource.msg('valid.phone.number', 'forms', null)}"
+                    data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
                     value="${shippingAddress.phone || ''}" <isprint value="${addressFields.phone.attributes}"
                     encoding="off" />>
                 <span class="info-icon">
                     <img src="${URLUtils.staticURL('/images/i-icon-gray.svg')}" alt="info icon" class="info-icon-img-gray" width="10px" />
                     <img src="${URLUtils.staticURL('/images/i-icon-white.svg')}" alt="info icon" class="info-icon-img-white" width="10px" />
                 </span>
+                <input type="hidden" class="dialCode"
+                    value="${addressFields.dialCode.htmlValue || dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCode')}"
+                    <isprint value="${addressFields.dialCode.attributes}" encoding="off" />
+                />
+                <input type="hidden" class="dialCodeCountry"
+                    value="${addressFields.dialCodeCountry.htmlValue || dw.system.Site.getCurrent().getCustomPreferenceValue(
+                           'defaultDialCodeCountry')}"
+                    <isprint value="${addressFields.dialCodeCountry.attributes}" encoding="off" />
+                />
                 <div class="info-icon-text">
                     <iscontentasset aid="phone-info-icon-content" />
                 </div>
