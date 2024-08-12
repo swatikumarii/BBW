@@ -102,6 +102,17 @@ $(document).ready(function () {
         countryOrder: ['au']
     });
 
+    var billingPhone = document.querySelector('#phoneNumber');
+    intlTelInput(billingPhone, {
+        utilsScript: utils,
+        showFlags: true,
+        strictMode: true,
+        showSelectedDialCode: true,
+        initialCountry: 'au',
+        countryOrder: ['au']
+    });
+
+
     $('.accordion-title').click(function () {
         $(this).next('.accordion-content').slideToggle();
         $(this).toggleClass('rotate-down');
@@ -273,13 +284,6 @@ $(document).ready(function () {
                     return false;
                 }
             });
-        }
-        var billingForm = $('#dwfrm_billing .contact-info-block');
-        if (!$('input[name$=_phone]', billingForm).val()) {
-            var isMultiShip = $('#checkout-main').hasClass('multi-ship');
-            var formSelector = isMultiShip ? '.multi-shipping .active form' : '.single-shipping .shipping-form';
-            var shippingForm = $(formSelector);
-            $('input[name$=_phone]', billingForm).val($('input[name$=_phone]', shippingForm).val());
         }
     }
     $.spinner().stop();
