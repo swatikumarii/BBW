@@ -175,7 +175,6 @@
 
         <div class="utility-links-container d-block d-md-none">
             <ul class="utility-links mobile-only">
-                <isinclude url="${URLUtils.url('Page-Locale', 'mobile', true)}" />
                 <li class="link">
                     <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
                         href="${URLUtils.url('Order-Status')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>

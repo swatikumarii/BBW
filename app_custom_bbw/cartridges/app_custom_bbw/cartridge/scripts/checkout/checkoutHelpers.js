@@ -324,10 +324,10 @@ function copyBillingAddressToBasket(address) {
             billingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
             billingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
         }
-        if ('district' in address.custom) {
+        if (address.custom && address.custom.district) {
             billingAddress.custom.district = address.custom.district;
         }
-        if ('subDistrict' in address.custom) {
+        if (address.custom && address.custom.subDistrict) {
             billingAddress.custom.subDistrict = address.custom.subDistrict;
         }
     });

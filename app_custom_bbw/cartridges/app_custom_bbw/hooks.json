@@ -11,6 +11,10 @@
         {
             "name": "dw.extensions.facebook.feed.transformProduct",
             "script": "./cartridge/scripts/hooks/facebook.js"
+        },
+        {
+            "name": "einvoice.email.send",
+            "script": "./cartridge/scripts/hooks/einvoice.js"
         }
     ]
 }
