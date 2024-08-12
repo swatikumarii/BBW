@@ -87,7 +87,7 @@ server.replace(
             req.session.privacyCache.set(currentBasket.defaultShipment.UUID, 'valid');
 
             // remove spaces between phone number digits
-            var phoneNumber = form.shippingAddress.addressFields.phone.value.replace(/[-\s]/g, '');
+            var phoneNumber = form.shippingAddress.addressFields.phone.value.replace(/[+\-\s()]/g, '');
 
             result.address = {
                 firstName: form.shippingAddress.addressFields.firstName.value,

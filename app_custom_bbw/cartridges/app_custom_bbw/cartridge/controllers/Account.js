@@ -258,7 +258,7 @@ server.replace(
             gender = 3;
         }
         // remove spaces between phone number digits
-        var phoneNumber = profileForm.customer.phone.value.replace(/[-\s]/g, '');
+        var phoneNumber = profileForm.customer.phone.value.replace(/[+\-\s()]/g, '');
 
         var result = {
             salutation: profileForm.customer.salutation.value,
@@ -866,7 +866,7 @@ server.replace(
             }
 
             // remove spaces between phone number digits
-            var phoneNumber = registrationForm.customer.phone.value.replace(/[-\s]/g, '');
+            var phoneNumber = registrationForm.customer.phone.value.replace(/[+\-\s()]/g, '');
 
             var registrationFormObj = {
                 salutation: registrationForm.customer.salutation.value,

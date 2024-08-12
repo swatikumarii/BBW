@@ -540,12 +540,25 @@ server.append(
                 });
             } else {
                 var billingAddress = viewData.order.billing.billingAddress.address;
+                var expressCheckout = false;
+                var paymentInstrument = order.paymentInstruments[0];
+                if (paymentInstrument.paymentMethod === 'AdyenComponent' && !order.billingAddress.custom.dialCode) {
+                    expressCheckout = true;
+                } else if (paymentInstrument.paymentMethod === 'AFTERPAY') {
+                    expressCheckout = paymentInstrument.paymentTransaction.custom.apExpressCheckout;
+                }
+                // remove 0 from starting of phone number
+                var billingPhn = billingAddress.phone;
+                if (billingPhn.startsWith('0')) {
+                    billingPhn = billingPhn.substr(1);
+                }
                 var customerData = {
                     firstName : billingAddress.firstName,
                     lastName: billingAddress.lastName,
-                    phone: billingAddress.phone,
+                    phone: billingPhn,
                     email: viewData.order.orderEmail,
-                    dialCode: billingAddress.dialCode
+                    dialCode: billingAddress.dialCode,
+                    expressCheckout: expressCheckout
                 };
                 var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
                 if (crmCustomerID) {

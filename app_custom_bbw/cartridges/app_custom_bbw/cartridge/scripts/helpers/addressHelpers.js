@@ -62,7 +62,7 @@ function updateAddressFields(newAddress, address) {
     var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
     var phoneNumber = '';
     if (address.phone) {
-        phoneNumber = address.phone.replace(/[-\s]/g, '');
+        phoneNumber = address.phone.replace(/[+\-\s()]/g, '');
     }
     newCreatedAddress.setAddress1(address.address1 || '');
     newCreatedAddress.setAddress2(address.address2 || '');

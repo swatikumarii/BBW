@@ -82,11 +82,12 @@ module.exports = {
                 gender = 'Other';
                 break;
         };
-        var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
-        var dialCode = registrationForm.dialCode || defaultDialCode;
-        var phoneNumber = registrationForm.phone.replace('+', '');
-        phoneNumber = phoneNumber.replace(' ', '');
-        phoneNumber = dialCode + phoneNumber;
+        var phoneNumber = registrationForm.phone.replace(/[+\-\s()]/g, '');
+        if (!registrationForm.expressCheckout) {
+            var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+            var dialCode = registrationForm.dialCode || defaultDialCode;
+            phoneNumber = dialCode + phoneNumber;
+        }
         var requestObj = {
             profiles: [{
                 firstName: registrationForm.firstName,
