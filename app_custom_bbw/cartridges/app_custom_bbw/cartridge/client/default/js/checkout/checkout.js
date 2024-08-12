@@ -5,7 +5,7 @@ var addressHelpers = require('base/checkout/address');
 var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
-var formHelpers = require('base/checkout/formErrors');
+var formHelpers = require('./formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
 // ### Custom Adyen cartridge start ###
 var adyenCheckout = require('adyen/adyenCheckout');

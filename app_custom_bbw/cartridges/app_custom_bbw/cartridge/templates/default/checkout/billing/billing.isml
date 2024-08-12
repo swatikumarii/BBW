@@ -39,17 +39,19 @@
         <fieldset class="contact-info-block">
             <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading pt-0 b-text-letter-space-005 h-line-height--24">
                 ${Resource.msg('heading.contact.info', 'checkout', null)}</h2>
-            <div class="row ${pdict.isGiftProductAvailable ? 'pt-3': 'd-none'}">
+            <div class="row pt-3">
                 <div class="col-sm-12">
-                    <div class="form-group
+                    <div class="form-group billing-address
                             <isif condition=${pdict.forms.billingForm.contactInfoFields.phone.mandatory === true}>required</isif>
                             ${pdict.forms.billingForm.contactInfoFields.phone.htmlName}">
                         <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label h-line-height--20 b-text-letter-space-01" for="phoneNumber"><span class="h-clr--red-9">${'* '}</span>${Resource.msg('field.customer.phone.number', 'checkout', null)}</label>
 
-                        <input type="tel" class="form-control phone" id="phoneNumber"
+                        <input type="tel" class="form-control phone" id="phoneNumber" initOptions.allowDropdown="true"
                             value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.phone || '' : ''}"
-                            <isprint value=${pdict.forms.billingForm.contactInfoFields.phone.attributes} encoding="off" />
-                            aria-describedby="phoneInvalidMessage" >
+                            aria-describedby="phoneInvalidMessage"
+                            data-missing-error="${Resource.msg('error.phone.missing', 'forms', null)}"
+                            data-pattern-mismatch="${Resource.msg('valid.phone.number', 'forms', null)}"
+                            <isprint value="${pdict.forms.billingForm.contactInfoFields.phone.attributes}" encoding="off" /> >
                         <div class="invalid-feedback" id="phoneInvalidMessage"></div>
                     </div>
                 </div>
