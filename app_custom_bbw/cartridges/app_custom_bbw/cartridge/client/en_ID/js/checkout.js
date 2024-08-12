@@ -387,13 +387,6 @@ $(document).ready(function () {
                 }
             });
         }
-        var billingForm = $('#dwfrm_billing .contact-info-block');
-        if (!$('input[name$=_phone]', billingForm).val()) {
-            var isMultiShip = $('#checkout-main').hasClass('multi-ship');
-            var formSelector = isMultiShip ? '.multi-shipping .active form' : '.single-shipping .shipping-form';
-            var shippingForm = $(formSelector);
-            $('input[name$=_phone]', billingForm).val($('input[name$=_phone]', shippingForm).val());
-        }
     }
     $.spinner().stop();
 });
