@@ -314,10 +314,10 @@ function copyBillingAddressToBasket(address) {
         var countryCode = address.countryCode;
         billingAddress.setCountryCode(countryCode.value);
         billingAddress.setPhone(address.phone);
-        if ('district' in address.custom) {
+        if (address.custom && address.custom.district) {
             billingAddress.custom.district = address.custom.district;
         }
-        if ('subDistrict' in address.custom) {
+        if (address.custom && address.custom.subDistrict) {
             billingAddress.custom.subDistrict = address.custom.subDistrict;
         }
     });
