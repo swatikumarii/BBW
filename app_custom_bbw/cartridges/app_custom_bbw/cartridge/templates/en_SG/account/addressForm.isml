@@ -189,7 +189,11 @@
                         value="${pdict.addressForm.city.attributes}" encoding="off" />
                     autocomplete="address-level2">
                     <isloop items=${pdict.addressForm.city.options} var="city">
-                        <option id="${city.id}" value="${city.htmlValue}">${city.label}</option>
+                        <isif condition="${city.selected}">
+                            <option id="${city.id}" value="${city.htmlValue}" selected='selected'>${city.label}</option>
+                        <iselse/>
+                            <option id="${city.id}" value="${city.htmlValue}">${city.label}</option>
+                        </isif>
                     </isloop>
                     </select>
                 <div class="invalid-feedback select-error"></div>

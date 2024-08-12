@@ -367,14 +367,7 @@ module.exports = {
                 });
             }
             if (postalCode) {
-                $('.billingZipCode option').each(function () {
-                    if ($(this).val() === postalCode) {
-                        $('.billingZipCode option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.billingZipCode').trigger('change');
-                        return false;
-                    }
-                });
+                $('.billingZipCode').val(postalCode);
             }
 
             Object.keys(attrs).forEach(function (attr) {
