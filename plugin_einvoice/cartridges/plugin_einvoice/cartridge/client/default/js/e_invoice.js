@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var formValidation = require('base/components/formValidation');
     let downloadInvoiceRenderElement = $('#download_EInvoice');
     let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
     let btnShowUrl = downloadInvoiceRenderElement.attr('data-btn-show');
@@ -122,6 +123,9 @@ $(document).ready(function () {
     // Quick & dirty toggle to demonstrate modal toggle behavior
     $('body').on('click', '.modal-toggle-e-invoice', function (e) {
         e.preventDefault();
+        $('#submitEInvoiceDownloadForm')[0].reset();
+        $('.invalid-submittion').html("");
+        $('#identificationType').trigger("change");
         $('.modal-e-invoice').toggleClass('is-visible');
     });
 
@@ -181,4 +185,5 @@ $(document).ready(function () {
         $('#regTB').attr('placeholder', bsnRegPlaceholder);
         $('#regTB').prev('label').text(bsnRegLabel);
     });
+   
 });

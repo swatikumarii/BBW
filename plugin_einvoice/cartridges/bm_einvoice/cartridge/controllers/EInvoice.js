@@ -54,19 +54,21 @@ server.post('ResendEmail', function (req, res, next) {
                         res.json({
                             type: einvoiveStatusCode.EINVOICESTATUSCODES
                                 .SUCCESS,
-                            message: 'User will get the email shortly.'
+                            message:
+                                'The email will be sent to the customer shortly.'
                         });
                     } else {
                         res.json({
                             type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
                             message:
-                                'Too many request for the same order. User will get the email shortly.'
+                                'Too many requests for the same order. Please wait! The email will be sent to the customer shortly.'
                         });
                     }
                 } catch (ex) {
                     res.json({
                         type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
-                        message: 'Error occurred when send e-invoice'
+                        message:
+                            'An error occurred while sending the e-invoice.'
                     });
                 }
             } else if (
@@ -74,29 +76,37 @@ server.post('ResendEmail', function (req, res, next) {
                 einvoiveStatusCode.EINVOICESTATUSCODES.ERROR
             ) {
                 // QR code is already generated else show proper message
+
+                var errorJson = JSON.parse(order.custom.einvoiceErrorMsg);
+
                 res.json({
                     type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
-                    message: order.custom.einvoiceErrorMsg
+                    message:
+                        'The error source is ' +
+                        errorJson.errorSource +
+                        '. The error is: ' +
+                        errorJson.detailedMessage +
+                        '.'
                 });
             } else {
                 res.json({
                     type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
                     message:
-                        'User have to request the E-Invoice either from order confirmation page or order detail page from my account.'
+                        'The customer needs to request the E-Invoice either from the order confirmation page or the order details page within the "My Account" section.'
                 });
             }
         } else {
             res.json({
                 type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
                 message:
-                    'User have to request the E-Invoice either from order confirmation page or order detail page from my account.'
+                    'The customer needs to request the E-Invoice either from the order confirmation page or the order details page within the "My Account" section.'
             });
         }
         next();
     } catch (error) {
         res.json({
             type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
-            message: 'Error occurred when send e-invoice'
+            message: 'An error occurred while sending the e-invoice.'
         });
         next();
     }
