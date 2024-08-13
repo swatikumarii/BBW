@@ -1,4 +1,4 @@
-<isif condition="${greetingCardItem}">
+<isif condition="${typeof(greetingCardItem) != 'undefined' && greetingCardItem}">
     <isset name="lineItem" value="${greetingCardItem}" scope="page" />
     <isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
     <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}"

@@ -11,11 +11,11 @@
 </isif>
 <isif condition="${lineItem.promotions}">
     <isloop items="${lineItem.promotions}" var="promotion" status="loopstatus">
-        <div class="h-font-size--14${!(miniCart) ? ' promotion' : ''} ${cartPage ? 'h-fw--semibold' : ''}">
+        <div class="h-font-size--14${!(typeof(miniCart) != 'undefined' && miniCart) ? ' promotion' : ''} ${cartPage ? 'h-fw--semibold' : ''}">
             <isprint value="${promotion.calloutMsg}" encoding="off" />
         </div>
         <isset name="showDescription" value="${false}" scope="page" />
-        <isif condition="${miniCart}">
+        <isif condition="${typeof(miniCart) != 'undefined' && miniCart}">
             <isset name="showDescription" value="${true}" scope="page" />
         <iselseif condition="${cartPage}" />
             <isset name="showDescription" value="${true}" scope="page" />
