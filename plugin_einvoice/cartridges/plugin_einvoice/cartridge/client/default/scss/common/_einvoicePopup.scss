@@ -17,7 +17,7 @@
     }
 
     input {
-      height: 3rem;
+        height: 3rem;
     }
 
     .close {
@@ -132,13 +132,23 @@
 .modal-wrapper-e-invoice {
     position: absolute;
     z-index: 9999;
-    top: 12em;
+    top: 17em;
     left: 50%;
     width: 32em;
     margin-left: -16em;
     background-color: #fff;
     box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
 }
+
+@media (max-width: 768px) {
+    .modal-wrapper-e-invoice {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        width: 100%;
+    }
+}
+
 
 .modal-transition-e-invoice {
     transition: all 0.3s 0.12s;
@@ -180,4 +190,12 @@
 
 .modal-content-e-invoice > *:last-child {
     margin-bottom: 0;
+}
+
+.einvoice-open {
+    overflow: hidden;
+
+    .header {
+        z-index: 1 !important;
+    }
 }

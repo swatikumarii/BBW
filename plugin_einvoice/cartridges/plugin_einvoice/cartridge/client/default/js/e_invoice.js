@@ -123,6 +123,7 @@ $(document).ready(function () {
     $('body').on('click', '.modal-toggle-e-invoice', function (e) {
         e.preventDefault();
         $('.modal-e-invoice').toggleClass('is-visible');
+        $('body').toggleClass('einvoice-open');
     });
 
     $('body').on('click', '.haveSst-js', function () {
