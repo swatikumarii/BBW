@@ -219,6 +219,8 @@ $(document).ready(function () {
                 );
             }
         }, 100);
+        validateEmailMatch($('#registration-form-email'), $('#registration-form-email-confirm'));
+        validateEmailField($('#registration-form-email'));
     });
 
     $(function () {
