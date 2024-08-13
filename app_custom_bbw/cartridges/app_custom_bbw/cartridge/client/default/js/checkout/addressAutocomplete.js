@@ -44,7 +44,7 @@ module.exports = {
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
-                        addressObject.state = element.long_name;
+                        addressObject.state = element.short_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
@@ -114,7 +114,7 @@ module.exports = {
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
-                        addressObject.state = element.long_name;
+                        addressObject.state = element.short_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
@@ -184,7 +184,7 @@ module.exports = {
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
-                        addressObject.state = element.long_name;
+                        addressObject.state = element.short_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
