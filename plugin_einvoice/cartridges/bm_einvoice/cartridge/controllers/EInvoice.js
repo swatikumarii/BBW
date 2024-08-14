@@ -109,7 +109,7 @@ server.post('ResendEmail', function (req, res, next) {
         else{
              res.json({
                  type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
-                 message: 'Order number in required.'
+                 message: 'Order number is required or incorrect.'
              });
         }
         next();
