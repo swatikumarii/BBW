@@ -75,8 +75,10 @@ exports.sendFailedEmail = function (order) {
             '. The error is: ' +
             errorJson.detailedMessage +
             '.',
-        submissionDate: formatToISO8601(new Date(order.custom.eInvoiceSubmittionDate)),
-        erpId: order.custom.eInvoiceNumber,
+        submissionDate: formatToISO8601(
+            new Date(order.custom.eInvoiceSubmittionDate)
+        ),
+        erpId: order.custom.eInvoiceErpId,
         orderId: order.orderNo,
         content: emailContentHelpers.getEmailContent(
             'normal-footer',

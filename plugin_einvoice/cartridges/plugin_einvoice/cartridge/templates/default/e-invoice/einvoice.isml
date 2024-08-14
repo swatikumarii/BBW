@@ -5,16 +5,9 @@
     </isscript>
 
 <iscomment>Use this button to submit einvoice
-  <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
-    <isif condition="${'eInvoiceQrCode' in order.custom && JSON.parse(order.custom.eInvoiceQrCode).url}">
-      <a href="${JSON.parse(order.custom.eInvoiceQrCode).url}}"
-        class="btn btn-secondary modal-toggle-e-invoice btn-hover  text-uppercase h-fw--bold">
-        ${Resource.msg('einvoice.dowmload.invoice.btn.text', 'einvoice_modal', null)}
-      </a>
-      <iselse>
+  <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">   
         <button class="btn btn-info modal-toggle-e-invoice"
-          data-order-id="00000501">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
-    </isif>
+          data-order-id="00000501">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button> 
   </isif>
 </iscomment>
 <div id="download_EInvoice" class="d-none"
