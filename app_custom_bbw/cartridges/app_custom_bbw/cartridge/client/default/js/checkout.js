@@ -99,7 +99,8 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'au',
-        countryOrder: ['au']
+        countryOrder: ['au'],
+        formatAsYouType: false
     });
 
     var billingPhone = document.querySelector('#phoneNumber');

@@ -40,10 +40,10 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'locality':
+                    case 'neighborhood':
                         addressObject.city = element.long_name;
                         break;
-                    case 'administrative_area_level_1':
+                    case 'locality':
                         addressObject.state = element.long_name;
                         break;
                     case 'postal_code':
@@ -110,10 +110,10 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'locality':
+                    case 'neighborhood':
                         addressObject.city = element.long_name;
                         break;
-                    case 'administrative_area_level_1':
+                    case 'locality':
                         addressObject.state = element.long_name;
                         break;
                     case 'postal_code':
@@ -180,10 +180,10 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'locality':
+                    case 'neighborhood':
                         addressObject.city = element.long_name;
                         break;
-                    case 'administrative_area_level_1':
+                    case 'locality':
                         addressObject.state = element.long_name;
                         break;
                     case 'postal_code':
