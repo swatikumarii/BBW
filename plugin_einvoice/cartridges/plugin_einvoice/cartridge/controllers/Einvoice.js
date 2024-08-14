@@ -31,6 +31,59 @@ server.get(
     }
 );
 
+server.get(
+    'CheckStatus',
+    server.middleware.https,
+    csrfProtection.validateAjaxRequest,
+    function (req, res, next) {
+        var OrderMgr = require('dw/order/OrderMgr');
+        var einvoiveStatusCode = require('*/cartridge/scripts/constant/einvoice_constant');
+        var order = OrderMgr.getOrder(req.querystring.orderId); // Retrieve order using orderId (orderId should be defined or passed in some way)
+
+        if (
+            'eInvoiceQrCode' in order.custom &&
+            order.custom.eInvoiceStatus ==
+                einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS
+        ) {
+            // Return JSON response with the validity of the order's creation date
+            res.json({
+                status: einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS,
+                message: Resource.msg(
+                    'einvoice.already.generated',
+                    'einvoice_modal',
+                    null
+                ),
+                qrCodeLink: JSON.parse(order.custom.eInvoiceQrCode).url
+            });
+        } else if (            
+            order.custom.eInvoiceStatus ==
+                einvoiveStatusCode.EINVOICESTATUSCODES.PENDING
+        ) {
+            res.json({
+                status: einvoiveStatusCode.EINVOICESTATUSCODES.PENDING,
+                message:Resource.msg(
+                        'einvoice.pending.status',
+                        'einvoice_modal',
+                        null
+                    )
+            });
+        } else if (
+            !'eInvoiceStatus' in order.custom ||
+            order.custom.eInvoiceStatus ==
+                einvoiveStatusCode.EINVOICESTATUSCODES.EMPTY ||
+                order.custom.eInvoiceStatus == null||
+            order.custom.eInvoiceStatus ==
+                einvoiveStatusCode.EINVOICESTATUSCODES.ERROR
+        ) {
+            res.json({
+                status: false
+            });
+        }
+
+        return next();
+    }
+);
+
 /**
  * Handles POST requests to submit e-invoice data
  * Validates and processes e-invoice submission

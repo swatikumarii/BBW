@@ -143,8 +143,12 @@ server.get('InvoiceDownload', function (req, res, next) {
             order: orderModel,
             taxRate: taxRate,
             isEgiftCard: isEgiftCard,
+            eInvoiceQrCodeLink:
+                'eInvoiceQrCode' in order.custom &&
+                JSON.parse(order.custom.eInvoiceQrCode).url,
             eInvoiceQrCode:
-                ('eInvoiceQrCode' in order.custom && order.custom.eInvoiceQrCode) ||
+                ('eInvoiceQrCode' in order.custom &&
+                    JSON.parse(order.custom.eInvoiceQrCode).qrcode) ||
                 false
         });
     } else {

@@ -103,7 +103,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                     if (qrCodeResponse.qrcode) {
                         // eslint-disable-next-line no-loop-func
                         Transaction.wrap(function () {
-                            order.custom.eInvoiceQrCode = qrCodeResponse.qrcode;
+                            order.custom.eInvoiceQrCode = JSON.stringify(qrCodeResponse);
                             order.custom.eInvoiceStatus =
                                 einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS;
 
