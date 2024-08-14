@@ -41,15 +41,15 @@ exports.sendEmail = function (order) {
 // Function used to convert date
 function formatToISO8601(date) {
     // Get the components of the date
-    const year = date.getUTCFullYear();
-    const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
-    const day = String(date.getUTCDate()).padStart(2, '0');
-    const hours = String(date.getUTCHours()).padStart(2, '0');
-    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
-    const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+    var year = date.getUTCFullYear();
+    var month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
+    var day = String(date.getUTCDate()).padStart(2, '0');
+    var hours = String(date.getUTCHours()).padStart(2, '0');
+    var minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    var seconds = String(date.getUTCSeconds()).padStart(2, '0');
 
     // Format the date and time components into ISO 8601 string
-    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}+00:00`;
+    return year + '-' + month + '-' + day + 'T' + hours + ':' + minutes + ':' + seconds + '+00:00';
 }
 
 // Function used to send Failed EInvoice email
