@@ -5,9 +5,9 @@
     </isscript>
 
 <iscomment>Use this button to submit einvoice
-  <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
-    <button class="btn btn-info modal-toggle-e-invoice"
-      data-order-id="00000501">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
+  <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">   
+        <button class="btn btn-info modal-toggle-e-invoice"
+          data-order-id="00000501">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button> 
   </isif>
 </iscomment>
 <div id="download_EInvoice" class="d-none"
@@ -15,14 +15,14 @@
   data-NRIC="${Resource.msg('einvoice.modal.popup.input.nric', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.nric', 'einvoice_modal', null)}"
   data-passport="${Resource.msg('einvoice.modal.popup.input.passport', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.passport', 'einvoice_modal', null)}"
   data-army="${Resource.msg('einvoice.modal.popup.input.army', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.army', 'einvoice_modal', null)}"
-  data-btn-show="${URLUtils.url('Einvoice-Show')}"></div>
+  data-btn-show="${URLUtils.url('Einvoice-Show')}" data-check-status="${URLUtils.url('Einvoice-CheckStatus')}"></div>
 <div class="modal-e-invoice">
   <div class="modal-overlay-e-invoice modal-toggle-e-invoice"></div>
   <div class="modal-wrapper-e-invoice modal-transition-e-invoice cust-modal text-left">
     <div class="modal-header-e-invoice modal-title">
 
       <h2 class="modal-heading-e-invoice">${Resource.msg('heading.einvoice.modal', 'einvoice_modal', null)}</h2>
-      <button class="modal-close-e-invoice modal-toggle-e-invoice close">
+      <button class="modal-close-e-invoice close">
         <iscomment> <svg class="icon-close icon-e-invoice" viewBox="0 0 32 32">
             <path
               d="M16 14.6l-9.8-9.8-1.4 1.4 9.8 9.8-9.8 9.8 1.4 1.4 9.8-9.8 9.8 9.8 1.4-1.4-9.8-9.8 9.8-9.8-1.4-1.4-9.8 9.8z">
@@ -50,16 +50,15 @@
                                   'einvoice_modal', null))}" required>
                 <option value="">${Resource.msg('einvoice.modal.popup.select.selectoption.text', 'einvoice_modal', null)}
                 </option>
+                <option value="NRIC" selected>${Resource.msg('einvoice.modal.popup.select.option.second', 'einvoice_modal', null)}
                 <option value="BRN">${Resource.msg('einvoice.modal.popup.select.option.first', 'einvoice_modal', null)}
-                </option>
-                <option value="NRIC">${Resource.msg('einvoice.modal.popup.select.option.second', 'einvoice_modal', null)}
-                </option>
+                </option>                
                 <option value="PASSPORT">${Resource.msg('einvoice.modal.popup.select.option.third', 'einvoice_modal', null)}</option>
                 <option value="ARMY">${Resource.msg('einvoice.modal.popup.select.option.forth', 'einvoice_modal', null)}
                 </option>
               </select>
+              <div class="invalid-feedback" id="form-identificationType-error"></div>
             </div>
-            <div class="invalid-feedback" id="form-identificationType-error"></div>
           </div>
           <div class="form-group d-none regNumber">
             <label for="regTB" id="regTBLbl"></label>

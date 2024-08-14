@@ -2,7 +2,6 @@
 
 var Transaction = require('dw/system/Transaction');
 var CustomObjectMgr = require('dw/object/CustomObjectMgr');
-var EInvoiceApi = require('*/cartridge/scripts/service/eInvoiceApis');
 var Logger = require('dw/system/Logger');
 var loggerEinvoice = Logger.getLogger('EInvoice');
 
@@ -12,6 +11,7 @@ var loggerEinvoice = Logger.getLogger('EInvoice');
  * @returns {object} - token object
  */
 function getTokenFromPWC(tokenInfo) {
+    var EInvoiceApi = require('*/cartridge/scripts/service/eInvoiceApis');
     var tokenApiResponse = EInvoiceApi.getEInvoiceToken();
     if (tokenApiResponse.ok) {
         var apiResponse = JSON.parse(tokenApiResponse.object);
@@ -62,6 +62,7 @@ function getToken() {
  * @param {boolean} isRecursive - is recursive call or not
  */
 function updateSubmission(tokenInfo, submission, isRecursive) {
+    var EInvoiceApi = require('*/cartridge/scripts/service/eInvoiceApis');
     loggerEinvoice.info('Submission update called.');
 
     if (!tokenInfo) {
@@ -103,7 +104,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                     if (qrCodeResponse.qrcode) {
                         // eslint-disable-next-line no-loop-func
                         Transaction.wrap(function () {
-                            order.custom.eInvoiceQrCode = qrCodeResponse.qrcode;
+                            order.custom.eInvoiceQrCode = JSON.stringify(qrCodeResponse);
                             order.custom.eInvoiceStatus =
                                 einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS;
 
