@@ -23,7 +23,7 @@
                 <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value=" ${exploreCategory.url}" encoding="htmldoublequote" />"
                 class="level-2-link dropdown-link dropdown-toggle h-font-size--14 h-fw--semibold"
                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                tabindex="0">${'Explore ' + exploreCategory.name}</a>
+                tabindex="0">${Resource.msg('label.menu.category.explore', 'common', null) + ' ' + exploreCategory.name}</a>
                 <isset name="menuItem" value="${category}" scope="page" />
             </li>
             <li>

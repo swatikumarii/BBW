@@ -6,6 +6,9 @@
         <iselseif
                 condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}" />
             <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
+        <iselseif
+            condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
+        <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
         <iselseif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}" />
             <div class="mb-2">
                 ${Resource.msg('label.add.egift.title', 'giftcards', null)}
