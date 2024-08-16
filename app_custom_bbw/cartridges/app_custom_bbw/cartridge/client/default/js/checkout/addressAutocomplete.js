@@ -52,6 +52,14 @@ module.exports = {
                     default:
                         break;
                 }
+                var fullAddress = addressObject.address1;
+                if (addressObject.address2) {
+                    fullAddress += ' ' + addressObject.address2;
+                }
+                if (fullAddress.length > 30) {
+                    addressObject.address1  = fullAddress.substring(0, 30).trim();
+                    addressObject.address2  = fullAddress.substring(31, 60).trim();
+                }
             }
             var form = $('.shipping-form');
             form.find('#shippingAddressOnedefault')
@@ -122,6 +130,14 @@ module.exports = {
                     default:
                         break;
                 }
+                var fullAddress = addressObject.address1;
+                if (addressObject.address2) {
+                    fullAddress += ' ' + addressObject.address2;
+                }
+                if (fullAddress.length > 30) {
+                    addressObject.address1  = fullAddress.substring(0, 30).trim();
+                    addressObject.address2  = fullAddress.substring(31, 60).trim();
+                }
             }
             var form = $('.billing-form');
             form.find('#billingAddressOne')
@@ -191,6 +207,14 @@ module.exports = {
                         break;
                     default:
                         break;
+                }
+                var fullAddress = addressObject.address1;
+                if (addressObject.address2) {
+                    fullAddress += ' ' + addressObject.address2;
+                }
+                if (fullAddress.length > 30) {
+                    addressObject.address1  = fullAddress.substring(0, 30).trim();
+                    addressObject.address2  = fullAddress.substring(31, 60).trim();
                 }
             }
             var form = $('.address-form');

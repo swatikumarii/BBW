@@ -223,6 +223,14 @@ $(document).on('click', '#editAddress', function () {
                         default:
                             break;
                     }
+                    var fullAddress = addressObject.address1;
+                    if (addressObject.address2) {
+                        fullAddress += ' ' + addressObject.address2;
+                    }
+                    if (fullAddress.length > 30) {
+                        addressObject.address1  = fullAddress.substring(0, 30).trim();
+                        addressObject.address2  = fullAddress.substring(31, 60).trim();
+                    }
                 }
                 var form = $('#modalContent').find('.address-form');
                 form.find('#address1')
