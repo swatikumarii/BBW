@@ -59,6 +59,7 @@ function checkFields(form) {
     });
     if (allFilled) {
         $('.verify-msg').hide();
+        $('.next-step-button button').removeAttr('disabled');
     } else {
         $('.verify-msg').show();
     }
@@ -497,7 +498,7 @@ $('.shippingAddressCity').change(function () {
     var districtDropdown = $('.shippingAddressDistrict');
     districtDropdown.empty(); // clear existing options
 
-    if (addressData[selectedState] && addressData[selectedState][selectedSuburb]) 
+    if (addressData[selectedState] && addressData[selectedState][selectedSuburb])
     {
         districtDropdown.prepend(
             $('<option>', {
