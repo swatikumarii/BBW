@@ -91,6 +91,14 @@ function validateLoginForm() {
     return isValid;
 }
 
+$(document).on('blur', '#password', function () {
+    validatePassword();
+});
+
+$(document).on('blur', '#email', function () {
+    validateEmail();
+});
+
 /**
  * Create the jQuery Checkout Plugin.
  *
