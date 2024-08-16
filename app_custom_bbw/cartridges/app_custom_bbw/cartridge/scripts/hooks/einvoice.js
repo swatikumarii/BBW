@@ -19,7 +19,13 @@ exports.sendEmail = function (order) {
     var encodedOrderNumber = encodeURIComponent(
         encryptionHelper.encryptPin(order.orderNo)
     );
+    
+    var qrCodeResponse = JSON.parse(order.custom.eInvoiceQrCode);    
+
     emailHelpers.sendEmail(emailObj, 'mail/einvoiceEmail', {
+        orderNo:order.orderNo,
+        qrCode:qrCodeResponse.qrcode,
+        qrCodeLink:qrCodeResponse.url,
         invoiceUrl: URLUtils.https(
             'Order-InvoiceDownload',
             'token',
@@ -31,6 +37,20 @@ exports.sendEmail = function (order) {
         )
     });
 };
+
+// Function used to convert date
+function formatToISO8601(date) {
+    // Get the components of the date
+    var year = date.getUTCFullYear();
+    var month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
+    var day = String(date.getUTCDate()).padStart(2, '0');
+    var hours = String(date.getUTCHours()).padStart(2, '0');
+    var minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    var seconds = String(date.getUTCSeconds()).padStart(2, '0');
+
+    // Format the date and time components into ISO 8601 string
+    return year + '-' + month + '-' + day + 'T' + hours + ':' + minutes + ':' + seconds + '+00:00';
+}
 
 // Function used to send Failed EInvoice email
 exports.sendFailedEmail = function (order) {
@@ -45,7 +65,20 @@ exports.sendFailedEmail = function (order) {
             Site.current.getCustomPreferenceValue('customerServiceEmail') ||
             'no-reply@testorganization.com'
     };
+
+    var errorJson = JSON.parse(order.custom.einvoiceErrorMsg);
+
     emailHelpers.sendEmail(emailObj, 'mail/einvoiceEmailRejected', {
+        errorMsg:
+            'The error source is ' +
+            errorJson.errorSource +
+            '. The error is: ' +
+            errorJson.detailedMessage +
+            '.',
+        submissionDate: formatToISO8601(
+            new Date(order.custom.eInvoiceSubmittionDate)
+        ),
+        erpId: order.custom.eInvoiceErpId,
         orderId: order.orderNo,
         content: emailContentHelpers.getEmailContent(
             'normal-footer',

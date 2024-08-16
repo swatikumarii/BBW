@@ -176,10 +176,10 @@ $(document).ready(function () {
         var $password = $this.siblings('#password');
         if ($password.attr('type') === 'password') {
             $password.attr('type', 'text');
-            $this.text('Hide');
+            $this.text('Bersembunyi');
         } else {
             $password.attr('type', 'password');
-            $this.text('Show');
+            $this.text('Menunjukkan');
         }
     });
 

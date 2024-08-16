@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    'Australian Capital Territory': {
+    'ACT': {
         Acton: ['2601'],
         Ainslie: ['2602'],
         Amaroo: ['2914'],
@@ -152,7 +152,7 @@ module.exports = {
         Wright: ['2611'],
         Yarralumla: ['2600']
     },
-    'New South Wales': {
+    'NSW': {
         'Aarons Pass': ['2850'],
         Abbotsbury: ['2176'],
         Abbotsford: ['2046'],
@@ -4840,7 +4840,7 @@ module.exports = {
         Zara: ['2484'],
         Zetland: ['2017']
     },
-    'Northern Territory': {
+    'NT': {
         'Acacia Hills': ['0822'],
         'Adelaide River': ['0846'],
         Alawa: ['0810'],
@@ -5164,7 +5164,7 @@ module.exports = {
         Yulara: ['0872'],
         Zuccoli: ['0832']
     },
-    Queensland: {
+    QLD: {
         Abbeywood: ['4613'],
         Abbotsford: ['4670'],
         Abercorn: ['4627'],
@@ -8551,7 +8551,7 @@ module.exports = {
         Zillmere: ['4034'],
         Zilzie: ['4710']
     },
-    'South Australia': {
+    'SA': {
         'Aberfoyle Park': ['5159'],
         'Abminga Station': ['5440'],
         Adelaide: ['5000', '5001', '5800', '5801', '5810', '5839'],
@@ -10494,7 +10494,7 @@ module.exports = {
         Yunyarinyi: ['0872'],
         'Zadows Landing': ['5254']
     },
-    Tasmania: {
+    TAS: {
         Abbotsham: ['7315'],
         'Abels Bay': ['7112'],
         Aberdeen: ['7310'],
@@ -11276,7 +11276,7 @@ module.exports = {
         Youngtown: ['7249'],
         Zeehan: ['7469']
     },
-    Victoria: {
+    VIC: {
         Abbeyard: ['3737'],
         Abbotsford: ['3067'],
         'Abeckett Street': ['8006'],
@@ -14438,7 +14438,7 @@ module.exports = {
         Zeerust: ['3634'],
         Zumsteins: ['3401']
     },
-    'Western Australia': {
+    'WA': {
         'Abba River': ['6280'],
         Abbey: ['6280'],
         'Acton Park': ['6280'],

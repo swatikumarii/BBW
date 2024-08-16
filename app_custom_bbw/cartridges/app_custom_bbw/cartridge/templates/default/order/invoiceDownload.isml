@@ -315,10 +315,12 @@
         </table>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 2fr; align-items: start;">
-        <div style="text-align:left;padding:10px">           
+        <div style="text-align:left;padding:10px">
             <isif condition="${pdict.eInvoiceQrCode}">
-                <img style="height:200px;width:200px"
-                    src="data:image/png;base64,${pdict.eInvoiceQrCode}" />
+                <img style="height:200px;width:200px" src="data:image/png;base64,${pdict.eInvoiceQrCode}" />
+                <div>
+                    <a href="${pdict.eInvoiceQrCodeLink}" target="_blank">${Resource.msg('email.see.invoice.detail.text', 'einvoice', null)}</a>
+                </div>
             </isif>
         </div>
         <div style="text-align:end;">

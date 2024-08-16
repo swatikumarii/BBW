@@ -351,11 +351,7 @@ function validatePasswordField(passwordInput) {
 function togglePasswordVisibility(passwordInput, showButton) {
     var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
     passwordInput.attr('type', type);
-    if(showButton.data('lang') === 'in-id') {
-        showButton.find('.show').text(type === 'password' ? 'Menunjukkan' : 'Bersembunyi');
-    } else {
-        showButton.find('.show').text(type === 'password' ? 'Show' : 'Hide');
-    }
+    showButton.find('.show').text(type === 'password' ? showButton.data('show-label') : showButton.data('hide-label'));
 }
 $(document).ready(function () {
     $(document.body).on('click', '.login-modal-password-hide', function () {

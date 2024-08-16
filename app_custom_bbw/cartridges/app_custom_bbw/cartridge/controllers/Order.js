@@ -139,13 +139,18 @@ server.get('InvoiceDownload', function (req, res, next) {
             }
         }
 
+        var eInvoiceJson = {};
+        if('eInvoiceQrCode' in order.custom)
+        {
+           eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
+        }
+
         res.render('order/invoiceDownload', {
             order: orderModel,
             taxRate: taxRate,
             isEgiftCard: isEgiftCard,
-            eInvoiceQrCode:
-                ('eInvoiceQrCode' in order.custom && order.custom.eInvoiceQrCode) ||
-                false
+            eInvoiceQrCodeLink: eInvoiceJson.url || '',
+            eInvoiceQrCode: eInvoiceJson.qrcode || false
         });
     } else {
         res.redirect(URLUtils.url('Order-History'));

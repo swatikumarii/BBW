@@ -189,7 +189,11 @@
                         value="${pdict.addressForm.city.attributes}" encoding="off" />
                     autocomplete="address-level2">
                     <isloop items=${pdict.addressForm.city.options} var="city">
-                        <option id="${city.id}" value="${city.htmlValue}">${city.label}</option>
+                        <isif condition="${city.selected}">
+                            <option id="${city.id}" value="${city.htmlValue}" selected='selected'>${city.label}</option>
+                        <iselse/>
+                            <option id="${city.id}" value="${city.htmlValue}">${city.label}</option>
+                        </isif>
                     </isloop>
                     </select>
                 <div class="invalid-feedback select-error"></div>
@@ -246,7 +250,7 @@
 <!-- Cancel and Save Buttons -->
 <div class="row">
     <div class="col-12 text-center">
-        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#" class="h-font-size--12 h-clr--black-3 privacy-policy">
+        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3 privacy-policy">
             ${Resource.msg('label.privacy', 'account', null)}
         </a>
     </div>

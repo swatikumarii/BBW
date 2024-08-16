@@ -278,7 +278,7 @@
         }
 
         .line-item-name {
-            width: 220px;
+            width: 180px;
 
             a {
                 font-size: 15px;
@@ -325,6 +325,12 @@
             color: colour(black, 1);
             font-size: 14px;
             font-weight: 700;
+        }
+
+        .item-details {
+            @include media-up(md) {
+                max-width: 170px;
+            }
         }
 
         @include media-down(sm) {

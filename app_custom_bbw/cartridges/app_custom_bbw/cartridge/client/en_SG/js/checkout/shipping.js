@@ -860,14 +860,7 @@ module.exports = {
                 });
             }
             if (postalCode) {
-                $('.shippingZipCode option').each(function () {
-                    if ($(this).val() === postalCode) {
-                        $('.shippingZipCode option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.shippingZipCode').trigger('change');
-                        return false;
-                    }
-                });
+                $('.shippingZipCode').val(postalCode);
             }
             if (dialCodeCountry) {
                 // Get the instance of intl-tel-input

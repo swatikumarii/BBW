@@ -1,7 +1,9 @@
 $(document).ready(function () {
+    var formValidation = require('base/components/formValidation');
     let downloadInvoiceRenderElement = $('#download_EInvoice');
     let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
     let btnShowUrl = downloadInvoiceRenderElement.attr('data-btn-show');
+    let statusCheckUrl = downloadInvoiceRenderElement.attr('data-check-status');
 
     // Function to get label, placeholder, and options from attribute
     function getAttributeInfo(
@@ -52,24 +54,26 @@ $(document).ready(function () {
                 $('#submitEInvoiceDownloadForm')[0].reset();
                 $('.invalid-submittion').html('');
                 $.spinner().stop();
-                if ($('.add-to-cart-messages').length === 0) {
-                    $('body').append(
-                        '<div class="add-to-cart-messages"></div>'
-                    );
-                }
-                $('.add-to-cart-messages').append(
-                    '<div class="alert alert-success add-to-basket-alert text-center text-left h-fw--semibold show"' +
-                        ' role="alert">' +
-                        data.successMsg +
-                        '</div>'
-                );
-                setTimeout(function () {
-                    $('.add-to-basket-alert').remove();
-                }, 1500);
+                showAlertHtml(data.successMsg);
             } else {
                 $.spinner().stop();
                 $('.invalid-submittion').html(data.errorMsg);
             }
+        };
+
+        let showAlertHtml = function (message) {
+            if ($('.add-to-cart-messages').length === 0) {
+                $('body').append('<div class="add-to-cart-messages"></div>');
+            }
+            $('.add-to-cart-messages').append(
+                '<div class="alert alert-success add-to-basket-alert text-center text-left h-fw--semibold show"' +
+                    ' role="alert" style="width:720px">' +
+                    message +
+                    '</div>'
+            );
+            setTimeout(function () {
+                $('.add-to-basket-alert').remove();
+            }, 5000);
         };
 
         this.showEinvoiceButton = function (url, odrId) {
@@ -82,6 +86,61 @@ $(document).ready(function () {
                         $('.modal-toggle-e-invoice').show();
                     } else {
                         $('.modal-toggle-e-invoice').hide();
+                    }
+                }
+            });
+        };
+
+        this.checkStatus = function (
+            url,
+            odrId,
+            showToggle,
+            showPendingMessage
+        ) {
+            $('.modal-toggle-e-invoice').spinner().start();
+            $('#submitEInvoiceDownloadForm')[0].reset();
+            $('.invalid-submittion').html('');
+            $('#identificationType').trigger('change');
+            var csrfToken = $('input[name="csrf_token"]').val();
+            $.ajax({
+                type: 'GET',
+                url: url + '?orderId=' + odrId + '&csrf_token=' + csrfToken,
+                success: function success(response) {
+                    if (response.status === 'pending') {
+                        if (showPendingMessage) {
+                            showAlertHtml(response.message);
+                        }
+
+                        $('.modal-toggle-e-invoice').spinner().stop();
+                        $('.modal-e-invoice').attr('style', '');
+                    } else if (response.status === 'success') {
+                        var classes = $('.modal-toggle-e-invoice').attr(
+                            'class'
+                        );
+                        var parentElement = $(
+                            '.modal-toggle-e-invoice'
+                        ).parent();
+                        $('.modal-toggle-e-invoice').spinner().stop();
+                        $('.modal-e-invoice').attr('style', '');
+                        $('.modal-toggle-e-invoice').remove();
+                        parentElement.append(
+                            '<button data-url="' +
+                                response.qrCodeLink +
+                                '" class="' +
+                                classes +
+                                ' einvoice-a-2-btn' +
+                                '" target="_blank">Show E-Invoice</button>'
+                        );
+                        $('.modal-toggle-e-invoice').removeClass(
+                            'modal-toggle-e-invoice'
+                        );
+                    } else {
+                        $('.modal-toggle-e-invoice').spinner().stop();
+                        $('.modal-e-invoice').attr('style', '');
+                        if (showToggle) {
+                            $('.modal-e-invoice').toggleClass('is-visible');
+                            $('body').toggleClass('einvoice-open');
+                        }
                     }
                 }
             });
@@ -109,20 +168,56 @@ $(document).ready(function () {
     let eInvoice = new EInvoice();
     eInvoice.showEinvoiceButton(btnShowUrl, orderId);
 
+    eInvoice.checkStatus(statusCheckUrl, orderId, false, false);
+
     $('body').on('submit', '#submitEInvoiceDownloadForm', function (e) {
         e.preventDefault();
         $.spinner().start();
-        eInvoice.submitForm(
-            $(this)[0].action,
-            $(this).serializeArray(),
-            orderId
-        );
+
+        var formData = $(this).serializeArray();
+
+        var isFieldValid = true;
+        var regex = /^[a-zA-Z0-9]{6}-[a-zA-Z0-9]{2}-[a-zA-Z0-9]{4}$/;
+
+        if (formData[2].value == 'NRIC') {
+            if (!regex.test(formData[3].value)) {
+                isFieldValid = false;
+            } else {
+                formData[3].value = formData[3].value.replaceAll('-', '');
+            }
+        }
+
+        var regType = $('#regTB').prev('label').text().split(' ');
+        regType[regType.length - 1] = regType[regType.length - 1].toLowerCase();
+        regType = regType.join(' ');
+
+        if (isFieldValid) {
+            $('.invalid-submittion').hide();
+            $('.invalid-submittion').text('');
+            eInvoice.submitForm($(this)[0].action, formData, orderId);
+        } else {
+            $('.invalid-submittion').text('The ' + regType + ' is not valid.');
+            $('.invalid-submittion').show();
+            $.spinner().stop();
+        }
+    });
+
+    $('body').on('click', '.einvoice-a-2-btn', function () {
+        window.open($(this).attr('data-url'), '_blank');
     });
 
     // Quick & dirty toggle to demonstrate modal toggle behavior
     $('body').on('click', '.modal-toggle-e-invoice', function (e) {
         e.preventDefault();
+        eInvoice.checkStatus(statusCheckUrl, orderId, true, true);
+    });
+
+    $('body').on('click', '.modal-close-e-invoice', function () {
+        $('#submitEInvoiceDownloadForm')[0].reset();
+        $('.invalid-submittion').html('');
+        $('#identificationType').trigger('change');
         $('.modal-e-invoice').toggleClass('is-visible');
+        $('body').toggleClass('einvoice-open');
     });
 
     $('body').on('click', '.haveSst-js', function () {
@@ -163,14 +258,14 @@ $(document).ready(function () {
                 showfield = false;
         }
 
-        let regFormTextArray = $('#form-regTB-error').text().split(' ');
-        $('#form-regTB-error').text(
-            bsnRegLabel +
-                ' ' +
-                regFormTextArray[regFormTextArray.length - 2] +
-                ' ' +
-                regFormTextArray[regFormTextArray.length - 1]
-        );
+        // let regFormTextArray = $('#form-regTB-error').text().split(' ');
+        // $('#form-regTB-error').text(
+        //     bsnRegLabel +
+        //         ' ' +
+        //         regFormTextArray[regFormTextArray.length - 2] +
+        //         ' ' +
+        //         regFormTextArray[regFormTextArray.length - 1]
+        // );
 
         if (showfield) {
             $('.regNumber').removeClass('d-none');

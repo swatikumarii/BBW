@@ -3888,8 +3888,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="isEgiftOrder"/>
                 <attribute attribute-id="eGiftTotalAmount"/>
             </attribute-group>
-        </group-definitions>
-        <group-definitions>
+       
             <attribute-group group-id="AdyenPayment">
                 <display-name xml:lang="x-default">Adyen Payment</display-name>
                 <attribute attribute-id="adyenGiftCards"/>
