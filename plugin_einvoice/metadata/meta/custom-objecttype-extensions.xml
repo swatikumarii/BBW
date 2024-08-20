@@ -4,7 +4,7 @@
         <display-name xml:lang="x-default">E-Invoice Details</display-name>
         <description xml:lang="x-default">Details of the submitted E-Invoice.</description>
         <staging-mode>no-staging</staging-mode>
-        <storage-scope>organization</storage-scope>
+        <storage-scope>site</storage-scope>
         <key-definition attribute-id="erpId">
             <type>string</type>
             <min-length>0</min-length>
@@ -51,7 +51,7 @@
     <custom-type type-id="eInvoiceTokenInfo">
         <display-name xml:lang="x-default">E-Invoice Token Info</display-name>
         <staging-mode>no-staging</staging-mode>
-        <storage-scope>organization</storage-scope>
+        <storage-scope>site</storage-scope>
         <key-definition attribute-id="Id">
             <type>string</type>
             <min-length>0</min-length>
