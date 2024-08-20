@@ -187,6 +187,8 @@ $(document).ready(function () {
             });
         };
 
+        var self = this;
+
         this.submitForm = function (url, data, odrId) {
             var csrfToken = $('input[name="csrf_token"]').val();
             $.ajax({
@@ -201,6 +203,7 @@ $(document).ready(function () {
                 },
                 success: function success(response) {
                     showAlert(response);
+                    self.checkStatus(statusCheckUrl, orderId, false, false);
                 }
             });
         };
