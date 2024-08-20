@@ -507,6 +507,16 @@ server.append(
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
             var order = OrderMgr.getOrder(viewData.order.orderNumber);
+
+            // save address
+            if (session.privacy.addressBook && session.privacy.saveAddress) {
+                var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
+                var address = addressHelpers.copyShippingAddress(order.billingAddress);
+                // save all used billing addresses to address book of the logged in customer
+                if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
+                    addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
+                }
+            }
             var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
             viewData.isGiftProductAvailable = isGiftProductAvailable;
             if (order && order.totalGrossPrice.value === 0) {
