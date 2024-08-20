@@ -75,7 +75,9 @@
             <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
         </div>
     </div>
-
+    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
+        <p class="text-danger e-invoice-error-details"></p>
+    </isif>
     <div class="card">
         <div class="row card-body ship-bill-details">
             <isset name="orderEmail" value="${pdict.order.orderEmail}" scope="page" />

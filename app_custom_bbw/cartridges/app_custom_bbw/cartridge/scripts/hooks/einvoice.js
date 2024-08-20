@@ -45,11 +45,10 @@ function formatToISO8601(date) {
     var month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
     var day = String(date.getUTCDate()).padStart(2, '0');
     var hours = String(date.getUTCHours()).padStart(2, '0');
-    var minutes = String(date.getUTCMinutes()).padStart(2, '0');
-    var seconds = String(date.getUTCSeconds()).padStart(2, '0');
+    var minutes = String(date.getUTCMinutes()).padStart(2, '0');    
 
     // Format the date and time components into ISO 8601 string
-    return year + '-' + month + '-' + day + 'T' + hours + ':' + minutes + ':' + seconds + '+00:00';
+    return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes;
 }
 
 // Function used to send Failed EInvoice email
@@ -73,7 +72,7 @@ exports.sendFailedEmail = function (order) {
             'The error source is ' +
             errorJson.errorSource +
             '. The error is: ' +
-            errorJson.detailedMessage +
+            errorJson.detailedMessage.replace(/\.(?=.*\.)/g, '_') +
             '.',
         submissionDate: formatToISO8601(
             new Date(order.custom.eInvoiceSubmittionDate)
