@@ -18,10 +18,11 @@
                             <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block b-text-letter-space-01 h-line-height--20 mb-0">
                                 <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}
                             </label>
-                            <input type="text" class="form-control email" id="email"
+                            <input type="text" class="email" id="email"
+                                data-missing-error="${Resource.msg('error.message.parse.email', 'forms', null)}"
+                                data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
                                 value="${(pdict.customer.registeredUser && pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile
                                     .email: ''}"
-                                <isprint value=${pdict.forms.registeredCustomerForm.email.attributes} encoding="off" />
                                 aria-describedby="emailInvalidMessage" >
                             <div class="invalid-feedback" id="emailInvalidMessage"></div>
                         </div>
@@ -29,8 +30,8 @@
                             <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block b-text-letter-space-01 h-line-height--20 mb-0">
                                 <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.password', 'checkout', null)}
                             </label>
-                            <input type="password" class="form-control password" id="password" <isprint
-                                value=${pdict.forms.registeredCustomerForm.password.attributes} encoding="off" />
+                            <input type="password" class="password" id="password"
+                                data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
                                 aria-describedby="passwordInvalidMessage" >
                             <span class="toggle-password h-clr--black-3 h-line-height--24 b-text-letter-space-0">${Resource.msg('form.show', 'forms', null)}</span>
                             <div class="invalid-feedback" id="passwordInvalidMessage"></div>
