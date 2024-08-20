@@ -52,6 +52,8 @@ server.prepend('SubmitPayment', function (req, res, next) {
         // set value in session
         session.privacy.addressBook = !!req.currentCustomer.addressBook;
         session.privacy.saveAddress = paymentForm.saveAddress.value;
+        session.privacy.billingDialCode = paymentForm.addressFields.dialCode.value;
+        session.privacy.billingDialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
     }
 
     next();
@@ -69,6 +71,7 @@ server.append(
             var paymentForm = server.forms.getForm('billing');
             this.on('route:BeforeComplete', function () {
                 Transaction.wrap(function () {
+                    // this function will not work in case of google pay, after pay
                     if (currentBasket.billingAddress) {
                         currentBasket.billingAddress.custom.dialCode = paymentForm.addressFields.dialCode.value;
                         currentBasket.billingAddress.custom.dialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;

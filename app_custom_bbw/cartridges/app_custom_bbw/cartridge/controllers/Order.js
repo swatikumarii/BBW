@@ -142,7 +142,7 @@ server.get('InvoiceDownload', function (req, res, next) {
         var eInvoiceJson = {};
         if('eInvoiceQrCode' in order.custom)
         {
-           eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
+            eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
         }
 
         res.render('order/invoiceDownload', {
@@ -516,7 +516,20 @@ server.append(
                 if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
                     addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
                 }
+                session.privacy.addressBook = null;
+                session.privacy.saveAddress = null;
             }
+
+            // save billingaddress dial code and dial code country
+            if (session.privacy.billingDialCode && session.privacy.billingDialCodeCountry) {
+                Transaction.wrap(function () {
+                    order.billingAddress.custom.dialCode = session.privacy.billingDialCode;
+                    order.billingAddress.custom.dialCodeCountry = session.privacy.billingDialCodeCountry;
+                });
+                session.privacy.billingDialCode = null;
+                session.privacy.billingDialCodeCountry = null;
+            }
+
             var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
             viewData.isGiftProductAvailable = isGiftProductAvailable;
             if (order && order.totalGrossPrice.value === 0) {
@@ -582,7 +595,7 @@ server.append(
                     lastName: billingAddress.lastName,
                     phone: billingPhn,
                     email: viewData.order.orderEmail,
-                    dialCode: billingAddress.dialCode,
+                    dialCode: order.billingAddress.custom.dialCode,
                     expressCheckout: expressCheckout
                 };
                 var crmCustomerID = capillaryAPI.createCustomer(customerData, order);

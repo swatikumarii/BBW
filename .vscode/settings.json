@@ -6,8 +6,8 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
-        "source.addMissingImports": true
+        "source.fixAll.eslint": "explicit",
+        "source.addMissingImports": "explicit"
     },
     "eslint.enable": true,
     "eslint.format.enable": true,
@@ -15,5 +15,8 @@
     "files.insertFinalNewline": true,
     "[isml]": {
         "editor.defaultFormatter": "SqrTT.prophet"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
     }
 }
