@@ -35,6 +35,67 @@ function checkFields(form) {
 }
 
 /**
+ * @returns {boolean} True is valid else False
+ */
+function validateEmail() {
+    var emailInput = $('#email');
+    var pattern = /^[\w.%+-]+@[\w.-]+\.\w{2,}$/i;
+    if (!emailInput.val()) {
+        emailInput.addClass('is-invalid'); // Add class for input border error
+        $('#emailInvalidMessage').html(emailInput.data('missing-error'));
+        $('#emailInvalidMessage').css('display', 'block');
+        return false;
+    }
+    if (!pattern.test(emailInput.val())) {
+        emailInput.addClass('is-invalid'); // Add class for input border error
+        $('#emailInvalidMessage').html(emailInput.data('pattern-mismatch'));
+        $('#emailInvalidMessage').css('display', 'block');
+        return false;
+    }
+    $('#emailInvalidMessage').css('display', 'none');
+    emailInput.removeClass('is-invalid'); // Remove class if input is valid
+    return true;
+}
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validatePassword() {
+    var passwordInput = $('#password');
+    if (!passwordInput.val()) {
+        passwordInput.addClass('is-invalid'); // Add class for input border error
+        $('#passwordInvalidMessage').html(passwordInput.data('missing-error'));
+        $('#passwordInvalidMessage').css('display', 'block');
+        return false;
+    }
+    $('#passwordInvalidMessage').css('display', 'none');
+    passwordInput.removeClass('is-invalid'); // Remove class if input is valid
+    return true;
+}
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validateLoginForm() {
+    var isValid = true;
+    if (!validatePassword()) {
+        isValid = false;
+    }
+    if (!validateEmail()) {
+        isValid = false;
+    }
+    return isValid;
+}
+
+$(document).on('blur', '#password', function () {
+    validatePassword();
+});
+
+$(document).on('blur', '#email', function () {
+    validateEmail();
+});
+
+/**
  *
  * @param {string} orderID - Order ID
  */
@@ -125,38 +186,41 @@ function ovoStart(orderID) {
                     // Clear Previous Errors
                     //
                     customerHelpers.methods.clearErrors();
-                    //
-                    // Submit the Customer Form
-                    //
-                    var customerFormSelector = customerHelpers.methods.isGuestFormActive() ? customerHelpers.vars.GUEST_FORM : customerHelpers.vars.REGISTERED_FORM;
-                    var customerForm = $(customerFormSelector);
-                    $.spinner().start();
-                    $.ajax({
-                        url: customerForm.attr('action'),
-                        type: 'post',
-                        data: customerForm.serialize(),
-                        success: function (data) {
-                            $.spinner().stop();
-                            if (data.error) {
-                                $('#form-error').html(data.customerErrorMessage);
-                                $('.form-error-div').removeClass('d-none');
-                            } else if (data.redirectUrl) {
-                                window.location.href = data.redirectUrl;
-                            } else {
-                                $('#form-error').html('');
-                                $('.form-error-div').addClass('d-none');
-                                customerHelpers.methods.customerFormResponse(defer, data);
+
+                    if (validateLoginForm()) {
+                        //
+                        // Submit the Customer Form
+                        //
+                        var customerFormSelector = customerHelpers.methods.isGuestFormActive() ? customerHelpers.vars.GUEST_FORM : customerHelpers.vars.REGISTERED_FORM;
+                        var customerForm = $(customerFormSelector);
+                        $.spinner().start();
+                        $.ajax({
+                            url: customerForm.attr('action'),
+                            type: 'post',
+                            data: customerForm.serialize(),
+                            success: function (data) {
+                                $.spinner().stop();
+                                if (data.error) {
+                                    $('#form-error').html(data.customerErrorMessage);
+                                    $('.form-error-div').removeClass('d-none');
+                                } else if (data.redirectUrl) {
+                                    window.location.href = data.redirectUrl;
+                                } else {
+                                    $('#form-error').html('');
+                                    $('.form-error-div').addClass('d-none');
+                                    customerHelpers.methods.customerFormResponse(defer, data);
+                                }
+                            },
+                            error: function (err) {
+                                if (err.responseJSON && err.responseJSON.redirectUrl) {
+                                    window.location.href = err.responseJSON.redirectUrl;
+                                }
+                                // Server error submitting form
+                                defer.reject(err.responseJSON);
+                                $.spinner().stop();
                             }
-                        },
-                        error: function (err) {
-                            if (err.responseJSON && err.responseJSON.redirectUrl) {
-                                window.location.href = err.responseJSON.redirectUrl;
-                            }
-                            // Server error submitting form
-                            defer.reject(err.responseJSON);
-                            $.spinner().stop();
-                        }
-                    });
+                        });
+                    }
                     return defer;
                 } if (stage === 'shipping') {
                     //
