@@ -4,6 +4,7 @@ $(document).ready(function () {
     let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
     let btnShowUrl = downloadInvoiceRenderElement.attr('data-btn-show');
     let statusCheckUrl = downloadInvoiceRenderElement.attr('data-check-status');
+    let NRICHintText = $('.NRICHintText');
 
     // Function to get label, placeholder, and options from attribute
     function getAttributeInfo(
@@ -107,12 +108,32 @@ $(document).ready(function () {
                 url: url + '?orderId=' + odrId + '&csrf_token=' + csrfToken,
                 success: function success(response) {
                     if (response.status === 'pending') {
+                        showPendingMessage = false;
                         if (showPendingMessage) {
                             showAlertHtml(response.message);
                         }
 
+                        var classes = $('.modal-toggle-e-invoice').attr(
+                            'class'
+                        );
+                        var parentElement = $(
+                            '.modal-toggle-e-invoice'
+                        ).parent();
                         $('.modal-toggle-e-invoice').spinner().stop();
                         $('.modal-e-invoice').attr('style', '');
+                        $('.modal-toggle-e-invoice').remove();
+                        parentElement.append(
+                            '<button class="' +
+                                classes +
+                                ' einvoice-a-2-btn' +
+                                '" target="_blank">' +
+                                response.btnText +
+                                '</button>'
+                        );
+                        $('.modal-toggle-e-invoice').removeClass(
+                            'modal-toggle-e-invoice'
+                        );
+                        $('.einvoice-a-2-btn').prop("disabled",true)
                     } else if (response.status === 'success') {
                         var classes = $('.modal-toggle-e-invoice').attr(
                             'class'
@@ -129,14 +150,34 @@ $(document).ready(function () {
                                 '" class="' +
                                 classes +
                                 ' einvoice-a-2-btn' +
-                                '" target="_blank">Show E-Invoice</button>'
+                                '" target="_blank">' +
+                                response.btnText +
+                                '</button>'
                         );
                         $('.modal-toggle-e-invoice').removeClass(
                             'modal-toggle-e-invoice'
                         );
                     } else {
+                        var classes = $('.modal-toggle-e-invoice').attr(
+                            'class'
+                        );
+                        var parentElement = $(
+                            '.modal-toggle-e-invoice'
+                        ).parent();
                         $('.modal-toggle-e-invoice').spinner().stop();
                         $('.modal-e-invoice').attr('style', '');
+                        $('.modal-toggle-e-invoice').remove();
+                        parentElement.append(
+                            '<button class="' +
+                                classes +
+                                ' einvoice-a-2-btn' +
+                                '" target="_blank">' +
+                                response.btnText +
+                                '</button>'
+                        );                       
+                        if (response.errorReason) {
+                            $('.e-invoice-error-details').text("E-invoice error : "+JSON.parse(response.errorReason).detailedMessage);
+                        }
                         if (showToggle) {
                             $('.modal-e-invoice').toggleClass('is-visible');
                             $('body').toggleClass('einvoice-open');
@@ -203,7 +244,9 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '.einvoice-a-2-btn', function () {
-        window.open($(this).attr('data-url'), '_blank');
+        if ($(this).attr('data-url')) {
+             window.open($(this).attr('data-url'), '_blank');
+        }       
     });
 
     // Quick & dirty toggle to demonstrate modal toggle behavior
@@ -233,29 +276,40 @@ $(document).ready(function () {
 
         switch (selectedValue) {
             case 'NRIC':
+                var NRICNumberJson = popupNRICInputLabel.split(' ');
                 bsnRegLabel = popupNRICInputLabel;
                 bsnRegPlaceholder = popupNRICInputPlaceHolder;
                 showfield = true;
+                NRICHintText.html(
+                    NRICNumberJson[0] +
+                        ' ' +
+                        NRICNumberJson[1].toLowerCase() +
+                        ' ex:- YYMMDD-PB-###G'
+                );
                 break;
             case 'BRN':
                 bsnRegLabel = popupbRNInputLabel;
                 bsnRegPlaceholder = popupbRNInputPlaceHolder;
                 showfield = true;
+                NRICHintText.html('');
                 break;
             case 'PASSPORT':
                 bsnRegLabel = popupPassportInputLabel;
                 bsnRegPlaceholder = popupPassportInputPlaceHolder;
                 showfield = true;
+                NRICHintText.html('');
                 break;
             case 'ARMY':
                 bsnRegLabel = popuparmyInputLabel;
                 bsnRegPlaceholder = popuparmyInputPlaceHolder;
                 showfield = true;
+                NRICHintText.html('');
                 break;
             default:
                 bsnRegLabel = '';
                 bsnRegPlaceholder = '';
                 showfield = false;
+                NRICHintText.html('');
         }
 
         // let regFormTextArray = $('#form-regTB-error').text().split(' ');

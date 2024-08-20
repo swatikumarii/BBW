@@ -4,11 +4,13 @@
         assets.addJs('/js/e_invoice.js');
     </isscript>
 
-<iscomment>Use this button to submit einvoice
+<iscomment>Use this button to submit einvoice and  e-invoice error detail message
   <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">   
         <button class="btn btn-info modal-toggle-e-invoice"
           data-order-id="00000501">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button> 
   </isif>
+
+  <p class="text-danger e-invoice-error-details"></p>
 </iscomment>
 <div id="download_EInvoice" class="d-none"
   data-BRN="${Resource.msg('einvoice.modal.popup.input.brn', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.brn', 'einvoice_modal', null)}"
@@ -61,10 +63,11 @@
             </div>
           </div>
           <div class="form-group d-none regNumber">
-            <label for="regTB" id="regTBLbl"></label>
+            <label for="regTB" id="regTBLbl" class="d-none"></label>
             <input type="text" id="regTB" name="regTB" placeholder="" class="form-control"
               data-missing-error="${Resource.msg('reg.field.required.error', 'einvoice_modal', null)}" required />
             <div class="invalid-feedback" id="form-regTB-error"></div>
+            <p class="NRICHintText"></p>
           </div>
           <div class="form-group">
             <p class="invalid-submittion text-danger"></p>

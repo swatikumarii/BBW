@@ -107,6 +107,7 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                             order.custom.eInvoiceQrCode = JSON.stringify(qrCodeResponse);
                             order.custom.eInvoiceStatus =
                                 einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS;
+                            order.custom.einvoiceErrorMsg = "";  
 
                             CustomObjectMgr.remove(submission);
                         });
