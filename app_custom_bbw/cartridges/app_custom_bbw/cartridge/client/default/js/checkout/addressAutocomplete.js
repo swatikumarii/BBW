@@ -44,13 +44,21 @@ module.exports = {
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
-                        addressObject.state = element.long_name;
+                        addressObject.state = element.short_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
                         break;
                     default:
                         break;
+                }
+                var fullAddress = addressObject.address1;
+                if (addressObject.address2) {
+                    fullAddress += ' ' + addressObject.address2;
+                }
+                if (fullAddress.length > 30) {
+                    addressObject.address1  = fullAddress.substring(0, 30).trim();
+                    addressObject.address2  = fullAddress.substring(31, 60).trim();
                 }
             }
             var form = $('.shipping-form');
@@ -114,13 +122,21 @@ module.exports = {
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
-                        addressObject.state = element.long_name;
+                        addressObject.state = element.short_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
                         break;
                     default:
                         break;
+                }
+                var fullAddress = addressObject.address1;
+                if (addressObject.address2) {
+                    fullAddress += ' ' + addressObject.address2;
+                }
+                if (fullAddress.length > 30) {
+                    addressObject.address1  = fullAddress.substring(0, 30).trim();
+                    addressObject.address2  = fullAddress.substring(31, 60).trim();
                 }
             }
             var form = $('.billing-form');
@@ -184,13 +200,21 @@ module.exports = {
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
-                        addressObject.state = element.long_name;
+                        addressObject.state = element.short_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
                         break;
                     default:
                         break;
+                }
+                var fullAddress = addressObject.address1;
+                if (addressObject.address2) {
+                    fullAddress += ' ' + addressObject.address2;
+                }
+                if (fullAddress.length > 30) {
+                    addressObject.address1  = fullAddress.substring(0, 30).trim();
+                    addressObject.address2  = fullAddress.substring(31, 60).trim();
                 }
             }
             var form = $('.address-form');
