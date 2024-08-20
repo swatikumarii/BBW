@@ -31,6 +31,7 @@
                 <button class="btn-hover btn btn-info modal-toggle-e-invoice cust-modal-btn"
                     data-order-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.modal.popup.sumbit.btn.text', 'einvoice_modal', null)}</button>
                     <isinclude template="e-invoice/einvoice" />
+                    <p class="text-danger e-invoice-error-details"></p>
             </isif>
            
     </div>
