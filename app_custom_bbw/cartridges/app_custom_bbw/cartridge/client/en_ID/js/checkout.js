@@ -58,6 +58,7 @@ function checkFields(form) {
     });
     if (allFilled) {
         $('.verify-msg').hide();
+        $('.next-step-button button').removeAttr('disabled');
     } else {
         $('.verify-msg').show();
     }
@@ -128,7 +129,9 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'id',
-        countryOrder: ['id']
+        countryOrder: ['id'],
+        formatOnDisplay: false,
+        formatAsYouType: false
     });
 
     $('.accordion-title').click(function () {
@@ -475,7 +478,7 @@ $('.shippingAddressCity').change(function () {
     var districtDropdown = $('.shippingAddressDistrict');
     districtDropdown.empty(); // clear existing options
 
-    if (addressData[selectedState] && addressData[selectedState][selectedSuburb]) 
+    if (addressData[selectedState] && addressData[selectedState][selectedSuburb])
     {
         districtDropdown.prepend(
             $('<option>', {

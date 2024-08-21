@@ -859,14 +859,7 @@ module.exports = {
                 });
             }
             if (postalCode) {
-                $('.shippingZipCode option').each(function () {
-                    if ($(this).val() === postalCode) {
-                        $('.shippingZipCode option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.shippingZipCode').trigger('change');
-                        return false;
-                    }
-                });
+                $('.shippingZipCode').val(postalCode);
             }
             Object.keys(attrs).forEach(function (attr) {
                 if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {

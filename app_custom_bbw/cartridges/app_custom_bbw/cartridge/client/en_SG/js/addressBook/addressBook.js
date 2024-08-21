@@ -215,10 +215,10 @@ $(document).on('click', '#editAddress', function () {
                                 addressObject.address1 += element.long_name;
                             }
                             break;
-                        case 'locality':
+                        case 'neighborhood':
                             addressObject.city = element.long_name;
                             break;
-                        case 'administrative_area_level_1':
+                        case 'locality':
                             addressObject.state = element.long_name;
                             break;
                         case 'postal_code':
@@ -256,7 +256,9 @@ $(document).on('click', '#editAddress', function () {
                 strictMode: true,
                 showSelectedDialCode: true,
                 initialCountry: 'sg',
-                countryOrder: ['sg']
+                countryOrder: ['sg'],
+                formatOnDisplay: false,
+                formatAsYouType: false
             });
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
@@ -313,7 +315,9 @@ module.exports = $.extend({}, base, {
             strictMode: true,
             showSelectedDialCode: true,
             initialCountry: 'sg',
-            countryOrder: ['sg']
+            countryOrder: ['sg'],
+            formatOnDisplay: false,
+            formatAsYouType: false
         });
     }
 });

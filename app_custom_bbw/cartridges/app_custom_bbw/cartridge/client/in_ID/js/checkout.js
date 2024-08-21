@@ -59,6 +59,7 @@ function checkFields(form) {
     });
     if (allFilled) {
         $('.verify-msg').hide();
+        $('.next-step-button button').removeAttr('disabled');
     } else {
         $('.verify-msg').show();
     }
@@ -129,7 +130,9 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'id',
-        countryOrder: ['id']
+        countryOrder: ['id'],
+        formatOnDisplay: false,
+        formatAsYouType: false
     });
 
     $('.accordion-title').click(function () {
@@ -150,10 +153,10 @@ $(document).ready(function () {
         var $password = $this.siblings('#password');
         if ($password.attr('type') === 'password') {
             $password.attr('type', 'text');
-            $this.text('Hide');
+            $this.text('Bersembunyi');
         } else {
             $password.attr('type', 'password');
-            $this.text('Show');
+            $this.text('Menunjukkan');
         }
     });
 
@@ -478,7 +481,7 @@ $('.shippingAddressCity').change(function () {
     var districtDropdown = $('.shippingAddressDistrict');
     districtDropdown.empty(); // clear existing options
 
-    if (addressData[selectedState] && addressData[selectedState][selectedSuburb]) 
+    if (addressData[selectedState] && addressData[selectedState][selectedSuburb])
     {
         districtDropdown.prepend(
             $('<option>', {

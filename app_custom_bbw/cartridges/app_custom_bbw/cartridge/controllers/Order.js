@@ -53,6 +53,19 @@ server.append(
             }
         }
         viewData.isOrderBaseRemoveGiftCard = true;
+
+        if (
+            dw.system.Site.getCurrent().getCustomPreferenceValue(
+                'eInvoiceEnable'
+            ) === true
+        ) {
+            var einvoiveHelper = require('*/cartridge/scripts/helpers/einvoiceHelpers');
+            viewData.eInvoiceData = einvoiveHelper.eInvoiceStatusCheckNonAjax(
+                res,
+                viewData.order.orderNumber
+            );
+        }
+
         res.setViewData(viewData);
         next();
     },seo.addCurrentPageMetaData);
@@ -120,8 +133,15 @@ server.get('InvoiceDownload', function (req, res, next) {
             orderID,
             req.locale.id
         );
-        if (orderModel && orderModel.shipping && orderModel.shipping.length > 0) {
-            if (orderModel.shipping[0].productLineItems && orderModel.shipping[0].productLineItems.items) {
+        if (
+            orderModel &&
+            orderModel.shipping &&
+            orderModel.shipping.length > 0
+        ) {
+            if (
+                orderModel.shipping[0].productLineItems &&
+                orderModel.shipping[0].productLineItems.items
+            ) {
                 var products = orderModel.shipping[0].productLineItems.items;
                 for (var index = 0; index < products.length; index++) {
                     if (products[index].isEgiftCard) {
@@ -132,10 +152,18 @@ server.get('InvoiceDownload', function (req, res, next) {
             }
         }
 
+        var eInvoiceJson = {};
+        if('eInvoiceQrCode' in order.custom)
+        {
+            eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
+        }
+
         res.render('order/invoiceDownload', {
             order: orderModel,
             taxRate: taxRate,
-            isEgiftCard: isEgiftCard
+            isEgiftCard: isEgiftCard,
+            eInvoiceQrCodeLink: eInvoiceJson.url || '',
+            eInvoiceQrCode: eInvoiceJson.qrcode || false
         });
     } else {
         res.redirect(URLUtils.url('Order-History'));
@@ -492,6 +520,16 @@ server.append(
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
             var order = OrderMgr.getOrder(viewData.order.orderNumber);
+
+            // save address
+            if (session.privacy.addressBook && session.privacy.saveAddress) {
+                var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
+                var address = addressHelpers.copyShippingAddress(order.billingAddress);
+                // save all used billing addresses to address book of the logged in customer
+                if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
+                    addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
+                }
+            }
             var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
             viewData.isGiftProductAvailable = isGiftProductAvailable;
             if (order && order.totalGrossPrice.value === 0) {
@@ -565,7 +603,23 @@ server.append(
                     });
                 }
             }
-        });
+
+            if (
+                dw.system.Site.getCurrent().getCustomPreferenceValue(
+                    'eInvoiceEnable'
+                ) === true
+            ) {
+                var einvoiveHelper = require('*/cartridge/scripts/helpers/einvoiceHelpers');
+                viewData.eInvoiceData =
+                     einvoiveHelper.eInvoiceStatusCheckNonAjax(
+                         res,
+                         viewData.order.orderNumber
+                     );
+            }
+
+            res.setViewData(viewData);
+        });      
+
         return next();
     },
     seo.addCurrentPageMetaData);

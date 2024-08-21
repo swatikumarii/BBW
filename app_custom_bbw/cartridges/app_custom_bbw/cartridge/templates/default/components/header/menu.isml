@@ -4,7 +4,7 @@
         <ul class="nav navbar-nav justify-content-between level-1-ul" role="menu">
             <isif condition="${pdict.categories}">
                 <isloop items="${pdict.categories}" var="category">
-                    <isif condition="${category.subCategories && category.isMobileSpecific === false}">
+                    <isif condition="${category && category.subCategories && category.isMobileSpecific === false}">
                         <li class="nav-item dropdown level-1-li" role="menuitem">
                             <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value="
                                 ${category.url}" encoding="htmldoublequote" />"
@@ -20,7 +20,7 @@
                                 <isinclude template="components/header/menuItem" />
                             </isif>
                         </li>
-                    <iselseif condition="${category.isMobileSpecific === false}" />
+                    <iselseif condition="${category && category.isMobileSpecific === false}" />
                         <li class="nav-item" role="menuitem">
                             <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value="
                                 ${category.url}" encoding="htmldoublequote" />"
@@ -84,7 +84,7 @@
                     </isif>
                 </isloop>
                 <isloop items="${pdict.categories}" var="category">
-                    <isif condition="${category.subCategories}">
+                    <isif condition="${category && category.subCategories}">
                         <li class="nav-item dropdown level-1-li" role="menuitem">
                             <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value="
                                 ${category.url}" encoding="htmldoublequote" />"
@@ -96,7 +96,7 @@
                             <isinclude template="components/header/mobileMenuItem" />
                         </li>
                     <iselse/>
-                        <isif condition="${category.id != 'top-offers'}">
+                        <isif condition="${category && category.id != 'top-offers'}">
                             <li class="nav-item level-1-li position-relative" role="menuitem">
                                 <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
                                     href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
@@ -120,7 +120,7 @@
                     aria-expanded="false">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
                 <isif condition="${pdict.customerName === null}">
                     <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true"
-                        aria-label="${category.id}">
+                        aria-label="category-label">
                         <li class="level-2-li p-0" role="menuitem">
                             <button
                                 class="border-0 bg-white loginPopupBtn level-2-link h-clr--gray h-font-size--16">${Resource.msg('mobile.menu.signIn', 'common', null)}</button>
@@ -143,7 +143,7 @@
                     </ul>
                 <iselse/>
                     <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true"
-                        aria-label="${category.id}">
+                        aria-label="category-label">
                         <li class="level-2-li logged-user-name" role="menuitem">
                             ${Resource.msg('mobile.menu.hi', 'common', null)} ${pdict.customerName}
                             ${Resource.msg('mobile.menu.exclamation', 'common', null)}
@@ -175,7 +175,6 @@
 
         <div class="utility-links-container d-block d-md-none">
             <ul class="utility-links mobile-only">
-                <isinclude url="${URLUtils.url('Page-Locale', 'mobile', true)}" />
                 <li class="link">
                     <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
                         href="${URLUtils.url('Order-Status')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>

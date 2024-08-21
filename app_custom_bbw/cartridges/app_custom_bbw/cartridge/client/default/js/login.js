@@ -115,12 +115,23 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'au',
-        countryOrder: ['au']
+        countryOrder: ['au'],
+        formatOnDisplay: false,
+        formatAsYouType: false
     });
 
     // Event delegation for toggling password visibility
     $(document.body).on('click', '.register-form-hide', function () {
         togglePasswordVisibility($('#registration-form-password'), $(this));
+    });
+
+    // removing error msg when checkbox is checked - TnC Checkbox
+    $(document.body).on('click', '.add-to-email-list', function () {
+        var cb = $('.add-to-email-list');
+        cb.val(cb.prop('checked'));
+        if(cb.val() === true){
+            $('#tnc-checkbox-error').empty();
+        }
     });
 
     $(document.body).on(
@@ -219,6 +230,8 @@ $(document).ready(function () {
                 );
             }
         }, 100);
+        validateEmailMatch($('#registration-form-email'), $('#registration-form-email-confirm'));
+        validateEmailField($('#registration-form-email'));
     });
 
     $(function () {

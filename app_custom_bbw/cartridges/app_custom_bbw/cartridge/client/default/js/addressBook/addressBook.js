@@ -61,7 +61,7 @@ window.submitAddressForm = function (token) {
  * updated the function for address-form submit
  */
 base.submitAddress = function () {
-    $('body').on('submit', 'form.address-form', function (e) {
+    $(document).on('submit', 'form.address-form', function (e) {
         var $form = $(this);
         e.preventDefault();
         if ($form.find('input').serialize() !== window.addressForm) {
@@ -223,6 +223,14 @@ $(document).on('click', '#editAddress', function () {
                         default:
                             break;
                     }
+                    var fullAddress = addressObject.address1;
+                    if (addressObject.address2) {
+                        fullAddress += ' ' + addressObject.address2;
+                    }
+                    if (fullAddress.length > 30) {
+                        addressObject.address1  = fullAddress.substring(0, 30).trim();
+                        addressObject.address2  = fullAddress.substring(31, 60).trim();
+                    }
                 }
                 var form = $('#modalContent').find('.address-form');
                 form.find('#address1')
@@ -250,7 +258,9 @@ $(document).on('click', '#editAddress', function () {
                 strictMode: true,
                 showSelectedDialCode: true,
                 initialCountry: 'au',
-                countryOrder: ['au']
+                countryOrder: ['au'],
+                formatOnDisplay: false,
+                formatAsYouType: false
             });
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
@@ -346,7 +356,9 @@ module.exports = $.extend({}, base, {
             strictMode: true,
             showSelectedDialCode: true,
             initialCountry: 'au',
-            countryOrder: ['au']
+            countryOrder: ['au'],
+            formatOnDisplay: false,
+            formatAsYouType: false
         });
     }
 });

@@ -26,6 +26,7 @@ var httpParameters = require('dw/svc/HTTPService');
 var Resource = require('dw/web/Resource');
 var Status = require('dw/system/Status');
 var Transaction = require('dw/system/Transaction');
+var seo = require('*/cartridge/scripts/middleware/seo');
 /**
  * Doku-Notification : This endpoint is invoked when the Doku call Notification url
  * @name Base/Doku-Notification
@@ -116,7 +117,8 @@ server.get('Callback', server.middleware.https, function (req, res, next) {
   }
   dokuHelper.renderCustomer(order, result, transactionStatus, server, req, res, next);
   next();
-});
+},
+seo.addCurrentPageMetaData);
 
 server.use('OVO', function (req, res, next) {
   var ovoApi = require('*/cartridge/scripts/service/ovoApi');

@@ -9,7 +9,6 @@ var addressAutocomplete = require('./checkout/addressAutocomplete');
 var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
 );
-var addressData = require('./addressData');
 
 /**
  * validateFields
@@ -99,7 +98,9 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'sg',
-        countryOrder: ['sg']
+        countryOrder: ['sg'],
+        formatOnDisplay: false,
+        formatAsYouType: false
     });
 
     $('.accordion-title').click(function () {
@@ -421,72 +422,6 @@ $('button.submit-payment').on('click', function () {
                 .closest('.paymentMethod')
                 .trigger('click');
         }
-    }
-});
-
-$('.shippingState').change(function () {
-    var selectedState = $(this).val();
-    var suburbDropdown = $('.shippingAddressCity');
-    suburbDropdown.empty(); // clear existing options
-
-    if (addressData[selectedState]) {
-        suburbDropdown.prepend(
-            $('<option>', {
-                value: '',
-                text: '---- Select City ----'
-            }).attr('selected', 'selected')
-        );
-        $.each(addressData[selectedState], function (suburb) {
-            suburbDropdown.append(
-                $('<option>', {
-                    value: addressData[selectedState][suburb],
-                    text: addressData[selectedState][suburb]
-                })
-            );
-        });
-        suburbDropdown.trigger('change');
-    } else {
-        suburbDropdown.prepend(
-            $('<option>', {
-                value: '',
-                text: '---- Select State First----'
-            }).attr('selected', 'selected')
-        );
-        suburbDropdown.trigger('change');
-    }
-});
-
-
-$('.billingState').change(function () {
-    var selectedState = $(this).val();
-    var suburbDropdown = $('.billingAddressCity');
-
-    suburbDropdown.empty(); // clear existing options
-
-    if (addressData[selectedState]) {
-        suburbDropdown.prepend(
-            $('<option>', {
-                value: '',
-                text: '---- Select City ----'
-            }).attr('selected', 'selected')
-        );
-        $.each(addressData[selectedState], function (suburb) {
-            suburbDropdown.append(
-                $('<option>', {
-                    value: addressData[selectedState][suburb],
-                    text: addressData[selectedState][suburb]
-                })
-            );
-        });
-        suburbDropdown.trigger('change');
-    } else {
-        suburbDropdown.prepend(
-            $('<option>', {
-                value: '',
-                text: '---- Select State First----'
-            }).attr('selected', 'selected')
-        );
-        suburbDropdown.trigger('change');
     }
 });
 

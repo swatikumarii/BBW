@@ -1,0 +1,77 @@
+<isdecorate template="application/MenuFrame" />
+<iscontent type="text/html" charset="UTF-8" />
+<isinclude template="inc/Modules" />
+
+<h1>Resend E-Invoice</h1>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+   <tbody>
+      <tr>
+         <td colspan="5" class="overview_title">
+            <p class="filterMsg"></P>
+         </td>
+      </tr>
+   </tbody>
+</table>
+
+<form id="js-updateRecords" action="${pdict.formAction}" method="POST" name="simple">
+   <table border="0" cellpadding="4" cellspacing="0" width="100%" class="infobox n">
+      <tbody>
+         <tr>
+            <td class="table_detail left e w s" nowrap="nowrap">
+               <div class="form-group">
+                  <label class="form-title mb-0" for="charityName">Order Number</label>
+                  <div class="input-fields">
+                     <input type="text" class="form-control" name="orderNumber" id="orderNumber" />
+                  </div>
+               </div>
+            </td>
+         </tr>
+         <tr>
+            <td class="table_detail left e s" nowrap="nowrap" width="75%">
+               <button name="simpleSearch" class="btn btn-primary border formButton">Send Email</button></td>
+         </tr>
+      </tbody>
+   </table>
+</form>
+<script type="text/javascript">
+jQuery(document).ready(function () {
+   jQuery('body').on('submit', '#js-updateRecords', function (e) {
+   e.preventDefault();
+   let orderNo = jQuery(this).serializeArray()[0].value;
+   let url = jQuery(this)[0].action;
+   let eInvoiceResendMail = new EInvoiceResendMail();
+   eInvoiceResendMail.sent(orderNo, url);
+   });
+
+   let EInvoiceResendMail = function () {
+
+   this.sent = function (orderNo, url) {
+   jQuery.ajax({
+   url: url,
+   type: 'POST',
+   data: { orderNumber: orderNo },
+   success: function (response) {
+   if (response.message) {
+   if(response.type ==="error"){
+   jQuery('.filterMsg').css("color","red");
+   jQuery('.filterMsg').html(response.message);
+   }
+   else{
+   jQuery('.filterMsg').css("color","green");
+   jQuery('.filterMsg').addClass("text-success")
+   jQuery('.filterMsg').html(response.message);
+   }
+
+   }
+   },
+   error: function (xhr, status, error) {
+   // Handle error
+   console.error(error);
+   }
+   });
+   };
+   };
+});
+</script>
+</isdecorate>

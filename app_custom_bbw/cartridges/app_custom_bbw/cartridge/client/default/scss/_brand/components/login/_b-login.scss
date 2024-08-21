@@ -1036,10 +1036,15 @@
                 gap: 4px;
 
                 .merge {
-                    min-height: 40px;
                     max-height: 40px;
+                    min-height: 40px;
+                    max-width: 40%;
+                    min-width: 78px;
+                    text-align: center;
                     text-transform: capitalize;
-                    width: 102px;
+                    min-width: 102px;
+                    width: auto;
+                    word-wrap: break-word;
                 }
 
                 .dont-merge {

@@ -314,10 +314,10 @@ function copyBillingAddressToBasket(address) {
         var countryCode = address.countryCode;
         billingAddress.setCountryCode(countryCode.value);
         billingAddress.setPhone(address.phone);
-        if ('district' in address.custom) {
+        if (address.custom && address.custom.district) {
             billingAddress.custom.district = address.custom.district;
         }
-        if ('subDistrict' in address.custom) {
+        if (address.custom && address.custom.subDistrict) {
             billingAddress.custom.subDistrict = address.custom.subDistrict;
         }
     });
@@ -407,7 +407,7 @@ function copyShippingAddressToShipment(shippingData, shipmentOrNull) {
         shippingAddress.setCity(shippingData.address.city);
         shippingAddress.setPostalCode(shippingData.address.postalCode);
         shippingAddress.setStateCode(shippingData.address.stateCode);
-        var countryCode = shippingData.address.countryCode.value ? shippingData.address.countryCode.value : shippingData.address.countryCode;
+        var countryCode = shippingData.address.countryCode && shippingData.address.countryCode.value ? shippingData.address.countryCode.value : shippingData.address.countryCode;
         shippingAddress.setCountryCode(countryCode);
         shippingAddress.setPhone(shippingData.address.phone);
         if (shippingData.address.district) {
