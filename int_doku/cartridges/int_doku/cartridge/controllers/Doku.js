@@ -167,5 +167,7 @@ server.get('OVOThankYou', function (req, res, next) {
   var result = { error: false, message: '' };
   dokuHelper.renderCustomer(ovoOrder, result, paymentStatusData, server, req, res, next);
   next();
-});
+},
+seo.addCurrentPageMetaData);
+
 module.exports = server.exports();
