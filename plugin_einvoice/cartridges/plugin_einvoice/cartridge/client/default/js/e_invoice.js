@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    
     let downloadInvoiceRenderElement = $('#download_EInvoice');
     let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
     let btnShowUrl = downloadInvoiceRenderElement.attr('data-btn-show');
@@ -56,9 +55,12 @@ $(document).ready(function () {
                 $('.invalid-submittion').html('');
                 $.spinner().stop();
                 showAlertHtml(data.successMsg);
+                return true;
             } else {
                 $.spinner().stop();
                 $('.invalid-submittion').html(data.errorMsg);
+                $('.invalid-submittion').show();
+                return false;
             }
         };
 
@@ -206,8 +208,12 @@ $(document).ready(function () {
                     sSTNumber: 'NA'
                 },
                 success: function success(response) {
-                    showAlert(response);
-                    self.checkStatus(statusCheckUrl, orderId, false, false);
+                    var showAlertResponse = showAlert(response);
+                    if (showAlertResponse) {
+                        self.checkStatus(statusCheckUrl, orderId, false, false);
+                    } else {
+                        return false;
+                    }
                 }
             });
         };
