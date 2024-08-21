@@ -99,7 +99,8 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'my',
-        countryOrder: ['my']
+        countryOrder: ['my'],
+        formatAsYouType: false
     });
 
     $('.accordion-title').click(function () {

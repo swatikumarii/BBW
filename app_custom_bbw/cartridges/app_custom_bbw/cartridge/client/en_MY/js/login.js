@@ -115,7 +115,8 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'my',
-        countryOrder: ['my']
+        countryOrder: ['my'],
+        formatAsYouType: false
     });
 
     // Event delegation for toggling password visibility

@@ -258,7 +258,8 @@ $(document).on('click', '#editAddress', function () {
                 strictMode: true,
                 showSelectedDialCode: true,
                 initialCountry: 'au',
-                countryOrder: ['au']
+                countryOrder: ['au'],
+                formatAsYouType: false
             });
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
