@@ -58,8 +58,10 @@
                         </a>
                         <br />
                         <p>${Resource.msg('email.scan.qrcode.text', 'einvoice', null)}</p>
-                        <img src="data:image/png;base64,${pdict.qrCode}" alt="QR Code"
-                            style="max-width: 100%; height: auto;" />
+                        <div>
+                            <img src="${pdict.qrCode}" alt="QR Code"
+                                style="max-width: 250px; height: auto;" />
+                        </div>
                         <br />
                         <a href="${pdict.qrCodeLink}" target="_blank" style="color: #000000; text-decoration: underline;">${Resource.msg('email.see.invoice.details.text', 'einvoice', null)}</a>
                     </td>
