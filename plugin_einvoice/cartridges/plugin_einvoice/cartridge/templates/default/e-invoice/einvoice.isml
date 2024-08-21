@@ -19,7 +19,7 @@
   data-army="${Resource.msg('einvoice.modal.popup.input.army', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.army', 'einvoice_modal', null)}"
   data-btn-show="${URLUtils.url('Einvoice-Show')}" data-check-status="${URLUtils.url('Einvoice-CheckStatus')}"></div>
 <div class="modal-e-invoice">
-  <div class="modal-overlay-e-invoice modal-toggle-e-invoice"></div>
+  <div class="modal-overlay-e-invoice modal-toggle-e-invoice-00"></div>
   <div class="modal-wrapper-e-invoice modal-transition-e-invoice cust-modal text-left">
     <div class="modal-header-e-invoice modal-title">
 
