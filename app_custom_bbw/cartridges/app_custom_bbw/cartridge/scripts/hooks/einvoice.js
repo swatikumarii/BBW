@@ -7,38 +7,13 @@ var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 
-// Function used to send EInvoice email
-exports.sendEmail = function (order) {
-    var emailObj = {
-        to: order.customerEmail,
-        subject: Resource.msg('email.subject.einvoice', 'einvoice', null),
-        from:
-            Site.current.getCustomPreferenceValue('customerServiceEmail') ||
-            'no-reply@testorganization.com'
-    };
-    var encodedOrderNumber = encodeURIComponent(
-        encryptionHelper.encryptPin(order.orderNo)
-    );
-    
-    var qrCodeResponse = JSON.parse(order.custom.eInvoiceQrCode);    
-
-    emailHelpers.sendEmail(emailObj, 'mail/einvoiceEmail', {
-        orderNo:order.orderNo,
-        qrCode:qrCodeResponse.qrcode,
-        qrCodeLink:qrCodeResponse.url,
-        invoiceUrl: URLUtils.https(
-            'Order-InvoiceDownload',
-            'token',
-            encodedOrderNumber
-        ).toString(),
-        content: emailContentHelpers.getEmailContent(
-            'normal-footer',
-            'email-header'
-        )
-    });
-};
 
 // Function used to convert date
+/**
+ * Converts a date to a string.
+ * @param {Date} date - The date to convert.
+ * @returns {string} The date as a formatted string.
+ */
 function formatToISO8601(date) {
     // Get the components of the date
     var year = date.getUTCFullYear();
@@ -51,14 +26,56 @@ function formatToISO8601(date) {
     return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes;
 }
 
+// Function used to send EInvoice email
+exports.sendEmail = function (order) {
+    var emailObj = {
+        to: order.customerEmail,
+        subject: Resource.msgf(
+            'email.subject.einvoice',
+            'einvoice',
+            null,
+            order.orderNo
+        ),
+        from:
+            Site.current.getCustomPreferenceValue('customerServiceEmail') ||
+            'no-reply@testorganization.com'
+    };
+    var encodedOrderNumber = encodeURIComponent(
+        encryptionHelper.encryptPin(order.orderNo)
+    );
+    
+    var qrCodeResponse = JSON.parse(order.custom.eInvoiceQrCode);    
+
+    emailHelpers.sendEmail(emailObj, 'mail/einvoiceEmail', {
+        orderNo: order.orderNo,
+        qrCode: qrCodeResponse.qrcode,
+        qrCodeLink: qrCodeResponse.url,
+        submissionDate: formatToISO8601(
+            new Date(order.custom.eInvoiceSubmittionDate)
+        ),
+        erpId: order.custom.eInvoiceErpId,
+        orderId: order.orderNo,
+        invoiceUrl: URLUtils.https(
+            'Order-InvoiceDownload',
+            'token',
+            encodedOrderNumber
+        ).toString(),
+        content: emailContentHelpers.getEmailContent(
+            'normal-footer',
+            'email-header'
+        )
+    });
+};
+
 // Function used to send Failed EInvoice email
 exports.sendFailedEmail = function (order) {
     var emailObj = {
         to: order.customerEmail,
-        subject: Resource.msg(
+        subject: Resource.msgf(
             'email.subject.einvoice.rejected',
             'einvoice',
-            null
+            null,
+            order.orderNo
         ),
         from:
             Site.current.getCustomPreferenceValue('customerServiceEmail') ||
