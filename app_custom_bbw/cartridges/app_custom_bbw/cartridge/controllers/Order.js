@@ -618,7 +618,7 @@ server.append(
             }
 
             res.setViewData(viewData);
-        });      
+        });
 
         return next();
     },

@@ -24,6 +24,12 @@
         <password masked="true">********</password>
     </service-credential>
 
+    <service-credential service-credential-id="EInvoiceS3Bucket">
+        <url>https://vs-thailand-sfcc.herokuapp.com/upload-base64-image</url>
+        <user-id/>
+        <password masked="true">********</password>
+    </service-credential>
+
      <service-profile service-profile-id="EInvoice">
         <timeout-millis>5000</timeout-millis>
         <rate-limit-enabled>false</rate-limit-enabled>
@@ -88,5 +94,14 @@
         <credential-id>EInvoiceRequestToken</credential-id>
     </service>
 
-
+    <service service-id="EInvoiceS3Bucket">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>eInvoice</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>false</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>EInvoice</profile-id>
+        <credential-id>EInvoiceS3Bucket</credential-id>
+    </service>
 </services>
