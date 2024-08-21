@@ -116,6 +116,7 @@ $(document).ready(function () {
         showSelectedDialCode: true,
         initialCountry: 'my',
         countryOrder: ['my'],
+        formatOnDisplay: false,
         formatAsYouType: false
     });
 
