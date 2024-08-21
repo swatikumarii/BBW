@@ -492,7 +492,7 @@ function copyShippingAddressToShipment(shippingData, shipmentOrNull) {
         shippingAddress.setCity(shippingData.address.city);
         shippingAddress.setPostalCode(shippingData.address.postalCode);
         shippingAddress.setStateCode(shippingData.address.stateCode);
-        var countryCode = shippingData.address.countryCode.value ? shippingData.address.countryCode.value : shippingData.address.countryCode;
+        var countryCode = shippingData.address.countryCode && shippingData.address.countryCode.value ? shippingData.address.countryCode.value : shippingData.address.countryCode;
         shippingAddress.setCountryCode(countryCode);
         shippingAddress.setPhone(shippingData.address.phone);
         shippingAddress.custom.dialCode = shippingData.address.dialCode ? shippingData.address.dialCode : defaultDialCode;

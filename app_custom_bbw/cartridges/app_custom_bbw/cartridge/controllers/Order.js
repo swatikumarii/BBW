@@ -53,6 +53,19 @@ server.append(
             }
         }
         viewData.isOrderBaseRemoveGiftCard = true;
+
+        if (
+            dw.system.Site.getCurrent().getCustomPreferenceValue(
+                'eInvoiceEnable'
+            ) === true
+        ) {
+            var einvoiveHelper = require('*/cartridge/scripts/helpers/einvoiceHelpers');
+            viewData.eInvoiceData = einvoiveHelper.eInvoiceStatusCheckNonAjax(
+                res,
+                viewData.order.orderNumber
+            );
+        }
+
         res.setViewData(viewData);
         next();
     },seo.addCurrentPageMetaData);
@@ -617,7 +630,23 @@ server.append(
                     });
                 }
             }
-        });
+
+            if (
+                dw.system.Site.getCurrent().getCustomPreferenceValue(
+                    'eInvoiceEnable'
+                ) === true
+            ) {
+                var einvoiveHelper = require('*/cartridge/scripts/helpers/einvoiceHelpers');
+                viewData.eInvoiceData =
+                     einvoiveHelper.eInvoiceStatusCheckNonAjax(
+                         res,
+                         viewData.order.orderNumber
+                     );
+            }
+
+            res.setViewData(viewData);
+        });      
+
         return next();
     },
     seo.addCurrentPageMetaData);

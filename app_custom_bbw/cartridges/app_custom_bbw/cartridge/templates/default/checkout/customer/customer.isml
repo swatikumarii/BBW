@@ -23,7 +23,7 @@
                                 data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
                                 value="${(pdict.customer.registeredUser && pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile
                                     .email: ''}"
-                                aria-describedby="emailInvalidMessage" >
+                                aria-describedby="emailInvalidMessage" <isprint value=${pdict.forms.registeredCustomerForm.email.attributes} encoding="off" />>
                             <div class="invalid-feedback" id="emailInvalidMessage"></div>
                         </div>
                         <div class="form-group password-form h-pos--relative">
@@ -32,7 +32,7 @@
                             </label>
                             <input type="password" class="password" id="password"
                                 data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
-                                aria-describedby="passwordInvalidMessage" >
+                                aria-describedby="passwordInvalidMessage" <isprint value=${pdict.forms.registeredCustomerForm.password.attributes} encoding="off" />>
                             <span class="toggle-password h-clr--black-3 h-line-height--24 b-text-letter-space-0">${Resource.msg('form.show', 'forms', null)}</span>
                             <div class="invalid-feedback" id="passwordInvalidMessage"></div>
                         </div>
