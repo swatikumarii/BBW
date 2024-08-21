@@ -180,7 +180,7 @@ function ovoStart(orderID) {
             updateStage: function () {
                 var stage = checkoutStages[members.currentStage];
                 var defer = $.Deferred(); // eslint-disable-line
-
+                $('input:radio[name=paymentMethod]:first').attr('checked', true);
                 if (stage === 'customer') {
                     //
                     // Clear Previous Errors
