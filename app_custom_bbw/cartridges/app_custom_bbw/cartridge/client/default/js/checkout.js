@@ -100,6 +100,7 @@ $(document).ready(function () {
         showSelectedDialCode: true,
         initialCountry: 'au',
         countryOrder: ['au'],
+        formatOnDisplay: false,
         formatAsYouType: false
     });
 
@@ -110,7 +111,9 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'au',
-        countryOrder: ['au']
+        countryOrder: ['au'],
+        formatOnDisplay: false,
+        formatAsYouType: false
     });
 
 
