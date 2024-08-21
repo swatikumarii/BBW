@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var formValidation = require('base/components/formValidation');
+    
     let downloadInvoiceRenderElement = $('#download_EInvoice');
     let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
     let btnShowUrl = downloadInvoiceRenderElement.attr('data-btn-show');
@@ -118,23 +118,34 @@ $(document).ready(function () {
                         );
                         var parentElement = $(
                             '.modal-toggle-e-invoice'
-                        ).parent();
+                        ).parent().find('.e-invoice-pending-details');
                         $('.modal-toggle-e-invoice').spinner().stop();
-                        $('.modal-e-invoice').attr('style', '');
-                        $('.modal-toggle-e-invoice').remove();
-                        parentElement.append(
+                        $('.modal-e-invoice').attr('style', '');                        
+                        var btnHtml =
                             '<button class="' +
-                                classes +
-                                ' einvoice-a-2-btn' +
-                                '" target="_blank">' +
-                                response.btnText +
-                                '</button>'
-                        );
+                            classes +
+                            ' einvoice-a-2-btn' +
+                            '" target="_blank">' +
+                            response.btnText +
+                            '</button>';
+                        if (parentElement.length > 0) {
+                            $('.modal-toggle-e-invoice').remove();
+                            parentElement.before(btnHtml);
+                        } else {
+                            var outsideParentElement = $(
+                                '.modal-toggle-e-invoice'
+                            ).parent();
+                            $('.modal-toggle-e-invoice').remove();
+                            outsideParentElement.append(btnHtml);
+                        }
+                       
                         $('.modal-toggle-e-invoice').removeClass(
                             'modal-toggle-e-invoice'
                         );
                          $('.e-invoice-error-details').remove();
                         $('.einvoice-a-2-btn').prop("disabled",true)
+                        $('.e-invoice-pending-details').removeClass('d-none');
+                        $('.e-invoice-pending-details').show();
                     } else if (response.status === 'success') {
                         var classes = $('.modal-toggle-e-invoice').attr(
                             'class'
@@ -159,6 +170,7 @@ $(document).ready(function () {
                         $('.modal-toggle-e-invoice').removeClass(
                             'modal-toggle-e-invoice'
                         );
+                        $('.e-invoice-pending-details').hide();
                     } else {
                         var classes = $('.modal-toggle-e-invoice').attr(
                             'class'
@@ -172,6 +184,8 @@ $(document).ready(function () {
                             $('.modal-e-invoice').toggleClass('is-visible');
                             $('body').toggleClass('einvoice-open');
                         }
+                        $('.e-invoice-pending-details').hide();
+                        $('#tinTB').val(response.customerTaxNumber);
                     }
                 }
             });

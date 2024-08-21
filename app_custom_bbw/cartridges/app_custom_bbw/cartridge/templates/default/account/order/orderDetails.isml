@@ -86,8 +86,15 @@
             <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
         </div>
     </div>
-    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true && pdict.eInvoiceData.status == 'error'}">
+    <isif
+        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true && pdict.eInvoiceData.status == 'error'}">
         <p class="text-danger e-invoice-error-details">${pdict.eInvoiceData.errorReason}</p>
+        <p class="e-invoice-pending-details mt-2 d-none">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}
+        </p>
+    <iselseif condition="${pdict.eInvoiceData.status == 'pending'}">
+            <p class="e-invoice-pending-details">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
+        <iselseif condition="${pdict.eInvoiceData.status == false}">
+                <p class="e-invoice-pending-details mt-2 d-none">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
     </isif>
     <div class="card">
         <div class="row card-body ship-bill-details">
