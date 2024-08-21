@@ -129,7 +129,8 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'id',
-        countryOrder: ['id']
+        countryOrder: ['id'],
+        formatAsYouType: false
     });
 
     $('.accordion-title').click(function () {

@@ -98,7 +98,8 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'sg',
-        countryOrder: ['sg']
+        countryOrder: ['sg'],
+        formatAsYouType: false
     });
 
     $('.accordion-title').click(function () {
