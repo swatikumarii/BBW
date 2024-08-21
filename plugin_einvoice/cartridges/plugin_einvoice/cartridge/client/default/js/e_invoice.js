@@ -133,6 +133,7 @@ $(document).ready(function () {
                         $('.modal-toggle-e-invoice').removeClass(
                             'modal-toggle-e-invoice'
                         );
+                         $('.e-invoice-error-details').remove();
                         $('.einvoice-a-2-btn').prop("disabled",true)
                     } else if (response.status === 'success') {
                         var classes = $('.modal-toggle-e-invoice').attr(
@@ -154,6 +155,7 @@ $(document).ready(function () {
                                 response.btnText +
                                 '</button>'
                         );
+                         $('.e-invoice-error-details').remove();
                         $('.modal-toggle-e-invoice').removeClass(
                             'modal-toggle-e-invoice'
                         );
@@ -165,19 +167,7 @@ $(document).ready(function () {
                             '.modal-toggle-e-invoice'
                         ).parent();
                         $('.modal-toggle-e-invoice').spinner().stop();
-                        $('.modal-e-invoice').attr('style', '');
-                        $('.modal-toggle-e-invoice').remove();
-                        parentElement.append(
-                            '<button class="' +
-                                classes +
-                                ' einvoice-a-2-btn' +
-                                '" target="_blank">' +
-                                response.btnText +
-                                '</button>'
-                        );                       
-                        if (response.errorReason) {
-                            $('.e-invoice-error-details').text("E-invoice error : "+JSON.parse(response.errorReason).detailedMessage);
-                        }
+                        $('.modal-e-invoice').attr('style', '');                       
                         if (showToggle) {
                             $('.modal-e-invoice').toggleClass('is-visible');
                             $('body').toggleClass('einvoice-open');
@@ -210,9 +200,7 @@ $(document).ready(function () {
     };
 
     let eInvoice = new EInvoice();
-    eInvoice.showEinvoiceButton(btnShowUrl, orderId);
-
-    eInvoice.checkStatus(statusCheckUrl, orderId, false, false);
+    eInvoice.showEinvoiceButton(btnShowUrl, orderId);    
 
     $('body').on('submit', '#submitEInvoiceDownloadForm', function (e) {
         e.preventDefault();

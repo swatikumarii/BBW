@@ -53,6 +53,19 @@ server.append(
             }
         }
         viewData.isOrderBaseRemoveGiftCard = true;
+
+        if (
+            dw.system.Site.getCurrent().getCustomPreferenceValue(
+                'eInvoiceEnable'
+            ) === true
+        ) {
+            var einvoiveHelper = require('*/cartridge/scripts/helpers/einvoiceHelpers');
+            viewData.eInvoiceData = einvoiveHelper.eInvoiceStatusCheckNonAjax(
+                res,
+                viewData.order.orderNumber
+            );
+        }
+
         res.setViewData(viewData);
         next();
     },seo.addCurrentPageMetaData);
@@ -142,7 +155,7 @@ server.get('InvoiceDownload', function (req, res, next) {
         var eInvoiceJson = {};
         if('eInvoiceQrCode' in order.custom)
         {
-           eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
+            eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
         }
 
         res.render('order/invoiceDownload', {
@@ -590,7 +603,23 @@ server.append(
                     });
                 }
             }
-        });
+
+            if (
+                dw.system.Site.getCurrent().getCustomPreferenceValue(
+                    'eInvoiceEnable'
+                ) === true
+            ) {
+                var einvoiveHelper = require('*/cartridge/scripts/helpers/einvoiceHelpers');
+                viewData.eInvoiceData =
+                     einvoiveHelper.eInvoiceStatusCheckNonAjax(
+                         res,
+                         viewData.order.orderNumber
+                     );
+            }
+
+            res.setViewData(viewData);
+        });      
+
         return next();
     },
     seo.addCurrentPageMetaData);
