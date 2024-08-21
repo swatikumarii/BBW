@@ -834,6 +834,7 @@ module.exports = {
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
             var postalCode = attrs.postalCode.toString();
+            var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
                 $('.shippingState option').each(function () {
                     if ($(this).val() === stateCode) {
@@ -867,6 +868,12 @@ module.exports = {
                         return false;
                     }
                 });
+            }
+            if (dialCodeCountry) {
+                // Get the instance of intl-tel-input
+                if (window.itiInstance) {
+                    window.itiInstance.setCountry(dialCodeCountry);
+                }
             }
             Object.keys(attrs).forEach(function (attr) {
                 if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {

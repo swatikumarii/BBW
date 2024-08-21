@@ -1,9 +1,10 @@
 'use strict';
 
+var Site = require('dw/system/Site');
 /**
  * creates a plain object that contains address information
  * @param {dw.order.OrderAddress} addressObject - User's address
- * @returns {Object} an object that contains information about the users address
+ * @returns {object} an object that contains information about the users address
  */
 function createAddressObject(addressObject) {
     var result;
@@ -51,6 +52,15 @@ function createAddressObject(addressObject) {
                 value: addressObject.countryCode.value.toUpperCase()
             };
         }
+        var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+        var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
+        if ('raw' in addressObject) {
+            result.dialCode = addressObject.raw.custom.dialCode ? addressObject.raw.custom.dialCode : defaultDialCode;
+            result.dialCodeCountry = addressObject.raw.custom.dialCodeCountry ? addressObject.raw.custom.dialCodeCountry : defaultDialCodeCountry;
+        } else {
+            result.dialCode = addressObject.custom.dialCode ? addressObject.custom.dialCode : defaultDialCode;
+            result.dialCodeCountry = addressObject.custom.dialCodeCountry ? addressObject.custom.dialCodeCountry : defaultDialCodeCountry;
+        }
     } else {
         result = null;
     }
@@ -60,7 +70,7 @@ function createAddressObject(addressObject) {
 /**
  * Address class that represents an orderAddress
  * @param {dw.order.OrderAddress} addressObject - User's address
- * @constructor
+ * @class
  */
 function address(addressObject) {
     this.address = createAddressObject(addressObject);

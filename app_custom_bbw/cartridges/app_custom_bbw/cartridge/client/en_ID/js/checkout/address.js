@@ -101,7 +101,9 @@ function optionValueForAddress(shipping, selected, order, options) {
         'data-state-code': 'stateCode',
         'data-postal-code': 'postalCode',
         'data-country-code': 'countryCode',
-        'data-phone': 'phone'
+        'data-phone': 'phone',
+        'data-dial-code': 'dialCode',
+        'data-dial-code-country': 'dialCodeCountry'
     };
     $.each(keyMap, function (key) {
         var mappedKey = keyMap[key];

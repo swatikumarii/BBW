@@ -529,7 +529,20 @@ server.append(
                 if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
                     addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
                 }
+                session.privacy.addressBook = null;
+                session.privacy.saveAddress = null;
             }
+
+            // save billingaddress dial code and dial code country
+            if (session.privacy.billingDialCode && session.privacy.billingDialCodeCountry) {
+                Transaction.wrap(function () {
+                    order.billingAddress.custom.dialCode = session.privacy.billingDialCode;
+                    order.billingAddress.custom.dialCodeCountry = session.privacy.billingDialCodeCountry;
+                });
+                session.privacy.billingDialCode = null;
+                session.privacy.billingDialCodeCountry = null;
+            }
+
             var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
             viewData.isGiftProductAvailable = isGiftProductAvailable;
             if (order && order.totalGrossPrice.value === 0) {
@@ -578,11 +591,25 @@ server.append(
                 });
             } else {
                 var billingAddress = viewData.order.billing.billingAddress.address;
+                var expressCheckout = false;
+                var paymentInstrument = order.paymentInstruments[0];
+                if (paymentInstrument.paymentMethod === 'AdyenComponent' && !order.billingAddress.custom.dialCode) {
+                    expressCheckout = true;
+                } else if (paymentInstrument.paymentMethod === 'AFTERPAY') {
+                    expressCheckout = paymentInstrument.paymentTransaction.custom.apExpressCheckout;
+                }
+                // remove 0 from starting of phone number
+                var billingPhn = billingAddress.phone;
+                if (billingPhn.startsWith('0')) {
+                    billingPhn = billingPhn.substr(1);
+                }
                 var customerData = {
                     firstName : billingAddress.firstName,
                     lastName: billingAddress.lastName,
-                    phone: billingAddress.phone,
-                    email: viewData.order.orderEmail
+                    phone: billingPhn,
+                    email: viewData.order.orderEmail,
+                    dialCode: order.billingAddress.custom.dialCode,
+                    expressCheckout: expressCheckout
                 };
                 var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
                 if (crmCustomerID) {

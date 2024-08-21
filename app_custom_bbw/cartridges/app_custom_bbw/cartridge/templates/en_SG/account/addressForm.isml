@@ -232,13 +232,19 @@
         </span> </iscomment>
     </div>
     <input type="tel" class="form-control addressPhoneNumber" id="phone"
+    placeholder="412 345 678"
         data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
         data-missing-error="${Resource.msg('error.phone.number', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.parse.phonevalid.form', 'forms', null)}" <isprint
         value="${pdict.addressForm.phone.attributes}" encoding="off" /> autocomplete="tel"/>
     <div class="invalid-feedback"></div>
 </div>
-
+<input type="hidden" class="dialCode" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCode')}"
+    <isprint value=${pdict.addressForm.dialCode.attributes} encoding="off" />
+/>
+<input type="hidden" class="dialCodeCountry"
+    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCodeCountry')}" <isprint
+    value=${pdict.addressForm.dialCodeCountry.attributes} encoding="off" />
 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
 <!-- Cancel and Save Buttons -->

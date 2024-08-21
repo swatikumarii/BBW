@@ -168,6 +168,8 @@
                 ]
             }
             &lt;/script&gt;</preference>
+            <preference preference-id="defaultDialCode">61</preference>
+            <preference preference-id="defaultDialCodeCountry">au</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -319,6 +321,8 @@
                 ]
             }
             &lt;/script&gt;</preference>
+            <preference preference-id="defaultDialCode">61</preference>
+            <preference preference-id="defaultDialCodeCountry">au</preference>
         </staging>
         <production/>
     </custom-preferences>

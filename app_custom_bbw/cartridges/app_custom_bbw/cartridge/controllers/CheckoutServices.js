@@ -44,16 +44,45 @@ server.prepend('SubmitPayment', function (req, res, next) {
                     stateCode: paymentForm.addressFields.states.stateCode.value,
                     countryCode: paymentForm.addressFields.country.value,
                     phone: paymentForm.addressFields.phone.value,
+                    dialCode: paymentForm.addressFields.dialCode.value,
+                    dialCodeCountry: paymentForm.addressFields.dialCodeCountry.value
                 }
             }, null);
         }
         // set value in session
         session.privacy.addressBook = !!req.currentCustomer.addressBook;
         session.privacy.saveAddress = paymentForm.saveAddress.value;
+        session.privacy.billingDialCode = paymentForm.addressFields.dialCode.value;
+        session.privacy.billingDialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
     }
 
     next();
 });
+
+server.append(
+    'SubmitPayment',
+    server.middleware.https,
+    csrfProtection.validateAjaxRequest,
+    function (req, res, next) {
+        var BasketMgr = require('dw/order/BasketMgr');
+        var Transaction = require('dw/system/Transaction');
+        var currentBasket = BasketMgr.getCurrentBasket();
+        if (currentBasket) {
+            var paymentForm = server.forms.getForm('billing');
+            this.on('route:BeforeComplete', function () {
+                Transaction.wrap(function () {
+                    // this function will not work in case of google pay, after pay
+                    if (currentBasket.billingAddress) {
+                        currentBasket.billingAddress.custom.dialCode = paymentForm.addressFields.dialCode.value;
+                        currentBasket.billingAddress.custom.dialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
+                    }
+                });
+            });
+        }
+
+        next();
+    }
+);
 
 /**
  * Validates the given form and creates response JSON if there are errors.
