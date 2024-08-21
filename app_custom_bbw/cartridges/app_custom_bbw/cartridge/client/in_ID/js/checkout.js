@@ -131,6 +131,7 @@ $(document).ready(function () {
         showSelectedDialCode: true,
         initialCountry: 'id',
         countryOrder: ['id'],
+        formatOnDisplay: false,
         formatAsYouType: false
     });
 

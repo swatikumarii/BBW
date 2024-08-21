@@ -259,6 +259,7 @@ $(document).on('click', '#editAddress', function () {
                 showSelectedDialCode: true,
                 initialCountry: 'au',
                 countryOrder: ['au'],
+                formatOnDisplay: false,
                 formatAsYouType: false
             });
             $('#address-form').modal('show');
@@ -356,6 +357,7 @@ module.exports = $.extend({}, base, {
             showSelectedDialCode: true,
             initialCountry: 'au',
             countryOrder: ['au'],
+            formatOnDisplay: false,
             formatAsYouType: false
         });
     }

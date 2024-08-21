@@ -116,6 +116,7 @@ $(document).ready(function () {
         showSelectedDialCode: true,
         initialCountry: 'sg',
         countryOrder: ['sg'],
+        formatOnDisplay: false,
         formatAsYouType: false
     });
 

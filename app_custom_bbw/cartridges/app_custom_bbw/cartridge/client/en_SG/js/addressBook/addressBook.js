@@ -257,6 +257,7 @@ $(document).on('click', '#editAddress', function () {
                 showSelectedDialCode: true,
                 initialCountry: 'sg',
                 countryOrder: ['sg'],
+                formatOnDisplay: false,
                 formatAsYouType: false
             });
             $('#address-form').modal('show');
@@ -315,6 +316,7 @@ module.exports = $.extend({}, base, {
             showSelectedDialCode: true,
             initialCountry: 'sg',
             countryOrder: ['sg'],
+            formatOnDisplay: false,
             formatAsYouType: false
         });
     }
