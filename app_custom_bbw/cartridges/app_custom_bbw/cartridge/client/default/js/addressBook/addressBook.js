@@ -258,7 +258,8 @@ $(document).on('click', '#editAddress', function () {
                 strictMode: true,
                 showSelectedDialCode: true,
                 initialCountry: $('.addressDialCodeCountry').val(),
-                formatOnDisplay: false
+                formatOnDisplay: false,
+                formatAsYouType: false
             });
             $('.editAddressPhone').on('countrychange', function() {
                 var countryData = editIntl.getSelectedCountryData();

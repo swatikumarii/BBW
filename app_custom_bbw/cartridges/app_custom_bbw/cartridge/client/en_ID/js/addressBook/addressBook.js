@@ -250,7 +250,8 @@ $(document).on('click', '#editAddress', function () {
                 strictMode: true,
                 showSelectedDialCode: true,
                 initialCountry: $('.addressDialCodeCountry').val(),
-                formatOnDisplay: false
+                formatOnDisplay: false,
+                formatAsYouType: false
             });
             $('.editAddressPhone').on('countrychange', function() {
                 var countryData = editIntl.getSelectedCountryData();
@@ -407,7 +408,8 @@ module.exports = $.extend({}, base, {
             strictMode: true,
             showSelectedDialCode: true,
             initialCountry: $('.dialCodeCountry').val(),
-            formatOnDisplay: false
+            formatOnDisplay: false,
+            formatAsYouType: false
         });
         var initCountryData = iti.getSelectedCountryData();
         $('.dialCode').val(initCountryData.dialCode);

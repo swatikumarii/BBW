@@ -115,7 +115,8 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: $('.dialCodeCountry').val(),
-        formatOnDisplay: false
+        formatOnDisplay: false,
+        formatAsYouType: false
     });
     var initCountryData = iti.getSelectedCountryData();
     $('.dialCode').val(initCountryData.dialCode);

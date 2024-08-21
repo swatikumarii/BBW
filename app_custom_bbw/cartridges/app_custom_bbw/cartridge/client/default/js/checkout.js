@@ -119,7 +119,8 @@ $(document).ready(function () {
         strictMode: true,
         showSelectedDialCode: true,
         initialCountry: billingDialCode,
-        formatOnDisplay: false
+        formatOnDisplay: false,
+        formatAsYouType: false
     });
     // Attach the instance to a global variable
     window.billingInstance = billingIntl;
