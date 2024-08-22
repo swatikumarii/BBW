@@ -35,11 +35,15 @@ function createAddressObject(addressObject) {
         if (addressObject.custom && 'district' in addressObject.custom && addressObject.custom.district) {
             var district = addressObject.custom.district;
             result.district = district;
+        } else if ('raw' in addressObject && addressObject.raw.custom.district) {
+            result.district = addressObject.raw.custom.district;
         }
 
         if (addressObject.custom && 'subDistrict' in addressObject.custom && addressObject.custom.subDistrict) {
             var subDistrict = addressObject.custom.subDistrict;
             result.subDistrict = subDistrict;
+        } else if ('raw' in addressObject && addressObject.raw.custom.subDistrict) {
+            result.subDistrict = addressObject.raw.custom.subDistrict;
         }
 
         if (result.stateCode === 'undefined') {

@@ -338,6 +338,8 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
+            var district = attrs.district.trim();
+            var subDistrict = attrs.subdistrict.trim();
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
@@ -370,6 +372,36 @@ module.exports = {
                         return false;
                     }
                     $('.billingZipCode option').slice(1).remove();
+                });
+            }
+            if (district) {
+                $('.billingAddressDistrict option').each(function () {
+                    if ($(this).val() === district) {
+                        $('.billingAddressDistrict option').removeAttr(
+                            'selected'
+                        );
+                        $('.billingAddressDistrict option')[0].remove();
+                        $(this).attr('selected', 'selected');
+                        $('body')
+                            .find('.billingAddressDistrict')
+                            .trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (subDistrict) {
+                $('.billingAddressSubdistrict option').each(function () {
+                    if ($(this).val() === subDistrict) {
+                        $('.billingAddressSubdistrict option').removeAttr(
+                            'selected'
+                        );
+                        $('.billingAddressSubdistrict option')[0].remove();
+                        $(this).attr('selected', 'selected');
+                        $('body')
+                            .find('.billingAddressSubdistrict')
+                            .trigger('change');
+                        return false;
+                    }
                 });
             }
             if (postalCode) {

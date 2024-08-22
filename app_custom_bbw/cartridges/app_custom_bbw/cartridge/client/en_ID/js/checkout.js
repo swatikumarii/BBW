@@ -300,9 +300,7 @@ $(document).ready(function () {
                 if ($(this).val() === selectedSubDistrict) {
                     $('.shippingAddressSubdistrict option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
-                    $('body')
-                        .find('.shippingAddressSubdistrict')
-                        .trigger('change');
+                    $('body').find('.shippingAddressSubdistrict').trigger('change');
                     return false;
                 }
             });
@@ -586,6 +584,7 @@ $('.shippingAddressDistrict').change(function () {
                 text: '---- Select District First----'
             }).attr('selected', 'selected')
         );
+        subDistrictDropdown.trigger('change');
     }
 });
 
