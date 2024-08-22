@@ -8,5 +8,5 @@
             <iscontentasset aid="doku-payment-description" />
         </fieldset>
     </fieldset>
-    <input name="${pdict.forms.billingForm.paymentMethod.htmlName}" type="radio" value="Doku" checked="true"/>
+    <input class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" type="radio" value="Doku" />
 </div>

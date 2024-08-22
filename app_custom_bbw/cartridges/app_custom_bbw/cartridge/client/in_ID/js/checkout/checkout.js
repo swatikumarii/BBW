@@ -180,8 +180,7 @@ function ovoStart(orderID) {
             updateStage: function () {
                 var stage = checkoutStages[members.currentStage];
                 var defer = $.Deferred(); // eslint-disable-line
-                // $("input[name=paymentMethod][value='doku']").prop('checked', true);
-                $('input:radio[name=paymentMethod]:first').attr('checked', true);
+
                 if (stage === 'customer') {
                     //
                     // Clear Previous Errors
@@ -640,6 +639,7 @@ function ovoStart(orderID) {
                 // Set the form data
                 //
                 plugin.data('formData', formData);
+                $('.payment-method-options').find('input[type=\'radio\']').first().click();
             },
 
             /**

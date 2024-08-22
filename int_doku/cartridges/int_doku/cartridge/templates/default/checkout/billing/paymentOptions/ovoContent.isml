@@ -30,5 +30,5 @@
              </div>
         </div>
     </fieldset>
-    <input name="${pdict.forms.billingForm.paymentMethod.htmlName}" type="radio" value="ovo"/>
+    <input class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" type="radio" value="ovo"/>
 </div>
