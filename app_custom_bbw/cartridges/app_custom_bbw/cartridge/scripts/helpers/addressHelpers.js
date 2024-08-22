@@ -126,6 +126,8 @@ function copyShippingAddress(address) {
         city: address.city,
         firstName: address.firstName,
         lastName: address.lastName,
+        district: 'custom' in address && 'district' in address.custom && address.custom.district,
+        subDistrict: 'custom' in address && 'subDistrict' in address.custom && address.custom.subDistrict,
         phone: address.phone,
         postalCode: address.postalCode,
         states: {
@@ -170,8 +172,9 @@ module.exports = {
     checkIfAddressStored: checkIfAddressStored,
     generateAddressName: generateAddressName,
     saveAddress: saveAddress,
-    updateAddressFields: updateAddressFields,
-    gatherShippingAddresses: gatherShippingAddresses
+    copyShippingAddress: copyShippingAddress,
+    gatherShippingAddresses: gatherShippingAddresses,
+    updateAddressFields: updateAddressFields
 };
 
 Object.keys(base).forEach(function (prop) {
