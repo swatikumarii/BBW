@@ -419,7 +419,7 @@ function ovoStart(orderID) {
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
-                                        $('.error-message-text').append(error);
+                                        $('.error-message-text').empty().append(error);
                                         scrollAnimate($('.error-message'));
                                     });
                                 }
@@ -671,7 +671,7 @@ function ovoStart(orderID) {
 
                         if (data.errorMessage) {
                             $('.error-message').show();
-                            $('.error-message-text').append(data.errorMessage);
+                            $('.error-message-text').empty().append(data.errorMessage);
                         }
                     }
                 });

@@ -106,7 +106,7 @@ $(document).ready(function () {
     if (error || paymentStage || checkoutStage === 'payment') {
         if (error) {
             $('.error-message').show();
-            $('.error-message-text').text(decodeURIComponent(error[1]));
+            $('.error-message-text').empty().text(decodeURIComponent(error[1]));
         }
     }
     $('#selectedPaymentOption').val(
