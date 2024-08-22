@@ -86,6 +86,9 @@ server.replace(
         } else {
             req.session.privacyCache.set(currentBasket.defaultShipment.UUID, 'valid');
 
+            // remove spaces between phone number digits
+            var phoneNumber = form.shippingAddress.addressFields.phone.value.replace(/[+\-\s()]/g, '');
+
             result.address = {
                 firstName: form.shippingAddress.addressFields.firstName.value,
                 lastName: form.shippingAddress.addressFields.lastName.value,
@@ -94,7 +97,9 @@ server.replace(
                 city: form.shippingAddress.addressFields.city.value,
                 postalCode: form.shippingAddress.addressFields.postalCode.value,
                 countryCode: form.shippingAddress.addressFields.country.value,
-                phone: form.shippingAddress.addressFields.phone.value
+                phone: phoneNumber,
+                dialCode: form.shippingAddress.addressFields.dialCode.value,
+                dialCodeCountry: form.shippingAddress.addressFields.dialCodeCountry.value
             };
             if ('district' in form.shippingAddress.addressFields && form.shippingAddress.addressFields.district.value) {
                 result.address.district = form.shippingAddress.addressFields.district.value;

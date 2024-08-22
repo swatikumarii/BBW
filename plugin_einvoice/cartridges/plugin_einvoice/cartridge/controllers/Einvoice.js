@@ -11,26 +11,6 @@ var einvoiceHelpers = require('*/cartridge/scripts/helpers/einvoiceHelpers');
 var Logger = require('dw/system/Logger');
 var loggerEinvoice = Logger.getLogger('EInvoice');
 
-/**
- * Handles GET requests to show e-invoice data
- * Validates the creation date of the order
- */
-server.get(
-    'Show',
-    server.middleware.https,
-    csrfProtection.validateAjaxRequest,
-    function (req, res, next) {
-        var OrderMgr = require('dw/order/OrderMgr');
-        var order = OrderMgr.getOrder(req.querystring.orderId); // Retrieve order using orderId (orderId should be defined or passed in some way)
-
-        // Return JSON response with the validity of the order's creation date
-        res.json({
-            isValid: einvoiceHelpers.isValidDate(order.creationDate)
-        });
-        return next();
-    }
-);
-
 server.get(
     'CheckStatus',
     server.middleware.https,
@@ -41,6 +21,20 @@ server.get(
         var order = OrderMgr.getOrder(req.querystring.orderId); // Retrieve order using orderId (orderId should be defined or passed in some way)
 
         if (
+            !'eInvoiceStatus' in order.custom ||
+            order.custom.eInvoiceStatus ==
+                einvoiveStatusCode.EINVOICESTATUSCODES.EMPTY ||
+            order.custom.eInvoiceStatus == null
+        ) {
+            res.json({
+                status: false,
+                btnText: Resource.msg(
+                    'einvoice.modal.popup.sumbit.btn.text',
+                    'einvoice_modal',
+                    null
+                )
+            });
+        } else if (
             'eInvoiceQrCode' in order.custom &&
             order.custom.eInvoiceStatus ==
                 einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS
@@ -53,33 +47,45 @@ server.get(
                     'einvoice_modal',
                     null
                 ),
-                qrCodeLink: JSON.parse(order.custom.eInvoiceQrCode).url
+                qrCodeLink: JSON.parse(order.custom.eInvoiceQrCode).url,
+                btnText: Resource.msg(
+                    'einvoice.dowmload.invoice.btn.text',
+                    'einvoice_modal',
+                    null
+                )
             });
-        } else if (            
+        } else if (
             order.custom.eInvoiceStatus ==
-                einvoiveStatusCode.EINVOICESTATUSCODES.PENDING
+            einvoiveStatusCode.EINVOICESTATUSCODES.PENDING
         ) {
             res.json({
                 status: einvoiveStatusCode.EINVOICESTATUSCODES.PENDING,
-                message:Resource.msg(
-                        'einvoice.pending.status',
-                        'einvoice_modal',
-                        null
-                    )
+                message: Resource.msg(
+                    'einvoice.pending.status',
+                    'einvoice_modal',
+                    null
+                ),
+                btnText: Resource.msg(
+                    'einvoice.pending.invoice.btn.text',
+                    'einvoice_modal',
+                    null
+                )
             });
         } else if (
-            !'eInvoiceStatus' in order.custom ||
             order.custom.eInvoiceStatus ==
-                einvoiveStatusCode.EINVOICESTATUSCODES.EMPTY ||
-                order.custom.eInvoiceStatus == null||
-            order.custom.eInvoiceStatus ==
-                einvoiveStatusCode.EINVOICESTATUSCODES.ERROR
+            einvoiveStatusCode.EINVOICESTATUSCODES.ERROR
         ) {
             res.json({
-                status: false
+                status: false,
+                btnText: Resource.msg(
+                    'einvoice.failed.invoice.btn.text',
+                    'einvoice_modal',
+                    null
+                ),
+                customerTaxNumber: order.custom.eInvoiceCustomerTaxNumber ||'',
+                errorReason: order.custom.einvoiceErrorMsg || ''
             });
         }
-
         return next();
     }
 );
@@ -132,7 +138,7 @@ server.post(
         try {
             var order = OrderMgr.getOrder(orderId); // Retrieve order using orderId
 
-            loggerEinvoice.info('Order-id : ' + orderId);
+            loggerEinvoice.info('Order-id : ' + orderId);          
 
             // Validate order creation date
             if (!einvoiceHelpers.isValidDate(order.creationDate)) {
@@ -248,6 +254,8 @@ server.post(
                                 order.custom.eInvoiceNumber =
                                     referenceData.invoiceId;
                                 order.custom.eInvoiceStatus = 'pending';
+                                order.custom.eInvoiceCustomerTaxNumber =
+                                     tinNumber;
                             });
 
                             // Return success response
@@ -272,9 +280,7 @@ server.post(
                                     null
                                 )
                             });
-                            loggerEinvoice.info(
-                                'Supplier Response error.'
-                            );
+                            loggerEinvoice.info('Supplier Response error.');
                         }
                     } else {
                         loggerEinvoice.error('Invoice submission error');
@@ -326,7 +332,7 @@ server.post(
                     'eInvoiceDetails',
                     order.custom.eInvoiceErpId
                 );
-                if (!eInvoiceDetails){
+                if (!eInvoiceDetails) {
                     // Handle other e-invoice statuses
                     Transaction.wrap(function () {
                         var eInvoiceObj = customObjectMgr.createCustomObject(
@@ -347,8 +353,7 @@ server.post(
                         });
                         loggerEinvoice.info('response captured successfully.');
                     });
-                }
-                else{
+                } else {
                     res.json({
                         status: false,
                         type: 'e_invoice_status',

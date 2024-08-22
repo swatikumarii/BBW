@@ -5,7 +5,7 @@ var addressHelpers = require('base/checkout/address');
 var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
-var formHelpers = require('base/checkout/formErrors');
+var formHelpers = require('./formErrors');
 var location = window.location;
 var history = window.history;
 
@@ -33,6 +33,67 @@ function checkFields(form) {
         $('.verify-msg').show();
     }
 }
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validateEmail() {
+    var emailInput = $('#email');
+    var pattern = /^[\w.%+-]+@[\w.-]+\.\w{2,}$/i;
+    if (!emailInput.val()) {
+        emailInput.addClass('is-invalid'); // Add class for input border error
+        $('#emailInvalidMessage').html(emailInput.data('missing-error'));
+        $('#emailInvalidMessage').css('display', 'block');
+        return false;
+    }
+    if (!pattern.test(emailInput.val())) {
+        emailInput.addClass('is-invalid'); // Add class for input border error
+        $('#emailInvalidMessage').html(emailInput.data('pattern-mismatch'));
+        $('#emailInvalidMessage').css('display', 'block');
+        return false;
+    }
+    $('#emailInvalidMessage').css('display', 'none');
+    emailInput.removeClass('is-invalid'); // Remove class if input is valid
+    return true;
+}
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validatePassword() {
+    var passwordInput = $('#password');
+    if (!passwordInput.val()) {
+        passwordInput.addClass('is-invalid'); // Add class for input border error
+        $('#passwordInvalidMessage').html(passwordInput.data('missing-error'));
+        $('#passwordInvalidMessage').css('display', 'block');
+        return false;
+    }
+    $('#passwordInvalidMessage').css('display', 'none');
+    passwordInput.removeClass('is-invalid'); // Remove class if input is valid
+    return true;
+}
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validateLoginForm() {
+    var isValid = true;
+    if (!validatePassword()) {
+        isValid = false;
+    }
+    if (!validateEmail()) {
+        isValid = false;
+    }
+    return isValid;
+}
+
+$(document).on('blur', '#password', function () {
+    validatePassword();
+});
+
+$(document).on('blur', '#email', function () {
+    validateEmail();
+});
 
 /**
  *
@@ -125,38 +186,41 @@ function ovoStart(orderID) {
                     // Clear Previous Errors
                     //
                     customerHelpers.methods.clearErrors();
-                    //
-                    // Submit the Customer Form
-                    //
-                    var customerFormSelector = customerHelpers.methods.isGuestFormActive() ? customerHelpers.vars.GUEST_FORM : customerHelpers.vars.REGISTERED_FORM;
-                    var customerForm = $(customerFormSelector);
-                    $.spinner().start();
-                    $.ajax({
-                        url: customerForm.attr('action'),
-                        type: 'post',
-                        data: customerForm.serialize(),
-                        success: function (data) {
-                            $.spinner().stop();
-                            if (data.error) {
-                                $('#form-error').html(data.customerErrorMessage);
-                                $('.form-error-div').removeClass('d-none');
-                            } else if (data.redirectUrl) {
-                                window.location.href = data.redirectUrl;
-                            } else {
-                                $('#form-error').html('');
-                                $('.form-error-div').addClass('d-none');
-                                customerHelpers.methods.customerFormResponse(defer, data);
+
+                    if (validateLoginForm()) {
+                        //
+                        // Submit the Customer Form
+                        //
+                        var customerFormSelector = customerHelpers.methods.isGuestFormActive() ? customerHelpers.vars.GUEST_FORM : customerHelpers.vars.REGISTERED_FORM;
+                        var customerForm = $(customerFormSelector);
+                        $.spinner().start();
+                        $.ajax({
+                            url: customerForm.attr('action'),
+                            type: 'post',
+                            data: customerForm.serialize(),
+                            success: function (data) {
+                                $.spinner().stop();
+                                if (data.error) {
+                                    $('#form-error').html(data.customerErrorMessage);
+                                    $('.form-error-div').removeClass('d-none');
+                                } else if (data.redirectUrl) {
+                                    window.location.href = data.redirectUrl;
+                                } else {
+                                    $('#form-error').html('');
+                                    $('.form-error-div').addClass('d-none');
+                                    customerHelpers.methods.customerFormResponse(defer, data);
+                                }
+                            },
+                            error: function (err) {
+                                if (err.responseJSON && err.responseJSON.redirectUrl) {
+                                    window.location.href = err.responseJSON.redirectUrl;
+                                }
+                                // Server error submitting form
+                                defer.reject(err.responseJSON);
+                                $.spinner().stop();
                             }
-                        },
-                        error: function (err) {
-                            if (err.responseJSON && err.responseJSON.redirectUrl) {
-                                window.location.href = err.responseJSON.redirectUrl;
-                            }
-                            // Server error submitting form
-                            defer.reject(err.responseJSON);
-                            $.spinner().stop();
-                        }
-                    });
+                        });
+                    }
                     return defer;
                 } if (stage === 'shipping') {
                     //
@@ -342,7 +406,7 @@ function ovoStart(orderID) {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
-                                    if ($('.summary-details.billing').is(":visible")) {
+                                    if ($('.summary-details.billing').is(':visible')) {
                                         $('.edit-billing-address').click();
                                     }
                                     data.fieldErrors.forEach(function (error) {
@@ -355,7 +419,7 @@ function ovoStart(orderID) {
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
-                                        $('.error-message-text').append(error);
+                                        $('.error-message-text').empty().append(error);
                                         scrollAnimate($('.error-message'));
                                     });
                                 }
@@ -575,6 +639,7 @@ function ovoStart(orderID) {
                 // Set the form data
                 //
                 plugin.data('formData', formData);
+                $('.payment-method-options').find('input[type=\'radio\']').first().click();
             },
 
             /**
@@ -607,7 +672,7 @@ function ovoStart(orderID) {
 
                         if (data.errorMessage) {
                             $('.error-message').show();
-                            $('.error-message-text').append(data.errorMessage);
+                            $('.error-message-text').empty().append(data.errorMessage);
                         }
                     }
                 });

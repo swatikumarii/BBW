@@ -4,8 +4,7 @@
     <fieldset class="payment-form-fields">
         <input type="hidden" class="form-control"
                name="${pdict.forms.billingForm.paymentMethod.htmlName}"
-               value="ovo"
-        >
+               value="ovo" />
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group
@@ -29,4 +28,5 @@
              </div>
         </div>
     </fieldset>
+    <input name="paymentMethods" type="radio" value="ovo"/>
 </div>

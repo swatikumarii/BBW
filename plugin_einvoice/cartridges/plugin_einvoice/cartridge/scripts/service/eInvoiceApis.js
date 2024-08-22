@@ -146,7 +146,28 @@ function GetQRCode(tokeninfo, refData) {
         serviceResponse = service.call();
         return serviceResponse;
     } catch (error) {
-         loggerEinvoice.error('Unhandled QR code exception : ' + error);
+        loggerEinvoice.error('Unhandled QR code exception : ' + error);
+        return serviceResponse;
+    }
+}
+
+/**
+ * This is the Authentication service to communicate with PWC
+ * @param {object} requestBody - request data
+ * @returns {object} - api response
+ */
+function uploadQRCode(requestBody) {
+    var serviceResponse;
+    try {
+        var eInvoiceServiceInit = require('*/cartridge/scripts/service/init/eInvoiceService');
+        var service = eInvoiceServiceInit.eInvoiceQRCodeUpload;
+        var serviceCredentials = service.getConfiguration().getCredential();
+        var url = serviceCredentials.getURL();
+        service.setURL(url);
+        serviceResponse = service.call(JSON.stringify(requestBody));
+        return serviceResponse;
+    } catch (error) {
+        loggerEinvoice.error('QRCode File upload : ' + error);
         return serviceResponse;
     }
 }
@@ -155,5 +176,6 @@ module.exports = {
     getEInvoiceToken: getEInvoiceToken,
     postSubmission: postSubmission,
     getSubmission: getSubmission,
-    GetQRCode: GetQRCode
+    GetQRCode: GetQRCode,
+    uploadQRCode: uploadQRCode
 };

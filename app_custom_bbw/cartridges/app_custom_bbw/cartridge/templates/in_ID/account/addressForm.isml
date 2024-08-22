@@ -13,12 +13,18 @@
         </span>
     </div>
     <input type="text" class="form-control" id="addressId"
+    placeholder="412 345 678"
         data-missing-error="${Resource.msg('error.address.title', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.20orless', 'forms', null)}" <isprint
         value="${pdict.addressForm.addressId.attributes}" encoding="off" />>
     <div class="invalid-feedback"></div>
 </div>
-
+<input type="hidden" class="dialCode" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCode')}"
+    <isprint value=${pdict.addressForm.dialCode.attributes} encoding="off" />
+/>
+<input type="hidden" class="dialCodeCountry"
+    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCodeCountry')}" <isprint
+    value=${pdict.addressForm.dialCodeCountry.attributes} encoding="off" />
 <!-- Name -->
 <div class="row">
     <!-- First Name -->
@@ -287,7 +293,7 @@
 <!-- Cancel and Save Buttons -->
 <div class="row">
     <div class="col-12 text-center">
-        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#" class="h-font-size--12 h-clr--black-3 privacy-policy">
+        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3 privacy-policy">
             ${Resource.msg('label.privacy', 'account', null)}
         </a>
     </div>

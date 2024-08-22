@@ -17,6 +17,7 @@ function getGoogleFeeds() {
     var currentSite = require('dw/system/Site').getCurrent();
     var ImageModel = require('*/cartridge/models/product/productImages');
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
+    var ProductFactory = require('*/cartridge/scripts/factories/product');
     var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
     var productsIterator = ProductMgr.queryAllSiteProducts();
     var fileName = 'google-feed';
@@ -39,10 +40,12 @@ function getGoogleFeeds() {
         quantity: 'all'
     };
     var apiProduct;
+    var productObj;
     try {
         while (productsIterator.hasNext()) {
             product = productsIterator.next();
             apiProduct = ProductMgr.getProduct(product.ID);
+            productObj = ProductFactory.get({ pid: product.ID });
             if (!product.custom.isBonusProduct && product.online && productValidationHelpers.getProductMaxOrderQty(apiProduct) >= 1) {
                 xmlStreamWriter.writeStartElement('item');
                 var images = new ImageModel(apiProduct, config);
@@ -155,6 +158,10 @@ function getGoogleFeeds() {
                 xmlStreamWriter.writeCData(' ' + product.ID + ' ');
                 xmlStreamWriter.writeEndElement();
 
+                xmlStreamWriter.writeStartElement('g:quantity');
+                xmlStreamWriter.writeCData(productObj.maxOrderQty.toString());
+                xmlStreamWriter.writeEndElement();
+
                 xmlStreamWriter.writeStartElement('g:price');
                 xmlStreamWriter.writeCharacters(
                     product.priceModel.price.value.toString()
@@ -162,9 +169,15 @@ function getGoogleFeeds() {
                 xmlStreamWriter.writeEndElement();
 
                 xmlStreamWriter.writeStartElement('g:sale_price');
-                xmlStreamWriter.writeCharacters(
-                    product.priceModel.price.value.toString()
-                );
+                if (productObj.promoPrice) {
+                    xmlStreamWriter.writeCharacters(
+                        productObj.promoPrice.toString()
+                    );
+                } else {
+                    xmlStreamWriter.writeCharacters(
+                        product.priceModel.price.value.toString()
+                    );
+                }
                 xmlStreamWriter.writeEndElement();
 
                 xmlStreamWriter.writeStartElement('g:google_product_category');

@@ -214,6 +214,7 @@
                             </table>
                         </div>
                         <iscomment> Billing Section </iscomment>
+                        <isset name="address" value="${pdict.order.billing.billingAddress.address}" scope="page" />
                         <div
                             style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:0;padding-bottom:13px;margin-bottom:16px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
                             ${Resource.msg('email.order.billing.heading', 'confirmation', null)}

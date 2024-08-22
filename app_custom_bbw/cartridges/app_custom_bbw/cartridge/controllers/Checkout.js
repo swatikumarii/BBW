@@ -34,6 +34,15 @@ server.append('Begin', function (req, res, next) {
             viewData.customer.profile.email ? viewData.customer.profile.email || '' : '';
     }
     viewData.userEmail = userEmail;
+    // set dialCode in billing and shipping form
+    if (currentBasket.getDefaultShipment().shippingAddress) {
+        viewData.forms.shippingForm.shippingAddress.addressFields.dialCode.htmlValue = currentBasket.getDefaultShipment().shippingAddress.custom.dialCode;
+        viewData.forms.shippingForm.shippingAddress.addressFields.dialCodeCountry.htmlValue = currentBasket.getDefaultShipment().shippingAddress.custom.dialCodeCountry;
+    }
+    if (currentBasket.billingAddress) {
+        viewData.forms.billingForm.addressFields.dialCode.htmlValue = currentBasket.billingAddress.custom.dialCode;
+        viewData.forms.billingForm.addressFields.dialCodeCountry.htmlValue = currentBasket.billingAddress.custom.dialCodeCountry;
+    }
     res.setViewData(viewData);
     next();
 });

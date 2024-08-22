@@ -1,9 +1,8 @@
 $(document).ready(function () {
-    var formValidation = require('base/components/formValidation');
     let downloadInvoiceRenderElement = $('#download_EInvoice');
     let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
-    let btnShowUrl = downloadInvoiceRenderElement.attr('data-btn-show');
     let statusCheckUrl = downloadInvoiceRenderElement.attr('data-check-status');
+    let NRICHintText = $('.NRICHintText');
 
     // Function to get label, placeholder, and options from attribute
     function getAttributeInfo(
@@ -55,9 +54,12 @@ $(document).ready(function () {
                 $('.invalid-submittion').html('');
                 $.spinner().stop();
                 showAlertHtml(data.successMsg);
+                return true;
             } else {
                 $.spinner().stop();
                 $('.invalid-submittion').html(data.errorMsg);
+                $('.invalid-submittion').show();
+                return false;
             }
         };
 
@@ -76,21 +78,6 @@ $(document).ready(function () {
             }, 5000);
         };
 
-        this.showEinvoiceButton = function (url, odrId) {
-            var csrfToken = $('input[name="csrf_token"]').val();
-            $.ajax({
-                type: 'GET',
-                url: url + '?orderId=' + odrId + '&csrf_token=' + csrfToken,
-                success: function success(response) {
-                    if (response.isValid) {
-                        $('.modal-toggle-e-invoice').show();
-                    } else {
-                        $('.modal-toggle-e-invoice').hide();
-                    }
-                }
-            });
-        };
-
         this.checkStatus = function (
             url,
             odrId,
@@ -107,12 +94,44 @@ $(document).ready(function () {
                 url: url + '?orderId=' + odrId + '&csrf_token=' + csrfToken,
                 success: function success(response) {
                     if (response.status === 'pending') {
+                        showPendingMessage = false;
                         if (showPendingMessage) {
                             showAlertHtml(response.message);
                         }
 
+                        var classes = $('.modal-toggle-e-invoice').attr(
+                            'class'
+                        );
+                        var parentElement = $(
+                            '.modal-toggle-e-invoice'
+                        ).parent().find('.e-invoice-pending-details');
                         $('.modal-toggle-e-invoice').spinner().stop();
-                        $('.modal-e-invoice').attr('style', '');
+                        $('.modal-e-invoice').attr('style', '');                        
+                        var btnHtml =
+                            '<button class="' +
+                            classes +
+                            ' einvoice-a-2-btn' +
+                            '" target="_blank">' +
+                            response.btnText +
+                            '</button>';
+                        if (parentElement.length > 0) {
+                            $('.modal-toggle-e-invoice').remove();
+                            parentElement.before(btnHtml);
+                        } else {
+                            var outsideParentElement = $(
+                                '.modal-toggle-e-invoice'
+                            ).parent();
+                            $('.modal-toggle-e-invoice').remove();
+                            outsideParentElement.append(btnHtml);
+                        }
+                       
+                        $('.modal-toggle-e-invoice').removeClass(
+                            'modal-toggle-e-invoice'
+                        );
+                         $('.e-invoice-error-details').remove();
+                        $('.einvoice-a-2-btn').prop("disabled",true)
+                        $('.e-invoice-pending-details').removeClass('d-none');
+                        $('.e-invoice-pending-details').show();
                     } else if (response.status === 'success') {
                         var classes = $('.modal-toggle-e-invoice').attr(
                             'class'
@@ -129,22 +148,36 @@ $(document).ready(function () {
                                 '" class="' +
                                 classes +
                                 ' einvoice-a-2-btn' +
-                                '" target="_blank">Show E-Invoice</button>'
+                                '" target="_blank">' +
+                                response.btnText +
+                                '</button>'
                         );
+                         $('.e-invoice-error-details').remove();
                         $('.modal-toggle-e-invoice').removeClass(
                             'modal-toggle-e-invoice'
                         );
+                        $('.e-invoice-pending-details').hide();
                     } else {
+                        var classes = $('.modal-toggle-e-invoice').attr(
+                            'class'
+                        );
+                        var parentElement = $(
+                            '.modal-toggle-e-invoice'
+                        ).parent();
                         $('.modal-toggle-e-invoice').spinner().stop();
-                        $('.modal-e-invoice').attr('style', '');
+                        $('.modal-e-invoice').attr('style', '');                       
                         if (showToggle) {
                             $('.modal-e-invoice').toggleClass('is-visible');
                             $('body').toggleClass('einvoice-open');
                         }
+                        $('.e-invoice-pending-details').hide();
+                        $('#tinTB').val(response.customerTaxNumber);
                     }
                 }
             });
         };
+
+        var self = this;
 
         this.submitForm = function (url, data, odrId) {
             var csrfToken = $('input[name="csrf_token"]').val();
@@ -159,16 +192,19 @@ $(document).ready(function () {
                     sSTNumber: 'NA'
                 },
                 success: function success(response) {
-                    showAlert(response);
+                    var showAlertResponse = showAlert(response);
+                    if (showAlertResponse) {
+                        self.checkStatus(statusCheckUrl, orderId, false, false);
+                        $('body').removeClass('einvoice-open');
+                    } else {
+                        return false;
+                    }
                 }
             });
         };
     };
 
     let eInvoice = new EInvoice();
-    eInvoice.showEinvoiceButton(btnShowUrl, orderId);
-
-    eInvoice.checkStatus(statusCheckUrl, orderId, false, false);
 
     $('body').on('submit', '#submitEInvoiceDownloadForm', function (e) {
         e.preventDefault();
@@ -203,7 +239,9 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '.einvoice-a-2-btn', function () {
-        window.open($(this).attr('data-url'), '_blank');
+        if ($(this).attr('data-url')) {
+             window.open($(this).attr('data-url'), '_blank');
+        }       
     });
 
     // Quick & dirty toggle to demonstrate modal toggle behavior
@@ -233,29 +271,40 @@ $(document).ready(function () {
 
         switch (selectedValue) {
             case 'NRIC':
+                var NRICNumberJson = popupNRICInputLabel.split(' ');
                 bsnRegLabel = popupNRICInputLabel;
                 bsnRegPlaceholder = popupNRICInputPlaceHolder;
                 showfield = true;
+                NRICHintText.html(
+                    NRICNumberJson[0] +
+                        ' ' +
+                        NRICNumberJson[1].toLowerCase() +
+                        ' ex:- YYMMDD-PB-###G'
+                );
                 break;
             case 'BRN':
                 bsnRegLabel = popupbRNInputLabel;
                 bsnRegPlaceholder = popupbRNInputPlaceHolder;
                 showfield = true;
+                NRICHintText.html('');
                 break;
             case 'PASSPORT':
                 bsnRegLabel = popupPassportInputLabel;
                 bsnRegPlaceholder = popupPassportInputPlaceHolder;
                 showfield = true;
+                NRICHintText.html('');
                 break;
             case 'ARMY':
                 bsnRegLabel = popuparmyInputLabel;
                 bsnRegPlaceholder = popuparmyInputPlaceHolder;
                 showfield = true;
+                NRICHintText.html('');
                 break;
             default:
                 bsnRegLabel = '';
                 bsnRegPlaceholder = '';
                 showfield = false;
+                NRICHintText.html('');
         }
 
         // let regFormTextArray = $('#form-regTB-error').text().split(' ');
