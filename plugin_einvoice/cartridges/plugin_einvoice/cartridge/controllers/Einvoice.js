@@ -11,26 +11,6 @@ var einvoiceHelpers = require('*/cartridge/scripts/helpers/einvoiceHelpers');
 var Logger = require('dw/system/Logger');
 var loggerEinvoice = Logger.getLogger('EInvoice');
 
-/**
- * Handles GET requests to show e-invoice data
- * Validates the creation date of the order
- */
-server.get(
-    'Show',
-    server.middleware.https,
-    csrfProtection.validateAjaxRequest,
-    function (req, res, next) {
-        var OrderMgr = require('dw/order/OrderMgr');
-        var order = OrderMgr.getOrder(req.querystring.orderId); // Retrieve order using orderId (orderId should be defined or passed in some way)
-
-        // Return JSON response with the validity of the order's creation date
-        res.json({
-            isValid: einvoiceHelpers.isValidDate(order.creationDate)
-        });
-        return next();
-    }
-);
-
 server.get(
     'CheckStatus',
     server.middleware.https,
