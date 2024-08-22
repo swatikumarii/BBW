@@ -40,6 +40,7 @@ function getGiftContentPrice(apiProduct) {
                 decorators.price(product1, apiProduct1, options.promotions, false, options.optionModel);
                 var name = apiProduct1.name ? apiProduct1.name : '';
                 product1.productName = apiProduct1.custom.fragranceName ? apiProduct1.custom.fragranceName : name;
+                product1.pid = apiProduct1.ID;
                 giftSetContents.push(product1);
             }
         }
