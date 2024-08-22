@@ -1,7 +1,6 @@
 $(document).ready(function () {
     let downloadInvoiceRenderElement = $('#download_EInvoice');
     let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
-    let btnShowUrl = downloadInvoiceRenderElement.attr('data-btn-show');
     let statusCheckUrl = downloadInvoiceRenderElement.attr('data-check-status');
     let NRICHintText = $('.NRICHintText');
 
@@ -77,21 +76,6 @@ $(document).ready(function () {
             setTimeout(function () {
                 $('.add-to-basket-alert').remove();
             }, 5000);
-        };
-
-        this.showEinvoiceButton = function (url, odrId) {
-            var csrfToken = $('input[name="csrf_token"]').val();
-            $.ajax({
-                type: 'GET',
-                url: url + '?orderId=' + odrId + '&csrf_token=' + csrfToken,
-                success: function success(response) {
-                    if (response.isValid) {
-                        $('.modal-toggle-e-invoice').show();
-                    } else {
-                        $('.modal-toggle-e-invoice').hide();
-                    }
-                }
-            });
         };
 
         this.checkStatus = function (
@@ -220,7 +204,6 @@ $(document).ready(function () {
     };
 
     let eInvoice = new EInvoice();
-    eInvoice.showEinvoiceButton(btnShowUrl, orderId);    
 
     $('body').on('submit', '#submitEInvoiceDownloadForm', function (e) {
         e.preventDefault();

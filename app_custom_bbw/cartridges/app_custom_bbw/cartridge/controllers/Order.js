@@ -375,6 +375,21 @@ server.get(
         );
         if (orderId) {
             var order = OrderMgr.getOrder(orderId);
+
+            var viewData = res.getViewData();
+
+            if (
+                dw.system.Site.getCurrent().getCustomPreferenceValue(
+                    'eInvoiceEnable'
+                ) === true
+            ) {
+                var einvoiveHelper = require('*/cartridge/scripts/helpers/einvoiceHelpers');
+                viewData.eInvoiceData =
+                    einvoiveHelper.eInvoiceStatusCheckNonAjax(res, orderId);
+            }
+
+            res.setViewData(viewData);
+
             var breadcrumbs = [];
             if (req.currentCustomer.profile) {
                 breadcrumbs = [

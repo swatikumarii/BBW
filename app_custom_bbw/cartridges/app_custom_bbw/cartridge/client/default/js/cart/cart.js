@@ -110,7 +110,7 @@ function updateCartTotals(data) {
     });
     if (data.totals.allDiscounts.length > 0) {
         $('.order-discount').removeClass('hide-order-discount');
-        $('.order-discount').empty().append(data.totals.allDiscountsHTML);
+        $('.order-discount').empty().append(data.totals.mergedDiscountsHTML);
     } else {
         $('.order-discount').addClass('hide-order-discount');
     }
