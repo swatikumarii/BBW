@@ -323,8 +323,8 @@ module.exports = $.extend({}, base, {
                 $.each(addressData[selectedState], function (suburb) {
                     suburbDropdown.append(
                         $('<option>', {
-                            value: addressData[selectedState][suburb],
-                            text: addressData[selectedState][suburb]
+                            value: suburb,
+                            text: suburb
                         })
                     );
                 });
