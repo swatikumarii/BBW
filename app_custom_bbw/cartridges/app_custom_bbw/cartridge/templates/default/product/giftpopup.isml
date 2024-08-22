@@ -1,11 +1,15 @@
 <isloop items="${pdict.a}" var="giftContent" status="loopstatus">
     <div class="d-flex giftcontent-popup">
         <div class="mb-1">
-            <img src="${giftContent.images.mediumLarge[0].absURL}" alt="${giftContent.productName}" width="40"
-                height="40">
+            <a href="${URLUtils.url('Product-Show', 'pid', giftContent.pid)}" target="_blank">
+                <img src="${giftContent.images.mediumLarge[0].absURL}" alt="${giftContent.productName}" width="40"
+                    height="40">
+            </a>
         </div>
         <div class="mb-1 h-font-size--12 product-name">
-            ${giftContent.productName}
+            <a href="${URLUtils.url('Product-Show', 'pid', giftContent.pid)}" target="_blank">
+                ${giftContent.productName}
+            </a>
         </div>
         <div class="mb-1 h-font-size--12 product-pricee">
             ${giftContent.price.sales.formatted}
