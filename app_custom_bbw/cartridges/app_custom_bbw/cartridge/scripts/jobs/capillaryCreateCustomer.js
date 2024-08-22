@@ -26,7 +26,8 @@ function execute() {
                     phone: customerProfile.phoneHome,
                     email: customerProfile.email,
                     gender: customerProfile.gender ? customerProfile.gender.value : '',
-                    birthday: customerProfile.birthday ? customerProfile.birthday : ''
+                    birthday: customerProfile.birthday ? customerProfile.birthday : '',
+                    dialCode: customerProfile.custom.dialCode
                 };
                 var crmCustomerID = capillaryAPI.createCustomer(customerData, customerProfile);
                 if (crmCustomerID) {

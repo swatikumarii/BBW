@@ -19,7 +19,7 @@
   data-army="${Resource.msg('einvoice.modal.popup.input.army', 'einvoice_modal', null)}:${Resource.msg('einvoice.modal.popup.input.placeholder.army', 'einvoice_modal', null)}"
   data-btn-show="${URLUtils.url('Einvoice-Show')}" data-check-status="${URLUtils.url('Einvoice-CheckStatus')}"></div>
 <div class="modal-e-invoice">
-  <div class="modal-overlay-e-invoice modal-toggle-e-invoice"></div>
+  <div class="modal-overlay-e-invoice modal-toggle-e-invoice-00"></div>
   <div class="modal-wrapper-e-invoice modal-transition-e-invoice cust-modal text-left">
     <div class="modal-header-e-invoice modal-title">
 
@@ -68,6 +68,13 @@
               data-missing-error="${Resource.msg('reg.field.required.error', 'einvoice_modal', null)}" required />
             <div class="invalid-feedback" id="form-regTB-error"></div>
             <p class="NRICHintText"></p>
+          </div>
+          <div class="form-group custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="tCCB" name="tCCB" data-missing-error="${Resource.msg('t&C.popup.field.required.msg', 'einvoice_modal', null)}" required>
+              <label class="custom-control-label" for="tCCB">
+                ${Resource.msg('t&c.popup.checkbox.label', 'einvoice_modal', null)}
+              </label>
+              <div class="invalid-feedback" id="form-tCCB-error"></div>
           </div>
           <div class="form-group">
             <p class="invalid-submittion text-danger"></p>

@@ -107,7 +107,7 @@ $(document).ready(function () {
     if (error || paymentStage || checkoutStage === 'payment') {
         if (error) {
             $('.error-message').show();
-            $('.error-message-text').text(decodeURIComponent(error[1]));
+            $('.error-message-text').empty().text(decodeURIComponent(error[1]));
         }
     }
     $('#selectedPaymentOption').val(
@@ -124,13 +124,41 @@ $(document).ready(function () {
         addressAutocomplete.initializeBilling
     );
     var phone = document.querySelector('.shippingPhoneNumber');
-    intlTelInput(phone, {
+    var intl = intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'id',
-        countryOrder: ['id']
+        initialCountry: $('.shipping-form .dialCodeCountry').val(),
+        formatOnDisplay: false,
+        formatAsYouType: false
+    });
+    // Attach the instance to a global variable
+    window.itiInstance = intl;
+    $('.shippingPhoneNumber').on('countrychange', function() {
+        var countryData = intl.getSelectedCountryData();
+        $('.shipping-form .dialCode').val(countryData.dialCode);
+        $('.shipping-form .dialCodeCountry').val(countryData.iso2);
+    });
+
+    // country selector on billing address
+    var billingDialCode = $('.payment-form .dialCodeCountry').val() || $('.dialCodeCountry').val();
+    var billingPhone = document.querySelector('#phoneNumber');
+    var billingIntl = intlTelInput(billingPhone, {
+        utilsScript: utils,
+        showFlags: true,
+        strictMode: true,
+        showSelectedDialCode: true,
+        initialCountry: billingDialCode,
+        formatOnDisplay: false,
+        formatAsYouType: false
+    });
+    // Attach the instance to a global variable
+    window.billingInstance = billingIntl;
+    $('#phoneNumber').on('countrychange', function() {
+        var billCountryData = billingIntl.getSelectedCountryData();
+        $('.payment-form .dialCode').val(billCountryData.dialCode);
+        $('.payment-form .dialCodeCountry').val(billCountryData.iso2);
     });
 
     $('.accordion-title').click(function () {
@@ -364,13 +392,6 @@ $(document).ready(function () {
                     return false;
                 }
             });
-        }
-        var billingForm = $('#dwfrm_billing .contact-info-block');
-        if (!$('input[name$=_phone]', billingForm).val()) {
-            var isMultiShip = $('#checkout-main').hasClass('multi-ship');
-            var formSelector = isMultiShip ? '.multi-shipping .active form' : '.single-shipping .shipping-form';
-            var shippingForm = $(formSelector);
-            $('input[name$=_phone]', billingForm).val($('input[name$=_phone]', shippingForm).val());
         }
     }
     $.spinner().stop();

@@ -135,7 +135,7 @@ $(document).ready(function () {
      * @returns {boolean} valid or not
      */
     function validPhoneNumber(input) {
-        var pattern = /^((?!(0))[0-9]{8,12})$/;
+        var pattern = /^(?!0)[0-9\s-]{8,13}$/;
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error
@@ -150,6 +150,8 @@ $(document).ready(function () {
             return false;
         }
         input.removeClass('is-invalid border-danger'); // Remove class if input is valid
+        if (input.parents('.iti').length)
+            input.parents('.iti').removeClass('is-invalid border-danger');
         $('#' + input.attr('id') + '-error').empty(); // Clear error message
         return true;
     }
@@ -249,6 +251,7 @@ $(document).ready(function () {
         { selector: '#firstName', validationFunction: validMinLength },
         { selector: '#lastName', validationFunction: validMinLength },
         { selector: '#phone', validationFunction: validPhoneNumber },
+        { selector: '#profilePhone', validationFunction: validPhoneNumber },
         { selector: '#zip', validationFunction: validZipCodeRequired },
         { selector: '#password', validationFunction: validatePasswordField },
         { selector: '#addressId', validationFunction: validateRequiredField },

@@ -5,7 +5,7 @@ var addressHelpers = require('base/checkout/address');
 var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
-var formHelpers = require('base/checkout/formErrors');
+var formHelpers = require('./formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
 // ### Custom Adyen cartridge start ###
 var adyenCheckout = require('adyen/adyenCheckout');
@@ -424,7 +424,7 @@ $(document).on('blur', '#email', function () {
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
-                                        $('.error-message-text').append(error);
+                                        $('.error-message-text').empty().append(error);
                                         scrollAnimate($('.error-message'));
                                     });
                                 }
@@ -670,7 +670,7 @@ $(document).on('blur', '#email', function () {
 
                         if (data.errorMessage) {
                             $('.error-message').show();
-                            $('.error-message-text').append(data.errorMessage);
+                            $('.error-message-text').empty().append(data.errorMessage);
                         }
                     }
                 });

@@ -104,10 +104,36 @@ function updateSubmission(tokenInfo, submission, isRecursive) {
                     if (qrCodeResponse.qrcode) {
                         // eslint-disable-next-line no-loop-func
                         Transaction.wrap(function () {
-                            order.custom.eInvoiceQrCode = JSON.stringify(qrCodeResponse);
+                            try {
+                                var UUIDUtils = require('dw/util/UUIDUtils');
+                                // Get EInvoice
+                                var uploadQRCodeAPI = EInvoiceApi.uploadQRCode(
+                                    {
+                                        qrcode: qrCodeResponse.qrcode,
+                                        name: UUIDUtils.createUUID() + '.png'
+                                    }
+                                );
+                                if (uploadQRCodeAPI.ok) {
+                                    var uploadQRCode = JSON.parse(
+                                        uploadQRCodeAPI.object
+                                    );
+                                    if (
+                                        uploadQRCode
+                                    ) {
+                                        qrCodeResponse.qrCodeLink =
+                                            uploadQRCode.url;
+                                    }
+                                }
+                            } catch (error) {
+                                loggerEinvoice.error(
+                                    'QRCode File upload : ' + error
+                                );
+                            }
+                            order.custom.eInvoiceQrCode =
+                                JSON.stringify(qrCodeResponse);
                             order.custom.eInvoiceStatus =
                                 einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS;
-                            order.custom.einvoiceErrorMsg = "";  
+                            order.custom.einvoiceErrorMsg = '';
 
                             CustomObjectMgr.remove(submission);
                         });

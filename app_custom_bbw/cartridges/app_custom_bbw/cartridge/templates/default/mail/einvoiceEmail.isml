@@ -6,12 +6,51 @@
             title="${Resource.msg('headline.resetpassword.notification.email', 'email', null)}" />
     </iscomment>
     <tr style="padding: 0;">
+        <td style="vertical-align: middle; text-align: center; color: #333; font-size: 14px;">
+            <table style="padding-top: 35px;" cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                <tr style="padding: 0;">
+                    <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
+                        <strong>${Resource.msg('email.body.invoice.details.text', 'einvoice', null)}</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr style="padding: 0;">
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;" colspan="3">
+                                    <strong>${Resource.msg('email.body.order.number.text', 'einvoice', null)}</strong>
+                                </td>
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
+                                    ${pdict.orderId}
+                                </td>
+                            </tr>
+                            <tr style="padding: 0;">
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;" colspan="3">
+                                    <strong>${Resource.msg('email.body.invoice.submission.date.text', 'einvoice', null)}</strong>
+                                </td>
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
+                                    ${pdict.submissionDate}
+                                </td>
+                            </tr>
+                            <tr style="padding: 0;">
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;" colspan="3">
+                                    <strong>${Resource.msg('email.body.invoice.submission.id.text', 'einvoice', null)}</strong>
+                                </td>
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
+                                    ${pdict.erpId}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr style="padding: 0;">
         <td style="vertical-align: middle; text-align: center; color: #333; font-size: 14px; margin: 20px 0;">
             <table style="padding-top: 35px;" cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
                 <tr style="padding: 0;">
                     <td style="padding: 0 32px 15px; vertical-align: top; text-align: center; margin: 10px;">
-                        ${Resource.msg('email.body.einvoice', 'einvoice', null)}
-                        <br />
                         <a href="${pdict.invoiceUrl}"
                             style="background-color: #000000; font-size: 12px; line-height: 12px; letter-spacing: 2px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-weight: normal; text-transform: uppercase; text-decoration: none; padding: 15px 29px; color: #ffffff; display: inline-block; border: solid 1px #000000; margin-top: 15px;"
                             target="_blank">
@@ -19,8 +58,10 @@
                         </a>
                         <br />
                         <p>${Resource.msg('email.scan.qrcode.text', 'einvoice', null)}</p>
-                        <img src="data:image/png;base64,${pdict.qrCode}" alt="QR Code"
-                            style="max-width: 100%; height: auto;" />
+                        <div>
+                            <img src="${pdict.qrCode}" alt="QR Code"
+                                style="max-width: 250px; height: auto;" />
+                        </div>
                         <br />
                         <a href="${pdict.qrCodeLink}" target="_blank" style="color: #000000; text-decoration: underline;">${Resource.msg('email.see.invoice.details.text', 'einvoice', null)}</a>
                     </td>

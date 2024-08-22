@@ -686,7 +686,7 @@
                                 ${Resource.msg('third.return.policy', 'order', null)}
                             </li>
                             <li style="font-size:16px">
-                                ${Resource.msgf('fourth.return.policy', 'order', null, URLUtils.abs('Page-Show', 'cid', 'return-policy'))}
+                                <isprint value="${Resource.msgf('fourth.return.policy', 'order', null, URLUtils.abs('Page-Show', 'cid', 'return-policy'))}" encoding="off" />
                             </li>
                         </ol>
                     </td>

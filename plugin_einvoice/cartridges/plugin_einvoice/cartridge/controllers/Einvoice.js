@@ -102,6 +102,7 @@ server.get(
                     'einvoice_modal',
                     null
                 ),
+                customerTaxNumber: order.custom.eInvoiceCustomerTaxNumber ||'',
                 errorReason: order.custom.einvoiceErrorMsg || ''
             });
         }
@@ -157,7 +158,7 @@ server.post(
         try {
             var order = OrderMgr.getOrder(orderId); // Retrieve order using orderId
 
-            loggerEinvoice.info('Order-id : ' + orderId);
+            loggerEinvoice.info('Order-id : ' + orderId);          
 
             // Validate order creation date
             if (!einvoiceHelpers.isValidDate(order.creationDate)) {
@@ -273,6 +274,8 @@ server.post(
                                 order.custom.eInvoiceNumber =
                                     referenceData.invoiceId;
                                 order.custom.eInvoiceStatus = 'pending';
+                                order.custom.eInvoiceCustomerTaxNumber =
+                                     tinNumber;
                             });
 
                             // Return success response

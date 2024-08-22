@@ -701,6 +701,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="dialCodeCountry">
+				<display-name xml:lang="x-default">Country DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
 			<attribute-definition attribute-id="lastModified">
                 <display-name xml:lang="x-default">Last Modified</display-name>
                 <type>datetime</type>
@@ -721,6 +728,7 @@
                 <attribute attribute-id="email"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="dialCodeCountry"/>
                 <attribute attribute-id="addressType"/>
             </attribute-group>
         </group-definitions>
@@ -2002,6 +2010,20 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="defaultDialCode">
+				<display-name xml:lang="x-default">Default Phone DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="defaultDialCodeCountry">
+				<display-name xml:lang="x-default">Default Phone DialCode Country</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -2070,6 +2092,8 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showTopOffers"/>
                 <attribute attribute-id="showMinicartPopup"/>
                 <attribute attribute-id="homePageSchema"/>
+                <attribute attribute-id="defaultDialCode"/>
+                <attribute attribute-id="defaultDialCodeCountry"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -4563,6 +4587,45 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="shippingMethodAttr">
                 <display-name xml:lang="x-default">Shipping Method Attributes</display-name>
                 <attribute attribute-id="estimatedArrivalTime"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="OrderAddress">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="dialCode">
+                <display-name xml:lang="x-default">Dial Code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dialCodeCountry">
+                <display-name xml:lang="x-default">DialCode Country</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Standard Address</display-name>
+                <attribute attribute-id="title" system="true"/>
+                <attribute attribute-id="companyName" system="true"/>
+                <attribute attribute-id="salutation" system="true"/>
+                <attribute attribute-id="firstName" system="true"/>
+                <attribute attribute-id="secondName" system="true"/>
+                <attribute attribute-id="lastName" system="true"/>
+                <attribute attribute-id="suffix" system="true"/>
+                <attribute attribute-id="address1" system="true"/>
+                <attribute attribute-id="address2" system="true"/>
+                <attribute attribute-id="suite" system="true"/>
+                <attribute attribute-id="postBox" system="true"/>
+                <attribute attribute-id="city" system="true"/>
+                <attribute attribute-id="postalCode" system="true"/>
+                <attribute attribute-id="countryCode" system="true"/>
+                <attribute attribute-id="stateCode" system="true"/>
+                <attribute attribute-id="phone" system="true"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

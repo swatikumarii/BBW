@@ -15,5 +15,8 @@
     "files.insertFinalNewline": true,
     "[isml]": {
         "editor.defaultFormatter": "SqrTT.prophet"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
     }
 }
