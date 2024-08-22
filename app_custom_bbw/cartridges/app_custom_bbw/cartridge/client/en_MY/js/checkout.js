@@ -10,6 +10,7 @@ var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
 );
 var addressData = require('./addressData');
+var shippingHelpers = require('./checkout/shipping');
 
 /**
  * validateFields
@@ -524,6 +525,15 @@ $('.shippingAddressCity').change(function () {
         );
         zipDropdown.trigger('change');
     }
+    var updateShippingMethodsURL = $('input[name="update-shipping-method-url"]').val() + '?stateCode=' + selectedState;
+    $.ajax({
+        type: 'POST',
+        url: updateShippingMethodsURL,
+        success: function (data) {
+            shippingHelpers.methods.updateShippingMethods(data.order.shipping);
+            $('.grand-total-wrap .grand-total').empty().text(data.order.priceTotal);
+        }
+    });
 });
 
 $('.shippingZipCode').change(function () {

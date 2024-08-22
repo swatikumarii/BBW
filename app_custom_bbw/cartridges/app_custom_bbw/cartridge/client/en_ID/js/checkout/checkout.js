@@ -639,6 +639,7 @@ function ovoStart(orderID) {
                 // Set the form data
                 //
                 plugin.data('formData', formData);
+                $('.payment-method-options').find('input[type=\'radio\']').first().click();
             },
 
             /**

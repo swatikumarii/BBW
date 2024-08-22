@@ -75,4 +75,53 @@ server.post('SetEmailRecommendations', function (req, res, next) {
     next();
 });
 
+server.post('UpdateShippingMethods', function (req, res, next) {
+    var BasketMgr = require('dw/order/BasketMgr');
+    var Transaction = require('dw/system/Transaction');
+    var ShippingMgr = require('dw/order/ShippingMgr');
+    var AccountModel = require('*/cartridge/models/account');
+    var OrderModel = require('*/cartridge/models/order');
+    var Locale = require('dw/util/Locale');
+    var collections = require('*/cartridge/scripts/util/collections');
+    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var shipment = currentBasket.defaultShipment;
+    var stateCode = req.querystring.stateCode;
+    var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
+    Transaction.wrap(function () {
+        var shippingAddress = shipment.shippingAddress;
+
+        if (!shippingAddress) {
+            shippingAddress = shipment.createShippingAddress();
+        }
+        shippingAddress.stateCode = stateCode;
+        var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+            currentBasket.getDefaultShipment()
+        ).getApplicableShippingMethods();
+        var applicableShippingMethodsIDs = collections.map(applicableShippingMethods, function (applicableShippingMethod) {
+            return applicableShippingMethod.ID;
+        });
+        if (!applicableShippingMethodsIDs.includes(appliedShippingMethodID)) {
+            Transaction.wrap(function () {
+                currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+            });
+        }
+
+        basketCalculationHelpers.calculateTotals(currentBasket);
+    });
+    basketCalculationHelpers.calculateTotals(currentBasket);
+    var currentLocale = Locale.getLocale(req.locale.id);
+    var basketModel = new OrderModel(
+        currentBasket,
+        { usingMultiShipping: false, countryCode: currentLocale.country, containerView: 'basket' }
+    );
+
+    res.json({
+        customer: new AccountModel(req.currentCustomer),
+        order: basketModel,
+        shippingForm: server.forms.getForm('shipping')
+    });
+    next();
+});
+
 module.exports = server.exports();
