@@ -833,8 +833,6 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
-            var district = attrs.district.trim();
-            var subDistrict = attrs.subDistrict.trim();
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
@@ -855,34 +853,6 @@ module.exports = {
                         $('.shippingAddressCity option')[0].remove();
                         $(this).attr('selected', 'selected');
                         $('body').find('.shippingAddressCity').trigger('change');
-                        return false;
-                    }
-                });
-            }
-            if (district) {
-                $('.shippingAddressDistrict option').each(function () {
-                    if ($(this).val() === district) {
-                        $('.shippingAddressDistrict option').removeAttr('selected');
-                        $('.shippingAddressDistrict option')[0].remove();
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.shippingAddressDistrict')
-                            .trigger('change');
-                        return false;
-                    }
-                });
-            }
-            if (subDistrict) {
-                $('.shippingAddressSubdistrict option').each(function () {
-                    if ($(this).val() === district) {
-                        $('.shippingAddressSubdistrict option').removeAttr(
-                            'selected'
-                        );
-                        $('.shippingAddressSubdistrict option')[0].remove();
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.shippingAddressSubdistrict')
-                            .trigger('change');
                         return false;
                     }
                 });
