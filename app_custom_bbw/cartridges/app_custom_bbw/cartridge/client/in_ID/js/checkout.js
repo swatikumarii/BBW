@@ -4,6 +4,8 @@ var processInclude = require('base/util');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 var addressAutocomplete = require('./checkout/addressAutocomplete');
+var shippingHelpers = require('./checkout/shipping');
+
 /* eslint-disable prefer-regex-literals */
 var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
@@ -492,6 +494,15 @@ $('.shippingState').change(function () {
         suburbDropdown.trigger('change');
         zipDropdown.trigger('change');
     }
+    var updateShippingMethodsURL = $('input[name="update-shipping-method-url"]').val() + '?stateCode=' + selectedState;
+    $.ajax({
+        type: 'POST',
+        url: updateShippingMethodsURL,
+        success: function (data) {
+            shippingHelpers.methods.updateShippingMethods(data.order.shipping);
+            $('.grand-total-wrap .grand-total').empty().text(data.order.priceTotal);
+        }
+    });
 });
 
 $('.shippingAddressCity').change(function () {
