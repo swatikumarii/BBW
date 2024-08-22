@@ -106,6 +106,7 @@
 
 .modal-e-invoice.is-visible {
     visibility: visible;
+    overflow: auto;
 }
 
 .modal-overlay-e-invoice {
@@ -198,4 +199,8 @@
     .header {
         z-index: 1 !important;
     }
+}
+
+.confirmation-details #form-tCCB-error {
+    padding: 0px;
 }

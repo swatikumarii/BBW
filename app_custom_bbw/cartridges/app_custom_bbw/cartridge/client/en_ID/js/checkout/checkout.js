@@ -5,7 +5,7 @@ var addressHelpers = require('base/checkout/address');
 var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
-var formHelpers = require('base/checkout/formErrors');
+var formHelpers = require('./formErrors');
 var location = window.location;
 var history = window.history;
 
@@ -419,7 +419,7 @@ function ovoStart(orderID) {
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
-                                        $('.error-message-text').append(error);
+                                        $('.error-message-text').empty().append(error);
                                         scrollAnimate($('.error-message'));
                                     });
                                 }
@@ -639,6 +639,7 @@ function ovoStart(orderID) {
                 // Set the form data
                 //
                 plugin.data('formData', formData);
+                $('.payment-method-options').find('input[type=\'radio\']').first().click();
             },
 
             /**
@@ -671,7 +672,7 @@ function ovoStart(orderID) {
 
                         if (data.errorMessage) {
                             $('.error-message').show();
-                            $('.error-message-text').append(data.errorMessage);
+                            $('.error-message-text').empty().append(data.errorMessage);
                         }
                     }
                 });

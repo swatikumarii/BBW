@@ -1,8 +1,6 @@
 $(document).ready(function () {
-    
     let downloadInvoiceRenderElement = $('#download_EInvoice');
     let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
-    let btnShowUrl = downloadInvoiceRenderElement.attr('data-btn-show');
     let statusCheckUrl = downloadInvoiceRenderElement.attr('data-check-status');
     let NRICHintText = $('.NRICHintText');
 
@@ -56,9 +54,12 @@ $(document).ready(function () {
                 $('.invalid-submittion').html('');
                 $.spinner().stop();
                 showAlertHtml(data.successMsg);
+                return true;
             } else {
                 $.spinner().stop();
                 $('.invalid-submittion').html(data.errorMsg);
+                $('.invalid-submittion').show();
+                return false;
             }
         };
 
@@ -75,21 +76,6 @@ $(document).ready(function () {
             setTimeout(function () {
                 $('.add-to-basket-alert').remove();
             }, 5000);
-        };
-
-        this.showEinvoiceButton = function (url, odrId) {
-            var csrfToken = $('input[name="csrf_token"]').val();
-            $.ajax({
-                type: 'GET',
-                url: url + '?orderId=' + odrId + '&csrf_token=' + csrfToken,
-                success: function success(response) {
-                    if (response.isValid) {
-                        $('.modal-toggle-e-invoice').show();
-                    } else {
-                        $('.modal-toggle-e-invoice').hide();
-                    }
-                }
-            });
         };
 
         this.checkStatus = function (
@@ -206,15 +192,19 @@ $(document).ready(function () {
                     sSTNumber: 'NA'
                 },
                 success: function success(response) {
-                    showAlert(response);
-                    self.checkStatus(statusCheckUrl, orderId, false, false);
+                    var showAlertResponse = showAlert(response);
+                    if (showAlertResponse) {
+                        self.checkStatus(statusCheckUrl, orderId, false, false);
+                        $('body').removeClass('einvoice-open');
+                    } else {
+                        return false;
+                    }
                 }
             });
         };
     };
 
     let eInvoice = new EInvoice();
-    eInvoice.showEinvoiceButton(btnShowUrl, orderId);    
 
     $('body').on('submit', '#submitEInvoiceDownloadForm', function (e) {
         e.preventDefault();

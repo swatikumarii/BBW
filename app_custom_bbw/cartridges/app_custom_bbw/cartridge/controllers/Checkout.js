@@ -34,6 +34,15 @@ server.append('Begin', function (req, res, next) {
             viewData.customer.profile.email ? viewData.customer.profile.email || '' : '';
     }
     viewData.userEmail = userEmail;
+    // set dialCode in billing and shipping form
+    if (currentBasket.getDefaultShipment().shippingAddress) {
+        viewData.forms.shippingForm.shippingAddress.addressFields.dialCode.htmlValue = currentBasket.getDefaultShipment().shippingAddress.custom.dialCode;
+        viewData.forms.shippingForm.shippingAddress.addressFields.dialCodeCountry.htmlValue = currentBasket.getDefaultShipment().shippingAddress.custom.dialCodeCountry;
+    }
+    if (currentBasket.billingAddress) {
+        viewData.forms.billingForm.addressFields.dialCode.htmlValue = currentBasket.billingAddress.custom.dialCode;
+        viewData.forms.billingForm.addressFields.dialCodeCountry.htmlValue = currentBasket.billingAddress.custom.dialCodeCountry;
+    }
     res.setViewData(viewData);
     next();
 });
@@ -62,6 +71,55 @@ server.post('SetEmailRecommendations', function (req, res, next) {
     }
     res.json({
         message: 'Success'
+    });
+    next();
+});
+
+server.post('UpdateShippingMethods', function (req, res, next) {
+    var BasketMgr = require('dw/order/BasketMgr');
+    var Transaction = require('dw/system/Transaction');
+    var ShippingMgr = require('dw/order/ShippingMgr');
+    var AccountModel = require('*/cartridge/models/account');
+    var OrderModel = require('*/cartridge/models/order');
+    var Locale = require('dw/util/Locale');
+    var collections = require('*/cartridge/scripts/util/collections');
+    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var shipment = currentBasket.defaultShipment;
+    var stateCode = req.querystring.stateCode;
+    var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
+    Transaction.wrap(function () {
+        var shippingAddress = shipment.shippingAddress;
+
+        if (!shippingAddress) {
+            shippingAddress = shipment.createShippingAddress();
+        }
+        shippingAddress.stateCode = stateCode;
+        var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+            currentBasket.getDefaultShipment()
+        ).getApplicableShippingMethods();
+        var applicableShippingMethodsIDs = collections.map(applicableShippingMethods, function (applicableShippingMethod) {
+            return applicableShippingMethod.ID;
+        });
+        if (!applicableShippingMethodsIDs.includes(appliedShippingMethodID)) {
+            Transaction.wrap(function () {
+                currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+            });
+        }
+
+        basketCalculationHelpers.calculateTotals(currentBasket);
+    });
+    basketCalculationHelpers.calculateTotals(currentBasket);
+    var currentLocale = Locale.getLocale(req.locale.id);
+    var basketModel = new OrderModel(
+        currentBasket,
+        { usingMultiShipping: false, countryCode: currentLocale.country, containerView: 'basket' }
+    );
+
+    res.json({
+        customer: new AccountModel(req.currentCustomer),
+        order: basketModel,
+        shippingForm: server.forms.getForm('shipping')
     });
     next();
 });

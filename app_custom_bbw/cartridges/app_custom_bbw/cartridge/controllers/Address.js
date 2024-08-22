@@ -65,7 +65,7 @@ server.replace(
 
         addressForm.copyFrom(addressModel.address);
 
-        res.render('account/addressForm', {
+        res.render('account/editAddressForm', {
             addressForm: addressForm,
             addressId: addressId
         });

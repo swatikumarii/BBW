@@ -8,7 +8,7 @@
         <square-placement data-mpid="${pdict.priceContext.apMpid}" data-type="logo"
             data-amount="${pdict.priceContext.totalPrice}" data-page-type="checkout"
             data-currency="${session.currency.getCurrencyCode()}"></square-placement>
-        <input name="afterpay" type="radio" value="afterpay">
+        <input name="brandCode" type="radio" value="afterpay" />
     </div>
     <fieldset class="payment-form-fields">
         <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}"

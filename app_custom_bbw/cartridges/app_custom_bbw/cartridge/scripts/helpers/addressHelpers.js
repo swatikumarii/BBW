@@ -17,7 +17,9 @@ function checkIfAddressStored(address, storedAddresses) {
             && storedAddresses[i].city === address.city
             && storedAddresses[i].firstName === address.firstName
             && storedAddresses[i].lastName === address.lastName
-            && storedAddresses[i].phone === address.phone) {
+            && storedAddresses[i].phone === address.phone
+            && storedAddresses[i].dialCode === address.dialCode
+            && storedAddresses[i].dialCodeCountry === address.dialCodeCountry) {
             return true;
         }
     }
@@ -54,31 +56,42 @@ function generateAddressName(address) {
  * @param {*} address - Address to copy from
  */
 function updateAddressFields(newAddress, address) {
-    newAddress.setAddress1(address.address1 || '');
-    newAddress.setAddress2(address.address2 || '');
-    newAddress.setCity(address.city || '');
-    newAddress.setFirstName(address.firstName || '');
-    newAddress.setLastName(address.lastName || '');
-    newAddress.setPhone(address.phone || '');
-    newAddress.setPostalCode(address.postalCode || '');
+    var Site = require('dw/system/Site');
+    var newCreatedAddress = newAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
+    var phoneNumber = '';
+    if (address.phone) {
+        phoneNumber = address.phone.replace(/[+\-\s()]/g, '');
+    }
+    newCreatedAddress.setAddress1(address.address1 || '');
+    newCreatedAddress.setAddress2(address.address2 || '');
+    newCreatedAddress.setCity(address.city || '');
+    newCreatedAddress.setFirstName(address.firstName || '');
+    newCreatedAddress.setLastName(address.lastName || '');
+    newCreatedAddress.setPhone(phoneNumber);
+    newCreatedAddress.setPostalCode(address.postalCode || '');
 
     if (address.states && address.states.stateCode) {
-        newAddress.setStateCode(address.states.stateCode);
+        newCreatedAddress.setStateCode(address.states.stateCode);
     }
 
     if (address.country) {
-        newAddress.setCountryCode(address.country);
+        newCreatedAddress.setCountryCode(address.country);
     }
-    newAddress.custom.district = address.district ? address.district : '';
-    newAddress.custom.subDistrict = address.subdistrict ? address.subdistrict : '';
-    newAddress.setJobTitle(address.jobTitle || '');
-    newAddress.setPostBox(address.postBox || '');
-    newAddress.setSalutation(address.salutation || '');
-    newAddress.setSecondName(address.secondName || '');
-    newAddress.setCompanyName(address.companyName || '');
-    newAddress.setSuffix(address.suffix || '');
-    newAddress.setSuite(address.suite || '');
-    newAddress.setTitle(address.title || '');
+
+    newCreatedAddress.setJobTitle(address.jobTitle || '');
+    newCreatedAddress.setPostBox(address.postBox || '');
+    newCreatedAddress.setSalutation(address.salutation || '');
+    newCreatedAddress.setSecondName(address.secondName || '');
+    newCreatedAddress.setCompanyName(address.companyName || '');
+    newCreatedAddress.setSuffix(address.suffix || '');
+    newCreatedAddress.setSuite(address.suite || '');
+    newCreatedAddress.setTitle(address.title || '');
+    newCreatedAddress.custom.dialCode = address.dialCode || defaultDialCode;
+    newCreatedAddress.custom.dialCodeCountry = address.dialCodeCountry || defaultDialCodeCountry;
+    newCreatedAddress.custom.district = address.district ? address.district : '';
+    newCreatedAddress.custom.subDistrict = address.subDistrict ? address.subDistrict : '';
 }
 
 /**
@@ -101,10 +114,66 @@ function saveAddress(address, customer, addressId, shouldSaveAddress) {
 
 }
 
+/**
+ * Copy dwscript address object into JavaScript object
+ * @param {dw.order.OrderAddress} address - Address to be copied
+ * @returns {object} - Plain object that represents an address
+ */
+function copyShippingAddress(address) {
+    return {
+        address1: address.address1,
+        address2: address.address2,
+        city: address.city,
+        firstName: address.firstName,
+        lastName: address.lastName,
+        district: 'custom' in address && 'district' in address.custom && address.custom.district,
+        subDistrict: 'custom' in address && 'subDistrict' in address.custom && address.custom.subDistrict,
+        phone: address.phone,
+        postalCode: address.postalCode,
+        states: {
+            stateCode: address.stateCode
+        },
+        country: address.countryCode,
+        jobTitle: address.jobTitle,
+        postBox: address.postBox,
+        salutation: address.salutation,
+        secondName: address.secondName,
+        companyName: address.companyName,
+        suffix: address.suffix,
+        suite: address.suite,
+        title: address.title,
+        dialCode: address.custom.dialCode,
+        dialCodeCountry: address.custom.dialCodeCountry
+    };
+}
+
+/**
+ * Gather all addresses from shipments and return as an array
+ * @param {dw.order.Basket} order - current order
+ * @returns {Array} - Array of shipping addresses
+ */
+function gatherShippingAddresses(order) {
+    var collections = require('*/cartridge/scripts/util/collections');
+    var allAddresses = [];
+
+    if (order.shipments) {
+        collections.forEach(order.shipments, function (shipment) {
+            if (shipment.shippingAddress) {
+                allAddresses.push(copyShippingAddress(shipment.shippingAddress));
+            }
+        });
+    } else {
+        allAddresses.push(order.defaultShipment.shippingAddress);
+    }
+    return allAddresses;
+}
+
 module.exports = {
     checkIfAddressStored: checkIfAddressStored,
     generateAddressName: generateAddressName,
     saveAddress: saveAddress,
+    copyShippingAddress: copyShippingAddress,
+    gatherShippingAddresses: gatherShippingAddresses,
     updateAddressFields: updateAddressFields
 };
 

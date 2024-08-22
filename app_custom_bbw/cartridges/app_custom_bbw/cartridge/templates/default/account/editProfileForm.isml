@@ -57,17 +57,17 @@
 
 <div class="form-group
         <isif condition=" ${pdict.profileForm.customer.phone.mandatory === true}">required</isif>">
-    <label class="form-control-label" for="phone">
+    <label class="form-control-label" for="profilePhone">
         <isprint value="${pdict.profileForm.customer.phone.label}" encoding="htmlcontent" />
     </label>
-    <input type="tel" class="form-control" id="phone" initOptions.allowDropdown="true"
+    <input type="tel" class="form-control" id="profilePhone" initOptions.allowDropdown="true"
         data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
-        data-pattern-mismatch="${Resource.msg('error.message.parse.phone.profile.form', 'forms', null)}"
+        data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" aria-describedby="form-phone-error"
         <isprint value=${pdict.profileForm.customer.phone.attributes} encoding="off" />
     placeholder="${Resource.msg('example.phone', 'forms', null)}"/>
     <p class="form-caption">${Resource.msg('form.phone.caption', 'forms', null)}</p>
-    <div class="invalid-feedback" id="form-phone-error"></div>
+    <div class="invalid-feedback" id="form-profilePhone-error"></div>
 </div>
 <isif condition="${!pdict.profile.isProfileComplete}">
     <div class="form-group register-form text-center <isif condition="
@@ -172,6 +172,11 @@
     <p class="form-caption">${Resource.msg('form.password.caption', 'forms', null)}</p>
 </div>
 
+<input type="hidden" class="profileDialCode" <isprint value=${pdict.profileForm.customer.dialCode.attributes} encoding="off" />
+/>
+<input type="hidden" class="profileDialCodeCountry" <isprint value=${pdict.profileForm.customer.dialCodeCountry.attributes}
+    encoding="off" />
+/>
 <input type="hidden" name="isProfileComplete" value="${pdict.profile.isProfileComplete}" />
 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 <input type="hidden" name="${pdict.profileForm.customer.emailconfirm.attributes}"

@@ -20,7 +20,7 @@ function formatToISO8601(date) {
     var month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
     var day = String(date.getUTCDate()).padStart(2, '0');
     var hours = String(date.getUTCHours()).padStart(2, '0');
-    var minutes = String(date.getUTCMinutes()).padStart(2, '0');    
+    var minutes = String(date.getUTCMinutes()).padStart(2, '0');
 
     // Format the date and time components into ISO 8601 string
     return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes;
@@ -43,12 +43,12 @@ exports.sendEmail = function (order) {
     var encodedOrderNumber = encodeURIComponent(
         encryptionHelper.encryptPin(order.orderNo)
     );
-    
-    var qrCodeResponse = JSON.parse(order.custom.eInvoiceQrCode);    
+
+    var qrCodeResponse = JSON.parse(order.custom.eInvoiceQrCode);
 
     emailHelpers.sendEmail(emailObj, 'mail/einvoiceEmail', {
         orderNo: order.orderNo,
-        qrCode: qrCodeResponse.qrcode,
+        qrCode: qrCodeResponse.qrCodeLink,
         qrCodeLink: qrCodeResponse.url,
         submissionDate: formatToISO8601(
             new Date(order.custom.eInvoiceSubmittionDate)
