@@ -2,10 +2,6 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <div class="tab-pane ovo-component-content" id="ovo-component-content" role="tabpanel">
     <fieldset class="payment-form-fields">
-        <input type="hidden" class="form-control"
-               name="${pdict.forms.billingForm.paymentMethod.htmlName}"
-               value="ovo"
-        >
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group
@@ -29,4 +25,5 @@
              </div>
         </div>
     </fieldset>
+    <input class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" type="radio" value="ovo"/>
 </div>

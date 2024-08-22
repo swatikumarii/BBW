@@ -2,11 +2,9 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <div class="tab-pane active doku-component-content mb-4 d-flex justify-content-between" id="doku-component-content" role="tabpanel">
     <fieldset class="payment-form-fields">
-        <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}"
-            value="Doku">
         <fieldset>
             <iscontentasset aid="doku-payment-description" />
         </fieldset>
     </fieldset>
-    <input name="doku" type="radio" value="doku">
+    <input class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" type="radio" value="Doku" />
 </div>
