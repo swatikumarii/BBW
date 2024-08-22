@@ -148,6 +148,7 @@ $(document).ready(function () {
                         $('#selectedPaymentOption').val('');
                         $('.form-nav.billing-nav.payment-information').hide();
                         $('.payment-method-options').hide();
+                        $('.giftcard-partial-redemption').empty().removeClass('mt-4 p-2');
                     }
                 }
                 $.spinner().stop();
@@ -241,7 +242,7 @@ $(document).ready(function () {
                     }
                 } else {
                     $('.added-cards').empty();
-                    $('.giftcard-partial-redemption').empty().removeClass('mt-4 p-2');;
+                    $('.giftcard-partial-redemption').empty().removeClass('mt-4 p-2');
                     $('.add-giftcard-button').empty().text(data.messages.addAGiftcard);
                     $('.remaining-balance').empty();
                     if (!data.hideCreditCardForm) {
