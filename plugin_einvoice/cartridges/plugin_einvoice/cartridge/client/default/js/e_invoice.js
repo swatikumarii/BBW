@@ -195,6 +195,7 @@ $(document).ready(function () {
                     var showAlertResponse = showAlert(response);
                     if (showAlertResponse) {
                         self.checkStatus(statusCheckUrl, orderId, false, false);
+                        $('body').removeClass('einvoice-open');
                     } else {
                         return false;
                     }
