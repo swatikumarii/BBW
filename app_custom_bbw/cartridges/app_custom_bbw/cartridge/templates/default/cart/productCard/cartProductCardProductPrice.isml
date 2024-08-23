@@ -26,7 +26,7 @@
     <iscomment> availability </iscomment>
     <isinclude template="cart/productCard/cartProductCardAvailability" />
 </div>
-${lineItem.dangerousGoods}
+<iscomment> DangerousGoodsTodo ${lineItem.dangerousGoods} </iscomment>
 
 <!--- Savings --->
 <div class="line-item-savings">
