@@ -202,6 +202,12 @@ header {
                             @include media-up(md) {
                                 padding: 1px 45px 0 12px;
                             }
+
+                            &:focus {
+                                @include media-up(md) {
+                                    padding: 1px 66px 0 12px;
+                                }
+                            }
                         }
 
                         input::placeholder {
