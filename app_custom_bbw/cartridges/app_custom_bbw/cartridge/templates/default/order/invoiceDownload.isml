@@ -145,8 +145,8 @@
                                 </iscomment>
                                 <p class="shipping-method"
                                     style="text-align:left; margin-left: -3px;  text-transform: capitalize;">
-                                    <span class="shipping-method-title h-font-size--16">${Resource.msg('label.shipping', 'order', null)} : ${shippingModel.selectedShippingMethod.displayName}
-                                        ${Resource.msg('label.shipping', 'order', null)}
+                                    <span class="shipping-method-title h-font-size--16">${Resource.msg('label.shipping', 'order', null)} :
+                                    <span style="width:150px; word-break:keep-all; display:inline-table;">${shippingModel.selectedShippingMethod.displayName}</span>
                                         <isif condition="${pdict.order.trackingNumber}">
                                             <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
                                                 href="${pdict.order.trackingUrl + pdict.order.trackingNumber}"
