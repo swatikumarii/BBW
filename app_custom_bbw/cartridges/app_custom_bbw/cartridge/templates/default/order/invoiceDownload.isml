@@ -438,7 +438,7 @@
                     <iscomment> Shipping Charge </iscomment>
                     <isif condition="${!pdict.isEgiftCard}">
                         <isif condition="${shippingExclusiveTax}">
-                            <div class="row" style="display:flex; justify-content: flex-end;">
+                            <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                                 <div class="col-md-10">
                                     <p class="h-font-size--16 h-clr--black-1"
                                         style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
@@ -448,11 +448,11 @@
                                 <div class="col-md-2" style=" margin-left: 38px;">
                                     <isif condition="${!pdict.order.hasFreeShipping}">
                                         <p
-                                            class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
+                                            class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive" style=" margin-bottom: 0px;">
                                             ${pdict.order.totals.shippingTotalExclTax}</p>
                                     <iselse/>
                                         <p
-                                            class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
+                                            class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive" style=" margin-bottom: 0px;">
                                             ${Resource.msg('label.free.price', 'cart', null)}</p>
                                     </isif>
                                 </div>

@@ -1,17 +1,17 @@
-<div class="shipping-approaching-discounts approaching-discounts h-font-size--12 h-clr--black-1 my-3 px-5 w-100">
+<div class="shipping-approaching-discounts approaching-discounts h-font-size--12 h-clr--black-1 my-3 w-100">
     <isif condition="${pdict.shippingApproachingDiscounts.length > 0}">
         <isloop items="${pdict.shippingApproachingDiscounts}" var="approachingDiscount">
             <div class="row align-items-center">
                 <div class="d-flex flex-column col-12 py-0">
                     <isif condition="${approachingDiscount.distanceFromConditionThreshold > 0}">
-                        <p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">
+                        <p class="h-font-size--14 h-clr--pink h-fw--semibold m-0 text-center">
                             <isprint
                                 value="${Resource.msgf('add.more.for.free.shipping', 'cart', null, dw.util.StringUtils.formatMoney(new dw.value.Money(
                                        approachingDiscount.distanceFromConditionThreshold, session.currency.getCurrencyCode())))}"
                                 encoding="off" />
                         </p>
                     <iselse/>
-                        <p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">
+                        <p class="h-font-size--14 h-clr--pink h-fw--semibold m-0 text-center">
                             ${Resource.msg('congrats.free.shipping', 'cart', null)}</p>
                     </isif>
                 </div>
