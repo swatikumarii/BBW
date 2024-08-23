@@ -277,6 +277,7 @@ function updateApproachingDiscounts(
             shippingApproachingDiscounts[0].formattedConditionThreshold +
             '</span>\n' +
             '</div>\n' +
+            shippingApproachingDiscounts[0].condition +
             '</div>\n' +
             '</div>';
     } else if (
@@ -293,6 +294,8 @@ function updateApproachingDiscounts(
             '</div>\n' +
             '</div>';
     }
+    console.log(shippingApproachingDiscounts[0]);
+
     $('.shipping-approaching-discounts').empty().append(shippinghtml);
     $('.order-approaching-discounts').empty().append(orderhtml);
 }
