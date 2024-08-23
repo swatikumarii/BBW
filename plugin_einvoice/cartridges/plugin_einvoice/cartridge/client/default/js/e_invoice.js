@@ -215,6 +215,7 @@ $(document).ready(function () {
                             false,
                             false
                         );
+                        $('body').removeClass('einvoice-open');
                     } else {
                         return false;
                     }

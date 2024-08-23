@@ -137,7 +137,7 @@ $(document).ready(function () {
     $(document.body).on('click', '.add-to-email-list', function () {
         var cb = $('.add-to-email-list');
         cb.val(cb.prop('checked'));
-        if(cb.val() === true){
+        if(cb.val() === 'true'){
             $('#tnc-checkbox-error').empty();
         }
     });

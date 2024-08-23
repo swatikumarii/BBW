@@ -91,7 +91,7 @@ function updateAddressFields(newAddress, address) {
     newCreatedAddress.custom.dialCode = address.dialCode || defaultDialCode;
     newCreatedAddress.custom.dialCodeCountry = address.dialCodeCountry || defaultDialCodeCountry;
     newCreatedAddress.custom.district = address.district ? address.district : '';
-    newCreatedAddress.custom.subDistrict = address.subdistrict ? address.subdistrict : '';
+    newCreatedAddress.custom.subDistrict = address.subDistrict ? address.subDistrict : '';
 }
 
 /**
@@ -126,6 +126,8 @@ function copyShippingAddress(address) {
         city: address.city,
         firstName: address.firstName,
         lastName: address.lastName,
+        district: 'custom' in address && 'district' in address.custom && address.custom.district,
+        subDistrict: 'custom' in address && 'subDistrict' in address.custom && address.custom.subDistrict,
         phone: address.phone,
         postalCode: address.postalCode,
         states: {
@@ -170,8 +172,9 @@ module.exports = {
     checkIfAddressStored: checkIfAddressStored,
     generateAddressName: generateAddressName,
     saveAddress: saveAddress,
-    updateAddressFields: updateAddressFields,
-    gatherShippingAddresses: gatherShippingAddresses
+    copyShippingAddress: copyShippingAddress,
+    gatherShippingAddresses: gatherShippingAddresses,
+    updateAddressFields: updateAddressFields
 };
 
 Object.keys(base).forEach(function (prop) {

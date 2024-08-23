@@ -9,6 +9,7 @@ var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
 );
 var addressData = require('./addressData');
+var shippingHelpers = require('./checkout/shipping');
 
 /**
  * validateFields
@@ -300,9 +301,7 @@ $(document).ready(function () {
                 if ($(this).val() === selectedSubDistrict) {
                     $('.shippingAddressSubdistrict option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
-                    $('body')
-                        .find('.shippingAddressSubdistrict')
-                        .trigger('change');
+                    $('body').find('.shippingAddressSubdistrict').trigger('change');
                     return false;
                 }
             });
@@ -489,6 +488,15 @@ $('.shippingState').change(function () {
         suburbDropdown.trigger('change');
         zipDropdown.trigger('change');
     }
+    var updateShippingMethodsURL = $('input[name="update-shipping-method-url"]').val() + '?stateCode=' + selectedState;
+    $.ajax({
+        type: 'POST',
+        url: updateShippingMethodsURL,
+        success: function (data) {
+            shippingHelpers.methods.updateShippingMethods(data.order.shipping);
+            $('.grand-total-wrap .grand-total').empty().text(data.order.priceTotal);
+        }
+    });
 });
 
 $('.shippingAddressCity').change(function () {
@@ -586,6 +594,7 @@ $('.shippingAddressDistrict').change(function () {
                 text: '---- Select District First----'
             }).attr('selected', 'selected')
         );
+        subDistrictDropdown.trigger('change');
     }
 });
 

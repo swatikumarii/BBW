@@ -25,7 +25,7 @@ server.append('PaymentFromComponent',server.middleware.https, function (req, res
     var billingStateCode = '';
     var shippingStateCode = '';
     var order = OrderMgr.getOrder(viewData.orderNo);
-    if (reqDataObj.customer.billingAddressDetails.stateCode) {
+    if ('customer' in reqDataObj && 'billingAddressDetails' in reqDataObj.customer && reqDataObj.customer.billingAddressDetails.stateCode) {
         if (Object.keys(australiaStates).indexOf(reqDataObj.customer.billingAddressDetails.stateCode.toLowerCase().trim()) !== -1) {
             billingStateCode = australiaStates[reqDataObj.customer.billingAddressDetails.stateCode.toLowerCase().trim()];
             Transaction.wrap(function () {
@@ -33,7 +33,7 @@ server.append('PaymentFromComponent',server.middleware.https, function (req, res
             });
         }
     }
-    if (reqDataObj.customer.addressBook.preferredAddress.stateCode) {
+    if ('customer' in reqDataObj && 'addressBook' in reqDataObj.customer && 'preferredAddress' in reqDataObj.customer.addressBook && reqDataObj.customer.addressBook.preferredAddress.stateCode) {
         if (Object.keys(australiaStates).indexOf(reqDataObj.customer.addressBook.preferredAddress.stateCode.toLowerCase().trim()) !== -1) {
             shippingStateCode = australiaStates[reqDataObj.customer.addressBook.preferredAddress.stateCode.toLowerCase().trim()];
             Transaction.wrap(function () {
