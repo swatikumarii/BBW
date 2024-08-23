@@ -41,409 +41,96 @@
               binding="address1"
               max-length="50"
               missing-error="address.address1.missing"
-              range-error="error.message.50orless"/>
+              range-error="error.message.50orless" />
 
     <field formid="address2" label="label.input.address2" type="string" mandatory="false" binding="address2"
            max-length="50" range-error="error.message.50orless"/>
 
-    <field formid="city" label="label.input.city" type="string" mandatory="true" binding="city" min-length="2"
-           max-length="50" missing-error="address.city.missing" range-error="error.message.between2and50">
-           <options>
-              <option label="Adam Park" value="Adam Park"/>
-              <option label="Adelphi Park" value="Adelphi Park"/>
-              <option label="Admiralty" value="Admiralty"/>
-              <option label="Ah Soo Garden" value="Ah Soo Garden"/>
-              <option label="Aik Hong and Aik Chiang Estate" value="Aik Hong and Aik Chiang Estate"/>
-              <option label="Alexandra Estate" value="Alexandra Estate"/>
-              <option label="Ama Keng" value="Ama Keng"/>
-              <option label="Ang" value="Ang"/>
-              <option label="Ardmore Flats" value="Ardmore Flats"/>
-              <option label="Ayer Raja New Town" value="Ayer Raja New Town"/>
-              <option label="Ayer Samak Darat" value="Ayer Samak Darat"/>
-              <option label="Bajau Estate" value="Bajau Estate"/>
-              <option label="Bamboo Grove Park" value="Bamboo Grove Park"/>
-              <option label="Ban Guan" value="Ban Guan"/>
-              <option label="Banta Tengeh" value="Banta Tengeh"/>
-              <option label="Baok" value="Baok"/>
-              <option label="Bedok Garden" value="Bedok Garden"/>
-              <option label="Bedok New Town" value="Bedok New Town"/>
-              <option label="Bedok Village" value="Bedok Village"/>
-              <option label="Bedok Ville" value="Bedok Ville"/>
-              <option label="Belang" value="Belang"/>
-              <option label="Bena Park" value="Bena Park"/>
-              <option label="Bereh" value="Bereh"/>
-              <option label="Bin Tong" value="Bin Tong"/>
-              <option label="Bishan New Town" value="Bishan New Town"/>
-              <option label="Blangah New Town" value="Blangah New Town"/>
-              <option label="Boon Lay Resettlement Area" value="Boon Lay Resettlement Area"/>
-              <option label="Boon Lay" value="Boon Lay"/>
-              <option label="Braddell Heights Estate" value="Braddell Heights Estate"/>
-              <option label="Brickworks" value="Brickworks"/>
-              <option label="Bright Hill Crescent" value="Bright Hill Crescent"/>
-              <option label="Brizay Park" value="Brizay Park"/>
-              <option label="Bugis" value="Bugis"/>
-              <option label="Bukit Batok New Town" value="Bukit Batok New Town"/>
-              <option label="Bukit Ho Swee" value="Bukit Ho Swee"/>
-              <option label="Bukit Mandai Village" value="Bukit Mandai Village"/>
-              <option label="Bukit Merah Estate" value="Bukit Merah Estate"/>
-              <option label="Bukit Panjang Estate" value="Bukit Panjang Estate"/>
-              <option label="Bukit Panjang New" value="Bukit Panjang New"/>
-              <option label="Bukit Sembawang Estate" value="Bukit Sembawang Estate"/>
-              <option label="Bukit Timah" value="Bukit Timah"/>
-              <option label="Bulim" value="Bulim"/>
-              <option label="Buona Vista" value="Buona Vista"/>
-              <option label="Caldecott Hill Estate" value="Caldecott Hill Estate"/>
-              <option label="Camden" value="Camden"/>
-              <option label="Central Water Catchment" value="Central Water Catchment"/>
-              <option label="Chai Chee Estate" value="Chai Chee Estate"/>
-              <option label="Changi Village" value="Changi Village"/>
-              <option label="Charlton Park" value="Charlton Park"/>
-              <option label="Chee" value="Chee"/>
-              <option label="Chia Keng" value="Chia Keng"/>
-              <option label="Chia" value="Chia"/>
-              <option label="Chinese Gardens" value="Chinese Gardens"/>
-              <option label="Chip Hock Garden" value="Chip Hock Garden"/>
-              <option label="Choa Chu Kang New Town" value="Choa Chu Kang New Town"/>
-              <option label="Choe" value="Choe"/>
-              <option label="Chong Pang" value="Chong Pang"/>
-              <option label="Chow Garden" value="Chow Garden"/>
-              <option label="Chuan" value="Chuan"/>
-              <option label="Chye" value="Chye"/>
-              <option label="Clementi Housing Estate" value="Clementi Housing Estate"/>
-              <option label="Coronation Gardens" value="Coronation Gardens"/>
-              <option label="Delta Estate" value="Delta Estate"/>
-              <option label="Delta Road" value="Delta Road"/>
-              <option label="Dragon View" value="Dragon View"/>
-              <option label="Dunearn Estate" value="Dunearn Estate"/>
-              <option label="East View Garden" value="East View Garden"/>
-              <option label="Eastern Gardens" value="Eastern Gardens"/>
-              <option label="Eden Park" value="Eden Park"/>
-              <option label="Edward Park" value="Edward Park"/>
-              <option label="Eng Khong Gardens" value="Eng Khong Gardens"/>
-              <option label="Estate" value="Estate"/>
-              <option label="Eunos" value="Eunos"/>
-              <option label="Ewart" value="Ewart"/>
-              <option label="Faber Garden" value="Faber Garden"/>
-              <option label="Faber Hills" value="Faber Hills"/>
-              <option label="Fernhill Gardens" value="Fernhill Gardens"/>
-              <option label="Fish Farming Estate" value="Fish Farming Estate"/>
-              <option label="Frankel Estate" value="Frankel Estate"/>
-              <option label="Fuyong" value="Fuyong"/>
-              <option label="Gardens" value="Gardens"/>
-              <option label="Gay World Park" value="Gay World Park"/>
-              <option label="Geylang" value="Geylang"/>
-              <option label="Ghim Moh" value="Ghim Moh"/>
-              <option label="Goldhill Gardens" value="Goldhill Gardens"/>
-              <option label="Hai Sing Park" value="Hai Sing Park"/>
-              <option label="Happy" value="Happy"/>
-              <option label="HarbourFront" value="HarbourFront"/>
-              <option label="Heap Guan Village" value="Heap Guan Village"/>
-              <option label="Henderson Estate" value="Henderson Estate"/>
-              <option label="Hillcrest Park" value="Hillcrest Park"/>
-              <option label="Holland Grove" value="Holland Grove"/>
-              <option label="Holland Village" value="Holland Village"/>
-              <option label="Hong Kah" value="Hong Kah"/>
-              <option label="Hong Kong Park" value="Hong Kong Park"/>
-              <option label="Hong Leong Garden" value="Hong Leong Garden"/>
-              <option label="Hougang New Town" value="Hougang New Town"/>
-              <option label="Huat" value="Huat"/>
-              <option label="Hume Heights" value="Hume Heights"/>
-              <option label="Hun Yeang" value="Hun Yeang"/>
-              <option label="Irau" value="Irau"/>
-              <option label="Island View Estate" value="Island View Estate"/>
-              <option label="Jalan Kayu" value="Jalan Kayu"/>
-              <option label="Johor" value="Johor"/>
-              <option label="Jurong East" value="Jurong East"/>
-              <option label="Jurong West" value="Jurong West"/>
-              <option label="Jurong" value="Jurong"/>
-              <option label="Kaki Bukit Estate" value="Kaki Bukit Estate"/>
-              <option label="Kalang" value="Kalang"/>
-              <option label="Kam Wak Hassan" value="Kam Wak Hassan"/>
-              <option label="Kampong Amber" value="Kampong Amber"/>
-              <option label="Kampong Amoy" value="Kampong Amoy"/>
-              <option label="Kampong Ayer Bajau" value="Kampong Ayer Bajau"/>
-              <option label="Kampong Ayer Gemuruh" value="Kampong Ayer Gemuruh"/>
-              <option label="Kampong Ayer Limau" value="Kampong Ayer Limau"/>
-              <option label="Kampong Ayer Merbau" value="Kampong Ayer Merbau"/>
-              <option label="Kampong Baharu" value="Kampong Baharu"/>
-              <option label="Kampong Bahru" value="Kampong Bahru"/>
-              <option label="Kampong Batu Koyok" value="Kampong Batu Koyok"/>
-              <option label="Kampong Belimbing" value="Kampong Belimbing"/>
-              <option label="Kampong Beremban" value="Kampong Beremban"/>
-              <option label="Kampong Blukang" value="Kampong Blukang"/>
-              <option label="Kampong Bugis" value="Kampong Bugis"/>
-              <option label="Kampong Bukit Panjang" value="Kampong Bukit Panjang"/>
-              <option label="Kampong Chai" value="Kampong Chai"/>
-              <option label="Kampong Changi" value="Kampong Changi"/>
-              <option label="Kampong Chantek Baharu" value="Kampong Chantek Baharu"/>
-              <option label="Kampong Che Jevah" value="Kampong Che Jevah"/>
-              <option label="Kampong Cutforth" value="Kampong Cutforth"/>
-              <option label="Kampong Darat" value="Kampong Darat"/>
-              <option label="Kampong Eunos" value="Kampong Eunos"/>
-              <option label="Kampong Harvey" value="Kampong Harvey"/>
-              <option label="Kampong Hock Soon" value="Kampong Hock Soon"/>
-              <option label="Kampong Jagoh" value="Kampong Jagoh"/>
-              <option label="Kampong Java" value="Kampong Java"/>
-              <option label="Kampong Jelutong" value="Kampong Jelutong"/>
-              <option label="Kampong Kebun Baharu" value="Kampong Kebun Baharu"/>
-              <option label="Kampong Kitin" value="Kampong Kitin"/>
-              <option label="Kampong Kopit" value="Kampong Kopit"/>
-              <option label="Kampong Kuchai" value="Kampong Kuchai"/>
-              <option label="Kampong Ladang" value="Kampong Ladang"/>
-              <option label="Kampong Lew Lian" value="Kampong Lew Lian"/>
-              <option label="Kampong Loyang" value="Kampong Loyang"/>
-              <option label="Kampong Mak" value="Kampong Mak"/>
-              <option label="Kampong Mamam" value="Kampong Mamam"/>
-              <option label="Kampong Mandai Kechil" value="Kampong Mandai Kechil"/>
-              <option label="Kampong Melayu" value="Kampong Melayu"/>
-              <option label="Kampong Noordin" value="Kampong Noordin"/>
-              <option label="Kampong O’Carroll" value="Kampong O’Carroll"/>
-              <option label="Kampong Pachitan" value="Kampong Pachitan"/>
-              <option label="Kampong Padang Terbakar" value="Kampong Padang Terbakar"/>
-              <option label="Kampong Pahang" value="Kampong Pahang"/>
-              <option label="Kampong Pasir Ris" value="Kampong Pasir Ris"/>
-              <option label="Kampong Pasir" value="Kampong Pasir"/>
-              <option label="Kampong Pengkalan Kundor" value="Kampong Pengkalan Kundor"/>
-              <option label="Kampong Pengkalan Pakau" value="Kampong Pengkalan Pakau"/>
-              <option label="Kampong Pengkalan" value="Kampong Pengkalan"/>
-              <option label="Kampong Perigi Piau" value="Kampong Perigi Piau"/>
-              <option label="Kampong Permatang" value="Kampong Permatang"/>
-              <option label="Kampong Pesek" value="Kampong Pesek"/>
-              <option label="Kampong Pinang" value="Kampong Pinang"/>
-              <option label="Kampong Potong" value="Kampong Potong"/>
-              <option label="Kampong Pulau Kechil" value="Kampong Pulau Kechil"/>
-              <option label="Kampong Punggol" value="Kampong Punggol"/>
-              <option label="Kampong Reteh" value="Kampong Reteh"/>
-              <option label="Kampong Saigon" value="Kampong Saigon"/>
-              <option label="Kampong Salabin" value="Kampong Salabin"/>
-              <option label="Kampong San Teng" value="Kampong San Teng"/>
-              <option label="Kampong Sanyongkong" value="Kampong Sanyongkong"/>
-              <option label="Kampong Sanyonkong Parit" value="Kampong Sanyonkong Parit"/>
-              <option label="Kampong Seminei" value="Kampong Seminei"/>
-              <option label="Kampong Serangoon Kechil" value="Kampong Serangoon Kechil"/>
-              <option label="Kampong Seraya" value="Kampong Seraya"/>
-              <option label="Kampong Silat Estate" value="Kampong Silat Estate"/>
-              <option label="Kampong Siren" value="Kampong Siren"/>
-              <option label="Kampong Soopoo" value="Kampong Soopoo"/>
-              <option label="Kampong Sudong" value="Kampong Sudong"/>
-              <option label="Kampong Sultan" value="Kampong Sultan"/>
-              <option label="Kampong Sungai Blukar" value="Kampong Sungai Blukar"/>
-              <option label="Kampong Sungai Jurong" value="Kampong Sungai Jurong"/>
-              <option label="Kampong Sungai Pandan" value="Kampong Sungai Pandan"/>
-              <option label="Kampong Sungai" value="Kampong Sungai"/>
-              <option label="Kampong Tampines" value="Kampong Tampines"/>
-              <option label="Kampong Tanah Merah Kechil" value="Kampong Tanah Merah Kechil"/>
-              <option label="Kampong Tanah Merah" value="Kampong Tanah Merah"/>
-              <option label="Kampong Tanjong Penjuru" value="Kampong Tanjong Penjuru"/>
-              <option label="Kampong Tanjong" value="Kampong Tanjong"/>
-              <option label="Kampong Teban" value="Kampong Teban"/>
-              <option label="Kampong Tebing Terjun" value="Kampong Tebing Terjun"/>
-              <option label="Kampong Telok" value="Kampong Telok"/>
-              <option label="Kampong Tongkang Pechah" value="Kampong Tongkang Pechah"/>
-              <option label="Kampong Tulloch" value="Kampong Tulloch"/>
-              <option label="Kampong Ubi" value="Kampong Ubi"/>
-              <option label="Kampong Ulu Jurong" value="Kampong Ulu Jurong"/>
-              <option label="Kampong Ulu" value="Kampong Ulu"/>
-              <option label="Kampong Unum" value="Kampong Unum"/>
-              <option label="Kampong Wak Bechik" value="Kampong Wak Bechik"/>
-              <option label="Kampong Wak Dulah" value="Kampong Wak Dulah"/>
-              <option label="Kampong Wak Hassan" value="Kampong Wak Hassan"/>
-              <option label="Kampong Wak Tanjong" value="Kampong Wak Tanjong"/>
-              <option label="Kampong Wak" value="Kampong Wak"/>
-              <option label="Kampong Wing Loong" value="Kampong Wing Loong"/>
-              <option label="Kampong Woodleigh" value="Kampong Woodleigh"/>
-              <option label="Kampong" value="Kampong"/>
-              <option label="Kangkar" value="Kangkar"/>
-              <option label="Kay" value="Kay"/>
-              <option label="Keat Hong" value="Keat Hong"/>
-              <option label="Kembangan" value="Kembangan"/>
-              <option label="Kent Ridge" value="Kent Ridge"/>
-              <option label="Kian Hong Estate" value="Kian Hong Estate"/>
-              <option label="Kian Teck San Estate" value="Kian Teck San Estate"/>
-              <option label="Kilburn Estate" value="Kilburn Estate"/>
-              <option label="Kim" value="Kim"/>
-              <option label="Kimlin Park" value="Kimlin Park"/>
-              <option label="King Albert Park" value="King Albert Park"/>
-              <option label="Kingsmead Hall" value="Kingsmead Hall"/>
-              <option label="Kranji" value="Kranji"/>
-              <option label="Lam Kiong Estate" value="Lam Kiong Estate"/>
-              <option label="Lam San" value="Lam San"/>
-              <option label="Lavender" value="Lavender"/>
-              <option label="Lebar" value="Lebar"/>
-              <option label="Leedon Park" value="Leedon Park"/>
-              <option label="Lim Chu Kang Estate" value="Lim Chu Kang Estate"/>
-              <option label="Lim Chu Kang" value="Lim Chu Kang"/>
-              <option label="Lokyang" value="Lokyang"/>
-              <option label="Lorong Tiga" value="Lorong Tiga"/>
-              <option label="Lower Delta Road" value="Lower Delta Road"/>
-              <option label="Lucky Hills" value="Lucky Hills"/>
-              <option label="Lucky Park" value="Lucky Park"/>
-              <option label="MacPherson" value="MacPherson"/>
-              <option label="Marina Bay" value="Marina Bay"/>
-              <option label="Marine" value="Marine"/>
-              <option label="Marsiling Estate" value="Marsiling Estate"/>
-              <option label="Marsiling" value="Marsiling"/>
-              <option label="Maryland Estate" value="Maryland Estate"/>
-              <option label="Mata Ikan" value="Mata Ikan"/>
-              <option label="Matilda Estate" value="Matilda Estate"/>
-              <option label="Mayflower" value="Mayflower"/>
-              <option label="McMahon Park" value="McMahon Park"/>
-              <option label="Medway Park" value="Medway Park"/>
-              <option label="Merah" value="Merah"/>
-              <option label="Mo Kio New Town" value="Mo Kio New Town"/>
-              <option label="Mok Peng Hiang Estate" value="Mok Peng Hiang Estate"/>
-              <option label="Mount Emily Park" value="Mount Emily Park"/>
-              <option label="Mount Pleasant" value="Mount Pleasant"/>
-              <option label="Mount Vernon" value="Mount Vernon"/>
-              <option label="Mount" value="Mount"/>
-              <option label="Namazie Estate" value="Namazie Estate"/>
-              <option label="Nanas" value="Nanas"/>
-              <option label="Nee Soon Estate" value="Nee Soon Estate"/>
-              <option label="Nepal Park" value="Nepal Park"/>
-              <option label="New Town" value="New Town"/>
-              <option label="Newton" value="Newton"/>
-              <option label="Ng Kay Boon Estate" value="Ng Kay Boon Estate"/>
-              <option label="Night" value="Night"/>
-              <option label="Novena" value="Novena"/>
-              <option label="Oei Tiong Ham Park" value="Oei Tiong Ham Park"/>
-              <option label="Old Kallang Airport Estate" value="Old Kallang Airport Estate"/>
-              <option label="Ong Lee" value="Ong Lee"/>
-              <option label="Opera" value="Opera"/>
-              <option label="Orchard" value="Orchard"/>
-              <option label="Outram Park" value="Outram Park"/>
-              <option label="Pagar" value="Pagar"/>
-              <option label="Pandan Valley" value="Pandan Valley"/>
-              <option label="Pandan" value="Pandan"/>
-              <option label="Parade" value="Parade"/>
-              <option label="Park" value="Park"/>
-              <option label="Pasir Panjang" value="Pasir Panjang"/>
-              <option label="Pasir Ris New Town" value="Pasir Ris New Town"/>
-              <option label="Pasir" value="Pasir"/>
-              <option label="Paya" value="Paya"/>
-              <option label="Peoples Garden" value="Peoples Garden"/>
-              <option label="People’s Park" value="People’s Park"/>
-              <option label="Perseverance Estate" value="Perseverance Estate"/>
-              <option label="Petai" value="Petai"/>
-              <option label="Phoenix Park" value="Phoenix Park"/>
-              <option label="Playfair Estate" value="Playfair Estate"/>
-              <option label="Prince Edward Point" value="Prince Edward Point"/>
-              <option label="Prince" value="Prince"/>
-              <option label="Princess Elizabeth Estate" value="Princess Elizabeth Estate"/>
-              <option label="Pulau Minyak" value="Pulau Minyak"/>
-              <option label="Pulau Ubin" value="Pulau Ubin"/>
-              <option label="Punggol Estate" value="Punggol Estate"/>
-              <option label="Punggol" value="Punggol"/>
-              <option label="Quee" value="Quee"/>
-              <option label="Queen Astrid Park" value="Queen Astrid Park"/>
-              <option label="Queenstown Estate" value="Queenstown Estate"/>
-              <option label="Quemoy Park" value="Quemoy Park"/>
-              <option label="Race Course" value="Race Course"/>
-              <option label="Radin Mas" value="Radin Mas"/>
-              <option label="Raffles Park" value="Raffles Park"/>
-              <option label="Raffles Place" value="Raffles Place"/>
-              <option label="Raya Garden" value="Raya Garden"/>
-              <option label="Rebecca Park" value="Rebecca Park"/>
-              <option label="River Valley" value="River Valley"/>
-              <option label="Rochester" value="Rochester"/>
-              <option label="Rose Garden" value="Rose Garden"/>
-              <option label="Rosie" value="Rosie"/>
-              <option label="Safari" value="Safari"/>
-              <option label="Saga" value="Saga"/>
-              <option label="Saint Michael’s Estate" value="Saint Michael’s Estate"/>
-              <option label="Sakeng" value="Sakeng"/>
-              <option label="Sam Heng Estate" value="Sam Heng Estate"/>
-              <option label="Sarang Rimau" value="Sarang Rimau"/>
-              <option label="Scott" value="Scott"/>
-              <option label="Sea View" value="Sea View"/>
-              <option label="Sek Lim" value="Sek Lim"/>
-              <option label="Sekak" value="Sekak"/>
-              <option label="Seletar Hills Estate" value="Seletar Hills Estate"/>
-              <option label="Seletar" value="Seletar"/>
-              <option label="Sembawang Estate" value="Sembawang Estate"/>
-              <option label="Sembawang Hills Estate" value="Sembawang Hills Estate"/>
-              <option label="Sengkang New" value="Sengkang New"/>
-              <option label="Sennett Estate" value="Sennett Estate"/>
-              <option label="Sentosa" value="Sentosa"/>
-              <option label="Serangoon Garden Estate" value="Serangoon Garden Estate"/>
-              <option label="Serangoon New Town" value="Serangoon New Town"/>
-              <option label="Serangoon" value="Serangoon"/>
-              <option label="Shamrock" value="Shamrock"/>
-              <option label="Siew Lim ParkSimei New TownSimpang Bedok Village" value="Siew Lim ParkSimei New TownSimpang Bedok Village"/>
-              <option label="Sin Watt Estate" value="Sin Watt Estate"/>
-              <option label="Singapore" value="Singapore"/>
-              <option label="Sireh" value="Sireh"/>
-              <option label="Somapah Changi" value="Somapah Changi"/>
-              <option label="Somapah Serangoon" value="Somapah Serangoon"/>
-              <option label="Sommerville Estate" value="Sommerville Estate"/>
-              <option label="Song Hah Estate" value="Song Hah Estate"/>
-              <option label="Soo" value="Soo"/>
-              <option label="Spring Park Estate" value="Spring Park Estate"/>
-              <option label="Springleaf Park" value="Springleaf Park"/>
-              <option label="Sungai Mandai Village" value="Sungai Mandai Village"/>
-              <option label="Sungai Simpang" value="Sungai Simpang"/>
-              <option label="Sungai" value="Sungai"/>
-              <option label="Sussex Estate" value="Sussex Estate"/>
-              <option label="Tai Hwan Gardens" value="Tai Hwan Gardens"/>
-              <option label="Tai Kheng Gardens" value="Tai Kheng Gardens"/>
-              <option label="Tai Seng" value="Tai Seng"/>
-              <option label="Tampines New Town" value="Tampines New Town"/>
-              <option label="Tampines" value="Tampines"/>
-              <option label="Tan Hua Gek Estate" value="Tan Hua Gek Estate"/>
-              <option label="Tanglin Halt" value="Tanglin Halt"/>
-              <option label="Tanglin Hill" value="Tanglin Hill"/>
-              <option label="Tanglin" value="Tanglin"/>
-              <option label="Tanjong" value="Tanjong"/>
-              <option label="Tay Keng Loon Estate" value="Tay Keng Loon Estate"/>
-              <option label="Teacher’s Housing Estate" value="Teacher’s Housing Estate"/>
-              <option label="Teban" value="Teban"/>
-              <option label="Teck Chong Estate" value="Teck Chong Estate"/>
-              <option label="Teck Hock" value="Teck Hock"/>
-              <option label="Telok" value="Telok"/>
-              <option label="Tengah" value="Tengah"/>
-              <option label="Thomson Garden Estate" value="Thomson Garden Estate"/>
-              <option label="Thomson Park" value="Thomson Park"/>
-              <option label="Thomson Ridge" value="Thomson Ridge"/>
-              <option label="Thomson" value="Thomson"/>
-              <option label="Thong Hoe Village" value="Thong Hoe Village"/>
-              <option label="Tian Guan Estate" value="Tian Guan Estate"/>
-              <option label="Tiong Bahru Estate" value="Tiong Bahru Estate"/>
-              <option label="Tiong Guan Estate" value="Tiong Guan Estate"/>
-              <option label="Toa Payoh New" value="Toa Payoh New"/>
-              <option label="Todak" value="Todak"/>
-              <option label="Tong Quah Estate" value="Tong Quah Estate"/>
-              <option label="Town" value="Town"/>
-              <option label="Tua Kang Lye" value="Tua Kang Lye"/>
-              <option label="Tuas" value="Tuas"/>
-              <option label="Tyersall Park" value="Tyersall Park"/>
-              <option label="Ulu Bedok" value="Ulu Bedok"/>
-              <option label="United Plantation" value="United Plantation"/>
-              <option label="Unum Estate" value="Unum Estate"/>
-              <option label="Victoria Park" value="Victoria Park"/>
-              <option label="Village" value="Village"/>
-              <option label="Watten Estate" value="Watten Estate"/>
-              <option label="Watten" value="Watten"/>
-              <option label="Wessex Estate" value="Wessex Estate"/>
-              <option label="West Coast Village" value="West Coast Village"/>
-              <option label="Windsor Park Estate" value="Windsor Park Estate"/>
-              <option label="Woodlands" value="Woodlands"/>
-              <option label="Woodleigh" value="Woodleigh"/>
-              <option label="Woollerton Park" value="Woollerton Park"/>
-              <option label="Xilin Estate" value="Xilin Estate"/>
-              <option label="Yan Kit" value="Yan Kit"/>
-              <option label="Yew Tee" value="Yew Tee"/>
-              <option label="Yio Chu Kang Estate" value="Yio Chu Kang Estate"/>
-              <option label="Yio Chu Kang" value="Yio Chu Kang"/>
-              <option label="Yishun" value="Yishun"/>
-              <option label="York Hill Estate" value="York Hill Estate"/>
-            </options>
-	</field>
-    <!--  postal code -->
-       <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="true" min-length="6" max-length="6"
-       regexp="^[0-9]*$"
-       binding="postalCode"
-       range-error="error.message.zip.upto6"
-       missing-error="error.zip.code"
-       parse-error="error.message.parse.zip"/>
+       <field formid="city" label="label.input.city" type="string" mandatory="true" binding="city"
+              min-length="2"
+              max-length="50" missing-error="address.city.missing"
+              range-error="error.message.between2and50">
+              <options>
+                     <option label="Amber Road" value="Amber Road" />
+                     <option label="Ang Mo Kio" value="Ang Mo Kio" />
+                     <option label="Anson" value="Anson" />
+                     <option label="Ardmore" value="Ardmore" />
+                     <option label="Balestier" value="Balestier" />
+                     <option label="Beach Road" value="Beach Road" />
+                     <option label="Bedok" value="Bedok" />
+                     <option label="Bishan" value="Bishan" />
+                     <option label="Braddell" value="Braddell" />
+                     <option label="Bukit Panjang" value="Bukit Panjang" />
+                     <option label="Bukit Timah" value="Bukit Timah" />
+                     <option label="Cairnhill" value="Cairnhill" />
+                     <option label="Cecil" value="Cecil" />
+                     <option label="Changi" value="Changi" />
+                     <option label="Choa Chu Kang" value="Choa Chu Kang" />
+                     <option label="Clementi New Town" value="Clementi New Town" />
+                     <option label="Clementi Park" value="Clementi Park" />
+                     <option label="Dairy Farm" value="Dairy Farm" />
+                     <option label="Eastwood" value="Eastwood" />
+                     <option label="Eunos" value="Eunos" />
+                     <option label="Geylang" value="Geylang" />
+                     <option label="Golden Mile" value="Golden Mile" />
+                     <option label="Harbourfront" value="Harbourfront" />
+                     <option label="High Street" value="High Street" />
+                     <option label="Hillview" value="Hillview" />
+                     <option label="Holland Road" value="Holland Road" />
+                     <option label="Hong Leong Garden" value="Hong Leong Garden" />
+                     <option label="Hougang" value="Hougang" />
+                     <option label="Joo Chiat" value="Joo Chiat" />
+                     <option label="Jurong" value="Jurong" />
+                     <option label="Katong" value="Katong" />
+                     <option label="Kew Drive" value="Kew Drive" />
+                     <option label="Krangi" value="Krangi" />
+                     <option label="Lim Chu Kang" value="Lim Chu Kang" />
+                     <option label="Little India" value="Little India" />
+                     <option label="Loyang" value="Loyang" />
+                     <option label="Macpherson" value="Macpherson" />
+                     <option label="Marina" value="Marina" />
+                     <option label="Middle Road" value="Middle Road" />
+                     <option label="Novena" value="Novena" />
+                     <option label="Orchard" value="Orchard" />
+                     <option label="Pasir Panjang" value="Pasir Panjang" />
+                     <option label="Pasir Ris" value="Pasir Ris" />
+                     <option label="People’s Park" value="People’s Park" />
+                     <option label="Punggol" value="Punggol" />
+                     <option label="Queenstown" value="Queenstown" />
+                     <option label="Raffles Place" value="Raffles Place" />
+                     <option label="River Valley" value="River Valley" />
+                     <option label="Seletar" value="Seletar" />
+                     <option label="Sembawang" value="Sembawang" />
+                     <option label="Sengkang" value="Sengkang" />
+                     <option label="Serangoon" value="Serangoon" />
+                     <option label="Serangoon Garden" value="Serangoon Garden" />
+                     <option label="Springleaf" value="Springleaf" />
+                     <option label="Tampines" value="Tampines" />
+                     <option label="Tanglin" value="Tanglin" />
+                     <option label="Tanjong Pagar" value="Tanjong Pagar" />
+                     <option label="Telok Blangah" value="Telok Blangah" />
+                     <option label="Tengah" value="Tengah" />
+                     <option label="Thomson" value="Thomson" />
+                     <option label="Tiong Bahru" value="Tiong Bahru" />
+                     <option label="Toa Payoh" value="Toa Payoh" />
+                     <option label="Ulu Pandan" value="Ulu Pandan" />
+                     <option label="Upper Bukit Timah" value="Upper Bukit Timah" />
+                     <option label="Upper East Coast" value="Upper East Coast" />
+                     <option label="Upper Thomson" value="Upper Thomson" />
+                     <option label="Watten Estate" value="Watten Estate" />
+                     <option label="Woodgrove" value="Woodgrove" />
+                     <option label="Woodlands" value="Woodlands" />
+                     <option label="Yishun" value="Yishun" />
+              </options>
+       </field>
+       <!--  postal code -->
+       <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="true"
+              min-length="6" max-length="6"
+              regexp="^[0-9]*$"
+              binding="postalCode"
+              range-error="error.message.zip.upto6"
+              missing-error="error.zip.code"
+              parse-error="error.message.parse.zip" />
 
     <!-- use set of supported countries -->
     <field formid="country" label="label.input.country" type="string" mandatory="true" binding="countryCode"
