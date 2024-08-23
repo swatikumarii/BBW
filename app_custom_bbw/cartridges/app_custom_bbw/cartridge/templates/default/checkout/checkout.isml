@@ -187,6 +187,7 @@
                                 <div
                                     class="ap-checkout-ship ap-checkout-pay-tab-noecf ap-checkout-pay-notab-ecf ap-checkout-pay-notab-noecf ap-checkout-po-noecf">
                                     <iscomment>End of Afterpay</iscomment>
+                                    <iscomment> DangerousGoodsTodo ${pdict.isDangerousGoodsInBasket} </iscomment>
                                     <button
                                         class="btn btn-primary btn-hover h-clr--white h-fw--semibold h-font-size--16 submit-shipping"
                                         type="submit" name="submit" value="submit-shipping"
