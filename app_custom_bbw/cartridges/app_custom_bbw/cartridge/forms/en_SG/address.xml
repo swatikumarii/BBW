@@ -9,6 +9,7 @@
               max-length="20"
               missing-error="error.address.title"
               range-error="error.message.20orless"
+              regexp="^[a-zA-Z0-9 ''\-]+$" parse-error="error.message.parse.lname"
        />
 
        <field formid="firstName"
