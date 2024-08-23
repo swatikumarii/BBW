@@ -43,6 +43,16 @@ server.append('Begin', function (req, res, next) {
         viewData.forms.billingForm.addressFields.dialCode.htmlValue = currentBasket.billingAddress.custom.dialCode;
         viewData.forms.billingForm.addressFields.dialCodeCountry.htmlValue = currentBasket.billingAddress.custom.dialCodeCountry;
     }
+    var isDangerousGoodsInBasket=false;
+    var CartModel = require('*/cartridge/models/cart');
+    var basketModel = new CartModel(currentBasket);
+    for (var i = 0; i < basketModel.items.length; i++) {
+        if (basketModel.items[i].dangerousGoods) {
+            isDangerousGoodsInBasket = true;
+            break;
+        }
+    }
+    viewData.isDangerousGoodsInBasket = isDangerousGoodsInBasket;
     res.setViewData(viewData);
     next();
 });

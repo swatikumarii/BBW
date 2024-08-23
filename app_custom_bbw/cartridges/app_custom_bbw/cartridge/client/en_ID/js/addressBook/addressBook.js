@@ -64,7 +64,7 @@ base.submitAddress = function () {
     $('body').on('submit', 'form.address-form', function (e) {
         var $form = $(this);
         e.preventDefault();
-        if ($form.find('input').serialize() !== window.addressForm) {
+        if ($form.find('input,select').serialize() !== window.addressForm) {
             action = $form.attr('action');
             $form.spinner().start();
             $('form.address-form').trigger('address:submit', e);
@@ -332,6 +332,7 @@ module.exports = $.extend({}, base, {
             var districtDropdown = $(this)
                 .closest('form')
                 .find('.address-district-input');
+            var selectedDistrict = districtDropdown.data('selected');
             districtDropdown.empty(); // clear existing options
 
             if (
@@ -340,12 +341,21 @@ module.exports = $.extend({}, base, {
             ) {
                 var districtMappingObj = addressData[selectedState][selectedSuburb];
                 Object.keys(districtMappingObj).forEach((district) => {
-                    districtDropdown.append(
-                        $('<option>', {
-                            value: district,
-                            text: district
-                        })
-                    );
+                    if (selectedDistrict === district) {
+                        districtDropdown.append(
+                            $('<option>', {
+                                value: district,
+                                text: district
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        districtDropdown.append(
+                            $('<option>', {
+                                value: district,
+                                text: district
+                            })
+                        );
+                    }
                 });
                 districtDropdown.trigger('change');
             }
@@ -365,9 +375,11 @@ module.exports = $.extend({}, base, {
             var subDistrictDropdown = $(this)
                 .closest('form')
                 .find('.address-subdistrict-input');
+            var selectedSubDistrict = subDistrictDropdown.data('selected');
             var zipDropdown = $(this)
                 .closest('form')
                 .find('.address-zipcode-input');
+            var selectedZipCode = zipDropdown.data('selected');
             subDistrictDropdown.empty(); // clear existing options
             zipDropdown.empty(); // clear existing options
 
@@ -381,14 +393,41 @@ module.exports = $.extend({}, base, {
                         selectedDistrict
                     ];
                 districtMappingObj.subDistrict.forEach((subDistrict) => {
-                    subDistrictDropdown.append(
-                        $('<option>', {
-                            value: subDistrict,
-                            text: subDistrict
-                        })
-                    );
+                    if (selectedSubDistrict === subDistrict) {
+                        subDistrictDropdown.append(
+                            $('<option>', {
+                                value: subDistrict,
+                                text: subDistrict
+                            })
+                        ).attr('selected', 'selected');
+                    } else {
+                        subDistrictDropdown
+                            .append(
+                                $('<option>', {
+                                    value: subDistrict,
+                                    text: subDistrict
+                                })
+                            );
+                    }
                 });
                 districtMappingObj.zipcode.forEach((zip) => {
+                    if (selectedZipCode === zip) {
+                        zipDropdown
+                            .append(
+                                $('<option>', {
+                                    value: zip,
+                                    text: zip
+                                })
+                            )
+                            .attr('selected', 'selected');
+                    } else {
+                        zipDropdown.append(
+                            $('<option>', {
+                                value: zip,
+                                text: zip
+                            })
+                        );
+                    }
                     zipDropdown.append(
                         $('<option>', {
                             value: zip,
