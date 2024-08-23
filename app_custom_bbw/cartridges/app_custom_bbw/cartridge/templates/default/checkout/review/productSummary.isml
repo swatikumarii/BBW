@@ -50,7 +50,7 @@
                             <div class="line-item-header flex-column">
                                 <isinclude template="checkout/productCard/productCardProductName" />
 
-                                <isif condition="${!lineItem.available}">
+                                <isif condition="${!lineItem.available && !isOrderConfirmPage}">
                                     <p class="h-clr--red h-font-size--14 mb-2 h-line-height--16">
                                         ${Resource.msg('label.outOfStock.message', 'checkout', null)}
                                     </p>
