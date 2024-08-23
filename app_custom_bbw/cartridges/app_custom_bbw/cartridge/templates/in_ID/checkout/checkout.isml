@@ -98,6 +98,7 @@
                     <isinclude template="checkout/billing/billingSummary" />
                 </div>
                 <div class="review-product-summary">
+                    <isset name="isOrderConfirmPage" value="${false}" scope="page" />
                     <isinclude template="checkout/review/productSummary" />
                 </div>
                 <div class="h-maxwidth-perc-md--75">
