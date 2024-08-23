@@ -69,10 +69,10 @@
                 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
                     <isif condition="${new Date(pdict.order.creationDate).getMonth() === new Date().getMonth()}">
                         <isif condition="${pdict.eInvoiceData.status === 'pending'}">
-                            <button class="btn btn-secondary einvoice-a-2-btn btn-hover  text-uppercase h-fw--bold"
+                            <button class="btn btn-secondary einvoice-a-2-btn btn-hover  text-uppercase h-fw--bold" data-order-id="${pdict.order.orderNumber}"
                                 disabled>${pdict.eInvoiceData.btnText}</button>
                         <iselseif condition="${pdict.eInvoiceData.status === 'success'}">
-                                <button class="btn btn-secondary einvoice-a-2-btn btn-hover text-uppercase h-fw--bold" target="_blank"
+                                <button class="btn btn-secondary einvoice-a-2-btn btn-hover text-uppercase h-fw--bold" target="_blank" data-order-id="${pdict.order.orderNumber}"
                                     data-url="${pdict.eInvoiceData.qrCodeLink}">${pdict.eInvoiceData.btnText}</button>
                             <iselseif condition="${pdict.eInvoiceData.status === 'error'}">
                                     <button class="btn btn-secondary modal-toggle-e-invoice btn-hover  text-uppercase h-fw--bold"
@@ -92,13 +92,13 @@
         condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
         <isif condition="${new Date(pdict.order.creationDate).getMonth() === new Date().getMonth()}">
          <isif condition="${pdict.eInvoiceData.status == 'error'}">
-        <p class="text-danger e-invoice-error-details">${pdict.eInvoiceData.errorReason}</p>
-        <p class="e-invoice-pending-details mt-2 d-none">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}
+        <p class="text-danger e-invoice-error-details" data-id="${pdict.order.orderNumber}">${pdict.eInvoiceData.errorReason}</p>
+        <p class="e-invoice-pending-details mt-2 d-none" data-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}
         </p>
     <iselseif condition="${pdict.eInvoiceData.status == 'pending'}">
-            <p class="e-invoice-pending-details">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
+            <p class="e-invoice-pending-details" data-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
         <iselseif condition="${pdict.eInvoiceData.status == false}">
-                <p class="e-invoice-pending-details mt-2 d-none">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
+                <p class="e-invoice-pending-details mt-2 d-none" data-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
                 </isif>
         </isif>
     </isif>

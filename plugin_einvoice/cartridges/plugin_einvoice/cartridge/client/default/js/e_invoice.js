@@ -1,6 +1,6 @@
 $(document).ready(function () {
     let downloadInvoiceRenderElement = $('#download_EInvoice');
-    let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
+    //let orderId = $('.modal-toggle-e-invoice').attr('data-order-id');
     let statusCheckUrl = downloadInvoiceRenderElement.attr('data-check-status');
     let NRICHintText = $('.NRICHintText');
 
@@ -84,7 +84,10 @@ $(document).ready(function () {
             showToggle,
             showPendingMessage
         ) {
-            $('.modal-toggle-e-invoice').spinner().start();
+            let eInvoiceBtnElement = $('body').find(
+                '.modal-toggle-e-invoice[data-order-id=' + odrId + ']'
+            );
+            eInvoiceBtnElement.spinner().start();
             $('#submitEInvoiceDownloadForm')[0].reset();
             $('.invalid-submittion').html('');
             $('#identificationType').trigger('change');
@@ -93,85 +96,97 @@ $(document).ready(function () {
                 type: 'GET',
                 url: url + '?orderId=' + odrId + '&csrf_token=' + csrfToken,
                 success: function success(response) {
+                     var pendingDetailsElement = $('body').find(
+                         '.e-invoice-pending-details[data-id=' + odrId + ']'
+                     );
+                     var errorDetailsElement = $('body').find(
+                         '.e-invoice-error-details[data-id=' + odrId + ']'
+                     );
                     if (response.status === 'pending') {
                         showPendingMessage = false;
                         if (showPendingMessage) {
                             showAlertHtml(response.message);
                         }
 
-                        var classes = $('.modal-toggle-e-invoice').attr(
-                            'class'
-                        );
-                        var parentElement = $(
-                            '.modal-toggle-e-invoice'
-                        ).parent().find('.e-invoice-pending-details');
-                        $('.modal-toggle-e-invoice').spinner().stop();
-                        $('.modal-e-invoice').attr('style', '');                        
+                        var classes = eInvoiceBtnElement.attr('class');
+                        var parentElement = eInvoiceBtnElement
+                            .parent()
+                            .find('.e-invoice-pending-details');
+                        eInvoiceBtnElement.spinner().stop();
+                        $('.modal-e-invoice').attr('style', '');
                         var btnHtml =
                             '<button class="' +
                             classes +
                             ' einvoice-a-2-btn' +
-                            '" target="_blank">' +
+                            '" target="_blank" data-order-id="' +
+                            odrId +
+                            '">' +
                             response.btnText +
                             '</button>';
                         if (parentElement.length > 0) {
-                            $('.modal-toggle-e-invoice').remove();
+                            eInvoiceBtnElement.remove();
                             parentElement.before(btnHtml);
                         } else {
-                            var outsideParentElement = $(
-                                '.modal-toggle-e-invoice'
-                            ).parent();
-                            $('.modal-toggle-e-invoice').remove();
+                            var outsideParentElement =
+                                eInvoiceBtnElement.parent();
+                            eInvoiceBtnElement.remove();
                             outsideParentElement.append(btnHtml);
                         }
-                       
-                        $('.modal-toggle-e-invoice').removeClass(
+                        eInvoiceBtnElement.removeClass(
                             'modal-toggle-e-invoice'
                         );
-                         $('.e-invoice-error-details').remove();
-                        $('.einvoice-a-2-btn').prop("disabled",true)
-                        $('.e-invoice-pending-details').removeClass('d-none');
-                        $('.e-invoice-pending-details').show();
+                        //to-do
+                        errorDetailsElement.remove();
+                         $('body')
+                             .find(
+                                 '.einvoice-a-2-btn[data-order-id=' +
+                                     odrId +
+                                     ']'
+                             )
+                             .prop('disabled', true);
+                        pendingDetailsElement.removeClass('d-none');
+                        pendingDetailsElement.show();
                     } else if (response.status === 'success') {
-                        var classes = $('.modal-toggle-e-invoice').attr(
-                            'class'
-                        );
-                        var parentElement = $(
-                            '.modal-toggle-e-invoice'
-                        ).parent();
-                        $('.modal-toggle-e-invoice').spinner().stop();
+                        var classes = eInvoiceBtnElement.attr('class');
+                        var parentElement = eInvoiceBtnElement.parent();
+                        eInvoiceBtnElement.spinner().stop();
                         $('.modal-e-invoice').attr('style', '');
-                        $('.modal-toggle-e-invoice').remove();
+                        eInvoiceBtnElement.remove();
                         parentElement.append(
                             '<button data-url="' +
                                 response.qrCodeLink +
                                 '" class="' +
                                 classes +
                                 ' einvoice-a-2-btn' +
-                                '" target="_blank">' +
+                                '" target="_blank" data-order-id="' +
+                                odrId +
+                                '">' +
                                 response.btnText +
                                 '</button>'
                         );
-                         $('.e-invoice-error-details').remove();
-                        $('.modal-toggle-e-invoice').removeClass(
+                        //to-do
+                        errorDetailsElement.remove();
+                        eInvoiceBtnElement.removeClass(
                             'modal-toggle-e-invoice'
                         );
-                        $('.e-invoice-pending-details').hide();
+                        pendingDetailsElement.hide();
                     } else {
-                        var classes = $('.modal-toggle-e-invoice').attr(
-                            'class'
-                        );
-                        var parentElement = $(
-                            '.modal-toggle-e-invoice'
-                        ).parent();
-                        $('.modal-toggle-e-invoice').spinner().stop();
-                        $('.modal-e-invoice').attr('style', '');                       
+                        var classes = eInvoiceBtnElement.attr('class');
+                        var parentElement = eInvoiceBtnElement.parent();
+                        eInvoiceBtnElement.spinner().stop();
+                        $('.modal-e-invoice').attr('style', '');
                         if (showToggle) {
                             $('.modal-e-invoice').toggleClass('is-visible');
                             $('body').toggleClass('einvoice-open');
                         }
-                        $('.e-invoice-pending-details').hide();
-                        $('#tinTB').val(response.customerTaxNumber);
+                        //to-do
+                        pendingDetailsElement.hide();
+                        if (response.customerTaxNumber.length > 0){
+                            $('#tinTB').val(response.customerTaxNumber);
+                        }
+                        else{
+                            $('#tinTB').val("");
+                        }
                     }
                 }
             });
@@ -185,7 +200,7 @@ $(document).ready(function () {
                 type: 'POST',
                 url: url + '?csrf_token=' + csrfToken,
                 data: {
-                    orderID: odrId,
+                    orderID: data[0].value,
                     tinNumber: data[1].value,
                     identificationType: data[2].value,
                     regNumber: data[3].value,
@@ -194,7 +209,12 @@ $(document).ready(function () {
                 success: function success(response) {
                     var showAlertResponse = showAlert(response);
                     if (showAlertResponse) {
-                        self.checkStatus(statusCheckUrl, orderId, false, false);
+                        self.checkStatus(
+                            statusCheckUrl,
+                            data[0].value,
+                            false,
+                            false
+                        );
                     } else {
                         return false;
                     }
@@ -205,6 +225,7 @@ $(document).ready(function () {
 
     let eInvoice = new EInvoice();
 
+    //to-do
     $('body').on('submit', '#submitEInvoiceDownloadForm', function (e) {
         e.preventDefault();
         $.spinner().start();
@@ -229,7 +250,7 @@ $(document).ready(function () {
         if (isFieldValid) {
             $('.invalid-submittion').hide();
             $('.invalid-submittion').text('');
-            eInvoice.submitForm($(this)[0].action, formData, orderId);
+            eInvoice.submitForm($(this)[0].action, formData, null);
         } else {
             $('.invalid-submittion').text('The ' + regType + ' is not valid.');
             $('.invalid-submittion').show();
@@ -240,12 +261,17 @@ $(document).ready(function () {
     $('body').on('click', '.einvoice-a-2-btn', function () {
         if ($(this).attr('data-url')) {
              window.open($(this).attr('data-url'), '_blank');
-        }       
+        }
     });
 
     // Quick & dirty toggle to demonstrate modal toggle behavior
+    //to-do
     $('body').on('click', '.modal-toggle-e-invoice', function (e) {
         e.preventDefault();
+        var orderId = $(this).attr('data-order-id');
+        $('#submitEInvoiceDownloadForm')
+            .find('input[name=orderId]')
+            .val(orderId);
         eInvoice.checkStatus(statusCheckUrl, orderId, true, true);
     });
 
@@ -254,6 +280,9 @@ $(document).ready(function () {
         $('.invalid-submittion').html('');
         $('#identificationType').trigger('change');
         $('.modal-e-invoice').toggleClass('is-visible');
+        $('#submitEInvoiceDownloadForm')
+            .find('input[name=orderId]')
+            .val("");
         $('body').toggleClass('einvoice-open');
     });
 
