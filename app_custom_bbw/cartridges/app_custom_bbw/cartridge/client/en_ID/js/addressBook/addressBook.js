@@ -64,7 +64,7 @@ base.submitAddress = function () {
     $('body').on('submit', 'form.address-form', function (e) {
         var $form = $(this);
         e.preventDefault();
-        if ($form.find('input').serialize() !== window.addressForm) {
+        if ($form.find('input,select').serialize() !== window.addressForm) {
             action = $form.attr('action');
             $form.spinner().start();
             $('form.address-form').trigger('address:submit', e);

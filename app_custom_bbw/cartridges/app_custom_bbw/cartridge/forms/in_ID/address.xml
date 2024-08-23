@@ -52,8 +52,8 @@
     <field formid="district" label="label.input.district" type="string" mandatory="true" binding="city" min-length="2"
            max-length="50" missing-error="address.district.missing" range-error="error.message.between2and50"/>
 
-       <field formid="subdistrict" label="label.input.subdistrict" type="string" mandatory="true" min-length="2" max-length="50"
-       binding="subdistrict"
+       <field formid="subDistrict" label="label.input.subdistrict" type="string" mandatory="true" min-length="2" max-length="50"
+       binding="subDistrict"
        range-error="error.message.between2and50"
        missing-error="address.subdistrict.missing"/>
 
