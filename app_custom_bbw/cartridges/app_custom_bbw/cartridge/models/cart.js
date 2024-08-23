@@ -166,7 +166,8 @@ function getApproachingDiscounts(basket, discountPlan) {
                     ),
                     conditionThreshold: approachingShippingDiscount.conditionThreshold.value,
                     formattedConditionThreshold: formatMoney(approachingShippingDiscount.conditionThreshold),
-                    distanceFromConditionThreshold: approachingShippingDiscount.distanceFromConditionThreshold.value
+                    distanceFromConditionThreshold: approachingShippingDiscount.distanceFromConditionThreshold.value,
+                    condition: approachingShippingDiscount.discount.promotion && 'custom' in approachingShippingDiscount.discount.promotion && 'shippingMotivatorCondition' in approachingShippingDiscount.discount.promotion.custom ? approachingShippingDiscount.discount.promotion.custom.shippingMotivatorCondition.markup : ''
                 };
             }
         );
@@ -185,7 +186,8 @@ function getApproachingDiscounts(basket, discountPlan) {
                         ),
                         conditionThreshold: conditionThreshold,
                         formattedConditionThreshold: formatMoney(new Money(conditionThreshold, basket.currencyCode)),
-                        distanceFromConditionThreshold: 0
+                        distanceFromConditionThreshold: 0,
+                        condition: appliedShippingDiscount.promotion && 'custom' in appliedShippingDiscount.promotion && 'shippingMotivatorCondition' in appliedShippingDiscount.promotion.custom ? appliedShippingDiscount.promotion.custom.shippingMotivatorCondition.markup : ''
                     };
                 }
             );
