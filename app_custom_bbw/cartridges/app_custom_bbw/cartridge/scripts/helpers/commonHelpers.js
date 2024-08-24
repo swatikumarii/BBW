@@ -228,11 +228,13 @@ function getTrackingUrl(carrier, trackingNumber){
  */
 function checkExpressCheckout(order) {
     var expressCheckout = false;
-    var paymentInstrument = order.paymentInstruments[0];
-    if (paymentInstrument.paymentMethod === 'AdyenComponent' && !order.billingAddress.custom.dialCode) {
-        expressCheckout = true;
-    } else if (paymentInstrument.paymentMethod === 'AFTERPAY') {
-        expressCheckout = paymentInstrument.paymentTransaction.custom.apExpressCheckout;
+    for (var i = 0; i < order.paymentInstruments.length; i++) {
+        var paymentInstrument = order.paymentInstruments[i];
+        if (paymentInstrument.paymentMethod === 'AdyenComponent' && !order.billingAddress.custom.dialCode) {
+            expressCheckout = true;
+        } else if (paymentInstrument.paymentMethod === 'AFTERPAY') {
+            expressCheckout = paymentInstrument.paymentTransaction.custom.apExpressCheckout;
+        }
     }
     return expressCheckout;
 }
