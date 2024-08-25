@@ -119,6 +119,11 @@
                                             </td>
                                             <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
                                                 <div style="width:245px">
+                                                    <isif condition="${lineItem.isBonusProductLineItem}">
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${Resource.msg('label.free.gift', 'common', null)}
+                                                        </div>
+                                                    </isif>
                                                     <div
                                                         style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
                                                         <a href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}"

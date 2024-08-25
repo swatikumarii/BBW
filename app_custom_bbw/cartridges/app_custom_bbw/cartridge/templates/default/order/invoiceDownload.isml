@@ -204,6 +204,9 @@
                                     </isif>
                                 </div>
                                 <div class="product-details" style="margin-top:12px;">
+                                    <isif condition="${lineItem.isBonusProductLineItem}">
+                                        <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">${Resource.msg('label.free.gift', 'common', null)}</p>
+                                    </isif>
                                     <isif condition="${lineItem.ispersonalizedGiftcard}">
                                         <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919;">
                                             ${Resource.msg('personalized.giftcard.name', 'common', null)}</p>
