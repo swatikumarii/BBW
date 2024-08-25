@@ -16,6 +16,7 @@ var Order = require('dw/order/Order');
 var seo = require('*/cartridge/scripts/middleware/seo');
 var Transaction = require('dw/system/Transaction');
 var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
+var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
 
 /**
  * Order-Details : The Order-Details append to add notify-me functionality
@@ -28,6 +29,7 @@ server.append(
     userLoggedIn.validateLoggedIn,
     function (req, res, next) {
         var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+        var OrderMgr = require('dw/order/OrderMgr');
         var viewData = res.getViewData();
 
         var userEmail = req.currentCustomer.raw.registered
@@ -66,6 +68,8 @@ server.append(
             );
         }
 
+        var order = OrderMgr.getOrder(viewData.order.orderNumber);
+        viewData.expressCheckout = commonHelper.checkExpressCheckout(order);
         res.setViewData(viewData);
         next();
     },seo.addCurrentPageMetaData);
@@ -388,6 +392,8 @@ server.get(
                     einvoiveHelper.eInvoiceStatusCheckNonAjax(res, orderId);
             }
 
+            viewData.expressCheckout = commonHelper.checkExpressCheckout(order);
+
             res.setViewData(viewData);
 
             var breadcrumbs = [];
@@ -566,6 +572,8 @@ server.append(
 
             // redirection url
             viewData.orderStatusVal = Order;
+
+            viewData.expressCheckout = commonHelper.checkExpressCheckout(order);
             // if (order && order.paymentStatus.value === viewData.orderStatusVal.PAYMENT_STATUS_NOTPAID
             //     && order.paymentTransaction && order.paymentTransaction !== null && 'custom' in order.paymentTransaction && order.paymentTransaction.custom
             //     && 'Adyen_paymentMethod' in order.paymentTransaction.custom && 'authCode' in order.paymentTransaction.custom
@@ -606,13 +614,6 @@ server.append(
                 });
             } else {
                 var billingAddress = viewData.order.billing.billingAddress.address;
-                var expressCheckout = false;
-                var paymentInstrument = order.paymentInstruments[0];
-                if (paymentInstrument.paymentMethod === 'AdyenComponent' && !order.billingAddress.custom.dialCode) {
-                    expressCheckout = true;
-                } else if (paymentInstrument.paymentMethod === 'AFTERPAY') {
-                    expressCheckout = paymentInstrument.paymentTransaction.custom.apExpressCheckout;
-                }
                 // remove 0 from starting of phone number
                 var billingPhn = billingAddress.phone;
                 if (billingPhn.startsWith('0')) {
@@ -624,7 +625,7 @@ server.append(
                     phone: billingPhn,
                     email: viewData.order.orderEmail,
                     dialCode: order.billingAddress.custom.dialCode,
-                    expressCheckout: expressCheckout
+                    expressCheckout: viewData.expressCheckout
                 };
                 var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
                 if (crmCustomerID) {
