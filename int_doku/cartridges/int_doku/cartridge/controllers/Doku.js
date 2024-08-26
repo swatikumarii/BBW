@@ -99,7 +99,7 @@ server.get('Callback', server.middleware.https, function (req, res, next) {
   if (!paymentStatusData) {
     paymentStatusData = JSON.parse(paymentTransaction.paymentInstrument.custom.dokuLog);
   }
-  var transactionStatus = paymentStatusData.transaction.status;
+  var transactionStatus = paymentStatusData && 'transaction' in paymentStatusData && paymentStatusData.transaction.status ? paymentStatusData.transaction.status : 'FAILED';
   var result = { error: false, message: '' };
   if (order.status.value === Order.ORDER_STATUS_CREATED) {
     if (transactionStatus == 'SUCCESS') {

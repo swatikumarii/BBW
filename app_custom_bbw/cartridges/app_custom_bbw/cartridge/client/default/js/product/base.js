@@ -1030,8 +1030,8 @@ module.exports = $.extend({}, base, {
     },
     selectBonusProduct: function () {
         $(document).on('click', '.select-bonus-product', function () {
+            var $choiceOfBonusProduct = $(this).parents('.choice-of-bonus-product');
             if ($(this).is(':checked')) {
-                var $choiceOfBonusProduct = $(this).parents('.choice-of-bonus-product');
                 var pid = $(this).data('pid');
                 $choiceOfBonusProduct.parent().find('.select-bonus-product').each(function () {
                     if ($(this).data('pid') !== pid) {
@@ -1066,6 +1066,9 @@ module.exports = $.extend({}, base, {
                 }
                 $('.add-bonus-products').attr('disabled', false);
             } else {
+                var reducedQty = parseInt($('.pre-cart-products').html(), 10);
+                var removedQty = parseInt($choiceOfBonusProduct.find('.bonus-quantity-select').val(), 10);
+                reducedQty -= removedQty;
                 var qtyString = $('input[name="pre-cart-products-string"]').val();
                 var noSelectedBonusProductHtml = ''+
                 '<div class="bonus-summary row">'+
@@ -1076,6 +1079,7 @@ module.exports = $.extend({}, base, {
                 '</div>';
                 $('#chooseBonusProductModal .selected-bonus-products').empty().append(noSelectedBonusProductHtml);
                 $('.add-bonus-products').attr('disabled', true);
+                $('.pre-cart-products').html(reducedQty);
             }
         });
     }
