@@ -290,7 +290,9 @@
                                                         condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
                                                         <isinclude
                                                             template="checkout/billing/paymentOptions/afterpaySummary" />
-                                                </isif>
+                                                    <iselseif condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
+                                                        <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
+                                                    </isif>
                                                 <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.totals.grandTotal}</p>
                                             </isloop>
                                         </td>
