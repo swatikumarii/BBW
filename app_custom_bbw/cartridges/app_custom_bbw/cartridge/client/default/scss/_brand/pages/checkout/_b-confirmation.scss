@@ -470,3 +470,9 @@
 .confirmation-shipping {
     letter-spacing: 0.01em;
 }
+
+.confirmation-billing-summary {
+    .order-summary-emailaddress {
+        display: none;
+    }
+}
