@@ -18,7 +18,7 @@ server.append('Begin', function (req, res, next) {
     if ((viewData.currentStage === 'customer' || viewData.currentStage === 'shipping') && isGiftProductAvailable) {
         viewData.currentStage = 'payment';
     }
-    if (viewData.currentStage === 'payment' && !(viewData.order &&  'shipping' in viewData.order && viewData.order.shipping.length > 0 && viewData.order.shipping[0].selectedShippingMethod && viewData.order.shipping[0].shippingAddress)) {
+    if (viewData.currentStage === 'payment' && !(viewData.order &&  'shipping' in viewData.order && viewData.order.shipping.length > 0 && viewData.order.shipping[0].selectedShippingMethod && viewData.order.shipping[0].shippingAddress) && !isGiftProductAvailable) {
         var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
             currentBasket.getDefaultShipment()
         ).getApplicableShippingMethods();
