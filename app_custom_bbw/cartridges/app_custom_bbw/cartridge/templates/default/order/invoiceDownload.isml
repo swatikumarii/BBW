@@ -490,7 +490,7 @@
                                     <div class="col-md-10">
                                         <isif condition="${shippingExclusiveTax}">
                                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
-                                                <strong>${Resource.msgf('label.invoice.shipping.fee.tax', 'cart', null, pdict.taxRate)}:</strong>
+                                                <strong>${Resource.msg('label.invoice.shipping.fee.tax', 'cart', null)}:</strong>
                                             </p>
                                         <iselse/>
                                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
