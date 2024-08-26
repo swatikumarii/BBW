@@ -316,7 +316,9 @@ module.exports = $.extend({}, detail, {
                             $.get(updateShippingMethodURL);
                             handlePostCartAdd(data);
                             if ($('.gift-card-form').length > 0) {
+                                var selectedAmount = $('.gift-card-form .select-amount').val();
                                 $('.gift-card-form')[0].reset();
+                                $('.gift-card-form .select-amount').val(selectedAmount).trigger('change');
                                 $('#video-preview').attr('src', '');
                                 $('.gift-card-video video').addClass('d-none');
                                 $('.gift-card-video .remove-video').addClass('d-none');
