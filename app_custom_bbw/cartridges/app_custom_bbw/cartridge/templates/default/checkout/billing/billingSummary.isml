@@ -14,6 +14,9 @@
         <iselse>
         <span class="order-summary-phone"></span>
     </isif>
+    <isif condition="${pdict.order.orderEmail}">
+        <div><span class="order-summary-emailaddress h-font-size--16">${pdict.order.orderEmail}</span></div>
+    </isif>
 </div>
 
 <!--- Payment information --->
