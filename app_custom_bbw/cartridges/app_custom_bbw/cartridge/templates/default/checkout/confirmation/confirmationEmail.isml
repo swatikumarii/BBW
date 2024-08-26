@@ -273,6 +273,8 @@
                                                     <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
                                                 <iselseif condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
                                                     <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
+                                                    <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
+                                                    ${payment.amount}</p>
                                                 </isif>
                                             </isloop>
                                         </td>
