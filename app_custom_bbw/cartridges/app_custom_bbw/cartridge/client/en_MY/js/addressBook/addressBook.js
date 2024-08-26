@@ -260,10 +260,6 @@ $(document).on('click', '#editAddress', function () {
                                 text: addressObject.state
                             }).attr('selected', 'selected')
                         );
-                        // var stateError = $('#defaultState');
-                        // stateError.empty();
-                        // $('.shippingState').removeClass('is-invalid');
-
                         // setting city as per place API response
                         var suburbDropdown = $('.address-city-input');
                         suburbDropdown.empty();
@@ -273,10 +269,6 @@ $(document).on('click', '#editAddress', function () {
                                 text: addressObject.city
                             }).attr('selected', 'selected')
                         );
-                        // var cityError = $('#defaultCity');
-                        // cityError.empty();
-                        // $('.shippingAddressCity').removeClass('is-invalid');
-
                         // setting city as per place API response
                         var zipcodeDropdown = $('.address-zipcode-input');
                         zipcodeDropdown.empty();
@@ -318,36 +310,6 @@ $(document).on('click', '#editAddress', function () {
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
             $('#modalContent').find('.address-state-input').trigger('change');
-            // var selectedAddressCity = $('#modalContent')
-            //     .find('.address-city-input')
-            //     .attr('data-selected');
-            // if (selectedAddressCity !== 'null') {
-            //     $('.address-city-input option').each(function () {
-            //         if ($(this).val() === selectedAddressCity) {
-            //             $('.address-city-input option').removeAttr('selected');
-            //             $(this).attr('selected', 'selected');
-            //             $('body').find('.address-city-input').trigger('change');
-            //             return false;
-            //         }
-            //     });
-            // }
-            // var selectedPostalCode = $('#modalContent')
-            //     .find('.address-zipcode-input')
-            //     .attr('data-selected');
-            // if (selectedPostalCode !== 'null') {
-            //     $('.address-zipcode-input option').each(function () {
-            //         if ($(this).val() === selectedPostalCode) {
-            //             $('.address-zipcode-input option').removeAttr(
-            //                 'selected'
-            //             );
-            //             $(this).attr('selected', 'selected');
-            //             $('body')
-            //                 .find('.address-zipcode-input')
-            //                 .trigger('change');
-            //             return false;
-            //         }
-            //     });
-            // }
             var addressForm = $($(response)[0]).find('input');
             window.addressForm = $(addressForm).serialize();
         }

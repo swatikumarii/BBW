@@ -315,9 +315,6 @@ module.exports = {
                             text: addressObject.state
                         }).attr('selected', 'selected')
                     );
-                    // var stateError = $('#defaultState');
-                    // stateError.empty();
-                    // $('.shippingState').removeClass('is-invalid');
 
                     // setting city as per place API response
                     var suburbDropdown = $('.address-city-input');
@@ -328,10 +325,7 @@ module.exports = {
                             text: addressObject.city
                         }).attr('selected', 'selected')
                     );
-                    // var cityError = $('#defaultCity');
-                    // cityError.empty();
-                    // $('.shippingAddressCity').removeClass('is-invalid');
-
+                    
                     // setting city as per place API response
                     var zipcodeDropdown = $('.address-zipcode-input');
                     zipcodeDropdown.empty();
