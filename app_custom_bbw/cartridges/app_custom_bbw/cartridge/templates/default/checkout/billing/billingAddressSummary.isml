@@ -7,7 +7,9 @@
 <div class="summary-details billing border h-clr--black-1 ${pdict.order.billing.billingAddress.address !== null ? '': 'd-none'}">
     <isinclude template="checkout/addressSummary" />
     <isif condition="${pdict.order.billing.billingAddress.address !== null}">
-        <span class="order-summary-phone">${pdict.order.billing.billingAddress.address.phone}</span>
+        <span class="order-summary-phone">
+        <isif condition="${pdict.order.billing.billingAddress.address.dialCode}">${Resource.msg('order.phone.dialcode', 'order', null)}${pdict.order.billing.billingAddress.address.dialCode}</isif>
+        ${pdict.order.billing.billingAddress.address.phone}</span>
     <iselse>
             <span class="order-summary-phone"></span>
     </isif>

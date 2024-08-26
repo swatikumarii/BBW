@@ -52,15 +52,15 @@ function getAllDiscounts(lineItemContainer) {
                     if (mergedDiscountItems.length === 0) {
                         mergedDiscountItems.push(discountObjectMerge);
                     } else {
-                        var isPromoPresent = mergedDiscountItems.map(function (discountElem) {
+                        var isPromoPresent = false;
+                        mergedDiscountItems.forEach(function (discountElem) {
                             var promoText = discountObjectMerge.promotion;
                             var promoDiscount = discountObjectMerge.unformattedDiscount;
                             if(discountElem.promotion === promoText) {
                                 discountElem.unformattedDiscount = discountElem.unformattedDiscount.add(promoDiscount);
                                 discountElem.discount = getTotals(discountElem.unformattedDiscount);
-                                return true;
+                                isPromoPresent = true;
                             }
-                            return false;
                         });
                         if (!isPromoPresent) {
                             mergedDiscountItems.push(discountObjectMerge);

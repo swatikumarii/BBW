@@ -13,9 +13,9 @@
         </span>
     </div>
     <input type="text" class="form-control" id="addressId"
-    placeholder="412 345 678"
         data-missing-error="${Resource.msg('error.address.title', 'forms', null)}"
-        data-range-error="${Resource.msg('error.message.20orless', 'forms', null)}" <isprint
+        data-range-error="${Resource.msg('error.message.20orless', 'forms', null)}"
+        data-pattern-mismatch="${Resource.msg('error.message.parse.addressID', 'forms', null)}" <isprint
         value="${pdict.addressForm.addressId.attributes}" encoding="off" />>
     <div class="invalid-feedback"></div>
 </div>
@@ -223,19 +223,19 @@
         <div class="col-12">
             <div class="form-group select-box">
                 <div class="form-label-require d-flex align-items-center justify-content-between">
-                    <label class="form-control-label mb-0" for="subdistrict">
+                    <label class="form-control-label mb-0" for="subDistrict">
                         <span class="required-indicator"></span>
-                        <isprint value="${pdict.addressForm.subdistrict.label}" encoding="htmlcontent" />
+                        <isprint value="${pdict.addressForm.subDistrict.label}" encoding="htmlcontent" />
                     </label>
                     <iscomment> <span
                             class="${pdict.addressForm.subdistrict.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
                         </span> </iscomment>
                 </div>
                 <div class="select-address-wrap">
-                    <select type="text" class="form-control address-subdistrict-input" id="subdistrict"
-                        data-selected="${pdict.addressForm.subdistrict.htmlValue}"
+                    <select type="text" class="form-control address-subdistrict-input" id="subDistrict"
+                        data-selected="${pdict.addressForm.subDistrict.htmlValue}"
                         data-missing-error="${Resource.msg('address.subdistrict.missing', 'forms', null)}" <isprint
-                        value="${pdict.addressForm.subdistrict.attributes}" encoding="off" />
+                        value="${pdict.addressForm.subDistrict.attributes}" encoding="off" />
                     autocomplete="address-level2">
                     </select>
                     <div class="invalid-feedback select-error"></div>

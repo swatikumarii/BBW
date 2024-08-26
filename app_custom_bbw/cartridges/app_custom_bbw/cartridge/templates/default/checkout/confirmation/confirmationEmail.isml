@@ -99,6 +99,11 @@
                                             </td>
                                             <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
                                                 <div style="width:245px">
+                                                    <isif condition="${lineItem.isBonusProductLineItem}">
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${Resource.msg('label.free.gift', 'common', null)}
+                                                        </div>
+                                                    </isif>
                                                     <div
                                                         style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
                                                         <a href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}"
@@ -268,6 +273,8 @@
                                                     <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
                                                 <iselseif condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
                                                     <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
+                                                    <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
+                                                    ${payment.amount}</p>
                                                 </isif>
                                             </isloop>
                                         </td>
@@ -398,19 +405,26 @@
                                                 <iscomment> SHIPPING & HANDLING TAX </iscomment>
                                                 <isif condition="${showShippingHandlingTaxes}">
                                                     <isif condition="${!pdict.hasFreeShipping}">
-                                                        <iscomment> <tr>
-                                                            <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                                ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
-                                                            </td>
+                                                        <tr>
+                                                            <isif condition="${shippingExclusiveTax}">
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                    ${Resource.msg('label.shipping.and.handling.tax', 'cart', null)}
+                                                                </td>
+                                                            <iselse/>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                    ${Resource.msg('label.shipping.and.handling.tax.inclusive', 'cart', null)}
+                                                                </td>
+                                                            </isif>
                                                             <td
                                                                 style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                                ${pdict.order.totals.shippingTotalTax}</td>
-                                                        </tr> </iscomment>
-                                                        <iscomment> Shipping Discounts </iscomment>
-                                                        <tr>
-                                                            <isif
-                                                                condition="${!pdict.order.totals.shippingLevelDiscountTotal.value === 0}">
+                                                                ${pdict.order.totals.shippingTotalTax}
+                                                            </td>
+                                                        </tr>
+                                                        <iscomment> Shipping Discount </iscomment>
+                                                        <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value !== 0}">
+                                                            <tr>
                                                                 <td
                                                                     style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
                                                                     ${Resource.msg('label.shipping.discount', 'common', null)}
@@ -419,8 +433,8 @@
                                                                     style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
                                                                     ${'-' + pdict.order.totals.shippingLevelDiscountTotal.formatted}
                                                                 </td>
-                                                            </isif>
-                                                        </tr>
+                                                            </tr>
+                                                        </isif>
                                                     </isif>
                                                 </isif>
 
