@@ -6,6 +6,7 @@ server.extend(module.superModule);
 server.append('Begin', function (req, res, next) {
     var BasketMgr = require('dw/order/BasketMgr');
     var ShippingMgr = require('dw/order/ShippingMgr');
+    var Transaction = require('dw/system/Transaction');
     var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
     var currentBasket = BasketMgr.getCurrentBasket();
     var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(currentBasket);
@@ -16,6 +17,17 @@ server.append('Begin', function (req, res, next) {
     }
     if ((viewData.currentStage === 'customer' || viewData.currentStage === 'shipping') && isGiftProductAvailable) {
         viewData.currentStage = 'payment';
+    }
+    if (viewData.currentStage === 'payment' && !(viewData.order &&  'shipping' in viewData.order && viewData.order.shipping.length > 0 && viewData.order.shipping[0].selectedShippingMethod && viewData.order.shipping[0].shippingAddress)) {
+        var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+            currentBasket.getDefaultShipment()
+        ).getApplicableShippingMethods();
+        if (applicableShippingMethods && applicableShippingMethods.length > 0) {
+            Transaction.wrap(function () {
+                currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+            });
+        }
+        viewData.currentStage = 'shipping';
     }
     var areShipmentsValid = ShippingMgr.getShipmentShippingModel(currentBasket.getDefaultShipment()).getApplicableShippingMethods();
     if (!areShipmentsValid.length) {
