@@ -126,12 +126,14 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         if (!applicableShippingMethodsIDs.includes(appliedShippingMethodID)) {
             Transaction.wrap(function () {
                 currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+                basketCalculationHelpers.calculateTotals(currentBasket);
             });
         }
 
+    });
+    Transaction.wrap(function () {
         basketCalculationHelpers.calculateTotals(currentBasket);
     });
-    basketCalculationHelpers.calculateTotals(currentBasket);
     var currentLocale = Locale.getLocale(req.locale.id);
     var basketModel = new OrderModel(
         currentBasket,
