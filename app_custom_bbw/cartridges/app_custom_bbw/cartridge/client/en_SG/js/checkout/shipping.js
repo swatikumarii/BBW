@@ -844,6 +844,10 @@ module.exports = {
                         return false;
                     }
                 });
+            }else {
+                $('.shippingState option').removeAttr('selected');
+                $($('.shippingState option')[0]).attr('selected', 'selected');
+                $('body').find('.shippingState').trigger('change');
             };
             if (city) {
                 $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
