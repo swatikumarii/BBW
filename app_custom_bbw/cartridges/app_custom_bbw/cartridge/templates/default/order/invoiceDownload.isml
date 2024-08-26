@@ -345,6 +345,9 @@
                     <isset name="showAdjustedMerchandizeSubtotal"
                         value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showAdjustedMerchandizeSubtotal')}"
                         scope="page" />
+                    <isset name="showInclTaxRateInst"
+                        value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showInclTaxRateInst')}"
+                        scope="page" />
 
                     <iscomment> Subtotal </iscomment>
                     <isif condition="${totalExclusiveTax}">
@@ -490,7 +493,7 @@
                                     <div class="col-md-10">
                                         <isif condition="${shippingExclusiveTax}">
                                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
-                                                <strong>${Resource.msg('label.shipping.and.handling.tax', 'cart', null)}:</strong>
+                                                <strong>${Resource.msgf('label.invoice.shipping.fee.tax', 'cart', null, pdict.taxRate)}:</strong>
                                             </p>
                                         <iselse/>
                                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
@@ -587,7 +590,7 @@
                             </p>
                         </div>
                     </div>
-                    <isif condition="${pdict.taxRate !== 0}">
+                    <isif condition="${showInclTaxRateInst && pdict.taxRate !== 0}">
                         <div class="row"
                             style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                             <p class="h-font-size--18 h-clr--black-1 h-fw--semibold" style=" margin-bottom: 0px;">

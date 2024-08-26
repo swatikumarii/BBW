@@ -1931,6 +1931,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="showInclTaxRateInst">
+                <display-name xml:lang="x-default">Show Inclusive Tax Rate Instruction</display-name>
+                <description xml:lang="x-default">Show Inclusive Tax Rate Instruction</description>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="showMinicartPopup">
                 <display-name xml:lang="x-default">Show Minicart popup</display-name>
                 <type>boolean</type>
@@ -2190,6 +2198,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showSalesTaxes"/>
                 <attribute attribute-id="showShippingHandlingTaxes"/>
                 <attribute attribute-id="showAdjustedMerchandizeSubtotal"/>
+                <attribute attribute-id="showInclTaxRateInst"/>
             </attribute-group>
             <attribute-group group-id="sendgrid">
                 <display-name xml:lang="x-default">Sendgrid</display-name>
