@@ -79,7 +79,16 @@ function getHreflangs(pdict) {
                 );
             }
             return acc;
-        }, []
+        },
+        [
+            getHreflang(
+                true,
+                pdict.isHomePage,
+                currentSite.defaultLocale,
+                currentSite,
+                urlParameters
+            )
+        ]
     );
 }
 
