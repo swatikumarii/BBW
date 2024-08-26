@@ -283,10 +283,10 @@
                             &:hover {
                                 display: block;
 
-                                + .tooltip-arrow {
+                                +.tooltip-arrow {
                                     display: block;
 
-                                    + .tooltip-arrow::before {
+                                    +.tooltip-arrow::before {
                                         display: block;
                                     }
                                 }
@@ -598,8 +598,7 @@
                         &.accordion-item.collapsed {
                             .cart-saving {
                                 &::before {
-                                    background: url("../images/UI-Carat.svg")
-                                        50%;
+                                    background: url("../images/UI-Carat.svg") 50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
@@ -617,8 +616,7 @@
                         &.accordion-item {
                             .cart-saving {
                                 &::before {
-                                    background: url("../images/UI-Carat.svg")
-                                        50%;
+                                    background: url("../images/UI-Carat.svg") 50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
@@ -959,8 +957,7 @@ footer {
 
             span.arrow {
                 display: inline-block;
-                background: url("../../images/cart/Caret_Bold.svg") no-repeat
-                    50%;
+                background: url("../../images/cart/Caret_Bold.svg") no-repeat 50%;
                 background-size: 14px;
                 height: 12px;
                 width: 12px;
@@ -1014,4 +1011,14 @@ footer {
 
 .social-badge-wrapper {
     margin-bottom: 6px;
+}
+
+.cart-dangerous-goods {
+    position: relative;
+
+    @include media-up(sm) {
+        position: absolute;
+        bottom: 20px;
+        right: 11px;
+    }
 }
