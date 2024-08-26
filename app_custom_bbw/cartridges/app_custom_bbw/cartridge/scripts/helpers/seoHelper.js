@@ -89,7 +89,7 @@ function getHreflangs(pdict) {
                 urlParameters
             )
         ]
-    );
+    ).reverse();
 }
 
 /**
