@@ -125,8 +125,10 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         });
         if (!applicableShippingMethodsIDs.includes(appliedShippingMethodID)) {
             Transaction.wrap(function () {
-                currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
-                basketCalculationHelpers.calculateTotals(currentBasket);
+                if (applicableShippingMethods.length) {
+                    currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+                    basketCalculationHelpers.calculateTotals(currentBasket);
+                };
             });
         }
 
