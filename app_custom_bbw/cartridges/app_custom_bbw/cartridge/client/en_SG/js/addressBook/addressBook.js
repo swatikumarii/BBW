@@ -64,7 +64,7 @@ window.submitAddressForm = function (token) {
  * updated the function for address-form submit
  */
 base.submitAddress = function () {
-    $('body').on('submit', 'form.address-form', function (e) {
+    $(document).on('submit', 'form.address-form', function (e) {
         var $form = $(this);
         e.preventDefault();
         if ($form.find('input').serialize() !== window.addressForm) {
