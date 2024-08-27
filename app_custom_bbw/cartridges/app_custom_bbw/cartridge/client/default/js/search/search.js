@@ -575,7 +575,7 @@ module.exports = {
                 var searchUrl = $(this).data('href');
                 var seoUrl = $(this).data('seo-href') || searchUrl;
                 if (seoUrl) {
-                    window.history.pushState({}, null, seoUrl);
+                    window.history.pushState({}, null, seoUrl.split('?')[0]);
                 }
 
                 var attributeId = '#' + $(this).find('span').last().attr('id');
