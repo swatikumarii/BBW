@@ -4,7 +4,7 @@
     assets.addCss('/css/account/account.css');
 </isscript>
 <isif condition="${order.orderStatus.value != dw.order.Order.ORDER_STATUS_FAILED && order.orderStatus.value != dw.order.Order.ORDER_STATUS_CREATED}">
-    <div class="card collapse show" id="orderlist" data-parent="#order-list-accordion">
+    <div class="card collapse show" id="orderlist${index}" data-parent="#order-list-accordion">
         <div class="card-head card-info-group">
             <div class="d-md-flex d-block align-items-center justify-content-between">
                 <div class="order-date-wrap">
