@@ -31,7 +31,7 @@ function validateForm(event) {
  */
 function clearForm(form) {
     $(form).find('.form-control.is-invalid').removeClass('is-invalid');
-    $(form).find('.iti--allow-dropdown.is-invalid').removeClass('is-invalid');
+    // $(form).find('.iti--allow-dropdown.is-invalid').removeClass('is-invalid');
 }
 
 /**
@@ -44,9 +44,9 @@ function invalid() {
         if (!this.validity.valid) {
             var validationMessage = this.validationMessage;
             $(this).addClass('is-invalid');
-            if ($(this).hasClass('iti__tel-input')) {
-                $(this).closest('.iti--allow-dropdown').addClass('is-invalid');
-            }
+            // if ($(this).hasClass('iti__tel-input')) {
+            //     $(this).closest('.iti--allow-dropdown').addClass('is-invalid');
+            // }
             if (
                 this.validity.patternMismatch &&
                     $(this).data('pattern-mismatch')
