@@ -66,6 +66,9 @@ server.append('Begin', function (req, res, next) {
         }
     }
     viewData.isOrderShippable = false;
+    applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+        currentBasket.getDefaultShipment()
+    ).getApplicableShippingMethods();
     if (applicableShippingMethods.length) {
         viewData.isOrderShippable = true;
     }
