@@ -188,8 +188,13 @@
                                     class="ap-checkout-ship ap-checkout-pay-tab-noecf ap-checkout-pay-notab-ecf ap-checkout-pay-notab-noecf ap-checkout-po-noecf">
                                     <iscomment>End of Afterpay</iscomment>
 
-                                    <isif condition="${pdict.isDangerousGoodsInBasket}">
+                                    <isif condition="${pdict.isDangerousGoodsInBasket && !pdict.isOrderShippable}">
                                         <span class="h-font-size--16 h-clr--red h-fw--normal cart-dangerous-goods">
+                                        ${Resource.msgf('checkout.dangerousGoods.notShippable', 'checkout', null)}
+                                        <a class="b-link--underlined" href="${URLUtils.url('Cart-Show')}">${Resource.msgf('checkout.dangerousGoods.viewCart', 'checkout', null)}</a>
+                                        ${Resource.msgf('checkout.dangerousGoods.updateCart', 'checkout', null)}</span>
+                                    <iselse/>
+                                         <span class="h-font-size--16 h-clr--red h-fw--normal cart-dangerous-goods" style="display: none;">
                                         ${Resource.msgf('checkout.dangerousGoods.notShippable', 'checkout', null)}
                                         <a class="b-link--underlined" href="${URLUtils.url('Cart-Show')}">${Resource.msgf('checkout.dangerousGoods.viewCart', 'checkout', null)}</a>
                                         ${Resource.msgf('checkout.dangerousGoods.updateCart', 'checkout', null)}</span>

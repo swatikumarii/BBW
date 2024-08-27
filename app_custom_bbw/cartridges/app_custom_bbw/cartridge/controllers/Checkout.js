@@ -18,8 +18,9 @@ server.append('Begin', function (req, res, next) {
     if ((viewData.currentStage === 'customer' || viewData.currentStage === 'shipping') && isGiftProductAvailable) {
         viewData.currentStage = 'payment';
     }
+    var applicableShippingMethods;
     if (viewData.currentStage === 'payment' && !(viewData.order &&  'shipping' in viewData.order && viewData.order.shipping.length > 0 && viewData.order.shipping[0].selectedShippingMethod && viewData.order.shipping[0].shippingAddress) && !isGiftProductAvailable) {
-        var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+        applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
             currentBasket.getDefaultShipment()
         ).getApplicableShippingMethods();
         if (applicableShippingMethods && applicableShippingMethods.length > 0) {
@@ -64,6 +65,11 @@ server.append('Begin', function (req, res, next) {
             break;
         }
     }
+    viewData.isOrderShippable = false;
+    if (applicableShippingMethods.length) {
+        viewData.isOrderShippable = true;
+    }
+
     viewData.isDangerousGoodsInBasket = isDangerousGoodsInBasket;
     res.setViewData(viewData);
     next();
@@ -110,6 +116,7 @@ server.post('UpdateShippingMethods', function (req, res, next) {
     var shipment = currentBasket.defaultShipment;
     var stateCode = req.querystring.stateCode;
     var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
+    var isOrderShippable = false;
     Transaction.wrap(function () {
         var shippingAddress = shipment.shippingAddress;
 
@@ -126,6 +133,7 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         if (!applicableShippingMethodsIDs.includes(appliedShippingMethodID)) {
             Transaction.wrap(function () {
                 if (applicableShippingMethods.length) {
+                    isOrderShippable = true;
                     currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
                     basketCalculationHelpers.calculateTotals(currentBasket);
                 };
@@ -145,6 +153,7 @@ server.post('UpdateShippingMethods', function (req, res, next) {
     res.json({
         customer: new AccountModel(req.currentCustomer),
         order: basketModel,
+        isOrderShippable: isOrderShippable,
         shippingForm: server.forms.getForm('shipping')
     });
     next();
