@@ -251,6 +251,7 @@ $(document).ready(function () {
         { selector: '#firstName', validationFunction: validMinLength },
         { selector: '#lastName', validationFunction: validMinLength },
         { selector: '#phone', validationFunction: validPhoneNumber },
+        { selector: '#editphone', validationFunction: validPhoneNumber },
         { selector: '#profilePhone', validationFunction: validPhoneNumber },
         { selector: '#zip', validationFunction: validZipCodeRequired },
         { selector: '#password', validationFunction: validatePasswordField },

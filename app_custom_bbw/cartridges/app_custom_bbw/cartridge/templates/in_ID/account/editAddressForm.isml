@@ -268,14 +268,14 @@
 <!-- Phone Number -->
 <div class="form-group add-phone-number">
     <div class="form-label-require d-flex align-items-center justify-content-between">
-        <label class="form-control-label mb-0" for="phone">
+        <label class="form-control-label mb-0" for="editphone">
         <span class="required-indicator"></span>
             <isprint value="${pdict.addressForm.phone.label}" encoding="htmlcontent" />
         </label>
         <iscomment> <span class="${pdict.addressForm.phone.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
         </span> </iscomment>
     </div>
-    <input type="tel" class="form-control editAddressPhone" id="phone"
+    <input type="tel" class="form-control editAddressPhone" id="editphone"
         placeholder="412 345 678"
         data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
         data-missing-error="${Resource.msg('error.phone.number', 'forms', null)}"
