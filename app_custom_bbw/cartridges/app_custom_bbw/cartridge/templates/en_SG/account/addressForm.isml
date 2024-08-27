@@ -243,9 +243,10 @@
 <input type="hidden" class="dialCode" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCode')}"
     <isprint value=${pdict.addressForm.dialCode.attributes} encoding="off" />
 />
-<input type="hidden" class="dialCodeCountry"
-    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCodeCountry')}" <isprint
-    value=${pdict.addressForm.dialCodeCountry.attributes} encoding="off" />
+<input type="hidden" class="dialCodeCountry" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCodeCountry')}" <isprint value=${pdict.addressForm.dialCodeCountry.attributes}
+    encoding="off" />
+/>
+
 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
 <!-- Cancel and Save Buttons -->

@@ -25,6 +25,7 @@
 <input type="hidden" class="dialCodeCountry"
     value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCodeCountry')}" <isprint
     value=${pdict.addressForm.dialCodeCountry.attributes} encoding="off" />
+/>
 <!-- Name -->
 <div class="row">
     <!-- First Name -->
