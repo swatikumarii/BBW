@@ -159,7 +159,7 @@
                                                 <isprint value="${lineItem.quantity}" formatter="##" />
                                             </td>
                                             <td
-                                                style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:center">
+                                                style="font-size:16px;padding:50px 10px 20px;vertical-align:top;text-align:center">
                                                 <isif
                                                     condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
                                                     ${lineItem.totalSavings}
@@ -168,7 +168,7 @@
                                                 </isif>
                                             </td>
                                             <td
-                                                style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
+                                                style="font-size:16px;padding:50px 10px 20px;vertical-align:top;text-align:right">
                                                 <isif
                                                     condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
                                                     ${Resource.msg('label.free.price', 'cart', null)}
@@ -188,6 +188,20 @@
                                 href="${dw.web.URLUtils.abs('Order-History')}">
                                 ${Resource.msg('email.order.looking.more.here.text', 'confirmation', null)}</a>
                         </p>
+                        <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
+                            <p
+                                style="font-size:14px;line-height:14px;color:#666666;text-align:center;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                <isif condition="${dw.customer.CustomerMgr.getCustomerByLogin(pdict.order.orderEmail)}">
+                                    <isprint
+                                        value="${Resource.msgf('email.order.confirmation.einvoice.generate.text', 'einvoice', null, URLUtils.https('Order-History'))}"
+                                        encoding="off" />
+                                    <iselse>
+                                        <isprint
+                                            value="${Resource.msgf('email.order.confirmation.einvoice.generate.text', 'einvoice', null, URLUtils.https('Order-Status'))}"
+                                            encoding="off" />
+                                </isif>
+                            </p>
+                        </isif>
                         <iscomment> Shipping Section </iscomment>
                         <div
                             style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:37px 0 16px;padding-bottom:13px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
