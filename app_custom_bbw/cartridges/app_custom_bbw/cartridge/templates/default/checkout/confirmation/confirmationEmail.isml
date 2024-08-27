@@ -159,7 +159,7 @@
                                                 <isprint value="${lineItem.quantity}" formatter="##" />
                                             </td>
                                             <td
-                                                style="font-size:16px;padding:50px 10px 20px;vertical-align:top;text-align:center">
+                                                style="font-size:16px;padding:50px 10px 20px;vertical-align:top;text-align:center;white-space: nowrap;">
                                                 <isif
                                                     condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
                                                     ${lineItem.totalSavings}
@@ -168,7 +168,7 @@
                                                 </isif>
                                             </td>
                                             <td
-                                                style="font-size:16px;padding:50px 10px 20px;vertical-align:top;text-align:right">
+                                                style="font-size:16px;padding:50px 10px 20px;vertical-align:top;text-align:right;white-space: nowrap;">
                                                 <isif
                                                     condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
                                                     ${Resource.msg('label.free.price', 'cart', null)}
