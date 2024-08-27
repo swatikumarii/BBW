@@ -393,5 +393,13 @@ module.exports = $.extend({}, base, {
             $('.dialCode').val(countryData.dialCode);
             $('.dialCodeCountry').val(countryData.iso2);
         });
+    },
+    clearAddressForm: function () {
+        $('#add-address-form').on('hidden.bs.modal', function () {
+            var addressForm = $(this).find('form');
+            addressForm[0].reset();
+            addressForm.find('.address-city-input').find('option').remove().end();
+            addressForm.find('.address-zipcode-input').find('option').remove().end();
+        });
     }
 });

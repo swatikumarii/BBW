@@ -844,10 +844,13 @@ module.exports = {
                         return false;
                     }
                 });
-            }else {
+            } else {
                 $('.shippingState option').removeAttr('selected');
-                $($('.shippingState option')[0]).attr('selected', 'selected');
-                $('body').find('.shippingState').trigger('change');
+                $('.shippingState').val('');
+                $('.shippingAddressCity').val('');
+                $('.shippingAddressDistrict').val('');
+                $('.shippingAddressSubdistrict').val('');
+                $('.shippingZipCode').val('');
             };
             if (city) {
                 $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
