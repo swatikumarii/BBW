@@ -502,9 +502,9 @@ $('.shippingState').change(function () {
             shippingHelpers.methods.updateShippingMethods(data.order.shipping);
             $('.grand-total-wrap .grand-total').empty().text(data.order.priceTotal);
             if (data.isOrderShippable) {
-                $('.cart-dangerous-goods').hide();
+                $('.cart-dangerous-goods').addClass('d-none');
             } else {
-                $('.cart-dangerous-goods').show();
+                $('.cart-dangerous-goods').removeClass('d-none');
             }
         }
     });

@@ -154,7 +154,7 @@ function handlePayments(order, orderNumber) {
                     .getPaymentMethod(paymentInstrument.paymentMethod)
                     .paymentProcessor;
                 var authorizationResult;
-                if (!(paymentInstrument.paymentMethod === 'AdyenComponent' && paymentInstrument.custom && 'adyenPaymentMethod' in paymentInstrument.custom && paymentInstrument.custom.adyenPaymentMethod && paymentInstrument.custom.adyenPaymentMethod === 'Touch \'n Go')) {
+                if (!(paymentInstrument.paymentMethod === 'AdyenComponent' && paymentInstrument.custom && 'adyenPaymentMethod' in paymentInstrument.custom && paymentInstrument.custom.adyenPaymentMethod && (paymentInstrument.custom.adyenPaymentMethod === 'Touch \'n Go' || paymentInstrument.custom.adyenPaymentMethod === 'Malaysia E-Banking'))) {
                     if (paymentProcessor === null) {
                         Transaction.begin();
                         paymentInstrument.paymentTransaction.setTransactionID(orderNumber);

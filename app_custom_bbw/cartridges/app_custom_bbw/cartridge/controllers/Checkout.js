@@ -66,7 +66,10 @@ server.append('Begin', function (req, res, next) {
         }
     }
     viewData.isOrderShippable = false;
-    if (applicableShippingMethods.length) {
+    applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+        currentBasket.getDefaultShipment()
+    ).getApplicableShippingMethods();
+    if (applicableShippingMethods.length > 0) {
         viewData.isOrderShippable = true;
     }
 
@@ -130,10 +133,12 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         var applicableShippingMethodsIDs = collections.map(applicableShippingMethods, function (applicableShippingMethod) {
             return applicableShippingMethod.ID;
         });
+        if (applicableShippingMethods.length > 0) {
+            isOrderShippable = true;
+        }
         if (!applicableShippingMethodsIDs.includes(appliedShippingMethodID)) {
             Transaction.wrap(function () {
-                if (applicableShippingMethods.length) {
-                    isOrderShippable = true;
+                if (applicableShippingMethods.length > 0) {
                     currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
                     basketCalculationHelpers.calculateTotals(currentBasket);
                 };
