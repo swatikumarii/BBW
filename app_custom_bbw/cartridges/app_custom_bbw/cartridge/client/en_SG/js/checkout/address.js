@@ -124,7 +124,28 @@ function optionValueForAddress(shipping, selected, order, options) {
 }
 
 
+/**
+ * returns address properties from a UI form
+ * @param {object} form - the Form element
+ * @returns {object} - a JSON object with all values
+ */
+function getAddressFieldsFromUI(form) {
+    var address = {
+        firstName: $('input[name$=_firstName]', form).val(),
+        lastName: $('input[name$=_lastName]', form).val(),
+        address1: $('input[name$=_address1]', form).val(),
+        address2: $('input[name$=_address2]', form).val(),
+        city: $('select[name$=_city]', form).val(),
+        postalCode: $('input[name$=_postalCode]', form).val(),
+        stateCode: $('select[name$=_stateCode],input[name$=_stateCode]', form).val(),
+        countryCode: $('select[name$=_country]', form).val(),
+        phone: $('input[name$=_phone]', form).val()
+    };
+    return address;
+}
+
 baseAddress.methods.populateAddressSummary = populateAddressSummary;
 baseAddress.methods.optionValueForAddress = optionValueForAddress;
+baseAddress.methods.getAddressFieldsFromUI = getAddressFieldsFromUI;
 
 module.exports = baseAddress;
