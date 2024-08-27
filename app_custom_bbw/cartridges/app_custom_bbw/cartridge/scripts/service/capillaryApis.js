@@ -16,9 +16,11 @@ function callCapillaryAPI(endPoint, requestJSON, method) {
     try {
         var capillaryServiceInit = require('*/cartridge/scripts/service/init/capillaryService');
         var service = capillaryServiceInit.capillaryService;
+        var svcUsername = Site.current.getCustomPreferenceValue('capillaryUsername');
+        var svcPassword = Site.current.getCustomPreferenceValue('capillaryPassword');
         var serviceCredentials = service.getConfiguration().getCredential();
         var url = serviceCredentials.getURL() + endPoint;
-        var auth = StringUtils.encodeBase64(serviceCredentials.user + ':' + serviceCredentials.password);
+        var auth = StringUtils.encodeBase64(svcUsername + ':' + svcPassword);
         service.setURL(url);
         service.setRequestMethod(method);
         service.addHeader('Authorization', 'Basic ' + auth);

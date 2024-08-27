@@ -154,15 +154,17 @@ function ovoStart(orderID) {
          * @param {number} currentStage - The current stage the user is currently on in the checkout
          */
         function updateUrl(currentStage) {
-            history.pushState(
-                checkoutStages[currentStage],
-                document.title,
-                location.pathname
-                + '?stage='
-                + checkoutStages[currentStage]
-                + '#'
-                + checkoutStages[currentStage]
-            );
+            if (currentStage && currentStage > 0 && checkoutStages[currentStage]) {
+                history.pushState(
+                    checkoutStages[currentStage],
+                    document.title,
+                    location.pathname
+                    + '?stage='
+                    + checkoutStages[currentStage]
+                    + '#'
+                    + checkoutStages[currentStage]
+                );
+            }
         }
 
         //
@@ -406,7 +408,7 @@ function ovoStart(orderID) {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
-                                    if ($('.summary-details.billing').is(":visible")) {
+                                    if ($('.summary-details.billing').is(':visible')) {
                                         $('.edit-billing-address').click();
                                     }
                                     data.fieldErrors.forEach(function (error) {

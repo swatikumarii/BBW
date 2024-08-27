@@ -238,7 +238,7 @@
                     aria-describedby="${lineItem ? lineItem.UUID : 'default'}Subdistrict"
                     data-missing-error="${Resource.msg('error.subdistrict', 'forms', null)}"
                     data-selected="${shippingAddress.subDistrict}" autocomplete="shipping address-subdistrict" <isprint
-                    value="${addressFields.subdistrict.attributes}" encoding="off" />
+                    value="${addressFields.subDistrict.attributes}" encoding="off" />
                 >
                 <isif condition="${shippingAddress && shippingAddress.Subdistrict}">
                     <option id="${shippingAddress.subDistrict}" value="${shippingAddress.Subdistrict}" selected>
@@ -247,7 +247,7 @@
                 </isif>
                 </select>
                 <div class="invalid-feedback shipping-select-error" id="${lineItem ? lineItem.UUID : 'default'}Subdistrict">
-                    <isprint value="${addressFields.subdistrict.error}" />
+                    <isprint value="${addressFields.subDistrict.error}" />
                 </div>
             </div>
         </div>
