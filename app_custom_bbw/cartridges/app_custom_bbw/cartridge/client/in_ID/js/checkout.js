@@ -501,6 +501,11 @@ $('.shippingState').change(function () {
         success: function (data) {
             shippingHelpers.methods.updateShippingMethods(data.order.shipping);
             $('.grand-total-wrap .grand-total').empty().text(data.order.priceTotal);
+            if (data.isOrderShippable) {
+                $('.cart-dangerous-goods').hide();
+            } else {
+                $('.cart-dangerous-goods').show();
+            }
         }
     });
 });
