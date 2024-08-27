@@ -179,7 +179,7 @@
                                                 href="${URLUtils.url('Cart-Show')}">${Resource.msgf('checkout.dangerousGoods.viewCart', 'checkout', null)}</a>
                                             ${Resource.msgf('checkout.dangerousGoods.updateCart', 'checkout', null)}</span>
                                     <iselse/>
-                                        <span class="h-font-size--16 h-clr--red h-fw--normal cart-dangerous-goods" style="display: none;">
+                                        <span class="h-font-size--16 h-clr--red h-fw--normal cart-dangerous-goods d-none" >
                                             ${Resource.msgf('checkout.dangerousGoods.notShippable', 'checkout', null)}
                                             <a class="b-link--underlined"
                                                 href="${URLUtils.url('Cart-Show')}">${Resource.msgf('checkout.dangerousGoods.viewCart', 'checkout', null)}</a>
