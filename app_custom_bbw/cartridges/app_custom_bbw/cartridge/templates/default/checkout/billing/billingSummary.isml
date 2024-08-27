@@ -8,9 +8,14 @@
     <span class="summary-section-label billing-addr-label d-block mb-2 h-clr--black-1 h-fw--bold">${Resource.msg('label.order.billing.address', 'order', null)}</span>
      <isinclude template="checkout/addressSummary" />
     <isif condition="${pdict.order.billing.billingAddress.address !== null}">
-        <span class="order-summary-phone h-font-size--16">${pdict.order.billing.billingAddress.address.phone}</span>
+        <span class="order-summary-phone h-font-size--16">
+        <isif condition="${!pdict.expressCheckout && pdict.order.billing.billingAddress.address.dialCode}">${Resource.msg('order.phone.dialcode', 'order', null)}${pdict.order.billing.billingAddress.address.dialCode}</isif>
+        ${pdict.order.billing.billingAddress.address.phone}</span>
         <iselse>
         <span class="order-summary-phone"></span>
+    </isif>
+    <isif condition="${pdict.order.orderEmail}">
+        <div><span class="order-summary-emailaddress h-font-size--16">${pdict.order.orderEmail}</span></div>
     </isif>
 </div>
 

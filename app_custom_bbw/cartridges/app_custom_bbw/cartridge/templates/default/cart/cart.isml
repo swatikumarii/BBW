@@ -15,6 +15,7 @@
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
     </isif>
+    <input type="hidden" name="currency-symbol" value="${session.currency.getSymbol()}">
     <a class="continue-shopping-link" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}"
         title="${Resource.msg('link.continue.shopping', 'cart', null)}">
         <img src="${URLUtils.staticURL('/images/cart/arrow-left-dark-grey.svg')}"
@@ -47,7 +48,7 @@
             <div class="container cart cart-page">
                 <h1 class="shoppingBagTitle h-clr--black-1 h-fw--bold h-font-size--24">
                     ${Resource.msg('label.shopping.bag', 'cart', null)}</h1>
-                <div class="cartActionMessages">
+                <div class="cartActionMessages h-font-size--16 h-clr--red h-fw--normal">
                     <isif condition="${pdict.dangerousGoodsExists}">
                         <isprint
                             value="${dw.system.Site.getCurrent().getCustomPreferenceValue('dangerousGoodsMessage')}"

@@ -154,15 +154,17 @@ function ovoStart(orderID) {
          * @param {number} currentStage - The current stage the user is currently on in the checkout
          */
         function updateUrl(currentStage) {
-            history.pushState(
-                checkoutStages[currentStage],
-                document.title,
-                location.pathname
-                + '?stage='
-                + checkoutStages[currentStage]
-                + '#'
-                + checkoutStages[currentStage]
-            );
+            if (currentStage && currentStage > 0 && checkoutStages[currentStage]) {
+                history.pushState(
+                    checkoutStages[currentStage],
+                    document.title,
+                    location.pathname
+                    + '?stage='
+                    + checkoutStages[currentStage]
+                    + '#'
+                    + checkoutStages[currentStage]
+                );
+            }
         }
 
         //

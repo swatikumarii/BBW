@@ -19,7 +19,8 @@
     </div>
     <input type="text" class="form-control" id="addressId"
         data-missing-error="${Resource.msg('error.address.title', 'forms', null)}"
-        data-range-error="${Resource.msg('error.message.20orless', 'forms', null)}" <isprint
+        data-range-error="${Resource.msg('error.message.20orless', 'forms', null)}"
+        data-pattern-mismatch="${Resource.msg('error.message.parse.addressID', 'forms', null)}" <isprint
         value="${pdict.addressForm.addressId.attributes}" encoding="off" />>
     <div class="invalid-feedback"></div>
 </div>
@@ -242,9 +243,10 @@
 <input type="hidden" class="dialCode" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCode')}"
     <isprint value=${pdict.addressForm.dialCode.attributes} encoding="off" />
 />
-<input type="hidden" class="dialCodeCountry"
-    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCodeCountry')}" <isprint
-    value=${pdict.addressForm.dialCodeCountry.attributes} encoding="off" />
+<input type="hidden" class="dialCodeCountry" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCodeCountry')}" <isprint value=${pdict.addressForm.dialCodeCountry.attributes}
+    encoding="off" />
+/>
+
 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
 <!-- Cancel and Save Buttons -->

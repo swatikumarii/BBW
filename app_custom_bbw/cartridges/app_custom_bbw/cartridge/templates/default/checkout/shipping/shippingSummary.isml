@@ -14,6 +14,7 @@
                 <iselse/>
                     <isinclude template="checkout/addressSummary" />
                     <div class="shipping-phone h-font-size--16 text-left">
+                    <isif condition="${!pdict.expressCheckout && shippingModel.shippingAddress.dialCode}">${Resource.msg('order.phone.dialcode', 'order', null)}${shippingModel.shippingAddress.dialCode}</isif>
                         ${shippingModel.shippingAddress && shippingModel.shippingAddress.phone ? shippingModel.shippingAddress.phone : ''}
                     </div>
                 </isif>

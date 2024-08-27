@@ -181,17 +181,25 @@ server.replace('SetLocale', function (req, res, next) {
         }
 
         var redirectUrl = URLUtils.url(req.querystring.action).toString();
+        if (
+            req.querystring.action === 'Home-Show' &&
+            currentSite.defaultLocale !== req.querystring.code
+        ) {
+            redirectUrl = 'https://'+ request.httpHost + '/' + request.getLocale().toString().substring(0, 2);
+        }
         var qsConnector = redirectUrl.indexOf('?') >= 0 ? '&' : '?';
 
         redirectUrl = Object.keys(queryStringObj).length === 0
             ? redirectUrl += queryStringObj.toString()
             : redirectUrl += qsConnector + queryStringObj.toString();
 
-                
         if (req.querystring.action === 'Page-Show' && queryStringObj && queryStringObj.cid) {
             redirectUrl = URLUtils.https(req.querystring.action, 'cid', queryStringObj.cid).toString();
             if (queryStringObj.cid === 'homepage') {
                 redirectUrl = URLUtils.https('Home-Show').toString();
+                if (currentSite.defaultLocale !== req.querystring.code) {
+                    redirectUrl = 'https://'+ request.httpHost + '/' + request.getLocale().toString().substring(0, 2);
+                }
             }
         }
 

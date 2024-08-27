@@ -1931,6 +1931,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="showInclTaxRateInst">
+                <display-name xml:lang="x-default">Show Inclusive Tax Rate Instruction</display-name>
+                <description xml:lang="x-default">Show Inclusive Tax Rate Instruction</description>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="showMinicartPopup">
                 <display-name xml:lang="x-default">Show Minicart popup</display-name>
                 <type>boolean</type>
@@ -2024,6 +2032,21 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryUsername">
+                <display-name xml:lang="x-default">Capillary Username</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="capillaryPassword">
+                <display-name xml:lang="x-default">Capillary Password</display-name>
+                <type>password</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -2094,6 +2117,8 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="homePageSchema"/>
                 <attribute attribute-id="defaultDialCode"/>
                 <attribute attribute-id="defaultDialCodeCountry"/>
+                <attribute attribute-id="capillaryUsername"/>
+                <attribute attribute-id="capillaryPassword"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -2190,6 +2215,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showSalesTaxes"/>
                 <attribute attribute-id="showShippingHandlingTaxes"/>
                 <attribute attribute-id="showAdjustedMerchandizeSubtotal"/>
+                <attribute attribute-id="showInclTaxRateInst"/>
             </attribute-group>
             <attribute-group group-id="sendgrid">
                 <display-name xml:lang="x-default">Sendgrid</display-name>

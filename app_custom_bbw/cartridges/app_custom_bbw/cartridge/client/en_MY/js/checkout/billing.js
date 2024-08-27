@@ -512,47 +512,6 @@ module.exports = {
         $('.edit-billing-address').on('click', function () {
             $(this).parents('form').attr('data-address-mode', 'details');
             $(this).parents('.summary-details.billing').slideUp();
-            var billingAddrSummary = $(this).siblings('.address-summary');
-            var stateCode = billingAddrSummary.find('.stateCode').text().trim();
-            var city = billingAddrSummary
-                .find('.city')
-                .text()
-                .trim()
-                .replace(',', '');
-            var postalCode = billingAddrSummary
-                .find('.postalCode')
-                .text()
-                .trim();
-            if (stateCode !== 'null') {
-                $('.billingState option').each(function () {
-                    if ($(this).val() === stateCode) {
-                        $('.billingState option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.billingState').trigger('change');
-                        return false;
-                    }
-                });
-            }
-            if (city !== 'null') {
-                $('.billingAddressCity option').each(function () {
-                    if ($(this).val() === city) {
-                        $('.billingAddressCity option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.billingAddressCity').trigger('change');
-                        return false;
-                    }
-                });
-            }
-            if (postalCode !== 'null') {
-                $('.billingZipCode option').each(function () {
-                    if ($(this).val() === postalCode) {
-                        $('.billingZipCode option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.billingZipCode').trigger('change');
-                        return false;
-                    }
-                });
-            }
         });
     }
 };

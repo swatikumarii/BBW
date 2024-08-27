@@ -108,7 +108,7 @@
                         </isif>
                         <isinclude template="checkout/productCard/productCardProductPromotions" />
                         <isif condition="${pdict.containsDangerousGoods && lineItem.dangerousGoods}">
-                            <div class="dangerous-goods-label">
+                            <div class="dangerous-goods-label h-font-size--12 h-clr--red h-fw--normal">
                                 ${Resource.msg('dangerous.goods.lable', 'common', null)}
                             </div>
                         </isif>

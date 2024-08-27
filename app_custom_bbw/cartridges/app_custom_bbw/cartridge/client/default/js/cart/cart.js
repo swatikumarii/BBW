@@ -247,6 +247,7 @@ function updateApproachingDiscounts(
         shippingApproachingDiscounts.length &&
         !isMiniCart
     ) {
+        var symbol = $('input[name="currency-symbol"]').val();
         shippinghtml =
             '<div class="row align-items-center">\n' +
             '<div class="d-flex flex-column col-12 py-0">\n' +
@@ -254,7 +255,7 @@ function updateApproachingDiscounts(
             shippingApproachingDiscounts[0].discountMsg +
             '</p>\n' +
             '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n' +
-            '<span class="pr-3 text-nowrap d-block h-font-size--16 h-fw--bold"> AU$ 0.00 </span>\n' +
+            '<span class="pr-3 text-nowrap d-block h-font-size--16 h-fw--bold"> '+ symbol +' 0.00 </span>\n' +
             '<span class="d-block w-100 h-pos--relative">\n' +
             '<progress class="w-100" value="' +
             (shippingApproachingDiscounts[0].conditionThreshold -

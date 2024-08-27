@@ -6,7 +6,7 @@
     <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold order-discount-total">
         ${pdict.totals.totalDiscountFormatted}</p>
 </div>
-<isif condition="${pdict.totals.mergedDiscounts.length > 0}">
+<isif condition="${'mergedDiscounts' in pdict.totals && pdict.totals.mergedDiscounts && pdict.totals.mergedDiscounts.length > 0}">
     <div class="accordion-collapse collapse col-12" id="allDiscounts">
         <isloop items="${pdict.totals.mergedDiscounts}" var="discount" status="loopstatus">
             <div class="row">

@@ -123,6 +123,7 @@
                                     <isif
                                         condition="${shippingModel.shippingAddress && shippingModel.shippingAddress.phone}">
                                         <span>${Resource.msg('label.order.phone', 'order', null)}
+                                        <isif condition="${!pdict.expressCheckout && shippingModel.shippingAddress.dialCode}">${Resource.msg('order.phone.dialcode', 'order', null)}${shippingModel.shippingAddress.dialCode}</isif>
                                             ${shippingModel.shippingAddress.phone}</span></isif>
                                 </div>
                             </div>
@@ -176,6 +177,7 @@
                     <isif
                         condition="${pdict.order.billing.billingAddress.address !== null && pdict.order.billing.billingAddress.address.phone}">
                         <span class="order-summary-phone">${Resource.msg('label.order.phone', 'order', null)}
+                        <isif condition="${!pdict.expressCheckout && pdict.order.billing.billingAddress.address.dialCode}">${Resource.msg('order.phone.dialcode', 'order', null)}${pdict.order.billing.billingAddress.address.dialCode}</isif>
                             ${pdict.order.billing.billingAddress.address.phone}</span>
                     </isif>
                 </div>

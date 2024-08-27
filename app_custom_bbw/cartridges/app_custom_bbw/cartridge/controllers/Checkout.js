@@ -6,6 +6,7 @@ server.extend(module.superModule);
 server.append('Begin', function (req, res, next) {
     var BasketMgr = require('dw/order/BasketMgr');
     var ShippingMgr = require('dw/order/ShippingMgr');
+    var Transaction = require('dw/system/Transaction');
     var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
     var currentBasket = BasketMgr.getCurrentBasket();
     var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(currentBasket);
@@ -16,6 +17,17 @@ server.append('Begin', function (req, res, next) {
     }
     if ((viewData.currentStage === 'customer' || viewData.currentStage === 'shipping') && isGiftProductAvailable) {
         viewData.currentStage = 'payment';
+    }
+    if (viewData.currentStage === 'payment' && !(viewData.order &&  'shipping' in viewData.order && viewData.order.shipping.length > 0 && viewData.order.shipping[0].selectedShippingMethod && viewData.order.shipping[0].shippingAddress) && !isGiftProductAvailable) {
+        var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+            currentBasket.getDefaultShipment()
+        ).getApplicableShippingMethods();
+        if (applicableShippingMethods && applicableShippingMethods.length > 0) {
+            Transaction.wrap(function () {
+                currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+            });
+        }
+        viewData.currentStage = 'shipping';
     }
     var areShipmentsValid = ShippingMgr.getShipmentShippingModel(currentBasket.getDefaultShipment()).getApplicableShippingMethods();
     if (!areShipmentsValid.length) {
@@ -43,6 +55,16 @@ server.append('Begin', function (req, res, next) {
         viewData.forms.billingForm.addressFields.dialCode.htmlValue = currentBasket.billingAddress.custom.dialCode;
         viewData.forms.billingForm.addressFields.dialCodeCountry.htmlValue = currentBasket.billingAddress.custom.dialCodeCountry;
     }
+    var isDangerousGoodsInBasket=false;
+    var CartModel = require('*/cartridge/models/cart');
+    var basketModel = new CartModel(currentBasket);
+    for (var i = 0; i < basketModel.items.length; i++) {
+        if (basketModel.items[i].dangerousGoods) {
+            isDangerousGoodsInBasket = true;
+            break;
+        }
+    }
+    viewData.isDangerousGoodsInBasket = isDangerousGoodsInBasket;
     res.setViewData(viewData);
     next();
 });
@@ -103,13 +125,17 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         });
         if (!applicableShippingMethodsIDs.includes(appliedShippingMethodID)) {
             Transaction.wrap(function () {
-                currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+                if (applicableShippingMethods.length) {
+                    currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+                    basketCalculationHelpers.calculateTotals(currentBasket);
+                };
             });
         }
 
+    });
+    Transaction.wrap(function () {
         basketCalculationHelpers.calculateTotals(currentBasket);
     });
-    basketCalculationHelpers.calculateTotals(currentBasket);
     var currentLocale = Locale.getLocale(req.locale.id);
     var basketModel = new OrderModel(
         currentBasket,

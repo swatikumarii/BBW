@@ -8,6 +8,51 @@
 
 .cartContainer {
     .cart-page {
+        .itemsHeader {
+            .headerTotal {
+                width: 147px;
+            }
+        }
+
+        .card {
+            .product-info {
+                .line-item {
+                    width: 405px;
+                    max-width: 405px;
+
+                    .item-image {
+                        .product-image {
+                            margin-right: 30px;
+                        }
+                    }
+                }
+
+                .line-item-price {
+                    width: 125px;
+
+                    @include media-down(sm) {
+                        width: 100%;
+                    }
+                }
+
+                .line-item-savings {
+                    width: 144px;
+
+                    @include media-down(sm) {
+                        width: 100%;
+                    }
+                }
+
+                .line-item-total-price {
+                    width: 115px;
+
+                    @include media-down(sm) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
         .cartFooter {
             .cartTotalsWrap {
                 .cart-totals-bg {
