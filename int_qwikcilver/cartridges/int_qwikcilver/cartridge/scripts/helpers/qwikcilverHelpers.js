@@ -285,6 +285,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
             var Order = require('dw/order/Order');
             order.setShippingStatus(Order.SHIPPING_STATUS_SHIPPED);
             order.setStatus(Order.ORDER_STATUS_COMPLETED);
+            order.setExportStatus(Order.EXPORT_STATUS_EXPORTED);
             logger.info('setting order and shipping status for order id {0} Done', order.orderNo);
             logger.info('After updating order and shipping status for order id {0} is {1}', order.orderNo, order.status.displayValue);
             // If Card is not created, Set Email pending status and Sent email through Job
