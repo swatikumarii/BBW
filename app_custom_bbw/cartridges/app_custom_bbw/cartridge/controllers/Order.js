@@ -600,18 +600,20 @@ server.append(
                     req.currentCustomer.raw.profile
                 );
 
-                // Capillary: create order
-                crmOrderID = capillaryAPI.createOrder(viewData.order, order);
-                Transaction.wrap(function () {
-                    if (crmOrderID) {
-                        order.custom.capillaryOrderID = crmOrderID;
-                        order.custom.capillaryResponse = '';
-                        order.custom.capillaryFailed = false;
-                        order.custom.capillaryRequest = '';
-                    } else {
-                        order.custom.capillaryFailed = true;
-                    }
-                });
+                if (!order.custom.capillaryOrderID) {
+                    // Capillary: create order
+                    crmOrderID = capillaryAPI.createOrder(viewData.order, order);
+                    Transaction.wrap(function () {
+                        if (crmOrderID) {
+                            order.custom.capillaryOrderID = crmOrderID;
+                            order.custom.capillaryResponse = '';
+                            order.custom.capillaryFailed = false;
+                            order.custom.capillaryRequest = '';
+                        } else {
+                            order.custom.capillaryFailed = true;
+                        }
+                    });
+                }
             } else {
                 var billingAddress = viewData.order.billing.billingAddress.address;
                 // remove 0 from starting of phone number
@@ -629,17 +631,19 @@ server.append(
                 };
                 var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
                 if (crmCustomerID) {
-                    crmOrderID = capillaryAPI.createOrder(viewData.order);
-                    Transaction.wrap(function () {
-                        if (crmOrderID) {
-                            order.custom.capillaryOrderID = crmOrderID;
-                            order.custom.capillaryResponse = '';
-                            order.custom.capillaryFailed = false;
-                            order.custom.capillaryRequest = '';
-                        } else {
-                            order.custom.capillaryFailed = true;
-                        }
-                    });
+                    if (!order.custom.capillaryOrderID) {
+                        crmOrderID = capillaryAPI.createOrder(viewData.order);
+                        Transaction.wrap(function () {
+                            if (crmOrderID) {
+                                order.custom.capillaryOrderID = crmOrderID;
+                                order.custom.capillaryResponse = '';
+                                order.custom.capillaryFailed = false;
+                                order.custom.capillaryRequest = '';
+                            } else {
+                                order.custom.capillaryFailed = true;
+                            }
+                        });
+                    }
                 } else {
                     Transaction.wrap(function () {
                         order.custom.capillaryFailed = true;
