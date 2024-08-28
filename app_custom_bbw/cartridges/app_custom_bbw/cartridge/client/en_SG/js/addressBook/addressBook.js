@@ -240,6 +240,28 @@ $(document).on('click', '#editAddress', function () {
                 form.find('#zipCode')
                     .val(addressObject.zipcode)
                     .trigger('change');
+
+                if (
+                    addressObject.address1 &&
+                    addressObject.state &&
+                    addressObject.city
+                ) {
+                    if (
+                        form.find('#city').val() === '' ||
+                        form.find('#city').val() === null
+                    ) {
+                        // setting city as per place API response
+                        var suburbDropdown = $('.address-city-input');
+                        suburbDropdown.empty();
+                        suburbDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.city,
+
+                                text: addressObject.city
+                            }).attr('selected', 'selected')
+                        );
+                    }
+                }
             });
             /** Append Pac container inside div */
             var addressInputElement = $('#modalContent').find(
@@ -278,6 +300,14 @@ $(document).on('click', '#editAddress', function () {
                         $('body').find('.address-city-input').trigger('change');
                         return false;
                     }
+                    var suburbDropdown = $('.address-city-input');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: selectedAddressCity,
+                            text: selectedAddressCity
+                        }).attr('selected', 'selected')
+                    );
                 });
             }
             var selectedPostalCode = $('#modalContent')
@@ -296,6 +326,14 @@ $(document).on('click', '#editAddress', function () {
                         return false;
                     }
                 });
+                var zipcodeDropdown = $('.address-zipcode-input');
+                zipcodeDropdown.empty();
+                zipcodeDropdown.prepend(
+                    $('<option>', {
+                        value: selectedPostalCode,
+                        text: selectedPostalCode
+                    }).attr('selected', 'selected')
+                );
             }
             var addressForm = $($(response)[0]).find('input');
             window.addressForm = $(addressForm).serialize();
