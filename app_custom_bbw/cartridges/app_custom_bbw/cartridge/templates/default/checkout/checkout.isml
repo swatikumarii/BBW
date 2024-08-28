@@ -178,7 +178,7 @@
 
                     <div class="row no-gutters checkout-btn-row">
                         <div class="col-12">
-                            <p class="verify-msg text-center h-font-size--14 h-clr--black-1" style="display:none">
+                            <p class="verify-msg h-font-size--14 h-clr--black-1" style="display:none">
                                 ${Resource.msg('msg.fill.all.required', 'checkout', null)}</p>
                         </div>
                         <div class="col-12 next-step-button h-pos--relative ${pdict.currentStage === 'payment' ? 'px-md-3' : 'px-md-0'}">
