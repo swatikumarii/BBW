@@ -248,6 +248,9 @@ function updateApproachingDiscounts(
         !isMiniCart
     ) {
         var symbol = $('input[name="currency-symbol"]').val();
+        if (symbol === 'S$' || symbol === 's$') {
+            symbol = 'SG$';
+        }
         shippinghtml =
             '<div class="row align-items-center">\n' +
             '<div class="d-flex flex-column col-12 py-0">\n' +
