@@ -414,13 +414,16 @@ function ovoStart(orderID) {
                                             formHelpers.loadFormErrors('.payment-form', error);
                                         }
                                     });
-                                    setTimeout(function () {
-                                        scrollAnimate($(document).find('.form-control.is-invalid').closest('.row'));
-
-                                    },200);
                                     if ($('.summary-details.billing').is(':visible')) {
                                         $('.edit-billing-address').click();
                                     }
+                                    setTimeout(function () {
+                                        var element = $(document).find('.form-control.is-invalid').closest('.row');
+                                        var position = element && element.length ? element.offset().top - 100 : 0;
+                                        $('html, body').animate({
+                                            scrollTop: position
+                                        }, 500);    
+                                    },500);
                                 }
 
                                 if (data.serverErrors.length) {
