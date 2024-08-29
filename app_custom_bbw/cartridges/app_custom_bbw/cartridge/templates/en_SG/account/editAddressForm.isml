@@ -179,7 +179,7 @@
                 </div>
                 <div class="select-address-wrap">
                     <select type="text" class="form-control address-city-input" id="city"
-                    data-selected="${pdict.addressForm.city.htmlValue}"
+                    data-selected="${pdict.addressModel.address.city}"
                         data-missing-error="${Resource.msg('address.city.missing', 'forms', null)}" <isprint
                         value="${pdict.addressForm.city.attributes}" encoding="off" />
                     autocomplete="address-level2">

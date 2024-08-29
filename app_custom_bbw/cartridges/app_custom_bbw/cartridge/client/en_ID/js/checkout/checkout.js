@@ -525,6 +525,13 @@ function ovoStart(orderID) {
                                     // go to appropriate stage and display error message
                                     defer.reject(data);
                                 }
+                                setTimeout(function () {
+                                    var element = $(document).find('.payment-error');
+                                    var position = element && element.length ? element.offset().top : 0;
+                                    $('html, body').animate({
+                                        scrollTop: position
+                                    }, 500);    
+                                },500);
                                 $.spinner().stop();
                             } else {
                                 var redirect = $('<form>')
