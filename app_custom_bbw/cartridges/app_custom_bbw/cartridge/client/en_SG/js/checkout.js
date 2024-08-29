@@ -274,6 +274,16 @@ $(document).ready(function () {
                     return false;
                 }
             });
+
+            // setting state as per place API response
+            var stateDropdown = $('.billingState');
+            stateDropdown.append(
+                $('<option>', {
+                    value: selectedBillingState,
+                    text: selectedBillingState
+                }).attr('selected', 'selected')
+            );
+            $('.billingState').removeClass('is-invalid');
         }
         var selectedBillingCity = $('body')
             .find('.billingAddressCity')
@@ -287,6 +297,17 @@ $(document).ready(function () {
                     return false;
                 }
             });
+
+            // setting city as per place API response
+            var suburbDropdown = $('.billingAddressCity');
+            suburbDropdown.empty();
+            suburbDropdown.prepend(
+                $('<option>', {
+                    value: selectedBillingCity,
+                    text: selectedBillingCity
+                }).attr('selected', 'selected')
+            );
+            $('.billingAddressCity').removeClass('is-invalid');
         }
         var selectedBillingPostalCode = $('body')
             .find('.billingZipCode')

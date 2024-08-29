@@ -67,7 +67,8 @@ server.replace(
 
         res.render('account/editAddressForm', {
             addressForm: addressForm,
-            addressId: addressId
+            addressId: addressId,
+            addressModel: addressModel
         });
 
         next();
