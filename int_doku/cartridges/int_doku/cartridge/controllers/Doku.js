@@ -156,17 +156,19 @@ server.get('Callback', server.middleware.https, function (req, res, next) {
           req.currentCustomer.raw.profile
       ) {
           // Capillary: create order
-          crmOrderID = capillaryAPI.createOrder(orderModel, order);
-          Transaction.wrap(function () {
-              if (crmOrderID) {
-                  order.custom.capillaryOrderID = crmOrderID;
-                  order.custom.capillaryResponse = '';
-                  order.custom.capillaryFailed = false;
-                  order.custom.capillaryRequest = '';
-              } else {
-                  order.custom.capillaryFailed = true;
-              }
-          });
+          if (!order.custom.capillaryOrderID) {
+            crmOrderID = capillaryAPI.createOrder(orderModel, order);
+            Transaction.wrap(function () {
+                if (crmOrderID) {
+                    order.custom.capillaryOrderID = crmOrderID;
+                    order.custom.capillaryResponse = '';
+                    order.custom.capillaryFailed = false;
+                    order.custom.capillaryRequest = '';
+                } else {
+                    order.custom.capillaryFailed = true;
+                }
+            });
+          }
       } else {
         var billingAddress = orderModel.billing.billingAddress.address;
         // remove 0 from starting of phone number
@@ -184,6 +186,7 @@ server.get('Callback', server.middleware.https, function (req, res, next) {
         };
         var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
         if (crmCustomerID) {
+          if (!order.custom.capillaryOrderID) {
             crmOrderID = capillaryAPI.createOrder(orderModel);
             Transaction.wrap(function () {
                 if (crmOrderID) {
@@ -195,6 +198,7 @@ server.get('Callback', server.middleware.https, function (req, res, next) {
                     order.custom.capillaryFailed = true;
                 }
             });
+          }
         } else {
             Transaction.wrap(function () {
                 order.custom.capillaryFailed = true;
