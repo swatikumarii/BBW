@@ -411,14 +411,18 @@ $(document).on('blur', '#email', function () {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
-                                    if ($('.summary-details.billing').is(":visible")) {
-                                        $('.edit-billing-address').click();
-                                    }
                                     data.fieldErrors.forEach(function (error) {
                                         if (Object.keys(error).length) {
                                             formHelpers.loadFormErrors('.payment-form', error);
                                         }
                                     });
+                                    setTimeout(function () {
+                                        scrollAnimate($(document).find('.form-control.is-invalid').closest('.row'));
+
+                                    },200);
+                                    if ($('.summary-details.billing').is(':visible')) {
+                                        $('.edit-billing-address').click();
+                                    }
                                 }
 
                                 if (data.serverErrors.length) {
