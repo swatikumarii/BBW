@@ -6,6 +6,7 @@ var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
 var formHelpers = require('./formErrors');
+var scrollAnimate = require('base/components/scrollAnimate');
 var location = window.location;
 var history = window.history;
 
@@ -408,14 +409,17 @@ function ovoStart(orderID) {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
-                                    if ($('.summary-details.billing').is(':visible')) {
-                                        $('.edit-billing-address').click();
-                                    }
                                     data.fieldErrors.forEach(function (error) {
                                         if (Object.keys(error).length) {
                                             formHelpers.loadFormErrors('.payment-form', error);
                                         }
                                     });
+                                    setTimeout(function () {
+                                        scrollAnimate($(document).find('.form-control.is-invalid').closest('.row'));
+                                    },200);
+                                    if ($('.summary-details.billing').is(':visible')) {
+                                        $('.edit-billing-address').click();
+                                    }
                                 }
 
                                 if (data.serverErrors.length) {
