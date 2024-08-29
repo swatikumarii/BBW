@@ -2,7 +2,6 @@
 
 var base = require('base/addressBook/addressBook');
 var formValidation = require('../components/formValidation');
-var addressData = require('../addressData.js');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 var action;
@@ -240,6 +239,28 @@ $(document).on('click', '#editAddress', function () {
                 form.find('#zipCode')
                     .val(addressObject.zipcode)
                     .trigger('change');
+
+                if (
+                    addressObject.address1 &&
+                    addressObject.state &&
+                    addressObject.city
+                ) {
+                    if (
+                        form.find('#city').val() === '' ||
+                        form.find('#city').val() === null
+                    ) {
+                        // setting city as per place API response
+                        var suburbDropdown = $('.address-city-input');
+                        suburbDropdown.empty();
+                        suburbDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.city,
+
+                                text: addressObject.city
+                            }).attr('selected', 'selected')
+                        );
+                    }
+                }
             });
             /** Append Pac container inside div */
             var addressInputElement = $('#modalContent').find(
@@ -278,23 +299,14 @@ $(document).on('click', '#editAddress', function () {
                         $('body').find('.address-city-input').trigger('change');
                         return false;
                     }
-                });
-            }
-            var selectedPostalCode = $('#modalContent')
-                .find('.address-zipcode-input')
-                .attr('data-selected');
-            if (selectedPostalCode !== 'null') {
-                $('.address-zipcode-input option').each(function () {
-                    if ($(this).val() === selectedPostalCode) {
-                        $('.address-zipcode-input option').removeAttr(
-                            'selected'
-                        );
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.address-zipcode-input')
-                            .trigger('change');
-                        return false;
-                    }
+                    var suburbDropdown = $('.address-city-input');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: selectedAddressCity,
+                            text: selectedAddressCity
+                        }).attr('selected', 'selected')
+                    );
                 });
             }
             var addressForm = $($(response)[0]).find('input');
@@ -329,6 +341,15 @@ module.exports = $.extend({}, base, {
             var countryData = iti.getSelectedCountryData();
             $('.dialCode').val(countryData.dialCode);
             $('.dialCodeCountry').val(countryData.iso2);
+        });
+    },
+    clearAddressForm: function () {
+        $('#add-address-form').on('hidden.bs.modal', function () {
+            var addressForm = $(this).find('form');
+            addressForm[0].reset();
+            addressForm.find('.address-city-input').val('');
+            addressForm.find('.address-zipcode-input').val('');
+
         });
     }
 });

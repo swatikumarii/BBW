@@ -6,6 +6,7 @@ var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
 var formHelpers = require('./formErrors');
+var scrollAnimate = require('base/components/scrollAnimate');
 var location = window.location;
 var history = window.history;
 
@@ -408,16 +409,23 @@ function ovoStart(orderID) {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
-                                    if ($('.summary-details.billing').is(':visible')) {
-                                        $('.edit-billing-address').click();
-                                    }
                                     data.fieldErrors.forEach(function (error) {
                                         if (Object.keys(error).length) {
                                             formHelpers.loadFormErrors('.payment-form', error);
                                         }
                                     });
+                                    if ($('.summary-details.billing').is(':visible')) {
+                                        $('.edit-billing-address').click();
+                                    }
+                                    setTimeout(function () {
+                                        var element = $(document).find('.form-control.is-invalid').closest('.row');
+                                        var position = element && element.length ? element.offset().top - 100 : 0;
+                                        $('html, body').animate({
+                                            scrollTop: position
+                                        }, 500);    
+                                    },500);
                                 }
-
+                                
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
@@ -517,6 +525,13 @@ function ovoStart(orderID) {
                                     // go to appropriate stage and display error message
                                     defer.reject(data);
                                 }
+                                setTimeout(function () {
+                                    var element = $(document).find('.payment-error');
+                                    var position = element && element.length ? element.offset().top : 0;
+                                    $('html, body').animate({
+                                        scrollTop: position
+                                    }, 500);    
+                                },500);
                                 $.spinner().stop();
                             } else {
                                 var redirect = $('<form>')

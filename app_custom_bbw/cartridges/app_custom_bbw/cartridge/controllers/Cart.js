@@ -739,11 +739,12 @@ server.append(
     server.middleware.https,
     function (req, res, next) {
         var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
-        var dangerousGoodsExists = req.querystring.error === 'dangerous-goods';
+        var showDangerousGoodsMsg = req.querystring.error === 'dangerous-goods';
         var viewData = res.getViewData();
         var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
         var isGiftProductAvailable = false;
         var currentBasket = BasketMgr.getCurrentBasket();
+        var isDangerousGoodsInBasket = false;
         if (currentBasket) {
             if (enableQCeGift) {
                 var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
@@ -755,8 +756,14 @@ server.append(
                 viewData.items = basketModel.items;
             }
             viewData.isGiftProductAvailable = isGiftProductAvailable;
+            for (var a = 0; a < basketModel.items.length; a++) {
+                if (basketModel.items[a].dangerousGoods) {
+                    isDangerousGoodsInBasket = true;
+                    break;
+                }
+            }
         }
-        viewData.dangerousGoodsExists = dangerousGoodsExists;
+        viewData.showDangerousGoodsMsg = showDangerousGoodsMsg && isDangerousGoodsInBasket;
         var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
             type: 10
         });

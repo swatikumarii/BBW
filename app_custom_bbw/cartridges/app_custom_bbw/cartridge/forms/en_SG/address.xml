@@ -52,6 +52,7 @@
               max-length="50" missing-error="address.city.missing"
               range-error="error.message.between2and50">
               <options>
+                     <option label="---- Select City ----" value="" />
                      <option label="Amber Road" value="Amber Road" />
                      <option label="Ang Mo Kio" value="Ang Mo Kio" />
                      <option label="Anson" value="Anson" />

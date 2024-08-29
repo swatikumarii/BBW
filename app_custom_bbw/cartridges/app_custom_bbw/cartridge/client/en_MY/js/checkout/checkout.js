@@ -411,14 +411,21 @@ $(document).on('blur', '#email', function () {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
-                                    if ($('.summary-details.billing').is(":visible")) {
-                                        $('.edit-billing-address').click();
-                                    }
                                     data.fieldErrors.forEach(function (error) {
                                         if (Object.keys(error).length) {
                                             formHelpers.loadFormErrors('.payment-form', error);
                                         }
                                     });
+                                    if ($('.summary-details.billing').is(':visible')) {
+                                        $('.edit-billing-address').click();
+                                    }
+                                    setTimeout(function () {
+                                        var element = $(document).find('.form-control.is-invalid').closest('.row');
+                                        var position = element && element.length ? element.offset().top - 100 : 0;
+                                        $('html, body').animate({
+                                            scrollTop: position
+                                        }, 500);    
+                                    },500);
                                 }
 
                                 if (data.serverErrors.length) {
@@ -509,6 +516,13 @@ $(document).on('blur', '#email', function () {
                                     // go to appropriate stage and display error message
                                     defer.reject(data);
                                 }
+                                setTimeout(function () {
+                                    var element = $(document).find('.payment-error');
+                                    var position = element && element.length ? element.offset().top : 0;
+                                    $('html, body').animate({
+                                        scrollTop: position
+                                    }, 500);    
+                                },500);
                                 $.spinner().stop();
                                 // ### Custom Adyen cartridge start ###
                             } else if (data.adyenAction) {
