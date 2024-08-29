@@ -114,7 +114,11 @@
         <user-id></user-id>
         <password/>
     </service-credential>
-
+    <service-credential service-credential-id="ga_mp_http_service_cred">
+        <url>https://www.google-analytics.com</url>
+        <user-id/>
+        <password masked="true">********</password>
+    </service-credential>
     <service-credential service-credential-id="afterpay.credentials.AU.v2">
         <url>https://global-api-sandbox.afterpay.com/v2/</url>
         <user-id>41184</user-id>
@@ -214,6 +218,16 @@
         <mock-mode-enabled>false</mock-mode-enabled>
         <profile-id>qwikcilver_http_profile</profile-id>
         <credential-id>qwikcilver_http_credential</credential-id>
+    </service>
+    <service service-id="ga_mp_http_service">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>ga_mp_http_service</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>qwikcilver_http_profile</profile-id>
+        <credential-id>ga_mp_http_service_cred</credential-id>
     </service>
     <service service-id="AdyenPayment">
         <service-type>HTTP</service-type>

@@ -825,6 +825,22 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="gaMeasurementId">
+                <display-name xml:lang="x-default">GA Measurement Id</display-name>
+                <description xml:lang="x-default">GA Measurement ID</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="gaMpApiSecret">
+                <display-name xml:lang="x-default">GA Measurement Protocol API Secret</display-name>
+                <description xml:lang="x-default">GA Measurement Protocol API Secret</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="disImageSourceEnvironment">
                 <display-name xml:lang="x-default">DIS Image Source Environment</display-name>
                 <description xml:lang="x-default">Defines which environment is used to actually load the product images from.</description>
@@ -2060,6 +2076,8 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="gtmBodyScript"/>
                 <attribute attribute-id="gaEnabled"/>
                 <attribute attribute-id="gaScript"/>
+                <attribute attribute-id="gaScript"/>
+                <attribute attribute-id="gaMpApiSecret"/>
                 <attribute attribute-id="metaPixelEnabled"/>
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>

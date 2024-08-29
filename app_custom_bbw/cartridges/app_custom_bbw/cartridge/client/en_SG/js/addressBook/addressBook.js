@@ -2,7 +2,6 @@
 
 var base = require('base/addressBook/addressBook');
 var formValidation = require('../components/formValidation');
-var addressData = require('../addressData.js');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 var action;
@@ -329,6 +328,15 @@ module.exports = $.extend({}, base, {
             var countryData = iti.getSelectedCountryData();
             $('.dialCode').val(countryData.dialCode);
             $('.dialCodeCountry').val(countryData.iso2);
+        });
+    },
+    clearAddressForm: function () {
+        $('#add-address-form').on('hidden.bs.modal', function () {
+            var addressForm = $(this).find('form');
+            addressForm[0].reset();
+            addressForm.find('.address-city-input').val('');
+            addressForm.find('.address-zipcode-input').val('');
+
         });
     }
 });

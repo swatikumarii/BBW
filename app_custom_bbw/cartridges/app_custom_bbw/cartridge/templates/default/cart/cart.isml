@@ -49,7 +49,7 @@
                 <h1 class="shoppingBagTitle h-clr--black-1 h-fw--bold h-font-size--24">
                     ${Resource.msg('label.shopping.bag', 'cart', null)}</h1>
                 <div class="cartActionMessages h-font-size--16 h-clr--red h-fw--normal">
-                    <isif condition="${pdict.dangerousGoodsExists}">
+                    <isif condition="${pdict.showDangerousGoodsMsg}">
                         <isprint
                             value="${dw.system.Site.getCurrent().getCustomPreferenceValue('dangerousGoodsMessage')}"
                             encoding="off" />
