@@ -19,6 +19,13 @@ var Logger = require('dw/system/Logger');
 var loggerReset = Logger.getLogger('ResetPasswordLogger');
 var loggerResetError = Logger.getLogger('ResetPasswordError');
 
+var seo = require('*/cartridge/scripts/middleware/seo');
+
+/**
+ * Account-DoSetNewPassword : Show title
+ */
+server.append('DoSetNewPassword', seo.addCurrentPageMetaData);
+
 /**
  * Append Account-Show controller: Update breadcrumbs
  */
