@@ -328,12 +328,7 @@ $(document).on('click', '#editAddress', function () {
                 });
                 var zipcodeDropdown = $('.address-zipcode-input');
                 zipcodeDropdown.empty();
-                zipcodeDropdown.prepend(
-                    $('<option>', {
-                        value: selectedPostalCode,
-                        text: selectedPostalCode
-                    }).attr('selected', 'selected')
-                );
+                zipcodeDropdown.val(selectedPostalCode);
             }
             var addressForm = $($(response)[0]).find('input');
             window.addressForm = $(addressForm).serialize();
