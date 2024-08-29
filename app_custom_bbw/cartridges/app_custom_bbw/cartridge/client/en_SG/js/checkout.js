@@ -244,6 +244,14 @@ $(document).ready(function () {
                     $('body').find('.shippingAddressCity').trigger('change');
                     return false;
                 }
+                var suburbDropdown = $('.shippingAddressCity');
+                suburbDropdown.empty();
+                suburbDropdown.prepend(
+                    $('<option>', {
+                        value: selectedCity,
+                        text: selectedCity
+                    }).attr('selected', 'selected')
+                );
             });
         }
         var selectedPostalCode = $('body')

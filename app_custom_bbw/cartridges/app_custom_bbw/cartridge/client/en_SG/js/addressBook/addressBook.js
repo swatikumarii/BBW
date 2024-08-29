@@ -288,6 +288,27 @@ $(document).on('click', '#editAddress', function () {
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
             $('#modalContent').find('.address-state-input').trigger('change');
+            var selectedAddressCity = $('#modalContent')
+                .find('.address-city-input')
+                .attr('data-selected');
+            if (selectedAddressCity !== 'null') {
+                $('.address-city-input option').each(function () {
+                    if ($(this).val() === selectedAddressCity) {
+                        $('.address-city-input option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.address-city-input').trigger('change');
+                        return false;
+                    }
+                    var suburbDropdown = $('.address-city-input');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: selectedAddressCity,
+                            text: selectedAddressCity
+                        }).attr('selected', 'selected')
+                    );
+                });
+            }
             var addressForm = $($(response)[0]).find('input');
             window.addressForm = $(addressForm).serialize();
         }
