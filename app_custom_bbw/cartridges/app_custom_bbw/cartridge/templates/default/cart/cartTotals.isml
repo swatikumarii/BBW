@@ -138,11 +138,11 @@
 </div>
 
 <div class="row order-total">
-    <div class="col-8">
+    <div class="col-7">
         <p class="h-font-size--18 h-clr--black-1 h-fw--semibold">${Resource.msg('label.estimatedtotal', 'cart', null)}
         </p>
     </div>
-    <div class="col-4">
+    <div class="col-5">
         <p class="text-right h-font-size--18 h-clr--black-1 h-fw--semibold grand-total">${pdict.totals.grandTotal}</p>
     </div>
 </div>
