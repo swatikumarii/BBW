@@ -54,10 +54,15 @@ function execute() {
                     } else if (paymentInstrument.paymentMethod === 'AFTERPAY') {
                         expressCheckout = paymentInstrument.paymentTransaction.custom.apExpressCheckout;
                     }
+                    // remove 0 from starting of phone number
+                    var billingPhone = billingAddress.phone;
+                    if (billingPhone.startsWith('0')) {
+                        billingPhone = billingPhone.substr(1);
+                    }
                     var customerData = {
                         firstName : billingAddress.firstName,
                         lastName: billingAddress.lastName,
-                        phone: billingAddress.phone,
+                        phone: billingPhone,
                         email: orderModel.orderEmail,
                         dialCode: billingAddress.dialCode,
                         expressCheckout: expressCheckout
