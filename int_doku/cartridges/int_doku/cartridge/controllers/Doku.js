@@ -26,6 +26,7 @@ var httpParameters = require('dw/svc/HTTPService');
 var Resource = require('dw/web/Resource');
 var Status = require('dw/system/Status');
 var Transaction = require('dw/system/Transaction');
+var seo = require('*/cartridge/scripts/middleware/seo');
 /**
  * Doku-Notification : This endpoint is invoked when the Doku call Notification url
  * @name Base/Doku-Notification
@@ -98,7 +99,7 @@ server.get('Callback', server.middleware.https, function (req, res, next) {
   if (!paymentStatusData) {
     paymentStatusData = JSON.parse(paymentTransaction.paymentInstrument.custom.dokuLog);
   }
-  var transactionStatus = paymentStatusData.transaction.status;
+  var transactionStatus = paymentStatusData && 'transaction' in paymentStatusData && paymentStatusData.transaction.status ? paymentStatusData.transaction.status : 'FAILED';
   var result = { error: false, message: '' };
   if (order.status.value === Order.ORDER_STATUS_CREATED) {
     if (transactionStatus == 'SUCCESS') {
@@ -114,9 +115,101 @@ server.get('Callback', server.middleware.https, function (req, res, next) {
     });
     dokuHelper.placeOrder(order, true, paymentStatusData, server, req, res, next);
   }
+  // save address
+  if (session.privacy.addressBook && session.privacy.saveAddress) {
+      var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
+      var address = addressHelpers.copyShippingAddress(order.billingAddress);
+      // save all used billing addresses to address book of the logged in customer
+      if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
+          addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
+      }
+      session.privacy.addressBook = null;
+      session.privacy.saveAddress = null;
+  }
+
+  // save billingaddress dial code and dial code country
+  if (session.privacy.billingDialCode && session.privacy.billingDialCodeCountry) {
+      Transaction.wrap(function () {
+          order.billingAddress.custom.dialCode = session.privacy.billingDialCode;
+          order.billingAddress.custom.dialCodeCountry = session.privacy.billingDialCodeCountry;
+      });
+      session.privacy.billingDialCode = null;
+      session.privacy.billingDialCodeCountry = null;
+  }
+  if (order.status.value !== Order.ORDER_STATUS_FAILED && order.status.value !== Order.ORDER_STATUS_CANCELLED && order.status.value !== Order.ORDER_STATUS_CREATED) {
+    // create order on capillary
+    var OrderModel = require('*/cartridge/models/order');
+    var Locale = require('dw/util/Locale');
+    var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
+    var config = {
+        numberOfLineItems: '*'
+    };
+    var currentLocale = Locale.getLocale(req.locale.id);
+    var orderModel = new OrderModel(
+        order,
+        { config: config, countryCode: currentLocale.country, containerView: 'order' }
+    );
+    var crmOrderID = '';
+      if (
+          req.currentCustomer &&
+          req.currentCustomer.raw &&
+          req.currentCustomer.raw.profile
+      ) {
+          // Capillary: create order
+          if (!order.custom.capillaryOrderID) {
+            crmOrderID = capillaryAPI.createOrder(orderModel, order);
+            Transaction.wrap(function () {
+                if (crmOrderID) {
+                    order.custom.capillaryOrderID = crmOrderID;
+                    order.custom.capillaryResponse = '';
+                    order.custom.capillaryFailed = false;
+                    order.custom.capillaryRequest = '';
+                } else {
+                    order.custom.capillaryFailed = true;
+                }
+            });
+          }
+      } else {
+        var billingAddress = orderModel.billing.billingAddress.address;
+        // remove 0 from starting of phone number
+        var billingPhn = billingAddress.phone;
+        if (billingPhn.startsWith('0')) {
+            billingPhn = billingPhn.substr(1);
+        }
+        var customerData = {
+            firstName : billingAddress.firstName,
+            lastName: billingAddress.lastName,
+            phone: billingPhn,
+            email: orderModel.orderEmail,
+            dialCode: order.billingAddress.custom.dialCode,
+            expressCheckout: false
+        };
+        var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
+        if (crmCustomerID) {
+          if (!order.custom.capillaryOrderID) {
+            crmOrderID = capillaryAPI.createOrder(orderModel);
+            Transaction.wrap(function () {
+                if (crmOrderID) {
+                    order.custom.capillaryOrderID = crmOrderID;
+                    order.custom.capillaryResponse = '';
+                    order.custom.capillaryFailed = false;
+                    order.custom.capillaryRequest = '';
+                } else {
+                    order.custom.capillaryFailed = true;
+                }
+            });
+          }
+        } else {
+            Transaction.wrap(function () {
+                order.custom.capillaryFailed = true;
+            });
+        }
+    }
+  }
   dokuHelper.renderCustomer(order, result, transactionStatus, server, req, res, next);
   next();
-});
+},
+seo.addCurrentPageMetaData);
 
 server.use('OVO', function (req, res, next) {
   var ovoApi = require('*/cartridge/scripts/service/ovoApi');
@@ -165,5 +258,7 @@ server.get('OVOThankYou', function (req, res, next) {
   var result = { error: false, message: '' };
   dokuHelper.renderCustomer(ovoOrder, result, paymentStatusData, server, req, res, next);
   next();
-});
+},
+seo.addCurrentPageMetaData);
+
 module.exports = server.exports();

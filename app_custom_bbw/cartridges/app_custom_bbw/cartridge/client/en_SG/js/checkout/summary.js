@@ -19,7 +19,7 @@ function updateTotals(totals) {
 
     if (totals.allDiscounts.length > 0) {
         $('.order-discount').removeClass('hide-order-discount');
-        $('.order-discount').empty().append(totals.allDiscountsHTML);
+        $('.order-discount').empty().append(totals.mergedDiscountsHTML);
     } else {
         $('.order-discount').addClass('hide-order-discount');
     }

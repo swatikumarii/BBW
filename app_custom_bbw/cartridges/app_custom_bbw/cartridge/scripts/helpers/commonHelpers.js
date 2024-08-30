@@ -221,6 +221,24 @@ function getTrackingUrl(carrier, trackingNumber){
     return trackingUrl;
 }
 
+/**
+ * Used to check is express checkout order
+ * @param {dw.order.Order} order - The current user's order
+ * @returns {boolean} true/false
+ */
+function checkExpressCheckout(order) {
+    var expressCheckout = false;
+    for (var i = 0; i < order.paymentInstruments.length; i++) {
+        var paymentInstrument = order.paymentInstruments[i];
+        if (paymentInstrument.paymentMethod === 'AdyenComponent' && !order.billingAddress.custom.dialCode) {
+            expressCheckout = true;
+        } else if (paymentInstrument.paymentMethod === 'AFTERPAY') {
+            expressCheckout = paymentInstrument.paymentTransaction.custom.apExpressCheckout;
+        }
+    }
+    return expressCheckout;
+}
+
 module.exports = {
     sendNewsLetterSubscribeEmail: sendNewsLetterSubscribeEmail,
     zeroOrderEmail: zeroOrderEmail,
@@ -228,5 +246,6 @@ module.exports = {
     getAvailability: getAvailability,
     getBreadcrumbForContentAsset: getBreadcrumbForContentAsset,
     checkProductAvailability: checkProductAvailability,
-    getTrackingUrl: getTrackingUrl
+    getTrackingUrl: getTrackingUrl,
+    checkExpressCheckout: checkExpressCheckout
 };

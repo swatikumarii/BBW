@@ -3,6 +3,7 @@
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
     </isif>
+    <input type="hidden" name="currency-symbol" value="${session.currency.getSymbol()}">
     <isif condition="${!(dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup'))}">
         <div class="mini-cart-content">
             <div class="minicart-header h-pos--relative">
