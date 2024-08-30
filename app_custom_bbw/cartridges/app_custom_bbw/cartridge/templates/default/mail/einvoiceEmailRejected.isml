@@ -17,7 +17,7 @@
                     <td>
                         <table>
                             <tr style="padding: 0;">
-                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;" colspan="3">
                                     <strong>${Resource.msg('email.body.order.number.text', 'einvoice', null)}</strong>
                                 </td>
                                 <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
@@ -25,7 +25,7 @@
                                 </td>
                             </tr>
                             <tr style="padding: 0;">
-                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;" colspan="3">
                                     <strong>${Resource.msg('email.body.invoice.submission.date.text', 'einvoice', null)}</strong>
                                 </td>
                                 <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
@@ -33,7 +33,7 @@
                                 </td>
                             </tr>
                             <tr style="padding: 0;">
-                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;" colspan="3">
                                     <strong>${Resource.msg('email.body.invoice.submission.id.text', 'einvoice', null)}</strong>
                                 </td>
                                 <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
@@ -41,11 +41,11 @@
                                 </td>
                             </tr>
                             <tr style="padding: 0;">
-                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
+                                <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;" colspan="3">
                                     <strong>${Resource.msg('email.body.invoice.error.rejection.text', 'einvoice', null)}</strong>
                                 </td>
                                 <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
-                                    ${pdict.errorMsg}
+                                    <isprint value="${pdict.errorMsg}" />
                                 </td>
                             </tr>
                         </table>
@@ -58,22 +58,21 @@
                 </tr>
                 <tr style="padding: 0;">
                     <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
-                        ${Resource.msg('email.body.invoice.next.step.one.text', 'einvoice', null)}
+                        <isprint
+                            value="${Resource.msgf('email.body.invoice.next.step.one.text', 'einvoice', null, URLUtils.https('Order-History'))}"
+                            encoding="off" />
                     </td>
                 </tr>
                 <tr style="padding: 0;">
                     <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
-                        ${Resource.msg('email.body.invoice.next.step.two.text', 'einvoice', null)}
+                        <isprint
+                            value="${Resource.msgf('email.body.invoice.next.step.two.text', 'einvoice', null, URLUtils.https('Order-Status'))}"
+                            encoding="off" />
                     </td>
                 </tr>
                 <tr style="padding: 0;">
                     <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
                         ${Resource.msg('email.body.invoice.next.step.three.text', 'einvoice', null)}
-                    </td>
-                </tr>
-                <tr style="padding: 0;">
-                    <td style="padding: 0 32px 15px; vertical-align: top; text-align: left;">
-                        ${Resource.msg('email.body.invoice.understanding.text', 'einvoice', null)}
                     </td>
                 </tr>
             </table>

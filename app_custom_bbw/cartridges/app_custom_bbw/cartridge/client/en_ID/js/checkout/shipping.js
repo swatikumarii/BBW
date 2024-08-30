@@ -833,7 +833,10 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
+            var district = attrs.district.trim();
+            var subDistrict = attrs.subdistrict.trim();
             var postalCode = attrs.postalCode.toString();
+            var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
                 $('.shippingState option').each(function () {
                     if ($(this).val() === stateCode) {
@@ -843,6 +846,13 @@ module.exports = {
                         return false;
                     }
                 });
+            } else {
+                $('.shippingState option').removeAttr('selected');
+                $('.shippingState').val('');
+                $('.shippingAddressCity').val('');
+                $('.shippingAddressDistrict').val('');
+                $('.shippingAddressSubdistrict').val('');
+                $('.shippingZipCode').val('');
             };
             if (city) {
                 $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
@@ -858,6 +868,28 @@ module.exports = {
                     $('.shippingZipCode option').slice(1).remove();
                 });
             }
+            if (district) {
+                $('.shippingAddressDistrict option').each(function () {
+                    if ($(this).val() === district) {
+                        $('.shippingAddressDistrict option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body')
+                            .find('.shippingAddressDistrict')
+                            .trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (subDistrict) {
+                $('.shippingAddressSubdistrict option').each(function () {
+                    if ($(this).val() === subDistrict) {
+                        $('.shippingAddressSubdistrict option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.shippingAddressSubdistrict').trigger('change');
+                        return false;
+                    }
+                });
+            }
             if (postalCode) {
                 $('.shippingZipCode option').each(function () {
                     if ($(this).val() === postalCode) {
@@ -868,12 +900,22 @@ module.exports = {
                     }
                 });
             }
+            if (dialCodeCountry) {
+                // Get the instance of intl-tel-input
+                if (window.itiInstance) {
+                    window.itiInstance.setCountry(dialCodeCountry);
+                }
+            }
             Object.keys(attrs).forEach(function (attr) {
                 if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
-                    $('[name$=' + element + ']', form).val(attrs[attr]);
-                    // validate an hide/show errors
                     var $input = $('[name$=' + element + ']', form);
+                    if ($input.length > 1) {
+                        $('[name$=' + element + ']', form)[0].val(attrs[attr]);
+                    } else {
+                        $('[name$=' + element + ']', form).val(attrs[attr]);
+                    }
+                    // validate an hide/show errors
                     var $errorMessage = $input.next('.invalid-feedback');
                     if ($input[0].checkValidity()) {
                         $errorMessage.hide();
@@ -904,8 +946,7 @@ module.exports = {
 
     updateShippingList: function () {
         var baseObj = this;
-
-        $('select[name$="shippingAddress_addressFields_states_stateCode"]')
+        $('select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_postalCode"]')
             .on('change', function (e) {
                 if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
                     baseObj.methods.updateShippingMethodList($(e.currentTarget.form));

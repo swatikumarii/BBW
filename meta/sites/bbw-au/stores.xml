@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stores xmlns="http://www.demandware.com/xml/impex/store/2007-04-30">
     <store store-id="bbw_chadstone">
-        <name>BBW CHADSTONE</name>
+        <name>Bath &amp; Body Works Chadstone</name>
         <address1>Shop 314, 1341 Dandenong Rd</address1>
         <city>Malvern East</city>
         <postal-code>3145</postal-code>
@@ -37,7 +37,7 @@
     </store>
 
     <store store-id="bbw_dfo_homebush">
-        <name>BBW DFO HOMEBUSH</name>
+        <name>Bath &amp; Body Works DFO Homebush</name>
         <address1>DFO Homebush, Unit 3-077, 3-5 Underwood Road</address1>
         <city>Homebush</city>
         <postal-code>2140</postal-code>
@@ -73,7 +73,7 @@
     </store>
 
     <store store-id="bbw_dfo_south_wharf">
-        <name>BBW DFO SOUTH WHARF</name>
+        <name>Bath &amp; Body Works DFO South Wharf</name>
         <address1>Shop B-019, 20 Convention Centre Place</address1>
         <city>South Wharf</city>
         <postal-code>3006</postal-code>
@@ -109,7 +109,7 @@
     </store>
 
     <store store-id="bbw_emporium">
-        <name>BBW EMPORIUM</name>
+        <name>Bath &amp; Body Works Emporium</name>
         <address1>G001/G001A, 287 Lonsdale Street</address1>
         <city>Melbourne</city>
         <postal-code>3000</postal-code>
@@ -145,7 +145,7 @@
     </store>
 
     <store store-id="bbw_harbour_town">
-        <name>BBW HARBOUR TOWN</name>
+        <name>Bath &amp; Body Works Harbour Town</name>
         <address1>Shop C-231, 147-189 Brisbane Road</address1>
         <city>Biggera Waters</city>
         <postal-code>4216</postal-code>
@@ -181,7 +181,7 @@
     </store>
 
     <store store-id="bbw_melbourne_central">
-        <name>BBW MELBOURNE CENTRAL</name>
+        <name>Bath &amp; Body Works Melbourne Central</name>
         <address1>GD 065, 211 La Trobe Street</address1>
         <city>Melbourn</city>
         <postal-code>000,</postal-code>
@@ -217,7 +217,7 @@
     </store>
 
     <store store-id="bbw_qvb">
-        <name>BBW QVB</name>
+        <name>Bath &amp; Body Works QVB</name>
         <address1>Shop 60, Lower Ground 1, 455 George St</address1>
         <city>Sydney</city>
         <postal-code>2000</postal-code>
@@ -253,7 +253,7 @@
     </store>
 
     <store store-id="bbw_westfield_chermside">
-        <name>BBW WESTFIELD CHERMSIDE</name>
+        <name>Bath &amp; Body Works Chermside</name>
         <address1>Shop 1/2642, Gympie Rd</address1>
         <city>Chermside</city>
         <postal-code>4032</postal-code>
@@ -289,7 +289,7 @@
     </store>
 
     <store store-id="bbw_westfield_kotara">
-        <name>BBW WESTFIELD KOTARA</name>
+        <name>Bath &amp; Body Works Kotara</name>
         <address1>Shop 2097/98, 89 Park Avenue</address1>
         <city>Kotara</city>
         <postal-code>2289</postal-code>
@@ -325,7 +325,7 @@
     </store>
 
     <store store-id="bbw_westfield_mt_gravatt">
-        <name>BBW WESTFIELD MT GRAVATT</name>
+        <name>Bath &amp; Body Works Mt Gravatt</name>
         <address1>Shop 1303/2049 Logan Rd</address1>
         <city>Upper Mount Gravatt</city>
         <postal-code>4122</postal-code>
@@ -361,7 +361,7 @@
     </store>
 
     <store store-id="bbw_westfield_parramatta">
-        <name>BBW WESTFIELD PARRAMATTA</name>
+        <name>Bath &amp; Body Works Parramatta</name>
         <address1>Shop 1-5015, 175 Church St</address1>
         <city>Parramatta</city>
         <postal-code>2150</postal-code>
@@ -397,7 +397,7 @@
     </store>
 
     <store store-id="bbw_westfield_penrith">
-        <name>BBW WESTFIELD PENRITH</name>
+        <name>Bath &amp; Body Works Penrith</name>
         <address1>Shop 36, Level 1, 585 High Street</address1>
         <city>Penrith</city>
         <postal-code>2750</postal-code>

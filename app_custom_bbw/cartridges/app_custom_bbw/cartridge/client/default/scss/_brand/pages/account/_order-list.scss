@@ -8,6 +8,10 @@
             background-color: colour(gray, 1);
         }
 
+        &.show {
+            margin-bottom: 20px;
+        }
+
         .card-head {
             padding: 20px 15px;
             border-bottom: 1px solid colour(gray, 6);

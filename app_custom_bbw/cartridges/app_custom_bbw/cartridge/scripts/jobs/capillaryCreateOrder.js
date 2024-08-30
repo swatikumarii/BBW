@@ -28,11 +28,12 @@ function execute() {
                 from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@salesforce.com',
                 type: 1
             };
+            var sendFailedOrderFlag;
             while (orderList.hasNext()) {
                 var order = orderList.next();
                 var orderModel = new OrderModel(order, { containerView: 'order' });
                 var crmOrderID = '';
-                var sendFailedOrderFlag = false;
+                sendFailedOrderFlag = false;
                 if (order.customerNo) {
                     // Capillary: create order
                     crmOrderID = capillaryAPI.createOrder(orderModel, order);
@@ -46,11 +47,25 @@ function execute() {
                     }
                 } else {
                     var billingAddress = orderModel.billing.billingAddress.address;
+                    var expressCheckout = false;
+                    var paymentInstrument = order.paymentInstruments[0];
+                    if (paymentInstrument.paymentMethod === 'AdyenComponent' && !order.billingAddress.custom.dialCode) {
+                        expressCheckout = true;
+                    } else if (paymentInstrument.paymentMethod === 'AFTERPAY') {
+                        expressCheckout = paymentInstrument.paymentTransaction.custom.apExpressCheckout;
+                    }
+                    // remove 0 from starting of phone number
+                    var billingPhone = billingAddress.phone;
+                    if (billingPhone.startsWith('0')) {
+                        billingPhone = billingPhone.substr(1);
+                    }
                     var customerData = {
                         firstName : billingAddress.firstName,
                         lastName: billingAddress.lastName,
-                        phone: billingAddress.phone,
-                        email: orderModel.orderEmail
+                        phone: billingPhone,
+                        email: orderModel.orderEmail,
+                        dialCode: billingAddress.dialCode,
+                        expressCheckout: expressCheckout
                     };
                     var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
                     if (crmCustomerID) {

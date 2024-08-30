@@ -76,6 +76,11 @@
                                             </td>
                                             <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
                                                 <div style="width:245px">
+                                                    <isif condition="${lineItem.isBonusProductLineItem}">
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${Resource.msg('label.free.gift', 'common', null)}
+                                                        </div>
+                                                    </isif>
                                                     <div
                                                         style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
                                                         <a href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}"
@@ -197,6 +202,7 @@
                             ${Resource.msg('canceled.order.email.address.change.msg', 'email', null)}
                         </p>
                         <iscomment> Billing Section </iscomment>
+                        <isset name="address" value="${pdict.order.billing.billingAddress.address}" scope="page" />
                         <div
                             style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:0;padding-bottom:13px;margin-bottom:16px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
                             ${Resource.msg('email.order.billing.heading', 'confirmation', null)}
@@ -235,160 +241,7 @@
                             </table>
                         </div>
                         <iscomment> Payment Summary </iscomment>
-                        <isset name="totalExclusiveTax"
-                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showTotalsExcludingTaxes')}" scope="page" />
-                        <isset name="shippingExclusiveTax"
-                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingExcludingTaxes')}" scope="page" />
-                        <isset name="showSalesTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showSalesTaxes')}"
-                            scope="page" />
-                        <isset name="showShippingHandlingTaxes"
-                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
-                        <isset name="showAdjustedMerchandizeSubtotal"
-                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showAdjustedMerchandizeSubtotal')}" scope="page" />
-                        <table width="100%" cellpadding="0" cellspacing="0">
-                            <tbody>
-                                <tr>
-                                    <td style="vertical-align:top;background:#f2f2f2;padding:30px 35px;">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="2"
-                                                        style="vertical-align:top;font-size:26px;line-height:26px;text-transform:uppercase;border-bottom:3px solid #e5e5e5;padding-bottom:18px;text-align:center;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                                                        ${Resource.msg('email.order.payment.summary.heading', 'confirmation', null)}
-                                                    </td>
-                                                </tr>
-                                                <iscomment> Subtotal </iscomment>
-                                                <tr>
-                                                    <isif condition="${totalExclusiveTax}">
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px">
-                                                            ${Resource.msg('email.order.payment.merch.subtotal.label', 'confirmation', null)}
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px;text-align:right">
-                                                            ${pdict.order.totals.subTotalExclTax}
-                                                        </td>
-                                                    <iselse/>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px">
-                                                            ${Resource.msg('email.order.payment.merch.subtotal.label', 'confirmation', null)}
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px;text-align:right">
-                                                            ${pdict.order.totals.subTotal}
-                                                        </td>
-                                                    </isif>
-                                                </tr>
-
-                                                <iscomment> Discounts </iscomment>
-                                                <tr>
-                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                        ${Resource.msg('label.order.savings', 'common', null)}
-                                                    </td>
-                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                        ${pdict.order.totals.totalDiscountFormatted}</td>
-                                                </tr>
-
-                                                <iscomment> Order Discount </iscomment>
-                                                <isif condition="${pdict.order.totals.allDiscounts.length > 0}">
-                                                    <isloop items="${pdict.order.totals.allDiscounts}" var="discount"
-                                                        status="loopstatus">
-                                                        <tr>
-                                                            <td
-                                                                style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 13px;">
-                                                                ${discount.promotion && discount.promotion != null ? discount.promotion : "-"}
-                                                            </td>
-                                                            <td
-                                                                style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 0;text-align:right">
-                                                                ${discount.discount}</td>
-                                                        </tr>
-                                                    </isloop>
-                                                </isif>
-
-                                                <iscomment> Adjusted Merchandise Subtotal </iscomment>
-                                                <isif condition="${showAdjustedMerchandizeSubtotal}">
-                                                    <tr>
-                                                        <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;">
-                                                            ${Resource.msg('email.order.adjusted.merchandise.subtotal', 'confirmation', null)}
-                                                        </td>
-                                                        <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                            ${pdict.order.totals.miniCartSubTotal}
-                                                        </td>
-                                                    </tr>
-                                                </isif>
-
-                                                <iscomment> Shipping Charge </iscomment>
-                                                <tr>
-                                                    <isif condition="${shippingExclusiveTax}">
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                            - <span
-                                                                style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                            ${pdict.order.totals.shippingTotalExclTax}</td>
-                                                    <iselse/>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                            - <span
-                                                                style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                            ${pdict.order.totals.totalShippingCost}</td>
-                                                    </isif>
-                                                </tr>
-                                                <iscomment> Shipping Ground </iscomment>
-                                                <tr>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                        ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
-                                                    </td>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                        ${pdict.order.totals.shippingTotalTax}</td>
-                                                </tr>
-                                                <iscomment> Shipping Discounts </iscomment>
-                                                <tr>
-                                                    <isif
-                                                        condition="${!pdict.order.totals.shippingLevelDiscountTotal.value === 0}">
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('label.shipping.discount', 'common', null)}
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                            ${'-' + pdict.order.totals.shippingLevelDiscountTotal.formatted}
-                                                        </td>
-                                                    </isif>
-                                                </tr>
-
-                                                <tr>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0 20px">
-                                                        ${Resource.msg('email.order.payment.sales.tax.label', 'confirmation', null)}</td>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0 20px;text-align:right">
-                                                        ${pdict.order.totals.totalTax}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td
-                                                        style="font-size:21px;text-transform:uppercase;vertical-align:top;padding:22px 0 2px;border-top:3px solid #e5e5e5;font-weight:bold">
-                                                        ${Resource.msg('email.order.payment.order.total.label', 'confirmation', null)}</td>
-                                                    <td
-                                                        style="font-size:21px;text-transform:uppercase;vertical-align:top;padding:22px 0 2px;border-top:3px solid #e5e5e5;font-weight:bold;text-align:right">
-                                                        ${pdict.order.totals.grandTotal}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <isinclude template="mail/components/paymentSummary" />
                     </td>
                 </tr>
                 <iscomment> Canceled Email Footer Content Asset - Image </iscomment>

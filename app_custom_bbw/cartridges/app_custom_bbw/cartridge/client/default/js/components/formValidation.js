@@ -25,6 +25,13 @@ module.exports = function (formElement, payload) {
                     feedbackElement = $(formElement).find('[name="' + key + '"]').parents('.selectric-wrapper').parent().children('.invalid-feedback');
                     isSelectric = true;
                 }
+                
+                if (!feedbackElement.length) {
+                    var feedbackElement = $(formElement)
+                        .find('[name="' + key + '"]')
+                        .parent().parent()
+                        .children('.invalid-feedback');
+                }
 
                 if (feedbackElement.length > 0) {
                     if (Array.isArray(payload[key])) {

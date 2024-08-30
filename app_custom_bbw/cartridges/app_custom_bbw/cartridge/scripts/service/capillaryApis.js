@@ -2,6 +2,7 @@
 
 var logger = require('dw/system/Logger').getLogger('ServiceCapillary', 'Capillary');
 var StringUtils = require('dw/util/StringUtils');
+var Site = require('dw/system/Site');
 
 /**
  * Capillary API Call
@@ -15,9 +16,11 @@ function callCapillaryAPI(endPoint, requestJSON, method) {
     try {
         var capillaryServiceInit = require('*/cartridge/scripts/service/init/capillaryService');
         var service = capillaryServiceInit.capillaryService;
+        var svcUsername = Site.current.getCustomPreferenceValue('capillaryUsername');
+        var svcPassword = Site.current.getCustomPreferenceValue('capillaryPassword');
         var serviceCredentials = service.getConfiguration().getCredential();
         var url = serviceCredentials.getURL() + endPoint;
-        var auth = StringUtils.encodeBase64(serviceCredentials.user + ':' + serviceCredentials.password);
+        var auth = StringUtils.encodeBase64(svcUsername + ':' + svcPassword);
         service.setURL(url);
         service.setRequestMethod(method);
         service.addHeader('Authorization', 'Basic ' + auth);
@@ -81,8 +84,12 @@ module.exports = {
                 gender = 'Other';
                 break;
         };
-        var phoneNumber = registrationForm.phone.replace('+', '');
-        phoneNumber = phoneNumber.replace(' ', '');
+        var phoneNumber = registrationForm.phone.replace(/[+\-\s()]/g, '');
+        if (!registrationForm.expressCheckout) {
+            var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+            var dialCode = registrationForm.dialCode || defaultDialCode;
+            phoneNumber = dialCode + phoneNumber;
+        }
         var requestObj = {
             profiles: [{
                 firstName: registrationForm.firstName,

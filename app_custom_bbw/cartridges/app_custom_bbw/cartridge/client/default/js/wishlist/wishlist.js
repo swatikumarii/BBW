@@ -4,11 +4,123 @@ var wishlist = require('wishlist/wishlist/wishlist');
 var base = require('base/product/base');
 
 /**
+ * Parses the html for a modal window
+ * @param {string} html - representing the body and footer of the modal window
+ * @returns {object} - Object with properties body and footer.
+ */
+function parseHtml(html) {
+    var $html = $('<div>').append($.parseHTML(html));
+
+    var body = $html.find('.choice-of-bonus-product');
+    var footer = $html.find('.modal-footer').children();
+
+    return { body: body, footer: footer };
+}
+
+/**
+ * Retrieves url to use when adding a product to the cart
+ * @param {object} data - data object used to fill in dynamic portions of the html
+ */
+function chooseBonusProducts(data) {
+    $('.modal-body').spinner().start();
+
+    if ($('#chooseBonusProductModal').length !== 0) {
+        $('#chooseBonusProductModal').remove();
+    }
+    var bonusUrl;
+    if (data.bonusChoiceRuleBased) {
+        bonusUrl = data.showProductsUrlRuleBased;
+    } else {
+        bonusUrl = data.showProductsUrlListBased;
+    }
+
+    var htmlString =
+        '<!-- Modal -->' +
+        '<div class="modal fade" id="chooseBonusProductModal" tabindex="-1" role="dialog">' +
+        '<span class="enter-message sr-only" ></span>' +
+        '<div class="modal-dialog choose-bonus-product-dialog" ' +
+        'data-total-qty="' +
+        data.maxBonusItems +
+        '"' +
+        'data-UUID="' +
+        data.uuid +
+        '"' +
+        'data-pliUUID="' +
+        data.pliUUID +
+        '"' +
+        'data-addToCartUrl="' +
+        data.addToCartUrl +
+        '"' +
+        'data-pageStart="0"' +
+        'data-pageSize="' +
+        data.pageSize +
+        '"' +
+        'data-moreURL="' +
+        data.showProductsUrlRuleBased +
+        '"' +
+        'data-bonusChoiceRuleBased="' +
+        data.bonusChoiceRuleBased +
+        '">' +
+        '<!-- Modal content-->' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '    <span class="">' +
+        data.labels.selectprods +
+        data.labels.selectedprods +
+        '</span>' +
+        '    <button type="button" class="close pull-right" data-dismiss="modal">' +
+        '        <span aria-hidden="true">&times;</span>' +
+        '        <span class="sr-only"> </span>' +
+        '    </button>' +
+        '</div>' +
+        '<div class="modal-body"></div>' +
+        '<div class="modal-footer"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    $('body').append(htmlString);
+    $('.modal-body').spinner().start();
+
+    $.ajax({
+        url: bonusUrl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            if (response.initialAddBonusProduct) {
+                $.ajax({
+                    type: 'POST',
+                    url: response.initialAddBonusProductUrl,
+                    async: false
+                });
+            }
+            var parsedHtml = parseHtml(response.renderedTemplate);
+            $('#chooseBonusProductModal .modal-body').empty();
+            $('#chooseBonusProductModal .enter-message').text(
+                response.enterDialogMessage
+            );
+            $('#chooseBonusProductModal .modal-header .close .sr-only').text(
+                response.closeButtonText
+            );
+            var modalBodybody = '<div class="modal-body-wrap"></div>';
+            $('#chooseBonusProductModal .modal-body').html(modalBodybody);
+            $('#chooseBonusProductModal .modal-body-wrap').html(parsedHtml.body);
+            $('#chooseBonusProductModal .modal-footer').html(parsedHtml.footer);
+            $('#chooseBonusProductModal').modal('show');
+            $.spinner().stop();
+        },
+        error: function () {
+            $.spinner().stop();
+        }
+    });
+}
+
+/**
  * Updates the Mini-Cart quantity value after the customer has pressed the "Add to Cart" button
  * @param {string} response - ajax response from clicking the add to cart button
  */
 function handlePostCartAdd(response) {
     $('.minicart').trigger('count:update', response);
+    chooseBonusProducts(response.newBonusDiscountLineItem);
     var messageType = response.error ? 'alert-danger' : 'alert-success';
     if (response.message) {
         if ($('.add-to-cart-messages').length === 0) {
