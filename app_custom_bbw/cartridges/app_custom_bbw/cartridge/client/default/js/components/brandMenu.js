@@ -102,6 +102,9 @@ if (layout.isTablet() && !layout.isDesktop() && !layout.isMobile()) {
             if (totalLiHeight > containerHeight) {
                 $ul.addClass('two-column');
             }
+            else if(totalLiHeight >= 240) {
+                $ul.addClass('three-column');
+            };
 
             $('body').find('.menu-wrap-level-3').removeClass('show');
             $tabletlevel2li.removeClass('show');
@@ -174,6 +177,8 @@ if (layout.isTablet() && !layout.isDesktop() && !layout.isMobile()) {
                     .find('.menu-right')
                     .css('left', $level2liWidth + $menuWrapLevel3Width);
                 window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+            } else if (totalLiHeight >= 240) {
+                $ul.addClass('three-column');
             }
         });
     });
@@ -261,6 +266,8 @@ if (layout.isDesktop()) {
             // Compare total height of li elements with main container height
             if (totalLiHeight > containerHeight) {
                 $ul.addClass('two-column');
+            } else if (totalLiHeight >= 240) {
+                $ul.addClass('three-column');
             }
 
             $('body').find('.menu-wrap-level-3').removeClass('show');
@@ -334,6 +341,8 @@ if (layout.isDesktop()) {
                     .find('.menu-right')
                     .css('left', $level2liWidth + $menuWrapLevel3Width);
                 window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+            } else if (totalLiHeight >= 240) {
+                $ul.addClass('three-column');
             }
         });
     });
