@@ -58,6 +58,14 @@ function Handle(paymentMethodName, basket, paymentInformation) {
                 currentBasket.createPaymentInstrument(
                     paymentMethodName, grandtotal
                 );
+            } else if (paymentMethodName === 'Doku') {
+                currentBasket.createPaymentInstrument(
+                    paymentMethodName, grandtotal
+                );
+            } else if (paymentMethodName === 'ovo') {
+                currentBasket.createPaymentInstrument(
+                    paymentMethodName, grandtotal
+                );
             }
         } else {
             currentBasket.createPaymentInstrument(
