@@ -179,8 +179,8 @@
     </div>
     <div class="col-sm-12">
         <div class="form-group
-                    ${billingFields.subdistrict.mandatory === true ? 'required' : ''}
-                    ${billingFields.subdistrict.htmlName}">
+                    ${billingFields.subDistrict.mandatory === true ? 'required' : ''}
+                    ${billingFields.subDistrict.htmlName}">
             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="billingAddressSubdistrict"><span
                     class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.subdistrict', 'address', null)}</label>
     
