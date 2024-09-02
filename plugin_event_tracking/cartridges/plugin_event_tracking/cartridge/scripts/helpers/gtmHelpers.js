@@ -20,6 +20,12 @@ var orderStatusMatrix = {
     5: 'Order Completed'
 };
 
+/**
+ *
+ * @param  {object} order - current route order object
+ * @param {string} UUID - UUID string
+ * @returns {string} proratedPrice 
+ */
 function getProratedPrice(order, UUID) {
     var proratedPrice = 0;
     for (var index = 0; index < order.allProductLineItems.length; index++) {
@@ -300,9 +306,9 @@ function removeFromCart(res) {
         discount:
             lineItem.product.priceModel.price.value && res.itemPrice
                 ? (
-                      lineItem.product.priceModel.price.value -
+                    lineItem.product.priceModel.price.value -
                       res.proratedPrice
-                  ).toFixed(2)
+                ).toFixed(2)
                 : '',
         item_brand: lineItem.product.brand ? lineItem.product.brand : '',
         item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
@@ -444,10 +450,10 @@ function getCheckoutData() {
                 discount:
                     product.basePrice && product.adjustedGrossPrice
                         ? (
-                              product.basePrice.value -
+                            product.basePrice.value -
                               product.proratedPrice.value /
                                   product.quantityValue
-                          ).toFixed(2)
+                        ).toFixed(2)
                         : '',
                 item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
                 item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
@@ -564,8 +570,8 @@ function getConfirmationData(res) {
     try {
         order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
     } catch (e) {
-            Logger.error('GTMHelpers - cannot retrieve order: '.concat(e));
-            return {};
+        Logger.error('GTMHelpers - cannot retrieve order: '.concat(e));
+        return {};
     }
 
     try {
@@ -601,9 +607,71 @@ function getConfirmationData(res) {
                     price: Number(proratedPrice),
                     discount: res.order.items.items[i].basePrice.valueOrNull
                         ? (
-                              res.order.items.items[i].basePrice.value -
+                            res.order.items.items[i].basePrice.value -
                               proratedPrice
-                          ).toFixed(2)
+                        ).toFixed(2)
+                        : 0,
+                    quantity: res.order.items.items[i].quantity
+                });
+            }
+        }
+    } catch (e) {
+        Logger.error('GTMHelpers - Error in creating oject: '.concat(e));
+        return {};
+    }
+    return obj;
+}
+
+/**
+ * @param {object} res - current route response object
+ * @returns {object} Object containing confirmation page data.
+ */
+function getConfirmationDataDoku(res) {
+    var order = null;
+    var obj = {};
+    try {
+        order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
+    } catch (e) {
+        Logger.error('GTMHelpers - cannot retrieve order: '.concat(e));
+        return {};
+    }
+
+    try {
+        obj = {
+            event: gtmEvents.PURCHASE,
+            ecommerce: {
+                transaction_id: order.orderNo,
+                value: Number(order.totalGrossPrice.value.toFixed(2)),
+                tax: Number(order.getTotalTax().getValue().toFixed(2)),
+                shipping: order.getAdjustedShippingTotalPrice().getValue(),
+                coupon: order.couponLineItems.length ? order.couponLineItems[0].couponCode : '',
+                currency: order.currencyCode,
+                orderStatus: orderStatusMatrix[order.status.value],
+                items: []
+            }
+        };
+        if ('order' in res) {
+            for (var i = 0; i < res.order.items.items.length; i++) {
+                var breadcrumbs = getAllBreadcrumbs(res.order.items.items[i].gtmData.item_category, res.order.items.items[i].id, []).reverse();
+                var proratedPrice = getProratedPrice(order, res.order.items.items[i].UUID);
+                obj.ecommerce.items.push({
+                    item_name: res.order.items.items[i].productName,
+                    item_id: res.order.items.items[i].id,
+                    item_brand: res.order.items.items[i].brand
+                        ? res.order.items.items[i].brand
+                        : '',
+                    // coupon:res.order.totals.discounts[i].couponCode,
+                    item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
+                    item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
+                    item_category3: breadcrumbs[3] ? breadcrumbs[3].htmlValue : '',
+                    item_category4: breadcrumbs[4] ? breadcrumbs[4].htmlValue : '',
+                    item_category5: breadcrumbs[5] ? breadcrumbs[5].htmlValue : '',
+                    price: Number(proratedPrice),
+                    discount: res.order.items.items[i].basePrice.valueOrNull
+                        ? (
+                            res.order.items.items[i].basePrice.value -
+                              proratedPrice
+                        ).toFixed(2)
                         : 0,
                     quantity: res.order.items.items[i].quantity
                 });
@@ -684,6 +752,8 @@ function getDataLayer(res) {
                 return addShipping(res);
             case 'CheckoutServices-SubmitPayment':
                 return addPayment(res);
+            case 'Doku-Callback':
+                return getConfirmationDataDoku(res);
             case 'Order-Confirm':
                 return getConfirmationData(res);
             case 'Order-Check':
@@ -708,5 +778,6 @@ module.exports = {
     getCustomerData: getCustomerData,
     getSearchImpressionData: getSearchImpressionData,
     getConfirmationData: getConfirmationData,
-    getGA4OrderProductObject: getGA4OrderProductObject
+    getGA4OrderProductObject: getGA4OrderProductObject,
+    getConfirmationDataDoku: getConfirmationDataDoku
 };
