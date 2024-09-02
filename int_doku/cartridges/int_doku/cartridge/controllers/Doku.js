@@ -27,6 +27,7 @@ var Resource = require('dw/web/Resource');
 var Status = require('dw/system/Status');
 var Transaction = require('dw/system/Transaction');
 var seo = require('*/cartridge/scripts/middleware/seo');
+var gaMeasurementProtocolApi = require('*/cartridge/scripts/service/gaMeasurementProtocolApi');
 /**
  * Doku-Notification : This endpoint is invoked when the Doku call Notification url
  * @name Base/Doku-Notification
@@ -50,10 +51,12 @@ server.post('Notification', server.middleware.https, function (req, res, next) {
     if (validRequestSignature) {
     // check txn status and update the order status accordingly
       if (transactionStatus === dokuPreference.TransactionSuccess) {
+        gaMeasurementProtocolApi.gaMpAPICall(requestOrderId,'Success');
         dokuHelper.placeOrder(order, isDokuCallback, requestParameter, server, req, res, next);
       } else if (transactionStatus === dokuPreference.TransactionPending) {
         dokuHelper.pendingOrder(order, isDokuCallback, requestParameter, server, req, res, next);
       } else if (transactionStatus === dokuPreference.TransactionFailed || transactionStatus === dokuPreference.TransactionExpired) {
+        gaMeasurementProtocolApi.gaMpAPICall(requestOrderId,'Failed');
         dokuHelper.failOrder(order, isDokuCallback, requestParameter, server, req, res, next);
       }
     } else {
