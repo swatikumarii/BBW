@@ -532,26 +532,57 @@ module.exports = {
                 .text()
                 .trim();
             if (stateCode !== 'null') {
+                var exists = false;
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
                         $('.billingState option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingState').trigger('change');
+                        exists =true;
                         return false;
                     }
                 });
+                if(!exists){
+                    var billingState = $('.billingState');
+                    billingState.empty();
+                    billingState
+                        .prepend(
+                            $('<option>', {
+                                value: stateCode,
+                                text: stateCode
+                            })
+                        )
+                        .attr('selected', 'selected');
+                }
+
             }
             if (city !== 'null') {
+                var cityExists = false;
                 $('.billingAddressCity option').each(function () {
                     if ($(this).val() === city) {
                         $('.billingAddressCity option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingAddressCity').trigger('change');
+                        cityExists = true;
                         return false;
                     }
                 });
+                if (!cityExists) {
+                    var billingAddressCity = $('.billingAddressCity');
+                    billingAddressCity.empty();
+                    billingAddressCity
+                        .prepend(
+                            $('<option>', {
+                                value: city,
+                                text: city
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.billingAddressCity').removeClass('is-invalid');
+                }
             }
             if (district !== 'null') {
+                var disExists = false;
                 $('.billingAddressDistrict option').each(function () {
                     if ($(this).val() === district) {
                         $('.billingAddressDistrict option').removeAttr(
@@ -561,11 +592,26 @@ module.exports = {
                         $('body')
                             .find('.billingAddressDistrict')
                             .trigger('change');
+                        disExists = true;
                         return false;
                     }
                 });
+                if (!disExists) {
+                    var billingAddressDistrict = $('.billingAddressDistrict');
+                    billingAddressDistrict.empty();
+                    billingAddressDistrict
+                        .prepend(
+                            $('<option>', {
+                                value: district,
+                                text: district
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.billingAddressDistrict').removeClass('is-invalid');
+                }
             }
             if (subDistrict !== 'null') {
+                var subDisExists = false;
                 $('.billingAddressSubdistrict option').each(function () {
                     if ($(this).val() === subDistrict) {
                         $('.billingAddressSubdistrict option').removeAttr(
@@ -575,19 +621,54 @@ module.exports = {
                         $('body')
                             .find('.billingAddressSubdistrict')
                             .trigger('change');
+                        subDisExists = true;
                         return false;
                     }
                 });
+                if (!subDisExists) {
+                    var billingAddressSubdistrict = $(
+                        '.billingAddressSubdistrict'
+                    );
+                    billingAddressSubdistrict.empty();
+                    billingAddressSubdistrict
+                        .prepend(
+                            $('<option>', {
+                                value: subDistrict,
+                                text: subDistrict
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.billingAddressSubdistrict').removeClass('is-invalid');
+                }
             }
             if (postalCode !== 'null') {
+                var zipCodeExists = false;
                 $('.billingZipCode option').each(function () {
                     if ($(this).val() === postalCode) {
                         $('.billingZipCode option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingZipCode').trigger('change');
+                        zipCodeExists = true;
                         return false;
                     }
                 });
+                if (!zipCodeExists) {
+                    var billingZipCode = $(
+                        '.billingZipCode'
+                    );
+                    billingZipCode.empty();
+                    billingZipCode
+                        .prepend(
+                            $('<option>', {
+                                value: postalCode,
+                                text: postalCode
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.billingZipCode').removeClass('is-invalid');
+                }
+                var zipcodeError = $('.shipping-select-error');
+                zipcodeError.empty();
             }
         });
     }
