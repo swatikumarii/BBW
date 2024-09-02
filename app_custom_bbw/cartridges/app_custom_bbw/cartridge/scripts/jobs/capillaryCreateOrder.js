@@ -94,7 +94,7 @@ function execute() {
         });
         return new Status(Status.OK);
     } catch (exception) {
-        return new Status(Status.ERROR, null, 'There was an error while executing capillary job step: createOrders');
+        return new Status(Status.ERROR, null, 'There was an error while executing capillary job step: createOrders {0}', exception);
     }
 }
 module.exports = {
