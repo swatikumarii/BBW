@@ -603,6 +603,7 @@
                                                 display: block;
                                                 position: relative;
                                                 list-style: none;
+                                                break-inside: avoid;
 
                                                 a {
                                                     padding: 0px 15px 16px 30px;
