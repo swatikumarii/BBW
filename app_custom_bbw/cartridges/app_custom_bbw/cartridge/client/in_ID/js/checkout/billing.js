@@ -239,54 +239,40 @@ function updatePaymentInformation(order) {
         order.billing.payment.selectedPaymentInstruments &&
         order.billing.payment.selectedPaymentInstruments.length > 0
     ) {
-        order.billing.payment.selectedPaymentInstruments.forEach(
-            function (selectedPaymentInstrument) {
-                if (
-                    selectedPaymentInstrument.paymentMethod === 'CREDIT_CARD' ||
-                    selectedPaymentInstrument.paymentMethod === 'AdyenComponent'
-                ) {
-                    if (selectedPaymentInstrument.type) {
-                        htmlToAppend +=
-                            '<span>' +
-                            order.resources.cardType +
-                            ' ' +
-                            selectedPaymentInstrument.type +
-                            '</span>' +
-                            '<div>' +
-                            selectedPaymentInstrument.maskedCreditCardNumber +
-                            '</div>';
-                    } else if (selectedPaymentInstrument.selectedAdyenPM) {
-                        htmlToAppend +=
-                            '<span>' +
-                            selectedPaymentInstrument.selectedAdyenPM +
-                            '</span>';
-                    }
+        order.billing.payment.selectedPaymentInstruments.forEach(function (selectedPaymentInstrument) {
+            if (selectedPaymentInstrument.paymentMethod === 'CREDIT_CARD' || selectedPaymentInstrument.paymentMethod === 'AdyenComponent') {
+                if (selectedPaymentInstrument.type) {
                     htmlToAppend +=
-                        '<div class="payment-amount h-fw--semibold">' +
-                        '<span class="label h-clr--black-1">' +
-                        (order.currencyCode ? order.currencyCode : '') +
+                        '<span>'+
+                         order.resources.cardType +
                         ' ' +
-                        selectedPaymentInstrument.amount +
-                        '</span>' +
+                        selectedPaymentInstrument.type+
+                        '</span>'+
+                        '<div>' +
+                            selectedPaymentInstrument.maskedCreditCardNumber +
                         '</div>';
-                } else if (
-                    selectedPaymentInstrument.paymentMethod ===
-                    'GIFT_CERTIFICATE'
-                ) {
-                    giftcards = true;
-                    giftcardsAmount += selectedPaymentInstrument.amount;
+                } else if (selectedPaymentInstrument.selectedAdyenPM) {
+                    htmlToAppend +=
+                        '<span>'+
+                        selectedPaymentInstrument.selectedAdyenPM +
+                        '</span>';
                 }
+                htmlToAppend +='<div class="payment-amount h-fw--semibold">'+
+                    '<span class="label h-clr--black-1">'+
+                    (order.currencyCode ? order.currencyCode :'') + ' ' + selectedPaymentInstrument.amount+
+                    '</span>'+
+                    '</div>';
+            } else if (selectedPaymentInstrument.paymentMethod === 'GIFT_CERTIFICATE') {
+                giftcards = true;
+                giftcardsAmount += selectedPaymentInstrument.amount;
             }
-        );
+        });
         if (giftcards) {
-            htmlToAppend +=
-                '<div class="mt-2">Gift Card</div>' +
-                '<div class="payment-amount h-fw--semibold mb-3">' +
-                '<span class="label h-clr--black-1">' +
-                (order.currencyCode ? order.currencyCode : '') +
-                ' ' +
-                giftcardsAmount +
-                '</span>' +
+            htmlToAppend += '<div class="mt-2">Gift Card</div>'+
+                '<div class="payment-amount h-fw--semibold mb-3">'+
+                '<span class="label h-clr--black-1">'+
+                (order.currencyCode ? order.currencyCode :'') + ' ' + giftcardsAmount+
+                '</span>'+
                 '</div>';
         }
     }
@@ -352,8 +338,6 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
-            var district = attrs.district.trim();
-            var subDistrict = attrs.subdistrict.trim();
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
@@ -388,36 +372,6 @@ module.exports = {
                     $('.billingZipCode option').slice(1).remove();
                 });
             }
-            if (district) {
-                $('.billingAddressDistrict option').each(function () {
-                    if ($(this).val() === district) {
-                        $('.billingAddressDistrict option').removeAttr(
-                            'selected'
-                        );
-                        $('.billingAddressDistrict option')[0].remove();
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.billingAddressDistrict')
-                            .trigger('change');
-                        return false;
-                    }
-                });
-            }
-            if (subDistrict) {
-                $('.billingAddressSubdistrict option').each(function () {
-                    if ($(this).val() === subDistrict) {
-                        $('.billingAddressSubdistrict option').removeAttr(
-                            'selected'
-                        );
-                        $('.billingAddressSubdistrict option')[0].remove();
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.billingAddressSubdistrict')
-                            .trigger('change');
-                        return false;
-                    }
-                });
-            }
             if (postalCode) {
                 $('.billingZipCode option').each(function () {
                     if ($(this).val() === postalCode) {
@@ -435,14 +389,7 @@ module.exports = {
             }
 
             Object.keys(attrs).forEach(function (attr) {
-                if (
-                    ![
-                        'stateCode',
-                        'city',
-                        'postalCode',
-                        'countryCode'
-                    ].includes(attr)
-                ) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     if (element === 'cardNumber') {
                         $('.cardNumber')
@@ -553,56 +500,26 @@ module.exports = {
                 .text()
                 .trim();
             if (stateCode !== 'null') {
-                var exists = false;
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
                         $('.billingState option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingState').trigger('change');
-                        exists = true;
                         return false;
                     }
                 });
-                if (!exists) {
-                    var billingState = $('.billingState');
-                    billingState.empty();
-                    billingState
-                        .prepend(
-                            $('<option>', {
-                                value: stateCode,
-                                text: stateCode
-                            })
-                        )
-                        .attr('selected', 'selected');
-                }
             }
             if (city !== 'null') {
-                var cityExists = false;
                 $('.billingAddressCity option').each(function () {
                     if ($(this).val() === city) {
                         $('.billingAddressCity option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingAddressCity').trigger('change');
-                        cityExists = true;
                         return false;
                     }
                 });
-                if (!cityExists) {
-                    var billingAddressCity = $('.billingAddressCity');
-                    billingAddressCity.empty();
-                    billingAddressCity
-                        .prepend(
-                            $('<option>', {
-                                value: city,
-                                text: city
-                            })
-                        )
-                        .attr('selected', 'selected');
-                    $('.billingAddressCity').removeClass('is-invalid');
-                }
             }
             if (district !== 'null') {
-                var disExists = false;
                 $('.billingAddressDistrict option').each(function () {
                     if ($(this).val() === district) {
                         $('.billingAddressDistrict option').removeAttr(
@@ -612,26 +529,11 @@ module.exports = {
                         $('body')
                             .find('.billingAddressDistrict')
                             .trigger('change');
-                        disExists = true;
                         return false;
                     }
                 });
-                if (!disExists) {
-                    var billingAddressDistrict = $('.billingAddressDistrict');
-                    billingAddressDistrict.empty();
-                    billingAddressDistrict
-                        .prepend(
-                            $('<option>', {
-                                value: district,
-                                text: district
-                            })
-                        )
-                        .attr('selected', 'selected');
-                    $('.billingAddressDistrict').removeClass('is-invalid');
-                }
             }
             if (subDistrict !== 'null') {
-                var subDisExists = false;
                 $('.billingAddressSubdistrict option').each(function () {
                     if ($(this).val() === subDistrict) {
                         $('.billingAddressSubdistrict option').removeAttr(
@@ -641,52 +543,19 @@ module.exports = {
                         $('body')
                             .find('.billingAddressSubdistrict')
                             .trigger('change');
-                        subDisExists = true;
                         return false;
                     }
                 });
-                if (!subDisExists) {
-                    var billingAddressSubdistrict = $(
-                        '.billingAddressSubdistrict'
-                    );
-                    billingAddressSubdistrict.empty();
-                    billingAddressSubdistrict
-                        .prepend(
-                            $('<option>', {
-                                value: subDistrict,
-                                text: subDistrict
-                            })
-                        )
-                        .attr('selected', 'selected');
-                    $('.billingAddressSubdistrict').removeClass('is-invalid');
-                }
             }
             if (postalCode !== 'null') {
-                var zipCodeExists = false;
                 $('.billingZipCode option').each(function () {
                     if ($(this).val() === postalCode) {
                         $('.billingZipCode option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingZipCode').trigger('change');
-                        zipCodeExists = true;
                         return false;
                     }
                 });
-                if (!zipCodeExists) {
-                    var billingZipCode = $('.billingZipCode');
-                    billingZipCode.empty();
-                    billingZipCode
-                        .prepend(
-                            $('<option>', {
-                                value: postalCode,
-                                text: postalCode
-                            })
-                        )
-                        .attr('selected', 'selected');
-                    $('.billingZipCode').removeClass('is-invalid');
-                }
-                var zipcodeError = $('.shipping-select-error');
-                zipcodeError.empty();
             }
         });
     }
