@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+// Import from default
+
+@import "../../../default/scss/checkout/checkout";
+
+// Indonesia IN_ID SCSS
+
+.order-discount {
+    &.accordion-item.collapsed {
+        .cart-saving {
+            &::before {
+                left: 117px;
+            }
+        }
+    }
+
+    &.accordion-item {
+        .cart-saving {
+            &::before {
+                left: 117px;
+            }
+        }
+    }
+}

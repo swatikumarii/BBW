@@ -139,11 +139,11 @@
 </isif>
 
 <div class="row grand-total-wrap">
-    <div class="col-7">
+    <div class="col-6">
         <p class="h-font-size--18 h-clr--black-1 h-fw--semibold total-label h-line-height--20 b-text-letter-space-005">${Resource.msg('label.estimatedtotal', 'cart', null)}
         </p>
     </div>
-    <div class="col-5">
+    <div class="col-6">
         <p class="text-right h-font-size--18 h-clr--black-1 h-fw--semibold grand-total h-line-height--20 b-text-letter-space-005">${pdict.order.totals.grandTotal}</p>
     </div>
 </div>

@@ -569,6 +569,65 @@ server.prepend('SubmitPayment', server.middleware.https, csrfProtection.validate
             });
             this.emit('route:Complete', req, res);
         }
+        if (paymentMethodIdValue === 'Doku') {
+            var dokuHelper = require('*/cartridge/scripts/helpers/dokuHelper');
+            var dokuApi = require('*/cartridge/scripts/service/dokuApi');
+
+            // Creates a new order.
+            var orderDoku = COHelpers.createOrder(currentBasket);
+
+            if (!orderDoku) {
+                res.json({
+                    error: true,
+                    errorMessage: Resource.msg('error.technical', 'checkout', null)
+                });
+                this.emit('route:Complete', req, res);
+                return;
+            }
+
+
+            // Generate doku redirect URL
+            var requestJSON = dokuHelper.createRequestBody(orderDoku, currentBasket, paymentForm);
+            var paymentUrl = dokuApi.generatePaymentUrl(requestJSON).url;
+
+            res.json({
+                error: false,
+                continueUrl: paymentUrl,
+                isDoku: true
+            });
+            this.emit('route:Complete', req, res);
+        }
+        if (paymentMethodIdValue === 'ovo') {
+            // Creates a new order.
+            var orderOvo = COHelpers.createOrder(currentBasket);
+            var ovoID = req.httpParameterMap.dwfrm_billing_ovoFields_ovoID;
+            if (ovoID.empty) {
+                res.json({
+                    error: true
+                // message
+                });
+            } else {
+                Transaction.wrap(function () {
+                    orderOvo.custom.ovoID = ovoID;
+                });
+                var amount = 0;
+                for (var instrumentcount = 0; instrumentcount < currentBasket.paymentInstruments.length; instrumentcount++) {
+                    if (currentBasket.paymentInstruments[instrumentcount].paymentMethod === 'ovo') {
+                        amount = currentBasket.paymentInstruments[instrumentcount].paymentTransaction.amount.value;
+                    }
+                }
+                var reqOrder = { amount: amount || Math.floor(currentBasket.totalGrossPrice.value),
+                    invoice_number: orderOvo.currentOrderNo
+                };
+                res.json({
+                    error: false,
+                    continueUrl: URLUtils.https('Doku-OVO').toString(),
+                    reqOrder: reqOrder,
+                    isovo: true
+                });
+            }
+            this.emit('route:Complete', req, res);
+        }
     } else {
         next();
     }
