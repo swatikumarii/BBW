@@ -1,0 +1,12 @@
+{
+    "hooks": [
+        {
+            "name": "app.payment.form.processor.eghl",
+            "script": "./cartridge/scripts/hooks/payment/processor/eghl_form_processor"
+        },
+        {
+            "name": "app.payment.processor.eghl",
+            "script": "./cartridge/scripts/hooks/payment/processor/eghl"
+        }
+    ]
+}

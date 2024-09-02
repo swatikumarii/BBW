@@ -17,6 +17,8 @@
             <div class="select-wrap w-100 dropdown-country-selector" aria-labelledby="dropdownCountrySelector">
               <select class="form-control h-clr--black-1 w-100 locale-selector-dropdown">
                 <isloop items="${pdict.localeModel.locale.localeLinks}" var="localeLink">
+                ${pdict.localeModel.preferredLocale}
+                ${localeLink.localID}
                 <isif condition="${pdict.localeModel.preferredLocale === localeLink.localID}">
                     <option class="" data-locale="${localeLink.localID}" data-currencycode="${localeLink.currencyCode}" selected='selected'>
                       <i class="fi fi-${localeLink.country.toLowerCase()}"></i>
