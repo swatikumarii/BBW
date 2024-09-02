@@ -366,64 +366,64 @@ $(document).ready(function () {
             .find('.billingAddressCity')
             .attr('data-selected');
         if (selectedBillingCity !== 'null') {
+            var cityExists = false;
             $('.billingAddressCity option').each(function () {
                 // eslint-disable-line
                 if ($(this).val() === selectedBillingCity) {
                     $('.billingAddressCity option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingAddressCity').trigger('change');
+                    cityExists = true;
                     return false;
                 }
             });
-            var billingAddressCity = $('.billingAddressCity');
-            billingAddressCity.empty();
-            billingAddressCity
-                .prepend(
-                    $('<option>', {
-                        value: selectedBillingState,
-                        text: selectedBillingState
-                    })
-                )
-                .attr('selected', 'selected');
-            // setting city as per place API response
-            var suburbDropdown = $('.billingAddressCity');
-            suburbDropdown.empty();
-            suburbDropdown.prepend(
-                $('<option>', {
-                    value: selectedBillingCity,
-                    text: selectedBillingCity
-                }).attr('selected', 'selected')
-            );
-            $('.billingAddressCity').removeClass('is-invalid');
+            if (!cityExists) {
+                var billingAddressCity = $('.billingAddressCity');
+                billingAddressCity.empty();
+                billingAddressCity
+                    .prepend(
+                        $('<option>', {
+                            value: selectedBillingCity,
+                            text: selectedBillingCity
+                        })
+                    )
+                    .attr('selected', 'selected');
+                $('.billingAddressCity').removeClass('is-invalid');
+            }
         }
         var selectedBillingDistrict = $('body')
             .find('.billingAddressDistrict')
             .attr('data-selected');
         if (selectedBillingDistrict !== 'null') {
+            var districtExists = false;
             $('.billingAddressDistrict option').each(function () {
                 // eslint-disable-line
                 if ($(this).val() === selectedBillingDistrict) {
                     $('.billingAddressDistrict option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingAddressDistrict').trigger('change');
+                    districtExists = true;
                     return false;
                 }
             });
-            // setting city as per place API response
-            var districtDropdown = $('.billingAddressDistrict');
-            districtDropdown.empty();
-            districtDropdown.prepend(
-                $('<option>', {
-                    value: selectedBillingCity,
-                    text: selectedBillingCity
-                }).attr('selected', 'selected')
-            );
-            $('.billingAddressDistrict').removeClass('is-invalid');
+            if (!districtExists) {
+                // setting city as per place API response
+                var districtDropdown = $('.billingAddressDistrict');
+                districtDropdown.empty();
+                districtDropdown.prepend(
+                    $('<option>', {
+                        value: selectedBillingDistrict,
+                        text: selectedBillingDistrict
+                    }).attr('selected', 'selected')
+                );
+                $('.billingAddressDistrict').removeClass('is-invalid');
+            }
         }
         var selectedBillingSubDistrict = $('body')
             .find('.billingAddressSubdistrict')
             .attr('data-selected');
         if (selectedBillingSubDistrict !== 'null') {
+            var subDistrictExists = false;
             $('.billingAddressSubdistrict option').each(function () {
                 // eslint-disable-line
                 if ($(this).val() === selectedBillingSubDistrict) {
@@ -434,44 +434,51 @@ $(document).ready(function () {
                     $('body')
                         .find('.billingAddressSubdistrict')
                         .trigger('change');
+                    subDistrictExists = true;
                     return false;
                 }
             });
-            // setting city as per place API response
-            var subDistrictDropdown = $('.billingAddressSubdistrict');
-            subDistrictDropdown.empty();
-            subDistrictDropdown.prepend(
-                $('<option>', {
-                    value: selectedBillingCity,
-                    text: selectedBillingCity
-                }).attr('selected', 'selected')
-            );
-            $('.billingAddressSubdistrict').removeClass('is-invalid');
+            if (!subDistrictExists) {
+                // setting city as per place API response
+                var subDistrictDropdown = $('.billingAddressSubdistrict');
+                subDistrictDropdown.empty();
+                subDistrictDropdown.prepend(
+                    $('<option>', {
+                        value: selectedBillingSubDistrict,
+                        text: selectedBillingSubDistrict
+                    }).attr('selected', 'selected')
+                );
+                $('.billingAddressSubdistrict').removeClass('is-invalid');
+            }
         }
 
         var selectedBillingPostalCode = $('body')
             .find('.billingZipCode')
             .attr('data-selected');
         if (selectedBillingPostalCode !== 'null') {
+            var postalCodeExists = false;
             $('.billingZipCode option').each(function () {
                 // eslint-disable-line
                 if ($(this).val() === selectedBillingPostalCode) {
                     $('.billingZipCode option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingZipCode').trigger('change');
+                    postalCodeExists = true;
                     return false;
                 }
             });
-            // setting city as per place API response
-            var zipCodeDropdown = $('.billingZipCode');
-            zipCodeDropdown.empty();
-            zipCodeDropdown.prepend(
-                $('<option>', {
-                    value: selectedBillingCity,
-                    text: selectedBillingCity
-                }).attr('selected', 'selected')
-            );
-            $('.billingZipCode').removeClass('is-invalid');
+            if (!postalCodeExists) {
+                // setting city as per place API response
+                var zipCodeDropdown = $('.billingZipCode');
+                zipCodeDropdown.empty();
+                zipCodeDropdown.prepend(
+                    $('<option>', {
+                        value: selectedBillingPostalCode,
+                        text: selectedBillingPostalCode
+                    }).attr('selected', 'selected')
+                );
+                $('.billingZipCode').removeClass('is-invalid');
+            }
         }
     }
     $.spinner().stop();
