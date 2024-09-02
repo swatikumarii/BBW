@@ -34,6 +34,18 @@ function validateFields($input) {
                 $input.parents('.iti').addClass('is-invalid border-danger');
             $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
         }
+        var regPattern = $input.prop('pattern');
+        if (regPattern) {
+            var regEx = new RegExp(regPattern);
+            if (regEx.test($input.val()) || $input.val().length === 0) {
+                $errorMessage.hide();
+                $input.removeClass('is-invalid');
+            } else {
+                $errorMessage.show();
+                var patternErrorText = $input.data('pattern-mismatch');
+                $errorMessage.text(patternErrorText).show(); // Use the title attribute or customize the message
+            }
+        }
     } catch (error) {
         console.log(error); // eslint-disable-line
     }
