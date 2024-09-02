@@ -189,7 +189,7 @@
                     data-missing-error="${Resource.msg('error.subdistrict', 'forms', null)}" autocomplete="billing address-level2"
                     data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress
                                    .address.subDistrict}"
-                    <isprint value="${billingFields.subdistrict.attributes}" encoding="off" />>
+                    <isprint value="${billingFields.subDistrict.attributes}" encoding="off" />>
                 <isif
                     condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.subdistrict}">
                     <option id="${pdict.order.billing.billingAddress.address.subdistrict}"
