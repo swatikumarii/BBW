@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+// Import from default
+
+@import "../../../default/scss/common/global-styles";
+
+// Indonesia IN_ID SCSS
+
+.add-to-cart-messages {
+    .add-to-basket-alert {
+        &.first-message {
+            bottom: 95px;
+        }
+    }
+}
