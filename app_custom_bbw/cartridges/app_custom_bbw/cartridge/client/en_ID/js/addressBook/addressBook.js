@@ -211,11 +211,19 @@ $(document).on('click', '#editAddress', function () {
                                 addressObject.address1 += element.long_name;
                             }
                             break;
-                        case 'locality':
+                        case 'administrative_area_level_2':
                             addressObject.city = element.long_name;
                             break;
                         case 'administrative_area_level_1':
                             addressObject.state = element.long_name;
+                            break;
+                        case 'administrative_area_level_3':
+                            addressObject.shippingAddressDistrict =
+                            element.long_name;
+                            break;
+                        case 'administrative_area_level_4':
+                            addressObject.shippingAddressSubdistrict =
+                            element.long_name;
                             break;
                         case 'postal_code':
                             addressObject.zipcode = element.long_name;
@@ -236,6 +244,74 @@ $(document).on('click', '#editAddress', function () {
                 form.find('#zipCode')
                     .val(addressObject.zipcode)
                     .trigger('change');
+                if (
+                    addressObject.address1 &&
+                        addressObject.state &&
+                        addressObject.addressDistrict &&
+                        addressObject.addressSubdistrict &&
+                        addressObject.zipcode
+                ) {
+                    if (
+                        form.find('#city').val() === '' ||
+                            form.find('#city').val() === null
+                    ) {
+                        // setting city as per place API response
+                        var suburbDropdown = $('.address-city-input');
+                        suburbDropdown.empty();
+                        suburbDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.city,
+                                text: addressObject.city
+                            }).attr('selected', 'selected')
+                        );
+                        $('.address-city-input').removeClass('is-invalid');
+
+                        // setting district as per place API response
+                        var billingAddressDistrictDropdown = $(
+                            '.address-district-input'
+                        );
+                        billingAddressDistrictDropdown.empty();
+                        billingAddressDistrictDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.addressDistrict,
+                                text: addressObject.addressDistrict
+                            }).attr('selected', 'selected')
+                        );
+                        $('.address-district-input').removeClass(
+                            'is-invalid'
+                        );
+
+                        // setting subdistrict as per place API response
+                        var billingAddressSubDistrictDropdown = $(
+                            '.address-subdistrict-input'
+                        );
+                        billingAddressSubDistrictDropdown.empty();
+                        billingAddressSubDistrictDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.addressSubdistrict,
+                                text: addressObject.addressSubdistrict
+                            }).attr('selected', 'selected')
+                        );
+                        $('.address-subdistrict-input').removeClass(
+                            'is-invalid'
+                        );
+
+                        // setting zipcode as per place API response
+                        var billingZipcodeDropdown = $(
+                            '.address-zipcode-input'
+                        );
+                        billingZipcodeDropdown.empty();
+                        billingZipcodeDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.zipcode,
+                                text: addressObject.zipcode
+                            }).attr('selected', 'selected')
+                        );
+                        $('.address-zipcode-input').removeClass(
+                            'is-invalid'
+                        );
+                    }
+                }
             });
             /** Append Pac container inside div */
             var addressInputElement = $('#modalContent').find('#accountAddressAutoComplete');
@@ -261,32 +337,6 @@ $(document).on('click', '#editAddress', function () {
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
             $('#modalContent').find('.address-state-input').trigger('change');
-            var selectedAddressCity = $('#modalContent')
-                .find('.address-city-input')
-                .attr('data-selected');
-            if (selectedAddressCity !== 'null') {
-                $('.address-city-input option').each(function () {
-                    if ($(this).val() === selectedAddressCity) {
-                        $('.address-city-input option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.address-city-input').trigger('change');
-                        return false;
-                    }
-                });
-            }
-            var selectedPostalCode = $('#modalContent')
-                .find('.address-zipcode-input')
-                .attr('data-selected');
-            if (selectedPostalCode !== 'null') {
-                $('.address-zipcode-input option').each(function () {
-                    if ($(this).val() === selectedPostalCode) {
-                        $('.address-zipcode-input option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.address-zipcode-input').trigger('change');
-                        return false;
-                    }
-                });
-            }
             var addressForm = $($(response)[0]).find('input');
             window.addressForm = $(addressForm).serialize();
         }
