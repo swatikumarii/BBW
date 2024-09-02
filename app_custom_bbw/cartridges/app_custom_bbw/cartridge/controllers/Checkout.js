@@ -72,6 +72,23 @@ server.append('Begin', function (req, res, next) {
     if (applicableShippingMethods.length > 0) {
         viewData.isOrderShippable = true;
     }
+    // Adding district and subdistrict in preferred address.
+    var preferredAddress;
+    if (req.currentCustomer.addressBook && req.currentCustomer.addressBook.preferredAddress) {
+        preferredAddress = req.currentCustomer.addressBook.preferredAddress;
+        if (preferredAddress.raw.custom.district) {
+            viewData.forms.shippingForm.shippingAddress.addressFields.district.htmlValue =
+                preferredAddress.raw.custom.district;
+            viewData.forms.billingForm.addressFields.district.htmlValue =
+                preferredAddress.raw.custom.district;
+        }
+        if (preferredAddress.raw.custom.subDistrict) {
+            viewData.forms.shippingForm.shippingAddress.addressFields.subDistrict.htmlValue =
+                preferredAddress.raw.custom.subDistrict;
+            viewData.forms.billingForm.addressFields.subDistrict.htmlValue =
+                preferredAddress.raw.custom.subDistrict;
+        }
+    }
 
     viewData.isDangerousGoodsInBasket = isDangerousGoodsInBasket;
     res.setViewData(viewData);

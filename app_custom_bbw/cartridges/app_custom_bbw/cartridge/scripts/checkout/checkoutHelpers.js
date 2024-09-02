@@ -425,9 +425,13 @@ function copyCustomerAddressToShipment(address, shipmentOrNull) {
         if ('raw' in address) {
             shippingAddress.custom.dialCode = address.raw.custom.dialCode ? address.raw.custom.dialCode : defaultDialCode;
             shippingAddress.custom.dialCodeCountry = address.raw.custom.dialCodeCountry ? address.raw.custom.dialCodeCountry : defaultDialCodeCountry;
+            shippingAddress.custom.district = address.raw.custom.district ? address.raw.custom.district : '';
+            shippingAddress.custom.subDistrict = address.raw.custom.subDistrict ? address.raw.custom.subDistrict : '';
         } else {
             shippingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
             shippingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
+            shippingAddress.custom.district = address.custom.district ? address.custom.district : '';
+            shippingAddress.custom.subDistrict = address.custom.subDistrict ? address.custom.subDistrict : '';
         }
     });
 }
