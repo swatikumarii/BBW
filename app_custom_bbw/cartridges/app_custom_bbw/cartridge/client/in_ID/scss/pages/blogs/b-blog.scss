@@ -25,12 +25,5 @@
         @include media-up(sm) {
             width: 255px;
         }
-
-        @include media-btw(sm, lg) {
-            width: 268px;
-            transition: none;
-            min-height: 40px;
-            max-height: 50px;
-        }
     }
 }
