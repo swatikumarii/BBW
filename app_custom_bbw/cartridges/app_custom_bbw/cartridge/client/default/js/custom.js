@@ -23,9 +23,7 @@ var currentShowButton = $('.show-hide-current-password');
 currentShowButton.on('click', function () {
     var type = currentPasswordInput.attr('type') === 'password' ? 'text' : 'password';
     currentPasswordInput.attr('type', type);
-    $(this)
-        .find('.show')
-        .text(type === 'password' ? 'Show' : 'Hide');
+    $(this).find('.show').text(type === 'password' ? $(this).data('show-label') : $(this).data('hide-label'));
 });
 
 var newPasswordInput = $('#newPassword');

@@ -2,7 +2,7 @@
 <isloop items="${pdict.items}" var="lineItem" status="loopstatus">
     <isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
     <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
-    <isset name="bonuslineitemrow" value="${hasEmbeddedBonushasEmbeddedBonusProductsProducts ? 'bonus-line-item-row' : ''}" scope="page" />
+    <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
     <div class="card">
         <div class="product-info ${bonusproductlineitem} uuid-${lineItem.UUID}">
             <!--- name and remove buttons --->

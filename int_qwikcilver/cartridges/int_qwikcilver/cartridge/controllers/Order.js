@@ -47,7 +47,7 @@ server.prepend(
                         order.productLineItems[index] &&
                         !(
                             'custom' in order.productLineItems[index] &&
-                            'cardNumber' in
+                            'eGiftCardNumber' in
                                 order.productLineItems[index].custom &&
                             order.productLineItems[index].custom.eGiftCardNumber
                         )

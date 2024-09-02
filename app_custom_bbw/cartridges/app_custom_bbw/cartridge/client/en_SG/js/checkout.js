@@ -73,7 +73,7 @@ $(document).ready(function () {
     if (error || paymentStage || checkoutStage === 'payment') {
         if (error) {
             $('.error-message').show();
-            $('.error-message-text').text(decodeURIComponent(error[1]));
+            $('.error-message-text').empty().text(decodeURIComponent(error[1]));
         }
         adyenCheckout.renderGenericComponent();
     }
@@ -92,13 +92,41 @@ $(document).ready(function () {
         addressAutocomplete.initializeBilling
     );
     var phone = document.querySelector('.shippingPhoneNumber');
-    intlTelInput(phone, {
+    var intl = intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'sg',
-        countryOrder: ['sg']
+        initialCountry: $('.shipping-form .dialCodeCountry').val(),
+        formatOnDisplay: false,
+        formatAsYouType: false
+    });
+    // Attach the instance to a global variable
+    window.itiInstance = intl;
+    $('.shippingPhoneNumber').on('countrychange', function() {
+        var countryData = intl.getSelectedCountryData();
+        $('.shipping-form .dialCode').val(countryData.dialCode);
+        $('.shipping-form .dialCodeCountry').val(countryData.iso2);
+    });
+
+    // country selector on billing address
+    var billingDialCode = $('.payment-form .dialCodeCountry').val() || $('.dialCodeCountry').val();
+    var billingPhone = document.querySelector('#phoneNumber');
+    var billingIntl = intlTelInput(billingPhone, {
+        utilsScript: utils,
+        showFlags: true,
+        strictMode: true,
+        showSelectedDialCode: true,
+        initialCountry: billingDialCode,
+        formatOnDisplay: false,
+        formatAsYouType: false
+    });
+    // Attach the instance to a global variable
+    window.billingInstance = billingIntl;
+    $('#phoneNumber').on('countrychange', function() {
+        var billCountryData = billingIntl.getSelectedCountryData();
+        $('.payment-form .dialCode').val(billCountryData.dialCode);
+        $('.payment-form .dialCodeCountry').val(billCountryData.iso2);
     });
 
     $('.accordion-title').click(function () {
@@ -216,6 +244,14 @@ $(document).ready(function () {
                     $('body').find('.shippingAddressCity').trigger('change');
                     return false;
                 }
+                var suburbDropdown = $('.shippingAddressCity');
+                suburbDropdown.empty();
+                suburbDropdown.prepend(
+                    $('<option>', {
+                        value: selectedCity,
+                        text: selectedCity
+                    }).attr('selected', 'selected')
+                );
             });
         }
         var selectedPostalCode = $('body')
@@ -246,6 +282,16 @@ $(document).ready(function () {
                     return false;
                 }
             });
+
+            // setting state as per place API response
+            var stateDropdown = $('.billingState');
+            stateDropdown.append(
+                $('<option>', {
+                    value: selectedBillingState,
+                    text: selectedBillingState
+                }).attr('selected', 'selected')
+            );
+            $('.billingState').removeClass('is-invalid');
         }
         var selectedBillingCity = $('body')
             .find('.billingAddressCity')
@@ -259,6 +305,17 @@ $(document).ready(function () {
                     return false;
                 }
             });
+
+            // setting city as per place API response
+            var suburbDropdown = $('.billingAddressCity');
+            suburbDropdown.empty();
+            suburbDropdown.prepend(
+                $('<option>', {
+                    value: selectedBillingCity,
+                    text: selectedBillingCity
+                }).attr('selected', 'selected')
+            );
+            $('.billingAddressCity').removeClass('is-invalid');
         }
         var selectedBillingPostalCode = $('body')
             .find('.billingZipCode')
@@ -272,13 +329,6 @@ $(document).ready(function () {
                     return false;
                 }
             });
-        }
-        var billingForm = $('#dwfrm_billing .contact-info-block');
-        if (!$('input[name$=_phone]', billingForm).val()) {
-            var isMultiShip = $('#checkout-main').hasClass('multi-ship');
-            var formSelector = isMultiShip ? '.multi-shipping .active form' : '.single-shipping .shipping-form';
-            var shippingForm = $(formSelector);
-            $('input[name$=_phone]', billingForm).val($('input[name$=_phone]', shippingForm).val());
         }
     }
     $.spinner().stop();

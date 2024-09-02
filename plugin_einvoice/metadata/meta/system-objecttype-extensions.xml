@@ -47,6 +47,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>                
             </attribute-definition>
+            <attribute-definition attribute-id="eInvoiceCustomerTaxNumber">
+                <display-name xml:lang="x-default">E-Invoice Customer TAX Number</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
              </custom-attribute-definitions>
               <group-definitions>
                <attribute-group group-id="eInvoice">
@@ -57,6 +64,7 @@
                 <attribute attribute-id="eInvoiceQrCode"/>
                 <attribute attribute-id="eInvoiceStatus"/>
                 <attribute attribute-id="einvoiceErrorMsg"/>
+                <attribute attribute-id="eInvoiceCustomerTaxNumber"/>
             </attribute-group>
              </group-definitions>
     </type-extension>  

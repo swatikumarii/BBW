@@ -74,7 +74,7 @@
             <preference preference-id="sendProfileCompletionReminderEmail">true</preference>
             <preference preference-id="sendProfileCompletionReminderPopup">true</preference>
             <preference preference-id="metaPixelEnabled">true</preference>
-            <preference preference-id="dangerousGoodsMessage">&lt;p&gt;Your cart contains product that are not shippable.&lt;/p&gt;</preference>
+            <preference preference-id="dangerousGoodsMessage">&lt;p&gt;Some items in your cart cannot be shipped to your location.&lt;/p&gt;</preference>
             <preference preference-id="countrySiteMapping">
                 [
                     {"country":"Australia", "site": "https://www.bathandbodyworks.com.au"},
@@ -168,6 +168,8 @@
                 ]
             }
             &lt;/script&gt;</preference>
+            <preference preference-id="defaultDialCode">61</preference>
+            <preference preference-id="defaultDialCodeCountry">au</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -319,6 +321,8 @@
                 ]
             }
             &lt;/script&gt;</preference>
+            <preference preference-id="defaultDialCode">61</preference>
+            <preference preference-id="defaultDialCodeCountry">au</preference>
         </staging>
         <production/>
     </custom-preferences>

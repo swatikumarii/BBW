@@ -38,8 +38,11 @@
 </div>
 
 <!--- line item total price --->
-<div class="line-item-total-price">
+<div class="line-item-total-price d-flex flex-column justify-content-between">
     <div class="item-total-${lineItem.UUID} price">
         <isinclude template="checkout/productCard/productCardProductTotalPrice" />
     </div>
+    <isif condition="${lineItem.dangerousGoods}">
+        <span class="h-font-size--16 h-clr--red h-fw--normal cart-dangerous-goods">${Resource.msgf('cart.dangerousGoods.notShippable', 'cart', null)}</span>
+    </isif>
 </div>

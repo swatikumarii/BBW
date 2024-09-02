@@ -81,52 +81,64 @@
                         </isif>
 
                         <iscomment> Shipping Charge </iscomment>
-                        <tr>
-                            <isif condition="${shippingExclusiveTax}">
-                                <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                    ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                </td>
-                                <isif condition="${pdict.order.hasFreeShipping}">
-                                    <td
-                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                        ${Resource.msg('label.free.price', 'cart', null)}</td>
-                                <iselse/>
-                                    <td
-                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                        ${pdict.order.totals.shippingTotalExclTax}</td>
-                                </isif>
-                            <iselse/>
-                                <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                    ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                </td>
-                                <isif condition="${pdict.order.hasFreeShipping}">
-                                    <td
-                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                        ${Resource.msg('label.free.price', 'cart', null)}</td>
-                                <iselse/>
-                                    <td
-                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                        ${pdict.order.totals.totalShippingCost}</td>
-                                </isif>
-                            </isif>
-                        </tr>
-                        <iscomment> SHIPPING & HANDLING TAX </iscomment>
-                        <isif condition="${showShippingHandlingTaxes}">
-                            <isif condition="${!pdict.hasFreeShipping}">
-                                <iscomment>
-                                    <tr>
-                                        <td
-                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                            ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
-                                        </td>
+                        <isif condition="${pdict.order.items.items[0].isEgiftCard !== true}">
+                            <tr>
+                                <isif condition="${shippingExclusiveTax}">
+                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                        ${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}
+                                    </td>
+                                    <isif condition="${pdict.order.hasFreeShipping}">
                                         <td
                                             style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                            ${pdict.order.totals.shippingTotalTax}</td>
-                                    </tr>
-                                </iscomment>
-                                <iscomment> Shipping Discounts </iscomment>
-                                <tr>
-                                    <isif condition="${!pdict.order.totals.shippingLevelDiscountTotal.value === 0}">
+                                            ${Resource.msg('label.free.price', 'cart', null)}</td>
+                                    <iselse/>
+                                        <td
+                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                            ${pdict.order.totals.shippingTotalExclTax}</td>
+                                    </isif>
+                                <iselse/>
+                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                        ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
+                                    </td>
+                                    <isif condition="${pdict.order.hasFreeShipping}">
+                                        <td
+                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                            ${Resource.msg('label.free.price', 'cart', null)}</td>
+                                    <iselse/>
+                                        <td
+                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                            ${pdict.order.totals.totalShippingCost}</td>
+                                    </isif>
+                                </isif>
+                            </tr>
+                        </isif>
+                        <iscomment> SHIPPING & HANDLING TAX </iscomment>
+                        <isif condition="${showShippingHandlingTaxes}">
+                            <tr>
+                                <isif condition="${shippingExclusiveTax}">
+                                    <td
+                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                        ${Resource.msg('label.shipping.and.handling.tax', 'cart', null)}
+                                    </td>
+                                <iselse/>
+                                    <td
+                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                        ${Resource.msg('label.shipping.and.handling.tax.inclusive', 'cart', null)}
+                                    </td>
+                                </isif>
+                                <td
+                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                    <isif condition="${!pdict.order.hasFreeShipping}">
+                                        ${pdict.order.totals.shippingTotalTax}
+                                    <iselse/>
+                                        ${dw.util.StringUtils.formatMoney(new dw.value.Money(0, session.currency.getCurrencyCode()))}
+                                    </isif>
+                                </td>
+                            </tr>
+                            <isif condition="${!pdict.order.hasFreeShipping}">
+                                <iscomment> Shipping Discount </iscomment>
+                                <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value !== 0}">
+                                    <tr>
                                         <td
                                             style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
                                             ${Resource.msg('label.shipping.discount', 'common', null)}
@@ -135,8 +147,8 @@
                                             style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
                                             ${'-' + pdict.order.totals.shippingLevelDiscountTotal.formatted}
                                         </td>
-                                    </isif>
-                                </tr>
+                                    </tr>
+                                </isif>
                             </isif>
                         </isif>
 

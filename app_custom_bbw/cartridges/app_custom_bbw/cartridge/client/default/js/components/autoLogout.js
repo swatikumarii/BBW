@@ -56,14 +56,14 @@ function showTimeoutPopup() {
         $('#autologout').find('#logout-refresh').show();
         $('#autologout').modal();
         // force logout customer when for loggedin user
-        if (localStorage.getItem('isLoggedIn')) {
-            var logoutAction = $('.customLogoutUrl').val();
-            $.ajax({
-                url: logoutAction,
-                type: 'GET',
-                success: function () {}
-            });
-        } 
+        // if (localStorage.getItem('isLoggedIn')) {
+        //     var logoutAction = $('.customLogoutUrl').val();
+        //     $.ajax({
+        //         url: logoutAction,
+        //         type: 'GET',
+        //         success: function () {}
+        //     });
+        // } 
     }, warningDuration * 60000);
 }
 /**

@@ -14,7 +14,6 @@ server.prepend('SubmitPayment', function (req, res, next) {
     var Transaction = require('dw/system/Transaction');
     var BasketMgr = require('dw/order/BasketMgr');
     var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
-    var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
     var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
     var currentBasket = BasketMgr.getCurrentBasket();
     var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(currentBasket);
@@ -45,18 +44,16 @@ server.prepend('SubmitPayment', function (req, res, next) {
                     stateCode: paymentForm.addressFields.states.stateCode.value,
                     countryCode: paymentForm.addressFields.country.value,
                     phone: paymentForm.addressFields.phone.value,
+                    dialCode: paymentForm.addressFields.dialCode.value,
+                    dialCodeCountry: paymentForm.addressFields.dialCodeCountry.value
                 }
             }, null);
         }
-        if (req.currentCustomer.addressBook && paymentForm.saveAddress.value) {
-            if (currentBasket.billingAddress) {
-                var address = addressHelpers.copyShippingAddress(currentBasket.billingAddress);
-                // save all used shipping addresses to address book of the logged in customer
-                if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
-                    addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
-                }
-            }
-        }
+        // set value in session
+        session.privacy.addressBook = !!req.currentCustomer.addressBook;
+        session.privacy.saveAddress = paymentForm.saveAddress.value;
+        session.privacy.billingDialCode = paymentForm.addressFields.dialCode.value;
+        session.privacy.billingDialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
     }
 
     next();
@@ -68,41 +65,19 @@ server.append(
     csrfProtection.validateAjaxRequest,
     function (req, res, next) {
         var BasketMgr = require('dw/order/BasketMgr');
-        var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
+        var Transaction = require('dw/system/Transaction');
         var currentBasket = BasketMgr.getCurrentBasket();
         if (currentBasket) {
             var paymentForm = server.forms.getForm('billing');
-            if (
-                req.currentCustomer.addressBook &&
-                paymentForm.saveAddress.value
-            ) {
-                var billingAddress = {
-                    firstName: paymentForm.addressFields.firstName.value,
-                    lastName: paymentForm.addressFields.lastName.value,
-                    address1: paymentForm.addressFields.address1.value,
-                    address2: paymentForm.addressFields.address2.value,
-                    city: paymentForm.addressFields.city.value,
-                    states: {
-                        stateCode: paymentForm.addressFields.states.stateCode.value},
-                    postalCode: paymentForm.addressFields.postalCode.value,
-                    countryCode: paymentForm.addressFields.country.value,
-                    phone: paymentForm.addressFields.phone.value
-                };
-
-                if (
-                    !addressHelpers.checkIfAddressStored(
-                        billingAddress,
-                        req.currentCustomer.addressBook.addresses
-                    )
-                ) {
-                    addressHelpers.saveAddress(
-                        billingAddress,
-                        req.currentCustomer,
-                        addressHelpers.generateAddressName(billingAddress),
-                        true
-                    );
-                }
-            }
+            this.on('route:BeforeComplete', function () {
+                Transaction.wrap(function () {
+                    // this function will not work in case of google pay, after pay
+                    if (currentBasket.billingAddress) {
+                        currentBasket.billingAddress.custom.dialCode = paymentForm.addressFields.dialCode.value;
+                        currentBasket.billingAddress.custom.dialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
+                    }
+                });
+            });
         }
 
         next();

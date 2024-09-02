@@ -7,11 +7,35 @@ var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 
+
+// Function used to convert date
+/**
+ * Converts a date to a string.
+ * @param {Date} date - The date to convert.
+ * @returns {string} The date as a formatted string.
+ */
+function formatToISO8601(date) {
+    // Get the components of the date
+    var year = date.getUTCFullYear();
+    var month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
+    var day = String(date.getUTCDate()).padStart(2, '0');
+    var hours = String(date.getUTCHours()).padStart(2, '0');
+    var minutes = String(date.getUTCMinutes()).padStart(2, '0');
+
+    // Format the date and time components into ISO 8601 string
+    return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes;
+}
+
 // Function used to send EInvoice email
 exports.sendEmail = function (order) {
     var emailObj = {
         to: order.customerEmail,
-        subject: Resource.msg('email.subject.einvoice', 'einvoice', null),
+        subject: Resource.msgf(
+            'email.subject.einvoice',
+            'einvoice',
+            null,
+            order.orderNo
+        ),
         from:
             Site.current.getCustomPreferenceValue('customerServiceEmail') ||
             'no-reply@testorganization.com'
@@ -19,13 +43,18 @@ exports.sendEmail = function (order) {
     var encodedOrderNumber = encodeURIComponent(
         encryptionHelper.encryptPin(order.orderNo)
     );
-    
-    var qrCodeResponse = JSON.parse(order.custom.eInvoiceQrCode);    
+
+    var qrCodeResponse = JSON.parse(order.custom.eInvoiceQrCode);
 
     emailHelpers.sendEmail(emailObj, 'mail/einvoiceEmail', {
-        orderNo:order.orderNo,
-        qrCode:qrCodeResponse.qrcode,
-        qrCodeLink:qrCodeResponse.url,
+        orderNo: order.orderNo,
+        qrCode: qrCodeResponse.qrCodeLink,
+        qrCodeLink: qrCodeResponse.url,
+        submissionDate: formatToISO8601(
+            new Date(order.custom.eInvoiceSubmittionDate)
+        ),
+        erpId: order.custom.eInvoiceErpId,
+        orderId: order.orderNo,
         invoiceUrl: URLUtils.https(
             'Order-InvoiceDownload',
             'token',
@@ -38,28 +67,15 @@ exports.sendEmail = function (order) {
     });
 };
 
-// Function used to convert date
-function formatToISO8601(date) {
-    // Get the components of the date
-    var year = date.getUTCFullYear();
-    var month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
-    var day = String(date.getUTCDate()).padStart(2, '0');
-    var hours = String(date.getUTCHours()).padStart(2, '0');
-    var minutes = String(date.getUTCMinutes()).padStart(2, '0');
-    var seconds = String(date.getUTCSeconds()).padStart(2, '0');
-
-    // Format the date and time components into ISO 8601 string
-    return year + '-' + month + '-' + day + 'T' + hours + ':' + minutes + ':' + seconds + '+00:00';
-}
-
 // Function used to send Failed EInvoice email
 exports.sendFailedEmail = function (order) {
     var emailObj = {
         to: order.customerEmail,
-        subject: Resource.msg(
+        subject: Resource.msgf(
             'email.subject.einvoice.rejected',
             'einvoice',
-            null
+            null,
+            order.orderNo
         ),
         from:
             Site.current.getCustomPreferenceValue('customerServiceEmail') ||
@@ -73,7 +89,7 @@ exports.sendFailedEmail = function (order) {
             'The error source is ' +
             errorJson.errorSource +
             '. The error is: ' +
-            errorJson.detailedMessage +
+            errorJson.detailedMessage.replace(/\.(?=.*\.)/g, '_') +
             '.',
         submissionDate: formatToISO8601(
             new Date(order.custom.eInvoiceSubmittionDate)

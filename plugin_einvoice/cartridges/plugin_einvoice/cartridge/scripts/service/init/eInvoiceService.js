@@ -94,9 +94,33 @@ var eInvoiceGetQRCode = LocalServiceRegistry.createService(
     }
 );
 
+/**
+ * This is to upload the EInvoice QRCode on S3
+ */
+var eInvoiceQRCodeUpload = LocalServiceRegistry.createService(
+    'EInvoiceS3Bucket',
+    {
+        createRequest: function (svc, args) {
+            svc.setRequestMethod('POST'); // or POST, PUT, DELETE, etc
+            svc.addHeader('Content-Type', 'application/json');
+            return args;
+        },
+
+        parseResponse: function (svc, client) {
+            return client.text;
+        },
+
+        filterLogMessage: function (msg) {
+            //  No need to filter logs.  No sensitive information.
+            return msg;
+        }
+    }
+);
+
 module.exports = {
     eInvoiceTokenService: eInvoiceTokenService,
     eInvoicePostSubmission: eInvoicePostSubmission,
     eInvoiceGetSubmission: eInvoiceGetSubmission,
-    eInvoiceGetQRCode: eInvoiceGetQRCode
+    eInvoiceGetQRCode: eInvoiceGetQRCode,
+    eInvoiceQRCodeUpload: eInvoiceQRCodeUpload
 };

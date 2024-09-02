@@ -564,7 +564,8 @@ function getConfirmationData(res) {
     try {
         order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
     } catch (e) {
-        Logger.error('GTMHelpers - cannot retrieve order: '.concat(e));
+            Logger.error('GTMHelpers - cannot retrieve order: '.concat(e));
+            return {};
     }
 
     try {
@@ -572,8 +573,8 @@ function getConfirmationData(res) {
             event: gtmEvents.PURCHASE,
             ecommerce: {
                 transaction_id: order.orderNo,
-                value: order.totalGrossPrice.value.toFixed(2),
-                tax: order.getTotalTax().getValue().toFixed(2),
+                value: Number(order.totalGrossPrice.value.toFixed(2)),
+                tax: Number(order.getTotalTax().getValue().toFixed(2)),
                 shipping: order.getAdjustedShippingTotalPrice().getValue(),
                 coupon: order.couponLineItems.length ? order.couponLineItems[0].couponCode : '',
                 currency: order.currencyCode,
@@ -597,7 +598,7 @@ function getConfirmationData(res) {
                     item_category3: breadcrumbs[3] ? breadcrumbs[3].htmlValue : '',
                     item_category4: breadcrumbs[4] ? breadcrumbs[4].htmlValue : '',
                     item_category5: breadcrumbs[5] ? breadcrumbs[5].htmlValue : '',
-                    price: proratedPrice,
+                    price: Number(proratedPrice),
                     discount: res.order.items.items[i].basePrice.valueOrNull
                         ? (
                               res.order.items.items[i].basePrice.value -
