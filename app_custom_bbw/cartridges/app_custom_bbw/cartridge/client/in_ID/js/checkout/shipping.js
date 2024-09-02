@@ -833,6 +833,8 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
+            var district = attrs.district.trim();
+            var subDistrict = attrs.subdistrict.trim();
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
@@ -866,6 +868,28 @@ module.exports = {
                     $('.shippingZipCode option').slice(1).remove();
                 });
             }
+            if (district) {
+                $('.shippingAddressDistrict option').each(function () {
+                    if ($(this).val() === district) {
+                        $('.shippingAddressDistrict option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body')
+                            .find('.shippingAddressDistrict')
+                            .trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (subDistrict) {
+                $('.shippingAddressSubdistrict option').each(function () {
+                    if ($(this).val() === subDistrict) {
+                        $('.shippingAddressSubdistrict option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.shippingAddressSubdistrict').trigger('change');
+                        return false;
+                    }
+                });
+            }
             if (postalCode) {
                 $('.shippingZipCode option').each(function () {
                     if ($(this).val() === postalCode) {
@@ -885,9 +909,16 @@ module.exports = {
             Object.keys(attrs).forEach(function (attr) {
                 if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
-                    $('[name$=' + element + ']', form).val(attrs[attr]);
-                    // validate an hide/show errors
                     var $input = $('[name$=' + element + ']', form);
+                    if ($input.length === 0 && element === 'subdistrict') {
+                        $input = $('[name$=subDistrict]', form);
+                    }
+                    if ($input.length > 1) {
+                        $('[name$=' + element + ']', form)[0].val(attrs[attr]);
+                    } else {
+                        $('[name$=' + element + ']', form).val(attrs[attr]);
+                    }
+                    // validate an hide/show errors
                     var $errorMessage = $input.next('.invalid-feedback');
                     if ($input[0].checkValidity()) {
                         $errorMessage.hide();

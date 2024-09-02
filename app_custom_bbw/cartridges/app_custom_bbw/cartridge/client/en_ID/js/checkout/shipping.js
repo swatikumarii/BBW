@@ -910,6 +910,9 @@ module.exports = {
                 if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     var $input = $('[name$=' + element + ']', form);
+                    if  ($input.length === 0 && element === 'subdistrict') {
+                        $input = $('[name$=subDistrict]', form);
+                    }
                     if ($input.length > 1) {
                         $('[name$=' + element + ']', form)[0].val(attrs[attr]);
                     } else {
