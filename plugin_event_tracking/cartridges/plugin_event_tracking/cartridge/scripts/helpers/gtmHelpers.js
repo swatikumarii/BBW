@@ -20,6 +20,12 @@ var orderStatusMatrix = {
     5: 'Order Completed'
 };
 
+/**
+ *
+ * @param  {object} order - current route order object
+ * @param {string} UUID - UUID string
+ * @returns {string} proratedPrice 
+ */
 function getProratedPrice(order, UUID) {
     var proratedPrice = 0;
     for (var index = 0; index < order.allProductLineItems.length; index++) {
@@ -300,9 +306,9 @@ function removeFromCart(res) {
         discount:
             lineItem.product.priceModel.price.value && res.itemPrice
                 ? (
-                      lineItem.product.priceModel.price.value -
+                    lineItem.product.priceModel.price.value -
                       res.proratedPrice
-                  ).toFixed(2)
+                ).toFixed(2)
                 : '',
         item_brand: lineItem.product.brand ? lineItem.product.brand : '',
         item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
@@ -444,10 +450,10 @@ function getCheckoutData() {
                 discount:
                     product.basePrice && product.adjustedGrossPrice
                         ? (
-                              product.basePrice.value -
+                            product.basePrice.value -
                               product.proratedPrice.value /
                                   product.quantityValue
-                          ).toFixed(2)
+                        ).toFixed(2)
                         : '',
                 item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
                 item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
@@ -564,8 +570,8 @@ function getConfirmationData(res) {
     try {
         order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
     } catch (e) {
-            Logger.error('GTMHelpers - cannot retrieve order: '.concat(e));
-            return {};
+        Logger.error('GTMHelpers - cannot retrieve order: '.concat(e));
+        return {};
     }
 
     try {
@@ -601,9 +607,9 @@ function getConfirmationData(res) {
                     price: Number(proratedPrice),
                     discount: res.order.items.items[i].basePrice.valueOrNull
                         ? (
-                              res.order.items.items[i].basePrice.value -
+                            res.order.items.items[i].basePrice.value -
                               proratedPrice
-                          ).toFixed(2)
+                        ).toFixed(2)
                         : 0,
                     quantity: res.order.items.items[i].quantity
                 });
@@ -615,6 +621,7 @@ function getConfirmationData(res) {
     }
     return obj;
 }
+
 
 /**
  * @param {object} res - current route response object
@@ -684,6 +691,10 @@ function getDataLayer(res) {
                 return addShipping(res);
             case 'CheckoutServices-SubmitPayment':
                 return addPayment(res);
+            case 'Doku-Callback':
+                return getConfirmationData(res);
+            case 'Doku-OVOThankYou':
+                return getConfirmationData(res);
             case 'Order-Confirm':
                 return getConfirmationData(res);
             case 'Order-Check':

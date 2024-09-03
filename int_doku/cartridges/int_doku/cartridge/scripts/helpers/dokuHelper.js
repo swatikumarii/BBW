@@ -165,9 +165,6 @@ function renderCustomer(order, result, orderStatus, server, req, res, next) {
   var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
   var viewData = res.getViewData();
   viewData.isThankYouPage = true;
-  viewData.CurrentPageMetaData = {
-    title: Resource.msg('site.common.title', 'common', null)
-  };
 
   // prepare transactional data for GTM
   var orderData = orderModel;
