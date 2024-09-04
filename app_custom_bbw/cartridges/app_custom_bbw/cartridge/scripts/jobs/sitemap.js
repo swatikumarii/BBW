@@ -34,7 +34,6 @@ function createProductSitemap() {
     var currentSite = require('dw/system/Site').getCurrent();
     var ImageModel = require('*/cartridge/models/product/productImages');
     var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
-    var productsIterator = ProductMgr.queryAllSiteProducts();
     var fileName = 'customProductSiteMap';
     var outputFile = new File(
         File.LIBRARIES +
@@ -74,60 +73,74 @@ function createProductSitemap() {
         quantity: 'all'
     };
     var apiProduct;
+    var productsIterator;
     try {
-        while (productsIterator.hasNext()) {
-            product = productsIterator.next();
-            apiProduct = ProductMgr.getProduct(product.ID);
-            if (
-                !product.custom.isBonusProduct &&
-                product.online &&
-                productValidationHelpers.getProductMaxOrderQty(apiProduct) >= 1
-            ) {
-                xmlStreamWriter.writeStartElement('url');
-                xmlStreamWriter.writeStartElement('loc');
-                xmlStreamWriter.writeCharacters(
-                    URLUtils.abs('Product-Show', 'pid', product.ID).toString()
-                );
-                xmlStreamWriter.writeEndElement();
-                xmlStreamWriter.writeStartElement('lastmod');
-                xmlStreamWriter.writeCharacters(
-                    formatToISO8601(apiProduct.lastModified)
-                );
-                xmlStreamWriter.writeEndElement();
-                xmlStreamWriter.writeStartElement('changefreq');
-                xmlStreamWriter.writeCharacters('daily');
-                xmlStreamWriter.writeEndElement();
-                xmlStreamWriter.writeStartElement('priority');
-                xmlStreamWriter.writeCharacters('1.0');
-                xmlStreamWriter.writeEndElement();
-
-                var images = new ImageModel(apiProduct, config);
-                xmlStreamWriter.writeStartElement('image:image');
-                xmlStreamWriter.writeStartElement('image:loc');
-                xmlStreamWriter.writeCharacters(
-                    images.mediumLarge.length > 0
-                        ? images.mediumLarge[0].absURL.toString()
-                        : ''
-                );
-                xmlStreamWriter.writeEndElement();
-                xmlStreamWriter.writeStartElement('image:caption');
-                xmlStreamWriter.writeCharacters(
-                    images.mediumLarge.length > 0
-                        ? images.mediumLarge[0].alt
-                        : ''
-                );
-                xmlStreamWriter.writeEndElement();
-                xmlStreamWriter.writeStartElement('image:title');
-                xmlStreamWriter.writeCharacters(
-                    images.mediumLarge.length > 0
-                        ? images.mediumLarge[0].title
-                        : ''
-                );
-                xmlStreamWriter.writeEndElement();
-                // image:image end
-                xmlStreamWriter.writeEndElement();
-                // url end
-                xmlStreamWriter.writeEndElement();
+        for (var index = 0; index < currentSite.allowedLocales.length; index++) {
+            var locale = currentSite.allowedLocales[index];
+            if (locale !== 'default') {
+                request.setLocale(locale);
+                productsIterator = ProductMgr.queryAllSiteProducts();
+                while (productsIterator.hasNext()) {
+                    product = productsIterator.next();
+                    apiProduct = ProductMgr.getProduct(product.ID);
+                    if (
+                        !product.custom.isBonusProduct &&
+                        product.online &&
+                        productValidationHelpers.getProductMaxOrderQty(
+                            apiProduct
+                        ) >= 1
+                    ) {
+                        xmlStreamWriter.writeStartElement('url');
+                        xmlStreamWriter.writeStartElement('loc');
+                        xmlStreamWriter.writeCharacters(
+                            URLUtils.abs(
+                                'Product-Show',
+                                'pid',
+                                product.ID
+                            ).toString()
+                        );
+                        xmlStreamWriter.writeEndElement();
+                        xmlStreamWriter.writeStartElement('lastmod');
+                        xmlStreamWriter.writeCharacters(
+                            formatToISO8601(apiProduct.lastModified)
+                        );
+                        xmlStreamWriter.writeEndElement();
+                        xmlStreamWriter.writeStartElement('changefreq');
+                        xmlStreamWriter.writeCharacters('daily');
+                        xmlStreamWriter.writeEndElement();
+                        xmlStreamWriter.writeStartElement('priority');
+                        xmlStreamWriter.writeCharacters('1.0');
+                        xmlStreamWriter.writeEndElement();
+    
+                        var images = new ImageModel(apiProduct, config);
+                        xmlStreamWriter.writeStartElement('image:image');
+                        xmlStreamWriter.writeStartElement('image:loc');
+                        xmlStreamWriter.writeCharacters(
+                            images.mediumLarge.length > 0
+                                ? images.mediumLarge[0].absURL.toString()
+                                : ''
+                        );
+                        xmlStreamWriter.writeEndElement();
+                        xmlStreamWriter.writeStartElement('image:caption');
+                        xmlStreamWriter.writeCharacters(
+                            images.mediumLarge.length > 0
+                                ? images.mediumLarge[0].alt
+                                : ''
+                        );
+                        xmlStreamWriter.writeEndElement();
+                        xmlStreamWriter.writeStartElement('image:title');
+                        xmlStreamWriter.writeCharacters(
+                            images.mediumLarge.length > 0
+                                ? images.mediumLarge[0].title
+                                : ''
+                        );
+                        xmlStreamWriter.writeEndElement();
+                        // image:image end
+                        xmlStreamWriter.writeEndElement();
+                        // url end
+                        xmlStreamWriter.writeEndElement();
+                    }
+                }
             }
         }
         // urlset end
