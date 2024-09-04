@@ -11,7 +11,7 @@
         </div>
     <iselseif condition="${lineItem.bonusUnitPrice}"/>
         <div class="unit-price">
-            <span class="value" content="${lineItem.bonusUnitPrice}">${lineItem.bonusUnitPrice === dw.system.Site.getCurrent().currencyCode + ' 0.00' ? 'BEBAS' : lineItem.bonusUnitPrice}</span>
+            <span class="value" content="${lineItem.bonusUnitPrice}">${lineItem.bonusUnitPrice === dw.system.Site.getCurrent().currencyCode + ' 0.00' ? 'GRATIS' : lineItem.bonusUnitPrice}</span>
         </div>
     </isif>
 </div>
