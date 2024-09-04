@@ -25,4 +25,16 @@
 {
     "id": "in_ID",
     "currencyCode": "IDR"
+},
+{
+    "id": "en_PH",
+    "currencyCode": "PHP"
+},
+{
+    "id": "en_HK",
+    "currencyCode": "HKD"
+},
+{
+    "id": "zh_HK",
+    "currencyCode": "HKD"
 }]
