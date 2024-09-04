@@ -10,6 +10,7 @@ var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
 );
 var addressData = require('./addressData');
+var shippingHelpers = require('./checkout/shipping');
 
 /**
  * validateFields
@@ -74,7 +75,7 @@ $(document).ready(function () {
     if (error || paymentStage || checkoutStage === 'payment') {
         if (error) {
             $('.error-message').show();
-            $('.error-message-text').text(decodeURIComponent(error[1]));
+            $('.error-message-text').empty().text(decodeURIComponent(error[1]));
         }
         adyenCheckout.renderGenericComponent();
     }
@@ -93,27 +94,41 @@ $(document).ready(function () {
         addressAutocomplete.initializeBilling
     );
     var phone = document.querySelector('.shippingPhoneNumber');
-    intlTelInput(phone, {
+    var intl = intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au',
-        countryOrder: ['au'],
+        initialCountry: $('.shipping-form .dialCodeCountry').val(),
         formatOnDisplay: false,
         formatAsYouType: false
     });
+    // Attach the instance to a global variable
+    window.itiInstance = intl;
+    $('.shippingPhoneNumber').on('countrychange', function() {
+        var countryData = intl.getSelectedCountryData();
+        $('.shipping-form .dialCode').val(countryData.dialCode);
+        $('.shipping-form .dialCodeCountry').val(countryData.iso2);
+    });
 
+    // country selector on billing address
+    var billingDialCode = $('.payment-form .dialCodeCountry').val() || $('.dialCodeCountry').val();
     var billingPhone = document.querySelector('#phoneNumber');
-    intlTelInput(billingPhone, {
+    var billingIntl = intlTelInput(billingPhone, {
         utilsScript: utils,
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au',
-        countryOrder: ['au'],
+        initialCountry: billingDialCode,
         formatOnDisplay: false,
         formatAsYouType: false
+    });
+    // Attach the instance to a global variable
+    window.billingInstance = billingIntl;
+    $('#phoneNumber').on('countrychange', function() {
+        var billCountryData = billingIntl.getSelectedCountryData();
+        $('.payment-form .dialCode').val(billCountryData.dialCode);
+        $('.payment-form .dialCodeCountry').val(billCountryData.iso2);
     });
 
 
@@ -471,6 +486,20 @@ $('.shippingState').change(function () {
         suburbDropdown.trigger('change');
         zipDropdown.trigger('change');
     }
+    var updateShippingMethodsURL = $('input[name="update-shipping-method-url"]').val() + '?stateCode=' + selectedState;
+    $.ajax({
+        type: 'POST',
+        url: updateShippingMethodsURL,
+        success: function (data) {
+            shippingHelpers.methods.updateShippingMethods(data.order.shipping);
+            $('.grand-total-wrap .grand-total').empty().text(data.order.priceTotal);
+            if (data.isOrderShippable) {
+                $('.cart-dangerous-goods').addClass('d-none');
+            } else {
+                $('.cart-dangerous-goods').removeClass('d-none');
+            }
+        }
+    });
 });
 
 $('.shippingAddressCity').change(function () {

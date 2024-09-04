@@ -1,0 +1,8 @@
+// Giftcard remove popup
+#delete-line-item-modal {
+    .remove-lintItem-dialog {
+        @include media-up(sm) {
+            height: auto;
+        }
+    }
+}

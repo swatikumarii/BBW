@@ -79,7 +79,7 @@
             data-interval="0" data-prev="${Resource.msg('button.previous', 'common', null)}"
             data-next="${Resource.msg('button.next', 'common', null)}">
             <div class="carousel-inner" role="listbox">
-                <a class="d-block" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.urls.product}">
+                <a class="d-flex w-100 h-100" onclick="window.location.href='${pdict.urls.product}'" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.urls.product}">
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
                         <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">

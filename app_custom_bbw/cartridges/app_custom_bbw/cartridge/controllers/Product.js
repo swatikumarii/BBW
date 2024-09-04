@@ -31,7 +31,7 @@ server.append('Show', function (req, res, next) {
         viewData.product.shortDescription ||
         viewData.product.longDescription
     );
-    currentPageMeta.description = description
+    currentPageMeta.description = description && description.markup
         ? description.markup.replace(/<[^>]*>/g, '')
         : description;
     currentPageMeta.pageMetaTags = currentPageMeta.pageMetaTags || [];

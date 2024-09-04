@@ -67,34 +67,40 @@
                     data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
                 </button>
                 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
-                    <isif condition="${pdict.eInvoiceData.status === 'pending'}">
-                        <button
-                            class="btn btn-secondary einvoice-a-2-btn btn-hover  text-uppercase h-fw--bold" disabled>${pdict.eInvoiceData.btnText}</button>
-                    <iselseif condition="${pdict.eInvoiceData.status === 'success'}">
-                            <button class="btn btn-secondary einvoice-a-2-btn btn-hover text-uppercase h-fw--bold" target="_blank"
-                                data-url="${pdict.eInvoiceData.qrCodeLink}">${pdict.eInvoiceData.btnText}</button>
-                        <iselseif condition="${pdict.eInvoiceData.status === 'error'}">
-                                <button class="btn btn-secondary modal-toggle-e-invoice btn-hover  text-uppercase h-fw--bold"
-                                    data-order-id="${pdict.order.orderNumber}">${pdict.eInvoiceData.btnText}</button>
-                            <iselseif condition="${pdict.eInvoiceData.status == false}">
+                    <isif condition="${new Date(pdict.order.creationDate).getMonth() === new Date().getMonth()}">
+                        <isif condition="${pdict.eInvoiceData.status === 'pending'}">
+                            <button class="btn btn-secondary einvoice-a-2-btn btn-hover  text-uppercase h-fw--bold" data-order-id="${pdict.order.orderNumber}"
+                                disabled>${pdict.eInvoiceData.btnText}</button>
+                        <iselseif condition="${pdict.eInvoiceData.status === 'success'}">
+                                <button class="btn btn-secondary einvoice-a-2-btn btn-hover text-uppercase h-fw--bold" target="_blank" data-order-id="${pdict.order.orderNumber}"
+                                    data-url="${pdict.eInvoiceData.qrCodeLink}">${pdict.eInvoiceData.btnText}</button>
+                            <iselseif condition="${pdict.eInvoiceData.status === 'error'}">
                                     <button class="btn btn-secondary modal-toggle-e-invoice btn-hover  text-uppercase h-fw--bold"
                                         data-order-id="${pdict.order.orderNumber}">${pdict.eInvoiceData.btnText}</button>
+                                <iselseif condition="${pdict.eInvoiceData.status == false}">
+                                        <button class="btn btn-secondary modal-toggle-e-invoice btn-hover  text-uppercase h-fw--bold"
+                                            data-order-id="${pdict.order.orderNumber}">${pdict.eInvoiceData.btnText}</button>
+                        </isif>
+                        <isinclude template="e-invoice/einvoice" />
                     </isif>
-                    <isinclude template="e-invoice/einvoice" />
                 </isif>
             </div>
             <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
         </div>
     </div>
     <isif
-        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true && pdict.eInvoiceData.status == 'error'}">
-        <p class="text-danger e-invoice-error-details">${pdict.eInvoiceData.errorReason}</p>
-        <p class="e-invoice-pending-details mt-2 d-none">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}
+        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('eInvoiceEnable') == true}">
+        <isif condition="${new Date(pdict.order.creationDate).getMonth() === new Date().getMonth()}">
+         <isif condition="${pdict.eInvoiceData.status == 'error'}">
+        <p class="text-danger e-invoice-error-details" data-id="${pdict.order.orderNumber}">${pdict.eInvoiceData.errorReason}</p>
+        <p class="e-invoice-pending-details mt-2 d-none" data-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}
         </p>
     <iselseif condition="${pdict.eInvoiceData.status == 'pending'}">
-            <p class="e-invoice-pending-details">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
+            <p class="e-invoice-pending-details" data-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
         <iselseif condition="${pdict.eInvoiceData.status == false}">
-                <p class="e-invoice-pending-details mt-2 d-none">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
+                <p class="e-invoice-pending-details mt-2 d-none" data-id="${pdict.order.orderNumber}">${Resource.msg('einvoice.pending.status', 'einvoice_modal', null)}</p>
+                </isif>
+        </isif>
     </isif>
     <div class="card">
         <div class="row card-body ship-bill-details">
@@ -117,6 +123,7 @@
                                     <isif
                                         condition="${shippingModel.shippingAddress && shippingModel.shippingAddress.phone}">
                                         <span>${Resource.msg('label.order.phone', 'order', null)}
+                                        <isif condition="${!pdict.expressCheckout && shippingModel.shippingAddress.dialCode}">${Resource.msg('order.phone.dialcode', 'order', null)}${shippingModel.shippingAddress.dialCode}</isif>
                                             ${shippingModel.shippingAddress.phone}</span></isif>
                                 </div>
                             </div>
@@ -170,6 +177,7 @@
                     <isif
                         condition="${pdict.order.billing.billingAddress.address !== null && pdict.order.billing.billingAddress.address.phone}">
                         <span class="order-summary-phone">${Resource.msg('label.order.phone', 'order', null)}
+                        <isif condition="${!pdict.expressCheckout && pdict.order.billing.billingAddress.address.dialCode}">${Resource.msg('order.phone.dialcode', 'order', null)}${pdict.order.billing.billingAddress.address.dialCode}</isif>
                             ${pdict.order.billing.billingAddress.address.phone}</span>
                     </isif>
                 </div>

@@ -219,7 +219,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
                 for (var k = 0; k < updatedPaymentInstruments.length; k++) {
                     var cardNo = updatedPaymentInstruments[k].custom.eGiftCardNumber;
                     var cardValue = updatedPaymentInstruments[k].paymentTransaction.amount;
-                    var balance = formatMoney(new Money(validateGiftCard.Cards[0].Balance, site.defaultCurrency).subtract(cardValue));
+                    var balance = formatMoney(new Money(updatedPaymentInstruments[k].custom.eGiftCardBalance, site.defaultCurrency).subtract(cardValue));
                     if (cardNo !== null) {
                         addedCards.push({ cardNo: cardNo , amount: formatMoney(cardValue), balance: balance});
                     }

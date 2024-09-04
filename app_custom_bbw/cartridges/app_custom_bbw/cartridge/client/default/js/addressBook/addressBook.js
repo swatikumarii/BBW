@@ -64,7 +64,7 @@ base.submitAddress = function () {
     $(document).on('submit', 'form.address-form', function (e) {
         var $form = $(this);
         e.preventDefault();
-        if ($form.find('input').serialize() !== window.addressForm) {
+        if ($form.find('input,select').serialize() !== window.addressForm) {
             action = $form.attr('action');
             $form.spinner().start();
             $('form.address-form').trigger('address:submit', e);
@@ -251,16 +251,20 @@ $(document).on('click', '#editAddress', function () {
                 var pacContainer = $('.pac-container');
                 $(addressInputElement.parent()).append(pacContainer);
             });
-            var phone = $('#modalContent').find('.addressPhoneNumber')[0];
-            intlTelInput(phone, {
+            var phone = $('#modalContent').find('.editAddressPhone')[0];
+            var editIntl = intlTelInput(phone, {
                 utilsScript: utils,
                 showFlags: true,
                 strictMode: true,
                 showSelectedDialCode: true,
-                initialCountry: 'au',
-                countryOrder: ['au'],
+                initialCountry: $('.addressDialCodeCountry').val(),
                 formatOnDisplay: false,
                 formatAsYouType: false
+            });
+            $('.editAddressPhone').on('countrychange', function() {
+                var countryData = editIntl.getSelectedCountryData();
+                $('.addressDialCode').val(countryData.dialCode);
+                $('.addressDialCodeCountry').val(countryData.iso2);
             });
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
@@ -350,15 +354,22 @@ module.exports = $.extend({}, base, {
     },
     intlPhoneInit: function () {
         var phone = document.querySelector('.addressPhoneNumber');
-        intlTelInput(phone, {
+        var iti = intlTelInput(phone, {
             utilsScript: utils,
             showFlags: true,
             strictMode: true,
             showSelectedDialCode: true,
-            initialCountry: 'au',
-            countryOrder: ['au'],
+            initialCountry: $('.dialCodeCountry').val(),
             formatOnDisplay: false,
             formatAsYouType: false
+        });
+        var initCountryData = iti.getSelectedCountryData();
+        $('.dialCode').val(initCountryData.dialCode);
+        $('.dialCodeCountry').val(initCountryData.iso2);
+        $('.addressPhoneNumber').on('countrychange', function() {
+            var countryData = iti.getSelectedCountryData();
+            $('.dialCode').val(countryData.dialCode);
+            $('.dialCodeCountry').val(countryData.iso2);
         });
     }
 });

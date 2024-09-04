@@ -16,6 +16,7 @@ var Order = require('dw/order/Order');
 var seo = require('*/cartridge/scripts/middleware/seo');
 var Transaction = require('dw/system/Transaction');
 var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
+var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
 
 /**
  * Order-Details : The Order-Details append to add notify-me functionality
@@ -28,6 +29,7 @@ server.append(
     userLoggedIn.validateLoggedIn,
     function (req, res, next) {
         var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+        var OrderMgr = require('dw/order/OrderMgr');
         var viewData = res.getViewData();
 
         var userEmail = req.currentCustomer.raw.registered
@@ -66,6 +68,8 @@ server.append(
             );
         }
 
+        var order = OrderMgr.getOrder(viewData.order.orderNumber);
+        viewData.expressCheckout = commonHelper.checkExpressCheckout(order);
         res.setViewData(viewData);
         next();
     },seo.addCurrentPageMetaData);
@@ -375,6 +379,23 @@ server.get(
         );
         if (orderId) {
             var order = OrderMgr.getOrder(orderId);
+
+            var viewData = res.getViewData();
+
+            if (
+                dw.system.Site.getCurrent().getCustomPreferenceValue(
+                    'eInvoiceEnable'
+                ) === true
+            ) {
+                var einvoiveHelper = require('*/cartridge/scripts/helpers/einvoiceHelpers');
+                viewData.eInvoiceData =
+                    einvoiveHelper.eInvoiceStatusCheckNonAjax(res, orderId);
+            }
+
+            viewData.expressCheckout = commonHelper.checkExpressCheckout(order);
+
+            res.setViewData(viewData);
+
             var breadcrumbs = [];
             if (req.currentCustomer.profile) {
                 breadcrumbs = [
@@ -529,7 +550,20 @@ server.append(
                 if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
                     addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
                 }
+                session.privacy.addressBook = null;
+                session.privacy.saveAddress = null;
             }
+
+            // save billingaddress dial code and dial code country
+            if (session.privacy.billingDialCode && session.privacy.billingDialCodeCountry) {
+                Transaction.wrap(function () {
+                    order.billingAddress.custom.dialCode = session.privacy.billingDialCode;
+                    order.billingAddress.custom.dialCodeCountry = session.privacy.billingDialCodeCountry;
+                });
+                session.privacy.billingDialCode = null;
+                session.privacy.billingDialCodeCountry = null;
+            }
+
             var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
             viewData.isGiftProductAvailable = isGiftProductAvailable;
             if (order && order.totalGrossPrice.value === 0) {
@@ -538,6 +572,8 @@ server.append(
 
             // redirection url
             viewData.orderStatusVal = Order;
+
+            viewData.expressCheckout = commonHelper.checkExpressCheckout(order);
             // if (order && order.paymentStatus.value === viewData.orderStatusVal.PAYMENT_STATUS_NOTPAID
             //     && order.paymentTransaction && order.paymentTransaction !== null && 'custom' in order.paymentTransaction && order.paymentTransaction.custom
             //     && 'Adyen_paymentMethod' in order.paymentTransaction.custom && 'authCode' in order.paymentTransaction.custom
@@ -564,29 +600,9 @@ server.append(
                     req.currentCustomer.raw.profile
                 );
 
-                // Capillary: create order
-                crmOrderID = capillaryAPI.createOrder(viewData.order, order);
-                Transaction.wrap(function () {
-                    if (crmOrderID) {
-                        order.custom.capillaryOrderID = crmOrderID;
-                        order.custom.capillaryResponse = '';
-                        order.custom.capillaryFailed = false;
-                        order.custom.capillaryRequest = '';
-                    } else {
-                        order.custom.capillaryFailed = true;
-                    }
-                });
-            } else {
-                var billingAddress = viewData.order.billing.billingAddress.address;
-                var customerData = {
-                    firstName : billingAddress.firstName,
-                    lastName: billingAddress.lastName,
-                    phone: billingAddress.phone,
-                    email: viewData.order.orderEmail
-                };
-                var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
-                if (crmCustomerID) {
-                    crmOrderID = capillaryAPI.createOrder(viewData.order);
+                if (!order.custom.capillaryOrderID) {
+                    // Capillary: create order
+                    crmOrderID = capillaryAPI.createOrder(viewData.order, order);
                     Transaction.wrap(function () {
                         if (crmOrderID) {
                             order.custom.capillaryOrderID = crmOrderID;
@@ -597,6 +613,37 @@ server.append(
                             order.custom.capillaryFailed = true;
                         }
                     });
+                }
+            } else {
+                var billingAddress = viewData.order.billing.billingAddress.address;
+                // remove 0 from starting of phone number
+                var billingPhn = billingAddress.phone;
+                if (billingPhn.startsWith('0')) {
+                    billingPhn = billingPhn.substr(1);
+                }
+                var customerData = {
+                    firstName : billingAddress.firstName,
+                    lastName: billingAddress.lastName,
+                    phone: billingPhn,
+                    email: viewData.order.orderEmail,
+                    dialCode: order.billingAddress.custom.dialCode,
+                    expressCheckout: viewData.expressCheckout
+                };
+                var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
+                if (crmCustomerID) {
+                    if (!order.custom.capillaryOrderID) {
+                        crmOrderID = capillaryAPI.createOrder(viewData.order);
+                        Transaction.wrap(function () {
+                            if (crmOrderID) {
+                                order.custom.capillaryOrderID = crmOrderID;
+                                order.custom.capillaryResponse = '';
+                                order.custom.capillaryFailed = false;
+                                order.custom.capillaryRequest = '';
+                            } else {
+                                order.custom.capillaryFailed = true;
+                            }
+                        });
+                    }
                 } else {
                     Transaction.wrap(function () {
                         order.custom.capillaryFailed = true;
@@ -618,7 +665,7 @@ server.append(
             }
 
             res.setViewData(viewData);
-        });      
+        });
 
         return next();
     },

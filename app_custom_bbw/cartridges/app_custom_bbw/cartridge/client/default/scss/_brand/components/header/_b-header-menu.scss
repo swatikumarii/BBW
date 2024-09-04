@@ -339,7 +339,7 @@
                         .level-2-ul-wrap {
                             max-width: 1160px;
                             margin: 21px auto;
-                            min-height: 213px;
+                            min-height: 236px;
                             position: relative;
 
                             .level-2-ul {
@@ -542,6 +542,10 @@
                                 column-count: 2;
                             }
 
+                            .three-column {
+                                column-count: 3;
+                            }
+
                             .menu-right {
                                 position: absolute;
                                 left: 0;
@@ -599,6 +603,7 @@
                                                 display: block;
                                                 position: relative;
                                                 list-style: none;
+                                                break-inside: avoid;
 
                                                 a {
                                                     padding: 0px 15px 16px 30px;

@@ -1,0 +1,134 @@
+<h2
+    class="h-font-size--20 h-font-size-md--24 h-clr--black-1 h-mt--30 h-mb--10 h-line-height-md--28 h-line-height--24 pb-3 h-fw--bold border-bottom border-dark">
+    ${Resource.msg('label.order.review.your.items', 'order', null)}</h2>
+<div class="h-px--15 confirmation-product-details">
+    <div class="itemsHeader row border-bottom d-none d-md-flex align-items-center">
+        <div class="headerItem h-font-size--18 h-fw--bold h-clr--black-1 col-6 p-3 p-md-1">
+            ${Resource.msg('label.item.header.item', 'cart', null)}</div>
+        <div class="col-6">
+            <div class="row">
+                <div
+                    class="headerQty h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 col-md-2 p-3 qauntity-label h-line-height--20 p-md-1">
+                    ${Resource.msg('label.item.header.quantity', 'cart', null)}</div>
+                <div
+                    class="headerSavings h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 col-md-5 p-3 headerQty h-line-height--20 p-md-1">
+                    ${Resource.msg('label.item.header.savings', 'cart', null)}</div>
+                <div
+                    class="headerPrice h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 col-md-5 p-3 h-line-height--20 p-md-1">
+                    ${Resource.msg('label.item.header.price', 'cart', null)}</div>
+            </div>
+        </div>
+    </div>
+    <div class="cart-lineitems">
+        <isloop items="${pdict.order.items.items}" var="lineItem">
+            <div class="row cart-lineitem">
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-4 col-lg-4 col-md-6">
+                            <iscomment> Image </iscomment>
+                            <div class="product-line-item-details d-flex flex-row">
+                                <isif condition="${lineItem.isEgiftCard}">
+                                    <div class="item-image">
+                                        <img class="product-image" src="${lineItem.images.small[0].url}"
+                                            srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
+                                            alt="${lineItem.images.small[0].alt}"
+                                            title="${lineItem.images.small[0].title}" width="100" />
+                                    </div>
+                                <iselse/>
+                                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                                        <div class="item-image">
+                                            <img class="product-image" src="${lineItem.images.small[0].url}"
+                                                srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
+                                                alt="${lineItem.images.small[0].alt}"
+                                                title="${lineItem.images.small[0].title}" width="100" />
+                                        </div>
+                                    </a>
+                                </isif>
+                            </div>
+                        </div>
+                        <div class="col-8 col-lg-8 col-md-6">
+                            <div class="line-item-header flex-column">
+                                <isif condition="${lineItem.isBonusProductLineItem}">
+                                    <span>${Resource.msg('label.free.gift', 'common', null)}</span>
+                                </isif>
+                                <isinclude template="checkout/productCard/productCardProductName" />
+
+                                <isif condition="${!lineItem.available && !isOrderConfirmPage}">
+                                    <p class="h-clr--red h-font-size--14 mb-2 h-line-height--16">
+                                        ${Resource.msg('label.outOfStock.message', 'checkout', null)}
+                                    </p>
+                                </isif>
+
+                                <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                                    <div class="giftcard-details my-2 h-font-size--12">
+                                        <span class="d-block mt-1 giftcard-receipient-name">
+                                            ${Resource.msg('label.input.recipientsname', 'forms', null) + ': '}
+                                            ${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
+                                            .recipientName : ''}</span>
+                                        <span class="d-block mt-1 giftcard-receipient-email">
+                                            ${Resource.msg('label.input.email.recipients', 'forms', null) + ': '}
+                                            ${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
+                                            .recipientEmail : ''}</span>
+                                        <span
+                                            class="d-block mt-1 giftcard-message">${Resource.msg('label.egift.message', 'forms', null) + ': '}${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
+                                                                                                                                              .eGiftMessage : ''}</span>
+                                    </div>
+                                </isif>
+                                <isif condition="${'greetingCardMessage' in lineItem && lineItem.greetingCardMessage}">
+                                    <span class="d-block mt-1">
+                                        ${lineItem.greetingCardMessage}
+                                    </span>
+                                </isif>
+                                <isset name="cartPage" value="${true}" scope="page" />
+                                <isinclude template="checkout/productCard/productCardProductPromotions" />
+                                <isset name="cartPage" value="${false}" scope="page" />
+
+                            </div>
+                            <div class="row justify-content-end d-flex d-md-none flex-column">
+                                <div
+                                    class="headerQty quantity-item-label d-flex col-md-4 justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold h-line-height--20">
+                                    <span
+                                        class="d-inline d-md-none text-uppercase pr-1 h-font-size--14">${Resource.msg('label.qty', 'order', null)}</span>
+                                    <isprint value="${lineItem.quantity}" formatter="##" />
+                                </div>
+                                <div
+                                    class="line-item-savings col-md-4 d-flex justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold h-line-height--20">
+                                    <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
+                                        <span class="d-inline d-md-none">${Resource.msg('cart.label.saved', 'cart', null)}</span>
+                                        <span class="value ml-1">${lineItem.totalSavings}</span>
+                                    <iselse/>
+                                        <span class="value value-dash d-none d-md-block">${'-'}</span>
+                                    </isif>
+                                </div>
+                                <div
+                                    class="headerPrice d-flex col-md-4 justify-content-md-center justify-content-start h-line-height--20">
+                                    <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row justify-content-end d-none d-md-flex">
+                        <div
+                            class="headerQty quantity-item-label d-flex col-8 col-md-2 justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold h-line-height--20">
+                            <span class="d-inline d-md-none text-uppercase pr-1">${Resource.msg('label.qty', 'order', null)}</span>
+                            <isprint value="${lineItem.quantity}" formatter="##" />
+                        </div>
+                        <div
+                            class="line-item-savings col-8 col-md-5 d-flex justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold h-line-height--20">
+                            <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
+                                <span class="value">${lineItem.totalSavings}</span>
+                            <iselse/>
+                                <span class="value value-dash">${'-'}</span>
+                            </isif>
+                        </div>
+                        <div class="headerPrice d-flex col-8 col-md-5 justify-content-md-center justify-content-start">
+                            <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </isloop>
+    </div>
+</div>

@@ -5,7 +5,8 @@ var addressHelpers = require('base/checkout/address');
 var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
-var formHelpers = require('base/checkout/formErrors');
+var formHelpers = require('./formErrors');
+var scrollAnimate = require('base/components/scrollAnimate');
 var location = window.location;
 var history = window.history;
 
@@ -154,15 +155,17 @@ function ovoStart(orderID) {
          * @param {number} currentStage - The current stage the user is currently on in the checkout
          */
         function updateUrl(currentStage) {
-            history.pushState(
-                checkoutStages[currentStage],
-                document.title,
-                location.pathname
-                + '?stage='
-                + checkoutStages[currentStage]
-                + '#'
-                + checkoutStages[currentStage]
-            );
+            if (currentStage && currentStage > 0 && checkoutStages[currentStage]) {
+                history.pushState(
+                    checkoutStages[currentStage],
+                    document.title,
+                    location.pathname
+                    + '?stage='
+                    + checkoutStages[currentStage]
+                    + '#'
+                    + checkoutStages[currentStage]
+                );
+            }
         }
 
         //
@@ -406,20 +409,27 @@ function ovoStart(orderID) {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
-                                    if ($('.summary-details.billing').is(":visible")) {
-                                        $('.edit-billing-address').click();
-                                    }
                                     data.fieldErrors.forEach(function (error) {
                                         if (Object.keys(error).length) {
                                             formHelpers.loadFormErrors('.payment-form', error);
                                         }
                                     });
+                                    if ($('.summary-details.billing').is(':visible')) {
+                                        $('.edit-billing-address').click();
+                                    }
+                                    setTimeout(function () {
+                                        var element = $(document).find('.form-control.is-invalid').closest('.row');
+                                        var position = element && element.length ? element.offset().top - 100 : 0;
+                                        $('html, body').animate({
+                                            scrollTop: position
+                                        }, 500);    
+                                    },500);
                                 }
-
+                                
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
-                                        $('.error-message-text').append(error);
+                                        $('.error-message-text').empty().append(error);
                                         scrollAnimate($('.error-message'));
                                     });
                                 }
@@ -515,6 +525,13 @@ function ovoStart(orderID) {
                                     // go to appropriate stage and display error message
                                     defer.reject(data);
                                 }
+                                setTimeout(function () {
+                                    var element = $(document).find('.payment-error');
+                                    var position = element && element.length ? element.offset().top : 0;
+                                    $('html, body').animate({
+                                        scrollTop: position
+                                    }, 500);    
+                                },500);
                                 $.spinner().stop();
                             } else {
                                 var redirect = $('<form>')
@@ -639,6 +656,7 @@ function ovoStart(orderID) {
                 // Set the form data
                 //
                 plugin.data('formData', formData);
+                $('.payment-method-options').find('input[type=\'radio\']').first().click();
             },
 
             /**
@@ -671,7 +689,7 @@ function ovoStart(orderID) {
 
                         if (data.errorMessage) {
                             $('.error-message').show();
-                            $('.error-message-text').append(data.errorMessage);
+                            $('.error-message-text').empty().append(data.errorMessage);
                         }
                     }
                 });

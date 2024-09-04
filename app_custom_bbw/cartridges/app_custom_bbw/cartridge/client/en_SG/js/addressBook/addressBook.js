@@ -2,7 +2,6 @@
 
 var base = require('base/addressBook/addressBook');
 var formValidation = require('../components/formValidation');
-var addressData = require('../addressData.js');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 var action;
@@ -64,10 +63,10 @@ window.submitAddressForm = function (token) {
  * updated the function for address-form submit
  */
 base.submitAddress = function () {
-    $('body').on('submit', 'form.address-form', function (e) {
+    $(document).on('submit', 'form.address-form', function (e) {
         var $form = $(this);
         e.preventDefault();
-        if ($form.find('input').serialize() !== window.addressForm) {
+        if ($form.find('input,select').serialize() !== window.addressForm) {
             action = $form.attr('action');
             $form.spinner().start();
             $('form.address-form').trigger('address:submit', e);
@@ -240,6 +239,28 @@ $(document).on('click', '#editAddress', function () {
                 form.find('#zipCode')
                     .val(addressObject.zipcode)
                     .trigger('change');
+
+                if (
+                    addressObject.address1 &&
+                    addressObject.state &&
+                    addressObject.city
+                ) {
+                    if (
+                        form.find('#city').val() === '' ||
+                        form.find('#city').val() === null
+                    ) {
+                        // setting city as per place API response
+                        var suburbDropdown = $('.address-city-input');
+                        suburbDropdown.empty();
+                        suburbDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.city,
+
+                                text: addressObject.city
+                            }).attr('selected', 'selected')
+                        );
+                    }
+                }
             });
             /** Append Pac container inside div */
             var addressInputElement = $('#modalContent').find(
@@ -249,16 +270,20 @@ $(document).on('click', '#editAddress', function () {
                 var pacContainer = $('.pac-container');
                 $(addressInputElement.parent()).append(pacContainer);
             });
-            var phone = $('#modalContent').find('.addressPhoneNumber')[0];
-            intlTelInput(phone, {
+            var phone = $('#modalContent').find('.editAddressPhone')[0];
+            var editIntl = intlTelInput(phone, {
                 utilsScript: utils,
                 showFlags: true,
                 strictMode: true,
                 showSelectedDialCode: true,
-                initialCountry: 'sg',
-                countryOrder: ['sg'],
+                initialCountry: $('.addressDialCodeCountry').val(),
                 formatOnDisplay: false,
                 formatAsYouType: false
+            });
+            $('.editAddressPhone').on('countrychange', function() {
+                var countryData = editIntl.getSelectedCountryData();
+                $('.addressDialCode').val(countryData.dialCode);
+                $('.addressDialCodeCountry').val(countryData.iso2);
             });
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
@@ -274,23 +299,14 @@ $(document).on('click', '#editAddress', function () {
                         $('body').find('.address-city-input').trigger('change');
                         return false;
                     }
-                });
-            }
-            var selectedPostalCode = $('#modalContent')
-                .find('.address-zipcode-input')
-                .attr('data-selected');
-            if (selectedPostalCode !== 'null') {
-                $('.address-zipcode-input option').each(function () {
-                    if ($(this).val() === selectedPostalCode) {
-                        $('.address-zipcode-input option').removeAttr(
-                            'selected'
-                        );
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.address-zipcode-input')
-                            .trigger('change');
-                        return false;
-                    }
+                    var suburbDropdown = $('.address-city-input');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: selectedAddressCity,
+                            text: selectedAddressCity
+                        }).attr('selected', 'selected')
+                    );
                 });
             }
             var addressForm = $($(response)[0]).find('input');
@@ -309,15 +325,31 @@ addressInputElement.on('focus', function () {
 module.exports = $.extend({}, base, {
     intlPhoneInit: function () {
         var phone = document.querySelector('.addressPhoneNumber');
-        intlTelInput(phone, {
+        var iti = intlTelInput(phone, {
             utilsScript: utils,
             showFlags: true,
             strictMode: true,
             showSelectedDialCode: true,
-            initialCountry: 'sg',
-            countryOrder: ['sg'],
+            initialCountry: $('.dialCodeCountry').val(),
             formatOnDisplay: false,
             formatAsYouType: false
+        });
+        var initCountryData = iti.getSelectedCountryData();
+        $('.dialCode').val(initCountryData.dialCode);
+        $('.dialCodeCountry').val(initCountryData.iso2);
+        $('.addressPhoneNumber').on('countrychange', function() {
+            var countryData = iti.getSelectedCountryData();
+            $('.dialCode').val(countryData.dialCode);
+            $('.dialCodeCountry').val(countryData.iso2);
+        });
+    },
+    clearAddressForm: function () {
+        $('#add-address-form').on('hidden.bs.modal', function () {
+            var addressForm = $(this).find('form');
+            addressForm[0].reset();
+            addressForm.find('.address-city-input').val('');
+            addressForm.find('.address-zipcode-input').val('');
+
         });
     }
 });

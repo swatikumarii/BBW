@@ -69,6 +69,29 @@ module.exports = {
             form.find('#shippingZipCodedefault')
                 .val(addressObject.zipcode)
                 .trigger('change');
+            if (
+                addressObject.address1 &&
+                    addressObject.state &&
+                    addressObject.city
+            ) {
+                if (
+                    form.find('#shippingAddressCitydefault').val() === '' ||
+                    form.find('#shippingAddressCitydefault').val() === null
+                ) {
+                    // setting city as per place API response
+                    var suburbDropdown = $('.shippingAddressCity');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.city,
+                            text: addressObject.city
+                        }).attr('selected', 'selected')
+                    );
+                    var cityError = $('#defaultCity');
+                    cityError.empty();
+                    $('.shippingAddressCity').removeClass('is-invalid');
+                }
+            }
         });
     },
     initializeBilling: function () {
@@ -139,6 +162,27 @@ module.exports = {
             form.find('#billingZipCode')
                 .val(addressObject.zipcode)
                 .trigger('change');
+            if (
+                addressObject.address1 &&
+                    addressObject.state &&
+                    addressObject.city
+            ) {
+                if (
+                    form.find('#billingAddressCity').val() === '' ||
+                    form.find('#billingAddressCity').val() === null
+                ) {
+                    // setting city as per place API response
+                    var suburbDropdown = $('.billingAddressCity');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.city,
+                            text: addressObject.city
+                        }).attr('selected', 'selected')
+                    );
+                    $('.billingAddressCity').removeClass('is-invalid');
+                }
+            }
         });
     },
     initializeAccount: function () {
@@ -203,6 +247,26 @@ module.exports = {
             form.find('#state').val(addressObject.state).trigger('change');
             form.find('#city').val(addressObject.city).trigger('change');
             form.find('#zipCode').val(addressObject.zipcode).trigger('change');
+            if (
+                addressObject.address1 &&
+                addressObject.state &&
+                addressObject.city
+            ) {
+                if (
+                    form.find('#city').val() === '' ||
+                    form.find('#city').val() === null
+                ) {
+                    // setting city as per place API response
+                    var suburbDropdown = $('.address-city-input');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.city,
+                            text: addressObject.city
+                        }).attr('selected', 'selected')
+                    );
+                }
+            }
         });
     }
 };

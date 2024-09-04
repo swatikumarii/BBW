@@ -26,6 +26,13 @@ module.exports = function (formElement, payload) {
                     isSelectric = true;
                 }
 
+                if (!feedbackElement.length) {
+                    var feedbackElement = $(formElement)
+                        .find('[name="' + key + '"]')
+                        .parent().parent()
+                        .children('.invalid-feedback');
+                }
+                
                 if (feedbackElement.length > 0) {
                     if (Array.isArray(payload[key])) {
                         feedbackElement.html(payload.fields[key].join('<br/>'));
