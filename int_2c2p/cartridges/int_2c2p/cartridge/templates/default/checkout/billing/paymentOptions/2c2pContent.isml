@@ -1,0 +1,13 @@
+<!--- Generic Component--->
+<isinclude template="/components/modules" sf-toolkit="off" />
+<div class="tab-pane active 2c2p-component-content mb-4 d-flex justify-content-between" id="2c2p-component-content" role="tabpanel">
+    <fieldset class="payment-form-fields">
+        <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+            value="2c2p"/>
+        <fieldset>
+            2c2p
+            <iscontentasset aid="2c2p-payment-description" />
+        </fieldset>
+    </fieldset>
+    <input name="paymentMethods" type="radio" value="2c2p" />
+</div>
