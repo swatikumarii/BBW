@@ -5,7 +5,7 @@ module.exports = {
         var input = document.getElementById('shippingAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'ID' },
+            componentRestrictions: { country: 'TH' },
             fields: [
                 'formatted_address',
                 'geometry',
@@ -153,7 +153,7 @@ module.exports = {
         var input = document.getElementById('billingAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'ID' },
+            componentRestrictions: { country: 'TH' },
             fields: [
                 'formatted_address',
                 'geometry',
@@ -295,7 +295,7 @@ module.exports = {
         var input = document.getElementById('accountAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'ID' },
+            componentRestrictions: { country: 'TH' },
             fields: [
                 'formatted_address',
                 'geometry',

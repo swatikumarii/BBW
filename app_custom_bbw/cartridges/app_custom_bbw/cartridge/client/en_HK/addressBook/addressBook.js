@@ -201,7 +201,7 @@ $(document).on('click', '#editAddress', function () {
             )[0];
             var options = {
                 placeholder: ' ',
-                componentRestrictions: { country: 'ID' },
+                componentRestrictions: { country: 'HK' },
                 fields: [
                     'formatted_address',
                     'geometry',
