@@ -356,16 +356,32 @@ module.exports = {
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
+                var stateCodeExistsInBill = false;
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
                         $('.billingState option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingState').trigger('change');
+                        stateCodeExistsInBill = true;
                         return false;
                     }
                 });
+                if (!stateCodeExistsInBill) {
+                    var billingState = $('.billingState');
+                    billingState.empty();
+                    billingState
+                        .prepend(
+                            $('<option>', {
+                                value: stateCode,
+
+                                text: stateCode
+                            })
+                        )
+                        .attr('selected', 'selected');
+                }
             }
             if (city) {
+                var cityExistsInBill = false;
                 $('.billingAddressCity').prepend(
                     $('<option></option>')
                         .attr('value', '')
@@ -382,20 +398,47 @@ module.exports = {
                         $('.billingAddressCity option')[0].remove();
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingAddressCity').trigger('change');
+                        cityExistsInBill = true;
                         return false;
                     }
                     $('.billingZipCode option').slice(1).remove();
                 });
+                if (!cityExistsInBill) {
+                    var billingAddressCity = $('.billingAddressCity');
+                    billingAddressCity.empty();
+                    billingAddressCity
+                        .prepend(
+                            $('<option>', {
+                                value: city,
+                                text: city
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.billingAddressCity').removeClass('is-invalid');
+                }
             }
             if (postalCode) {
+                var zipCodeExistsInBill = false;
                 $('.billingZipCode option').each(function () {
                     if ($(this).val() === postalCode) {
                         $('.billingZipCode option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingZipCode').trigger('change');
+                        zipCodeExistsInBill = true;
                         return false;
                     }
                 });
+                if (!zipCodeExistsInBill) {
+                    var zipCodeDropdown = $('.billingZipCode');
+                    zipCodeDropdown.empty();
+                    zipCodeDropdown.prepend(
+                        $('<option>', {
+                            value: postalCode,
+                            text: postalCode
+                        }).attr('selected', 'selected')
+                    );
+                    $('.billingZipCode').removeClass('is-invalid');
+                }
             }
             if (dialCodeCountry) {
                 if (window.billingInstance) {
@@ -512,6 +555,93 @@ module.exports = {
         $('.edit-billing-address').on('click', function () {
             $(this).parents('form').attr('data-address-mode', 'details');
             $(this).parents('.summary-details.billing').slideUp();
+            var billingAddrSummary = $(this).siblings('.address-summary');
+            var stateCode = billingAddrSummary.find('.stateCode').text().trim();
+            var city = billingAddrSummary
+                .find('.city')
+                .text()
+                .trim()
+                .replace(',', '');
+            var postalCode = billingAddrSummary
+                .find('.postalCode')
+                .text()
+                .trim();
+            if (stateCode !== 'null') {
+                var exists = false;
+                $('.billingState option').each(function () {
+                    if ($(this).val() === stateCode) {
+                        $('.billingState option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingState').trigger('change');
+                        exists = true;
+                        return false;
+                    }
+                });
+                if (!exists) {
+                    var billingState = $('.billingState');
+                    billingState.empty();
+                    billingState
+                        .prepend(
+                            $('<option>', {
+                                value: stateCode,
+                                text: stateCode
+                            })
+                        )
+                        .attr('selected', 'selected');
+                }
+            }
+            if (city !== 'null') {
+                var cityExists = false;
+                $('.billingAddressCity option').each(function () {
+                    if ($(this).val() === city) {
+                        $('.billingAddressCity option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingAddressCity').trigger('change');
+                        cityExists = true;
+                        return false;
+                    }
+                });
+                if (!cityExists) {
+                    var billingAddressCity = $('.billingAddressCity');
+                    billingAddressCity.empty();
+                    billingAddressCity
+                        .prepend(
+                            $('<option>', {
+                                value: city,
+                                text: city
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.billingAddressCity').removeClass('is-invalid');
+                }
+            }
+            if (postalCode !== 'null') {
+                var zipCodeExists = false;
+                $('.billingZipCode option').each(function () {
+                    if ($(this).val() === postalCode) {
+                        $('.billingZipCode option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingZipCode').trigger('change');
+                        zipCodeExists = true;
+                        return false;
+                    }
+                });
+                if (!zipCodeExists) {
+                    var billingZipCode = $('.billingZipCode');
+                    billingZipCode.empty();
+                    billingZipCode
+                        .prepend(
+                            $('<option>', {
+                                value: postalCode,
+                                text: postalCode
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.billingZipCode').removeClass('is-invalid');
+                }
+                var zipcodeError = $('.shipping-select-error');
+                zipcodeError.empty();
+            }
         });
     }
 };
