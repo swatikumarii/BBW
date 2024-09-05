@@ -1,7 +1,7 @@
 'use strict';
 
 var base = require('base/addressBook/addressBook');
-var formValidation = require('../components/formValidation');
+var formValidation = require('../components/formValidation.js');
 var addressData = require('../addressData.js');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
