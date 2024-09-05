@@ -173,7 +173,7 @@ $(document).on('click', '#editAddress', function () {
             )[0];
             var options = {
                 placeholder: ' ',
-                componentRestrictions: { country: 'AU' },
+                componentRestrictions: { country: 'TH' },
                 fields: [
                     'formatted_address',
                     'geometry',
