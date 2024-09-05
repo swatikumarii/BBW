@@ -25,7 +25,7 @@ function validateFields($input) {
                 $input.parents('.iti').removeClass('is-invalid border-danger');
         } else {
             var errorText;
-            if ($input.val().length === 0) {
+            if ($input.val() && $input.val().length === 0) {
                 errorText = $input.data('missing-error');
             } else {
                 errorText = $input.data('pattern-mismatch');
