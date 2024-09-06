@@ -1337,6 +1337,9 @@ input[type="tel"],
 
     &.accordion-item.collapsed {
         .cart-saving {
+            width: fit-content;
+            position: relative;
+
             &::before {
                 background: url("../../images/UI-Carat.svg") 50%;
                 background-repeat: no-repeat;
@@ -1344,7 +1347,8 @@ input[type="tel"],
                 content: "";
                 height: 12px;
                 position: absolute;
-                left: 74px;
+                right: -20px;
+                left: auto;
                 transform: rotate(0deg);
                 transition: all 0.5s ease-out;
                 width: 12px;
@@ -1355,6 +1359,9 @@ input[type="tel"],
 
     &.accordion-item {
         .cart-saving {
+            width: fit-content;
+            position: relative;
+
             &::before {
                 background: url("../../images/UI-Carat.svg") 50%;
                 background-repeat: no-repeat;
@@ -1362,7 +1369,8 @@ input[type="tel"],
                 content: "";
                 height: 12px;
                 position: absolute;
-                left: 74px;
+                right: -20px;
+                left: auto;
                 transition: all 0.5s ease-out;
                 width: 12px;
                 top: 4px;
