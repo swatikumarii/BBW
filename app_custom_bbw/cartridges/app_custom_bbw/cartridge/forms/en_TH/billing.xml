@@ -14,7 +14,7 @@
 
     <include formid="creditCardFields" name="creditCard"/>
 
-    <!-- <include formid="taxID" name="taxID"/> -->
+    <include formid="taxID" name="taxID"/>
 
     <field formid="subscribe" type="boolean" checked="false" default-value="false" mandatory="false" />
 
