@@ -623,7 +623,7 @@ $('.shippingAddressCity').change(function () {
                 })
             );
         });
-        districtMappingObj.zipcode.forEach((zip) => {
+        districtMappingObj.postalCodes.forEach((zip) => {
             zipDropdown.append(
                 $('<option>', {
                     value: zip,
@@ -637,13 +637,13 @@ $('.shippingAddressCity').change(function () {
         subDistrictDropdown.prepend(
             $('<option>', {
                 value: '',
-                text: '---- Select District First----'
+                text: '---- Select City First----'
             }).attr('selected', 'selected')
         );
         zipDropdown.prepend(
             $('<option>', {
                 value: '',
-                text: '---- Select District First----'
+                text: '---- Select City First----'
             }).attr('selected', 'selected')
         );
         subDistrictDropdown.trigger('change');
@@ -773,7 +773,7 @@ $('.billingAddressDistrict').change(function () {
                 })
             );
         });
-        districtMappingObj.zipcode.forEach((zip) => {
+        districtMappingObj.postalCodes.forEach((zip) => {
             zipDropdown.append(
                 $('<option>', {
                     value: zip,

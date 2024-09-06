@@ -2,10 +2,97 @@
 <form xmlns="http://www.demandware.com/xml/form/2008-04-19">
 	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
 		<options>
-			<option optionid="" 	label="resource.select" 		value=""/>
+			<option optionid="" 	label="resource.select.state" 		value=""/>
 
 			<!-- regular ID states -->
+			<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
+		<options>
+			<option optionid="" 	label="resource.select.state" 		value=""/>
+
+			<!-- regular ID states -->
+			<option label="Amnat Charoen" value="Amnat Charoen"/>
+			<option label="Ang Thong" value="Ang Thong"/>
 			<option label="Bangkok" value="Bangkok"/>
+			<option label="Bueng Kan" value="Bueng Kan"/>
+			<option label="Buri Ram" value="Buri Ram"/>
+			<option label="Chachoengsao" value="Chachoengsao"/>
+			<option label="Chai Nat" value="Chai Nat"/>
+			<option label="Chaiyaphum" value="Chaiyaphum"/>
+			<option label="Chanthaburi" value="Chanthaburi"/>
+			<option label="Chiang Mai" value="Chiang Mai"/>
+			<option label="Chiang Rai" value="Chiang Rai"/>
+			<option label="Chon Buri" value="Chon Buri"/>
+			<option label="Chumphon" value="Chumphon"/>
+			<option label="Kalasin" value="Kalasin"/>
+			<option label="Kamphaeng Phet" value="Kamphaeng Phet"/>
+			<option label="Kanchanaburi" value="Kanchanaburi"/>
+			<option label="Khon Kaen" value="Khon Kaen"/>
+			<option label="Krabi" value="Krabi"/>
+			<option label="Lampang" value="Lampang"/>
+			<option label="Lamphun" value="Lamphun"/>
+			<option label="Loei" value="Loei"/>
+			<option label="Lop Buri" value="Lop Buri"/>
+			<option label="Mae Hong Son" value="Mae Hong Son"/>
+			<option label="Maha Sarakham" value="Maha Sarakham"/>
+			<option label="Mukdahan" value="Mukdahan"/>
+			<option label="Nakhon Nayok" value="Nakhon Nayok"/>
+			<option label="Nakhon Pathom" value="Nakhon Pathom"/>
+			<option label="Nakhon Phanom" value="Nakhon Phanom"/>
+			<option label="Nakhon Ratchasima" value="Nakhon Ratchasima"/>
+			<option label="Nakhon Sawan" value="Nakhon Sawan"/>
+			<option label="Nakhon Si Thammarat" value="Nakhon Si Thammarat"/>
+			<option label="Nan" value="Nan"/>
+			<option label="Narathiwat" value="Narathiwat"/>
+			<option label="Nong Bua Lam Phu" value="Nong Bua Lam Phu"/>
+			<option label="Nong Khai" value="Nong Khai"/>
+			<option label="Nonthaburi" value="Nonthaburi"/>
+			<option label="Pathum Thani" value="Pathum Thani"/>
+			<option label="Pattani" value="Pattani"/>
+			<option label="Phangnga" value="Phangnga"/>
+			<option label="Phatthalung" value="Phatthalung"/>
+			<option label="Phayao" value="Phayao"/>
+			<option label="Phetchabun" value="Phetchabun"/>
+			<option label="Phetchaburi" value="Phetchaburi"/>
+			<option label="Phichit" value="Phichit"/>
+			<option label="Phitsanulok" value="Phitsanulok"/>
+			<option label="Phra Nakhon Si Ayutthaya" value="Phra Nakhon Si Ayutthaya"/>
+			<option label="Phrae" value="Phrae"/>
+			<option label="Phuket" value="Phuket"/>
+			<option label="Prachin Buri" value="Prachin Buri"/>
+			<option label="Prachuap Khiri Khan" value="Prachuap Khiri Khan"/>
+			<option label="Ranong" value="Ranong"/>
+			<option label="Ratchaburi" value="Ratchaburi"/>
+			<option label="Rayong" value="Rayong"/>
+			<option label="Roi Et" value="Roi Et"/>
+			<option label="Sa Kaeo" value="Sa Kaeo"/>
+			<option label="Sakon Nakhon" value="Sakon Nakhon"/>
+			<option label="Samut Prakan" value="Samut Prakan"/>
+			<option label="Samut Sakhon" value="Samut Sakhon"/>
+			<option label="Samut Songkhram" value="Samut Songkhram"/>
+			<option label="Saraburi" value="Saraburi"/>
+			<option label="Satun" value="Satun"/>
+			<option label="Si Sa Ket" value="Si Sa Ket"/>
+			<option label="Sing Buri" value="Sing Buri"/>
+			<option label="Songkhla" value="Songkhla"/>
+			<option label="Sukhothai" value="Sukhothai"/>
+			<option label="Suphan Buri" value="Suphan Buri"/>
+			<option label="Surat Thani" value="Surat Thani"/>
+			<option label="Surin" value="Surin"/>
+			<option label="Tak" value="Tak"/>
+			<option label="Trang" value="Trang"/>
+			<option label="Trat" value="Trat"/>
+			<option label="Ubon Ratchathani" value="Ubon Ratchathani"/>
+			<option label="Udon Thani" value="Udon Thani"/>
+			<option label="Uthai Thani" value="Uthai Thani"/>
+			<option label="Uttaradit" value="Uttaradit"/>
+			<option label="Yala" value="Yala"/>
+			<option label="Yasothon" value="Yasothon"/>
+		</options>
+	</field>
+</form>
+
 		</options>
 	</field>
 </form>
