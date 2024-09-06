@@ -63,4 +63,12 @@
             <isif condition="${pdict.order.orderEmail}">${pdict.order.orderEmail}</isif>
         </span>
     </div>
+    <isif condition="${pdict.order.taxID}">
+        <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+            class="email">
+            <span>
+                ${Resource.msgf('tax.id.with.label', 'checkout', null, pdict.order.taxID)}
+            </span>
+        </div>
+    </isif>
 </div>
