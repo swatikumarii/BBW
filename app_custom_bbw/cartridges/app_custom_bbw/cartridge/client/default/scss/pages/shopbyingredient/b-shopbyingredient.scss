@@ -15,6 +15,7 @@
         height: 32px;
         border: 2px solid colour(blue, 17);
         border-radius: 16px;
+        padding-right: 36px;
 
         @include media-up(sm) {
             width: 800px;
