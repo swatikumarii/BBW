@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
+		<options>
+			<!-- regular HK states -->
+			<option optionid="" 	label="resource.select" 		value=""/>
+			<option label="Hong Kong Island" 		value="Hong Kong Island"/>
+			<option label="Kowloon" 		value="Kowloon"/>
+			<option label="New Territories" 		value="New Territories"/>
+		</options>
+	</field>
+</form>

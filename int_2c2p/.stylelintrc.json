@@ -1,0 +1,53 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "plugins": [
+    "stylelint-prettier"
+  ],
+  "rules": {
+    "prettier/prettier": true,
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "ignoreAtRules": [
+          "else"
+        ],
+        "ignore": [
+          "blockless-after-same-name-blockless",
+          "inside-block"
+        ]
+      }
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "include",
+          "each",
+          "use",
+          "while",
+          "at-root",
+          "for",
+          "mixin",
+          "extend",
+          "if",
+          "else",
+          "content",
+          "function",
+          "return"
+        ]
+      }
+    ],
+    "color-function-notation": "legacy",
+    "scss/at-import-partial-extension-blacklist": [
+      "scss"
+    ],
+    "scss/dollar-variable-no-missing-interpolation": true,
+    "scss/media-feature-value-dollar-variable": "always",
+    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/dollar-variable-pattern": "^[a-z]+(?:[A-Za-z0-9]+(?:-(?!-))?)*[A-Za-z0-9]+$",
+    "scss/no-global-function-names": null,
+    "selector-class-pattern": null,
+    "scss/at-mixin-pattern": null,
+    "no-descending-specificity": null
+  }
+}

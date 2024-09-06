@@ -25,7 +25,7 @@ function validateFields($input) {
                 $input.parents('.iti').removeClass('is-invalid border-danger');
         } else {
             var errorText;
-            if ($input.val().length === 0) {
+            if ($input.val() && $input.val().length === 0) {
                 errorText = $input.data('missing-error');
             } else {
                 errorText = $input.data('pattern-mismatch');
@@ -268,69 +268,135 @@ $(document).ready(function () {
             .find('.shippingState')
             .attr('data-selected');
         if (selectedState !== 'null') {
+            var stateShipExists = false;
             $('.shippingState option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedState) {
                     $('.shippingState option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingState').trigger('change');
+                    stateShipExists = true;
                     return false;
                 }
             });
+            if(!stateShipExists){
+                var shippingState = $('.shippingState');
+                shippingState.empty();
+                shippingState.prepend(
+                    $('<option>', {
+                        value: selectedState,
+                        text: selectedState
+                    })
+                ).attr('selected', 'selected');
+            }
         }
         var selectedCity = $('body')
             .find('.shippingAddressCity')
             .attr('data-selected');
         if (selectedCity !== 'null') {
+            var cityShipExists = false;
             $('.shippingAddressCity option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedCity) {
                     $('.shippingAddressCity option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingAddressCity').trigger('change');
+                    cityShipExists = true;
                     return false;
                 }
             });
+            if(!cityShipExists){
+                var shippingAddressCity = $('.shippingAddressCity');
+                shippingAddressCity.empty();
+                shippingAddressCity
+                    .prepend(
+                        $('<option>', {
+                            value: selectedCity,
+                            text: selectedCity
+                        })
+                    )
+                    .attr('selected', 'selected');
+                $('.shippingAddressCity').removeClass('is-invalid');
+            }
         }
 
         var selectedDistrict = $('body')
             .find('.shippingAddressDistrict')
             .attr('data-selected');
         if (selectedDistrict !== 'null') {
+            var districtShipExists = false;
             $('.shippingAddressDistrict option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedDistrict) {
                     $('.shippingAddressDistrict option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingAddressDistrict').trigger('change');
+                    districtShipExists = true;
                     return false;
                 }
             });
+            if(!districtShipExists){
+                var districtShipDropdown = $('.shippingAddressDistrict');
+                districtShipDropdown.empty();
+                districtShipDropdown.prepend(
+                    $('<option>', {
+                        value: selectedDistrict,
+                        text: selectedDistrict
+                    }).attr('selected', 'selected')
+                );
+                $('.shippingAddressDistrict').removeClass('is-invalid');
+            }
         }
 
         var selectedSubDistrict = $('body')
             .find('.shippingAddressSubdistrict')
             .attr('data-selected');
         if (selectedSubDistrict !== 'null') {
+            var subDistrictShipExits = false;
             $('.shippingAddressSubdistrict option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedSubDistrict) {
                     $('.shippingAddressSubdistrict option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingAddressSubdistrict').trigger('change');
+                    subDistrictShipExits = true;
                     return false;
                 }
             });
+            if(!subDistrictShipExits){
+                var subDistricShiptDropdown = $('.shippingAddressSubdistrict');
+                subDistricShiptDropdown.empty();
+                subDistricShiptDropdown.prepend(
+                    $('<option>', {
+                        value: selectedSubDistrict,
+                        text: selectedSubDistrict
+                    }).attr('selected', 'selected')
+                );
+                $('.shippingAddressSubdistrict').removeClass('is-invalid');
+            }
         }
 
         var selectedPostalCode = $('body')
             .find('.shippingZipCode')
             .attr('data-selected');
         if (selectedPostalCode !== 'null') {
+            var zipcodeShipExists = false;
             $('.shippingZipCode option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedPostalCode) {
                     $('.shippingZipCode option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingZipCode').trigger('change');
+                    zipcodeShipExists = true;
                     return false;
                 }
             });
+            if(!zipcodeShipExists){
+                var zipCodeShipDropdown = $('.shippingZipCode');
+                zipCodeShipDropdown.empty();
+                zipCodeShipDropdown.prepend(
+                    $('<option>', {
+                        value: selectedPostalCode,
+                        text: selectedPostalCode
+                    }).attr('selected', 'selected')
+                );
+                $('.shippingZipCode').removeClass('is-invalid');                
+            }
         }
     }
 
@@ -339,22 +405,26 @@ $(document).ready(function () {
             .find('.billingState')
             .attr('data-selected');
         if (selectedBillingState !== 'null') {
+            var stateBillExists = false;
             $('.billingState option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedBillingState) {
                     $('.billingState option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingState').trigger('change');
+                    stateBillExists = true;
                     return false;
                 }
             });
-            var billingState = $('.billingState');
-            billingState.empty();
-            billingState.prepend(
-                $('<option>', {
-                    value: selectedBillingState,
-                    text: selectedBillingState
-                })
-            ).attr('selected', 'selected');
+            if(!stateBillExists){
+                var billingState = $('.billingState');
+                billingState.empty();
+                billingState.prepend(
+                    $('<option>', {
+                        value: selectedBillingState,
+                        text: selectedBillingState
+                    })
+                ).attr('selected', 'selected');
+            }
         }
         var selectedBillingCity = $('body')
             .find('.billingAddressCity')

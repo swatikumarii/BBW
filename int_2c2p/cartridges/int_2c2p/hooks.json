@@ -1,0 +1,12 @@
+{
+    "hooks": [
+        {
+            "name": "app.payment.form.processor.2c2p",
+            "script": "./cartridge/scripts/hooks/payment/processor/2c2p_form_processor"
+        },
+        {
+            "name": "app.payment.processor.2c2p",
+            "script": "./cartridge/scripts/hooks/payment/processor/2c2p"
+        }
+    ]
+}

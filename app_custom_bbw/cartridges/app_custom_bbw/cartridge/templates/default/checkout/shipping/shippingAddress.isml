@@ -186,6 +186,8 @@
                     >
                     <isif condition="${shippingAddress && shippingAddress.city}">
                         <option id="${shippingAddress.city}" value="${shippingAddress.city}" selected> ${shippingAddress.city} </option>
+                    <iselse/>
+                        <option value=""></option>
                     </isif>
                 </select>
                 <div class="invalid-feedback shipping-select-error" id="${lineItem ? lineItem.UUID : 'default'}City">
