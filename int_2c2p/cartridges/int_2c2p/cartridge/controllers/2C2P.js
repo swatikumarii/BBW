@@ -127,20 +127,6 @@
    var transactionStatus = paymentStatus.response.transaction.txnStatus ? paymentStatus.response.transaction.txnStatus.toUpperCase() : false;
    var result = { error: false, message: '' };
    if (order.status.value === Order.ORDER_STATUS_CREATED && transactionStatus) {
-     if (Site.getCurrent().ID.includes('rituals')) {
-       var paymentType = '';
-       if (order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0) {
-         paymentType = 'Giftcard and ';
-       }
-       if (paymentChannel === 'online_cc') {
-         paymentType += 'Credit Card';
-       } else {
-         paymentType += paymentChannel;
-       }
-       Transaction.wrap(function () {
-        order.custom.paymentType = paymentType;
-       });
-     }
      if (transactionStatus == _2c2pPreferences.TransactionSuccess) {
        _2c2pHelper.placeOrder(order, true, paymentStatus, paymentChannel, server, req, res, next);
      } else if (transactionStatus == _2c2pPreferences.TransactionPending) {

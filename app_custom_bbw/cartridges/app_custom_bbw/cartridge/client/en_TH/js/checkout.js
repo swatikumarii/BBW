@@ -591,44 +591,7 @@ $('.shippingState').change(function () {
 
 $('.shippingAddressCity').change(function () {
     var selectedState = $('.shippingState').val();
-    var selectedSuburb = $(this).val();
-    var districtDropdown = $('.shippingAddressDistrict');
-    districtDropdown.empty(); // clear existing options
-
-    if (addressData[selectedState] && addressData[selectedState][selectedSuburb])
-    {
-        districtDropdown.prepend(
-            $('<option>', {
-                value: '',
-                text: '---- Select District ----'
-            }).attr('selected', 'selected')
-        );
-        var districtMappingObj = addressData[selectedState][selectedSuburb];
-        $.each(Object.keys(districtMappingObj), function (district) {
-            districtDropdown.append(
-                $('<option>', {
-                    value: Object.keys(districtMappingObj)[district],
-                    text: Object.keys(districtMappingObj)[district]
-                })
-            );
-        });
-        districtDropdown.trigger('change');
-    } else {
-        $(this).val('');
-        districtDropdown.prepend(
-            $('<option>', {
-                value: '',
-                text: '---- Select City First----'
-            }).attr('selected', 'selected')
-        );
-        districtDropdown.trigger('change');
-    }
-});
-
-$('.shippingAddressDistrict').change(function () {
-    var selectedState = $('.shippingState').val();
     var selectedSuburb = $('.shippingAddressCity').val();
-    var selectedDistrict = $(this).val();
     var subDistrictDropdown = $('.shippingAddressSubdistrict');
     var zipDropdown = $('.shippingZipCode');
     subDistrictDropdown.empty(); // clear existing options
@@ -636,8 +599,7 @@ $('.shippingAddressDistrict').change(function () {
 
     if (
         addressData[selectedState] &&
-        addressData[selectedState][selectedSuburb] &&
-        addressData[selectedState][selectedSuburb][selectedDistrict]
+        addressData[selectedState][selectedSuburb]
     ) {
         subDistrictDropdown.prepend(
             $('<option>', {
@@ -652,7 +614,7 @@ $('.shippingAddressDistrict').change(function () {
             }).attr('selected', 'selected')
         );
         var districtMappingObj =
-            addressData[selectedState][selectedSuburb][selectedDistrict];
+            addressData[selectedState][selectedSuburb];
         districtMappingObj.subDistrict.forEach((subDistrict) => {
             subDistrictDropdown.append(
                 $('<option>', {
