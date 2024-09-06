@@ -1,5 +1,5 @@
 <div class="col-8">
-    <p class="h-font-size--16 h-clr--black-1 cart-saving"
+    <p class="h-font-size--16 h-clr--black-1 cart-saving position-relative"
         >${Resource.msg('label.order.savings', 'common', null)}</p>
 </div>
 <div class="col-4">
