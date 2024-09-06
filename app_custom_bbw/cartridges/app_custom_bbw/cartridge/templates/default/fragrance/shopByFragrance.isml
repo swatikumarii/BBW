@@ -71,7 +71,7 @@
                     <div class="fragrance-header-search col-12 mt-3">
                         <div class="fragrance-search search-wrapper">
                             <fieldset class="text-justify seatch-text">
-                                <span class="h-clr--gray h-font-size--14 ">
+                                <span class="h-clr--gray h-font-size--14 d-block">
                                     ${Resource.msg('lable.fragrance.name.search', 'fragrance', null)} </span>
                                 <input class="search-input-box" type="text" id="search-input" placeholder="${Resource.msg('fragrance.search.placeholder', 'fragrance', null)}" name="search-input" autocomplete="off" />
                                 <div class="search-icon-details h-bg--white pl-2">
