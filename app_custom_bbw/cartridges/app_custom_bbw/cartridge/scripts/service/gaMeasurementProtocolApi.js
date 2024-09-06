@@ -73,10 +73,11 @@ function gaMpAPICall(orderId, paymentStatus) {
 
         service.setURL(url);
         service.setRequestMethod('POST');
+        logger.info('GaMp Service request{0}', JSON.stringify(requestObj));
         var requestJSON = JSON.stringify(requestObj);
         result = service.call(requestJSON);
 
-        if (result.status === 'OK' && result.object) {
+        if (result.status === 'OK') {
             var resultObject = JSON.stringify(result.object);
             logger.info('GaMp Service response{0}', resultObject);
         } else {

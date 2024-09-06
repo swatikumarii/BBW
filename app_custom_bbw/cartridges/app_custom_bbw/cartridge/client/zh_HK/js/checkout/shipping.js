@@ -903,7 +903,7 @@ module.exports = {
     updateShippingList: function () {
         var baseObj = this;
         $(
-            'select[name$="shippingAddress_addressFields_states_stateCode"], input[name$="shippingAddress_addressFields_city"]'
+            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_city"]'
         ).on('change', function (e) {
             if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
                 baseObj.methods.updateShippingMethodList(
