@@ -524,11 +524,6 @@ $('.shippingState').change(function () {
     });
 });
 
-$('.shippingAddressCity').change(function () {
-
-    
-});
-
 
 $('.billingState').change(function () {
     var selectedState = $(this).val();
