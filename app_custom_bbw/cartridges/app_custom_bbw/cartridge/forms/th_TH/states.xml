@@ -1,11 +1,3 @@
-<?xml version="1.0"?>
-<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
-	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
-		<options>
-			<option optionid="" 	label="resource.select.state" 		value=""/>
-
-			<!-- regular ID states -->
-			<?xml version="1.0"?>
 <form xmlns="http://www.demandware.com/xml/form/2008-04-19">
 	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
 		<options>
@@ -89,10 +81,6 @@
 			<option label="Uttaradit" value="Uttaradit"/>
 			<option label="Yala" value="Yala"/>
 			<option label="Yasothon" value="Yasothon"/>
-		</options>
-	</field>
-</form>
-
 		</options>
 	</field>
 </form>
