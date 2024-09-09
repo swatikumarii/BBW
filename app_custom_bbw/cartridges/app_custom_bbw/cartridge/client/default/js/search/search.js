@@ -855,7 +855,12 @@ module.exports = {
                 data: urlParams,
                 success: function (data) {
                     $('.minicart').trigger('count:update', data);
-                    chooseBonusProducts(data.newBonusDiscountLineItem);
+                    if (
+                        data.newBonusDiscountLineItem &&
+                        Object.keys(data.newBonusDiscountLineItem).length !== 0
+                    ) {
+                        chooseBonusProducts(data.newBonusDiscountLineItem);
+                    }
                     inputTag.val(quantity).trigger('change');
                     if (quantity <= maxOrderQty) {
                         increaseButton.removeClass('disable');
