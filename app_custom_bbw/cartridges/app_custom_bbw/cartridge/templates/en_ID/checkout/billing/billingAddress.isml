@@ -53,6 +53,7 @@
             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
                 for="billingAddressOne"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.one', 'address', null)}</label>
             <input type="text" class="form-control billingAddressOne" id="billingAddressOne"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.address', 'forms', null)}"
                 value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.address1 ? pdict.order.billing
                     .billingAddress.address.address1 : ''}" <isprint value=${billingFields.address1.attributes}
                 encoding="off" />
@@ -71,6 +72,7 @@
             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
                 for="billingAddressTwo">${Resource.msg('field.billing.address.two', 'address', null)}</label>
             <input type="text" class="form-control billingAddressTwo" id="billingAddressTwo"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.address', 'forms', null)}"
                 value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.address2 ? pdict.order.billing
                     .billingAddress.address.address2 : ''}" <isprint value=${billingFields.address2.attributes}
                 encoding="off" />
@@ -179,8 +181,8 @@
     </div>
     <div class="col-sm-12">
         <div class="form-group
-                    ${billingFields.subdistrict.mandatory === true ? 'required' : ''}
-                    ${billingFields.subdistrict.htmlName}">
+                    ${billingFields.subDistrict.mandatory === true ? 'required' : ''}
+                    ${billingFields.subDistrict.htmlName}">
             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="billingAddressSubdistrict"><span
                     class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.subdistrict', 'address', null)}</label>
     
@@ -189,7 +191,7 @@
                     data-missing-error="${Resource.msg('error.subdistrict', 'forms', null)}" autocomplete="billing address-level2"
                     data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress
                                    .address.subDistrict}"
-                    <isprint value="${billingFields.subdistrict.attributes}" encoding="off" />>
+                    <isprint value="${billingFields.subDistrict.attributes}" encoding="off" />>
                 <isif
                     condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.subdistrict}">
                     <option id="${pdict.order.billing.billingAddress.address.subdistrict}"

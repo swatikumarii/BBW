@@ -26,7 +26,7 @@ function validateFields($input) {
                 $input.parents('.iti').removeClass('is-invalid border-danger');
         } else {
             var errorText;
-            if ($input.val().length === 0) {
+            if ($input.val() && $input.val().length === 0) {
                 errorText = $input.data('missing-error');
             } else {
                 errorText = $input.data('pattern-mismatch');
@@ -451,6 +451,7 @@ $('.shippingState').change(function () {
     var selectedState = $(this).val();
     var suburbDropdown = $('.shippingAddressCity');
     var zipDropdown = $('.shippingZipCode');
+    console.log('default');
     suburbDropdown.empty(); // clear existing options
 
     if (addressData[selectedState]) {

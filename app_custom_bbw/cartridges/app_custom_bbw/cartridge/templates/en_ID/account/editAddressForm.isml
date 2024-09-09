@@ -87,6 +87,7 @@
     </div>
     <input type="text" class="form-control" id="address1"
         data-missing-error="${Resource.msg('error.address.line-1', 'forms', null)}"
+        data-pattern-mismatch="${Resource.msg('error.message.parse.address', 'forms', null)}"
         data-range-error="${Resource.msg('addressForm.address1.range', 'forms', null)}" <isprint
         value="${pdict.addressForm.address1.attributes}" encoding="off" />
     autocomplete="address-line1">
@@ -103,7 +104,9 @@
         <iscomment> <span
             class="${pdict.addressForm.address2.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span> </iscomment>
     </div>
-    <input type="text" class="form-control" id="address2" <isprint value="${pdict.addressForm.address2.attributes}"
+    <input type="text" class="form-control" id="address2" 
+        data-pattern-mismatch="${Resource.msg('error.message.parse.address', 'forms', null)}"
+    <isprint value="${pdict.addressForm.address2.attributes}"
         encoding="off" />
     autocomplete="billing address-line2">
     <div class="invalid-feedback"></div>

@@ -49,7 +49,7 @@
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
                                     <button
-                                        class="footer-item-link h-clr--black-1 h-font-size--16 loginPopupBtn bg-white border-0 p-0">${Resource.msg('account.sign-in', 'footer', null)}</button>
+                                        class="footer-item-link h-clr--black-1 h-font-size--16 loginPopupBtn bg-white border-0 p-0 text-left">${Resource.msg('account.sign-in', 'footer', null)}</button>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
                                     <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-Status')}"
@@ -57,7 +57,7 @@
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
                                     <button
-                                        class="footer-item-link h-clr--black-1 h-font-size--16 loginPopupBtn bg-white border-0 p-0">${Resource.msg('my.account.title', 'footer', null)}</button>
+                                        class="footer-item-link h-clr--black-1 h-font-size--16 loginPopupBtn bg-white border-0 p-0 text-left">${Resource.msg('my.account.title', 'footer', null)}</button>
                                 </li>
                                 <li
                                     class="footer-list-item mb-3 link-item footer-item-link h-clr--black-1 h-font-size--16 loginPopupBtn love-list-item">

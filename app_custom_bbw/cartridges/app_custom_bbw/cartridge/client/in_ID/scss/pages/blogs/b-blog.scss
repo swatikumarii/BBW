@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+// Import from default
+
+@import "../../../../default/scss/pages/blogs/b-blog";
+
+// Indonesia IN_ID SCSS
+
+.m-grid-contain {
+    .m-grid-contain-childblog {
+        .blog_child_content {
+            .read-button {
+                width: 56%;
+
+                @include media-up(sm) {
+                    width: 165px;
+                }
+            }
+        }
+    }
+
+    .show-more-btn {
+        width: 80%;
+
+        @include media-up(sm) {
+            width: 255px;
+        }
+    }
+}

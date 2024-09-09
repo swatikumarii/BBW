@@ -77,6 +77,7 @@
             <input type="text" class="form-control shippingAddressOne"
                 id="shippingAddressOne${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}AddressLine1"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.address', 'forms', null)}"
                 data-missing-error="${Resource.msg('error.address.line-1', 'forms', null)}"
                 value="${shippingAddress.address1 || ''}" <isprint value="${addressFields.address1.attributes}"
                 encoding="off" />>
@@ -100,6 +101,7 @@
             <input type="text" class="form-control shippingAddressTwo"
                 id="shippingAddressTwo${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}AddressLine2"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.address', 'forms', null)}"
                 value="${shippingAddress.address2 || ''}" <isprint value="${addressFields.address2.attributes}"
                 encoding="off" />
                 >

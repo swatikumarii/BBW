@@ -41,11 +41,14 @@
               type="string" mandatory="true"
               binding="address1"
               max-length="50"
+              regexp="^[A-Za-z0-9\.\-\/\+\,\=\_\:\'\@\%\. ]+$"
+              parse-error="error.message.parse.address"
               missing-error="address.address1.missing"
               range-error="error.message.50orless"/>
 
     <field formid="address2" label="label.input.address2" type="string" mandatory="false" binding="address2"
-           max-length="50" range-error="error.message.50orless"/>
+           max-length="50"  regexp="^[A-Za-z0-9\.\-\/\+\,\=\_\:\'\@\%\. ]+$"
+              parse-error="error.message.parse.address" range-error="error.message.50orless"/>
 
     <field formid="city" label="label.input.city" type="string" mandatory="true" binding="city" min-length="2"
            max-length="50" missing-error="address.city.missing" range-error="error.message.between2and50"/>

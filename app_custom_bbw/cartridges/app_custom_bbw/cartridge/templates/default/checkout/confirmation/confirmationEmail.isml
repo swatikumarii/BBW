@@ -264,6 +264,9 @@
                                                 ${Resource.msg('email.order.billto.heading', 'confirmation', null)}
                                             </div>
                                             <isinclude template="checkout/addressSummary" />
+                                            <isif condition="${pdict.order.taxID}">
+                                                ${Resource.msgf('tax.id.with.label', 'checkout', null, pdict.order.taxID)}
+                                            </isif>
                                         </td>
                                         <td
                                             style="vertical-align:top;padding:21px 0 33px 50px;color:#666666;font-size:16px;line-height:24px">

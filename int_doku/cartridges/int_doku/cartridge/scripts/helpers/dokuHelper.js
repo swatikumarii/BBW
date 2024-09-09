@@ -76,6 +76,9 @@ function createRequestBody(order, basket, paymentForm) {
       phone: paymentForm.contactInfoFields.phone.htmlValue,
       address: paymentForm.addressFields.address1.value + ' ' + paymentForm.addressFields.address2.value + ' ' + paymentForm.addressFields.city.value + ' ' + paymentForm.addressFields.postalCode.value,
       country: paymentForm.addressFields.country.value
+    },
+    additional_info:{
+      doku_wallet_notify_url : URLUtils.abs('Doku-Notification')
     }
   };
 
