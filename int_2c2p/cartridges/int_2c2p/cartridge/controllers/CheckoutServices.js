@@ -350,7 +350,7 @@ server.prepend(
       Transaction.wrap(function () {
         currentBasket.setCustomerEmail(billingData.email.value);
       });
-      var taxID = req.httpParameterMap.dwfrm_billing_taxIdFields_taxID.value;
+      var taxID = req.httpParameterMap.dwfrm_billing_taxID.value;
 
       // if there is no selected payment option and balance is greater than zero
       if (!paymentMethodID && currentBasket.totalGrossPrice.value > 0) {

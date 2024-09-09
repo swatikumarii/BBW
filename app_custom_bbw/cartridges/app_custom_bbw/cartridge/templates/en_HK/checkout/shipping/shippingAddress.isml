@@ -155,11 +155,12 @@
                 autocomplete="shipping address-level1"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}State">
                 <isloop items=${addressFields.states.stateCode.options} var="state">
-                    <option id="${state.id}" value="${state.htmlValue}" selected="selected">${state.htmlValue}</option>
+                    <option id="${state.id}" value="${state.htmlValue}" ${state.id === shippingAddress.stateCode ? 'selected' : ''}>
+                        ${state.label || ' '}</option>
                 </isloop>
                 </select>
                 <div class="invalid-feedback shipping-select-error" id="${lineItem ? lineItem.UUID : 'default'}State">
-                    <isprint value="${addressFields.states.stateCode.error}">
+                    <isprint value="${addressFields.states.stateCode.error}"/>
                 </div>
             </div>
         </div>

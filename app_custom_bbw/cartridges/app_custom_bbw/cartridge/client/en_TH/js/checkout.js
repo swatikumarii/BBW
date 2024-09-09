@@ -623,7 +623,7 @@ $('.shippingAddressCity').change(function () {
                 })
             );
         });
-        districtMappingObj.zipcode.forEach((zip) => {
+        districtMappingObj.postalCodes.forEach((zip) => {
             zipDropdown.append(
                 $('<option>', {
                     value: zip,
@@ -637,13 +637,13 @@ $('.shippingAddressCity').change(function () {
         subDistrictDropdown.prepend(
             $('<option>', {
                 value: '',
-                text: '---- Select District First----'
+                text: '---- Select City First----'
             }).attr('selected', 'selected')
         );
         zipDropdown.prepend(
             $('<option>', {
                 value: '',
-                text: '---- Select District First----'
+                text: '---- Select City First----'
             }).attr('selected', 'selected')
         );
         subDistrictDropdown.trigger('change');
@@ -701,46 +701,7 @@ $('.billingState').change(function () {
 
 $('.billingAddressCity').change(function () {
     var selectedState = $('.billingState').val();
-    var selectedSuburb = $(this).val();
-    var districtDropdown = $('.billingAddressDistrict');
-    districtDropdown.empty(); // clear existing options
-
-    if (
-        addressData[selectedState] &&
-        addressData[selectedState][selectedSuburb]
-    ) {
-        districtDropdown.prepend(
-            $('<option>', {
-                value: '',
-                text: '---- Select Zip Code ----'
-            }).attr('selected', 'selected')
-        );
-        var districtMappingObj = addressData[selectedState][selectedSuburb];
-        $.each(Object.keys(districtMappingObj), function (district) {
-            districtDropdown.append(
-                $('<option>', {
-                    value: Object.keys(districtMappingObj)[district],
-                    text: Object.keys(districtMappingObj)[district]
-                })
-            );
-        });
-        districtDropdown.trigger('change');
-    } else {
-        $(this).val('');
-        districtDropdown.prepend(
-            $('<option>', {
-                value: '',
-                text: '---- Select City First----'
-            }).attr('selected', 'selected')
-        );
-        districtDropdown.trigger('change');
-    }
-});
-
-$('.billingAddressDistrict').change(function () {
-    var selectedState = $('.billingState').val();
     var selectedSuburb = $('.billingAddressCity').val();
-    var selectedDistrict = $(this).val();
     var subDistrictDropdown = $('.billingAddressSubdistrict');
     var zipDropdown = $('.billingZipCode');
     subDistrictDropdown.empty(); // clear existing options
@@ -748,8 +709,7 @@ $('.billingAddressDistrict').change(function () {
 
     if (
         addressData[selectedState] &&
-        addressData[selectedState][selectedSuburb] &&
-        addressData[selectedState][selectedSuburb][selectedDistrict]
+        addressData[selectedState][selectedSuburb]
     ) {
         subDistrictDropdown.prepend(
             $('<option>', {
@@ -763,8 +723,7 @@ $('.billingAddressDistrict').change(function () {
                 text: '---- Select Zip Code ----'
             }).attr('selected', 'selected')
         );
-        var districtMappingObj =
-            addressData[selectedState][selectedSuburb][selectedDistrict];
+        var districtMappingObj = addressData[selectedState][selectedSuburb];
         districtMappingObj.subDistrict.forEach((subDistrict) => {
             subDistrictDropdown.append(
                 $('<option>', {
@@ -773,7 +732,7 @@ $('.billingAddressDistrict').change(function () {
                 })
             );
         });
-        districtMappingObj.zipcode.forEach((zip) => {
+        districtMappingObj.postalCodes.forEach((zip) => {
             zipDropdown.append(
                 $('<option>', {
                     value: zip,
@@ -787,15 +746,16 @@ $('.billingAddressDistrict').change(function () {
         subDistrictDropdown.prepend(
             $('<option>', {
                 value: '',
-                text: '---- Select District First----'
+                text: '---- Select City First----'
             }).attr('selected', 'selected')
         );
         zipDropdown.prepend(
             $('<option>', {
                 value: '',
-                text: '---- Select District First----'
+                text: '---- Select City First----'
             }).attr('selected', 'selected')
         );
+        subDistrictDropdown.trigger('change');
     }
 });
 

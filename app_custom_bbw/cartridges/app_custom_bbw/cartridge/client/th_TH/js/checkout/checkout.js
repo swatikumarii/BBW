@@ -365,8 +365,24 @@ $(document).on('blur', '#email', function () {
                             }
                         }
                     });
+                    var taxID = $('#dwfrm_billing #billingtaxID').serialize();
 
-                    var paymentForm = billingAddressForm + '&' + contactInfoForm + '&' + paymentInfoForm;
+                    var paymentForm;
+                    if (taxID) {
+                        $('body').trigger('checkout:serializeBilling', {
+                            form: $('#dwfrm_billing #billingtaxID'),
+                            data: taxID,
+                            callback: function (data) {
+                                if (data) {
+                                    taxID = data;
+                                }
+                            }
+                        });
+                        paymentForm = billingAddressForm + '&' + contactInfoForm + '&' + paymentInfoForm + '&' + taxID;
+                    } else {
+                        paymentForm = billingAddressForm + '&' + contactInfoForm + '&' + paymentInfoForm;
+                    }
+
 
                     // disable the next:Place Order button here
                     $('body').trigger('checkout:disableButton', '.next-step-button button');
