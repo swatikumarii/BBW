@@ -15,6 +15,10 @@
         {
             "name": "einvoice.email.send",
             "script": "./cartridge/scripts/hooks/einvoice.js"
+        },
+        {
+            "name": "app.server.registerRoute",
+            "script": "./cartridge/scripts/hooks/hrefLang.js"
         }
     ]
 }

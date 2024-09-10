@@ -16,7 +16,7 @@
         <isinclude template="reporting/reportingUrls" />
     </isif>
     <input type="hidden" name="currency-symbol" value="${session.currency.getSymbol()}">
-    <a class="continue-shopping-link" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}"
+    <a class="continue-shopping-link" hreflang="${pdict.hrefLang}" href="${URLUtils.url('Home-Show')}"
         title="${Resource.msg('link.continue.shopping', 'cart', null)}">
         <img src="${URLUtils.staticURL('/images/cart/arrow-left-dark-grey.svg')}"
             alt="${Resource.msg('global.storename', 'common', null)}" />
@@ -35,7 +35,7 @@
                         ${Resource.msg('info.cart.empty.msg', 'cart', null)}</h1>
                 </div>
             </div>
-            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}"
+            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Home-Show')}"
                 class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">${Resource.msg('link.continue.shopping', 'cart', null)}</a>
             <div class="empty-recommendation-container cart-page-add-to-bag">
                 <div class="empty-cart-recommendations">

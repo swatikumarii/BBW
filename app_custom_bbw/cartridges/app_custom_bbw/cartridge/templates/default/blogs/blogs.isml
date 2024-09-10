@@ -19,12 +19,12 @@
             <isloop items="${pdict.blog.onlineSubFolders}" var="list" status="loopstatus" begin=0>
                 <isif condition="${list.custom.isShow === true}">
                     <div class="folder_list mt-5">
-                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${'#'+list.displayName.replace(' ', '')}">
+                        <a hreflang="${pdict.hrefLang}" href="${'#'+list.displayName.replace(' ', '')}">
                             <img class="list_content d-block" width="100%" src="${list.custom.image.absURL}"
                                 alt="${list.displayName}" />
                         </a>
                         <p class="navi_content text-center mb-0 h-font-size--16 h-fw--semibold mt-4 text-uppercase">
-                            <a class="h-clr--black-3" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${'#'+list.displayName.replace(' ', '')}">${list.displayName}</a>
+                            <a class="h-clr--black-3" hreflang="${pdict.hrefLang}" href="${'#'+list.displayName.replace(' ', '')}">${list.displayName}</a>
                         </p>
                     </div>
                 </isif>
@@ -52,7 +52,7 @@
                                 <h3 class="text-uppercase h-fw--semibold m-font-base--normal">${content.name}</h3>
                                 <p class="h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
                                 <a class="btn btn-primary read-button h-font-size--14 h-fw--medium"
-                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+                                    hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
                                     <span>${Resource.msg('button.read.more', 'common', null)}</span>
                                 </a>
                             </div>
@@ -60,7 +60,7 @@
                     </div>
                     <isif condition="${folder.onlineContent.length > 4}">
                         <div class="text-center">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#" class="btn btn-primary show-more-btn m-font-base--normal">
+                            <a hreflang="${pdict.hrefLang}" href="#" class="btn btn-primary show-more-btn m-font-base--normal">
                                 <button type="button"
                                     class="bg-white border-0 h-font-size--16 text-uppercase h-fw--semibold text-center show-button m-font-base--normal h-clr--black-3">${Resource.msg('button.show.more', 'common', null)}
                                 </button>

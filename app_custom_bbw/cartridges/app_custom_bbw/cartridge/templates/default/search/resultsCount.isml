@@ -27,16 +27,16 @@
                 <isif condition="${loopState.first}">
                     <p>
                         <span>${Resource.msg('label.didyoumean', 'search', null)}</span>
-                        <a class ="link" title="${phrase.value}" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${phrase.url}">${phrase.value}</a>
+                        <a class ="link" title="${phrase.value}" hreflang="${pdict.hrefLang}" href="${phrase.url}">${phrase.value}</a>
                     </p>
                 <iselseif condition="${!loopState.last}">
                     <p>
                         <span>${Resource.msg('label.ormaybe', 'search', null)}</span>
-                        <a class ="link" title="${phrase.value}" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${phrase.url}">${phrase.value}</a>
+                        <a class ="link" title="${phrase.value}" hreflang="${pdict.hrefLang}" href="${phrase.url}">${phrase.value}</a>
                     </p>
                 <iselse>
                     <p>
-                        <a class ="link" title="${phrase.value}" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${phrase.url}">${phrase.value}</a>
+                        <a class ="link" title="${phrase.value}" hreflang="${pdict.hrefLang}" href="${phrase.url}">${phrase.value}</a>
                         ,&nbsp;
                     </p>
                 </isif>

@@ -4,7 +4,7 @@
 <isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="pdict" />
 <div>
     <isif condition="${pdict.AdyenConfigs.getAdyenRecurringPaymentsEnabled()}">
-        <link rel="stylesheet" type="text/css" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+        <link rel="stylesheet" type="text/css" hreflang="${pdict.hrefLang}"
             href="${pdict.AdyenHelper.getCheckoutCSS()}" />
         <script src="${pdict.AdyenHelper.getCheckoutUrl()}" type="text/javascript"></script>
         <isscript>
@@ -48,7 +48,7 @@
                     </button>
                 </div>
                 <div class="col-md-12">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                    <a hreflang="${pdict.hrefLang}"
                         href="${URLUtils.url('PaymentInstruments-List')}"
                         class="btn-cancel">${Resource.msg('button.cancel', 'account', null)}</a>
                 </div>
@@ -60,7 +60,7 @@
             <br /><br />
             <div class="row">
                 <div class="col">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                    <a hreflang="${pdict.hrefLang}"
                         href="${URLUtils.url('PaymentInstruments-List')}"
                         class="btn btn-block btn-outline-primary">${Resource.msg('button.cancel', 'account', null)}</a>
                 </div>

@@ -70,7 +70,7 @@
                                 </div>
                             </isif>
                             <div class="form-group privacy-policy text-center">
-                                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3">
+                                <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3">
                                     ${Resource.msg('link.privacypolicy.registration', 'login', null)}
                                 </a>
                             </div>
@@ -89,10 +89,10 @@
 
                         <div class="sign-in-wrap text-center">
                             <isif condition="${!session.isCustomerAuthenticated()}">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Login-Show')}" title="Sign In"
+                            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Login-Show')}" title="Sign In"
                                 class="h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
                             <iselse/>
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-History')}" title="Sign In"
+                            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Order-History')}" title="Sign In"
                                 class="h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
                             </isif>
                             <span class="h-clr--gray h-font-size--14">${Resource.msg('label.sign.in', 'order', null)}</span>
