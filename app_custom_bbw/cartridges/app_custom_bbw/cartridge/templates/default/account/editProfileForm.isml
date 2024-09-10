@@ -167,7 +167,7 @@
         data-pattern-mismatch="${Resource.msg('error.message.parse.password', 'forms', null)}"
         aria-describedby="form-password-error" autocomplete="off" <isprint
         value=${pdict.profileForm.login.password.attributes} encoding="off" />/>
-    <button type="button" class="show-hide-password" aria-label="Show Password"><span class="show">Show</span></button>
+    <button type="button" class="show-hide-password" aria-label="Show Password"><span class="show">${Resource.msg('form.show', 'forms', null)}</span></button>
     <div class="invalid-feedback" id="form-password-error"></div>
     <p class="form-caption">${Resource.msg('form.password.caption', 'forms', null)}</p>
 </div>
