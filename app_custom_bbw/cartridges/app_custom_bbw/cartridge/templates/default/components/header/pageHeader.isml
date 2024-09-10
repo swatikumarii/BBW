@@ -25,11 +25,8 @@
                 <isinclude url="${URLUtils.url('Page-Locale')}" />
             </isif>
             <isset name="homeUrl" value="${URLUtils.url('Home-Show')}" scope="page" />
-            <isif condition="${allowedLocales.length > 2 && request.getLocale() !=== dw.system.Site.getCurrent().defaultLocale}">
-                <isset name="homeUrl" value="https://${request.httpHost}/${request.getLocale().toString().substring(0, 2)}" scope="page" />
-            </isif>
             <div class="navbar-header brand primary-logo">
-                <a class="logo-home d-block h-100" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${homeUrl}"
+                <a class="logo-home d-block h-100" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isif condition="${allowedLocales.length > 2 && request.getLocale() !== dw.system.Site.getCurrent().defaultLocale}">https://${request.httpHost}/${request.getLocale().toString().substring(0, 2)}<iselse/>${homeUrl}</isif>"
                     title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
                                                                'global.home', 'common', null))}">
                     <isset name="headerImage"
