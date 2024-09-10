@@ -20,6 +20,8 @@
             <isinclude template="checkout/billing/paymentOptions/dokuContent" />
         <iselseif condition="${paymentOption.ID === 'ovo'}" />
             <isinclude template="checkout/billing/paymentOptions/ovoContent" />
+        <iselseif condition="${paymentOption.ID === 'EGHL'}" />
+            <isinclude template="checkout/billing/paymentOptions/eghlContent" />
         <iselseif condition="${paymentOption.ID === '2c2p'}" />
             <isinclude template="checkout/billing/paymentOptions/2c2pContent" />
         </isif>
