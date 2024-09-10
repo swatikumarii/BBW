@@ -1,4 +1,4 @@
-<link rel="stylesheet" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+<link rel="stylesheet" hreflang="${pdict.hrefLang}" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
 
 <div class="container">
     <nav class="sub-nav d-flex justify-content-between">
@@ -20,7 +20,7 @@
                 <isloop items="${pdict.folder.onlineSubFolders}" var="folder">
                     <section class="section">
                         <h2 class="section-tree-title mb-0 h-font-size--18 h-fw--semibold">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', folder.ID)}">${folder.displayName}</a>
+                            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', folder.ID)}">${folder.displayName}</a>
                         </h2>
                         <ul class="article-list">
                             <isloop items="${folder.onlineContent}" var="content" status="status">
@@ -36,13 +36,13 @@
                                             </path>
                                         </svg>
                                     </isif>
-                                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}"
+                                    <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}"
                                         class="article-list-link">${content.name}</a>
                                 </li>
                             </isloop>
                         </ul>
                         <isif condition="${folder.onlineContent.length > 6}">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', folder.ID)}" class="see-all-articles">
+                            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', folder.ID)}" class="see-all-articles">
                                 ${Resource.msgf('link.faq.see.all.articles', 'common', null, folder.onlineContent.length)}
                             </a>
                         </isif>

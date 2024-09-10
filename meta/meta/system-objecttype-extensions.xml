@@ -1342,6 +1342,13 @@
                 <min-length>0</min-length>
                 <default-value>giftWraps</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="isBillingZipCodeRequired">
+                <display-name xml:lang="x-default">Billing Zip Code is required</display-name>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="header_image">
                 <display-name xml:lang="x-default">Header Image</display-name>
                 <type>image</type>
@@ -2203,6 +2210,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <display-name xml:lang="x-default">Tracking</display-name>
                 <attribute attribute-id="estimatedDelivery"/>
                 <attribute attribute-id="allTrackingUrls"/>
+                <attribute attribute-id="isBillingZipCodeRequired"/>
             </attribute-group>
             <attribute-group group-id="Integration_Afterpay">
                 <display-name xml:lang="x-default">Integration Afterpay</display-name>

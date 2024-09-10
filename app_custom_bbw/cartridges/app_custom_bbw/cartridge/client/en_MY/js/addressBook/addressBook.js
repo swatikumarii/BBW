@@ -310,7 +310,7 @@ $(document).on('click', '#editAddress', function () {
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
             $('#modalContent').find('.address-state-input').trigger('change');
-            var addressForm = $($(response)[0]).find('input');
+            var addressForm = $($(response)[0]).find('input,select');
             window.addressForm = $(addressForm).serialize();
         }
     });

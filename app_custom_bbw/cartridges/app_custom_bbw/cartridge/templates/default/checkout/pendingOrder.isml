@@ -25,7 +25,7 @@
             <div class="${pdict.returningCustomer ? 'col-sm-12' : 'col-md-12' }">
                 <isinclude template="checkout/confirmation/confirmationDetails" />
                 <div class="my-5 d-flex justify-content-center">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}" class="btn btn-primary btn-block order-confirmation-continue-shopping text-uppercase w-auto text-white d-flex h-flex-center" role="button" aria-pressed="true">
+                    <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Home-Show')}" class="btn btn-primary btn-block order-confirmation-continue-shopping text-uppercase w-auto text-white d-flex h-flex-center" role="button" aria-pressed="true">
                         ${Resource.msg('button.continue.shopping','confirmation',null)}
                     </a>
                 </div>

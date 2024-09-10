@@ -22,7 +22,7 @@
                                 <isif condition="${levelThreeCategory.custom && levelThreeCategory.custom.showInMenu && levelThreeCategory.products.empty==false && levelThreeCategory.onlineProducts.empty==false}">
                                     <li>
                                         <a class="${pdict.productSearch.category.id === levelThreeCategory.ID ? 'active' : ''} h-font-size--16 d-block"
-                                            hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
+                                            hreflang="${pdict.hrefLang}" href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
                                     </li>
                                 </isif>
                             </isloop>
