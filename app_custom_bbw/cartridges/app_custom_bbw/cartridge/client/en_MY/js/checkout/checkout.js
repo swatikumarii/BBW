@@ -424,7 +424,7 @@ $(document).on('blur', '#email', function () {
                                         var position = element && element.length ? element.offset().top - 100 : 0;
                                         $('html, body').animate({
                                             scrollTop: position
-                                        }, 500);    
+                                        }, 500);
                                     },500);
                                 }
 
@@ -521,7 +521,7 @@ $(document).on('blur', '#email', function () {
                                     var position = element && element.length ? element.offset().top : 0;
                                     $('html, body').animate({
                                         scrollTop: position
-                                    }, 500);    
+                                    }, 500);
                                 },500);
                                 $.spinner().stop();
                                 // ### Custom Adyen cartridge start ###
@@ -612,14 +612,6 @@ $(document).on('blur', '#email', function () {
                 //
                 $('.customer-summary .edit-button', plugin).on('click', function () {
                     members.gotoStage('customer');
-                });
-
-                $('.shipping-summary .edit-button', plugin).on('click', function () {
-                    if (!$('#checkout-main').hasClass('multi-ship')) {
-                        $('body').trigger('shipping:selectSingleShipping');
-                    }
-
-                    members.gotoStage('shipping');
                 });
 
                 $('.payment-summary .edit-button', plugin).on('click', function () {
