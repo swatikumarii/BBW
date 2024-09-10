@@ -30,7 +30,7 @@ var _2c2pEncryptService = LocalServiceRegistry.createService('2c2p_encryption_se
  */
 function encryptRequest(requestJSON) {
   var service = _2c2pEncryptService;
-  var url = _2c2pEncryptService.getConfiguration().getCredential().getURL() + '/enrcyptRequest';
+  var url = _2c2pEncryptService.getConfiguration().getCredential().getURL() + '/enrcyptRequestBBW';
   var encryptedJSON = {};
   service.setURL(url);
   service.setRequestMethod('POST');
@@ -50,7 +50,7 @@ function encryptRequest(requestJSON) {
  */
 function decryptRequest(requestJSON) {
   var service = _2c2pEncryptService;
-  var url = _2c2pEncryptService.getConfiguration().getCredential().getURL() + '/decryptResponse';
+  var url = _2c2pEncryptService.getConfiguration().getCredential().getURL() + '/decryptResponseBBW';
   var decryptedJSON = {};
   var payload = {
     payload: requestJSON
@@ -75,7 +75,7 @@ _2c2pService = LocalServiceRegistry.createService('2c2p_http_service', {
 
   createRequest: function (svc, args) {
     svc.addHeader('Content-Type', 'application/json');
-    if (_2c2pPreferences._2c2pEncrypt) {
+    if (_2c2pPreferences.hsbcEncrypt) {
       var encrypted = encryptRequest(args);
       if (encrypted.error) {
         return encrypted.message;
@@ -86,7 +86,7 @@ _2c2pService = LocalServiceRegistry.createService('2c2p_http_service', {
   },
 
   parseResponse: function (svc, client) {
-    if (_2c2pPreferences._2c2pEncrypt) {
+    if (_2c2pPreferences.hsbcEncrypt) {
       var decrypted = decryptRequest(client.text);
       if (decrypted.error) {
         return decrypted.message;
