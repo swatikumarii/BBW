@@ -1,6 +1,6 @@
 <isloop items="${pdict.contentAssets}" var="content">
     <li>
-        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+        <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
             ${content.name}
         </a>
     </li>

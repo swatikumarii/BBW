@@ -44,7 +44,7 @@
                         <div id="search-ingredient" class="alphabet-group">
                             <ul>
                                 <li class="level-2 text-justify">
-                                    <a class="h-clr--black-3 h-font-size--16" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href='#'
+                                    <a class="h-clr--black-3 h-font-size--16" hreflang="${pdict.hrefLang}" href='#'
                                         data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
                                         data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
                                         data-ingredientname="${ingredientsName}">${ingredientsName}</a>

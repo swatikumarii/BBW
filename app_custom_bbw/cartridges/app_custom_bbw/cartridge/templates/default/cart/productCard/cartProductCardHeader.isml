@@ -8,7 +8,7 @@
         </div>
 </div>
 <iselse/>
-    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+    <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
         <div class="line-item-header">
             <div class="line-item-name">
                 ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}
