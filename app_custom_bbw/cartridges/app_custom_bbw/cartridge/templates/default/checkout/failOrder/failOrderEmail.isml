@@ -231,14 +231,14 @@
                                                 <isif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}">
                                                     <p>${Resource.msg('label.add.egift.title', 'giftcards', null)}</p>
                                                     <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
-                                                        ${pdict.order.eGiftTotalAmount}</p>
+                                                        <isprint value="${pdict.order.eGiftTotalAmount}" /></p>
                                                 </isif>
                                                 <isif
                                                     condition="${payment.paymentMethod === 'AdyenComponent' || payment.paymentMethod === 'CREDIT_CARD'}">
                                                     <isinclude
                                                         template="checkout/confirmation/adyenConfirmationDetails" />
                                                     <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
-                                                        ${payment.amount}</p>
+                                                        <isprint value="${payment.amount}" /></p>
                                                     <iselseif
                                                         condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
                                                         <isinclude
@@ -246,7 +246,7 @@
                                                     <iselseif condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
                                                         <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
                                                         <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
-                                                            ${payment.amount}</p>
+                                                            <isprint value="${payment.amount}" /></p>
                                                     </isif>
                                             </isloop>
                                         </td>
