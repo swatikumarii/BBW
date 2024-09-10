@@ -493,18 +493,32 @@ server.post(
     function (req, res, next) {
         var OrderMgr = require('dw/order/OrderMgr');
         var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+        var isBillingZipCodeRequired =
+            dw.system.Site.getCurrent().getCustomPreferenceValue(
+                'isBillingZipCodeRequired'
+            );
         var error = orderHelpers.validateTrackingData(
-            req.form.orderNumber, req.form.orderEmail, req.form.billingZipCode
+            req.form.orderNumber,
+            req.form.orderEmail,
+            req.form.billingZipCode,
+            isBillingZipCodeRequired
         );
         if (error && error.length === 0) {
             var order = OrderMgr.getOrder(req.form.orderNumber);
             if (
                 order &&
-                order.customerEmail.toLowerCase() === req.form.orderEmail.toLowerCase().trim() &&
-                order.billingAddress.postalCode === req.form.billingZipCode.trim()
+                order.customerEmail.toLowerCase() ===
+                    req.form.orderEmail.toLowerCase().trim() &&
+                (!isBillingZipCodeRequired ||
+                    order.billingAddress.postalCode ===
+                        req.form.billingZipCode.trim())
             ) {
                 res.json({
-                    redirectUrl: URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString()
+                    redirectUrl: URLUtils.url(
+                        'Order-Tracking',
+                        'token',
+                        encryptionHelper.encryptPin(req.form.orderNumber)
+                    ).toString()
                 });
             } else {
                 res.json({
