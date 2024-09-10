@@ -150,10 +150,10 @@ $(document).ready(function () {
         var $password = $this.siblings('#password');
         if ($password.attr('type') === 'password') {
             $password.attr('type', 'text');
-            $this.text('Hide');
+            $this.text('隐藏');
         } else {
             $password.attr('type', 'password');
-            $this.text('Show');
+            $this.text('顯示');
         }
     });
 
