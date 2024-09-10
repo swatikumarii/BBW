@@ -4,8 +4,9 @@
     role="tabpanel">
     <fieldset class="payment-form-fields">
         <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}"
-            value="Eghl" />
+            value="EGHL" />
         <fieldset>
+        <h1>EGHL</h1>
             <iscontentasset aid="eghl-payment-description" />
         </fieldset>
     </fieldset>
