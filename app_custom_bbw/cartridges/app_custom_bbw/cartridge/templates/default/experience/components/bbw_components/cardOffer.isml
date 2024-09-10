@@ -6,7 +6,7 @@
 <div class="card-offers">
     <div class="card-offers__tile d-flex flex-row text-center h-100 ${pdict.customClass}">
         <a class="card-offers__link w-100"
-            hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}">
+            hreflang="${pdict.hrefLang}" href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}">
             <div class="card-offers__wrapper w-100 h-100 ${pdict.imagePositionClass === 'left' || pdict.imagePositionClass === 'right' ? 'h-dsp--grid' : 'd-flex justify-content-center'} ${pdict.imagePositionClass} ">
                 <div class="card-offers__image-wrapper h-dsp--inline-block h-pos--relative">
                     <isif condition="${pdict.disableLazyLoad}">

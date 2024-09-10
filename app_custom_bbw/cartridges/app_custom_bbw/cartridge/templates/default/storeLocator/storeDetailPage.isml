@@ -1,7 +1,7 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <script defer type="text/javascript" src="${pdict.googleMapsApi}"></script>
 <script defer type="text/javascript" src="${URLUtils.staticURL('/js/storeLocatorDetail.js').toString()}"></script>
-<link rel="stylesheet" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/css/storeLocator.css').toString()}" />
+<link rel="stylesheet" hreflang="${pdict.hrefLang}" href="${URLUtils.staticURL('/css/storeLocator.css').toString()}" />
 
 <div class="h-maxwidth--1400 mx-auto store-detail-page">
     <div class="row">
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <a class="store-map h-clr--gray-4" target='_blank'
-                        hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">
+                        hreflang="${pdict.hrefLang}" href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">
                         ${pdict.storeDetail.address1}
                         <isif condition="${pdict.storeDetail.address2}">
                             ${pdict.storeDetail.address2}
@@ -54,7 +54,7 @@
                 </div>
                 <div class="phone-email d-flex">
                     <isif condition="${pdict.storeDetail.phone}">
-                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="phoneto:${pdict.storeDetail.phone}" class="phone h-clr--black-1">
+                        <a hreflang="${pdict.hrefLang}" href="phoneto:${pdict.storeDetail.phone}" class="phone h-clr--black-1">
                             <img width="18px" height="18px" class="mr-2"
                                 src="${URLUtils.staticURL('/images/store-locator/phone-call.svg')}"
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
@@ -62,7 +62,7 @@
                         </a>
                     </isif>
                     <isif condition="${pdict.storeDetail.email}">
-                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="mailto:${pdict.storeDetail.email}" class="email h-clr--black-1">
+                        <a hreflang="${pdict.hrefLang}" href="mailto:${pdict.storeDetail.email}" class="email h-clr--black-1">
                             <img width="18px" height="18px" class="mr-2"
                                 src="${URLUtils.staticURL('/images/store-locator/email.svg')}"
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
@@ -71,7 +71,7 @@
                     </isif>
                 </div>
                 <a class="text-uppercase get-direcetion" target="_blank"
-                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.storeMapLink}">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
+                    hreflang="${pdict.hrefLang}" href="${pdict.storeMapLink}">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
             </div>
         </div>
         <div class="col-lg-5 my-4">
@@ -87,10 +87,10 @@
                                 </div>
                             </isloop>
                         </div>
-                        <a class="carousel-control-prev" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" hreflang="${pdict.hrefLang}" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         </a>
-                        <a class="carousel-control-next" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="#carouselExampleControls" role="button" data-slide="next">
+                        <a class="carousel-control-next" hreflang="${pdict.hrefLang}" href="#carouselExampleControls" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -128,7 +128,7 @@
                         <img alt="image" src="${nearbyStore.imageUrl[0]}" />
                     </div>
                     <p class="h-clr--black-1 h-fw--semibold">${nearbyStore.name}</p>
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${nearbyStore.storeMapLink}"
+                    <a hreflang="${pdict.hrefLang}" href="${nearbyStore.storeMapLink}"
                         target="_blank"
                         class="text-uppercase get-direcetion w-100 mt-0">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
                 </div>

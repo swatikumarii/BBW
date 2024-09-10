@@ -32,14 +32,14 @@
                     <isinclude template="account/order/capillaryOrderDetails" />
                     <div class="d-md-flex">
                         <div class="order-btn mr-2 mb-2 mb-md-0">
-                            <a class="btn btn-hover btn-block" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-StoreOrders')}"
+                            <a class="btn btn-hover btn-block" hreflang="${pdict.hrefLang}" href="${URLUtils.url('Order-StoreOrders')}"
                                 title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
                                 aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
                                 ${pdict.exitLinkText}
                             </a>
                         </div>
                         <div class="order-btn">
-                            <a class="continue-shopping-link btn-block" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Home-Show')}"
+                            <a class="continue-shopping-link btn-block" hreflang="${pdict.hrefLang}" href="${URLUtils.url('Home-Show')}"
                                 title="${Resource.msg('link.continue.shopping', 'cart', null)}">
                                 ${Resource.msg('link.continue.shopping', 'cart', null)}
                             </a>
