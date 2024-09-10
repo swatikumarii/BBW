@@ -19,17 +19,6 @@ function getGoogleFeeds() {
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var ProductFactory = require('*/cartridge/scripts/factories/product');
     var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
-    var fileName = 'google-feed';
-    var outputFile = new File(
-        File.LIBRARIES + '/' + currentSite.ID + '/default/feeds/' + fileName + '.xml'
-    );
-    var fileWriter = new FileWriter(outputFile);
-    var xmlStreamWriter = new XMLStreamWriter(fileWriter);
-    xmlStreamWriter.writeStartDocument();
-    xmlStreamWriter.writeStartElement('rss');
-    xmlStreamWriter.writeAttribute('xmlns:g', 'http://base.google.com/ns/1.0');
-    xmlStreamWriter.writeAttribute('version', '2.0');
-    xmlStreamWriter.writeStartElement('channel');
     var product;
     var breadcrumbs;
     var category = '';
@@ -41,10 +30,33 @@ function getGoogleFeeds() {
     var apiProduct;
     var productObj;
     var productsIterator;
+    var xmlStreamWriter;
+    var fileWriter;
     try {
         for (var index = 0; index < currentSite.allowedLocales.length; index++) {
             var locale = currentSite.allowedLocales[index];
             if (locale !== 'default') {
+                var fileName = 'google-feed';
+                var outputFile = new File(
+                    File.LIBRARIES +
+                        '/' +
+                        currentSite.ID +
+                        '/default/feeds/' +
+                        fileName +
+                        '_' +
+                        locale +
+                        '.xml'
+                );
+                fileWriter = new FileWriter(outputFile);
+                xmlStreamWriter = new XMLStreamWriter(fileWriter);
+                xmlStreamWriter.writeStartDocument();
+                xmlStreamWriter.writeStartElement('rss');
+                xmlStreamWriter.writeAttribute(
+                    'xmlns:g',
+                    'http://base.google.com/ns/1.0'
+                );
+                xmlStreamWriter.writeAttribute('version', '2.0');
+                xmlStreamWriter.writeStartElement('channel');
                 request.setLocale(locale);
                 productsIterator = ProductMgr.queryAllSiteProducts();
                 while (productsIterator.hasNext()) {
@@ -196,16 +208,16 @@ function getGoogleFeeds() {
                         xmlStreamWriter.writeEndElement();
                     }
                 }
+                // channel end
+                xmlStreamWriter.writeEndElement();
+                // rss end
+                xmlStreamWriter.writeEndElement();
+                xmlStreamWriter.writeEndDocument();
+        
+                xmlStreamWriter.close();
+                fileWriter.close();
             }
         }
-        // channel end
-        xmlStreamWriter.writeEndElement();
-        // rss end
-        xmlStreamWriter.writeEndElement();
-        xmlStreamWriter.writeEndDocument();
-
-        xmlStreamWriter.close();
-        fileWriter.close();
     } catch (err) {
         Logger.getLogger('SocialFeeds', 'SocialFeeds').error(
             'Error when creating Google Feeds' + err

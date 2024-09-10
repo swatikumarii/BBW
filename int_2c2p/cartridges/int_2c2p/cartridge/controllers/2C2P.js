@@ -39,8 +39,8 @@
    var decryptedJSON;
    var paymentStatus = {};
    var paymentChannel;
-  //  logger.info('2c2p Request Parameters in Notifications are {0} and 2c2pPreferences.2c2pEncrypt is {1}', requestParameter, _2c2pPreferences._2c2pEncrypt);
-   if (_2c2pPreferences._2c2pEncrypt) {
+  //  logger.info('2c2p Request Parameters in Notifications are {0} and 2c2pPreferences.2c2pEncrypt is {1}', requestParameter, _2c2pPreferences.hsbcEncrypt);
+   if (_2c2pPreferences.hsbcEncrypt) {
     decryptedJSON = _2c2pService.decryptRequest(requestParameter);
      paymentStatus.response = JSON.parse(decryptedJSON);
      var orderID = paymentStatus.response.transaction.txnRef;
@@ -139,6 +139,7 @@
        transactionStatus = _2c2pPreferences.TransactionSuccess;
      } else {
        transactionStatus = _2c2pPreferences.TransactionFailed;
+        _2c2pHelper.failOrder(order, true, paymentStatus, paymentChannel, server, req, res, next);
      }
    }
    _2c2pHelper.renderCustomer(order, result, transactionStatus, server, req, res, next);

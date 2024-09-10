@@ -4,7 +4,7 @@
 		<options>
 			<option optionid="" 	label="resource.select.state" 		value=""/>
 
-			<!-- regular ID states -->
+			<!-- regular TH states -->
 			<option label="Amnat Charoen" value="Amnat Charoen"/>
 			<option label="Ang Thong" value="Ang Thong"/>
 			<option label="Bangkok" value="Bangkok"/>
