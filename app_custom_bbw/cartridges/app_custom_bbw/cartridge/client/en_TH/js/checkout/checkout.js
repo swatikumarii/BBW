@@ -587,14 +587,6 @@ $(document).on('blur', '#email', function () {
                     members.gotoStage('customer');
                 });
 
-                $('.shipping-summary .edit-button', plugin).on('click', function () {
-                    if (!$('#checkout-main').hasClass('multi-ship')) {
-                        $('body').trigger('shipping:selectSingleShipping');
-                    }
-
-                    members.gotoStage('shipping');
-                });
-
                 $('.payment-summary .edit-button', plugin).on('click', function () {
                     members.gotoStage('payment');
                 });
