@@ -95,9 +95,6 @@ function renderCustomer(order, result, orderStatus, server, req, res, next) {
   var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
   var viewData = res.getViewData();
   viewData.isThankYouPage = true;
-  viewData.CurrentPageMetaData = {
-    title: Resource.msg('site.common.title', 'common', null)
-  };
   res.setViewData(viewData);
   var Site = require('dw/system/Site');
   var currentSite = Site.getCurrent();
@@ -129,7 +126,8 @@ function renderCustomer(order, result, orderStatus, server, req, res, next) {
           reportingURLs: reportingURLs,
           orderUUID: order.getUUID(),
           orderStatus: orderStatus,
-          result: result
+          result: result,
+          orderStatusVal: Order
         });
       } else {
         res.render('checkout/confirmation/confirmation', {
@@ -138,7 +136,8 @@ function renderCustomer(order, result, orderStatus, server, req, res, next) {
           reportingURLs: reportingURLs,
           orderUUID: order.getUUID(),
           orderStatus: orderStatus,
-          result: result
+          result: result,
+          orderStatusVal: Order
         });
       }
   }
