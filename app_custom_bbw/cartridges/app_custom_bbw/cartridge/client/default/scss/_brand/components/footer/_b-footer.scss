@@ -307,6 +307,7 @@ footer {
                 text-decoration: underline;
                 color: colour(gray);
                 width: fit-content;
+                font-family: get-ff(base);
 
                 &:hover {
                     color: colour(blue);
