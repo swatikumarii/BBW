@@ -34,7 +34,7 @@ function generatePaymentUrl(requestJSON) {
   var responseObject;
   service.setURL(url);
   service.setRequestMethod('POST');
-  if (!_2c2pPreferences._2c2pEncrypt) {
+  if (!_2c2pPreferences.hsbcEncrypt) {
     service.addHeader('message_encrypt', false);
     logger.info('Message is not encrypted');
   }
@@ -70,7 +70,7 @@ function getPaymentStatus(orderID) {
   var serviceResponse = {};
   service.setURL(url);
   service.setRequestMethod('POST');
-  if (!_2c2pPreferences._2c2pEncrypt) {
+  if (!_2c2pPreferences.hsbcEncrypt) {
     service.addHeader('message_encrypt', false);
   }
   service.addHeader('x-hsbc-client-id', _2c2pPreferences.hsbcClient_id);

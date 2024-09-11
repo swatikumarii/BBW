@@ -1,0 +1,77 @@
+'use strict';
+
+/**
+ * Remove all validation. Should be called every time before revalidating form
+ * @param {object} form - Form to be cleared
+ * @returns {void}
+ */
+function clearFormErrors(form) {
+    $(form).find('.form-control.is-invalid').removeClass('is-invalid');
+}
+
+module.exports = function (formElement, payload) {
+    // clear form validation first
+    clearFormErrors(formElement);
+    $('.alert', formElement).remove();
+
+    if (typeof payload === 'object' && payload.fields) {
+        Object.keys(payload.fields).forEach(function (key) {
+            var isSelectric = false;
+            var feedbackElement;
+            if (payload.fields[key]) {
+                feedbackElement = $(formElement).find('[name="' + key + '"]')
+                    .parent()
+                    .children('.invalid-feedback');
+                if ($(formElement).find('[name="' + key + '"]').hasClass('selectric-dropdown')) {
+                    feedbackElement = $(formElement).find('[name="' + key + '"]').parents('.selectric-wrapper').parent().children('.invalid-feedback');
+                    isSelectric = true;
+                }
+
+                if (!feedbackElement.length) {
+                    feedbackElement = $(formElement)
+                        .find('[name="' + key + '"]')
+                        .parent().parent()
+                        .children('.invalid-feedback');
+                }
+
+                if (feedbackElement.length > 0) {
+                    if (Array.isArray(payload[key])) {
+                        feedbackElement.html(payload.fields[key].join('<br/>'));
+                    } else {
+                        feedbackElement.html(payload.fields[key]);
+                    }
+                    if (isSelectric) {
+                        feedbackElement.siblings('.selectric-form-control').addClass('is-invalid');
+                    } else {
+                        feedbackElement.siblings('.form-control').addClass('is-invalid');
+                    }
+                }
+            }
+        });
+    }
+    var element = $(formElement).find(
+        '.form-control.is-invalid, .selectric-form-control.is-invalid'
+    );
+    if (element && element.length) {
+        $('body,html').animate(
+            {
+                scrollTop: element.offset().top - 250
+            },
+            500
+        );
+    }
+    if (payload && payload.error) {
+        var form = $(formElement).prop('tagName') === 'FORM'
+            ? $(formElement)
+            : $(formElement).parents('form');
+
+        if ($(formElement).data('error-image')) {
+            form.prepend('<div class="alert alert-danger" role="alert"> <img alt="error alert" width="28px" height="28px" class="error-icon" src="'
+                + $(formElement).data('error-image') + '" />'
+                + payload.error.join('<br/>') + '</div>');
+        } else {
+            form.prepend('<div class="alert alert-danger" role="alert">'
+                + payload.error.join('<br/>') + '</div>');
+        }
+    }
+};

@@ -185,7 +185,7 @@
                                                 href="${URLUtils.url('Cart-Show')}">${Resource.msgf('checkout.dangerousGoods.viewCart', 'checkout', null)}</a>
                                             ${Resource.msgf('checkout.dangerousGoods.updateCart', 'checkout', null)}</span>
                                     </isif>
-                                    
+
                                     <button
                                         class="btn btn-primary btn-hover h-clr--white h-fw--semibold h-font-size--16 submit-shipping"
                                         type="submit" name="submit" value="submit-shipping"
@@ -233,8 +233,7 @@
                         <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 ">
                             ${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
                         <isif condition="${!pdict.isGiftProductAvailable}">
-                            <button class="edit-button pull-right b-link--underlined h-clr--black-1"
-                                aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
+                            <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}" class="edit-button pull-right b-link--underlined h-clr--black-1">${Resource.msg('action.edit.step', 'checkout', null)}</a>
                         </isif>
                     </div>
                     <isinclude template="checkout/shipping/shippingSummary" />
