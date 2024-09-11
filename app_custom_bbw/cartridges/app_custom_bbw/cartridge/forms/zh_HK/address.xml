@@ -52,6 +52,12 @@
               max-length="50" missing-error="address.city.missing"
               range-error="error.message.between2and50">
        </field>
+
+       <field formid="subDistrict" label="label.input.subdistrict" type="string" mandatory="true" min-length="2" max-length="50"
+       binding="subDistrict"
+       range-error="error.message.between2and50"
+       missing-error="address.subdistrict.missing"/>
+       
        <!--  postal code -->
        <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="false"
               min-length="0" max-length="6"

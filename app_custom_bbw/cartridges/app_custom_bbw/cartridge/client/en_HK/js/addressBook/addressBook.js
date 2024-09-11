@@ -242,6 +242,9 @@ $(document).on('click', '#editAddress', function () {
                         case 'administrative_area_level_2':
                             addressObject.city = element.long_name;
                             break;
+                        case 'administrative_area_level_3':
+                            addressObject.subDistrict = element.long_name;
+                            break;
                         case 'administrative_area_level_1':
                             addressObject.state = element.long_name;
                             break;
@@ -258,6 +261,9 @@ $(document).on('click', '#editAddress', function () {
                     .trigger('change');
                 form.find('#state').val(addressObject.state).trigger('change');
                 form.find('#city').val(addressObject.city).trigger('change');
+                form.find('#subDistrict')
+                    .val(addressObject.cisubDistricty)
+                    .trigger('change');
                 if (addressObject.address1 && addressObject.state) {
                     if (
                         form.find('#city').val() === '' ||
@@ -326,8 +332,8 @@ module.exports = $.extend({}, base, {
                 $.each(addressData[selectedState], function (suburb) {
                     suburbDropdown.append(
                         $('<option>', {
-                            value: addressData[selectedState][suburb],
-                            text: addressData[selectedState][suburb]
+                            value: suburb,
+                            text: suburb
                         })
                     );
                 });
@@ -344,6 +350,45 @@ module.exports = $.extend({}, base, {
             if (suburbDropdown.data('selected') !== '' || suburbDropdown.data('selected') !== null) {
                 var selectedVal = suburbDropdown.data('selected');
                 suburbDropdown.val(selectedVal);
+            }
+        });
+    },
+    cityDropdown: function () {
+        $('body').on('change', '.address-city-input', function () {
+            var selectedState = $(this)
+                .closest('form')
+                .find('.address-state-input')
+                .val();
+            var selectedSuburb = $(this).val();
+            var subDistrictDropdown = $(this)
+                .closest('form')
+                .find('.address-subdistrict-input');
+            var selectedSubDistrict = subDistrictDropdown.data('selected');
+            subDistrictDropdown.empty(); // clear existing options
+
+            if (
+                addressData[selectedState] &&
+                addressData[selectedState][selectedSuburb]
+            ) {
+                var districtMappingObj = addressData[selectedState][selectedSuburb];
+                districtMappingObj.forEach((subDistrict) => {
+                    if (selectedSubDistrict === subDistrict) {
+                        subDistrictDropdown.append(
+                            $('<option>', {
+                                value: subDistrict,
+                                text: subDistrict
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        subDistrictDropdown.append(
+                            $('<option>', {
+                                value: subDistrict,
+                                text: subDistrict
+                            })
+                        );
+                    }
+                });
+                subDistrictDropdown.trigger('change');
             }
         });
     },

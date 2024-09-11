@@ -833,6 +833,7 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
+            var subDistrict = attrs.subdistrict.trim();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
                 $('.shippingState option').each(function () {
@@ -847,6 +848,7 @@ module.exports = {
                 $('.shippingState option').removeAttr('selected');
                 $('.shippingState').val('');
                 $('.shippingAddressCity').val('');
+                $('.shippingAddressSubdistrict').val('');
             };
             if (city) {
                 $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
@@ -856,6 +858,20 @@ module.exports = {
                         $('.shippingAddressCity option')[0].remove();
                         $(this).attr('selected', 'selected');
                         $('body').find('.shippingAddressCity').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (subDistrict) {
+                $('.shippingAddressSubdistrict option').each(function () {
+                    if ($(this).val() === subDistrict) {
+                        $('.shippingAddressSubdistrict option').removeAttr(
+                            'selected'
+                        );
+                        $(this).attr('selected', 'selected');
+                        $('body')
+                            .find('.shippingAddressSubdistrict')
+                            .trigger('change');
                         return false;
                     }
                 });
@@ -903,7 +919,7 @@ module.exports = {
     updateShippingList: function () {
         var baseObj = this;
         $(
-            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_city"]'
+            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="dwfrm_shipping_shippingAddress_addressFields_subDistrict"]'
         ).on('change', function (e) {
             if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
                 baseObj.methods.updateShippingMethodList(
