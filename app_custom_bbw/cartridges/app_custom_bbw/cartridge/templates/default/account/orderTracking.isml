@@ -90,10 +90,10 @@
                         <div class="sign-in-wrap text-center">
                             <isif condition="${!session.isCustomerAuthenticated()}">
                             <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Login-Show')}" title="Sign In"
-                                class="h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
+                                class="d-inline h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
                             <iselse/>
                             <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Order-History')}" title="Sign In"
-                                class="h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
+                                class="d-inline h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
                             </isif>
                             <span class="h-clr--gray h-font-size--14">${Resource.msg('label.sign.in', 'order', null)}</span>
                         </div>
