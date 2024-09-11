@@ -47,12 +47,13 @@
                     <div class="m-grid-contain-childblog d-flex flex-wrap justify-content-between">
                         <isloop items="${folder.onlineContent}" var="content" status="loopstatus" begin=0>
                             <div class="blog_child_content">
-                                <img class="blogImage w-100" src="${content.custom.image.absURL}"
-                                    alt="${content.name}" />
-                                <h3 class="text-uppercase h-fw--semibold m-font-base--normal">${content.name}</h3>
-                                <p class="h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
-                                <a class="btn btn-primary read-button h-font-size--14 h-fw--medium"
-                                    hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+                                <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+                                    <img class="blogImage w-100" src="${content.custom.image.absURL}"
+                                        alt="${content.name}" />
+                                    <h3 class="text-uppercase h-fw--semibold m-font-base--normal">${content.name}</h3>
+                                    <p class="h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
+                                </a>
+                                <a class="btn btn-primary read-button h-font-size--14 h-fw--medium" hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
                                     <span>${Resource.msg('button.read.more', 'common', null)}</span>
                                 </a>
                             </div>
