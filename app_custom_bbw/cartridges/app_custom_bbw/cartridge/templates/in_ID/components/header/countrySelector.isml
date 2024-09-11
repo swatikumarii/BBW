@@ -1,0 +1,19 @@
+<isif condition="${pdict.localeModel.locale.localeLinks.length > 0}">
+    <div class="bbw-locale-links country-selector d-none d-md-flex" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0" >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 10" class="nav-flag">
+            <rect width="16" height="5" fill="#d00" />
+            <rect y="5" width="16" height="5" fill="#fff" />
+        </svg>
+        <div class="dropdown-country-selector">
+            <isloop items="${pdict.localeModel.locale.localeLinks}" var="localeLink" status="loopStatus">
+                <a class="bbw-country-link ${localeLink.isCurrentLocale ? 'selected-locale b-link--underlined h-fw--semibold' : ''}" href="${'#'}" data-locale="${localeLink.localID}"
+                    data-currencyCode="${localeLink.currencyCode}">${localeLink.language !== 'in' ? localeLink.language.toUpperCase() : Resource.msg('locale.indonesia.indonesian.language', 'common', null)}</a>
+                <isif condition="${!loopStatus.last}">
+                    <span class="bbw-locale-separator">
+                        /
+                    </span>
+                </isif>
+            </isloop>
+        </div>
+    </div>
+</isif>
