@@ -5,7 +5,6 @@
         <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}"
             value="2c2p"/>
         <fieldset>
-            2c2p
             <iscontentasset aid="2c2p-payment-description" />
         </fieldset>
     </fieldset>
