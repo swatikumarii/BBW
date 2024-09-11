@@ -7,7 +7,7 @@
         <div class="dropdown-country-selector">
             <isloop items="${pdict.localeModel.locale.localeLinks}" var="localeLink" status="loopStatus">
                 <a class="bbw-country-link ${localeLink.isCurrentLocale ? 'selected-locale b-link--underlined h-fw--semibold' : ''}" href="${'#'}" data-locale="${localeLink.localID}"
-                    data-currencyCode="${localeLink.currencyCode}">${localeLink.language !== 'in' ? localeLink.language.toUpperCase() : Resource.msg('locale.indonesia.indonesian.language', 'common', null)}</a>
+                    data-currencyCode="${localeLink.currencyCode}">${localeLink.language.toUpperCase()}</a>
                 <isif condition="${!loopStatus.last}">
                     <span class="bbw-locale-separator">
                         /
