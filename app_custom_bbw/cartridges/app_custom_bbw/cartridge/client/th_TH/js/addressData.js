@@ -1,9317 +1,859 @@
 'use strict';
 
 module.exports = {
-    'Surat Thani': {
-        'Mueang Surat Thani': {
+    กรุงเทพมหานคร: {
+        พระนคร: {
             subDistrict: [
-                'Talat',
-                'Makham Tia',
-                'Wat Pradu',
-                'Bang Bai Mai',
-                'Bang Chana',
-                'Khlong Noi',
-                'Bang Sai',
-                'Bang Pho',
-                'Bang Kung',
-                'Khlong Chanak',
-                'Khun Thale'
+                'พระบรมมหาราชวัง',
+                'วังบูรพาภิรมย์',
+                'วัดราชบพิธ',
+                'สำราญราษฎร์',
+                'ศาลเจ้าพ่อเสือ',
+                'เสาชิงช้า',
+                'บวรนิเวศ',
+                'ตลาดยอด',
+                'ชนะสงคราม',
+                'บ้านพานถม',
+                'บางขุนพรหม',
+                'วัดสามพระยา'
             ],
-            postalCodes: [84000, 84100]
+            postalCodes: ['10200']
         },
-        Chaiya: {
+        ดุสิต: {
             subDistrict: [
-                'Talat Chaiya',
-                'Phum Riang',
-                'Lamet',
-                'Wiang',
-                'Thung',
-                'Pa We',
-                'Takrop',
-                'Mo Thai',
-                'Pak Mak'
+                'ดุสิต',
+                'วชิรพยาบาล',
+                'สวนจิตรลดา',
+                'สี่แยกมหานาค',
+                'ถนนนครไชยศรี'
             ],
-            postalCodes: [84110]
+            postalCodes: ['10300']
         },
-        'Ban Na San': {
+        หนองจอก: {
             subDistrict: [
-                'Na San',
-                'Thung Tao',
-                'Lamphun',
-                'Tha Chi',
-                'Khuan Suban',
-                'Khlong Prap',
-                'Nam Phu',
-                'Thung Tao Mai',
-                'Phoem Phun Sap',
-                'Phru Phi',
-                'Khuan Si'
+                'กระทุ่มราย',
+                'หนองจอก',
+                'คลองสิบ',
+                'คลองสิบสอง',
+                'โคกแฝด',
+                'คู้ฝั่งเหนือ',
+                'ลำผักชี',
+                'ลำต้อยติ่ง'
             ],
-            postalCodes: [84120, 84270]
+            postalCodes: ['10530']
         },
-        Phunphin: {
+        บางรัก: {
             subDistrict: [
-                'Tha Kham',
-                'Tha Sathon',
-                'Lilet',
-                'Bang Maduea',
-                'Bang Duean',
-                'Tha Rong Chang',
-                'Krut',
-                'Phunphin',
-                'Bang Ngon',
-                'Si Wichai',
-                'Nam Rop',
-                'Maluan',
-                'Hua Toei',
-                'Nong Sai',
-                'Khao Hua Khwai',
-                'Tapan'
+                'มหาพฤฒาราม',
+                'สีลม',
+                'สุริยวงศ์',
+                'บางรัก',
+                'สี่พระยา'
             ],
-            postalCodes: [84130]
+            postalCodes: ['10500']
         },
-        'Ko Samui': {
+        บางเขน: {
+            subDistrict: ['อนุสาวรีย์', 'ท่าแร้ง'],
+            postalCodes: ['10220']
+        },
+        บางกะปิ: {
+            subDistrict: ['คลองจั่น', 'หัวหมาก'],
+            postalCodes: ['10240']
+        },
+        ปทุมวัน: {
+            subDistrict: ['รองเมือง', 'วังใหม่', 'ปทุมวัน', 'ลุมพินี'],
+            postalCodes: ['10330']
+        },
+        ป้อมปราบศัตรูพ่าย: {
             subDistrict: [
-                'Ang Thong',
-                'Lipa Noi',
-                'Taling Ngam',
-                'Na Mueang',
-                'Maret',
-                'Bo Phut',
-                'Mae Nam'
+                'ป้อมปราบ',
+                'วัดเทพศิรินทร์',
+                'คลองมหานาค',
+                'บ้านบาตร',
+                'วัดโสมนัส'
             ],
-            postalCodes: [84140, 84310, 84320, 84330]
+            postalCodes: ['10100']
         },
-        'Tha Chang': {
+        พระโขนง: {
+            subDistrict: ['บางจาก', 'พระโขนงใต้'],
+            postalCodes: ['10260']
+        },
+        มีนบุรี: {
+            subDistrict: ['มีนบุรี', 'แสนแสบ'],
+            postalCodes: ['10510']
+        },
+        ลาดกระบัง: {
             subDistrict: [
-                'Tha Chang',
-                'Tha Khoei',
-                'Khlong Sai',
-                'Khao Than',
-                'Sawiat',
-                'Pak Chalui'
+                'ลาดกระบัง',
+                'คลองสองต้นนุ่น',
+                'คลองสามประเวศ',
+                'ลำปลาทิว',
+                'ทับยาว',
+                'ขุมทอง'
             ],
-            postalCodes: [84150]
+            postalCodes: ['10520']
         },
-        Kanchanadit: {
+        ยานนาวา: {
+            subDistrict: ['ช่องนนทรี', 'บางโพงพาง'],
+            postalCodes: ['10120']
+        },
+        สัมพันธวงศ์: {
+            subDistrict: ['จักรวรรดิ', 'สัมพันธวงศ์', 'ตลาดน้อย'],
+            postalCodes: ['10100']
+        },
+        พญาไท: {
+            subDistrict: ['สามเสนใน', 'พญาไท'],
+            postalCodes: ['10400']
+        },
+        ธนบุรี: {
             subDistrict: [
-                'Tha Thong',
-                'Kadae',
-                'Krut',
-                'Chang Sai',
-                'Phlai Wat',
-                'Pa Ron',
-                'Takhian Thong',
-                'Chang Khwa',
-                'Tha U-thae',
-                'Khlong Sa',
-                'Tha Thong Mai',
-                'Thung Kong',
-                'Thung Rang'
+                'วัดกัลยาณ์',
+                'หิรัญรูจี',
+                'บางยี่เรือ',
+                'บุคคโล',
+                'ตลาดพลู',
+                'ดาวคะนอง',
+                'สำเหร่'
             ],
-            postalCodes: [84160, 84290]
+            postalCodes: ['10600']
         },
-        'Don Sak': {
+        บางกอกใหญ่: {
+            subDistrict: ['วัดอรุณ', 'วัดท่าพระ'],
+            postalCodes: ['10600']
+        },
+        ห้วยขวาง: {
+            subDistrict: ['ห้วยขวาง', 'บางกะปิ', 'สามเสนนอก'],
+            postalCodes: ['10310']
+        },
+        คลองสาน: {
             subDistrict: [
-                'Chonlakhram',
-                'Don Sak',
-                'Chaiyakhram',
-                'Pak Phraek'
+                'สมเด็จเจ้าพระยา',
+                'คลองสาน',
+                'บางลำภูล่าง',
+                'คลองต้นไทร'
             ],
-            postalCodes: [84160, 84220, 84340]
+            postalCodes: ['10600']
         },
-        'Tha Chana': {
+        ตลิ่งชัน: {
             subDistrict: [
-                'Tha Chana',
-                'Samo Thong',
-                'Prasong',
-                'Khan Thuli',
-                'Wang',
-                'Khlong Pha'
+                'คลองชักพระ',
+                'ตลิ่งชัน',
+                'ฉิมพลี',
+                'บางพรม',
+                'บางระมาด',
+                'บางเชือกหนัง'
             ],
-            postalCodes: [84170]
+            postalCodes: ['10170']
         },
-        'Khiri Rat Nikhom': {
+        บางกอกน้อย: {
             subDistrict: [
-                'Tha Khanon',
-                'Ban Yang',
-                'Nam Hak',
-                'Kapao',
-                'Tha Kradan',
-                'Yan Yao',
-                'Tham Singkhon',
-                'Ban Thamniap'
+                'ศิริราช',
+                'บ้านช่างหล่อ',
+                'บางขุนนนท์',
+                'บางขุนศรี',
+                'อรุณอมรินทร์'
             ],
-            postalCodes: [84180]
+            postalCodes: ['10700']
         },
-        Vibhavadi: {
-            subDistrict: ['Takuk Tai', 'Takuk Nuea'],
-            postalCodes: [84180]
+        บางขุนเทียน: {
+            subDistrict: ['ท่าข้าม', 'แสมดำ'],
+            postalCodes: ['10150']
         },
-        'Wiang Sa': {
+        ภาษีเจริญ: {
             subDistrict: [
-                'Wiang Sa',
-                'Ban Song',
-                'Khlong Chanuan',
-                'Thung Luang',
-                'Khao Niphan'
+                'บางหว้า',
+                'บางด้วน',
+                'บางจาก',
+                'บางแวก',
+                'คลองขวาง',
+                'ปากคลองภาษีเจริญ',
+                'คูหาสวรรค์'
             ],
-            postalCodes: [84190]
+            postalCodes: ['10160']
         },
-        'Khian Sa': {
+        หนองแขม: {
+            subDistrict: ['หนองแขม', 'หนองค้างพลู'],
+            postalCodes: ['10160']
+        },
+        ราษฎร์บูรณะ: {
+            subDistrict: ['ราษฎร์บูรณะ', 'บางปะกอก'],
+            postalCodes: ['10140']
+        },
+        บางพลัด: {
+            subDistrict: ['บางพลัด', 'บางอ้อ', 'บางบำหรุ', 'บางยี่ขัน'],
+            postalCodes: ['10700']
+        },
+        ดินแดง: {
+            subDistrict: ['ดินแดง', 'รัชดาภิเษก'],
+            postalCodes: ['10400']
+        },
+        บึงกุ่ม: {
+            subDistrict: ['คลองกุ่ม', 'นวมินทร์', 'นวลจันทร์'],
+            postalCodes: ['10240', '10230']
+        },
+        สาทร: {
+            subDistrict: ['ทุ่งวัดดอน', 'ยานนาวา', 'ทุ่งมหาเมฆ'],
+            postalCodes: ['10120']
+        },
+        บางซื่อ: {
+            subDistrict: ['บางซื่อ', 'วงศ์สว่าง'],
+            postalCodes: ['10800']
+        },
+        จตุจักร: {
             subDistrict: [
-                'Phuang Phrom Khon',
-                'Khian Sa',
-                'Khao Tok',
-                'Aranyakham Wari',
-                'Ban Sadet'
+                'ลาดยาว',
+                'เสนานิคม',
+                'จันทรเกษม',
+                'จอมพล',
+                'จตุจักร'
             ],
-            postalCodes: [84210, 84260]
+            postalCodes: ['10900']
         },
-        Phrasaeng: {
+        บางคอแหลม: {
+            subDistrict: ['บางคอแหลม', 'วัดพระยาไกร', 'บางโคล่'],
+            postalCodes: ['10120']
+        },
+        ประเวศ: {
+            subDistrict: ['ประเวศ', 'หนองบอน', 'ดอกไม้'],
+            postalCodes: ['10250']
+        },
+        คลองเตย: {
+            subDistrict: ['คลองเตย', 'คลองตัน', 'พระโขนง'],
+            postalCodes: ['10110']
+        },
+        สวนหลวง: {
+            subDistrict: ['สวนหลวง', 'อ่อนนุช', 'พัฒนาการ'],
+            postalCodes: ['10250']
+        },
+        จอมทอง: {
+            subDistrict: ['บางขุนเทียน', 'บางค้อ', 'บางมด', 'จอมทอง'],
+            postalCodes: ['10150']
+        },
+        ดอนเมือง: {
+            subDistrict: ['สีกัน', 'ดอนเมือง', 'สนามบิน'],
+            postalCodes: ['10210']
+        },
+        ราชเทวี: {
+            subDistrict: ['ทุ่งพญาไท', 'ถนนพญาไท', 'ถนนเพชรบุรี', 'มักกะสัน'],
+            postalCodes: ['10400']
+        },
+        ลาดพร้าว: {
+            subDistrict: ['ลาดพร้าว', 'จรเข้บัว'],
+            postalCodes: ['10230']
+        },
+        วัฒนา: {
+            subDistrict: ['คลองเตยเหนือ', 'คลองตันเหนือ', 'พระโขนงเหนือ'],
+            postalCodes: ['10110']
+        },
+        บางแค: {
+            subDistrict: ['บางแค', 'บางแคเหนือ', 'บางไผ่', 'หลักสอง'],
+            postalCodes: ['10160']
+        },
+        หลักสี่: {
+            subDistrict: ['ทุ่งสองห้อง', 'ตลาดบางเขน'],
+            postalCodes: ['10210']
+        },
+        สายไหม: {
+            subDistrict: ['สายไหม', 'ออเงิน', 'คลองถนน'],
+            postalCodes: ['10220']
+        },
+        คันนายาว: {
+            subDistrict: ['คันนายาว', 'รามอินทรา'],
+            postalCodes: ['10230']
+        },
+        สะพานสูง: {
+            subDistrict: ['สะพานสูง', 'ราษฎร์พัฒนา', 'ทับช้าง'],
+            postalCodes: ['10240', '10250']
+        },
+        วังทองหลาง: {
             subDistrict: [
-                'I-pan',
-                'Sin Pun',
-                'Bang Sawan',
-                'Sai Khueng',
-                'Sin Charoen',
-                'Sai Sopha',
-                'Sakhu'
+                'วังทองหลาง',
+                'สะพานสอง',
+                'คลองเจ้าคุณสิงห์',
+                'พลับพลา'
             ],
-            postalCodes: [84210]
+            postalCodes: ['10310']
         },
-        'Ban Ta Khun': {
-            subDistrict: ['Khao Wong', 'Phasaeng', 'Phru Thai', 'Khao Phang'],
-            postalCodes: [84230]
-        },
-        'Ban Na Doem': {
-            subDistrict: ['Ban Na', 'Tha Ruea', 'Sap Thawi', 'Na Tai'],
-            postalCodes: [84240]
-        },
-        Phanom: {
+        คลองสามวา: {
             subDistrict: [
-                'Phanom',
-                'Ton Yuan',
-                'Khlong Sok',
-                'Phlu Thuean',
-                'Phang Kan',
-                'Khlong Cha-un'
+                'สามวาตะวันตก',
+                'สามวาตะวันออก',
+                'บางชัน',
+                'ทรายกองดิน',
+                'ทรายกองดินใต้'
             ],
-            postalCodes: [84250]
+            postalCodes: ['10510']
         },
-        'Ko Pha-ngan': {
-            subDistrict: ['Ko Pha-ngan', 'Ban Tai', 'Ko Tao', 'Ko Tao'],
-            postalCodes: [84280, 84360]
+        บางนา: {
+            subDistrict: ['บางนาเหนือ', 'บางนาใต้'],
+            postalCodes: ['10260']
         },
-        'Chai Buri': {
+        ทวีวัฒนา: {
+            subDistrict: ['ทวีวัฒนา', 'ศาลาธรรมสพน์'],
+            postalCodes: ['10170']
+        },
+        ทุ่งครุ: {
+            subDistrict: ['บางมด', 'ทุ่งครุ'],
+            postalCodes: ['10140']
+        },
+        บางบอน: {
             subDistrict: [
-                'Song Phraek',
-                'Chai Buri',
-                'Khlong Noi',
-                'Sai Thong'
+                'บางบอนเหนือ',
+                'บางบอนใต้',
+                'คลองบางพราน',
+                'คลองบางบอน'
             ],
-            postalCodes: [84350]
+            postalCodes: ['10150']
         }
     },
-    Nonthaburi: {
-        'Muang Nonthaburee': {
+    สมุทรปราการ: {
+        เมืองสมุทรปราการ: {
             subDistrict: [
-                'Suanyai',
-                'Taladkwan',
-                'Bangkhen',
-                'Bangkrasor',
-                'Tha Sai',
-                'Bangphai',
-                'Bangsrimuang',
-                'Bangkrang',
-                'Saimai',
-                'Bangraknoi'
+                'ปากน้ำ',
+                'สำโรงเหนือ',
+                'บางเมือง',
+                'ท้ายบ้าน',
+                'บางปูใหม่',
+                'แพรกษา',
+                'บางโปรง',
+                'บางปู',
+                'บางด้วน',
+                'บางเมืองใหม่',
+                'เทพารักษ์',
+                'ท้ายบ้านใหม่',
+                'แพรกษาใหม่'
             ],
-            postalCodes: [11000]
+            postalCodes: ['10270', '10280']
         },
-        Bangbuatong: {
+        บางบ่อ: {
             subDistrict: [
-                'Sanholoi',
-                'Bangbuatong',
-                'Bangrakyai',
-                'Bangkhurat',
-                'Laharn',
-                'Lampho',
-                'Pimonrat',
-                'Bangrakpattana'
+                'บางบ่อ',
+                'บ้านระกาศ',
+                'บางพลีน้อย',
+                'บางเพรียง',
+                'คลองด่าน',
+                'คลองสวน',
+                'เปร็ง',
+                'คลองนิยมยาตรา'
             ],
-            postalCodes: [11110]
+            postalCodes: ['10560', '10550']
         },
-        Pakkret: {
+        บางพลี: {
             subDistrict: [
-                'Pakkret',
-                'Bangtalad',
-                'Bangmai',
-                'Bangphood',
-                'Bangtanai',
-                'Klongpraudom',
-                'Thait',
-                'Koh Kred',
-                'Aomkred',
-                'Khlong Koi',
-                'Bangplub',
-                'Khlong Klua'
+                'บางพลีใหญ่',
+                'บางแก้ว',
+                'บางปลา',
+                'บางโฉลง',
+                'ราชาเทวะ',
+                'หนองปรือ'
             ],
-            postalCodes: [11120]
+            postalCodes: ['10540']
         },
-        Bangkruai: {
+        พระประแดง: {
             subDistrict: [
-                'Watchalor',
-                'Bangkruai',
-                'Bangseetong',
-                'Bangkhanoon',
-                'Bangkhunkong',
-                'Bangkoowieng',
-                'Mahasawat',
-                'Plaibang',
-                'Salakang'
+                'ตลาด',
+                'บางพึ่ง',
+                'บางจาก',
+                'บางครุ',
+                'บางหญ้าแพรก',
+                'บางหัวเสือ',
+                'สำโรงใต้',
+                'บางยอ',
+                'บางกะเจ้า',
+                'บางน้ำผึ้ง',
+                'บางกระสอบ',
+                'บางกอบัว',
+                'ทรงคนอง',
+                'สำโรง',
+                'สำโรงกลาง'
             ],
-            postalCodes: [11130]
+            postalCodes: ['10130']
         },
-        Bangyai: {
+        พระสมุทรเจดีย์: {
             subDistrict: [
-                'Bangmuang',
-                'Bangmaenang',
-                'Banglane',
-                'Saotonghin',
-                'Bangyai',
-                'Banmai'
+                'นาเกลือ',
+                'บ้านคลองสวน',
+                'แหลมฟ้าผ่า',
+                'ปากคลองบางปลากด',
+                'ในคลองบางปลากด'
             ],
-            postalCodes: [11140]
+            postalCodes: ['10290']
         },
-        Sainoi: {
-            subDistrict: [
-                'Sainoi',
-                'Ratniyom',
-                'Nhongpraongai',
-                'Saiyao',
-                'Khunsri',
-                'Klongkwang',
-                'Taweewattana'
-            ],
-            postalCodes: [11150]
+        บางเสาธง: {
+            subDistrict: ['บางเสาธง', 'ศีรษะจรเข้น้อย', 'ศีรษะจรเข้ใหญ่'],
+            postalCodes: ['10570']
         }
     },
-    Bangkok: {
-        'Pom Prap Sattru Phai': {
+    นนทบุรี: {
+        เมืองนนทบุรี: {
             subDistrict: [
-                'Pom Prap',
-                'Wat Thep Sirin',
-                'Klong Maha Nak',
-                'Ban Bat',
-                'Wat Sommanat'
+                'สวนใหญ่',
+                'ตลาดขวัญ',
+                'บางเขน',
+                'บางกระสอ',
+                'ท่าทราย',
+                'บางไผ่',
+                'บางศรีเมือง',
+                'บางกร่าง',
+                'ไทรม้า',
+                'บางรักน้อย'
             ],
-            postalCodes: [10100]
+            postalCodes: ['11000']
         },
-        Samphanthawong: {
-            subDistrict: ['Chakkrawat', 'Sampantawong', 'Talat Noi'],
-            postalCodes: [10100]
-        },
-        'Klong Toei': {
-            subDistrict: ['Klong Toei', 'Klong Tan', 'Phra Kanong'],
-            postalCodes: [10110]
-        },
-        Wattana: {
+        บางกรวย: {
             subDistrict: [
-                'Khlong Toei Nuea',
-                'Khlong Tan Nuea',
-                'Phra Khanong Nuea'
+                'วัดชลอ',
+                'บางกรวย',
+                'บางสีทอง',
+                'บางขนุน',
+                'บางขุนกอง',
+                'บางคูเวียง',
+                'มหาสวัสดิ์',
+                'ปลายบาง',
+                'ศาลากลาง'
             ],
-            postalCodes: [10110]
+            postalCodes: ['11130']
         },
-        'Yan Nawa': {
-            subDistrict: ['Chongnonsee', 'Bangpongpang'],
-            postalCodes: [10120]
-        },
-        Sathorn: {
-            subDistrict: ['Tung Wat Don', 'Yannawa', 'Tung Mahamek'],
-            postalCodes: [10120]
-        },
-        Bangkholaem: {
-            subDistrict: ['Bangkholaem', 'Wat Prayakrai', 'Bangklo'],
-            postalCodes: [10120]
-        },
-        Ratburana: {
-            subDistrict: ['Ratburana', 'Bangpakok'],
-            postalCodes: [10140]
-        },
-        Tungkru: { subDistrict: ['Bangmod', 'Tungkru'], postalCodes: [10140] },
-        Bangkhuntian: {
-            subDistrict: ['Takham', 'Samaedam'],
-            postalCodes: [10150]
-        },
-        Jomthong: {
-            subDistrict: ['Bangkhuntian', 'Bangkor', 'Bangmod', 'Jomthong'],
-            postalCodes: [10150]
-        },
-        Bangbon: { subDistrict: ['Bangbon'], postalCodes: [10150] },
-        'Phasi Charoen': {
+        บางใหญ่: {
             subDistrict: [
-                'Bang Wa',
-                'Bang Duan',
-                'Bang Chak',
-                'Bang Waek',
-                'Klong Khwang',
-                'Pak Klong Paseecharoen',
-                'Khuha Sawan'
+                'บางม่วง',
+                'บางแม่นาง',
+                'บางเลน',
+                'เสาธงหิน',
+                'บางใหญ่',
+                'บ้านใหม่'
             ],
-            postalCodes: [10160]
+            postalCodes: ['11140']
         },
-        'Nhong Khaem': {
-            subDistrict: ['Nhong Khaem', 'Nhong Khang Plu'],
-            postalCodes: [10160]
-        },
-        'Bang Khae': {
-            subDistrict: ['Bang Khae', 'Bangkae Nua', 'Bangphai', 'Laksong'],
-            postalCodes: [10160]
-        },
-        'Taling Chan': {
+        บางบัวทอง: {
             subDistrict: [
-                'Klongchakpra',
-                'Talingchan',
-                'Chimplee',
-                'Bangplom',
-                'Bangramad',
-                'Bangcheuknang'
+                'โสนลอย',
+                'บางบัวทอง',
+                'บางรักใหญ่',
+                'บางคูรัด',
+                'ละหาร',
+                'ลำโพ',
+                'พิมลราช',
+                'บางรักพัฒนา'
             ],
-            postalCodes: [10170]
+            postalCodes: ['11110']
         },
-        Taweewattana: {
-            subDistrict: ['Taweewattana', 'Sala Thammasop'],
-            postalCodes: [10170]
-        },
-        Phranakorn: {
+        ไทรน้อย: {
             subDistrict: [
-                'Phraborommaharatchawang',
-                'Wangburapapirom',
-                'Watratchabopit',
-                'Samranrat',
-                'Sarn Jao Phor Sua',
-                'Saochingcha',
-                'Bowornnivet',
-                'Taladyot',
-                'Chana Songkram',
-                'Banpanthom',
-                'Bangkhunprom',
-                'Watsampraya'
+                'ไทรน้อย',
+                'ราษฎร์นิยม',
+                'หนองเพรางาย',
+                'ไทรใหญ่',
+                'ขุนศรี',
+                'คลองขวาง',
+                'ทวีวัฒนา'
             ],
-            postalCodes: [10200]
+            postalCodes: ['11150']
         },
-        Donmuang: {
-            subDistrict: ['Seekan', 'Donmuang', 'Sanambin'],
-            postalCodes: [10210]
-        },
-        Laksi: {
-            subDistrict: ['Tung Song Hong', 'Talad Bangkhen'],
-            postalCodes: [10210]
-        },
-        'Bang Khen': {
-            subDistrict: ['Anusaowaree', 'Ta Rang'],
-            postalCodes: [10220]
-        },
-        Saimai: {
-            subDistrict: ['Saimai', 'Orngoen', 'Klong Tanon'],
-            postalCodes: [10220]
-        },
-        Ladprow: {
-            subDistrict: ['Ladprow', 'Jorakaebua'],
-            postalCodes: [10230]
-        },
-        Kannayao: {
-            subDistrict: ['Kannayao', 'Ramintra'],
-            postalCodes: [10230]
-        },
-        Bangkapi: {
-            subDistrict: ['Klongjan', 'Huamark'],
-            postalCodes: [10240]
-        },
-        Beungkum: {
-            subDistrict: ['Klongkum', 'Nawamin', 'Nualchan'],
-            postalCodes: [10240]
-        },
-        Sapansung: { subDistrict: ['Sapansung'], postalCodes: [10240] },
-        Prawet: {
-            subDistrict: ['Prawet', 'Nongbon', 'Dokmai'],
-            postalCodes: [10250]
-        },
-        Suanluang: { subDistrict: ['Suanluang'], postalCodes: [10250] },
-        Prakanong: { subDistrict: ['Bangjak'], postalCodes: [10260] },
-        Bangna: { subDistrict: ['Bangna'], postalCodes: [10260] },
-        Dusit: {
+        ปากเกร็ด: {
             subDistrict: [
-                'Dusit',
-                'Vajirapayaban',
-                'Suan Jitlada',
-                'Si Yaek Mahanak',
-                'Thanon Nakornchaisee',
-                'Suan Jitlada'
+                'ปากเกร็ด',
+                'บางตลาด',
+                'บ้านใหม่',
+                'บางพูด',
+                'บางตะไนย์',
+                'คลองพระอุดม',
+                'ท่าอิฐ',
+                'เกาะเกร็ด',
+                'อ้อมเกร็ด',
+                'คลองข่อย',
+                'บางพลับ',
+                'คลองเกลือ'
             ],
-            postalCodes: [10300, 10303]
-        },
-        Huaykwang: {
-            subDistrict: ['Huaykwang', 'Bangkapi', 'Samsennok', 'Huaykwang'],
-            postalCodes: [10310, 10320]
-        },
-        Wangtonglang: {
-            subDistrict: [
-                'Wangtonglang',
-                'Saphan Song',
-                'Klong Chao Kun Singha',
-                'Plubpla',
-                'Plubpla'
-            ],
-            postalCodes: [10310, 10312]
-        },
-        Pathumwan: {
-            subDistrict: ['Rongmuang', 'Wangmai', 'Pathumwan', 'Lumpini'],
-            postalCodes: [10330]
-        },
-        Phayathai: { subDistrict: ['Samsennai'], postalCodes: [10400] },
-        Dindaeng: { subDistrict: ['Dindaeng'], postalCodes: [10400] },
-        Ratchatewee: {
-            subDistrict: [
-                'Tung Phayathai',
-                'Thanon Phayathai',
-                'Thanon Phetburee',
-                'Makkasan'
-            ],
-            postalCodes: [10400]
-        },
-        Bangrak: {
-            subDistrict: [
-                'Mahapheutharam',
-                'Silom',
-                'Suriyawongse',
-                'Bangrak',
-                'Sipraya'
-            ],
-            postalCodes: [10500]
-        },
-        Minburee: { subDistrict: ['Minburee', 'Sansab'], postalCodes: [10510] },
-        Klongsamwa: {
-            subDistrict: [
-                'Samwa Thawantok',
-                'Samwa Thawanook',
-                'Bangchan',
-                'Sai Klong Din',
-                'Sai Klong Din Tai'
-            ],
-            postalCodes: [10510]
-        },
-        Latkrabang: {
-            subDistrict: [
-                'Latkrabang',
-                'Klong Song Ton Noon',
-                'Klong Sam Prawet',
-                'Lam Pla Tiew',
-                'Tabyao',
-                'Khumtong'
-            ],
-            postalCodes: [10520]
-        },
-        Nhongjok: {
-            subDistrict: [
-                'Kathumrai',
-                'Nhongjok',
-                'Klong Sib',
-                'Klong Sibsong',
-                'Khok Fad',
-                'Khoo Fang Nua',
-                'Lam Pak She',
-                'Lam Toi Ting'
-            ],
-            postalCodes: [10530]
-        },
-        Thonburee: {
-            subDistrict: [
-                'Watkalaya',
-                'Hirunrujee',
-                'Bangyeerua',
-                'Bukkhalo',
-                'Taladplu',
-                'Daokanong',
-                'Samlae'
-            ],
-            postalCodes: [10600]
-        },
-        Bangkokyai: {
-            subDistrict: ['Watarun', 'Watthapra'],
-            postalCodes: [10600]
-        },
-        Klongsarn: {
-            subDistrict: [
-                'Somdetchaopraya',
-                'Klongsarn',
-                'Banglampulang',
-                'Klongtonsai'
-            ],
-            postalCodes: [10600]
-        },
-        Bangkoknoi: {
-            subDistrict: [
-                'Siriraj',
-                'Banchanglor',
-                'Bangkhunnon',
-                'Bangkhunsri',
-                'Arunummarin'
-            ],
-            postalCodes: [10700]
-        },
-        Bangplut: {
-            subDistrict: ['Bangplut', 'Bangor', 'Bangbumru', 'Bangyeekhan'],
-            postalCodes: [10700]
-        },
-        Bangsue: {
-            subDistrict: ['Bangsue', 'Wongsawang'],
-            postalCodes: [10800]
-        },
-        Jatujak: {
-            subDistrict: [
-                'Latyao',
-                'Senanikhom',
-                'Chantarakasem',
-                'Jomphol',
-                'Jatujak'
-            ],
-            postalCodes: [10900]
+            postalCodes: ['11120']
         }
     },
-    'Samut Prakan': {
-        Prapadaeng: {
+    ปทุมธานี: {
+        เมืองปทุมธานี: {
             subDistrict: [
-                'Talad',
-                'Bang Pheung',
-                'Bang Jak',
-                'Bangkru',
-                'Bangyaprak',
-                'Bang Hua Sua',
-                'Sam Rong Tai',
-                'Bang Yor',
-                'Bang Ka Chao',
-                'Bang Nam Pheung',
-                'Bangkrasop',
-                'Bangkorbua',
-                'Songkanong',
-                'Samrong',
-                'Samrong Klang'
+                'บางปรอก',
+                'บ้านใหม่',
+                'บ้านกลาง',
+                'บ้านฉาง',
+                'บ้านกระแชง',
+                'บางขะแยง',
+                'บางคูวัด',
+                'บางหลวง',
+                'บางเดื่อ',
+                'บางพูด',
+                'บางพูน',
+                'บางกะดี',
+                'สวนพริกไทย',
+                'หลักหก'
             ],
-            postalCodes: [10130]
+            postalCodes: ['12000']
         },
-        'Muang Samut Prakarn': {
+        คลองหลวง: {
             subDistrict: [
-                'Paknam',
-                'Samrong Nua',
-                'Bang Muang',
-                'Bang Prong',
-                'Bang Duan',
-                'Bang Meung Mai',
-                'Teparak',
-                'Huanban',
-                'Bang Poo Mai',
-                'Praksa',
-                'Bang Poo',
-                'Huay Ban Mai',
-                'Praksa Mai'
+                'คลองหนึ่ง',
+                'คลองสอง',
+                'คลองสาม',
+                'คลองสี่',
+                'คลองห้า',
+                'คลองหก',
+                'คลองเจ็ด'
             ],
-            postalCodes: [10270, 10280]
+            postalCodes: ['12120']
         },
-        'Pra Samut Chedi': {
+        ธัญบุรี: {
             subDistrict: [
-                'Na Glur',
-                'Ban Klong Suan',
-                'Lam Fah Pa',
-                'Pak Klong Bang Pla Kod',
-                'Nai Klong Bang Pla Kod'
+                'ประชาธิปัตย์',
+                'บึงยี่โถ',
+                'รังสิต',
+                'ลำผักกูด',
+                'บึงสนั่น',
+                'บึงน้ำรักษ์'
             ],
-            postalCodes: [10290]
+            postalCodes: ['12130', '12110']
         },
-        Bangpli: {
+        หนองเสือ: {
             subDistrict: [
-                'Bangpliyai',
-                'Bangkaew',
-                'Bangpla',
-                'Bangchalong',
-                'Rajathewa',
-                'Nhongprue'
+                'บึงบา',
+                'บึงบอน',
+                'บึงกาสาม',
+                'บึงชำอ้อ',
+                'หนองสามวัง',
+                'ศาลาครุ',
+                'นพรัตน์'
             ],
-            postalCodes: [10540]
+            postalCodes: ['12170']
         },
-        Bangsaotong: {
+        ลาดหลุมแก้ว: {
             subDistrict: [
-                'Bangsaotong',
-                'Srisajorakaenoi',
-                'Srisajorakaeyai',
-                'Bangsaotong'
+                'ระแหง',
+                'ลาดหลุมแก้ว',
+                'คูบางหลวง',
+                'คูขวาง',
+                'คลองพระอุดม',
+                'บ่อเงิน',
+                'หน้าไม้'
             ],
-            postalCodes: [10540, 10570]
+            postalCodes: ['12140']
         },
-        Bangbor: {
+        ลำลูกกา: {
             subDistrict: [
-                'Klongdarn',
-                'Bangbor',
-                'Banrakat',
-                'Bangplinoi',
-                'Bangprieng',
-                'Klongsuan',
-                'Preng',
-                'Klongniyomyatra'
+                'คูคต',
+                'ลาดสวาย',
+                'บึงคำพร้อย',
+                'ลำลูกกา',
+                'บึงทองหลาง',
+                'ลำไทร',
+                'บึงคอไห',
+                'พืชอุดม'
             ],
-            postalCodes: [10550, 10560]
+            postalCodes: ['12130', '12150']
+        },
+        สามโคก: {
+            subDistrict: [
+                'บางเตย',
+                'คลองควาย',
+                'สามโคก',
+                'กระแชง',
+                'บางโพธิ์เหนือ',
+                'เชียงรากใหญ่',
+                'บ้านปทุม',
+                'บ้านงิ้ว',
+                'เชียงรากน้อย',
+                'บางกระบือ',
+                'ท้ายเกาะ'
+            ],
+            postalCodes: ['12160']
         }
     },
-    'Pathum Thani': {
-        'Muang Pathumthanee': {
-            subDistrict: [
-                'Bangprok',
-                'Banmai',
-                'Banklang',
-                'Banchang',
-                'Bankrasang',
-                'Bangkayang',
-                'Bangkoowat',
-                'Bangluang',
-                'Bangdua',
-                'Bangpood',
-                'Bangpoon',
-                'Bangkadee',
-                'Suanprikthai',
-                'Lakhok'
-            ],
-            postalCodes: [12000]
-        },
-        Thanyaburee: {
-            subDistrict: [
-                'Rangsit',
-                'Lampakkood',
-                'Beungsanan',
-                'Beungnamrak',
-                'Prachatipat',
-                'Beungyeetho'
-            ],
-            postalCodes: [12110, 12130]
-        },
-        Klongluang: {
-            subDistrict: [
-                'Klongluang',
-                'Klongsong',
-                'Klongsam',
-                'Klongsee',
-                'Klongha',
-                'Klonghok',
-                'Klongjed'
-            ],
-            postalCodes: [12120]
-        },
-        Lamlookka: {
-            subDistrict: [
-                'Khukot',
-                'Lat Sawai',
-                'Beung Kham Prom',
-                'Lamlookka',
-                'Beungtonglang',
-                'Lamsai',
-                'Beungkorhai',
-                'Peutudom'
-            ],
-            postalCodes: [12130, 12150]
-        },
-        Latlhumkaew: {
-            subDistrict: [
-                'Rahang',
-                'Latlhumkaew',
-                'Koobangluang',
-                'Kookwang',
-                'Khlongpraudom',
-                'Bor Ngeun',
-                'Na Mhai'
-            ],
-            postalCodes: [12140]
-        },
-        Samkok: {
-            subDistrict: [
-                'Bangtoei',
-                'Klongkwai',
-                'Samkok',
-                'Krasang',
-                'Bangphonua',
-                'Chiangrakyai',
-                'Banpathum',
-                'Banngue',
-                'Chiangraknoi',
-                'Bangkrabue',
-                'Tai Kor'
-            ],
-            postalCodes: [12160]
-        },
-        Nongsua: {
-            subDistrict: [
-                'Beungba',
-                'Beungbon',
-                'Beungkasam',
-                'Beungchamor',
-                'Nhongsamwang',
-                'Salakru',
-                'Nopparat'
-            ],
-            postalCodes: [12170]
-        }
-    },
-    'Phra Nakhon Si Ayutthaya': {
-        'Phra Nakhon Si Ayutthaya': {
-            subDistrict: [
-                'Pratoochai',
-                'Kamang',
-                'Horrattanachai',
-                'Huaror',
-                'Thawasukree',
-                'Phailing',
-                'Pakkran',
-                'Phukhaotong',
-                'Sampaolom',
-                'Suanprik',
-                'Klongtakien',
-                'Wattoom',
-                'Huntra',
-                'Lumpli',
-                'Banmai',
-                'Bankor',
-                'Klongsuanplu',
-                'Klongsrabua',
-                'Kohrien',
-                'Banpom',
-                'Banrun'
-            ],
-            postalCodes: [13000]
-        },
-        Sena: {
-            subDistrict: [
-                'Sena',
-                'Banpan',
-                'Jaojet',
-                'Samkor',
-                'Bangnomkho',
-                'Huawieng',
-                'Marnwichai',
-                'Banpho',
-                'Rangjorrakhae',
-                'Bankrathum',
-                'Bantaew',
-                'Chaina',
-                'Samtoom',
-                'Ladnga',
-                'Dontong',
-                'Banluang',
-                'Chaosadej'
-            ],
-            postalCodes: [13110]
-        },
-        Pakhai: {
-            subDistrict: [
-                'Pakhai',
-                'Amarit',
-                'Bangkhae',
-                'Ladnhamkhem',
-                'Talarn',
-                'Thadindaeng',
-                'Kudee',
-                'Khokchang',
-                'Ladchit',
-                'Nhakhok',
-                'Banyai',
-                'Donlarn',
-                'Nakoo',
-                'Lamtakien',
-                'Jakkarat',
-                'Nhongnamyai'
-            ],
-            postalCodes: [13120, 13280]
-        },
-        Thareur: {
-            subDistrict: [
-                'Thareur',
-                'Champa',
-                'Thaluang',
-                'Banrom',
-                'Salaloi',
-                'Wangdang',
-                'Phoen',
-                'Paktha',
-                'Nongkanak',
-                'Thachaosanook'
-            ],
-            postalCodes: [13130]
-        },
-        Pashe: {
-            subDistrict: [
-                'Pashe',
-                'Khokmuang',
-                'Rasom',
-                'Nhongnamsai',
-                'Donyanang',
-                'Phailom',
-                'Krachiew',
-                'Prakaew'
-            ],
-            postalCodes: [13140]
-        },
-        Maharaj: {
-            subDistrict: [
-                'Huaphai',
-                'Katoom',
-                'Maharaj',
-                'Namtao',
-                'Bangna',
-                'Rongchang',
-                'Jaoplook',
-                'Pitpien',
-                'Banna',
-                'Bankwang',
-                'Thator',
-                'Banmai'
-            ],
-            postalCodes: [13150]
-        },
-        'Bangpa-in': {
-            subDistrict: [
-                'Banlane',
-                'Banpho',
-                'Bankrot',
-                'Bangkasan',
-                'Klongjik',
-                'Banwha',
-                'Watyom',
-                'Bangpradang',
-                'Samreuan',
-                'Koh Kerd',
-                'Banplub',
-                'Banpang',
-                'Kunglarn',
-                'Talingchan',
-                'Talardkrieb',
-                'Kanhornluang',
-                'Bansrang',
-                'Chiangraknoi'
-            ],
-            postalCodes: [13160, 13170, 13180]
-        },
-        Wangnoi: {
-            subDistrict: [
-                'Lamtasao',
-                'Bortaloh',
-                'Wangnoi',
-                'Lamsai',
-                'Sanabteub',
-                'Payhom',
-                'Hantapao',
-                'Wangchula',
-                'Khaongam',
-                'Chamab'
-            ],
-            postalCodes: [13170]
-        },
-        Bangsai: {
-            subDistrict: [
-                'Bangsai',
-                'Bangpli',
-                'Sanamchai',
-                'Banpang',
-                'Nhamai',
-                'Bangyeetho',
-                'Khaeook',
-                'Khaetok',
-                'Changlhek',
-                'Khasang',
-                'Bankleung',
-                'Changnoi',
-                'Hormok',
-                'Phaipra',
-                'Kokkaewburapha',
-                'Maitra',
-                'Banmai',
-                'Bankoh',
-                'Kokchang',
-                'Bangsai',
-                'Kaewfah',
-                'Taolao',
-                'Plaiklad',
-                'Thepmongkol',
-                'Wangpattana',
-                'Ratchakram',
-                'Changyai',
-                'Photang',
-                'Chiangraknoi'
-            ],
-            postalCodes: [13190, 13270, 13290]
-        },
-        Uthai: {
-            subDistrict: [
-                'Kanharm',
-                'Banchang',
-                'Sambandit',
-                'Banheeb',
-                'Nhongmaisoong',
-                'Uthai',
-                'Sena',
-                'Nhongnamsom',
-                'Phosaoharn',
-                'Thanoo',
-                'Khaomao'
-            ],
-            postalCodes: [13210]
-        },
-        Bangpahan: {
-            subDistrict: [
-                'Bangpahan',
-                'Kayai',
-                'Bangdeua',
-                'Saotong',
-                'Tangklang',
-                'Bangploeng',
-                'Hansang',
-                'Bangnangra',
-                'Tanim',
-                'Tabnam',
-                'Banmai',
-                'Kwanmuang',
-                'Banlee',
-                'Phosamton',
-                'Putlao',
-                'Tarnen',
-                'Bankhalor'
-            ],
-            postalCodes: [13220]
-        },
-        Latbualuang: {
-            subDistrict: [
-                'Latbualuang',
-                'Lakchai',
-                'Sammuang',
-                'Prayabanlue',
-                'Singhanat',
-                'Khusalot',
-                'Khlong Prayabanlue'
-            ],
-            postalCodes: [13230]
-        },
-        Banprak: {
-            subDistrict: [
-                'Banprak',
-                'Banmai',
-                'Sampaniang',
-                'Khlong Noi',
-                'Songhong'
-            ],
-            postalCodes: [13240]
-        },
-        Bangban: {
-            subDistrict: [
-                'Bangban',
-                'Wat Yom',
-                'Sainoi',
-                'Saphanthai',
-                'Mahapram',
-                'Kobjao',
-                'Banklang',
-                'Prakhao',
-                'Namtao',
-                'Thangchang',
-                'Wattakoo',
-                'Bangluang',
-                'Bangluangdod',
-                'Banghak',
-                'Bangchanee',
-                'Bangkum'
-            ],
-            postalCodes: [13250]
-        },
-        Nakornluang: {
-            subDistrict: [
-                'Nakornluang',
-                'Thachang',
-                'Borpong',
-                'Bansoong',
-                'Pakchan',
-                'Bangrakam',
-                'Bangprakru',
-                'Maela',
-                'Nongpling',
-                'Khlongsakae',
-                'Samthai',
-                'Pranorn'
-            ],
-            postalCodes: [13260]
-        }
-    },
-    'Lop Buri': {
-        'Meuang Lop Buri': {
-            subDistrict: [
-                'Kongthanu',
-                'Talaechoopsorn',
-                'Tha Hin',
-                'Kok Ko',
-                'Khaosamyot',
-                'Khoklampan',
-                'Ngiewrai',
-                'Donpho',
-                'Talung',
-                'Thakae',
-                'Thasala',
-                'Nikhom Srangtoneng',
-                'Bangkhanmek',
-                'Bankhoi',
-                'Taitalad',
-                'Patarn',
-                'Phromsart',
-                'Pho Kao Ton',
-                'Pho Tru',
-                'Sri Klong',
-                'Thanon Yai',
-                'Khao Pra Ngam',
-                'Kok Kratium',
-                'Khoktoom'
-            ],
-            postalCodes: [13240, 15000, 15160, 15210]
-        },
-        Banmhee: {
-            subDistrict: [
-                'Phaiyai',
-                'Bansai',
-                'Bankuay',
-                'Dongplub',
-                'Phukha',
-                'Hinpuk',
-                'Bangpeung',
-                'Nongsaikao',
-                'Bangkapee',
-                'Nongtao',
-                'Ponetong',
-                'Dondeung',
-                'Chonmuang',
-                'Nhongkrabien',
-                'Saihuakaew',
-                'Mahasorn',
-                'Banmhee',
-                'Siangnga',
-                'Nongmeuang',
-                'Sanamjang',
-                'Banshe',
-                'Bangkham'
-            ],
-            postalCodes: [15110, 15180]
-        },
-        Koksamrong: {
-            subDistrict: [
-                'Koksamrong',
-                'Kohkaew',
-                'Talunglek',
-                'Lhumkao',
-                'Huaypong',
-                'Khlongket',
-                'Sakaerab',
-                'Panied',
-                'Wangploeng',
-                'Dongmaroom',
-                'Wangkornkwang',
-                'Wangjan',
-                'Nhongkham'
-            ],
-            postalCodes: [15120]
-        },
-        Chaibadarn: {
-            subDistrict: [
-                'Lamnarai',
-                'Chainarai',
-                'Silatip',
-                'Huayhin',
-                'Buachum',
-                'Thadindam',
-                'Sabthakien',
-                'Nongyaitoh',
-                'Kohrang',
-                'Thamanao',
-                'Nikhom Lamnarai',
-                'Banmaisamakkhee',
-                'Khaolaem',
-                'Nasom',
-                'Muangkom',
-                'Makokwarn',
-                'Chaibadarn'
-            ],
-            postalCodes: [15130, 15190, 15230]
-        },
-        Lamsondhi: {
-            subDistrict: [
-                'Khaonoi',
-                'Lamsondhi',
-                'Chaisomboon',
-                'Nhongree',
-                'Kudthapetch',
-                'Khaoruak'
-            ],
-            postalCodes: [15130, 15190]
-        },
-        Pattananikhom: {
-            subDistrict: [
-                'Pattananikhom',
-                'Manaowhan',
-                'Koaksalung',
-                'Shawnnoi',
-                'Nhongbua',
-                'Nhumsood',
-                'Shawn Sarika',
-                'Deelung',
-                'Huaykhunram'
-            ],
-            postalCodes: [15140, 15220, 18220]
-        },
-        'Tha Wung': {
-            subDistrict: [
-                'Tha Wung',
-                'Bangkhoo',
-                'Photladkaew',
-                'Banglee',
-                'Bangnga',
-                'Khoksalud',
-                'Huasamlong',
-                'Latsalee',
-                'Banbeunk',
-                'Mutlin',
-                'Khaosamorkorn'
-            ],
-            postalCodes: [15150, 15180]
-        },
-        'Nhong Muang': {
-            subDistrict: [
-                'Nhong Muang',
-                'Bor Tong',
-                'Dong Din Dang',
-                'Shawn Somboon',
-                'Yangtone',
-                'Shawn Saradej'
-            ],
-            postalCodes: [15170]
-        },
-        Thaluang: {
-            subDistrict: [
-                'Thaluang',
-                'Kangpakkood',
-                'Subjampa',
-                'Nhongpakwan',
-                'Talaywangwat',
-                'Hualum'
-            ],
-            postalCodes: [15230]
-        },
-        Sraboth: {
-            subDistrict: [
-                'Sraboth',
-                'Mahapho',
-                'Tung Tha Chang',
-                'Huayyai',
-                'Niyomchai'
-            ],
-            postalCodes: [15240]
-        },
-        Khokcharoen: {
-            subDistrict: [
-                'Kokcharoen',
-                'Yangrak',
-                'Nhong Maka',
-                'Wang Tong',
-                'Kok Samaesarn'
-            ],
-            postalCodes: [15250]
-        }
-    },
-    'Ang Thong': {
-        'Mueang Ang Thong': {
-            subDistrict: [
-                'Taladluang',
-                'Bangkaew',
-                'Saladang',
-                'Phangiew',
-                'Banhae',
-                'Taladkrud',
-                'Mahadthai',
-                'Banit',
-                'Huaphai',
-                'Jampalor',
-                'Phosa',
-                'Banree',
-                'Khlongwua',
-                'Yansua'
-            ],
-            postalCodes: [14000]
-        },
-        Wisetchaicharn: {
-            subDistrict: [
-                'Phaichamseen',
-                'Sarnchaorongtong',
-                'Phaidampattana',
-                'Saoronghai',
-                'Thachang',
-                'Yeelon',
-                'Bangchak',
-                'Huaykhanlan',
-                'Klongkanak',
-                'Phaiwong',
-                'Seeroi',
-                'Muangthea',
-                'Huataparn',
-                'Lakkaew',
-                'Taladmai'
-            ],
-            postalCodes: [14110]
-        },
-        Photong: {
-            subDistrict: [
-                'Angkaew',
-                'Intapramoon',
-                'Bangplub',
-                'Nhongmaekai',
-                'Rammasak',
-                'Bangrakam',
-                'Phorangnok',
-                'Ongkharak',
-                'Khokputsa',
-                'Yangsai',
-                'Borrae',
-                'Tangpra',
-                'Samngam',
-                'Bangjaocha',
-                'Khamyard'
-            ],
-            postalCodes: [14120]
-        },
-        Pamok: {
-            subDistrict: [
-                'Bangplakod',
-                'Pamok',
-                'Saitong',
-                'Rongchang',
-                'Bangsadet',
-                'Norasingha',
-                'Eakkarat',
-                'Pongpeng'
-            ],
-            postalCodes: [14130]
-        },
-        Chaiyo: {
-            subDistrict: [
-                'Jorakaerong',
-                'Chaiyapoom',
-                'Chaiyarit',
-                'Thewaraj',
-                'Ratchasatit',
-                'Chaiyo',
-                'Lakfah',
-                'Chawai',
-                'Treenarong'
-            ],
-            postalCodes: [14140]
-        },
-        Sawangha: {
-            subDistrict: [
-                'Sawangha',
-                'Sripran',
-                'Banpran',
-                'Wangnamyen',
-                'Sribuatong',
-                'Huaiphai',
-                'Jamlong'
-            ],
-            postalCodes: [14150]
-        },
-        Samko: {
-            subDistrict: [
-                'Samko',
-                'Ratpattana',
-                'Aobtom',
-                'Phomuangpan',
-                'Mongkolthamnimit'
-            ],
-            postalCodes: [14160]
-        }
-    },
-    'Sing Buri': {
-        'Meuang Sing Buri': {
-            subDistrict: [
-                'Bangputsa',
-                'Bangman',
-                'Pokeruam',
-                'Muangmoo',
-                'Hua Phai',
-                'Ton Poe',
-                'Jakkasri',
-                'Bangkrabue'
-            ],
-            postalCodes: [16000]
-        },
-        Inburee: {
-            subDistrict: [
-                'Inburee',
-                'Prasook',
-                'Tabya',
-                'Ngiewrai',
-                'Cheenamrai',
-                'Thangam',
-                'Namtarn',
-                'Ton gen',
-                'Huaychan',
-                'Phochai'
-            ],
-            postalCodes: [16110]
-        },
-        Phromburee: {
-            subDistrict: [
-                'Prangam',
-                'Bangnamcheo',
-                'Banmor',
-                'Banpang',
-                'Huapa',
-                'Rongchang'
-            ],
-            postalCodes: [16120]
-        },
-        Bangrajan: {
-            subDistrict: [
-                'Singhanat',
-                'Maidud',
-                'Choengklad',
-                'Pochongkai',
-                'Maela',
-                'Banja',
-                'Paktan',
-                'Srajang'
-            ],
-            postalCodes: [16130]
-        },
-        Thachang: {
-            subDistrict: ['Tornsamor', 'Phoprajak', 'Viharnkao', 'Pikultong'],
-            postalCodes: [16140]
-        },
-        'Kai Bangrajan': {
-            subDistrict: [
-                'Photalae',
-                'Bangrajan',
-                'Posangko',
-                'Thakham',
-                'Korsai',
-                'Nongkratum'
-            ],
-            postalCodes: [16150]
-        },
-        Promburee: { subDistrict: ['Promburee'], postalCodes: [16160] }
-    },
-    'Chai Nat': {
-        'Meung Chai Nat': {
-            subDistrict: [
-                'Nai Meung',
-                'Ban Kuay',
-                'Thachai',
-                'Chainat',
-                'Khao Thapra',
-                'Hat Thasao',
-                'Thamamoon',
-                'Seurhok',
-                'Nangleur'
-            ],
-            postalCodes: [17000]
-        },
-        Manorom: {
-            subDistrict: [
-                'Kungsampao',
-                'Wat Kok',
-                'Siladarn',
-                'Thachanuan',
-                'Hangnamsakorn',
-                'Raipattana',
-                'Utapao'
-            ],
-            postalCodes: [17110, 17170]
-        },
-        'Wat Singha': {
-            subDistrict: [
-                'Wat Singha',
-                'Makhamthao',
-                'Nongnoi',
-                'Nongbua',
-                'Nongkhun',
-                'Borrae',
-                'Wangman'
-            ],
-            postalCodes: [17120]
-        },
-        Nongmamong: {
-            subDistrict: ['Nongmamong', 'Wangtakien', 'Saphanhin', 'Kutjok'],
-            postalCodes: [17120]
-        },
-        Hunka: {
-            subDistrict: [
-                'Hunka',
-                'Banchien',
-                'Prainokyoong',
-                'Wangkaitheun',
-                'Denyai',
-                'Nongsa',
-                'Huayngu',
-                'Samngamtabot'
-            ],
-            postalCodes: [17130, 17160]
-        },
-        Noenkham: {
-            subDistrict: ['Noenkham', 'Kaboktia', 'Sukdeunha'],
-            postalCodes: [17130]
-        },
-        Sunkhaburee: {
-            subDistrict: [
-                'Praksriracha',
-                'Tiangtae',
-                'Huaikrot',
-                'Phongam',
-                'Bangkhut',
-                'Dongdon',
-                'Donkham',
-                'Huaykrotpattana'
-            ],
-            postalCodes: [17140]
-        },
-        Subpaya: {
-            subDistrict: [
-                'Subpaya',
-                'Talook',
-                'Khaokaew',
-                'Ponangdamtok',
-                'Ponangdamook',
-                'Bangluang',
-                'Hatarsa'
-            ],
-            postalCodes: [17150]
-        }
-    },
-    Saraburi: {
-        'Meuang Saraburi': {
-            subDistrict: [
-                'Pakpraew',
-                'Daoreung',
-                'Nachong',
-                'Koksawang',
-                'Nongno',
-                'Nongyao',
-                'Pakkhaosarn',
-                'Nongplalai',
-                'Kudnokpao',
-                'Talingchan',
-                'Takud'
-            ],
-            postalCodes: [18000]
-        },
-        Chalermprakiet: {
-            subDistrict: [
-                'Khaodinpattana',
-                'Bankang',
-                'Peungruang',
-                'Huaibong',
-                'Phukae',
-                'Nhapralarn'
-            ],
-            postalCodes: [18000, 18240]
-        },
-        Kangkkoi: {
-            subDistrict: [
-                'Kangkkoi',
-                'Tarn Deaw',
-                'Huay Hang',
-                'Ta Klo',
-                'Hin Sorn',
-                'Ban That',
-                'Ban Pa',
-                'Tha Toom',
-                'Chaom',
-                'Songkorn',
-                'Taopoon',
-                'Sum Pak Paew',
-                'Tha Maprang',
-                'Tabkwang'
-            ],
-            postalCodes: [18110, 18260]
-        },
-        'Pra Putthabath': {
-            subDistrict: [
-                'Pra Putthabath',
-                'Kun Klon',
-                'Tarn Kasem',
-                'Na Yao',
-                'Phukamjarn',
-                'Khaowong',
-                'Huay Pa Wai',
-                'Pukrang',
-                'Nhongkae'
-            ],
-            postalCodes: [18120]
-        },
-        'Ban Mhor': {
-            subDistrict: [
-                'Ban Mhor',
-                'Bang Kamod',
-                'Srang Sod',
-                'Taladnoi',
-                'Hornthep',
-                'Kok Yai',
-                'Phaikwang',
-                'Nhongbua',
-                'Ban Krua'
-            ],
-            postalCodes: [18130, 18270]
-        },
-        Nhongkae: {
-            subDistrict: [
-                'Nhongkae',
-                'Kumhak',
-                'Phaitum',
-                'Nhongkhainam',
-                'Nhong Kam',
-                'Nhong Jorakae',
-                'Nhong Pla Mor',
-                'Nhong Pling',
-                'Nhong Rong',
-                'Khokyae',
-                'Bualoy',
-                'Huaykamin',
-                'Huaysai',
-                'Nhongjik',
-                'Nhongnak',
-                'Kotchasit',
-                'Koktoom',
-                'Ponetong'
-            ],
-            postalCodes: [18140, 18230, 18250]
-        },
-        Viharndang: {
-            subDistrict: [
-                'Nhong Moo',
-                'Barn Lum',
-                'Klong Reur',
-                'Viharndang',
-                'Nhongsuang',
-                'Charoentham'
-            ],
-            postalCodes: [18150]
-        },
-        Saohai: {
-            subDistrict: [
-                'Saohai',
-                'Ban Yang',
-                'Huapluak',
-                'Ngiewngam',
-                'Salareethai',
-                'Ton Tarn',
-                'Thachang',
-                'Phraya Tod',
-                'Muang Ngam',
-                'Rirngrang',
-                'Meaung Ngao',
-                'Suan Dokmai'
-            ],
-            postalCodes: [18160]
-        },
-        Nhongsang: {
-            subDistrict: [
-                'Nhongsang',
-                'Nhongkwaiso',
-                'Nhonghuapo',
-                'Nhongsida',
-                'Nhongkob',
-                'Kaisao',
-                'Koksaard',
-                'Muangwarn',
-                'Kaodin'
-            ],
-            postalCodes: [18170]
-        },
-        Muaklhek: {
-            subDistrict: ['Muaklhek', 'Mitrapab', 'Nhongyangsua', 'Sabsanoon'],
-            postalCodes: [18180, 18220, 30130]
-        },
-        Nhongdon: {
-            subDistrict: ['Nhongdon', 'Ban Klub', 'Dontong', 'Banpong'],
-            postalCodes: [18190]
-        },
-        Donput: {
-            subDistrict: ['Donput', 'Phailiew', 'Banlaung', 'Dongtangaw'],
-            postalCodes: [18210]
-        },
-        Wangmuang: {
-            subDistrict: ['Salangpan', 'Khampran', 'Wangmuang'],
-            postalCodes: [18220]
-        },
-        'Muak Lhek': {
-            subDistrict: ['Lam Song Phung', 'Lam Phaya Klang'],
-            postalCodes: [18180, 18220, 30130]
-        }
-    },
-    'Chon Buri': {
-        'Meuang Chon Buri': {
-            subDistrict: [
-                'Bangplasoi',
-                'Makhamyong',
-                'Bankhod',
-                'Bansuan',
-                'Nhongree',
-                'Napa',
-                'Nhongchangkok',
-                'Donhualor',
-                'Nhongmaidang',
-                'Bangsai',
-                'Klongtamru',
-                'Huaykapi',
-                'Samed',
-                'Angsila',
-                'Samnakbok',
-                'San Sook',
-                'Meuang',
-                'Ban Peuk',
-                'San Sook'
-            ],
-            postalCodes: [20000, 20130, 20131]
-        },
-        Sriracha: {
-            subDistrict: [
-                'Sriracha',
-                'Surasak',
-                'Nhongkham',
-                'Kaokhansong',
-                'Bangpra',
-                'Tung Sukhala',
-                'Beung',
-                'Bor Win'
-            ],
-            postalCodes: [20110, 20230]
-        },
-        'Koh Sri Chang': {
-            subDistrict: ['Tha Thewawong'],
-            postalCodes: [20120]
-        },
-        Panatnikhom: {
-            subDistrict: [
-                'Panatnikhom',
-                'Nhapratart',
-                'Wat Luang',
-                'Ban Cherd',
-                'Na Rerk',
-                'Mhong Nang',
-                'Sra Siliam',
-                'Wat Bot',
-                'Kut Ngong',
-                'Hua Thanon',
-                'Tha Kham',
-                'Nhongpreu',
-                'Nhongkayat',
-                'Tung Kwang',
-                'Nhonghiang',
-                'Na Wanghin',
-                'Ban Chang',
-                'Kok Pror',
-                'Rai Lak Tong',
-                'Na Matoom'
-            ],
-            postalCodes: [20140]
-        },
-        Banglamoong: {
-            subDistrict: [
-                'Banglamoong',
-                'Nhongpreu',
-                'Nhongplalai',
-                'Pong',
-                'Khaomaikaew',
-                'Huay Yai',
-                'Takiantia',
-                'Nakleur'
-            ],
-            postalCodes: [20150]
-        },
-        'Pan Thong': {
-            subDistrict: [
-                'Pan Thong',
-                'Nhong Tamleung',
-                'Mab Pong',
-                'Nhong Kakha',
-                'Nhong Hong',
-                'Kok Khinorn',
-                'Ban Khao',
-                'Nha Pradoo',
-                'Bang Nang',
-                'Koh Loy',
-                'Bang Hak'
-            ],
-            postalCodes: [20160]
-        },
-        'Ban Beung': {
-            subDistrict: [
-                'Ban Beung',
-                'Mab Phai',
-                'Nhong Samsak',
-                'Nhong Bondang',
-                'Nhong Sak',
-                'Khlong Kiew',
-                'Nhongirun',
-                'Nhongpaikaew'
-            ],
-            postalCodes: [20170, 20220]
-        },
-        Sattaheeb: {
-            subDistrict: [
-                'Sattaheeb',
-                'Plutaluang',
-                'Samaesarn',
-                'Najomtien',
-                'Bangsare',
-                'Bangsare'
-            ],
-            postalCodes: [20180, 20250, 20251]
-        },
-        'Nhong Yai': {
-            subDistrict: [
-                'Nhong Yai',
-                'Klong Plu',
-                'Nhong Seur Chang',
-                'Hang Soong',
-                'Khao Sok'
-            ],
-            postalCodes: [20190]
-        },
-        'Koh Chan': {
-            subDistrict: ['Koh Chan', 'Tha Boon Mee'],
-            postalCodes: [20240]
-        },
-        Pattaya: { subDistrict: ['Pattaya'], postalCodes: [20260] },
-        Bortong: {
-            subDistrict: [
-                'Bortong',
-                'Watsuwan',
-                'Borkwangtong',
-                'Trattong',
-                'Kasetsuwan',
-                'Pluangtong'
-            ],
-            postalCodes: [20270]
-        }
-    },
-    Rayong: {
-        'Meuang Rayong': {
-            subDistrict: [
-                'Thapradu',
-                'Cherngnern',
-                'Tapong',
-                'Paknam',
-                'Banlang',
-                'Natakwan',
-                'Nernpra',
-                'Tabma',
-                'Namkok',
-                'Kached',
-                'Samnaktong',
-                'Huay Pong',
-                'Mabtapood',
-                'Pay',
-                'Klang'
-            ],
-            postalCodes: [21000, 21100, 21150, 21160]
-        },
-        Krang: {
-            subDistrict: [
-                'Tangkwien',
-                'Wangwa',
-                'Sakdon',
-                'Nernkho',
-                'Krasaebon',
-                'Banna',
-                'Tung Kwai Kin',
-                'Huayyang',
-                'Song Saleung'
-            ],
-            postalCodes: [21110]
-        },
-        'Khao Chamao': {
-            subDistrict: ['Nampen', 'Huay Tab Morn', 'Cham Kor', 'Khao Noi'],
-            postalCodes: [21110]
-        },
-        Bankhai: {
-            subDistrict: [
-                'Bankhai',
-                'Nhonglalok',
-                'Nhongtapan',
-                'Tachan',
-                'Bangbut',
-                'Nhongbua',
-                'Sakbok'
-            ],
-            postalCodes: [21120]
-        },
-        Banchang: {
-            subDistrict: ['Samnakton', 'Pla', 'Ban Chang'],
-            postalCodes: [21130]
-        },
-        Pluakdang: {
-            subDistrict: [
-                'Pluakdang',
-                'Tasit',
-                'Laharn',
-                'Maenamkoo',
-                'Mabyangporn',
-                'Nhongrai'
-            ],
-            postalCodes: [21140]
-        },
-        Klang: {
-            subDistrict: [
-                'Klongpoon',
-                'Pungrad',
-                'Paknamkrasae',
-                'Krum',
-                'Sakpong',
-                'Kong Din'
-            ],
-            postalCodes: [21170, 21190, 22160]
-        },
-        Nikhompattana: {
-            subDistrict: ['Nikhompattana', 'Mabkha', 'Pananikhom', 'Makhamdoo'],
-            postalCodes: [21180]
-        },
-        Wangchan: {
-            subDistrict: ['Wangchan', 'Chumsang', 'Payubnai', 'Plongtaeium'],
-            postalCodes: [21210]
-        }
-    },
-    Chanthaburi: {
-        'Meuang Chanthaburi': {
-            subDistrict: [
-                'Talad',
-                'Watmai',
-                'Klong Narai',
-                'Koh Kwang',
-                'Kombang',
-                'Thachang',
-                'Channimit',
-                'Bangkaja',
-                'Salang',
-                'Nhongbua',
-                'Plubpla'
-            ],
-            postalCodes: [22000]
-        },
-        Klung: {
-            subDistrict: [
-                'Klung',
-                'Bor',
-                'Kwienhak',
-                'Tapon',
-                'Bangchan',
-                'Wanyao',
-                'Seung',
-                'Mabpo',
-                'Wangsapparot',
-                'Trok Nong',
-                'Tok Prom',
-                'Bor Wen'
-            ],
-            postalCodes: [22110, 22150]
-        },
-        Thamai: {
-            subDistrict: [
-                'Thamai',
-                'Yai Rha',
-                'Sripraya',
-                'Boh Pru',
-                'Ploywhan',
-                'Khao Wua',
-                'Khao Buy Sri',
-                'Songpeenong',
-                'Takadngao',
-                'Klongkud',
-                'Tungbenja',
-                'Rampan',
-                'Kamong',
-                'Khao Kaew'
-            ],
-            postalCodes: [22120, 22170]
-        },
-        'Lam Singha': {
-            subDistrict: [
-                'Bangkachai',
-                'Pak Nam Lam Singha',
-                'Koh Pird',
-                'Nhong Sim',
-                'Priew',
-                'Klong Nam Khem',
-                'Bang Sra Khao'
-            ],
-            postalCodes: [22120, 22130, 22190]
-        },
-        'Pong Nam Ron': {
-            subDistrict: [
-                'Tab Sai',
-                'Pong Nam Ron',
-                'Nhong Ta Kong',
-                'Thebnimit',
-                'Klong Yai'
-            ],
-            postalCodes: [22140]
-        },
-        Makham: {
-            subDistrict: [
-                'Makham',
-                'Tha Luang',
-                'Patthawee',
-                'Wang Sam',
-                'Chamun',
-                'Angkiri'
-            ],
-            postalCodes: [22150]
-        },
-        'Kang Hang Maew': {
-            subDistrict: [
-                'Kang Hang Maew',
-                'Khun Song',
-                'Sam Phee Nong',
-                'Pawa',
-                'Khao Wongkot'
-            ],
-            postalCodes: [22160]
-        },
-        'Na Yai Arm': {
-            subDistrict: [
-                'Na Yai Arm',
-                'Chang Kham',
-                'Wang Tanod',
-                'Krajae',
-                'Sanamchai',
-                'Wangmai'
-            ],
-            postalCodes: [22160, 22170]
-        },
-        Soidao: {
-            subDistrict: [
-                'Patong',
-                'Tungkanan',
-                'Tubchang',
-                'Sai Khao',
-                'Sa Ton'
-            ],
-            postalCodes: [22180]
-        },
-        'Khao Kitchakood': {
-            subDistrict: [
-                'Sak Thai',
-                'Pluang',
-                'Takiantong',
-                'Klong Plu',
-                'Chantakhem'
-            ],
-            postalCodes: [22210]
-        }
-    },
-    Trat: {
-        'Meaung Trat': {
-            subDistrict: [
-                'Bang Pra',
-                'Nhong Samed',
-                'Nhong Sanoh',
-                'Nhong Kunsong',
-                'Huang Nam Khao',
-                'Ao Yai',
-                'Wangkrajae',
-                'Huayrang',
-                'Nernsai',
-                'Taprik',
-                'Thakum',
-                'Takang',
-                'Chamrag',
-                'Laemklud'
-            ],
-            postalCodes: [23000]
-        },
-        'Koh Kood': {
-            subDistrict: ['Koh Mak', 'Koh Kood'],
-            postalCodes: [23000]
-        },
-        'Klong Yai': {
-            subDistrict: ['Klong Yai', 'Mai Rood ', 'Had Lek'],
-            postalCodes: [23110]
-        },
-        'Laem Ngob': {
-            subDistrict: ['Laem Ngob', 'Nam Chiew', 'Bang Pid', 'Klong Yai'],
-            postalCodes: [23120]
-        },
-        'Khao Samhing': {
-            subDistrict: [
-                'Khao Samhing',
-                'Wang Takien',
-                'Tung Nonsee',
-                'Santung',
-                'Tha Some',
-                'Sator',
-                'Praneet',
-                'Thepnimit'
-            ],
-            postalCodes: [23130, 23150]
-        },
-        'Boh Rai': {
-            subDistrict: [
-                'Boh Ploy',
-                'Changtun',
-                'Danchumpon',
-                'Nhongbon',
-                'Nonsee'
-            ],
-            postalCodes: [23140]
-        },
-        'Koh Chang': {
-            subDistrict: ['Koh Chang', 'Koh Chang Tai'],
-            postalCodes: [23170]
-        }
-    },
-    Chachoengsao: {
-        'Meaung Chachoengsao': {
-            subDistrict: [
-                'Nha Meaung',
-                'Tha Khai',
-                'Ban Mai',
-                'Klong Na',
-                'Bang Teen Ped',
-                'Bang Phai',
-                'Klong Jookkacher',
-                'Bang Kaew',
-                'Bang Kwan',
-                'Klong Nakorn Neaung Khet',
-                'Wangtakien',
-                'Sothorn',
-                'Bangpra',
-                'Bangkahai',
-                'Narmdang',
-                'Klongpreng',
-                'Klongudomchonlajorn',
-                'Klongluangpang',
-                'Bang Toey'
-            ],
-            postalCodes: [24000]
-        },
-        'Bang Nam Praew': {
-            subDistrict: [
-                'Saladang',
-                'Bang Nam Praew',
-                'Bang Kanak',
-                'Singtotong',
-                'Morntong',
-                'Yothaka',
-                'Prongarkart',
-                'Beung Nam Rak',
-                'Don Koh Ka',
-                'Don Chimplee'
-            ],
-            postalCodes: [24000, 24150, 24170]
-        },
-        'Khlong Koen': {
-            subDistrict: ['Khon Kaew', 'Khlong Koen', 'Bang Lhao', 'Bang Rong'],
-            postalCodes: [24000]
-        },
-        'Bang Khla': {
-            subDistrict: [
-                'Bang Khla',
-                'Bang Suan',
-                'Bang Kra Jerd',
-                'Pak Nam',
-                'Tha Tong Lang',
-                'Sao Cha Ngok',
-                'Samed Nua',
-                'Samed Tai',
-                'Huasai'
-            ],
-            postalCodes: [24110]
-        },
-        'Klong Koen': { subDistrict: ['Bang Talad'], postalCodes: [24110] },
-        Panomsarakam: {
-            subDistrict: [
-                'Koh Kanoon',
-                'Ban Chong',
-                'Panomsarakam',
-                'Meaung Kao',
-                'Nhongyao',
-                'Tha Tarn',
-                'Nhong Han',
-                'Khao Hin Sorn'
-            ],
-            postalCodes: [24120]
-        },
-        Ratchasarn: {
-            subDistrict: ['Bang Kaew', 'Meaung Mai', 'Dong Noi'],
-            postalCodes: [24120]
-        },
-        Bangpakong: {
-            subDistrict: [
-                'Bangpakong',
-                'Tha Saarn',
-                'Bang Peung',
-                'Song Klong',
-                'Nhong Jok',
-                'Tha Kham',
-                'Khaodin',
-                'Bang Wua',
-                'Bang Samak',
-                'Bang Klua',
-                'Pimpa',
-                'Hom Seen'
-            ],
-            postalCodes: [24130, 24180]
-        },
-        'Ban Pho': {
-            subDistrict: [
-                'Ban Pho',
-                'Koh Rai',
-                'Klong Kut',
-                'Klong Ban Pho',
-                'Klong Prawet',
-                'Don Sai',
-                'Thepparat',
-                'Taplub',
-                'Nhong Teen Nok',
-                'Nhong Bua',
-                'Bang Sorn',
-                'Bang Krut',
-                'Lhampradu',
-                'Lad Kwang',
-                'Sanamchan',
-                'San Phu Dat',
-                'Sib Aed Sok'
-            ],
-            postalCodes: [24140]
-        },
-        'Sanam Chai Khet': {
-            subDistrict: [
-                'Khu Yai Mee',
-                'Tha Kadarn',
-                'Thung Praya',
-                'Lad Krating'
-            ],
-            postalCodes: [24160]
-        },
-        'Tha Takieb': {
-            subDistrict: ['Tha Takieb', 'Klong Takao'],
-            postalCodes: [24160]
-        },
-        Plangyao: {
-            subDistrict: [
-                'Plangyao',
-                'Wangyen',
-                'Hua Samrong',
-                'Nhong Mai Kan'
-            ],
-            postalCodes: [24190]
-        }
-    },
-    'Prachin Buri': {
-        'Meaung Prachin Buri': {
-            subDistrict: [
-                'Nha Meaung',
-                'Rob Meaung',
-                'Wat Bot',
-                'Bangdecha',
-                'Thangam',
-                'Bang Boriboon',
-                'Dong Praram',
-                'Dong Kee Lek',
-                'None Hom',
-                'Ban Pra',
-                'Kok Mai Lai',
-                'Mai Ked',
-                'Nern Hom '
-            ],
-            postalCodes: [25000, 25230]
-        },
-        Kabinburi: {
-            subDistrict: [
-                'Kabin',
-                'Wang Darn',
-                'Nonsee',
-                'Yanree',
-                'Wangtakien',
-                'Had Nangkaew',
-                'Ladtakien',
-                'Ban Na',
-                'Botong',
-                'Nhong Kee',
-                'Nakham',
-                'Khaomaikaew',
-                'Wangtachang',
-                'Meaung Kao'
-            ],
-            postalCodes: [25110, 25240]
-        },
-        Pachantakam: {
-            subDistrict: [
-                'Pachantakam',
-                'Koh Loy',
-                'Ban Hoy',
-                'Nhong Sang',
-                'Dong Bang',
-                'Kham Tanhod',
-                'Bu Faii',
-                'Nhong Kaew',
-                'Poh Ngam'
-            ],
-            postalCodes: [25130]
-        },
-        'Sri Mahapoh': {
-            subDistrict: [
-                'Sri Mahapoh',
-                'Sampan',
-                'Ban Time',
-                'Tha Toom',
-                'Bang Kung',
-                'Dong Katong Yam',
-                'Nhong Prong',
-                'Hua Wha',
-                'Had Yang',
-                'Krok Somboon'
-            ],
-            postalCodes: [25140]
-        },
-        'Ban Srang': {
-            subDistrict: [
-                'Ban Srang',
-                'Bang Kabao',
-                'Bang Toey',
-                'Bang Yang',
-                'Bang Tan',
-                'Bang Pluang',
-                'Ban Plara',
-                'Bang Kham',
-                'Katoompaew'
-            ],
-            postalCodes: [25150]
-        },
-        'Sri Mahosot': {
-            subDistrict: ['Kok Peep', 'Kok Thai', 'Koo Ampan', 'Phai Sa Lerd'],
-            postalCodes: [25190]
-        },
-        Nadee: {
-            subDistrict: [
-                'Nadee',
-                'Samphanta',
-                'Saphanhin',
-                'Tung Pho',
-                'Kang Dinsor',
-                'Bu Pram'
-            ],
-            postalCodes: [25220]
-        }
-    },
-    'Nakhon Nayok': {
-        'Meaung Nakhon Nayok': {
-            subDistrict: [
-                'Nakhon Nayok',
-                'Tha Chang',
-                'Banyai',
-                'Wangkajom',
-                'Tha Sai',
-                'Don Yor',
-                'Srichula',
-                'Donglakorn',
-                'Srinava',
-                'Sarika',
-                'Hin Tung',
-                'Khao Pra',
-                'Porn Manee',
-                'Porn Manee'
-            ],
-            postalCodes: [26000, 26001]
-        },
-        'Ban Na': {
-            subDistrict: [
-                'Ban Na',
-                'Ban Praow',
-                'Ban Prik',
-                'Aasa',
-                'Tong Lhang',
-                'Bang Or',
-                'Pikhunook',
-                'Phakha',
-                'Khaoperm',
-                'Srikaang'
-            ],
-            postalCodes: [26110]
-        },
-        Ongkharak: {
-            subDistrict: [
-                'Praarjarn',
-                'Beungsarn',
-                'Srisakrabue',
-                'Pohtan',
-                'Bang Somboon',
-                'Saimoon',
-                'Bangplakod',
-                'Banglooksua',
-                'Ongkharak',
-                'Chumpon',
-                'Klong Yai'
-            ],
-            postalCodes: [26120]
-        },
-        'Pak Pli': {
-            subDistrict: [
-                'Koh Wai',
-                'Koh Pho',
-                'Pak Pli',
-                'Kok Kruad',
-                'Tha Rua',
-                'Nhong Sang',
-                'Na Hin Lad'
-            ],
-            postalCodes: [26130]
-        }
-    },
-    'Sa Kaeo': {
-        'Meaung Sa Kaeo': {
-            subDistrict: [
-                'Sa Kaeo',
-                'Ban Khang',
-                'Sala Lamduan',
-                'Kok Pee Rong',
-                'Tha Yak',
-                'Tha Kasem',
-                'Sra Kwan',
-                'Nhongbon'
-            ],
-            postalCodes: [27000]
-        },
-        'Khao Chakan': {
-            subDistrict: [
-                'Khao Chakan',
-                'Nhongwa',
-                'Praplearng',
-                'Khao Samsib'
-            ],
-            postalCodes: [27000]
-        },
-        Aranyapratet: {
-            subDistrict: [
-                'Aranyapratet',
-                'Meaung Phai',
-                'Hun Sai',
-                'Klong Namsai',
-                'Tha Kham',
-                'Pha Rai',
-                'Tub Prik',
-                'Ban Mai Nhong Sai',
-                'Phan Seuk',
-                'Nhong Sak',
-                'Klong Tab Chan',
-                'Fak Huay',
-                'Ban Dan'
-            ],
-            postalCodes: [27120]
-        },
-        'Khok Soong': {
-            subDistrict: ['Khok Soong', 'None Mak Moon'],
-            postalCodes: [27120]
-        },
-        Wattananakorn: {
-            subDistrict: [
-                'Wattananakorn',
-                'Tha Kwien',
-                'Pakkha',
-                'None Mak Kheng',
-                'Nhong Nam Sai',
-                'Song Kum',
-                'Nhong Wang',
-                'Shareor',
-                'Nhong Mak Fai',
-                'Nhong Takien Bon',
-                'Huay Jode'
-            ],
-            postalCodes: [27160]
-        },
-        'Ta Praya': {
-            subDistrict: [
-                'Ta Praya',
-                'Tup Sadet',
-                'Tup Raj',
-                'Tup Thai',
-                'Ko Klan'
-            ],
-            postalCodes: [27180]
-        },
-        Koksoong: {
-            subDistrict: ['Nhongmuang', 'Nhongwang'],
-            postalCodes: [27180]
-        },
-        Wangnamyen: {
-            subDistrict: [
-                'Wangnamyen',
-                'Ta Lang Nai',
-                'Klong Hin Poon',
-                'Tung Maha Charoen'
-            ],
-            postalCodes: [27210]
-        },
-        Wangsomboon: {
-            subDistrict: ['Wang Somboon', 'Wangmai', 'Wangtong'],
-            postalCodes: [27250]
-        },
-        'Klong Hard': {
-            subDistrict: [
-                'Klong Hard',
-                'Thaiudom',
-                'Submakrood',
-                'Saidiew',
-                'Klong Kai Tern',
-                'Benchakorn',
-                'Saitong'
-            ],
-            postalCodes: [27260]
-        }
-    },
-    'Nakhon Ratchasima': {
-        'Mueang Nakhon Ratchasima': {
-            subDistrict: [
-                'Nai Mueang',
-                'Pho Klang',
-                'Nong Chabok',
-                'Maroeng',
-                'Nong Rawiang',
-                'Pru Yai',
-                'Muen Wai',
-                'Phon Krang',
-                'Nong Phai Lom',
-                'Hua Thale',
-                'Ban Ko',
-                'Ban Mai',
-                'Phutsa',
-                'Chai Mongkhon',
-                'Nong Bua Sala',
-                'Suranari',
-                'Si Mum',
-                'Phanao',
-                'Nong Krathum'
-            ],
-            postalCodes: [30000]
-        },
-        Chalermprakiat: {
-            subDistrict: [
-                'Nhongngoolearm',
-                'Chang Tong',
-                'Tha Chang',
-                'Pra Put',
-                'Nhong Yang'
-            ],
-            postalCodes: [30000, 30230]
-        },
-        Phimai: {
-            subDistrict: [
-                'Nai Meaung',
-                'Samrit',
-                'Bot',
-                'Kraberngyai',
-                'Tha Laung',
-                'Rang Ka Yai',
-                'Shewarn',
-                'Nikhom Sang Ton-eng',
-                'Krasean',
-                'Dongyai',
-                'Tarnlalord',
-                'Nhongravieng'
-            ],
-            postalCodes: [30110]
-        },
-        Buayai: {
-            subDistrict: [
-                'Buayai',
-                'Huay Yang',
-                'Semayai',
-                'Don Tanin',
-                'Nhong Bua Sa-ard',
-                'None Tong Lang',
-                'Kut Jok',
-                'Dan Chang',
-                'Khun Tong',
-                'Nhong Jang Yai'
-            ],
-            postalCodes: [30120]
-        },
-        Bualai: {
-            subDistrict: ['Meaung Palai', 'None Jarn', 'Bualai', 'Nhong Wha'],
-            postalCodes: [30120]
-        },
-        'Pak Chong': {
-            subDistrict: [
-                'Pak Chong',
-                'Chanthuek',
-                'Wang Katha',
-                'Mu Si',
-                'Nong Sarai',
-                'Khanong Phra',
-                'Pong Talong',
-                'Khlong Muang',
-                'Nong Nam Daeng',
-                'Wangsai'
-            ],
-            postalCodes: [30130, 30320]
-        },
-        Sikhio: {
-            subDistrict: [
-                'Sikhio',
-                'Ban Han',
-                'Kritsana',
-                'Nhong Ya Kao',
-                'Kut Noi',
-                'Nong Nam Sai',
-                'Wang Rong Yai',
-                'Mittraphap',
-                'Don Mueang',
-                'Nong Bua Noi'
-            ],
-            postalCodes: [30140]
-        },
-        'Pak Thong Chai': {
-            subDistrict: [
-                'Mueang Pak',
-                'Takhu',
-                'Kok Thai',
-                'Samrong',
-                'Takhop',
-                'Nok Ok',
-                'Don ',
-                'Tum',
-                'Ngio',
-                'Sakaerat',
-                'Lam Ngang Kaew',
-                'Phu Luang',
-                'Tong Chai Nua',
-                'Sookkasem',
-                'Kasemsub',
-                'Bor Platong'
-            ],
-            postalCodes: [30150]
-        },
-        'Wang Nam Kaew': {
-            subDistrict: [
-                'Rarerng',
-                'Wang Nam Kaew',
-                'Wang Mhee',
-                'Udomsab',
-                'Thaisamakkee'
-            ],
-            postalCodes: [30150, 30370]
-        },
-        'Non Soong': {
-            subDistrict: [
-                'Non Soong',
-                'Mai',
-                'Tanode',
-                'Bing',
-                'Don Chompoo',
-                'Lhum Khao',
-                'Ma Kha',
-                'Pholsongkram',
-                'Chan Utt',
-                'Kham Tao',
-                'Dan Kla',
-                'Lam Kor Hong',
-                'Meaung Prasart',
-                'Don Wai',
-                'Lam Moon'
-            ],
-            postalCodes: [30160]
-        },
-        'Soong Nern': {
-            subDistrict: [
-                'Soong Nern',
-                'Sema',
-                'Korat',
-                'Boongkeelek',
-                'Nonkha',
-                'Kongyang',
-                'Makearlkao',
-                'Makearlmai',
-                'Na Klang',
-                'Nhong Takoh',
-                'Kut Jik'
-            ],
-            postalCodes: [30170, 30380]
-        },
-        Pratai: {
-            subDistrict: [
-                'Pratai',
-                'Katoomrai',
-                'Wang Mai Dang',
-                'Talad Sai',
-                'Nhong Pluang',
-                'Nhong Khaii',
-                'Hun Huay Saii',
-                'Don Mun',
-                'Nang Ram',
-                'Non Ped',
-                'Tung Sawang',
-                'Kok Klang',
-                'Meaung Don'
-            ],
-            postalCodes: [30180]
-        },
-        Chokchai: {
-            subDistrict: [
-                'Katok',
-                'Plubpla',
-                'Tha Ang',
-                'Thung Arun',
-                'Tha Lad Khao',
-                'Tha Ja Lhung',
-                'Tha Yiam',
-                'Chokchai',
-                'Lalommaipattana',
-                'Dan Kwian'
-            ],
-            postalCodes: [30190]
-        },
-        'Dan Khun Tod': {
-            subDistrict: [
-                'Kut Pimarn',
-                'Dan Khun Tod',
-                'Darn Nok',
-                'Darn Nai',
-                'Takien',
-                'Ban Kao',
-                'Pan Chana',
-                'Sra Jorrakae',
-                'Nhong Krad',
-                'Nhong Bua Takied',
-                'Nhong Bua Lakorn',
-                'Hin Dard',
-                'Huay Bong ',
-                'None Meaung Pattana'
-            ],
-            postalCodes: [30210]
-        },
-        Theparak: {
-            subDistrict: [
-                'Sam Nak Takro',
-                'Nong Wang',
-                'Beung Preu',
-                'Wang Yai Tong'
-            ],
-            postalCodes: [30210]
-        },
-        Nonethai: {
-            subDistrict: [
-                'Nonethai',
-                'Darn Jak',
-                'Kam Pung',
-                'Sam Rong',
-                'Kang Plu',
-                'Ban Wang',
-                'Ban Lang',
-                'Sai Or',
-                'Thanon Pho',
-                'Makha'
-            ],
-            postalCodes: [30220]
-        },
-        'Pra Tong Kam': {
-            subDistrict: [
-                'Sra Pra',
-                'Mab Krad',
-                'Pung Tium',
-                'Tab Rung',
-                'Nong Hoi'
-            ],
-            postalCodes: [30220]
-        },
-        Jakrat: {
-            subDistrict: [
-                'Jakrat',
-                'Tonglhang',
-                'Sri Sook',
-                'Nhong Kham',
-                'Nhong Pluang',
-                'Sri La Kor',
-                'Klong Muang',
-                'Hin Cone'
-            ],
-            postalCodes: [30230]
-        },
-        'Huay Kalang': {
-            subDistrict: [
-                'Huay Kalang',
-                'Tub Sawhai',
-                'Meaung Plubpla',
-                'Lhung Takien',
-                'Hin Dard',
-                'Ngiew',
-                'Kong Rot',
-                'Lhung Pradu',
-                'Takob',
-                'Huay Can'
-            ],
-            postalCodes: [30240]
-        },
-        Kornburi: {
-            subDistrict: [
-                'Zae',
-                'Chaleang',
-                'Kornburi',
-                'Kok Krachai',
-                'Jorakaehin',
-                'Mab Toko En',
-                'Orapim',
-                'Ban Mai',
-                'Lam Peak',
-                'Kornburitai',
-                'Tabakban',
-                'Sra Warn Praya'
-            ],
-            postalCodes: [30250]
-        },
-        Kong: {
-            subDistrict: [
-                'Meaung Kong',
-                'Khu Kard',
-                'Thepalai',
-                'Ta Chan',
-                'Ban Prang',
-                'Nhong Manao',
-                'Nhong Bua',
-                'None Teng',
-                'Don Yai',
-                'Kham Somboon'
-            ],
-            postalCodes: [30260]
-        },
-        Chumpuang: {
-            subDistrict: [
-                'Chumpuang',
-                'Prasook',
-                'Tha Lard',
-                'Sarai',
-                'Talad Sai',
-                'None Rung',
-                'Nhong Lak',
-                'None Toom',
-                'None Yor'
-            ],
-            postalCodes: [30270]
-        },
-        'Meang Yang': {
-            subDistrict: [
-                'Meang Yang',
-                'Kabearng Nok',
-                'Laharn Pla Khao',
-                'None Udom'
-            ],
-            postalCodes: [30270]
-        },
-        'Lam Tamainchai': {
-            subDistrict: ['Khui', 'Ban Yang', 'Chong Maew', 'Plai'],
-            postalCodes: [30270]
-        },
-        'Meaung Nakhon Ratchasima': {
-            subDistrict: [
-                'Kok Kruad',
-                'Kok Soong',
-                'Ban Pho',
-                'Jorhor',
-                'Talad',
-                'Nhong Khai Nam'
-            ],
-            postalCodes: [30280, 30310]
-        },
-        'Kham Tale Sor': {
-            subDistrict: [
-                'Kham Tale Sor',
-                'Pong Dang',
-                'Pan Doong',
-                'Nhong Sruang',
-                'Beaung Or'
-            ],
-            postalCodes: [30280]
-        },
-        'Kham Sake Sang': {
-            subDistrict: [
-                'Kham Sake Sang',
-                'None Meaung',
-                'Meaung Nart',
-                'Civic',
-                'Pangard',
-                'Nhong Hua Farn',
-                'Meaung Kaset'
-            ],
-            postalCodes: [30290]
-        },
-        Pakchong: {
-            subDistrict: ['Klang Dong', 'Phayayen'],
-            postalCodes: [30130, 30320]
-        },
-        Serngsang: {
-            subDistrict: [
-                'Serngsang',
-                'Sra Takien',
-                'None Somboon',
-                'Kut Bot',
-                'Sookpaiboon',
-                'Ban Rat'
-            ],
-            postalCodes: [30330]
-        },
-        Sikiew: {
-            subDistrict: ['Lad Bua Khao', 'Khlong Phai'],
-            postalCodes: [30340]
-        },
-        'Ban Learm': {
-            subDistrict: ['Ban Learm', 'Wang Pho', 'Kok Kraberg', 'Cho Raka'],
-            postalCodes: [30350]
-        },
-        'None Dang': {
-            subDistrict: [
-                'None Dang',
-                'None Ta Ten',
-                'Sam Paniang',
-                'Wang Hin',
-                'Don Yao Yai'
-            ],
-            postalCodes: [30360]
-        },
-        'Nhong Boon Mak': {
-            subDistrict: [
-                'Nhong Boon Nak',
-                'Sarapee',
-                'Thaicharoen',
-                'Nhong Hua Rat',
-                'Lham Tong',
-                'Nhong Takoh',
-                'Lung Khao',
-                'Nhong Maipai',
-                'Ban Mai'
-            ],
-            postalCodes: [30410]
-        },
-        'None Soong': { subDistrict: ['Tarn Prasart'], postalCodes: [30420] },
-        Sida: {
-            subDistrict: [
-                'Sida',
-                'Pone Tong',
-                'Nonepradu',
-                'Sam Meaung',
-                'Nhong Tad Yai'
-            ],
-            postalCodes: [30430]
-        },
-        'Kang Sanam Nang': { postalCodes: [30440] },
-        'Dhan Khun Tod': {
-            subDistrict: ['Ban Prang', 'Nhong Sai'],
-            postalCodes: [36220]
-        },
-        'KangSanam Nang': {
-            subDistrict: [
-                'Kang Sanam Nang',
-                'None Samran',
-                'Beung Palai',
-                'Sri Sook',
-                'Beung Samrong'
-            ],
-            postalCodes: []
-        }
-    },
-    'Buri Ram': {
-        'Meaung Buriram': {
-            subDistrict: [
-                'Nai Meaung',
-                'Isarn',
-                'Samed',
-                'Ban Bua',
-                'Sakaeprong',
-                'Swaijik',
-                'Ban Yang',
-                'Pra Kru',
-                'Talung Lek',
-                'Nhong Tad',
-                'Lhum Puk',
-                'Song Hong',
-                'Bua Tong ',
-                'Choom Hed',
-                'Lhak Khet',
-                'Sakae ',
-                'Kalanta',
-                'Krasung',
-                'Meaung Fang'
-            ],
-            postalCodes: [31000]
-        },
-        'Huay Raj': {
-            subDistrict: [
-                'Huay Raj',
-                'Sam Wang',
-                'Ta Sao',
-                'Ban Tako',
-                'Sa Nuan',
-                'Kok Lhek',
-                'Meaung Pho',
-                'Hauy Racha'
-            ],
-            postalCodes: [31000]
-        },
-        'Ban Darn': {
-            subDistrict: ['Ban Darn', 'Prasart', 'Wang Neur', 'Non Kwang'],
-            postalCodes: [31000]
-        },
-        'Nang Rong': {
-            subDistrict: [
-                'Nang Rong',
-                'Sadao',
-                'Chum Sang',
-                'Nhong Bot',
-                'Nhong Kong',
-                'Tanhon Hak',
-                'Nhong Sai',
-                'Kan Leung',
-                'Ban Singha',
-                'Lam Sai Yong',
-                'Sap Praya',
-                'Nhong Yai Pim',
-                'Hua Tanon',
-                'Tung Sangtong',
-                'Nhong Sanho'
-            ],
-            postalCodes: [31110]
-        },
-        'None Suwan': {
-            subDistrict: [
-                'None Suwan',
-                'Tung Junghun',
-                'Krok Kaew',
-                'Dong Ejarn'
-            ],
-            postalCodes: [31110]
-        },
-        Chamni: {
-            subDistrict: [
-                'Chamni',
-                'Nhong Plong',
-                'Meaung Yang',
-                'Chor Pakha',
-                'Laluad',
-                'Kok Sanhuan'
-            ],
-            postalCodes: [31110]
-        },
-        Chalermprakiat: {
-            subDistrict: [
-                'Jaroensuk',
-                'Ta pek',
-                'Isarnkhet',
-                'Thaworn',
-                'Yaiyamwattana'
-            ],
-            postalCodes: [31110, 31170]
-        },
-        Putthaisong: {
-            subDistrict: [
-                'Putthaisong',
-                'Mafeaung',
-                'Ban Jarn',
-                'Ban Pao',
-                'Ban Wang',
-                'Ban Yang',
-                'Hai Sok'
-            ],
-            postalCodes: [31120]
-        },
-        Banmaichaipoj: {
-            subDistrict: [
-                'Nhong Wang',
-                'Nhong Lhang',
-                'Dang Yai',
-                'Koo Suan Tang',
-                'Nhong Yearng'
-            ],
-            postalCodes: [31120]
-        },
-        'Lam Ply Mat': {
-            subDistrict: [
-                'Lam Ply Mat',
-                'Nhong Koo',
-                'Salhang Pan',
-                'Tamain Chai',
-                'Talad Pho',
-                'Nhong Kating',
-                'Khok Klang',
-                'Khok Sa-ard',
-                'Meaung Fak',
-                'Ban Yang',
-                'Pathairin',
-                'Khok Lam',
-                'Hin Khon',
-                'Nhong Bua Khok',
-                'Bu Pho',
-                'Nhong Don'
-            ],
-            postalCodes: [31130]
-        },
-        'Pa Kon Chai': {
-            subDistrict: [
-                'Pa Kon Chai',
-                'Salang Tone',
-                'Ban Sai',
-                'La Wia',
-                'Jorakaemak',
-                'Pang Ku',
-                'Khok Yang',
-                'Khok Ma',
-                'Phaisarn',
-                'Takotapi',
-                'Khao Kok',
-                'Nhong Bon',
-                'Kok Makham',
-                'Kok Toom',
-                'Pratad Bu',
-                'Si Lium'
-            ],
-            postalCodes: [31140]
-        },
-        'Sa Teuk': {
-            subDistrict: [
-                'Sa Teuk',
-                'Nikhom',
-                'Tung Wang',
-                'Meaung Kae',
-                'Nhong Yai',
-                'Ron Thong',
-                'Don Mon',
-                'Chum Sang',
-                'Tha Muang',
-                'Sa Kae',
-                'Sanam Chai',
-                'Krasung'
-            ],
-            postalCodes: [31150]
-        },
-        Candong: {
-            subDistrict: ['Candong', 'Dong Plong', 'Sra Bua', 'Hua Fhai'],
-            postalCodes: [31150]
-        },
-        Krasung: {
-            subDistrict: [
-                'Krasung',
-                'Lamduan',
-                'Song Chan',
-                'Sung Nern',
-                'Nhong Teng',
-                'Meaung Phai',
-                'Chum',
-                'Ban Prue',
-                'Hauy Samran',
-                'Kantrarom',
-                'Sripoom'
-            ],
-            postalCodes: [31160]
-        },
-        Laharnsai: {
-            subDistrict: [
-                'Laharnsai',
-                'Ta Jong',
-                'Samrong Mai',
-                'Nhong Wang',
-                'Nhong Takrong',
-                'Ko Kwan'
-            ],
-            postalCodes: [31170]
-        },
-        'Ban Kruat': {
-            subDistrict: [
-                'Ban Kruat',
-                'None Jaroen',
-                'Nhong Mai Ngam',
-                'Prasart',
-                'Sai Takoo',
-                'Hin Lad',
-                'Beung Jaroen',
-                'Jantoppetch',
-                'Khaodin Nua'
-            ],
-            postalCodes: [31180]
-        },
-        'Koo Meuang': {
-            subDistrict: [
-                'Koo Meaung',
-                'Pakiab',
-                'Ban Phae',
-                'Porn Samran',
-                'Hin Lhek Fai',
-                'Toom Yai',
-                'Nhong Kamarn'
-            ],
-            postalCodes: [31190]
-        },
-        'Nhong Khee': {
-            subDistrict: [
-                'Nhong Khee',
-                'Yey Prasart',
-                'Meaung Phai',
-                'Don Arang',
-                'Khok Sawang',
-                'Thung Kratard Pattana',
-                'Thung Kraten',
-                'Tha Pho Chai',
-                'Khok Soong',
-                'Bu Krasang'
-            ],
-            postalCodes: [31210]
-        },
-        'Pa Kham': {
-            subDistrict: [
-                'Pa Kham',
-                'Thai Jaroen',
-                'Nhong Bua',
-                'Khok Mamuang',
-                'Hoo Tamnob'
-            ],
-            postalCodes: [31220]
-        },
-        'Na Pho': {
-            subDistrict: [
-                'Na Pho',
-                'Ban Koo',
-                'Ban Koo',
-                'Don Kok',
-                'Sri Sawang'
-            ],
-            postalCodes: [31230]
-        },
-        'Nhong Hong': {
-            subDistrict: [
-                'Sra Kaew',
-                'Huay Hin',
-                'Thai Samakkee',
-                'Nhong Chai Sri',
-                'Sao Diew',
-                'Meaung Fhai',
-                'Sra Tong'
-            ],
-            postalCodes: [31240]
-        },
-        Plubplachai: {
-            subDistrict: [
-                'Jan Dum',
-                'Khok Khamin',
-                'Pa Chan',
-                'Sadao',
-                'Samrong'
-            ],
-            postalCodes: [31250]
-        },
-        'None Dindaeng': {
-            subDistrict: ['None Dindaeng', 'Som Pou', 'Lam Nang Rong'],
-            postalCodes: [31260]
-        }
-    },
-    Surin: {
-        'Meaung Surin': {
-            subDistrict: [
-                'Nai Meaung',
-                'Tang Jai',
-                'Plia Ram',
-                'Na Dee',
-                'Tha Sawang',
-                'Salak Dai',
-                'Ta Ong',
-                'Samrong',
-                'Kaeyai',
-                'Nhok Meaung',
-                'Kor Kho',
-                'Sawhai',
-                'Chanhiang',
-                'Ten Mee',
-                'Na Bua',
-                'Meaung Tee',
-                'Ram',
-                'Boo Ruesee',
-                'Trasang',
-                'Salhang Pan',
-                'Ka Koh'
-            ],
-            postalCodes: [32000]
-        },
-        'Kheva Sinarin': {
-            subDistrict: [
-                'Kheva Sinarin',
-                'Beung',
-                'Ta Kook',
-                'Prasart Tong',
-                'Ban Rhae'
-            ],
-            postalCodes: [32000]
-        },
-        'Sri Korrapoom': {
-            subDistrict: [
-                'Ra Ngang',
-                'Treum',
-                'Jarapad',
-                'Yang',
-                'Tre',
-                'Nhong Bua',
-                'Ka La Mae',
-                'Nhong Lhek',
-                'Nhong Kwauy',
-                'Chang Pee',
-                'Kud Wai',
-                'Kwauy Yai',
-                'Na Rung',
-                'Trom Prai',
-                'Phak Mai'
-            ],
-            postalCodes: [32110]
-        },
-        'Tha Toom': {
-            subDistrict: [
-                'Tha Toom',
-                'Kra Pho',
-                'Prom Thep',
-                'Phon Krok',
-                'Meaung Khae',
-                'Ba',
-                'Nhong Bua',
-                'Bua Koak',
-                'Nhong Metee',
-                'Tung Kula'
-            ],
-            postalCodes: [32120]
-        },
-        Ratanaburee: {
-            subDistrict: [
-                'Ratanaburee',
-                'That',
-                'Kaeyai',
-                'Don Rad',
-                'Nhong Bua Tong',
-                'Nhong Bua Ban',
-                'Phai',
-                'Berd',
-                'Nam Khaew',
-                'Kud Kha Khim',
-                'Yang Sawang',
-                'Tab Yai'
-            ],
-            postalCodes: [32130]
-        },
-        'None Narai': {
-            subDistrict: [
-                'Nhong Luang',
-                'Kham Pong',
-                'None',
-                'Ravieng',
-                'Nhong Thep'
-            ],
-            postalCodes: [32130]
-        },
-        Prasart: {
-            subDistrict: [
-                'Kung Ann',
-                'Mhor',
-                'Plai',
-                'Prue',
-                'Thung Mon',
-                'Ta Bao',
-                'Nhong Yai',
-                'Khok Yang',
-                'Khok Sa-ard',
-                'Bhan Sai',
-                'Chong Na Sam',
-                'Cher Plerng',
-                'Prasart Thanong',
-                'Tanee',
-                'Bhan Plaung',
-                'Kantavajaramual',
-                'Samut',
-                'Pratad Bu'
-            ],
-            postalCodes: [32140]
-        },
-        'Panhom Dongrak': {
-            subDistrict: ['Bak Dai', 'Khok Klang', 'Jeek Dak', 'Ta Miang'],
-            postalCodes: [32140]
-        },
-        'Sung Kha': {
-            subDistrict: [
-                'Sung Kha',
-                'Khon Tak',
-                'Dom',
-                'Pra Kaew',
-                'Bhan Jarn',
-                'Kratiam',
-                'Sakard',
-                'Ta Tum',
-                'Tubtun',
-                'Ta Khong',
-                'Bhan Sob',
-                'Thepraksa'
-            ],
-            postalCodes: [32150]
-        },
-        'Sri Narong': {
-            subDistrict: [
-                'Narong',
-                'Janwan',
-                'Truat',
-                'Nhong Wang',
-                'Sri Sook'
-            ],
-            postalCodes: [32150]
-        },
-        Sanhom: {
-            subDistrict: [
-                'Sanhom',
-                'Pone Ko',
-                'Nhong Rakang',
-                'Na Nuan',
-                'Can',
-                'Hua Ngua',
-                'Nhong Eeyore'
-            ],
-            postalCodes: [32160]
-        },
-        'Samrong Tab': {
-            subDistrict: [
-                'Samrong Tab',
-                'Nhong Phai Lhom',
-                'Kra Oom',
-                'Nhong Ha',
-                'Sri Sook',
-                'Koh Kaew',
-                'Meun Sri',
-                'Samej',
-                'Sano',
-                'Pradu'
-            ],
-            postalCodes: [32170]
-        },
-        'Jom Pra': {
-            subDistrict: [
-                'Jom Pra',
-                'Meaung Ling',
-                'Kra Had',
-                'Bu Krang',
-                'Nhong Sanit',
-                'Bhan Prue',
-                'Lhum Ravee',
-                'Chum Sang',
-                'Pen Sook'
-            ],
-            postalCodes: [32180]
-        },
-        Chumponburee: {
-            subDistrict: [
-                'Chumponburee',
-                'Na Nhong Phai',
-                'Prai Kla',
-                'Sri Narong',
-                'Ya Week',
-                'Meaung Bua',
-                'Sra Kood',
-                'Kra Bearng',
-                'Nhong Rua'
-            ],
-            postalCodes: [32190]
-        },
-        'Kab Cherng': {
-            subDistrict: [
-                'Kab Cherng',
-                'Koo Tan',
-                'Darn',
-                'Ngang Mood',
-                'Khok Takien',
-                'Takien'
-            ],
-            postalCodes: [32210]
-        },
-        Lamduan: {
-            subDistrict: [
-                'Lamduan',
-                'Chok Nua',
-                'Ou Lhok',
-                'Tram Dom',
-                'Tra Bien Tia'
-            ],
-            postalCodes: [32220]
-        },
-        'Bua Ched': {
-            subDistrict: [
-                'Bua Ched',
-                'Sadao',
-                'Jaras',
-                'Ta Wang',
-                'Aapon',
-                'Sampao Lune'
-            ],
-            postalCodes: [32230]
-        }
-    },
-    'Si Sa Ket': {
-        'Meaung Si Sa Ket': {
-            subDistrict: [
-                'Meaung Nua',
-                'Meaung Tai',
-                'Koo Sord',
-                'Sam',
-                'Jarn',
-                'Ta Dob',
-                'Nhong Krok',
-                'Phon Kha',
-                'Phon Kho',
-                'Phon Khewa',
-                'Yha Plong',
-                'Thum',
-                'Nhong Hai',
-                'Nhong Kaew',
-                'Nam Kam',
-                'Poh',
-                'Mark Khieb',
-                'Nhong Phai'
-            ],
-            postalCodes: [33000]
-        },
-        Kantalalak: {
-            subDistrict: [
-                'Beung Malu',
-                'Kud Salhao',
-                'Meaung',
-                'Sang Mhek',
-                'Nam Oom',
-                'Lalhai',
-                'Rung',
-                'Trakaj',
-                'Jarn Yai',
-                'Phu Ngern',
-                'Cham',
-                'Kra Sang',
-                'Nhon Samran',
-                'Nhong Yah Lard',
-                'Sao Tongchai',
-                'Kanoon',
-                'Suan Klauy',
-                'Vieng Nua',
-                'Thung Yai',
-                'Phu Pa Mok'
-            ],
-            postalCodes: [33110]
-        },
-        Benjalak: {
-            subDistrict: [
-                'Siew',
-                'Nhong Wha',
-                'Nhong Ngoo Lerm',
-                'Nhong Hang',
-                'Ta Klo'
-            ],
-            postalCodes: [33110]
-        },
-        Uthumpornpisai: {
-            subDistrict: [
-                'Kampang',
-                'Ilham',
-                'Karn Lherng',
-                'Tung Chai',
-                'Samrong',
-                'Kham',
-                'Nhong Hai',
-                'Kha Yoong',
-                'Ta Khet',
-                'Hua Chang ',
-                'Rung Rang',
-                'Thea',
-                'Khae',
-                'Poh Chai',
-                'Pa Aow',
-                'Nhong Hang',
-                'Sra Kampang Yai',
-                'Khok Lham',
-                'Khok Jarn'
-            ],
-            postalCodes: [33120]
-        },
-        'Meaung Chan': {
-            subDistrict: ['Meaung Chan', 'Ta Kon', 'Nhong Yai'],
-            postalCodes: [33120]
-        },
-        Pohsrisuwan: {
-            subDistrict: ['Dode', 'Siew', 'Nhong Mha', 'Peu Yai', 'Isae'],
-            postalCodes: [33120]
-        },
-        Kantrarom: {
-            subDistrict: [
-                'Dune',
-                'None Sang',
-                'Nhong Hua Chang',
-                'Yang',
-                'Nhong Wang',
-                'Nhong Kaew',
-                'Time',
-                'La Tai',
-                'Meaung Noi',
-                'Ipad',
-                'Bua Noi',
-                'Nhong Bua',
-                'Doo',
-                'Pak Paew',
-                'Jarn',
-                'Kam Nium'
-            ],
-            postalCodes: [33130]
-        },
-        'Nam Kleang': {
-            subDistrict: [
-                'Nam Kleang',
-                'La Or',
-                'Tong Pid',
-                'Kern',
-                'Rung Rawee',
-                'Kube'
-            ],
-            postalCodes: [33130]
-        },
-        Khukan: {
-            subDistrict: [
-                'Kantrarom',
-                'Ja Kong',
-                'Jaidee',
-                'Dong Kam Med',
-                'Sanho',
-                'Prue Yai',
-                'Sa Dao Yai',
-                'Ta Ud',
-                'Huay Nua',
-                'Hauy Tai',
-                'Hua Sua',
-                'Takien',
-                'Nikhompattana',
-                'Kok Petch',
-                'Prasart',
-                'Samrong Ta Gen',
-                'Huay Samran',
-                'Krisana',
-                'Lom Sak',
-                'Nhong Chalong',
-                'Sri Trakoon',
-                'Sri Sa-ard'
-            ],
-            postalCodes: [33140]
-        },
-        'Phu Singha': {
-            subDistrict: [
-                'Kok Tarn',
-                'Huay Ta Morn',
-                'Huay Teak Chu',
-                'Lalom',
-                'Takien Ram',
-                'Dong Rak',
-                'Prai Pattana'
-            ],
-            postalCodes: [33140]
-        },
-        'Khun Harn': {
-            subDistrict: [
-                'Si',
-                'Bak Dong',
-                'Pran',
-                'Poh Wong',
-                'Prai',
-                'Krawhan',
-                'Khun Harn',
-                'Non Soong',
-                'Kun Trom',
-                'Phu Faii',
-                'Pho Krasung',
-                'Huay Jan'
-            ],
-            postalCodes: [33150]
-        },
-        'Rasee Salai': {
-            subDistrict: [
-                'Meaung Kong',
-                'Meaung Can',
-                'Nhong Kae',
-                'Jik Sung Tong',
-                'Darn',
-                'Du',
-                'Nhong Eung',
-                'Bua Hoong',
-                'Phai',
-                'Som Poi',
-                'Nhong Mhee',
-                'Whan Kam',
-                'Srang Pee'
-            ],
-            postalCodes: [33160]
-        },
-        Silalad: {
-            subDistrict: ['Kung', 'Cleek Link', 'Nhong Bua Dong', 'Jode Muang'],
-            postalCodes: [33160]
-        },
-        'Prang Koo': {
-            subDistrict: [
-                'Pimy',
-                'Koo',
-                'Mhong Siang Toon',
-                'Toom',
-                'Samhor',
-                'Poh Sri',
-                'Samrong Prasart',
-                'Dhu',
-                'Sawhaii',
-                'Pimy Nua'
-            ],
-            postalCodes: [33170]
-        },
-        'Prai Beung': {
-            subDistrict: [
-                'Prai Beung',
-                'Din Daeng',
-                'Prasart Yer',
-                'Samrong Plan',
-                'Sook Sawat',
-                'None Poon'
-            ],
-            postalCodes: [33180]
-        },
-        'Yang Choom Noi': {
-            subDistrict: [
-                'Yang Choom Noi',
-                'Lhin Fah',
-                'Con Karm',
-                'None Koon',
-                'Kud Meang Harm',
-                'Beung Bon',
-                'Yang Choom Yai'
-            ],
-            postalCodes: [33190]
-        },
-        'Huay Tab Tan': {
-            subDistrict: [
-                'Huay Tab Tan',
-                'Meaung Lhuang',
-                'Kluay Kwang',
-                'Pak Mhai',
-                'Jarn San Chai',
-                'Prasart'
-            ],
-            postalCodes: [33210]
-        },
-        'Beung Boon': {
-            subDistrict: ['Poh', 'Beung Boon'],
-            postalCodes: [33220]
-        },
-        Payu: {
-            subDistrict: [
-                'Payu',
-                'Phrom Sawat',
-                'Tamyae',
-                'None Pack',
-                'Nhong Kah'
-            ],
-            postalCodes: [33230]
-        },
-        'Sri Ratana': {
-            subDistrict: [
-                'Sri Kaew',
-                'Ping Puay',
-                'Sra Yao',
-                'Toom',
-                'Seung Khao',
-                'Sri None Ngam',
-                'Sapoong'
-            ],
-            postalCodes: [33240]
-        },
-        'None Koon': {
-            subDistrict: ['None Kor', 'Bok', 'Poh', 'Nhong Kung', 'Lhao Kwang'],
-            postalCodes: [33250]
-        },
-        'Wang Hin': {
-            subDistrict: [
-                'Bu Soong',
-                'That',
-                'Duan Yai',
-                'Boh Kaew',
-                'Sri Samrarn',
-                'Thung Sawang',
-                'Wang Hin',
-                'Pone Yang'
-            ],
-            postalCodes: [33270]
-        }
-    },
-    'Ubon Ratchathani': {
-        'Meaung Ubon Ratchathani': {
-            subDistrict: [
-                'Nai Meaung',
-                'Hua Rua',
-                'Nhong Khon',
-                'Pathum',
-                'Charm Yai',
-                'Jaeramae',
-                'Nhong Bor',
-                'Rai Noi',
-                'Krasobe',
-                'Kud Lad',
-                'Khi Lhek',
-                'Pa Aow'
-            ],
-            postalCodes: [34000]
-        },
-        'Don Mod Dang': {
-            subDistrict: [
-                'Don Mod Dang',
-                'Lhao Dang',
-                'Tha Meaung',
-                'Kam Hai Yai'
-            ],
-            postalCodes: [34000]
-        },
-        'Lhao Sua Kok': {
-            subDistrict: [
-                'Lhao Sua Kok',
-                'Pone Meaung',
-                'Pang Yai',
-                'Nhong Bok'
-            ],
-            postalCodes: [34000]
-        },
-        'Piboon Mungsaharn': {
-            subDistrict: [
-                'Piboon',
-                'Kud Chompoo',
-                'Don Jik',
-                'Sai Moon',
-                'Na Poh',
-                'None Klang',
-                'Poh Sai ',
-                'Poh Sri',
-                'Ra Wae',
-                'Rhai Tai',
-                'Nhong Bua Hee',
-                'Ang Sila',
-                'None Kalong',
-                'Ban Kham'
-            ],
-            postalCodes: [34110]
-        },
-        Takranpeutpon: {
-            subDistrict: [
-                'Khulhu',
-                'Kradien',
-                'Kasem',
-                'Kussakorn',
-                'Khampia',
-                'Kon Sai',
-                'Kok Jarn',
-                'Na Pin',
-                'Na Samai',
-                'None Kung',
-                'Takarn',
-                'Tak Dad',
-                'Lhai Tung',
-                'Pao',
-                'Say Ped',
-                'Sa Peu',
-                'Nhong Tao',
-                'Tham Khae',
-                'Tha Luang',
-                'Hauy Faii Pattana',
-                'Lud Ya Luan',
-                'Ban Dang',
-                'Kham Jaroen'
-            ],
-            postalCodes: [34130]
-        },
-        'Muang Samsib': {
-            subDistrict: [
-                'Muang Samsib',
-                'Lhao Bok',
-                'Dum Yai',
-                'Nhong Chang Yai',
-                'Nhong Meaung',
-                'Toei',
-                'Yang Sak Kapo Lhum',
-                'Nhong Khai Nok',
-                'Nhong Lhao',
-                'Nhong Hang',
-                'Yang Yopap',
-                'Phai Yai',
-                'Na Lerng',
-                'Pone Pang'
-            ],
-            postalCodes: [34140]
-        },
-        'Khearng Nai': {
-            subDistrict: [
-                'Khearng Nai',
-                'Srang Tor',
-                'Kor Tong',
-                'Kor Ae',
-                'Hua Don',
-                'See Tuan',
-                'Tha Hai',
-                'Na Kham Yai',
-                'Dang Mhor',
-                'That Noi',
-                'Yang Khee Nok',
-                'Sri Sook',
-                'Saha That',
-                'Nhong Lhao'
-            ],
-            postalCodes: [34150]
-        },
-        'Dhet Udom': {
-            subDistrict: [
-                'Meaung Dhet',
-                'Na Suang',
-                'Na Jaroen',
-                'Tung Terng',
-                'Som Sa-ard',
-                'Kud Pratai',
-                'Thop Hoo',
-                'Klang',
-                'Khang',
-                'Tha Pho Sri',
-                'Bua Ngam',
-                'Kam Krang',
-                'Na Krasang',
-                'Phone Ngam',
-                'Pa Mong',
-                'None Somboon'
-            ],
-            postalCodes: [34160]
-        },
-        'Tung Sriudom': {
-            subDistrict: [
-                'Nhong Um',
-                'Na Kasem',
-                'Kud Rua',
-                'Khok Chamrae',
-                'Na Hom'
-            ],
-            postalCodes: [34160]
-        },
-        'Na Yia': {
-            subDistrict: ['Na Yia', 'Na Dee', 'Na Reung'],
-            postalCodes: [34160]
-        },
-        'Khem Rat': {
-            subDistrict: [
-                'Khem Rat',
-                'Kham Pom',
-                'Jiad',
-                'Nhong Peu',
-                'Na Wang',
-                'Khang Neu',
-                'Nhong Nok Ta',
-                'Nhong Sim',
-                'Hua Na'
-            ],
-            postalCodes: [34170]
-        },
-        'Na Tarn': {
-            subDistrict: ['Na Tarn', 'Pa Lan', 'Kong Pone', 'Pung Ken'],
-            postalCodes: [34170]
-        },
-        Warinchamrab: {
-            subDistrict: [
-                'Warinchamrab',
-                'That',
-                'None Honn',
-                'Koo Meaung',
-                'Sra Samhing',
-                'Kam Nham Saab',
-                'Kam Kwang',
-                'Poh Yai',
-                'San Sook',
-                'Nhong Kin Play',
-                'None Peung',
-                'Meaung Sri Krai',
-                'Boong Mai',
-                'Ta Lhad',
-                'Bung Whai',
-                'Huay Kayoong'
-            ],
-            postalCodes: [34190, 34310]
-        },
-        'Sawang Weerawong': {
-            subDistrict: ['Kang Dome', 'Tha Chang', 'Boong Malang', 'Sawang'],
-            postalCodes: [34190]
-        },
-        'Khong Jiam': {
-            subDistrict: [
-                'Khong Jiam',
-                'Huay Yang',
-                'Na Poh Klang',
-                'Nhong Sang Yai',
-                'Huay Phai'
-            ],
-            postalCodes: [34220]
-        },
-        'Boon Tarik': {
-            subDistrict: [
-                'Pone Ngam',
-                'Huay Kha',
-                'Kor Lan',
-                'Na Poh',
-                'Nhong Sano',
-                'None Khor',
-                'Bua Ngam',
-                'Ban Mad'
-            ],
-            postalCodes: [34230]
-        },
-        'Sri Meaung Mai': {
-            subDistrict: [
-                'Na Kham',
-                'Kang Kok',
-                'Eard Yai',
-                'Warin',
-                'Lad Kwai',
-                'Song Yang',
-                'Ta Bai',
-                'Kham Lhai',
-                'Nham Tang',
-                'Na Learn',
-                'Don Yai'
-            ],
-            postalCodes: [34250]
-        },
-        'Nam Yeun': {
-            subDistrict: [
-                'Song',
-                'Yang',
-                'Dome Pradit',
-                'Boo Peui',
-                'Sri Vichien',
-                'Yang Yai',
-                'Kao Kham'
-            ],
-            postalCodes: [34260]
-        },
-        'Nam Khun': {
-            subDistrict: ['Ta Kao', 'Phaiboon', 'Khee Lhek', 'Khok Sa-ard'],
-            postalCodes: [34260]
-        },
-        'Kud Khao Pun': {
-            subDistrict: [
-                'Khao Pun',
-                'None Sawhang',
-                'Khang Keng',
-                'Ka Bin',
-                'Nhong Tun Nam'
-            ],
-            postalCodes: [34270]
-        },
-        'Na Jarhuay': {
-            subDistrict: [
-                'Na Jarhuay',
-                'None Somboon',
-                'Porn Sawhan',
-                'Bhan Toom ',
-                'Shok Sang',
-                'None Sawhan'
-            ],
-            postalCodes: [34280]
-        },
-        'Keaung Nai': {
-            subDistrict: ['Ban Thai', 'Ban Kok', 'Klang Yai', 'None Rang'],
-            postalCodes: [34320]
-        },
-        'Tarn Soom': {
-            subDistrict: [
-                'Tarn Soom',
-                'Sam Rong',
-                'Jik Terng',
-                'Nhong Kung',
-                'Na Khai',
-                'Kam Wha'
-            ],
-            postalCodes: [34330]
-        },
-        'Poh Sai': {
-            subDistrict: [
-                'Poh Sai',
-                'Muang Yai',
-                'Sam Rong',
-                'Song Korn',
-                'Saraphee',
-                'Lhao Ngam'
-            ],
-            postalCodes: [34340]
-        },
-        Sirinthorn: {
-            subDistrict: [
-                'Kan Rhai',
-                'Chong Mek',
-                'None Kor',
-                'Nikhom Srang Ton Eng Lam Dome Noi',
-                'Fhang Kam',
-                'Kam Kheun Kaew'
-            ],
-            postalCodes: [34350]
-        },
-        'Sam Rong': {
-            subDistrict: [
-                'Sam Rong',
-                'Kok Kong',
-                'Nhong Hai',
-                'Khor Noi',
-                'None Kalen',
-                'Kok Sawang',
-                'None Klang',
-                'Bon',
-                'Kham Pom'
-            ],
-            postalCodes: [34360]
-        }
-    },
-    Yasothon: {
-        'Meaung Yasothon': {
-            subDistrict: [
-                'Nai Meaung',
-                'Nam Kam Yai',
-                'Tad Tong',
-                'Samran',
-                'Khor Nua',
-                'Doo Tung',
-                'Ded',
-                'Khandai Yai',
-                'Thung Tae',
-                'Singha',
-                'Na Samai',
-                'Kheung Kam',
-                'Nhong Hin',
-                'Nhong Koo',
-                'Khum Ngern',
-                'Tung Nang Oak',
-                'Nhong Rua',
-                'Nhong Ped'
-            ],
-            postalCodes: [35000]
-        },
-        'Kam Keun Kaew': {
-            subDistrict: [
-                'Loom Pook',
-                'Yor',
-                'Song Peui',
-                'Pone Tun',
-                'Tung Mon',
-                'Koo Jarn',
-                'Kud Kung',
-                'Lhao Hai',
-                'Dong Jaroen'
-            ],
-            postalCodes: [35110]
-        },
-        'Lerng Nok Ta': {
-            subDistrict: [
-                'Bhung Kha',
-                'Swat',
-                'Hong Sang',
-                'Samakkhi',
-                'Kud Siang Mhee',
-                'Sam Yak',
-                'Kud Hae',
-                'Kok Samran',
-                'Srang Ming',
-                'Sri Kaew'
-            ],
-            postalCodes: [35120]
-        },
-        'Thai Jaroen': {
-            subDistrict: [
-                'Thai Jaroen',
-                'Nam Kam',
-                'Som Phor',
-                'Kam Toei',
-                'Kam Phai'
-            ],
-            postalCodes: [35120]
-        },
-        'Maha Chana Chai': {
-            subDistrict: [
-                'Fah Yard',
-                'Hua Meaung',
-                'Koo Meaung',
-                'Peu Hee',
-                'Bak Rua',
-                'Muang',
-                'None Sai',
-                'Beaung Kae',
-                'Pra Sao',
-                'Song Yang'
-            ],
-            postalCodes: [35130]
-        },
-        'Kud Choom': {
-            subDistrict: [
-                'Kud Choom',
-                'None Peui',
-                'Kam Mad',
-                'Na Zoe',
-                'Huay Kang',
-                'Nhong Mhee',
-                'Pone Ngam',
-                'Kam Nam Srang',
-                'Nhong Han'
-            ],
-            postalCodes: [35140]
-        },
-        'Pa Tiew': {
-            subDistrict: [
-                'Poh Sai',
-                'Kra Jai',
-                'Kok Nako',
-                'Chiang Peng',
-                'Sri Than'
-            ],
-            postalCodes: [35150]
-        },
-        'Koh Wang': {
-            subDistrict: ['Fah Huan', 'Kud Namsai', 'Nam Oom', 'Koh Wang'],
-            postalCodes: [35160]
-        },
-        'Sai Moon': {
-            subDistrict: [
-                'Sai Moon',
-                'Doo Lard',
-                'Dong Mafai',
-                'Na Vieng',
-                'Phai'
-            ],
-            postalCodes: [35170]
-        },
-        'Kham Keaun Kaew': {
-            subDistrict: ['Na Kham', 'Dong Can Yai', 'Na Kae', 'Can Yai'],
-            postalCodes: [35180]
-        }
-    },
-    Chaiyaphum: {
-        'Meaung Chaiyaphum': {
-            subDistrict: [
-                'Nai Meaung',
-                'Rob Meaung',
-                'Pone Tong',
-                'Na Fhai',
-                'Kud Toom',
-                'See Long',
-                'Ban Lhao',
-                'Na Siew',
-                'Nhong Na Sang',
-                'Lad Yai',
-                'Tha Hin Ngom',
-                'Huay Ton',
-                'Huay Bon',
-                'Kok Soong',
-                'Bung Khla',
-                'Sub Si Thong',
-                'Ban Khai',
-                'Nhong Phai',
-                'None Samran'
-            ],
-            postalCodes: [36000, 36240]
-        },
-        'Phu Kiew': {
-            subDistrict: [
-                'Pak Pang',
-                'Kwang Joan',
-                'Nhong Kon Thai',
-                'Ban Khang',
-                'Kud Yom',
-                'Ban Petch',
-                'Kok Sa-ard',
-                'Nhong Toom',
-                'Ohlo',
-                'That Tong',
-                'Ban Don'
-            ],
-            postalCodes: [36110]
-        },
-        'Kaset Somboon': {
-            subDistrict: [
-                'Ban Yang',
-                'Ban Hun',
-                'Ban Deu',
-                'Ban Phao',
-                'Kud Lhao',
-                'Non Kok',
-                'Sra Pone Tong',
-                'Nhong Kha',
-                'Nhong Pone Ngam',
-                'Ban Bua',
-                'Non Tong'
-            ],
-            postalCodes: [36120]
-        },
-        Jaturat: {
-            subDistrict: [
-                'Ban Kok',
-                'Nhong Bua Ban',
-                'Ban Kham',
-                'Kud Nam Sai',
-                'Nhong Don',
-                'La Harn',
-                'Nhong Bua Yai',
-                'Som Poi',
-                'Nhong Bua Kok'
-            ],
-            postalCodes: [36130, 36220]
-        },
-        'Nern Sagha': {
-            subDistrict: ['Nhong Chim', 'Ta Nern', 'Ka Had', 'Rang Ngam'],
-            postalCodes: [36130]
-        },
-        'Sub Yai': {
-            subDistrict: ['Sub Yai', 'Tha Goob', 'Ta Ko Tong'],
-            postalCodes: [36130]
-        },
-        'Con Sawhan': {
-            subDistrict: [
-                'Con Sawhan',
-                'Yang Whai',
-                'Chong Sam Mor',
-                'None Sa-ard',
-                'Huay Rai',
-                'Ban Sok',
-                'Kok Mung Ngoi',
-                'Nhong Kham',
-                'Sri Samran'
-            ],
-            postalCodes: [36140]
-        },
-        'Khang Kro': {
-            subDistrict: [
-                'Chong Sam Mor',
-                'Nhong Kham',
-                'Na Nhong Tum',
-                'Ban Kang',
-                'Nhong Sang',
-                'Lhub Kung',
-                'Kok Kung',
-                'Khao Ya Dee',
-                'Tha Mafai Whan',
-                'Nhong Phai'
-            ],
-            postalCodes: [36150]
-        },
-        'Bam Nhet Narong': {
-            subDistrict: [
-                'Ban Chuan',
-                'Ban Petch',
-                'Kok Rerng Rom',
-                'Koh Manao',
-                'Kok Petch Pattana'
-            ],
-            postalCodes: [36160]
-        },
-        'Ban Khwao': {
-            subDistrict: [
-                'Ban Khwao',
-                'Talad Rang',
-                'Lhum Nam She',
-                'She Bon',
-                'Phu Lan Car',
-                'None Dang'
-            ],
-            postalCodes: [36170]
-        },
-        'Con Sarn': {
-            subDistrict: [
-                'Con Sarn',
-                'Thung Pra',
-                'None Koon',
-                'Huay Yang',
-                'Thung Lui Lai',
-                'Dong Bang',
-                'Thung Na Lao',
-                'Dong Klang'
-            ],
-            postalCodes: [36180]
-        },
-        'Ban Tan': {
-            subDistrict: [
-                'Ban Tan',
-                'Sam Suan',
-                'Sra Pung',
-                'Ban Tao',
-                'Nhong Koo'
-            ],
-            postalCodes: [36190]
-        },
-        'Nhong Bua Dang': {
-            subDistrict: [
-                'Nhong Bua Dang',
-                'Kud Chum Sang',
-                'Tham Wua Dang',
-                'Nang Dad',
-                'Nhong Wang',
-                'Ku Meaung',
-                'Tha Yai',
-                'Wang Chompoo'
-            ],
-            postalCodes: [36210]
-        },
-        'Bumnhet Narong': {
-            subDistrict: ['Ban Tarn', 'Hua Talay'],
-            postalCodes: [36220]
-        },
-        'Thep Satit': {
-            subDistrict: [
-                'Wata Bak',
-                'Huay Yai Jiew',
-                'Na Yang Kluk',
-                'Bhan Rai',
-                'Pong Nok'
-            ],
-            postalCodes: [36230]
-        },
-        'Nhong Bua Raheo': {
-            subDistrict: [
-                'Nhong Bua Raheo',
-                'Wang Thakhe',
-                'Huay Yae',
-                'Kok Sa-Ard',
-                'Sok Pla Duk'
-            ],
-            postalCodes: [36250]
-        },
-        'Pakdee Chumpon': {
-            subDistrict: ['Ban Jiang', 'Jao Tong', 'Wang Tong', 'Lham Tong'],
-            postalCodes: [36260]
-        }
-    },
-    'Amnat Charoen': {
-        'Meaung Amnat Charoen': {
-            subDistrict: [
-                'Bung',
-                'Kai Kam',
-                'Na Jik',
-                'Pla Klap',
-                'Lhao Pruan',
-                'Srang Nok Ta',
-                'Kheem Yai',
-                'Na Peu',
-                'Nham Pleek',
-                'Na Wang',
-                'Na Mor Ma',
-                'Non Poh',
-                'Non Nham Tang',
-                'Huay Rai',
-                'Nhong Maseaw',
-                'Kud Pladuk',
-                'Don Meoi',
-                'Na Yom',
-                'Na Tae'
-            ],
-            postalCodes: [37000]
-        },
-        'Lue Amnat': {
-            subDistrict: [
-                'Amnat',
-                'Dong Mayang',
-                'Peui',
-                'Dong Bang',
-                'Rai She',
-                'Mad',
-                'Kok Klang'
-            ],
-            postalCodes: [37000]
-        },
-        'Pathum Wongsa': {
-            subDistrict: [
-                'Nhong Kha',
-                'Kam Phon',
-                'Na Wha',
-                'Lue',
-                'Huay',
-                'Non Ngam',
-                'Na Pa Sang'
-            ],
-            postalCodes: [37110]
-        },
-        Pana: {
-            subDistrict: ['Pana', 'Jarn Larn', 'Mai Klon', 'Pra Lhao'],
-            postalCodes: [37180]
-        },
-        Chanuman: {
-            subDistrict: [
-                'Chanuman',
-                'Kok Sarn',
-                'Kam Keun Kaew',
-                'Kok Kong',
-                'Pah Kor'
-            ],
-            postalCodes: [37210]
-        },
-        'Hua Tapan': {
-            subDistrict: [
-                'Hua Tapan',
-                'Kam Pra',
-                'Keng Yai',
-                'Nhong Kaew',
-                'Pone Meaung Noi',
-                'Srang Tor Noi',
-                'Jik Du',
-                'Ratanawaree'
-            ],
-            postalCodes: [37240]
-        },
-        'Senang Nikom': {
-            subDistrict: [
-                'Senang Nikom',
-                'Pone Tong',
-                'Rai Sri Sook',
-                'Na Wieng',
-                'Nhong Hai',
-                'Nhong Sam See'
-            ],
-            postalCodes: [37290]
-        }
-    },
-    'Bueng Kan': {
-        'Meaung Bueng Kan': {
-            subDistrict: [
-                'Beung Kan',
-                'Non Somboon',
-                'Non Sawang',
-                'Hor Kam',
-                'Nhong Lerng',
-                'Kok Kong',
-                'Na Swan',
-                'Kai Lee',
-                'Chaiporn',
-                'Visit',
-                'Kam Nadee',
-                'Pong Peui'
-            ],
-            postalCodes: [38000]
-        },
-        'Bung Kla': {
-            subDistrict: ['Bung Kla', 'Nong Deun', 'Kok Klang'],
-            postalCodes: [38000]
-        },
-        Seka: {
-            subDistrict: [
-                'Seka',
-                'Sang',
-                'Tha Kok Dang',
-                'Ban Thong',
-                'Pong Hai',
-                'Nam Jhan',
-                'Ta Sa-Ard',
-                'Nhong Thum',
-                'Sok Kam'
-            ],
-            postalCodes: [38150]
-        },
-        'Zoh Pisai': {
-            subDistrict: [
-                'Zoh',
-                'Nhong Panta',
-                'Sri Chompoo',
-                'Kam Kaew',
-                'Bua Toom',
-                'Tham Jaroen',
-                'Lhao Tong'
-            ],
-            postalCodes: [38170]
-        },
-        'Porn Jaroen': {
-            subDistrict: [
-                'Sri Chompoo',
-                'Don Ya Nang',
-                'Porn Jaroen',
-                'Nhong Hau Chang',
-                'Wang Chompoo',
-                'Pa Fak',
-                'Sri Samran'
-            ],
-            postalCodes: [38180]
-        },
-        'Pak Kad': {
-            subDistrict: [
-                'Pak Kad',
-                'Nhong Yong',
-                'Na Kang',
-                'Non Sila',
-                'Som Sanook',
-                'Na Dong'
-            ],
-            postalCodes: [38190]
-        },
-        'Sri Vilai': {
-            subDistrict: [
-                'Sri Vilai',
-                'Chumpoo Porn',
-                'Na Sang',
-                'Na Sabang',
-                'Na Singha'
-            ],
-            postalCodes: [38210]
-        },
-        'Beung Khong Lhong': {
-            subDistrict: [
-                'Beung Khong Lhong',
-                'Poh Mak Khang',
-                'Dong Bang',
-                'Tha Dok Kam'
-            ],
-            postalCodes: [38220]
-        }
-    },
-    'Nong Bua Lam Phu': {
-        'Meaung Nong Bua Lam Phu': {
-            subDistrict: [
-                'Nong Bua',
-                'Nhong Pai Soon',
-                'Poh Chai',
-                'Nhong Sawan',
-                'Hua Na',
-                'Ban Kham',
-                'Na Mafuang',
-                'Ban Prow',
-                'None Kamhin',
-                'Lamphu',
-                'Kud Jik',
-                'None Tan',
-                'Na Kham Hai',
-                'Pah Mai Ngam',
-                'Nhong Wha'
-            ],
-            postalCodes: [39000]
-        },
-        'None Sang': {
-            subDistrict: [
-                'None Sang',
-                'Ban Thin',
-                'Nhong Rua',
-                'Kud Du',
-                'Ban Kor',
-                'None Meaung',
-                'Kok Yai',
-                'Kok Muang',
-                'Nikhom Pattana',
-                'Pang Khu'
-            ],
-            postalCodes: [39140]
-        },
-        'Na Klang': {
-            subDistrict: [
-                'Na Klang',
-                'Darn Chang',
-                'Fang Dang',
-                'Non Meaung',
-                'Uthai Sawan',
-                'Kud Hae',
-                'Kud Din Jee',
-                'Klao Kloy',
-                'Dong Sawhan'
-            ],
-            postalCodes: [39170, 39350]
-        },
-        'Na Wang': {
-            subDistrict: [
-                'Na Lhao',
-                'Na Kae',
-                'Wang Tong',
-                'Wang Pla Pom',
-                'Thep Kiri'
-            ],
-            postalCodes: [39170]
-        },
-        'Sri Boon Reung': {
-            subDistrict: [
-                'Meaung Mai',
-                'Sri Boon Reung',
-                'Nhong Bua Tai',
-                'Kud Sa Tian',
-                'Na Kok',
-                'Non Sa-Ard',
-                'Yang Lhor',
-                'Non Muang',
-                'Nhong Kung Kaew',
-                'Nhong Kae',
-                'Sai Tong ',
-                'Hun Na NGam'
-            ],
-            postalCodes: [39180]
-        },
-        'Suwan Kuha': {
-            subDistrict: [
-                'Na Sri',
-                'Ban Kok',
-                'Na Dee',
-                'Na Darn',
-                'Dong Mafai',
-                'Suwan Kuha',
-                'Boon Tun',
-                'Kud Pheung'
-            ],
-            postalCodes: [39270]
-        }
-    },
-    'Khon Kaen': {
-        'Meaung Khon Kaen': {
-            subDistrict: [
-                'Nai Meaung',
-                'Samran',
-                'Khok See',
-                'Bhan Toom',
-                'Meaung Kao',
-                'Pra Lub',
-                'Sawatee',
-                'Ban Wha',
-                'Ban Kor',
-                'Dang Yai',
-                'Don Chang',
-                'Sila',
-                'Ban Ped',
-                'Nhong Toom',
-                'Beung Niam',
-                'Non Ton',
-                'Nau Meaung',
-                'Tha Pra',
-                'Don Hun'
-            ],
-            postalCodes: [40000, 40002, 40260]
-        },
-        'Ban Phai': {
-            subDistrict: [
-                'Ban Phai',
-                'Nai Meaung',
-                'Meaung Pia',
-                'Ban Larn',
-                'Can Nua',
-                'Poo Lhek',
-                'Pa Por',
-                'Hin Tung',
-                'Nhong Nam Sai',
-                'Hua Nhong'
-            ],
-            postalCodes: [40110]
-        },
-        'Ban Had': {
-            subDistrict: ['Ban Had', 'Kok Samran', 'Non Somboon', 'Nhong Sang'],
-            postalCodes: [40110]
-        },
-        'Non Sila': {
-            subDistrict: [
-                'Non Sila',
-                'Nhong Pla Mor',
-                'Ban Hun',
-                'Peui Yai',
-                'Non Dang'
-            ],
-            postalCodes: [40110]
-        },
-        Phol: {
-            subDistrict: [
-                'Meaung Phol',
-                'Jode Nhong Kae',
-                'Khao Ngiew',
-                'Nong Makeu',
-                'Nhong Wang Sok Pra',
-                'Pek Yai',
-                'Kok Sanga',
-                'Nhong Wang Nang Bao',
-                'Lom Kom',
-                'Non Kha',
-                'Sok Nok Ten',
-                'Hua Tung'
-            ],
-            postalCodes: [40120]
-        },
-        'Chum Phae': {
-            subDistrict: [
-                'Chum Prae',
-                'Non Udom',
-                'Kua Riang',
-                'Nhong Phai',
-                'Chai Sor',
-                'Wang Hin Lad',
-                'Na Piang',
-                'Nhong Sao Lao',
-                'None Hun',
-                'Na Nhong Tum',
-                'Nhong Kied',
-                'Non Sa-Ard'
-            ],
-            postalCodes: [40130, 40290]
-        },
-        'Nam Pong': {
-            subDistrict: [
-                'Nam Pong',
-                'Wang Chai',
-                'Nhong Kung',
-                'Bua Yai',
-                'Ban Kham',
-                'Bua Ngern',
-                'Sai Moon',
-                'Tha Kraserm',
-                'Pang Tui'
-            ],
-            postalCodes: [40140]
-        },
-        'Phu Wieng': {
-            subDistrict: [
-                'Ban Reua',
-                'Wha Tong',
-                'Kud Khon Kaen',
-                'Na Chum Sang',
-                'Na Wha',
-                'Nhong Kung Tanasorn',
-                'Nhong Kung Sern',
-                'Song Peue',
-                'Thung Chompoo',
-                'Din Dang',
-                'Phu Wieng'
-            ],
-            postalCodes: [40150]
-        },
-        'Nhong Na Kam': {
-            subDistrict: ['Kud That', 'Ban Kok', 'Ka Nuan'],
-            postalCodes: [40150]
-        },
-        'Vieng Kao': {
-            subDistrict: ['Nai Meaung', 'Meaung Kao Pattana', 'Kao Noi'],
-            postalCodes: [40150]
-        },
-        Munjakiri: {
-            subDistrict: [
-                'Kud Kao',
-                'Suan Mhon',
-                'Nhong Pan',
-                'Pone Pack',
-                'Kham Kan',
-                'Na Kha',
-                'Na Ngam',
-                'Tha Sala'
-            ],
-            postalCodes: [40160]
-        },
-        'Kok Poh Chai': {
-            subDistrict: ['Ban Kok', 'Poh Chai', 'Sub Somboon', 'Na Pang'],
-            postalCodes: [40160]
-        },
-        Kranuan: {
-            subDistrict: [
-                'Nong Ko',
-                'Nong Kung Yai',
-                'Huay Jode',
-                'Huay Yang',
-                'Huay Fang',
-                'Dune Sad',
-                'Nong No',
-                'Na Aom',
-                'Hua Na Kham'
-            ],
-            postalCodes: [40170]
-        },
-        'Sam Sung': {
-            subDistrict: [
-                'Kranuan',
-                'Kam Mad',
-                'Ban None',
-                'Khu Kam',
-                'Hauy Toei'
-            ],
-            postalCodes: [40170]
-        },
-        Chonnabot: {
-            subDistrict: [
-                'Chonnabot',
-                'Kud Pia Kom',
-                'Wang Sang',
-                'Huay Kae',
-                'Ban Tan',
-                'Sri Boon Reung',
-                'None Payom',
-                'Por Dang'
-            ],
-            postalCodes: [40180]
-        },
-        'Nong Song Hong': {
-            subDistrict: [
-                'Nhong Song Hong',
-                'Keem Chad',
-                'None That',
-                'Ta Kua Pa',
-                'Sam Rong',
-                'Nhong Meg',
-                'Don Du',
-                'Dong Keng',
-                'Hun Jode',
-                'Don Tung',
-                'Wang Hin',
-                'Nhong Phai Lom'
-            ],
-            postalCodes: [40190]
-        },
-        'Nong Ruea': {
-            subDistrict: [
-                'Nhong Rua',
-                'Bhan Meng',
-                'None Tong',
-                'Kud Kwang',
-                'None Tan',
-                'None Sa-Ard',
-                'Ban Kong',
-                'Yang Kam',
-                'Jorakae',
-                'Ban Peu'
-            ],
-            postalCodes: [40210, 40240]
-        },
-        'Si Chomphu': {
-            subDistrict: [
-                'Sri Chompoo',
-                'Sri Sook',
-                'Na Jarn',
-                'Wang Perm',
-                'Sam Yang',
-                'Nhong Dang',
-                'Dong Larn',
-                'Boriboon',
-                'Ban Mai',
-                'Poo Harn'
-            ],
-            postalCodes: [40220]
-        },
-        'Waeng Noi': {
-            subDistrict: [
-                'Wang Noi',
-                'Karn Leung',
-                'Tha Nang Naew',
-                'La Harn Na',
-                'Tha Wat',
-                'Thang Kwang'
-            ],
-            postalCodes: [40230]
-        },
-        Ubolratana: {
-            subDistrict: [
-                'Kok Soong',
-                'Ban Dong',
-                'Keaun Ubonrat',
-                'Na Kam',
-                'Sri Sook Samran',
-                'Tung Pong'
-            ],
-            postalCodes: [40250]
-        },
-        'Ban Fang': {
-            subDistrict: [
-                'Nhong Bua',
-                'Pa Waii Nung',
-                'None Khong',
-                'Ban Lhao',
-                'Pa Manao',
-                'Ban Fang',
-                'Kok Ngam'
-            ],
-            postalCodes: [40270]
-        },
-        'Khao Suan Kwang': {
-            subDistrict: [
-                'Kao Suan Kwang',
-                'Don Meaung Am',
-                'Na Ngiew',
-                'None Somboon',
-                'Kam Muang'
-            ],
-            postalCodes: [40280]
-        },
-        'Nam Phong': {
-            subDistrict: ['Sa-Ard', 'Muang Whan', 'Kud Nam Sai'],
-            postalCodes: [40310]
-        },
-        'Phra Yuen': {
-            subDistrict: [
-                'Pra Yeun',
-                'Pra Bu',
-                'Ban Tone',
-                'Nhong Wang',
-                'Kham Pom'
-            ],
-            postalCodes: [40320]
-        },
-        'Waeng Yai': {
-            subDistrict: [
-                'Con Chim',
-                'Mai Na Piang',
-                'None Tong',
-                'Wang Yai',
-                'Non Sa-Ard'
-            ],
-            postalCodes: [40330]
-        },
-        'Pueai Noi': {
-            subDistrict: ['Pueai Noi', 'Wang Muang', 'Kham Pom', 'Sra Kaew'],
-            postalCodes: [40340]
-        },
-        'Phu Pha Man': {
-            subDistrict: [
-                'None Com',
-                'Na Fai',
-                'Phu Pa Marn',
-                'Wang Sawab',
-                'Huay Muang'
-            ],
-            postalCodes: [40350]
-        }
-    },
-    'Udon Thani': {
-        'Mueang Udon Thani': {
-            subDistrict: [
-                'Mak Khang',
-                'Nikom Songkroe',
-                'Ban Khao',
-                'Nhong Bua',
-                'Ban Tard',
-                'Moo Mon',
-                'Chiang Yeun',
-                'Nhong Na Kam',
-                'Kud Sra',
-                'Na Dee',
-                'Ban Leuam',
-                'Chiang Pin',
-                'Sam Praw',
-                'Nhong Hai',
-                'Na Kha',
-                'Ban Jan',
-                'Nhong Khon Kwang',
-                'Kok Sa-Ard',
-                'Na Kwang',
-                'Non Soong',
-                'Nhong Phai'
-            ],
-            postalCodes: [41000, 41330]
-        },
-        Kumphawapi: {
-            subDistrict: [
-                'Toom Tai',
-                'Vieng Kham',
-                'Sae Lae',
-                'Chiang Wha',
-                'Huay Kerng',
-                'Seuu',
-                'Tha Lee',
-                'Kumphawapi',
-                'Nhong Wha',
-                'Pan Don',
-                'Seur Peur',
-                'Pa Koh',
-                'Pha Sook'
-            ],
-            postalCodes: [41110, 41370]
-        },
-        'Prachak Sinlapakhom': {
-            subDistrict: ['Na Muang', 'Huay Sam Pad', 'Oum Jarn'],
-            postalCodes: [41110]
-        },
-        'Nong Han': {
-            subDistrict: [
-                'Nong Harn',
-                'Nong Meg',
-                'Pang Ngu',
-                'Sa Bang',
-                'Sroy Praow',
-                'Pone Ngam',
-                'Pak Tob',
-                'Nong Phai',
-                'Don Hai Sok',
-                'Ban Chiang',
-                'Ban Ya',
-                'Nong Sra Pa'
-            ],
-            postalCodes: [41130, 41320]
-        },
-        'Phibun Rak': {
-            subDistrict: ['Ban Dang', 'Na Sai', 'Don Kloy'],
-            postalCodes: [41130]
-        },
-        'Ku Kaeo': {
-            subDistrict: ['Ban Jeud', 'Non Tong In', 'Koh Yai', 'Kon Sai'],
-            postalCodes: [41130]
-        },
-        Phen: {
-            subDistrict: [
-                'Phen',
-                'Ban That',
-                'Na Phu',
-                'Chiang Whang',
-                'Sum Sao',
-                'Na Bua ',
-                'Ban Lhao',
-                'Jom Sri',
-                'Tao Hai',
-                'Kok Klang',
-                'Srang Pan'
-            ],
-            postalCodes: [41150]
-        },
-        'Ban Phue': {
-            subDistrict: [
-                'Ban Peu',
-                'Hai Sok',
-                'Keue Nam',
-                'Kam Bong',
-                'Non Tong',
-                'Khao Sarn',
-                'Jam Pa Mong',
-                'Klang Yai',
-                'Meaung Pan',
-                'Kham Duang',
-                'Nhong Hua Khu',
-                'Ban Kor',
-                'Nhong Wang'
-            ],
-            postalCodes: [41160]
-        },
-        'Ban Dung': {
-            subDistrict: [
-                'Sri Suttho',
-                'Ban Tung',
-                'Dong Yen',
-                'Pone Soong',
-                'Aom Kor',
-                'Ban Chan',
-                'Ban Chai',
-                'Na Mai',
-                'Thon Na Lab',
-                'Wang Tong',
-                'Ban Muang',
-                'Ban That',
-                'Na Kam'
-            ],
-            postalCodes: [41190]
-        },
-        'Nam Som': {
-            subDistrict: [
-                'Na Ngua',
-                'Nam Som',
-                'Nhong Wang',
-                'Ban Yuak',
-                'Some Yiem',
-                'Sri Samran',
-                'Sammakkhi'
-            ],
-            postalCodes: [41210]
-        },
-        'Nong Wua So': {
-            subDistrict: [
-                'Nhong Or',
-                'Oob Mung',
-                'Kud Mak Fai',
-                'None Whai',
-                'Mak Yah',
-                'Nam Pon',
-                'Nong Bua Ban',
-                'Nong Wua Sor'
-            ],
-            postalCodes: [41220, 41360]
-        },
-        'Si That': {
-            subDistrict: [
-                'Sri That',
-                'Jam Pee',
-                'Ban Prong',
-                'Hua Na Kam',
-                'Nhong Nok Kian',
-                'Na Yoong',
-                'That Tong'
-            ],
-            postalCodes: [41230]
-        },
-        'Non Sa-at': {
-            subDistrict: [
-                'None Sa-Ard',
-                'Boong Kaew',
-                'Poh Sri Samran',
-                'Tom Na Ngam',
-                'Nhong Kung Sri',
-                'Kok Klang'
-            ],
-            postalCodes: [41240]
-        },
-        'Kut Chap': {
-            subDistrict: [
-                'Kud Jab',
-                'Pa Ko',
-                'Khon Yoong',
-                'Chiang Pheng',
-                'Srang Kor',
-                'Meaung Pia',
-                'Tarn Lian'
-            ],
-            postalCodes: [41250]
-        },
-        'Sang Khom': {
-            subDistrict: [
-                'Srang Com',
-                'Chiang Da',
-                'Ban Yuad',
-                'Ban Kok',
-                'Na Sa-Ard',
-                'Ban Hin Ngom'
-            ],
-            postalCodes: [41260]
-        },
-        'Wang Sam Mo': {
-            subDistrict: [
-                'Nong Kung Tub Ma',
-                'Nong Ya Sai',
-                'Ba Yao',
-                'Pa Sook',
-                'Kam Kok Soong',
-                'Wang Sam Mor'
-            ],
-            postalCodes: [41280]
-        },
-        'Chai Wan': {
-            subDistrict: ['Chai Wan', 'Nhong Lak', 'Kam Loh', 'Pone Soong'],
-            postalCodes: [41290]
-        },
-        'Thung Fon': {
-            subDistrict: ['Tung Fon', 'Tung Yai', 'Na Chum Sang', 'Na Tom'],
-            postalCodes: [41310]
-        },
-        'Nong Saeng': {
-            subDistrict: ['Nhong Sang', 'Sang Sawang', 'Na Dee', 'Tub Gung'],
-            postalCodes: [41340]
-        },
-        'Na Yung': {
-            subDistrict: ['Na Yoong ', 'Ban Kong', 'Na Kae', 'Non Tong'],
-            postalCodes: [41380]
-        }
-    },
-    Loei: {
-        'Mueang Loei': {
-            subDistrict: [
-                'Kud Pong',
-                'Mueang',
-                'Kok Doo',
-                'Nham Mhan',
-                'Siew',
-                'Na Arn',
-                'Na Pong',
-                'Na Din Dam',
-                'Nam Suay',
-                'Chai Preuk',
-                'Na Kham',
-                'Kok Tong',
-                'Na Or',
-                'Sri Song Rak'
-            ],
-            postalCodes: [42000, 42100]
-        },
-        'Chiang Khan': {
-            subDistrict: [
-                'Chiang Khan',
-                'That',
-                'Na Sao',
-                'Kao Kaew',
-                'Pak Tom',
-                'Bu Hom',
-                'Jom Sri',
-                'Had Sai Khao'
-            ],
-            postalCodes: [42110]
-        },
-        'Dan Sai': {
-            subDistrict: [
-                'Dan Sai',
-                'Pak Mhan',
-                'Na Dee',
-                'Kok Ngam',
-                'Pone Soong',
-                'E Poom',
-                'Kok Satorn',
-                'Pong',
-                'Wang Yao',
-                'Na Hor'
-            ],
-            postalCodes: [42120]
-        },
-        'Wang Saphung': {
-            subDistrict: [
-                'Wang Saphung',
-                'Sai Khao',
-                'Nhong Yha Plong',
-                'Nhong Ngiew',
-                'Pak Puan',
-                'Pha Noi',
-                'Pha Bing',
-                'Khao Luang',
-                'Kok Khamin',
-                'Sri Songkram'
-            ],
-            postalCodes: [42130]
-        },
-        'Tha Li': {
-            subDistrict: [
-                'Tha Li',
-                'Nong Phue',
-                'Ahi',
-                'Nam Kham',
-                'Khok Yai',
-                'Nam Thun'
-            ],
-            postalCodes: [42140]
-        },
-        'Pak Chom': {
-            subDistrict: [
-                'Pak Chom',
-                'Chiang Klom',
-                'Had Kum Pee',
-                'Huay Boh Seen',
-                'Huay Phichai',
-                'Chom Jaroen'
-            ],
-            postalCodes: [42150]
-        },
-        'Phu Ruea': {
-            subDistrict: [
-                'Nhong Bua',
-                'Tha Sala',
-                'Rong Chik',
-                'Pla Ba',
-                'Lad Khang',
-                'Sarn Tom'
-            ],
-            postalCodes: [42160]
-        },
-        'Na Heao': {
-            subDistrict: [
-                'Na Heao',
-                'Sang Pa',
-                'Na Phueng',
-                'Na Ma La',
-                'Lhao Kor Hok'
-            ],
-            postalCodes: [42170]
-        },
-        'Phu Kradueng': {
-            subDistrict: [
-                'Sri Than',
-                'Pha Nok Khao',
-                'Phu Kradeung',
-                'Huay Som'
-            ],
-            postalCodes: [42180]
-        },
-        'Nong Hin': {
-            subDistrict: ['Nong Hin', 'Thad Kha', 'Puan Phu'],
-            postalCodes: [42190]
-        },
-        'Na Duang': {
-            subDistrict: ['Na Duang', 'Na Dok Kam', 'Tha Sa-ard', 'Tha Sawan'],
-            postalCodes: [42210]
-        },
-        Erawan: {
-            subDistrict: ['Erawan', 'Pa In Plang', 'Pa Sam Yod', 'Sab Paiwan'],
-            postalCodes: [42220]
-        },
-        'Phu Luang': {
-            subDistrict: [
-                'Phu Ho',
-                'Nong Khan',
-                'Huai Sisiat',
-                'Leoi Wang Sai',
-                'Kaeng Si Phum'
-            ],
-            postalCodes: [42230]
-        },
-        'Pha Khao': {
-            subDistrict: [
-                'Pha Khao',
-                'Tha Chang Klong',
-                'Non Po Daeng',
-                'Non Pa Sang',
-                'Ban Phoem'
-            ],
-            postalCodes: [42240]
-        }
-    },
-    'Nong Khai': {
-        'Mueang Nong Khai': {
-            subDistrict: [
-                'Nai Meaung',
-                'Mee Chai',
-                'Poh Chai',
-                'Kuan Wan',
-                'Vieng Kook',
-                'Wat That',
-                'Hat Kham',
-                'Hin Ngom',
-                'Ban Deu',
-                'Nhong Kom Koh',
-                'Pa Co',
-                'Meaung Mi',
-                'Si Kai',
-                'Kai Bok Wan',
-                'Pone Sawang',
-                'Pra That Bang Puan'
-            ],
-            postalCodes: [43000, 43100]
-        },
-        SraKhrai: {
-            subDistrict: ['SraKhrai', 'Khok Chang', 'Ban Fang'],
-            postalCodes: [43100]
-        },
-        'Tha Bo': {
-            subDistrict: [
-                'Tha Bo',
-                'Nam Mong',
-                'Kong Nang',
-                'Khok Khon',
-                'Ban Duea',
-                'Ban Thon',
-                'Ban Wan',
-                'Na Kha',
-                'Phon Sa',
-                'Nong Nang'
-            ],
-            postalCodes: [43110]
-        },
-        'Phon Phisai': {
-            subDistrict: [
-                'Jumpol',
-                'Wat Luang',
-                'Kut Bong',
-                'Chum Chang',
-                'Thung Luang',
-                'Lhao Tang Kam',
-                'Na Nhang',
-                'Soem',
-                'Ban Poh',
-                'Ban Phue',
-                'Sang Nang Khao'
-            ],
-            postalCodes: [43120]
-        },
-        'Fao Rai': {
-            subDistrict: [
-                'Fao Rai',
-                'Na Di',
-                'Nhong Luang',
-                'Wang Luang',
-                'Udom Phon'
-            ],
-            postalCodes: [43120]
-        },
-        Rattanawapi: {
-            subDistrict: [
-                'Rattanawapi',
-                'Na Thap Hai',
-                'Ban Ton',
-                'Phra Bat Na Sing',
-                'Phon Pang'
-            ],
-            postalCodes: [43120]
-        },
-        'Si Chiang Mai': {
-            subDistrict: [
-                'Pan Praw',
-                'Ban Mo',
-                'Phra Phutthabat',
-                'Nong Pla Pak'
-            ],
-            postalCodes: [43130]
-        },
-        'Pho Tak': {
-            subDistrict: ['Pho Tak', 'Pone Tong', 'Dan Sri Suk'],
-            postalCodes: [43130]
-        },
-        Sangkhom: {
-            subDistrict: [
-                'Kaeng Kai',
-                'Pha Tang',
-                'Ban Muang',
-                'Na Ngio',
-                'Sangkhom'
-            ],
-            postalCodes: [43160]
-        }
-    },
-    'Maha Sarakham': {
-        'Mueang Maha Sarakham': {
-            subDistrict: [
-                'Talad',
-                'Khwao',
-                'Tha Tum',
-                'Waeng Nang',
-                'Kok Kor',
-                'Don Wan',
-                'Koeng',
-                'Kang Lerng Jarn',
-                'Tha Song Korn',
-                'Lad Pattana',
-                'Nong Pling',
-                'Huai Aeng',
-                'Nong No',
-                'Bua Kho'
-            ],
-            postalCodes: [44000]
-        },
-        'Phayakkhaphum Phisai': {
-            subDistrict: [
-                'Palan',
-                'Kham Pu',
-                'Wiang Sa-at',
-                'Mek Dam',
-                'Na Si Nuan',
-                'Rat Charoen',
-                'Nong Bua Kaeo',
-                'Mueang Tao',
-                'Lan Sakae',
-                'Wiang Chai',
-                'Nhong Bua',
-                'Rat Phattana',
-                'Meaung Suea',
-                'Phan Aen'
-            ],
-            postalCodes: [44110]
-        },
-        'Wapi Pathum': {
-            subDistrict: [
-                'Nong Saeng',
-                'Kham Pom',
-                'Suea Kok',
-                'Dong Yai',
-                'Poh Chai',
-                'Hua Ruea',
-                'Khaen',
-                'Ngua Ba',
-                'Na Kha',
-                'Ban Wai',
-                'Nong Hai',
-                'Pracha Phattana',
-                'Nong Thum',
-                'Nong Saen',
-                'Khok Si Thonglang'
-            ],
-            postalCodes: [44120]
-        },
-        Borabue: {
-            subDistrict: [
-                'Borabue',
-                'Bo Yai',
-                'Wang Chai',
-                'Nhong Muang',
-                'Kam Phi',
-                'Non Rasi',
-                'Non Daeng',
-                'Non Chik',
-                'Bua Mat',
-                'Nhong Ku Kad',
-                'Wang Mai',
-                'Yang',
-                'Nong Sim',
-                'Nong Ko',
-                'Don Ngua'
-            ],
-            postalCodes: [44130]
-        },
-        'Kut Rang': {
-            subDistrict: [
-                'Kut Rang',
-                'Na Pho',
-                'Loeng Faek',
-                'Nong Waeng',
-                'Huai Toei'
-            ],
-            postalCodes: [44130]
-        },
-        'Kosum Phisai': {
-            subDistrict: [
-                'Hua Kwang',
-                'Yang Noi',
-                'Wang Yao',
-                'Khwao Rai',
-                'Phaeng',
-                'Kaeng Kae',
-                'Nong Lhek',
-                'Nong Bua',
-                'Lhao',
-                'Khuean',
-                'Nong Bon',
-                'Phon Ngam',
-                'Yang Tha Chaeng',
-                'Hae Tai',
-                'Nong Kung Sawan',
-                'Lerng Tai',
-                'Don Klang'
-            ],
-            postalCodes: [44140]
-        },
-        Kantharawichai: {
-            subDistrict: [
-                'Khok Phra',
-                'Khunthararat',
-                'Makha',
-                'Tha Khon Yang',
-                'Na Si Nuan',
-                'Kham Riang',
-                'Khwao Yai',
-                'Si Suk',
-                'Kut Sai Cho',
-                'Kham Thao Pattana'
-            ],
-            postalCodes: [44150]
-        },
-        'Chaing Yuen': {
-            subDistrict: [
-                'Chiang Yeun',
-                'Nong Son',
-                'Don Ngoen',
-                'Ku Thong',
-                'Na Thong',
-                'Suen Thao',
-                'Phon Thong',
-                'Lao Bua Ban'
-            ],
-            postalCodes: [44160]
-        },
-        'Cheun Chom': {
-            subDistrict: [
-                'Cheun Chom',
-                'Kut Pla Duk',
-                'Lao Dok Mai',
-                'Nong Kung'
-            ],
-            postalCodes: [44160]
-        },
-        'Na Chueak': {
-            subDistrict: [
-                'Na Chueak',
-                'Samrong',
-                'Nong Daeng',
-                'Khwao Rai',
-                'Nong Pho',
-                'Po Phan',
-                'Nong Mek',
-                'Nong Ruea',
-                'Nong Kung',
-                'San Pa Tong'
-            ],
-            postalCodes: [44170]
-        },
-        'Na Dun': {
-            subDistrict: [
-                'Na Dun',
-                'Nong Phai',
-                'Nong Khu',
-                'Dong Bang',
-                'Dong Duan',
-                'Hua Dong',
-                'Dong Yang',
-                'Ku Santarat',
-                'Phra That'
-            ],
-            postalCodes: [44180]
-        },
-        'Kae Dam': {
-            subDistrict: [
-                'Kae Dam',
-                'Wang Saeng',
-                'Mittraphap',
-                'Nong Kung',
-                'Non Phiban'
-            ],
-            postalCodes: [44190]
-        },
-        'Yang See Surat': {
-            subDistrict: [
-                'Yang See Surat',
-                'Na Phu',
-                'Wang Dong',
-                'Ban Khu',
-                'Dong Meaung',
-                'Srang Sang',
-                'Nhong Bua Santu'
-            ],
-            postalCodes: [44210]
-        }
-    },
-    'Roi Et': {
-        'Meaung Roi Et': {
-            subDistrict: [
-                'Nai Meaung',
-                'Rob Meaung',
-                'Nua Meaung',
-                'Khon Kaen',
-                'Na Poh',
-                'Sa-Ard Somboon',
-                'Sri Kaew',
-                'Poh Parn',
-                'None Rang',
-                'Nhong Kaew',
-                'Nhong Wang',
-                'Dong Larn',
-                'Can Yai',
-                'None Tarn',
-                'Meaung Tong'
-            ],
-            postalCodes: [45000]
-        },
-        'Sri Somdej': {
-            subDistrict: [
-                'Poh Tong',
-                'Sri Somdej',
-                'Meaung Pleui',
-                'Nhong Yai',
-                'Nhong Wang Kuang',
-                'Ban Bak',
-                'Suan Jik',
-                'Poh Sai'
-            ],
-            postalCodes: [45000, 45280]
-        },
-        'Jung Harn': {
-            subDistrict: [
-                'Din Dam',
-                'Pa Fa',
-                'Muang Lad',
-                'Jung Harn',
-                'Dong Singha',
-                'Yang Yai',
-                'Pak Wan',
-                'San Chart'
-            ],
-            postalCodes: [45000]
-        },
-        'Chiang Kwan': {
-            subDistrict: [
-                'Chiang Kwan',
-                'Pra That',
-                'Pra Chao',
-                'Ban Keung',
-                'Plub Pla',
-                'Moo Mun'
-            ],
-            postalCodes: [45000, 45170]
-        },
-        'Pone Tong': {
-            subDistrict: [
-                'Wang',
-                'Kok Kok Muang',
-                'Na Udom',
-                'Sawang',
-                'Nhong Yai',
-                'Poh Tong',
-                'Non Chai Sri',
-                'Poh Sri Sawang',
-                'Oum Mao',
-                'Kam Na Dee',
-                'Prom Sawhan',
-                'Sra Nok Kaew',
-                'Wang Samakkhi',
-                'Kok Soong'
-            ],
-            postalCodes: [45110]
-        },
-        'Salhe Poom': {
-            subDistrict: [
-                'Klang',
-                'Na Ngam',
-                'Meaung Prai',
-                'Na Sang',
-                'Na Meaung',
-                'Wang Luang',
-                'Tha Muang',
-                'Kwaow',
-                'Poh Tong ',
-                'Poh Ngern',
-                'Koh Kaew',
-                'Na Lerng',
-                'Lhao Noi',
-                'Sri Vilai',
-                'Nhong Luang',
-                'Porn Sawhan',
-                'Kwan Meaung',
-                'Beung Klear'
-            ],
-            postalCodes: [45120]
-        },
-        Suvannabhumi: {
-            subDistrict: [
-                'Sra Koo',
-                'Dok Mai',
-                'Na Yai',
-                'Hin Kong ',
-                'Meaung Thung',
-                'Hua Tone',
-                'Bor Pan Khan',
-                'Thung Luang',
-                'Hua Chang',
-                'Nam Kam',
-                'Huay Hin Lad',
-                'Chang Peuk',
-                'Tung Kula',
-                'Tung Sri Meaung',
-                'Jam Pa Khan'
-            ],
-            postalCodes: [45130]
-        },
-        'Panom Prai': {
-            subDistrict: [
-                'Panom Prai',
-                'San Sook',
-                'Kud Nam Sai',
-                'Nhong Tap Thai',
-                'Poh Yai',
-                'Waree Sawad',
-                'Kok Sawang',
-                'Poh Chai',
-                'Na Nual',
-                'Kam Hai',
-                'Sra Kaew',
-                'Kor Yai',
-                'Chanuwan'
-            ],
-            postalCodes: [45140]
-        },
-        'Nhong He': {
-            subDistrict: ['Nhong He', 'Sao Hae', 'Dook Eung', 'Den Rat'],
-            postalCodes: [45140]
-        },
-        'Kaset Visai': {
-            subDistrict: [
-                'Kaset Visai',
-                'Meaung Bua',
-                'Lhao Luang',
-                'Singha Kok',
-                'Dong Krung Yai',
-                'Ban Fang',
-                'Nhong Wang',
-                'Kam Pang',
-                'Koo Ka Singha',
-                'Nam Oom',
-                'Non Sawang',
-                'Tung Tong',
-                'Dong Krung Noi'
-            ],
-            postalCodes: [45150]
-        },
-        'Art Samart': {
-            subDistrict: [
-                'Art Samart',
-                'Pone Meaung',
-                'Ban Jang',
-                'Nhom',
-                'Nhong Meaun Than',
-                'Nhong Kam',
-                'Hora',
-                'Nhong Bua',
-                'Khee Lhek',
-                'Ban Doo'
-            ],
-            postalCodes: [45160]
-        },
-        Thawatburi: {
-            subDistrict: [
-                'Nivet',
-                'Tong Thanee',
-                'Nhong Phai',
-                'Thawatburi',
-                'Oum Mao',
-                'Ma E',
-                'Khawo Tung',
-                'Paisarn',
-                'Meaung Noi',
-                'Beaung Nakorn',
-                'Ratchathanee',
-                'Nhong Pok'
-            ],
-            postalCodes: [45170]
-        },
-        'Tung Khao Luang': {
-            subDistrict: [
-                'Tung Khao Luang',
-                'Terd Thai',
-                'Beung Ngam',
-                'Ma Ba',
-                'Lhao'
-            ],
-            postalCodes: [45170]
-        },
-        'Jaturapak Pimarn': {
-            subDistrict: [
-                'Hua Chang',
-                'Nhong Peu',
-                'Meaung Hong',
-                'Kok Lham',
-                'Nam Sai',
-                'Dong Dang',
-                'Dong Klang',
-                'Pah Sang',
-                'E Ngog',
-                'Lhin Fah',
-                'Doo Noi',
-                'Sri Khot'
-            ],
-            postalCodes: [45180]
-        },
-        'Pathum Rat': {
-            subDistrict: [
-                'Bua Dang',
-                'Dok Lham',
-                'Nhong Can',
-                'Pone Soong',
-                'Non Sawhan',
-                'Sra Bua',
-                'None Sanga',
-                'Khee Lhek'
-            ],
-            postalCodes: [45190]
-        },
-        'Nhong Pok': {
-            subDistrict: [
-                'Nhong Pok',
-                'Beung Ngam',
-                'Phu Khao Tong',
-                'Kok Poh',
-                'Kok Sawang',
-                'Nhong Khun Yai',
-                'Rob Meaung',
-                'Pha Nam Yoy',
-                'Tha Sida'
-            ],
-            postalCodes: [45210]
-        },
-        'Meaung Sruang': {
-            subDistrict: [
-                'Nhong Peu',
-                'Nhong Hin',
-                'Koo Meaung',
-                'Kok Kung',
-                'Meaung Sruang'
-            ],
-            postalCodes: [45220]
-        },
-        'Poh Chai': {
-            subDistrict: [
-                'Kham Pia',
-                'Chiang Mai',
-                'Bua Kham',
-                'Ukkakam',
-                'Sa-Ard',
-                'Kam Paoog',
-                'Nhong Ta Kai',
-                'Don Ong',
-                'Poh Sri'
-            ],
-            postalCodes: [45230]
-        },
-        'Pon Sai': {
-            subDistrict: [
-                'Pon Sai',
-                'Sam Kha',
-                'Sri Sawang',
-                'Yang Kam',
-                'Tha Had Yao'
-            ],
-            postalCodes: [45240]
-        },
-        Meiwadee: {
-            subDistrict: ['Meiwadee', 'Chumporn', 'Boong Lerd', 'Chom Sa-Ard'],
-            postalCodes: [45250]
-        }
-    },
-    Kalasin: {
-        'Meaung Kalasin': {
-            subDistrict: [
-                'Kalasin',
-                'Neur',
-                'Lhub',
-                'Phai',
-                'Lam Pao',
-                'Lam Pan',
-                'Chiang Krue',
-                'Beung Vichai',
-                'Huay Poh ',
-                'Pho Por',
-                'Pho Din',
-                'Nhong Kung',
-                'Klang Meun',
-                'Kamhin',
-                'Pone Tong',
-                'Na Jarn',
-                'Lam Klong'
-            ],
-            postalCodes: [46000]
-        },
-        'Don Jarn': {
-            subDistrict: [
-                'Don Jarn',
-                'Sa-Ard Chai Sri',
-                'Dong Payung',
-                'Muang Na',
-                'Na Jampa'
-            ],
-            postalCodes: [46000]
-        },
-        Kuchinarai: {
-            subDistrict: [
-                'Bua Khao',
-                'Jan Lan',
-                'Lhao Yai',
-                'Joom Jung',
-                'Lhao Hai Ngam',
-                'Kud Wha',
-                'Sam Kha',
-                'Na Kham',
-                'Nhong Hang ',
-                'Na Koh',
-                'Som Sa-Ard',
-                'Kud Khao'
-            ],
-            postalCodes: [46110]
-        },
-        'Yang Talad': {
-            subDistrict: [
-                'Yang Talad',
-                'Hua Ngua',
-                'Oom Mao',
-                'Bua Barn',
-                'Ver',
-                'E Tue',
-                'Hua Na Kam',
-                'Nhong E Tao',
-                'Don Somboon',
-                'Na Cheuk',
-                'Klong Kam',
-                'Kao Pra Norn',
-                'Na Dee',
-                'Non Soong',
-                'Non Tok Pan'
-            ],
-            postalCodes: [46120]
-        },
-        'Kamala Sai': {
-            subDistrict: [
-                'Kamala Sai',
-                'Lak Meaung',
-                'Pone Ngam',
-                'Dong Ling',
-                'Thanya',
-                'Nhong Pan',
-                'Jao Ta',
-                'Kok Somboon'
-            ],
-            postalCodes: [46130]
-        },
-        'Kong Chai': {
-            subDistrict: [
-                'Kong Chai Pattana',
-                'Lhao Klang',
-                'Kok Sa-Ard',
-                'Non Sila Lerng',
-                'Lam She'
-            ],
-            postalCodes: [46130]
-        },
-        Sahassakhan: {
-            subDistrict: [
-                'Phu Singha',
-                'Sahassakhan',
-                'Na Makue',
-                'Non Sila',
-                'Nikom',
-                'Non Lam Tong',
-                'Non Buree',
-                'Non Nam Kleang'
-            ],
-            postalCodes: [46140]
-        },
-        Somdej: {
-            subDistrict: [
-                'Somdej',
-                'Nhong Wang',
-                'Sang Badarn',
-                'Mahachai',
-                'Moo Mon',
-                'Pha Sawei',
-                'Sri Somdej',
-                'Lam Huay Lua'
-            ],
-            postalCodes: [46150]
-        },
-        'Kao Wong': {
-            subDistrict: [
-                'Khum Kao',
-                'Song Peui',
-                'Nong Peu',
-                'Kud Sim Kum Mai',
-                'Sra Pang Tong',
-                'Kud Pla Klao'
-            ],
-            postalCodes: [46160]
-        },
-        'Na Koo': {
-            subDistrict: [
-                'Na Koo',
-                'Sai Na Wang',
-                'Non Na Jarn',
-                'Boh Kaew',
-                'Phu Lan Chang'
-            ],
-            postalCodes: [46160]
-        },
-        'Huay Meg': {
-            subDistrict: [
-                'Huay Meg',
-                'Kam Yai',
-                'Kud Don',
-                'Beung Na Riang',
-                'Hua Hin',
-                'Phi Moon',
-                'Kam Meaud Kaew',
-                'Non Sa-Ard',
-                'Sai Tong'
-            ],
-            postalCodes: [46170]
-        },
-        'Kam Muang': {
-            subDistrict: [
-                'Tung Klong',
-                'Pone',
-                'Din Jee',
-                'Na Bon',
-                'Na Tun',
-                'Nern Yang'
-            ],
-            postalCodes: [46180]
-        },
-        Samchai: {
-            subDistrict: [
-                'Samran',
-                'Samran Tai',
-                'Kam Srang Tiang',
-                'Nhong Chang'
-            ],
-            postalCodes: [46180]
-        },
-        'Tha Kan Tho': {
-            subDistrict: [
-                'Tha Kan Tho',
-                'Kung Kao',
-                'Yang Oom',
-                'Kud Jik',
-                'Na Tarn',
-                'Dong Somboon'
-            ],
-            postalCodes: [46190]
-        },
-        'Rong Kam': {
-            subDistrict: ['Rong Kam', 'Samakkhi', 'Lhao Ooy'],
-            postalCodes: [46210]
-        },
-        'Nhong Kungsri': {
-            subDistrict: [
-                'Nhong Kungsri',
-                'Nhong Bua',
-                'Kok Krue',
-                'Nhong Sruang',
-                'Sao Lhao',
-                'Nhong Yai',
-                'Dong Moon',
-                'Lam Nhong Sang',
-                'Nhong Hin'
-            ],
-            postalCodes: [46220]
-        },
-        'Na Mon': {
-            subDistrict: [
-                'Na Mon',
-                'Yod Kang',
-                'Song Pleu',
-                'Lak Liam',
-                'Nhong Bua'
-            ],
-            postalCodes: [46230]
-        },
-        'Huay Peung': {
-            subDistrict: [
-                'Kam Bong',
-                'Khai Noon',
-                'Nikom Huay Peung',
-                'Nhong Eboot'
-            ],
-            postalCodes: [46240]
-        }
-    },
-    'Sakon Nakhon': {
-        'Meaung Sakon Nakhon': {
-            subDistrict: [
-                'That Cherng Choom',
-                'Ngew Don',
-                'None Horm',
-                'Chiang Krue',
-                'Muang Lai',
-                'Dong Chon',
-                'Huay Yang',
-                'Pung Kwang',
-                'Dong Mafai',
-                'That Na Weng',
-                'Lhao Por Dang',
-                'Hang Hong',
-                'Kok Kong',
-                'Khamhin',
-                'Nong Lad',
-                'Tha Rae'
-            ],
-            postalCodes: [47000, 47220, 47230]
-        },
-        'Sawang Dan Din': {
-            subDistrict: [
-                'Sawang Dan Din',
-                'Kam Sa-Ard',
-                'Ban Taii',
-                'Bong Nua',
-                'Pone Soong',
-                'Kok Sri',
-                'Nhong Luang',
-                'Bong Tai',
-                'Kor Taii',
-                'Sai Mool',
-                'Ban Thon',
-                'Panna',
-                'Wang',
-                'Tarn Kone',
-                'Tarn Nerng',
-                'That Tong'
-            ],
-            postalCodes: [47110, 47240]
-        },
-        'Vanorn Nivaj': {
-            subDistrict: [
-                'Vanorn Nivaj',
-                'Deu Sri Kan Chai',
-                'Sua Kai',
-                'Nhong Sanom',
-                'Koo Sakham',
-                'That',
-                'Nhong Vang',
-                'Sri Vichai',
-                'Na Sor',
-                'In Plang',
-                'Na Kam',
-                'Con Sawhan',
-                'Kud Rua Kam',
-                'Nhong Wang Tai'
-            ],
-            postalCodes: [47120]
-        },
-        Pannananikom: {
-            subDistrict: [
-                'Pannana',
-                'Wang Yang',
-                'Rai',
-                'Chang Ming',
-                'Na Nai',
-                'Sawang',
-                'Ba Hee',
-                'Cherng Chum',
-                'Pok Noi',
-                'Na Hua Bor'
-            ],
-            postalCodes: [47130, 47220]
-        },
-        'Ban Muang': {
-            subDistrict: [
-                'Muang',
-                'Mine',
-                'Dong Moh Tong',
-                'Dong Nua',
-                'Dong Moh Tong Tai',
-                'Huay Lhua',
-                'Non Sa-Ard',
-                'Nhong Kwang',
-                'Bor Kaew'
-            ],
-            postalCodes: [47140]
-        },
-        'Varich Poom': {
-            subDistrict: [
-                'Varich Poom',
-                'Pla Lhai',
-                'Nhong Lad',
-                'Kam Bor',
-                'Koh Khiew'
-            ],
-            postalCodes: [47150]
-        },
-        'Pang Cone': {
-            subDistrict: [
-                'Pang Cone',
-                'Muang Khai',
-                'Rae',
-                'Hai Young',
-                'Tan Peung'
-            ],
-            postalCodes: [47160]
-        },
-        'Arkard Amnuay': {
-            subDistrict: [
-                'Arkard',
-                'Pone Pang',
-                'Wa Yai',
-                'Pone Ngam',
-                'Tha Korn',
-                'Na Hee',
-                'Ba Wha',
-                'Samakkhi Pattana'
-            ],
-            postalCodes: [47170]
-        },
-        'Kud Bak': {
-            subDistrict: ['Kud Bak', 'Na Mhong', 'Kud Hai'],
-            postalCodes: [47180]
-        },
-        'Phu Parn': {
-            subDistrict: ['Srang Kor', 'Lhub Lao', 'Kok Phu', 'Kok Pla Siew'],
-            postalCodes: [47180]
-        },
-        'Song Dao': {
-            subDistrict: ['Song Dao', 'Tha Sila', 'Wattana', 'Pathumwapee'],
-            postalCodes: [47190]
-        },
-        Kusumarn: {
-            subDistrict: [
-                'Kusumarn',
-                'Na Pho',
-                'Pho Pisarn',
-                'Na Piang',
-                'Oom Jarn'
-            ],
-            postalCodes: [47210, 47230]
-        },
-        'Pone Na Kaew': {
-            subDistrict: [
-                'Ban Pone',
-                'Na Kaew',
-                'Na Tong Wattana',
-                'Ban Pan',
-                'Chiang Seu'
-            ],
-            postalCodes: [47230]
-        },
-        'Kam Ta Kla': {
-            subDistrict: ['Kam Ta Kla', 'Nhong Bua Som', 'Na Tae', 'Pad'],
-            postalCodes: [47250]
-        },
-        'Tao Ngoi': {
-            subDistrict: ['Tao Ngoi', 'Beung Tawhai', 'Na Tarn', 'Jan Pen'],
-            postalCodes: [47260]
-        },
-        'Nikhom Nam Oon': {
-            subDistrict: [
-                'Nikhom Nam Oon',
-                'Nhong Pling',
-                'Nhong Bua',
-                'Suwan Kham'
-            ],
-            postalCodes: [47270]
-        },
-        'Kok Sri Suphan': {
-            subDistrict: [
-                'Tong Khob',
-                'Lhao Pone Kor',
-                'Darn Muang Kam',
-                'Mad Na Tom'
-            ],
-            postalCodes: [47280]
-        },
-        Jaroensil: {
-            subDistrict: [
-                'Ban Lhao',
-                'Jaroensil',
-                'Tung Kae',
-                'Kok Sila',
-                'Nhong Pan'
-            ],
-            postalCodes: [47290]
-        }
-    },
-    'Nakhon Phanom': {
-        'Meaung Nakon Phanom': {
-            subDistrict: [
-                'Nai Meaung',
-                'Nhong Sang',
-                'Na Saii',
-                'Na Rat Kwai',
-                'Kuruku',
-                'Ban Peung',
-                'Art Samart',
-                'Kham Thao',
-                'Ban Klang',
-                'Tha Kor',
-                'Kam Toei',
-                'Nhong Yart',
-                'Dong Kwang',
-                'Wang Tamua',
-                'Poh Tak '
-            ],
-            postalCodes: [48000]
-        },
-        'That Panom': {
-            subDistrict: [
-                'That Panom',
-                'Fang Dang',
-                'Pone Pang',
-                'Pra Klang Tung',
-                'Na Thon',
-                'San Pan',
-                'Don Nang Hong',
-                'Nam Kham',
-                'Oom Mhao',
-                'Na Nhad',
-                'Kud Chim',
-                'That Panom Nua'
-            ],
-            postalCodes: [48110]
-        },
-        'Tha Utain': {
-            subDistrict: [
-                'Tha Utain',
-                'Non Tarn',
-                'Tha Jampa',
-                'Chai Buree',
-                'Panom',
-                'Patai',
-                'Wern Prabath',
-                'Ram Raj',
-                'Nhong Tao'
-            ],
-            postalCodes: [48120]
-        },
-        'Na Kae': {
-            subDistrict: [
-                'Na Kae',
-                'Pra Song',
-                'Nhong Sung',
-                'Na Koo',
-                'Pimarn',
-                'Pum Kae',
-                'Karn Learng',
-                'Nhong Bor',
-                'Na Liang',
-                'Ban Kang',
-                'Kam Pee',
-                'Si Chompoo'
-            ],
-            postalCodes: [48130]
-        },
-        'Wang Yang': {
-            subDistrict: ['Wang Yang', 'Kok Si', 'Yord Chad', 'Nhong Poh'],
-            postalCodes: [48130]
-        },
-        'Ban Pang': {
-            subDistrict: [
-                'Ban Pang',
-                'Phai Lom',
-                'Pone Tong',
-                'Nhong Wang',
-                'Na Ngua',
-                'Na Khae'
-            ],
-            postalCodes: [48140]
-        },
-        'Na Tom': {
-            subDistrict: ['Na Tom', 'Nhong Son', 'Don Toei'],
-            postalCodes: [48140]
-        },
-        'Sri Songkram': {
-            subDistrict: [
-                'Sri Songkram',
-                'Na Deu',
-                'Ban Eeung',
-                'Sam Pong',
-                'Tha Bor Songkram',
-                'Ban Kha',
-                'Na Kam',
-                'Pone Sawang',
-                'Had Pang'
-            ],
-            postalCodes: [48150]
-        },
-        'Pla Pak': {
-            subDistrict: [
-                'Pla Pak',
-                'Nhong He',
-                'Ku Ta Kai',
-                'Kok Sawang',
-                'Kok Soong',
-                'Mahachai',
-                'Na Makue',
-                'Nong Tao Yai'
-            ],
-            postalCodes: [48160]
-        },
-        'Raynu Nakorn': {
-            subDistrict: [
-                'Raynu',
-                'Pone Tong',
-                'Tha Lad',
-                'Na Ngam',
-                'Kok Hin Hae',
-                'Nhong Yang Shin',
-                'Raynu Tai',
-                'Na Kham'
-            ],
-            postalCodes: [48170]
-        },
-        'Na Wha': {
-            subDistrict: [
-                'Na Wha',
-                'Na Ngua',
-                'Ban Siew',
-                'Na Koon Yai',
-                'Lhao Pattana',
-                'Tha Rua'
-            ],
-            postalCodes: [48180]
-        },
-        'Pone Sawhan': {
-            subDistrict: [
-                'Pone Sawhan',
-                'Na Hua Bor',
-                'Na Khamhin',
-                'Pone Bok',
-                'Ban Kor',
-                'Pone Jarn',
-                'Na Nai'
-            ],
-            postalCodes: [48190]
-        }
-    },
-    Mukdahan: {
-        'Meaung Mukdahan': {
-            subDistrict: [
-                'Mukdahan',
-                'Sriboonreaung',
-                'Ban Kok',
-                'Bang Sai Yai',
-                'Pone Sai',
-                'Peung Dad',
-                'Na Sok',
-                'Na Sinuan',
-                'Kam Pa Lhai',
-                'Kam Aa Huan',
-                'Dong Yen',
-                'Dong Mon',
-                'Kud Kae'
-            ],
-            postalCodes: [49000]
-        },
-        'Kam Chaei': {
-            subDistrict: [
-                'Ban Song',
-                'Kam Chaei',
-                'Nhong Ian',
-                'Ban Kor',
-                'Ban Lhao',
-                'Pone Ngam',
-                'Lhao Srang Kor',
-                'Kam Bok',
-                'Nam Tiang'
-            ],
-            postalCodes: [49110]
-        },
-        'Dorn Tarn': {
-            subDistrict: [
-                'Dorn Tarn',
-                'Poh Sai',
-                'Pah Rai',
-                'Lhao Mhee',
-                'Ban Bak',
-                'Na Samheng',
-                'Ban Kang'
-            ],
-            postalCodes: [49120]
-        },
-        'Nikhom Kam Soi': {
-            subDistrict: [
-                'Nikhom Kam Soi',
-                'Nakok',
-                'Nhong Wang',
-                'Kok Dang',
-                'Na Udom',
-                'Chokchai',
-                'Rom Klao'
-            ],
-            postalCodes: [49130]
-        },
-        'Dong Lhuang': {
-            subDistrict: [
-                'Dong Lhuang',
-                'Nhong Bua',
-                'Kok Toom',
-                'Nhong Can',
-                'Chanod Noi',
-                'Pang Dang'
-            ],
-            postalCodes: [49140]
-        },
-        'Whan Yai': {
-            subDistrict: [
-                'Whan Yai',
-                'Pong Kham',
-                'Bang Sai Noi',
-                'Chanod',
-                'Dong Moo'
-            ],
-            postalCodes: [49150]
-        },
-        'Nhong Soong': {
-            subDistrict: [
-                'Nhong Soong',
-                'None Yang',
-                'Phu Wong',
-                'Ban Pao',
-                'Nhong Soong Tai',
-                'Nhong Soong Nua'
-            ],
-            postalCodes: [49160]
-        }
-    },
-    'Chiang Mai': {
-        'Meaung Chiang Mai': {
-            subDistrict: [
-                'Wat Ket',
-                'Nhong Hoy',
-                'Tha Sala',
-                'Nhong Pa Krung',
-                'Fa Ham',
-                'Hai Ya',
-                'Chang Klan',
-                'Mae Hia',
-                'Pa Dad',
-                'Sri Poom',
-                'Pra Singha',
-                'Suthep',
-                'Chang Moi',
-                'Chang Peuk',
-                'Pha Tan',
-                'San Phee Seu'
-            ],
-            postalCodes: [50000, 50100, 50200, 50300]
-        },
-        Fang: {
-            subDistrict: [
-                'Wieng',
-                'Mhon Pin',
-                'Mae Soon',
-                'San Sai',
-                'Mae Kha',
-                'Pong Nam Ron',
-                'Mae Ngon',
-                'Mae Kha'
-            ],
-            postalCodes: [50110, 50320]
-        },
-        'San Pa Tong': {
-            subDistrict: [
-                'Yu Wha',
-                'San Klang',
-                'Tha Wang Prow',
-                'Makham Luang',
-                'Mae Ka',
-                'Ban Mae',
-                'Ban Klang',
-                'Tung Satok',
-                'Tung Tom',
-                'Nam Bor Luang',
-                'Makhun Wan'
-            ],
-            postalCodes: [50120]
-        },
-        'San Kampang': {
-            subDistrict: [
-                'San Kampang',
-                'Sai Moon',
-                'Rong Wua Dang',
-                'Buak Kang',
-                'Sae Chang',
-                'Oon Tai',
-                'Mae Poo Ka',
-                'Huay Sai',
-                'Ton Pao',
-                'San Klang'
-            ],
-            postalCodes: [50130]
-        },
-        'Mae Oon': {
-            subDistrict: [
-                'Oon Nua',
-                'Oon Klang',
-                'Ban Sahakorn',
-                'Huay Kaew',
-                'Mae Ta',
-                'Ta Nua'
-            ],
-            postalCodes: [50130]
-        },
-        Sarapee: {
-            subDistrict: [
-                'Yang Nerng',
-                'Sarapee',
-                'Chompoo',
-                'Chaisathan',
-                'Kua Mung',
-                'Nong Fak',
-                'Nong Peung',
-                'Ta Kwang',
-                'Don Kaew',
-                'Tha Wang Tarn',
-                'San Sai',
-                'Pa Bong'
-            ],
-            postalCodes: [50140]
-        },
-        'Mae Tang': {
-            subDistrict: [
-                'San Mahapon',
-                'Mae Tang',
-                'Khee Lhek',
-                'Chor Lae',
-                'Mae Hor Pra',
-                'Sob Perg',
-                'Ban Pao',
-                'Pae Pae',
-                'Meaung Kai',
-                'Ban Chang',
-                'Keud Chang',
-                'Inthakil',
-                'Som Kai',
-                'San Pa Yang'
-            ],
-            postalCodes: [50150, 50330]
-        },
-        'Jom Tong': {
-            subDistrict: [
-                'Ban Luang',
-                'Chuang Pao',
-                'Sob Tia',
-                'Doi Kaew',
-                'Ban Pae',
-                'Mae Soi'
-            ],
-            postalCodes: [50160, 50240]
-        },
-        'Doi Lhor': {
-            subDistrict: ['Doi Lhor', 'Song Khaew', 'Yang Kram', 'Santisuk'],
-            postalCodes: [50160]
-        },
-        'Chiang Dao': {
-            subDistrict: [
-                'Chiang Dao',
-                'Meaung Na',
-                'Meaung Ngai',
-                'Mae Na',
-                'Meaung Kong ',
-                'Ping Kong',
-                'Tung Kao Puang'
-            ],
-            postalCodes: [50170]
-        },
-        'Mae Rim': {
-            subDistrict: [
-                'Rim Tai',
-                'Rim Nua',
-                'San Pong',
-                'Khe Lhek',
-                'Huay Sai',
-                'Mae Ram',
-                'Pong Yang',
-                'Mae Sa',
-                'Don Kaew',
-                'Meaung Kaew',
-                'Sa Luang'
-            ],
-            postalCodes: [50180, 50330]
-        },
-        Prow: {
-            subDistrict: [
-                'Wieng',
-                'Thung Luang',
-                'Pa Tum',
-                'Pa Nhai',
-                'San Sai',
-                'Ban Pong',
-                'Nam Prae',
-                'Keun Pak',
-                'Mae Wan',
-                'Mae Pang',
-                'Lhong Kod'
-            ],
-            postalCodes: [50190]
-        },
-        'San Sai': {
-            subDistrict: [
-                'San Sai Luang',
-                'San Sai Noi',
-                'San Pra Net',
-                'San Na Meng',
-                'San Pa Pao',
-                'Nhong Yang',
-                'Nhong Jom',
-                'Meaung Len',
-                'Pa Phai',
-                'Nhong Harn',
-                'Mae Fak',
-                'Mae Fak Mai'
-            ],
-            postalCodes: [50210, 50290]
-        },
-        'Don Saket': {
-            subDistrict: [
-                'Chearng Doi',
-                'San Poo Leoi',
-                'Luang Nua',
-                'Pa Pong',
-                'Sanga Ban',
-                'Pa Lan',
-                'Talad Kwan',
-                'Samranrat',
-                'Mae Kue',
-                'Talad Yai',
-                'Mae Hoy Ngern',
-                'Mae Pong',
-                'Pa Mieng',
-                'Thep Sadej'
-            ],
-            postalCodes: [50220]
-        },
-        'Hang Dong': {
-            subDistrict: [
-                'Hang Dong',
-                'Nhong Kaew',
-                'Harn Kaew',
-                'Khun Kong',
-                'Sob Mae Kha',
-                'Ban Wan',
-                'San Pak Whan',
-                'Nhong Kwai',
-                'Ban Pong',
-                'Nam Prae',
-                'Nhong Tong'
-            ],
-            postalCodes: [50230, 50340]
-        },
-        Hod: {
-            subDistrict: [
-                'Hang Dong',
-                'Hod',
-                'Ban Tarn',
-                'Bor Luang',
-                'Bor Salee',
-                'Na Kor Rua'
-            ],
-            postalCodes: [50240]
-        },
-        Samerng: {
-            subDistrict: [
-                'Samerng Tai',
-                'Samerng Nua',
-                'Mae Sab',
-                'Bor Kaew',
-                'Yung Mern'
-            ],
-            postalCodes: [50250]
-        },
-        'Doi Tao': {
-            subDistrict: [
-                'Doi Tao',
-                'Tha Deu',
-                'Meud Ka',
-                'Ban Ann',
-                'Bong Ton',
-                'Pong Tung'
-            ],
-            postalCodes: [50260]
-        },
-        'Mae Jam': {
-            subDistrict: [
-                'Chang Kerng',
-                'Tha Pa',
-                'Ban Tab',
-                'Mae Seuk',
-                'Mae Na Jorn',
-                'Pang Hin Fon',
-                'Kong Khaek'
-            ],
-            postalCodes: [50270]
-        },
-        'Mae Eye': {
-            subDistrict: [
-                'Mae Eye',
-                'Mae Sao',
-                'San Tan Meu',
-                'Mae Na Wang',
-                'Tha Torn',
-                'Ban Luang',
-                'Malika'
-            ],
-            postalCodes: [50280]
-        },
-        'Om Koy': {
-            subDistrict: [
-                'Om Koy',
-                'Yang Pieng',
-                'Mae Teun',
-                'Mon Jong',
-                'Sob Khong',
-                'Na Kien'
-            ],
-            postalCodes: [50310]
-        },
-        'Chai Prakarn': {
-            subDistrict: ['Pong Tum', 'Sri Dong Yen', 'Mae Talob', 'Nong Bua'],
-            postalCodes: [50320]
-        },
-        'Vieng Ngae': {
-            subDistrict: ['Meaung Ngae', 'Piang Luang', 'San Hai'],
-            postalCodes: [50350]
-        },
-        'Mae Vang': {
-            subDistrict: [
-                'Ban Kad',
-                'Thung Pee',
-                'Thung Ruang Tong',
-                'Mae Win',
-                'Don Pao'
-            ],
-            postalCodes: [50360]
-        },
-        Kalayaniwattana: {
-            subDistrict: ['Ban Jan', 'Mae Dad', 'Jam Luang'],
-            postalCodes: [58130]
-        }
-    },
-    Lamphun: {
-        'Meaung Lamphun': {
-            subDistrict: [
-                'Nai Meaung',
-                'Meaung Nga',
-                'Pratu Pa',
-                'Rim Ping',
-                'Ton Tong',
-                'Ban Pan',
-                'Meaung Jee',
-                'Pa Sak',
-                'Vieng Yong',
-                'Ban Klang',
-                'Ma Keu Jae',
-                'Sri Bua Ban',
-                'Nhong Nham',
-                'Umong',
-                'Nhong Chang Keun'
-            ],
-            postalCodes: [51000, 51150]
-        },
-        Lhee: {
-            subDistrict: [
-                'Lhee',
-                'Mae Teen',
-                'Na Sai',
-                'Dong Dam',
-                'Kor',
-                'Mae Larn',
-                'Pah Phai',
-                'Sri Vichai'
-            ],
-            postalCodes: [51110]
-        },
-        'Pa Sang': {
-            subDistrict: [
-                'Pak Bong',
-                'Pa Sang',
-                'Mae Rang',
-                'Muang Noi',
-                'Ban Reun',
-                'Makok',
-                'Tha Tum',
-                'Nam Dib',
-                'Nakorn Chedi'
-            ],
-            postalCodes: [51120]
-        },
-        'Vieng Nhong Long': {
-            subDistrict: ['Nhong Long', 'Nhong Yuang', 'Wang Pang'],
-            postalCodes: [51120]
-        },
-        'Ban Hong': {
-            subDistrict: [
-                'Ban Hong',
-                'Pa Plu',
-                'Lhao Yao',
-                'Sri Tia',
-                'Nhong Pla Savai'
-            ],
-            postalCodes: [51130]
-        },
-        'Mae Ta': {
-            subDistrict: [
-                'Ta Pla Duk',
-                'Takad',
-                'Ta Khum Ngern',
-                'Ta Tung Luang',
-                'Ta Mae Lob'
-            ],
-            postalCodes: [51140, 51170]
-        },
-        'Mae Tang': { subDistrict: ['Ta Sob Sao'], postalCodes: [51140] },
-        'Tung Hua Chang': {
-            subDistrict: ['Tung Hua Chang', 'Ban Puang', 'Takien Pom'],
-            postalCodes: [51160]
-        },
-        'Ban Thi': {
-            subDistrict: ['Ban Thi', 'Huay Yab'],
-            postalCodes: [51180]
-        }
-    },
-    Lampang: {
-        'Meaung Lampang': {
-            subDistrict: [
-                'Vieng Nua',
-                'Hua Vieng',
-                'Pra Bat',
-                'Kluay Pae',
-                'Ban Lang',
-                'Ban Sadet',
-                'Pichai',
-                'Tung Fai',
-                'Ton Tongchai',
-                'Nikom Pattana',
-                'Bunnag Pattana',
-                'Suan Dok',
-                'Sob Tui',
-                'Chompoo',
-                'Pong San Tong',
-                'Ban Eeum',
-                'Ban Pao',
-                'Ban Kha',
-                'Boh Hei'
-            ],
-            postalCodes: [52000, 52100]
-        },
-        Gow: {
-            subDistrict: [
-                'Luang Nua',
-                'Luang Tai',
-                'Ban Pong',
-                'Ban Rong',
-                'Pong Tao',
-                'Na Nge',
-                'Ban Oon',
-                'Ban Nge',
-                'Ban Huad',
-                'Mae Teep'
-            ],
-            postalCodes: [52110]
-        },
-        'Jae Hom': {
-            subDistrict: [
-                'Jae Hom',
-                'Ban Sa',
-                'Pong Don',
-                'Mae Sook',
-                'Meaung Mine',
-                'Tung Peung',
-                'Vishet Nakorn'
-            ],
-            postalCodes: [52120]
-        },
-        'Koh Car': {
-            subDistrict: [
-                'Lampang Luang',
-                'Na Kaew',
-                'Lhai Hin',
-                'Wang Prow',
-                'Sala',
-                'Koh Car',
-                'Na Sang',
-                'Tha Pha',
-                'Mai Pattana'
-            ],
-            postalCodes: [52130]
-        },
-        'Wang Nua': {
-            subDistrict: [
-                'Tung Hua',
-                'Wang Nua',
-                'Wang Tai',
-                'Rong Koh',
-                'Wang Tong',
-                'Wang Sai',
-                'Wang Kaew',
-                'Wang Sai Kam'
-            ],
-            postalCodes: [52140]
-        },
-        'Mae Ta': {
-            subDistrict: [
-                'Mae Ta',
-                'Na Krua',
-                'Pah Tan',
-                'Ban Kiew',
-                'Ban Bom',
-                'Nam Jo',
-                'Don Fai',
-                'Hua Sua',
-                'Wang Ngern',
-                'San Don Kaew'
-            ],
-            postalCodes: [52150]
-        },
-        Tern: {
-            subDistrict: [
-                'Lom Rad',
-                'Mae Pa',
-                'Mae Mok',
-                'Vieng Mok',
-                'Na Pong',
-                'Mae Thod',
-                'Tern Buree',
-                'Mae Wa'
-            ],
-            postalCodes: [52160, 52230]
-        },
-        'Sob Prab': {
-            subDistrict: ['Sob Prab', 'Samhai', 'Mae Kua', 'Na Yang'],
-            postalCodes: [52170]
-        },
-        'Mae Prik': {
-            subDistrict: [
-                'Mae Prik',
-                'Pa Pang',
-                'Mae Pu',
-                'Pra Bat Wang Tuang'
-            ],
-            postalCodes: [52180]
-        },
-        'Hang Chat': {
-            subDistrict: [
-                'Hang Chat',
-                'Nhong Lom',
-                'Meaung Yao',
-                'Pong Yang Kok',
-                'Vieng Tarn',
-                'Mae San',
-                'Vor Kaew'
-            ],
-            postalCodes: [52190]
-        },
-        'Serm Ngam': {
-            subDistrict: ['Tung Ngam', 'Serm Kwa', 'Serm Sai', 'Serm Klang'],
-            postalCodes: [52210]
-        },
-        'Mae Moh': {
-            subDistrict: [
-                'Ban Dong',
-                'Na Sak',
-                'Jang Nua',
-                'Mae Moh',
-                'Sob Prad'
-            ],
-            postalCodes: [52220]
-        },
-        'Meaung Parn': {
-            subDistrict: [
-                'Meaung Parn',
-                'Ban Kor',
-                'Tung Kwow',
-                'Jae Sorn',
-                'Hua Muang'
-            ],
-            postalCodes: [52240]
-        }
-    },
-    Uttaradit: {
-        'Meaung Uttaradit': {
-            subDistrict: [
-                'Tha It',
-                'Tha Sao',
-                'Ban Koh',
-                'Pa Chao',
-                'Kung Tapao',
-                'Had Kruad',
-                'Nam Rid',
-                'Ngiew Ngam',
-                'Ban Darn Na Kham',
-                'Ban Darn',
-                'Pha Juk',
-                'Wang Din',
-                'San Tor',
-                'Had Ngiew',
-                'Khun Fhang',
-                'Tham Chalong',
-                'Wang Kapee'
-            ],
-            postalCodes: [53000, 53170]
-        },
-        'Tha Pla': { subDistrict: ['Tha Fak'], postalCodes: [53110] },
-        'Nam Pad': {
-            subDistrict: [
-                'San Tor',
-                'Ban Fhai',
-                'Den Lhek',
-                'Nam Krai',
-                'Nam Phai',
-                'Huay Mun'
-            ],
-            postalCodes: [53110]
-        },
-        Pichai: {
-            subDistrict: [
-                'Nai Meaung',
-                'Rai Aoi',
-                'Kor Rum',
-                'Ban Mor',
-                'Ta Mafuang',
-                'Ban Cone',
-                'Paya Man',
-                'Na In',
-                'Na Yang',
-                'Ban Dara',
-                'Tha Sak'
-            ],
-            postalCodes: [53120, 53220]
-        },
-        Lublae: {
-            subDistrict: [
-                'Sri Panom Mad',
-                'Mae Poon',
-                'Na Nok Kok',
-                'Fai Luang',
-                'Chai Joompon',
-                'Phai Lom',
-                'Tung Yung',
-                'Darn Mae Kam Mun'
-            ],
-            postalCodes: [53130, 53210]
-        },
-        Tron: {
-            subDistrict: [
-                'Wang Dang',
-                'Ban Kang',
-                'Had Song Kaw',
-                'Nam Ang',
-                'Khoi Soong'
-            ],
-            postalCodes: [53140]
-        },
-        'Ta Pla': {
-            subDistrict: [
-                'Ta Pla',
-                'Had Lah',
-                'Jrim',
-                'Nam Mhan',
-                'Nang Praya',
-                'Pa Leard',
-                'Ruam Jit'
-            ],
-            postalCodes: [53150, 53190]
-        },
-        'Fak Ta': {
-            subDistrict: ['Fak Ta', 'Song Corn', 'Ban Siew', 'Song Hong'],
-            postalCodes: [53160]
-        },
-        'Ban Kok': {
-            subDistrict: ['Muang Jed Ton', 'Ban Kok', 'Na Khum', 'Bor Bia'],
-            postalCodes: [53180]
-        },
-        'Tong San Kan': {
-            subDistrict: ['Pak Kwang', 'Bor Tong', 'Pah Kai', 'Nam Phee'],
-            postalCodes: [53230]
-        }
-    },
-    Phrae: {
-        'Meaung Phrae': {
-            subDistrict: [
-                'Nai Viang',
-                'Na Jak',
-                'Nam Cham',
-                'Pa Dang',
-                'Tung Hong',
-                'Meaung Moh',
-                'Wang Tong',
-                'Mae Lhai',
-                'Huay Mha',
-                'Pah Mat',
-                'Ban Thin',
-                'Suan Keaun',
-                'Wang Hong',
-                'Mae Kam Mee',
-                'Tung Kwao',
-                'Tha Kam',
-                'Mae Yom',
-                'Chor Hae',
-                'Rong Fong',
-                'Kanjana'
-            ],
-            postalCodes: [54000]
-        },
-        'Soong Men': {
-            subDistrict: [
-                'Vieng Tong ',
-                'Soong Men',
-                'Nam Cham',
-                'Hua Fai',
-                'Don Moon',
-                'Ban Lhao',
-                'Ban Kwang',
-                'Ban Pong',
-                'Ban Kad',
-                'Rong Kad',
-                'Sob Sai',
-                'Pra Luang'
-            ],
-            postalCodes: [54000, 54130]
-        },
-        'Den Chai': {
-            subDistrict: [
-                'Den Chai',
-                'Mae Jua',
-                'Sai Yoy',
-                'Huay Rai',
-                'Pong Pa Whai'
-            ],
-            postalCodes: [54110]
-        },
-        Song: {
-            subDistrict: [
-                'Ban Nun',
-                'Ban Klang',
-                'Huay Mhai',
-                'Tao Poon',
-                'Hua Meuang',
-                'Sa Iab',
-                'Dan Chumpon',
-                'Tung Now'
-            ],
-            postalCodes: [54120]
-        },
-        'Rong Kwang': {
-            subDistrict: [
-                'Rong Kwang',
-                'Rong Khem',
-                'Nam Lao',
-                'Ban Vieng',
-                'Tung Sri',
-                'Mae Yang Tarn',
-                'Mae Yang Hor',
-                'Phai Tone',
-                'Huay Rong',
-                'Mae Sai',
-                'Mae Yang Rong'
-            ],
-            postalCodes: [54140]
-        },
-        Long: {
-            subDistrict: [
-                'Huay Or',
-                'Ban Pin',
-                'Ta Pa Mok',
-                'Vieng Ta',
-                'Pak Kang',
-                'Hua Tung',
-                'Tung Lang',
-                'Bor Lhek Long',
-                'Mae Pan'
-            ],
-            postalCodes: [54150]
-        },
-        'Wang Chin': {
-            subDistrict: [
-                'Wang Chin',
-                'Sroy',
-                'Mae Pak',
-                'Na Poon',
-                'Mae Poong',
-                'Pa Sak',
-                'Mae Gerng'
-            ],
-            postalCodes: [54160]
-        },
-        'Nhong Muang Khai': {
-            subDistrict: [
-                'Mae Kam Mee',
-                'Nhong Muang Khai',
-                'Nam Rad',
-                'Wang Luang',
-                'Tam Nak Tham',
-                'Tung Kwai'
-            ],
-            postalCodes: [54170]
-        }
-    },
-    Nan: {
-        'Meaung Nan': {
-            subDistrict: [
-                'Nai Wieng',
-                'Bor',
-                'Pa Singha',
-                'Chai Sathan',
-                'Theum Dong',
-                'Reung',
-                'Na Sao',
-                'Doo Thai',
-                'Kong Kwai',
-                'Bor Swak',
-                'Sa Nian'
-            ],
-            postalCodes: [55000]
-        },
-        'Phu Piang': {
-            subDistrict: [
-                'Muang Thed',
-                'Na Pang',
-                'Nam Kan',
-                'Nam Kian',
-                'Meaung Jung',
-                'Tha Nao',
-                'Fai Kaew'
-            ],
-            postalCodes: [55000]
-        },
-        'Vieng Sa': {
-            subDistrict: [
-                'Klang Vieng',
-                'Keung',
-                'Lhai Nan',
-                'Tarn Chum',
-                'Na Leung',
-                'Sarn',
-                'Nam Muay',
-                'Nam Pua',
-                'Yarb Hua Na',
-                'Pong Sanook',
-                'Ai Na Lai',
-                'Sarn Na Nong Mhai',
-                'Mae Kaning',
-                'Mae Sakorn',
-                'Jom Jan',
-                'Mae Sa',
-                'Tung Sri Tong'
-            ],
-            postalCodes: [55110]
-        },
-        Pua: {
-            subDistrict: [
-                'Pua',
-                'Ngan',
-                'Sathan',
-                'Silalang',
-                'Silapetch',
-                'Ouan',
-                'Chai Wattana',
-                'Chedi Chai',
-                'Phu Ka',
-                'Sgad',
-                'Pa Klang',
-                'Vora Nakorn'
-            ],
-            postalCodes: [55120]
-        },
-        'Tung Chang': {
-            subDistrict: ['Pon', 'Ngob', 'Lae', 'Tung Chang'],
-            postalCodes: [55130]
-        },
-        'Chalerm Prakiat': {
-            subDistrict: ['Huay Gone', 'Khun Nan'],
-            postalCodes: [55130]
-        },
-        'Tha Wang Pa': {
-            subDistrict: [
-                'Rim',
-                'Pa Car',
-                'Pa Tor',
-                'Yom',
-                'Tarn Chum',
-                'Sri Poom',
-                'Jom Pra',
-                'San Tong',
-                'Tha Wang Pra',
-                'Pa Tong '
-            ],
-            postalCodes: [55140]
-        },
-        'Na Noi': {
-            subDistrict: [
-                'Na Noi',
-                'Chiang Khong',
-                'Sri Sa Ket',
-                'Sathan',
-                'Santha',
-                'Bua Yai',
-                'Nam Tok'
-            ],
-            postalCodes: [55150]
-        },
-        'Chiang Klang': {
-            subDistrict: [
-                'Chiang Klang',
-                'Peu',
-                'Chiang Kan',
-                'Pra That',
-                'Praya Kaew',
-                'Praputthabat'
-            ],
-            postalCodes: [55160]
-        },
-        'Song Kwa': {
-            subDistrict: ['Na Rai Luang', 'Chon Dan', 'Yod'],
-            postalCodes: [55160]
-        },
-        'Mae Jrim': {
-            subDistrict: [
-                'Nong Dang',
-                'Mor Meaung',
-                'Nam Pang',
-                'Nam Pai',
-                'Mae Jrim'
-            ],
-            postalCodes: [55170]
-        },
-        'Na Meun': {
-            subDistrict: ['Na Tanung', 'Bor Kaew', 'Meaung Lee', 'Ping Luang'],
-            postalCodes: [55180]
-        },
-        'Ban Luang': {
-            subDistrict: ['Ban Fah', 'Pa Ka Luang', 'Suad', 'Ban Phee'],
-            postalCodes: [55190]
-        },
-        Santisuk: {
-            subDistrict: ['Doo Pong', 'Pa Laew Luang', 'Pong Sanook'],
-            postalCodes: [55210]
-        },
-        'Bor Kleur': {
-            subDistrict: [
-                'Bor Kleur Nua',
-                'Bor Kleur Tai',
-                'Phu Fah',
-                'Dong Praya'
-            ],
-            postalCodes: [55220]
-        }
-    },
-    Phayao: {
-        'Meaung Phayao': {
-            subDistrict: [
-                'Vieng',
-                'Mae Tum',
-                'Mae Na Rua',
-                'Ban Thun',
-                'Ban Tam',
-                'Ban Tom',
-                'Mae Pim',
-                'Mae Ka',
-                'Ban Mai',
-                'Jam Pa Whai',
-                'Tha Wang Tong',
-                'Mae Sai',
-                'Ban Sang',
-                'Tha Jam Pee',
-                'San Pa Muang'
-            ],
-            postalCodes: [56000]
-        },
-        'Phu Kam Yao': {
-            subDistrict: ['Huay Kaew', 'Dong Jane', 'Mae Ing'],
-            postalCodes: [56000]
-        },
-        'Chiang Kam': {
-            subDistrict: [
-                'Yuan',
-                'Nam Van',
-                'Vieng',
-                'Fai Kwang',
-                'Chedi Kam',
-                'Rom Yen',
-                'Chiang Ban',
-                'Mae Lao',
-                'Ang Thong ',
-                'Tung Pa Sook'
-            ],
-            postalCodes: [56110]
-        },
-        'Phu Sang': {
-            subDistrict: [
-                'Phu Sang',
-                'Pa Sak',
-                'Tung Kluay',
-                'Chiang Rang',
-                'Sob Bong'
-            ],
-            postalCodes: [56110]
-        },
-        'Dok Kam Tai': {
-            subDistrict: [
-                'Dok Kam Tai',
-                'Don Sri Chum',
-                'Ban Tham',
-                'Ban Pin',
-                'Huay Larn',
-                'San Khong',
-                'Pa Sang',
-                'Nhong Lhom',
-                'Dong Suwan',
-                'Boon Kerd',
-                'Sawang Arom',
-                'Kue Vieng'
-            ],
-            postalCodes: [56120]
-        },
-        'Mae Jai': {
-            subDistrict: [
-                'Mae Jai',
-                'Sri Thoy',
-                'Mae Suk',
-                'Pa Fak',
-                'Ban Lhao',
-                'Jaroenrat'
-            ],
-            postalCodes: [56130]
-        },
-        Pong: {
-            subDistrict: [
-                'Pong',
-                'Kuan',
-                'Oil',
-                'Ngim',
-                'Pha Chang Noi',
-                'Na Prang',
-                'Khun Kuan'
-            ],
-            postalCodes: [56140]
-        },
-        Jun: {
-            subDistrict: [
-                'Huay Khao Kam',
-                'Jun',
-                'Lor',
-                'Hong Hin',
-                'Thung Ruang Tong',
-                'Huay Yang Kham',
-                'Pra That King Gang'
-            ],
-            postalCodes: [56150]
-        },
-        'Chiang Muan': {
-            subDistrict: ['Chiang Muan', 'Ban Mang', 'Sra'],
-            postalCodes: [56160]
-        }
-    },
-    'Chiang Rai': {
-        'Meaung Chiang Rai': {
-            subDistrict: [
-                'Vieng',
-                'Rob Vieng',
-                'San Sai',
-                'Mae Korn',
-                'Huay Chompoo',
-                'Huay Sak',
-                'Doy Larn',
-                'Pah Or Don Chai',
-                'Tha Sai',
-                'Doi Hang',
-                'Ban Due',
-                'Nang Lae',
-                'Mae Kao Tom',
-                'Mae Yao',
-                'Rim Kok',
-                'Tha Sud'
-            ],
-            postalCodes: [57000, 57100]
-        },
-        'Mae Lao': {
-            subDistrict: [
-                'Pong Prae',
-                'Dong Mada',
-                'Jom Mok Kaew',
-                'Bua Slee',
-                'Pah Kor Dam'
-            ],
-            postalCodes: [57000, 57250]
-        },
-        'Mae Jan': {
-            subDistrict: [
-                'Mae Jan',
-                'Pa Sang',
-                'San Sai',
-                'Tha Kao Pleuk',
-                'Pa Theung',
-                'Sri Kham',
-                'Jom Sawhan',
-                'Mae Kham',
-                'Mae Rhai',
-                'Jun Jwa',
-                'Jun Jwa Tai'
-            ],
-            postalCodes: [57110, 57240, 57270]
-        },
-        'Mae Fah Luang': {
-            subDistrict: ['Mae Salhong Nai', 'Mae Salhong Nok'],
-            postalCodes: [57110]
-        },
-        'Doi Luang': {
-            subDistrict: ['Pong Noi', 'Chokchai', 'Nhong Pa Kor'],
-            postalCodes: [57110]
-        },
-        Pan: {
-            subDistrict: [
-                'San Makhed',
-                'Mae Or',
-                'Santisuk',
-                'Doi Ngam',
-                'Hua Ngam',
-                'Jaroen Meaung',
-                'Pah Hoong',
-                'Muang Kham',
-                'Sai Kwao',
-                'San Klang',
-                'Meaung Pan',
-                'Vieng Hao',
-                'Tarn Tong',
-                'Mae Yen',
-                'Tan Tawan'
-            ],
-            postalCodes: [57120, 57250, 57280]
-        },
-        'Mae Sai': {
-            subDistrict: [
-                'Mae Sai',
-                'Koh Chang',
-                'Pong Pa',
-                'Sri Meaung Chum',
-                'Vieng Pang Kam',
-                'Pong Ngam',
-                'Huay Krai',
-                'Ban Dye'
-            ],
-            postalCodes: [57130, 57220]
-        },
-        'Chiang Kong': {
-            subDistrict: [
-                'Vieng',
-                'Sathan',
-                'Kreung',
-                'Boonreung',
-                'Huay Sor',
-                'Sri Don Chai',
-                'Rim Khong'
-            ],
-            postalCodes: [57140]
-        },
-        'Chiang San': {
-            subDistrict: [
-                'Vieng',
-                'Pah Sak',
-                'Ban Siew',
-                'Sri Don Moon',
-                'Mae Ngern',
-                'Yo Nok'
-            ],
-            postalCodes: [57150]
-        },
-        Terng: {
-            subDistrict: [
-                'Vieng',
-                'Ngiew',
-                'Tub Tao',
-                'Ngow',
-                'San Sai Ngam',
-                'Plong',
-                'Mae Loy',
-                'Chiang Kien',
-                'Sri Don Chai',
-                'Nhong Rad'
-            ],
-            postalCodes: [57160, 57230]
-        },
-        'Vieng Pa Pao': {
-            subDistrict: [
-                'San Salee',
-                'Vieng',
-                'Ban Pong',
-                'Pah Ngiew',
-                'Vieng Kalong',
-                'Mae Jedi',
-                'Mae Jedi Mai'
-            ],
-            postalCodes: [57170, 57260]
-        },
-        'Mae Saruay': {
-            subDistrict: [
-                'Mae Saruay',
-                'Pah Dad',
-                'Mae Prik',
-                'Sri Toy',
-                'Tha Kor',
-                'Vavi',
-                'Chedi Luang'
-            ],
-            postalCodes: [57180]
-        },
-        'Pa Dad': {
-            subDistrict: [
-                'Pa Dad',
-                'Pa Ngae',
-                'San Makha',
-                'Rong Chang',
-                'Sri Poh Ngern'
-            ],
-            postalCodes: [57190]
-        },
-        'Vieng Chai': {
-            subDistrict: [
-                'Vieng Chai',
-                'Pa Ngam',
-                'Vieng Nua',
-                'Don Sila',
-                'Meaung Chum'
-            ],
-            postalCodes: [57210]
-        },
-        'Vieng Chiang Rung': {
-            subDistrict: ['Tung Kor', 'Dong Mahawan', 'Pa Sang'],
-            postalCodes: [57210]
-        },
-        'Mae Fah Laung': {
-            subDistrict: ['Terdthai', 'Mae Fah Laung'],
-            postalCodes: [57240]
-        },
-        'Praya Mengrai': {
-            subDistrict: [
-                'Mae Pao',
-                'Mae Tam',
-                'Mai Ya',
-                'Mengrai',
-                'Tad Kwan'
-            ],
-            postalCodes: [57290]
-        },
-        'Vieng Kan': {
-            subDistrict: ['Muang Yai', 'Por', 'Lhai Ngow', 'Tha Kham'],
-            postalCodes: [57310]
-        },
-        'Khun Tarn': {
-            subDistrict: ['Tar', 'Pa Tarn', 'Yang Hom'],
-            postalCodes: [57340]
-        }
-    },
-    'Mae Hong Son': {
-        'Meaung Mae Hong Son': {
-            subDistrict: [
-                'Jong Kam',
-                'Huay Pong',
-                'Pha Bong',
-                'Pang Moo',
-                'Mok Jam Pae',
-                'Huay Pha',
-                'Huay Poo Ling'
-            ],
-            postalCodes: [58000]
-        },
-        'Mae Sariang': {
-            subDistrict: [
-                'Ban Kard',
-                'Mae Sariang',
-                'Mae Kong',
-                'Mae Hor',
-                'Mae Yuam',
-                'Sao Hin',
-                'Pah Pae'
-            ],
-            postalCodes: [58110]
-        },
-        'Sob Mei': {
-            subDistrict: [
-                'Sob Mei',
-                'Mae Ka Tuan',
-                'Kong Koi',
-                'Mae Suad',
-                'Pa Pong',
-                'Mae Sam Lab'
-            ],
-            postalCodes: [58110]
-        },
-        'Mae La Noi': {
-            subDistrict: [
-                'Mae La Noi',
-                'Mae La Luang',
-                'Tha Pa Pum',
-                'Mae Tho',
-                'Huay Hom',
-                'Mae Na Jang',
-                'Santi Khiri',
-                'Khun Mae La Noi'
-            ],
-            postalCodes: [58120]
-        },
-        Pai: {
-            subDistrict: [
-                'Vieng Tai',
-                'Vieng Nua',
-                'Mae Na Terng',
-                'Mae Hee',
-                'Tung Yao',
-                'Meaung Pang ',
-                'Pong Sa'
-            ],
-            postalCodes: [58130]
-        },
-        'Khun Yuam': {
-            subDistrict: [
-                'Khun Yuam',
-                'Mae Ngao',
-                'Meaung Pon',
-                'Mae Yuam Noi',
-                'Mae Kee',
-                'Mae Ou Kor'
-            ],
-            postalCodes: [58140]
-        },
-        'Pang Mapa': {
-            subDistrict: ['Sob Pong', 'Pang Mapa', 'Tham Lod', 'Na Poo Pom'],
-            postalCodes: [58150]
-        }
-    },
-    'Nakhon Sawan': {
-        'Meaung Nakhon Sawan': {
-            subDistrict: [
-                'Pak Nam Po',
-                'Klang Dad',
-                'Kriengkri',
-                'Kwa Yai',
-                'Takian Learn',
-                'Nakhon Sawan Tok',
-                'Nakhon Sawan Ok',
-                'Bang Pra Luang',
-                'Ban Muang',
-                'Ban Makler',
-                'Ban Kang',
-                'Pra Norn',
-                'Wat Sai',
-                'Nong Pling',
-                'Beung Senat',
-                'Nhong Krot',
-                'Nhong Kradon'
-            ],
-            postalCodes: [60000, 60240]
-        },
-        'Nong Bua': {
-            subDistrict: [
-                'Nong Bua',
-                'Nong Klub',
-                'Tarn Taharn',
-                'Huay Ruam',
-                'Huay Tua Tai',
-                'Huay Tua Nua',
-                'Huay Yai',
-                'Tung Tong',
-                'Wang Bor'
-            ],
-            postalCodes: [60110]
-        },
-        'Chum Sang': {
-            subDistrict: [
-                'Chum Sang',
-                'Pikoon',
-                'Keui Chai',
-                'Tha Mai',
-                'Bang Kien',
-                'Nhong Krajao',
-                'Kok Mor',
-                'Phai Singha',
-                'Kha Mang'
-            ],
-            postalCodes: [60120, 60250]
-        },
-        'Payuha Kiri': {
-            subDistrict: [
-                'Payuha',
-                'Nern Makok',
-                'Nikom Khaoborkaew',
-                'Muang Huk',
-                'Yang Kao',
-                'Yarn Matsee',
-                'Khao Tong',
-                'Tha Nam Ooy',
-                'Nam Song',
-                'Kao Kala',
-                'Sra Talay'
-            ],
-            postalCodes: [60130]
-        },
-        Takli: {
-            subDistrict: [
-                'Takli',
-                'Hua Waii',
-                'Nong Po',
-                'Nong Mor',
-                'Jan San',
-                'Lad Tipparot'
-            ],
-            postalCodes: [60140, 60210, 60260]
-        },
-        'Lad Yao': {
-            subDistrict: [
-                'Lad Yao',
-                'Huay Nam Hom',
-                'Wang Ma',
-                'Wang Meaung',
-                'Sroi Lakorn',
-                'Mab Kae',
-                'Nong Yao',
-                'Nong Nom Wua',
-                'Ban Rai',
-                'Nern Khee Lek',
-                'Sarn Chao Kai Tor',
-                'Sra Kaew'
-            ],
-            postalCodes: [60150]
-        },
-        'Mae Wong': {
-            subDistrict: ['Mae Wong', 'Mae Lay', 'Wang Sarn', 'Khao Chon Kan'],
-            postalCodes: [60150]
-        },
-        'Mae Pern': { subDistrict: ['Mae Pern'], postalCodes: [60150] },
-        'Chum Ta Bong': {
-            subDistrict: ['Chum Ta Bong', 'Pang Sawhan'],
-            postalCodes: [60150]
-        },
-        'Tha Tako': {
-            subDistrict: [
-                'Tha Tako',
-                'Panom Rok',
-                'Hua Tanon',
-                'Sai Lampong',
-                'Wang Mahakorn',
-                'Don Ka',
-                'Tamnob',
-                'Wang Yai',
-                'Panom Set',
-                'Nhong Luang'
-            ],
-            postalCodes: [60160]
-        },
-        'Krok Pra': {
-            subDistrict: [
-                'Krok Pra',
-                'Yang Tarn',
-                'Bang Mafor',
-                'Bang Pramung',
-                'Na Klang',
-                'Saladang',
-                'Nern Kwow',
-                'Nern Sala',
-                'Had Soong'
-            ],
-            postalCodes: [60170]
-        },
-        'Bunpot Pisai': {
-            subDistrict: [
-                'Ta Ngiew',
-                'Bang Ta Ngai',
-                'Hoo Kwang',
-                'Ang Tong',
-                'Ban Dan',
-                'Bang Kaew',
-                'Ta Kheed',
-                'Ta Sang',
-                'Dan Chang',
-                'Nong Krod',
-                'Nong Ta Ngoo',
-                'Beung Platoo',
-                'Jaroenpol'
-            ],
-            postalCodes: [60180]
-        },
-        'Tak Fah': {
-            subDistrict: [
-                'Tak Fah',
-                'Lam Payon',
-                'Suk Samran',
-                'Nhong Pikul',
-                'Phu Nok Yoong',
-                'Udom Tanya',
-                'Khao Chai Tong'
-            ],
-            postalCodes: [60190]
-        },
-        'Ta Kli': {
-            subDistrict: ['Chong Kae', 'Huay Hom', 'Sroy Tong', 'Prom Nimit'],
-            postalCodes: [60140, 60210, 60260]
-        },
-        Pisali: {
-            subDistrict: [
-                'Kok Deu',
-                'Samrong Chai',
-                'Wang Nam Lad',
-                'Takro',
-                'Poh Prasart',
-                'Wang Koy',
-                'Na Khom',
-                'Pisali'
-            ],
-            postalCodes: [60220]
-        },
-        'Kao Laew': {
-            subDistrict: [
-                'Maha Poh',
-                'Kao Laew',
-                'Nhong Tao',
-                'Kao Din',
-                'Hua Dong'
-            ],
-            postalCodes: [60230]
-        },
-        Chumsang: {
-            subDistrict: ['Tab Krit', 'Pan Larn', 'Tab Krit Tai'],
-            postalCodes: [60120, 60250]
-        }
-    },
-    'Uthai Thani': {
-        'Meaung Uthai Thani': {
-            subDistrict: [
-                'Uthai Mai',
-                'Nam Seum',
-                'Sakrae Krung',
-                'Don Kwang',
-                'Had Tanong',
-                'Koh Tepho',
-                'Tha Sung ',
-                'Nhong Kae',
-                'None Lhek',
-                'Nong Tao',
-                'Nong Pai Ban',
-                'Nong Pang Ka',
-                'Thung Yai',
-                'Nern Jang'
-            ],
-            postalCodes: [61000]
-        },
-        'Nhong Chang': {
-            subDistrict: [
-                'Nhong Chang',
-                'Nhong Yang',
-                'Nhong Nang Nual',
-                'Nhong Sruang',
-                'Ban Kao',
-                'Uthai Kao',
-                'Tung Pho',
-                'Tung Pong',
-                'Kao Kwang Tong',
-                'Kao Bang Krak'
-            ],
-            postalCodes: [61110, 61170]
-        },
-        'Tap Tan': {
-            subDistrict: [
-                'Tap Tan',
-                'Tung Na Thai',
-                'Khao Kee Foy',
-                'Nhong Ya Plong',
-                'Kok Mor',
-                'Nong Yai Da',
-                'Nong Klang Dong',
-                'Nong Kratum',
-                'Nong Sra',
-                'Taluk Too'
-            ],
-            postalCodes: [61120]
-        },
-        'Nhong Ka Yang': {
-            subDistrict: [
-                'Nhong Ka Yang',
-                'Nhong Phai',
-                'Don Kloy',
-                'Huay Rob',
-                'Tung Peung',
-                'Tha Poh',
-                'Mok Taew',
-                'Lhum Kao',
-                'Dong Kwang'
-            ],
-            postalCodes: [61130]
-        },
-        'Ban Rai': {
-            subDistrict: [
-                'Ban Rai',
-                'Tap Laung',
-                'Huay Hang',
-                'Kok Kwai',
-                'Kan Makood',
-                'Ban Beung',
-                'Jao Wat',
-                'Wang Hin',
-                'Meaung Karung',
-                'Nong Jok',
-                'Hoo Chang',
-                'Ban Mai Klong Tien',
-                'Nong Bom Kluay'
-            ],
-            postalCodes: [61140, 61180]
-        },
-        'Sawang Arom': {
-            subDistrict: [
-                'Sawang Arom',
-                'Nhong Luang',
-                'Plaung Song Nang',
-                'Phai Kaew',
-                'Bor Yang'
-            ],
-            postalCodes: [61150]
-        },
-        'Lan Sak': {
-            subDistrict: [
-                'Lan Sak',
-                'Pradoo Yeun',
-                'Pah Or',
-                'Rabum',
-                'Nam Rob',
-                'Tung Na Ngam'
-            ],
-            postalCodes: [61160]
-        },
-        'Huay Kot': {
-            subDistrict: ['Sook Ruethai', 'Tong Lhang', 'Huay Kot'],
-            postalCodes: [61170]
-        }
-    },
-    'Kamphaeng Phet': {
-        'Meaung Kampang Phet': {
-            subDistrict: [
-                'Nai Meaung',
-                'Ang Tong',
-                'Na Bor Kam',
-                'Nakorn Chum',
-                'Song Tham',
-                'Larn Dokmai',
-                'Nhong Pling',
-                'Kun Tee',
-                'Nikom Tung Poh Talay',
-                'Thep Nakorn',
-                'Wang Tong',
-                'Tha Khum Ram',
-                'Klong Mae Lai',
-                'Sra Kaew',
-                'Trai Teung',
-                'Thammarong'
-            ],
-            postalCodes: [62000, 62160]
-        },
-        'Kosumphee Nakorn': {
-            subDistrict: ['Kosumphee', 'Petch Chompoo', 'Larn Dokmai Tok'],
-            postalCodes: [62000]
-        },
-        'Phran Kratai': {
-            subDistrict: [
-                'Phran Kratai',
-                'Nhong Hua Wua',
-                'Tha Mai',
-                'Wang Kuang',
-                'Wang Tabak',
-                'Khao Kee Ris',
-                'Khui Ban Ong',
-                'Klong Phi Krai',
-                'Tam Krataii Tong',
-                'Huay Yang'
-            ],
-            postalCodes: [62110]
-        },
-        'Klong Klung': {
-            subDistrict: [
-                'Klong Klung',
-                'Tha Makue',
-                'Tha Putsa',
-                'Mae Lad',
-                'Wang Yang',
-                'Wang Kham',
-                'Hua Tanon',
-                'Wang Sai',
-                'Wang Bua',
-                'Klong Somboon'
-            ],
-            postalCodes: [62120]
-        },
-        'Pang Silatong': {
-            subDistrict: ['Poh Tong', 'Hin Dat', 'Pang Ta Wai'],
-            postalCodes: [62120]
-        },
-        Kanuvorralaksanaburee: {
-            subDistrict: [
-                'Yang Soong',
-                'Pah Putsa',
-                'San Toh',
-                'Koh Tarn',
-                'Salok Bat',
-                'Boh Tam',
-                'Don Tang',
-                'Wang Chaplu',
-                'Kong Phai',
-                'Pang Makha',
-                'Wang Ham Hae'
-            ],
-            postalCodes: [62130, 62140]
-        },
-        'Sai Ngam': {
-            subDistrict: [
-                'Sai Ngam',
-                'Nhong Kla',
-                'Nhong Tong',
-                'Nhong Mai Kong',
-                'Mahachai',
-                'Pan Tong',
-                'Nhong Mae Tang'
-            ],
-            postalCodes: [62150]
-        },
-        'Lan Krabue': {
-            subDistrict: [
-                'Lan Krabue',
-                'Chong Lom',
-                'Nhong Luang',
-                'Non Pluang',
-                'Pracha Sooksan',
-                'Beung Tab Rat',
-                'Jantima'
-            ],
-            postalCodes: [62170]
-        },
-        'Klong Larn': {
-            subDistrict: [
-                'Klong Nam Lai',
-                'Pong Nam Ron',
-                'Klong Lan Pattana',
-                'Sak Ngam'
-            ],
-            postalCodes: [62180]
-        },
-        'Sai Tong Wattana': {
-            subDistrict: ['Tung Sai', 'Tung Tong', 'Taworn Wattana'],
-            postalCodes: [62190]
-        },
-        'Beung Samakki': {
-            subDistrict: [
-                'Beung Samakkhi',
-                'Wang Chaone',
-                'Raharn',
-                'Thepnimit'
-            ],
-            postalCodes: [62210]
-        }
-    },
-    Tak: {
-        'Meaung Tak': {
-            subDistrict: [
-                'Rahang',
-                'Nhong Luang',
-                'Chaing Ngern',
-                'Hua Diead',
-                'Nong Bua Nua',
-                'Mai Ngam',
-                'Pong Dang',
-                'Nam Reem',
-                'Wang Hin',
-                'Mae Tor',
-                'Pa Mamuang',
-                'Nong Bua Tai',
-                'Wang Prajob',
-                'Tluk Klang Tung'
-            ],
-            postalCodes: [63000]
-        },
-        'Wang Jao': {
-            subDistrict: ['Chiang Tong', 'Na Bot', 'Pra Dang'],
-            postalCodes: [63000]
-        },
-        'Mae Sot': {
-            subDistrict: [
-                'Mae Sot',
-                'Mae Ku',
-                'Pa Wor',
-                'Mae Tao',
-                'Mae Kasa',
-                'Tha Sai Luad',
-                'Mae Pa',
-                'Mahawan',
-                'Darn Mae Lamao',
-                'Pra That Pah Dang'
-            ],
-            postalCodes: [63110]
-        },
-        'Ban Tak': {
-            subDistrict: [
-                'Tak Ook',
-                'Samor Cone',
-                'Mae Salid',
-                'Tak Tok',
-                'Koh Tapao',
-                'Tung Krasoh',
-                'Tong Fah'
-            ],
-            postalCodes: [63120]
-        },
-        'Sam Ngao': {
-            subDistrict: [
-                'Sam Ngao',
-                'Wang Mun',
-                'Yok Krabat',
-                'Yarn Ree',
-                'Ban Na',
-                'Wang Chan'
-            ],
-            postalCodes: [63130]
-        },
-        'Mae Ramad': {
-            subDistrict: [
-                'Mae Ramat',
-                'Mae Jarao',
-                'Kanae Jeu',
-                'Mae Teun',
-                'Sam Meun',
-                'Pra That'
-            ],
-            postalCodes: [63140]
-        },
-        'Tha Song Yang': {
-            subDistrict: [
-                'Tha Song Yang',
-                'Mae Tarn',
-                'Mae Song',
-                'Mae Lha',
-                'Mae Wa Luang',
-                'Mae Usu'
-            ],
-            postalCodes: [63150]
-        },
-        'Pob Pra': {
-            subDistrict: [
-                'Pob Pra',
-                'Chong Cab',
-                'Kiri Rat',
-                'Valey',
-                'Ruam Thai Patana'
-            ],
-            postalCodes: [63160]
-        },
-        'Oum Pang': {
-            subDistrict: [
-                'Oum Pang',
-                'Nong Luang',
-                'Mo Kro',
-                'Mae Jan',
-                'Mae Lamung',
-                'Mae Klong'
-            ],
-            postalCodes: [63170]
-        }
-    },
-    Sukhothai: {
-        'Meaung Sukhothai': {
-            subDistrict: [
-                'Thani',
-                'Pak Kwa',
-                'Yang Sai',
-                'Ban Kluay',
-                'Ban Lhum',
-                'Pak Pra',
-                'Meaung Kao',
-                'Wang Tong Dang',
-                'Ban Suan',
-                'Tarn Tia'
-            ],
-            postalCodes: [64000, 64210, 64220]
-        },
-        Sawahakhalok: {
-            subDistrict: [
-                'Meaung Sawhankhalok',
-                'Nai Meaung',
-                'Klong Krajong',
-                'Wang Pin Part',
-                'Wang Mai Khon',
-                'Yarn Yao',
-                'Na Tung',
-                'Klong Yang',
-                'Meaung Bang Yom',
-                'Tha Tong',
-                'Pak Nam',
-                'Pah Kum Koh',
-                'Meaung Bang Klung',
-                'Nhong Klub'
-            ],
-            postalCodes: [64110]
-        },
-        'Sri Samrong': {
-            subDistrict: [
-                'Klong Tarn',
-                'Wang Leuk',
-                'Sam Reun',
-                'Ban Na',
-                'Wang Tong',
-                'Na Khun Krai',
-                'Koh Ta Liang',
-                'Wat Koh',
-                'Ban Rai',
-                'Tab Peung',
-                'Ban Sarn',
-                'Wang Yai',
-                'Rao Ton Chan'
-            ],
-            postalCodes: [64120]
-        },
-        'Sri Satchanalai': {
-            subDistrict: [
-                'Had Siew',
-                'Pah Ngiew',
-                'Mae Sam',
-                'Mae Sin',
-                'Ban Teuk',
-                'Nong Or',
-                'Dong Koo',
-                'Ban Kang',
-                'Sarajit',
-                'Tha Chai',
-                'Sri Satchanalai'
-            ],
-            postalCodes: [64130, 64190]
-        },
-        'Ban Darn Larn Hoi': {
-            subDistrict: [
-                'Larn Hoi',
-                'Ban Darn',
-                'Wang Takro',
-                'Wang Nam Kao',
-                'Taling Chan',
-                'Nhong Ya Plong',
-                'Wang Leuk'
-            ],
-            postalCodes: [64140]
-        },
-        'Tung Salium': {
-            subDistrict: [
-                'Thai Chana Seuk',
-                'Tung Salium',
-                'Klang Dong',
-                'Ban Mai Chai Mongkol',
-                'Kao Kaew Sri Somboon'
-            ],
-            postalCodes: [64150, 64230]
-        },
-        Kirimat: {
-            subDistrict: [
-                'Tanode',
-                'Thung Luang',
-                'Ban Pom',
-                'Sam Puang',
-                'Sri Kirimat',
-                'Nhong Jik',
-                'Na Cherng Kiri',
-                'Nhong Krading',
-                'Ban Namphu',
-                'Tung Yang Meaung'
-            ],
-            postalCodes: [64160]
-        },
-        'Kong Krilat': {
-            subDistrict: [
-                'Kong',
-                'Ban Krang',
-                'Krainok',
-                'Kraiklang',
-                'Krainai',
-                'Dong Deui',
-                'Pa Fak',
-                'Kok Rat',
-                'Tha Chanuan',
-                'Nhong Toom',
-                'Ban Mai Sook Kasem'
-            ],
-            postalCodes: [64170]
-        },
-        'Sri Nakorn': {
-            subDistrict: [
-                'Sri Nakorn',
-                'Nakorn Dirt',
-                'Nam Khum',
-                'Klong Maplub',
-                'Nong Bua'
-            ],
-            postalCodes: [64180]
-        }
-    },
-    Phitsanulok: {
-        'Meaung Phitsanulok': {
-            subDistrict: [
-                'Nai Meaung',
-                'Wat Jan',
-                'Tha Tong',
-                'Tha Poh',
-                'Samor Khae',
-                'Don Tong',
-                'Ban Pah',
-                'Pak Tok',
-                'Hua Ror',
-                'Jom Tong',
-                'Ban Krang',
-                'Ban Klong',
-                'Plai Chumpol',
-                'Makham Soong',
-                'Aranyik',
-                'Beung Pra',
-                'Phai Kordon',
-                'Wang Nam Koo',
-                'Wat Prik',
-                'Ngiew Ngam'
-            ],
-            postalCodes: [65000, 65230]
-        },
-        'Bang Kratum': {
-            subDistrict: [
-                'Bang Kratum',
-                'Ban Rai',
-                'Kok Salud',
-                'Sanam Kli',
-                'Tha Tarn',
-                'Phai Lom',
-                'Nakorn Pa Mak',
-                'Nern Kum',
-                'Wat Tayom'
-            ],
-            postalCodes: [65110, 65210]
-        },
-        'Nakorn Thai': {
-            subDistrict: [
-                'Nakorn Thai',
-                'Nhong Katow',
-                'Ban Yang',
-                'Nern Perm',
-                'Na Bua',
-                'Nakorn Chum',
-                'Nam Kum',
-                'Yang Glone',
-                'Bor Poh',
-                'Ban Praw',
-                'Huay Hia'
-            ],
-            postalCodes: [65120]
-        },
-        'Wang Tong': {
-            subDistrict: [
-                'Wang Tong',
-                'Pan Chalee',
-                'Mae Raka',
-                'Wang Pikul',
-                'Tha Meun Ram',
-                'Wang Nok Ann',
-                'Nong Pra',
-                'Chai Nam',
-                'Din Tong',
-                'Ban Klang',
-                'Kang Sopa'
-            ],
-            postalCodes: [65130, 65220]
-        },
-        'Bang Rakam': {
-            subDistrict: [
-                'Bang Rakam',
-                'Palak Rad',
-                'Pan Sao',
-                'Wang Etok',
-                'Beung Kok',
-                'Nong Kula',
-                'Nikom Pattana',
-                'Bor Tong',
-                'Tha Nang Ngam',
-                'Chum Sang Songkram',
-                'Kui Muang'
-            ],
-            postalCodes: [65140, 65240]
-        },
-        'Prom Piram': {
-            subDistrict: [
-                'Prom Piram',
-                'Tha Chang',
-                'Matoom',
-                'Hok Long',
-                'Wang Won',
-                'Nhong Kham',
-                'Tub Yai Chiang',
-                'Wong Kong',
-                'Sri Pirom',
-                'Taluk Tium',
-                'Ma Tong',
-                'Dong Prakam'
-            ],
-            postalCodes: [65150, 65180]
-        },
-        'Wat Bot': {
-            subDistrict: [
-                'Wat Bot',
-                'Tha Ngam',
-                'Thor Tae',
-                'Ban Yang',
-                'Hin Lad',
-                'Cun Song'
-            ],
-            postalCodes: [65160]
-        },
-        'Chart Trakarn': {
-            subDistrict: [
-                'Pa Dang',
-                'Chart Trakarn',
-                'Suan Miang',
-                'Ban Dong',
-                'Bor Pak',
-                'Tha Sakae'
-            ],
-            postalCodes: [65170]
-        },
-        'Nern Maprang': {
-            subDistrict: [
-                'Chompoo',
-                'Ban Mung',
-                'Sai Yoi',
-                'Wang Prong',
-                'Ban Noi Sum Khee Lhek',
-                'Nern Maprang',
-                'Wang Yang'
-            ],
-            postalCodes: [65190]
-        }
-    },
-    Phichit: {
-        'Meaung Phichit': {
-            subDistrict: [
-                'Nai Meaung',
-                'Phai Kwang',
-                'Yan Yao',
-                'Tha Lor',
-                'Pak Tang',
-                'Klong Kachain',
-                'Rong Chang',
-                'Meaung Kao',
-                'Tha Luang',
-                'Ban Bung',
-                'Ka Kang',
-                'Pa Makab',
-                'Sai Kam Ho',
-                'Dong Pah Kam',
-                'Hua Dong',
-                'Dong Klang'
-            ],
-            postalCodes: [66000, 66170]
-        },
-        'Ta Pan Hin': {
-            subDistrict: [
-                'Ta Pan Hin',
-                'Ngiew Rai',
-                'Huay Ket',
-                'Sai Rong Kone',
-                'Nong Payom',
-                'Dong Takob',
-                'Klong Koon',
-                'Wang Samrong',
-                'Wang Wha',
-                'Tub Mhun',
-                'Phai Luang'
-            ],
-            postalCodes: [66110]
-        },
-        'Bang Moon Nak': {
-            subDistrict: [
-                'Bang Moon Nak',
-                'Bang Phai',
-                'Hor Krai',
-                'Nern Makok',
-                'Wang Samrong',
-                'Poom',
-                'Wang Krot',
-                'Huay Khen',
-                'Lam Prada',
-                'Wang Taku'
-            ],
-            postalCodes: [66120, 66210]
-        },
-        'Poh Talay': {
-            subDistrict: [
-                'Poh Talay',
-                'Tai Nam',
-                'Tanong',
-                'Tha Bua',
-                'Thung Noi',
-                'Tha Khamin',
-                'Tha Sao',
-                'Bang Klan',
-                'Tha Nung',
-                'Ban Noi',
-                'Wat Kwang'
-            ],
-            postalCodes: [66130]
-        },
-        'Beung Narang': {
-            subDistrict: [
-                'Huay Kaew',
-                'Poh Sai Ngam',
-                'Lham Rang',
-                'Bang Rai',
-                'Beung Narang'
-            ],
-            postalCodes: [66130]
-        },
-        'Sam Ngam': {
-            subDistrict: [
-                'Sam Ngam',
-                'Rang Nok',
-                'Nern Por',
-                'Nong Sanoh',
-                'Kampang Din'
-            ],
-            postalCodes: [66140, 66220]
-        },
-        'Vachira Baramee': {
-            subDistrict: ['Ban Na', 'Beung Bua', 'Wang Mok', 'Nhong Lhum'],
-            postalCodes: [66140, 66220]
-        },
-        'Taparn Hin': {
-            subDistrict: ['Thung Poh', 'Wang Lhum'],
-            postalCodes: [66150]
-        },
-        'Tab Klor': {
-            subDistrict: ['Tab Klor', 'Tai Tung'],
-            postalCodes: [66150]
-        },
-        'Sak Lhek': {
-            subDistrict: [
-                'Sak Lhek',
-                'Tha Yium',
-                'Klong Sai',
-                'Nhong Yah Sai',
-                'Wang Tub Sai'
-            ],
-            postalCodes: [66160]
-        },
-        'Wang Sai Poon': {
-            subDistrict: [
-                'Wang Sai Poon',
-                'Nhong Pla Lhai',
-                'Nhong Pra',
-                'Nhong Plong'
-            ],
-            postalCodes: [66180]
-        },
-        'Poh Pratab Chang': {
-            subDistrict: [
-                'Poh Pratab Chang',
-                'Phai Tha Poh',
-                'Wang Jik',
-                'Phai Rob',
-                'Dong Seu Leung',
-                'Nern Sawang',
-                'Thung Yai'
-            ],
-            postalCodes: [66190]
-        },
-        'Dong Jaroen': {
-            subDistrict: [
-                'Wang Ngiew Tai',
-                'Wang Ngiew',
-                'Huay Ruam',
-                'Huay Puk',
-                'Samnak Khun Nen'
-            ],
-            postalCodes: [66210]
-        },
-        'Tab Kla': {
-            subDistrict: ['Khao Sai', 'Khao Jed Look'],
-            postalCodes: [66230]
-        }
-    },
-    Phetchabun: {
-        'Meaung Phetchabun': {
-            subDistrict: [
-                'Nai Meaung',
-                'Ta Boh',
-                'Ban Tok',
-                'Sa Diang',
-                'Pa Lao',
-                'Na Ngua',
-                'Dong Moon Lhek',
-                'Ban Kok',
-                'Sorn Prai',
-                'Na Pa',
-                'Nam Ron',
-                'Huay Yai',
-                'Na Yom',
-                'Wang Chompoo',
-                'Huay Sakae',
-                'Rawing',
-                'Tha Phol'
-            ],
-            postalCodes: [67000, 67210, 67250]
-        },
-        'Lom Sak': {
-            subDistrict: [
-                'Lom Sak',
-                'Wat Pa',
-                'Tarn Diew',
-                'Fai Na Sang',
-                'Nong Sawang',
-                'Nam Hia',
-                'Sak Long',
-                'Tha I Boon',
-                'Ban Sok',
-                'Ban Tiew',
-                'Huay Rai',
-                'Nam Kor',
-                'Pak Chong',
-                'Nam Sun',
-                'Nhong Kwai',
-                'Larn Ba',
-                'Bung Kla',
-                'Bung Nam Tao',
-                'Ban Klang',
-                'Chang Talud',
-                'Ban Rai',
-                'Pak Dook',
-                'Ban Wai'
-            ],
-            postalCodes: [67110]
-        },
-        'Lom Kao': {
-            subDistrict: [
-                'Lom Kao',
-                'Na Sam',
-                'Hin Hao',
-                'Ban Nern',
-                'Sila',
-                'Na Sang',
-                'Wang Ban',
-                'Na Koh',
-                'Tad Kloy'
-            ],
-            postalCodes: [67120]
-        },
-        'Vichien Buri': {
-            subDistrict: [
-                'Tha Rong',
-                'Sra Pradoo',
-                'Sam Yak',
-                'Kok Prong',
-                'Nam Ron',
-                'Bor Rang',
-                'Beung Krajab',
-                'Yang Sao',
-                'Phu Toei',
-                'Phu Charm',
-                'Phu Nam Yod',
-                'Chai Somboon',
-                'Wang Yai',
-                'Sub Noi'
-            ],
-            postalCodes: [67130, 67180]
-        },
-        'Nhong Phai': {
-            subDistrict: [
-                'Kong Toon',
-                'Ban Pot',
-                'Tha Dang',
-                'Petch Lakorn',
-                'Bor Thai',
-                'Wang Tha Dee',
-                'Bua Wattana',
-                'Nhong Phai',
-                'Wang Bot',
-                'Tha Duang',
-                'Na Chaliang',
-                'Huay Pong',
-                'Yang Ngam'
-            ],
-            postalCodes: [67140, 67220]
-        },
-        'Chon Dan': {
-            subDistrict: [
-                'Chon Dan',
-                'Tha Kam',
-                'Puttha Bat',
-                'Lad Kae',
-                'Sub Putsa',
-                'Sala Lai',
-                'Dong Khui',
-                'Ban Klauy',
-                'Takud Rai'
-            ],
-            postalCodes: [67150, 67190]
-        },
-        'Beung Sam Pan': {
-            subDistrict: [
-                'Sub Samor Tod',
-                'Sub Mai Dang',
-                'Nhong Jang',
-                'Kun Ju',
-                'Praya Wang',
-                'Sri Mongkol',
-                'Sra Kaew',
-                'Beung Sampan',
-                'Wang Pikul'
-            ],
-            postalCodes: [67160, 67230]
-        },
-        'Sri Thep': {
-            subDistrict: [
-                'Sri Thep',
-                'Sra Kruad',
-                'Klong Krajung',
-                'Na Sanun',
-                'Kok Sa-Ard',
-                'Nong Yang Toy',
-                'Pradoo Ngam'
-            ],
-            postalCodes: [67170]
-        },
-        'Wang Pong': {
-            subDistrict: [
-                'Wang Pong',
-                'Tai Dong',
-                'Sub Perp',
-                'Wang Hin',
-                'Wang Sarn'
-            ],
-            postalCodes: [67240]
-        },
-        'Nam Nhao': {
-            subDistrict: ['Nam Nhao', 'Lak Darn', 'Wang Kwang', 'Kok Mon'],
-            postalCodes: [67260]
-        },
-        'Kao Kor': {
-            subDistrict: [
-                'Tung Samor',
-                'Kao Kor',
-                'Rim See Muang',
-                'Sador Pong',
-                'Nhong Mae Na',
-                'Camp Son ',
-                'Kek Noi'
-            ],
-            postalCodes: [67270, 67280]
-        }
-    },
-    Kanchanaburi: {
-        'Tha Maka': {
-            subDistrict: [
-                'Sanam Yae',
-                'Pong Teuk',
-                'Yang Muang',
-                'Tha Mai',
-                'Tha Maka',
-                'Kok Tabong',
-                'Don Kamhin',
-                'Kao Sam Sib Hab',
-                'Whai Niew',
-                'Tha Sao',
-                'Don Chaaim',
-                'Takram En',
-                'Tha Rua',
-                'U Lok See Meaun',
-                'Pra Tan',
-                'San Tor',
-                'Nong Larn',
-                'Ta Takro'
-            ],
-            postalCodes: [70190, 71120, 71130]
-        },
-        'Meaung Kanchanaburi': {
-            subDistrict: [
-                'Ban Nua',
-                'Ban Tai',
-                'Pak Prak',
-                'Tha Makham',
-                'Kang Sian',
-                'Nong Ya',
-                'Koh Samran',
-                'Ban Kao',
-                'Wang Yen',
-                'Nong Bua',
-                'Lad Yah',
-                'Wang Dong',
-                'Chong Sadao'
-            ],
-            postalCodes: [71000, 71190]
-        },
-        'Tha Muang': {
-            subDistrict: [
-                'Tha Muang',
-                'Wang Kanai',
-                'Wang Sala',
-                'Tha Lor',
-                'Nong Kao',
-                'Tung Tong',
-                'Khao Noi',
-                'Muang Chum',
-                'Ban Mai',
-                'Pung Tru',
-                'Rang Salee',
-                'Nong Tak Ya'
-            ],
-            postalCodes: [71110]
-        },
-        'Panom Tuan': {
-            subDistrict: [
-                'Panom Tuan',
-                'Nhong Rong',
-                'Tung Samor',
-                'Don Chedi',
-                'Pang Tru',
-                'Nong Sarai',
-                'Don Ta Petch',
-                'Rang Whai'
-            ],
-            postalCodes: [71140, 71170]
-        },
-        'Sai Yok': {
-            subDistrict: [
-                'Lum Sum',
-                'Tha Sao',
-                'Singha',
-                'Sai Yok',
-                'Wang Krajae',
-                'Sri Mongkol',
-                'Bong Tee'
-            ],
-            postalCodes: [71150]
-        },
-        'Boh Ploy': {
-            subDistrict: [
-                'Boh Ploy',
-                'Nhong Kum',
-                'Lhum Rang',
-                'Song Darn',
-                'Nong Ree',
-                'Nong Krang'
-            ],
-            postalCodes: [71160, 71220]
-        },
-        'Huay Krajao': {
-            subDistrict: [
-                'Huay Krajao',
-                'Wang Phai',
-                'Don Salab',
-                'Sra Long Rua'
-            ],
-            postalCodes: [71170]
-        },
-        Tongpapoom: {
-            subDistrict: [
-                'Tha Khanoon',
-                'Pilok',
-                'Hin Dad',
-                'Lin Thin',
-                'Sha Lae',
-                'Huay Krayeng',
-                'Sahakorn Nikom'
-            ],
-            postalCodes: [71180]
-        },
-        'Lao Kwan': {
-            subDistrict: [
-                'Lao Kwan',
-                'Nong Sanoh',
-                'Nong Pradu',
-                'Nong Pling',
-                'Nong Nokkaew',
-                'Tung Krabum',
-                'Nong Fai'
-            ],
-            postalCodes: [71210]
-        },
-        'Sri Sawat': {
-            subDistrict: [
-                'Kao Jod',
-                'Na Suan',
-                'Dan Mae Chalab',
-                'Nong Ped',
-                'Tha Kadarn',
-                'Mae Kabung'
-            ],
-            postalCodes: [71220, 71250]
-        },
-        'Nong Preu': {
-            subDistrict: ['Nong Preu', 'Nong Pla Lai', 'Somdet Jaroen'],
-            postalCodes: [71220]
-        },
-        'Sungkla Buri': {
-            subDistrict: ['Nong Lu', 'Prang Ple', 'Lai Wo'],
-            postalCodes: [71240]
-        },
-        'Dan Makam Tia': {
-            subDistrict: [
-                'Dan Makam Tia',
-                'Klon Do',
-                'Jorakae Peuk',
-                'Nong Phai'
-            ],
-            postalCodes: [71260]
-        }
-    },
-    Ratchaburi: {
-        'Meaung Ratchaburi': {
-            subDistrict: [
-                'Na Meaumg',
-                'Chedi Huk',
-                'Don Tako',
-                'Nhong Klang Na',
-                'Huay Phai',
-                'Kung Nam Won',
-                'Kung Kratin',
-                'Ang Tong',
-                'Kok Mor',
-                'Sam Reun',
-                'Pikul Tong',
-                'Namphu',
-                'Don Rae',
-                'Hin Kong ',
-                'Khao Rang',
-                'Koh Plubpla',
-                'Lhum Din',
-                'Bang Pa',
-                'Pong Sawhai',
-                'Khu Bua',
-                'Ta Rab',
-                'Ban Rai'
-            ],
-            postalCodes: [70000]
-        },
-        'Ban Pong': {
-            subDistrict: [
-                'Ban Pong',
-                'Tha Pha',
-                'Pak Rat',
-                'Nong Kob',
-                'Nong Aor',
-                'Don Kraberng',
-                'Suan Klauy',
-                'Nakorn Chum',
-                'Ban Muang',
-                'Kung Payom',
-                'Nong Pla Mor',
-                'Khao Klung',
-                'Berk Prai',
-                'Lad Bua Kao',
-                'Krub Yai'
-            ],
-            postalCodes: [70110, 70190]
-        },
-        Potharam: {
-            subDistrict: [
-                'Potharam',
-                'Don Kraberng',
-                'Nong Po',
-                'Ban Lerk',
-                'Klong Ta Kot',
-                'Ban Kong',
-                'Ban Singha',
-                'Don Sai',
-                'Jed Samian',
-                'Klong Koi',
-                'Chamrae',
-                'Sroi Fah',
-                'Tha Chumpon',
-                'Bang Tanod',
-                'Tao Poon',
-                'Nang Kaew',
-                'Thamsane',
-                'Khao Chagoom',
-                'Nong Kwang'
-            ],
-            postalCodes: [70120]
-        },
-        'Damnern Saduak': {
-            subDistrict: [
-                'Damnern Saduak',
-                'Sri Surat',
-                'Ta Luang',
-                'Don Kruai',
-                'Don Klung',
-                'Ban Rai',
-                'Pang Puay',
-                'See Meaun',
-                'Tha Nud',
-                'Khun Pitak',
-                'Don Phai',
-                'Prasarn Sit',
-                'Bua Ngam'
-            ],
-            postalCodes: [70130, 70210]
-        },
-        'Pak Tor': {
-            subDistrict: [
-                'Tung Luang',
-                'Wang Manao',
-                'Don Sai',
-                'Nhong Kratum',
-                'Pak Tok',
-                'Pah Kai',
-                'Wat Yang Ngam',
-                'Ang Hin',
-                'Bor Kradarn',
-                'Yang Hak',
-                'Wan Dao',
-                'Huay Yang Tone'
-            ],
-            postalCodes: [70140]
-        },
-        'Jom Beung': {
-            subDistrict: [
-                'Jom Beung',
-                'Pak Chong',
-                'Beuk Prai',
-                'Dan Tab Tako',
-                'Kam Un',
-                'Rang Bua'
-            ],
-            postalCodes: [70150]
-        },
-        'Bang Pear': {
-            subDistrict: [
-                'Bang Pear',
-                'Wang Yen',
-                'Hua Po',
-                'Wat Kaew',
-                'Don Yai',
-                'Don Ka',
-                'Poh Hak'
-            ],
-            postalCodes: [70160]
-        },
-        'Wat Pleng': {
-            subDistrict: ['Koh Sarn Pra', 'Jom Pratad', 'Wat Pleng'],
-            postalCodes: [70170]
-        },
-        'Suan Peung': {
-            subDistrict: ['Suan Peung', 'Pa Whai', 'Ta Koey', 'Tanao Sri'],
-            postalCodes: [70180]
-        },
-        'Ban Ka': {
-            subDistrict: ['Ban Ka', 'Ban Beung', 'Nhong Pan Chan'],
-            postalCodes: [70180]
+    พระนครศรีอยุธยา: {
+        พระนครศรีอยุธยา: {
+            subDistrict: [
+                'ประตูชัย',
+                'กะมัง',
+                'หอรัตนไชย',
+                'หัวรอ',
+                'ท่าวาสุกรี',
+                'ไผ่ลิง',
+                'ปากกราน',
+                'ภูเขาทอง',
+                'สำเภาล่ม',
+                'สวนพริก',
+                'คลองตะเคียน',
+                'วัดตูม',
+                'หันตรา',
+                'ลุมพลี',
+                'บ้านใหม่',
+                'บ้านเกาะ',
+                'คลองสวนพลู',
+                'คลองสระบัว',
+                'เกาะเรียน',
+                'บ้านป้อม',
+                'บ้านรุน'
+            ],
+            postalCodes: ['13000']
+        },
+        ท่าเรือ: {
+            subDistrict: [
+                'ท่าเรือ',
+                'จำปา',
+                'ท่าหลวง',
+                'บ้านร่อม',
+                'ศาลาลอย',
+                'วังแดง',
+                'โพธิ์เอน',
+                'ปากท่า',
+                'หนองขนาก',
+                'ท่าเจ้าสนุก'
+            ],
+            postalCodes: ['13130', '18270']
+        },
+        นครหลวง: {
+            subDistrict: [
+                'นครหลวง',
+                'ท่าช้าง',
+                'บ่อโพง',
+                'บ้านชุ้ง',
+                'ปากจั่น',
+                'บางระกำ',
+                'บางพระครู',
+                'แม่ลา',
+                'หนองปลิง',
+                'คลองสะแก',
+                'สามไถ',
+                'พระนอน'
+            ],
+            postalCodes: ['13260']
+        },
+        บางไทร: {
+            subDistrict: [
+                'บางไทร',
+                'บางพลี',
+                'สนามชัย',
+                'บ้านแป้ง',
+                'หน้าไม้',
+                'บางยี่โท',
+                'แคออก',
+                'แคตก',
+                'ช่างเหล็ก',
+                'กระแชง',
+                'บ้านกลึง',
+                'ช้างน้อย',
+                'ห่อหมก',
+                'ไผ่พระ',
+                'กกแก้วบูรพา',
+                'ไม้ตรา',
+                'บ้านม้า',
+                'บ้านเกาะ',
+                'ราชคราม',
+                'ช้างใหญ่',
+                'โพแตง',
+                'เชียงรากน้อย',
+                'โคกช้าง'
+            ],
+            postalCodes: ['13190', '13290']
+        },
+        บางบาล: {
+            subDistrict: [
+                'บางบาล',
+                'วัดยม',
+                'ไทรน้อย',
+                'สะพานไทย',
+                'มหาพราหมณ์',
+                'กบเจา',
+                'บ้านคลัง',
+                'พระขาว',
+                'น้ำเต้า',
+                'ทางช้าง',
+                'วัดตะกู',
+                'บางหลวง',
+                'บางหลวงโดด',
+                'บางหัก',
+                'บางชะนี',
+                'บ้านกุ่ม'
+            ],
+            postalCodes: ['13250']
+        },
+        บางปะอิน: {
+            subDistrict: [
+                'บ้านเลน',
+                'เชียงรากน้อย',
+                'บ้านโพ',
+                'บ้านกรด',
+                'บางกระสั้น',
+                'คลองจิก',
+                'บ้านหว้า',
+                'วัดยม',
+                'บางประแดง',
+                'สามเรือน',
+                'เกาะเกิด',
+                'บ้านพลับ',
+                'บ้านแป้ง',
+                'คุ้งลาน',
+                'ตลิ่งชัน',
+                'บ้านสร้าง',
+                'ตลาดเกรียบ',
+                'ขนอนหลวง'
+            ],
+            postalCodes: ['13160', '13180', '13170']
+        },
+        บางปะหัน: {
+            subDistrict: [
+                'บางปะหัน',
+                'ขยาย',
+                'บางเดื่อ',
+                'เสาธง',
+                'ทางกลาง',
+                'บางเพลิง',
+                'หันสัง',
+                'บางนางร้า',
+                'ตานิม',
+                'ทับน้ำ',
+                'บ้านม้า',
+                'ขวัญเมือง',
+                'บ้านลี่',
+                'โพธิ์สามต้น',
+                'พุทเลา',
+                'ตาลเอน',
+                'บ้านขล้อ'
+            ],
+            postalCodes: ['13220']
+        },
+        ผักไห่: {
+            subDistrict: [
+                'ผักไห่',
+                'อมฤต',
+                'บ้านแค',
+                'ลาดน้ำเค็ม',
+                'ตาลาน',
+                'ท่าดินแดง',
+                'ดอนลาน',
+                'นาคู',
+                'กุฎี',
+                'ลำตะเคียน',
+                'โคกช้าง',
+                'จักราช',
+                'หนองน้ำใหญ่',
+                'ลาดชิด',
+                'หน้าโคก',
+                'บ้านใหญ่'
+            ],
+            postalCodes: ['13120', '13280']
+        },
+        ภาชี: {
+            subDistrict: [
+                'ภาชี',
+                'โคกม่วง',
+                'ระโสม',
+                'หนองน้ำใส',
+                'ดอนหญ้านาง',
+                'ไผ่ล้อม',
+                'กระจิว',
+                'พระแก้ว'
+            ],
+            postalCodes: ['13140']
+        },
+        ลาดบัวหลวง: {
+            subDistrict: [
+                'ลาดบัวหลวง',
+                'หลักชัย',
+                'สามเมือง',
+                'พระยาบันลือ',
+                'สิงหนาท',
+                'คู้สลอด',
+                'คลองพระยาบันลือ'
+            ],
+            postalCodes: ['13230']
+        },
+        วังน้อย: {
+            subDistrict: [
+                'ลำตาเสา',
+                'บ่อตาโล่',
+                'วังน้อย',
+                'ลำไทร',
+                'สนับทึบ',
+                'พยอม',
+                'หันตะเภา',
+                'วังจุฬา',
+                'ข้าวงาม',
+                'ชะแมบ'
+            ],
+            postalCodes: ['13170']
+        },
+        เสนา: {
+            subDistrict: [
+                'เสนา',
+                'บ้านแพน',
+                'เจ้าเจ็ด',
+                'สามกอ',
+                'บางนมโค',
+                'หัวเวียง',
+                'มารวิชัย',
+                'บ้านโพธิ์',
+                'รางจรเข้',
+                'บ้านกระทุ่ม',
+                'บ้านแถว',
+                'ชายนา',
+                'สามตุ่ม',
+                'ลาดงา',
+                'ดอนทอง',
+                'บ้านหลวง',
+                'เจ้าเสด็จ'
+            ],
+            postalCodes: ['13110']
+        },
+        บางซ้าย: {
+            subDistrict: [
+                'บางซ้าย',
+                'แก้วฟ้า',
+                'เต่าเล่า',
+                'ปลายกลัด',
+                'เทพมงคล',
+                'วังพัฒนา'
+            ],
+            postalCodes: ['13270']
+        },
+        อุทัย: {
+            subDistrict: [
+                'คานหาม',
+                'บ้านช้าง',
+                'สามบัณฑิต',
+                'บ้านหีบ',
+                'หนองไม้ซุง',
+                'อุทัย',
+                'เสนา',
+                'หนองน้ำส้ม',
+                'โพสาวหาญ',
+                'ธนู',
+                'ข้าวเม่า'
+            ],
+            postalCodes: ['13210']
+        },
+        มหาราช: {
+            subDistrict: [
+                'หัวไผ่',
+                'กะทุ่ม',
+                'มหาราช',
+                'น้ำเต้า',
+                'บางนา',
+                'โรงช้าง',
+                'เจ้าปลุก',
+                'พิตเพียน',
+                'บ้านนา',
+                'บ้านขวาง',
+                'ท่าตอ',
+                'บ้านใหม่'
+            ],
+            postalCodes: ['13150']
+        },
+        บ้านแพรก: {
+            subDistrict: [
+                'บ้านแพรก',
+                'บ้านใหม่',
+                'สำพะเนียง',
+                'คลองน้อย',
+                'สองห้อง'
+            ],
+            postalCodes: ['13240']
         }
     },
     อ่างทอง: {
@@ -9332,27 +874,34 @@ module.exports = {
                 'คลองวัว',
                 'ย่านซื่อ'
             ],
-            postalCodes: [14000]
+            postalCodes: ['14000']
         },
-        วิเศษชัยชาญ: {
+        ไชโย: {
             subDistrict: [
-                'ไผ่จำศิล',
-                'ศาลเจ้าโรงทอง',
-                'ไผ่ดำพัฒนา',
-                'สาวร้องไห้',
-                'ท่าช้าง',
-                'ยี่ล้น',
-                'บางจัก',
-                'ห้วยคันแหลน',
-                'คลองขนาก',
-                'ไผ่วง',
-                'สี่ร้อย',
-                'ม่วงเตี้ย',
-                'หัวตะพาน',
-                'หลักแก้ว',
-                'ตลาดใหม่'
+                'จรเข้ร้อง',
+                'ไชยภูมิ',
+                'ชัยฤทธิ์',
+                'เทวราช',
+                'ราชสถิตย์',
+                'ไชโย',
+                'หลักฟ้า',
+                'ชะไว',
+                'ตรีณรงค์'
             ],
-            postalCodes: [14110]
+            postalCodes: ['14140']
+        },
+        ป่าโมก: {
+            subDistrict: [
+                'บางปลากด',
+                'ป่าโมก',
+                'สายทอง',
+                'โรงช้าง',
+                'บางเสด็จ',
+                'นรสิงห์',
+                'เอกราช',
+                'โผงเผง'
+            ],
+            postalCodes: ['14130']
         },
         โพธิ์ทอง: {
             subDistrict: [
@@ -9372,34 +921,7 @@ module.exports = {
                 'บางเจ้าฉ่า',
                 'คำหยาด'
             ],
-            postalCodes: [14120]
-        },
-        ป่าโมก: {
-            subDistrict: [
-                'บางปลากด',
-                'ป่าโมก',
-                'สายทอง',
-                'โรงช้าง',
-                'บางเสด็จ',
-                'นรสิงห์',
-                'เอกราช',
-                'โผงเผง'
-            ],
-            postalCodes: [14130]
-        },
-        ไชโย: {
-            subDistrict: [
-                'จรเข้ร้อง',
-                'ไชยภูมิ',
-                'ชัยฤทธิ์',
-                'เทวราช',
-                'ราชสถิตย์',
-                'ไชโย',
-                'หลักฟ้า',
-                'ชะไว',
-                'ตรีณรงค์'
-            ],
-            postalCodes: [14140]
+            postalCodes: ['14120']
         },
         แสวงหา: {
             subDistrict: [
@@ -9411,7 +933,27 @@ module.exports = {
                 'ห้วยไผ่',
                 'จำลอง'
             ],
-            postalCodes: [14150]
+            postalCodes: ['14150']
+        },
+        วิเศษชัยชาญ: {
+            subDistrict: [
+                'ไผ่จำศีล',
+                'ศาลเจ้าโรงทอง',
+                'ไผ่ดำพัฒนา',
+                'สาวร้องไห้',
+                'ท่าช้าง',
+                'ยี่ล้น',
+                'บางจัก',
+                'ห้วยคันแหลน',
+                'คลองขนาก',
+                'ไผ่วง',
+                'สี่ร้อย',
+                'ม่วงเตี้ย',
+                'หัวตะพาน',
+                'หลักแก้ว',
+                'ตลาดใหม่'
+            ],
+            postalCodes: ['14110']
         },
         สามโก้: {
             subDistrict: [
@@ -9421,2101 +963,10099 @@ module.exports = {
                 'โพธิ์ม่วงพันธ์',
                 'มงคลธรรมนิมิต'
             ],
-            postalCodes: [14160]
+            postalCodes: ['14160']
         }
     },
-    'Suphan Buri': {
-        'Meaung Suphan Buri': {
+    ลพบุรี: {
+        เมืองลพบุรี: {
             subDistrict: [
-                'Tha Pee Liang',
-                'Rua Yai',
-                'Tab Tee Lhek',
-                'Ta Rahad',
-                'Phai Kwang',
-                'Kok Ko Tao',
-                'Don Tarn',
-                'Don Masang',
-                'Piharn Dang',
-                'Don Kamyarn',
-                'Don Pohtong',
-                'Ban Poh',
-                'Sanam Chai',
-                'Poh Praya',
-                'Bang Kung',
-                'Sala Kao',
-                'Suan Tang',
-                'Sra Kaew',
-                'Taling Chan',
-                'Sanam Kli'
+                'ทะเลชุบศร',
+                'ท่าหิน',
+                'กกโก',
+                'โก่งธนู',
+                'เขาพระงาม',
+                'เขาสามยอด',
+                'โคกกะเทียม',
+                'โคกลำพาน',
+                'โคกตูม',
+                'งิ้วราย',
+                'ดอนโพธิ์',
+                'ตะลุง',
+                'ท่าแค',
+                'ท่าศาลา',
+                'นิคมสร้างตนเอง',
+                'บางขันหมาก',
+                'บ้านข่อย',
+                'ท้ายตลาด',
+                'ป่าตาล',
+                'พรหมมาสตร์',
+                'โพธิ์เก้าต้น',
+                'โพธิ์ตรุ',
+                'สี่คลอง',
+                'ถนนใหญ่'
             ],
-            postalCodes: [72000, 72210, 72230]
+            postalCodes: ['15000', '13240', '15160', '15210']
         },
-        'Song Pinong': {
+        พัฒนานิคม: {
             subDistrict: [
-                'Song Pinong',
-                'Bang Lane',
-                'Bang Ta Tane',
-                'Bang Takian',
-                'Ban Kum',
-                'Hua Poh',
-                'Bang Plub',
-                'Nern Pra Prang',
-                'Ban Chang',
-                'Ton Tarn',
-                'Sri Samran',
-                'Tung Kok',
-                'Nong Bor',
-                'Don Manao'
+                'พัฒนานิคม',
+                'ช่องสาริกา',
+                'มะนาวหวาน',
+                'ดีลัง',
+                'โคกสลุง',
+                'ชอนน้อย',
+                'หนองบัว',
+                'ห้วยขุนราม',
+                'น้ำสุด'
             ],
-            postalCodes: [72110]
+            postalCodes: ['15140', '15220', '18220']
         },
-        'Derm Bang Nang Buad': {
+        โคกสำโรง: {
             subDistrict: [
-                'Kao Pra',
-                'Derm Bang',
-                'Nang Buad',
-                'Kao Din',
-                'Pak Nam',
-                'Tung Kli',
-                'Kok Chang',
-                'Hua Kao',
-                'Hua Na',
-                'Bor Kru',
-                'Wang Sri Raj',
-                'Pah Sakae',
-                'Yang Non',
-                'Nong Kratum'
+                'โคกสำโรง',
+                'เกาะแก้ว',
+                'ถลุงเหล็ก',
+                'หลุมข้าว',
+                'ห้วยโป่ง',
+                'คลองเกตุ',
+                'สะแกราบ',
+                'เพนียด',
+                'วังเพลิง',
+                'ดงมะรุม',
+                'วังขอนขว้าง',
+                'วังจั่น',
+                'หนองแขม'
             ],
-            postalCodes: [72120]
+            postalCodes: ['15120']
         },
-        'Sam Chook': {
+        ชัยบาดาล: {
             subDistrict: [
-                'Yan Yao',
-                'Wang Leuk',
-                'Sam Chook',
-                'Nong Pak Nak',
-                'Ban Sra',
-                'Nong Sadao',
-                'Kraseao'
+                'ลำนารายณ์',
+                'ชัยนารายณ์',
+                'ศิลาทิพย์',
+                'ห้วยหิน',
+                'ม่วงค่อม',
+                'บัวชุม',
+                'ท่าดินดำ',
+                'มะกอกหวาน',
+                'ซับตะเคียน',
+                'นาโสม',
+                'หนองยายโต๊ะ',
+                'เกาะรัง',
+                'ท่ามะนาว',
+                'นิคมลำนารายณ์',
+                'ชัยบาดาล',
+                'บ้านใหม่สามัคคี',
+                'เขาแหลม'
             ],
-            postalCodes: [72130]
+            postalCodes: ['15130', '15230', '15190']
         },
-        Sriprajan: {
+        ท่าวุ้ง: {
             subDistrict: [
-                'Sriprajan',
-                'Ban Krang',
-                'Mod Dang',
-                'Bang Ngam',
-                'Don Pru',
-                'Plai Na',
-                'Wang Wha',
-                'Wang Nam Sub',
-                'Wang Yang'
+                'ท่าวุ้ง',
+                'บางคู้',
+                'โพตลาดแก้ว',
+                'บางลี่',
+                'บางงา',
+                'โคกสลุด',
+                'เขาสมอคอน',
+                'หัวสำโรง',
+                'ลาดสาลี่',
+                'บ้านเบิก',
+                'มุจลินท์'
             ],
-            postalCodes: [72140]
+            postalCodes: ['15150', '15180']
         },
-        'Bang Pla Ma': {
+        บ้านหมี่: {
             subDistrict: [
-                'Kok Kram',
-                'Bang Pla Ma',
-                'Taka',
-                'Bang Yai',
-                'Krissana',
-                'Salee',
-                'Phai Kong Din',
-                'Ongkharak',
-                'Jorakae Yai',
-                'Ban Laem',
-                'Makamlom',
-                'Wang Nam Yen',
-                'Wat Bot',
-                'Wat Dao'
+                'ไผ่ใหญ่',
+                'บ้านทราย',
+                'บ้านกล้วย',
+                'ดงพลับ',
+                'บ้านชี',
+                'พุคา',
+                'หินปัก',
+                'บางพึ่ง',
+                'หนองทรายขาว',
+                'บางกะพี้',
+                'หนองเต่า',
+                'โพนทอง',
+                'บางขาม',
+                'ดอนดึง',
+                'ชอนม่วง',
+                'หนองกระเบียน',
+                'สายห้วยแก้ว',
+                'มหาสอน',
+                'บ้านหมี่',
+                'เชียงงา',
+                'หนองเมือง',
+                'สนามแจง'
             ],
-            postalCodes: [72150]
+            postalCodes: ['15110', '15180']
         },
-        Utong: {
+        ท่าหลวง: {
             subDistrict: [
-                'Utong',
-                'Jorakae Sam Phan',
-                'Ban Don',
-                'Yung Talai',
-                'Nong Ong',
-                'Don Ka',
-                'Plubpla Chai',
-                'Ban Kong',
-                'Chedi',
-                'Krajan',
-                'Sra Yai Some',
-                'Don Makleur',
-                'Sra Pang Larn'
+                'ท่าหลวง',
+                'แก่งผักกูด',
+                'ซับจำปา',
+                'หนองผักแว่น',
+                'ทะเลวังวัด',
+                'หัวลำ'
             ],
-            postalCodes: [72160, 72220]
+            postalCodes: ['15230']
         },
-        'Don Chedi': {
+        สระโบสถ์: {
             subDistrict: [
-                'Don Chedi',
-                'Nong Sarai',
-                'Rai Rot',
-                'Talae Bok',
-                'Sra Krajom'
+                'สระโบสถ์',
+                'มหาโพธิ',
+                'ทุ่งท่าช้าง',
+                'ห้วยใหญ่',
+                'นิยมชัย'
             ],
-            postalCodes: [72170, 72250]
+            postalCodes: ['15240']
         },
-        'Dan Chang': {
+        โคกเจริญ: {
             subDistrict: [
-                'Nong Maka Mong',
-                'Dan Chang',
-                'Huay Kamin',
-                'Ong Pra',
-                'Wang Kan',
-                'Nikom Krasiew',
-                'Wang Yao'
+                'โคกเจริญ',
+                'ยางราก',
+                'หนองมะค่า',
+                'วังทอง',
+                'โคกแสมสาร'
             ],
-            postalCodes: [72180]
+            postalCodes: ['15250']
         },
-        'Song Peenong': { subDistrict: ['Boh Suphan'], postalCodes: [72190] },
-        'Nong Yah Sai': {
+        ลำสนธิ: {
             subDistrict: [
-                'Nong Yah Sai',
-                'Nong Ratchawat',
-                'Nong Poh',
-                'Jang Ngam',
-                'Nong Kam',
-                'Tap Luang'
+                'ลำสนธิ',
+                'ซับสมบูรณ์',
+                'หนองรี',
+                'กุดตาเพชร',
+                'เขารวก',
+                'เขาน้อย'
             ],
-            postalCodes: [72240]
+            postalCodes: ['15190', '15130']
+        },
+        หนองม่วง: {
+            subDistrict: [
+                'หนองม่วง',
+                'บ่อทอง',
+                'ดงดินแดง',
+                'ชอนสมบูรณ์',
+                'ยางโทน',
+                'ชอนสารเดช'
+            ],
+            postalCodes: ['15170']
         }
     },
-    'Nakhon Pathom': {
-        'Meaung Nakhon Pathom': {
+    สิงห์บุรี: {
+        เมืองสิงห์บุรี: {
             subDistrict: [
-                'Pra Pathom Chedi',
-                'Bang Kam',
-                'Pra Pathon',
-                'Tham Sala',
-                'Ta Kong',
-                'Mab Kae',
-                'Sanam Chan',
-                'Don Yai Hom',
-                'Tanon Kad',
-                'Boh Plub',
-                'Nakhon Pathom',
-                'Wang Taku',
-                'Nong Pak Long',
-                'Sam Kwai Peuk',
-                'Tung Noi',
-                'Nong Din Dang',
-                'Wang Yen',
-                'Prong Madue',
-                'Lam Praya',
-                'Sra Kratium',
-                'Suan Parn',
-                'Huay Jorakae',
-                'Tap Luang',
-                'Nong Ngoo Lerm',
-                'Ban Yang'
+                'บางพุทรา',
+                'บางมัญ',
+                'โพกรวม',
+                'ม่วงหมู่',
+                'หัวไผ่',
+                'ต้นโพธิ์',
+                'จักรสีห์',
+                'บางกระบือ'
             ],
-            postalCodes: [73000]
+            postalCodes: ['16000']
         },
-        'Sam Pran': {
+        บางระจัน: {
             subDistrict: [
-                'Tha Kam',
-                'Hom Kred',
-                'Sam Pran',
-                'Bang Chang',
-                'Ta Talad',
-                'Klong Mai',
-                'Talad Jinda',
-                'Klong Jinda',
-                'Yai Cha',
-                'Ban Mai',
-                'Oom Yai',
-                'Song Kanong',
-                'Bang Kra Teuk',
-                'Bang Toei',
-                'Rai Khing',
-                'Kratung Lom'
+                'สิงห์',
+                'ไม้ดัด',
+                'เชิงกลัด',
+                'โพชนไก่',
+                'แม่ลา',
+                'บ้านจ่า',
+                'พักทัน',
+                'สระแจง'
             ],
-            postalCodes: [73110, 73160, 73210, 73220]
+            postalCodes: ['16130']
         },
-        'Nakorn Chai Sri': {
+        ค่ายบางระจัน: {
             subDistrict: [
-                'Nakorn Chai Sri',
-                'Bang Krabao',
-                'Wat Kae',
-                'Tha Tamnak',
-                'Bang Kaew',
-                'Tha Krachub',
-                'Khun Kaew',
-                'Tha Praya',
-                'Panied',
-                'Bang Rakam',
-                'Kok Pra Chedi',
-                'Srisa Tong',
-                'Lam Bua',
-                'Sri Maha Poh',
-                'Sumpatuan',
-                'Wat Samrong',
-                'Don Fag',
-                'Huay Plu',
-                'Wat Lamud',
-                'Bang Pra',
-                'Bang Kaew Fah',
-                'Lan Tak Fah',
-                'Ngiew Rai',
-                'Thai Ya Wad'
+                'โพทะเล',
+                'บางระจัน',
+                'โพสังโฆ',
+                'ท่าข้าม',
+                'คอทราย',
+                'หนองกระทุ่ม'
             ],
-            postalCodes: [73120]
+            postalCodes: ['16150']
         },
-        'Bang Lane': {
+        พรหมบุรี: {
             subDistrict: [
-                'Bang Lane',
-                'Bang Pla',
-                'Bang Pasee',
-                'Bang Rakam',
-                'Bang Sai Pa',
-                'Sai Ngam',
-                'Don Toom',
-                'Nil Petch',
-                'Bua Pak Ta',
-                'Klong Nok Katoong',
-                'Nara Pirom',
-                'Lam Paya',
-                'Phai Hoo Chang',
-                'Bang Luang',
-                'Hin Moon'
+                'พระงาม',
+                'พรหมบุรี',
+                'บางน้ำเชี่ยว',
+                'บ้านหม้อ',
+                'บ้านแป้ง',
+                'หัวป่า',
+                'โรงช้าง'
             ],
-            postalCodes: [73130, 73190]
+            postalCodes: ['16120', '16160']
         },
-        'Kampang San': {
+        ท่าช้าง: {
+            subDistrict: ['ถอนสมอ', 'โพประจักษ์', 'วิหารขาว', 'พิกุลทอง'],
+            postalCodes: ['16140']
+        },
+        อินทร์บุรี: {
             subDistrict: [
-                'Tung Krapang Home',
-                'Tung Look Nok',
-                'Huay Kwang',
-                'Tung Kwang',
-                'Sra See Moom',
-                'Tung Bua',
-                'Don Khoi',
-                'Huay Mon Tong',
-                'Kampang San',
-                'Rang Pikul',
-                'Nong Katum',
-                'Wang Nam Kaew',
-                'Krateep',
-                'Sra Pattana',
-                'Huay Muang'
+                'อินทร์บุรี',
+                'ประศุก',
+                'ทับยา',
+                'งิ้วราย',
+                'ชีน้ำร้าย',
+                'ท่างาม',
+                'น้ำตาล',
+                'ทองเอน',
+                'ห้วยชัน',
+                'โพธิ์ชัย'
             ],
-            postalCodes: [73140, 73180]
-        },
-        'Don Toom': {
-            subDistrict: [
-                'Sam Ngam',
-                'Huay Pra',
-                'Lam Hei',
-                'Don Putsa',
-                'Ban Luang',
-                'Don Ruak',
-                'Huay Duan',
-                'Lam Look Bua'
-            ],
-            postalCodes: [73150]
-        },
-        Putthamonton: {
-            subDistrict: ['Salaya', 'Klong Yong', 'Mahasawat'],
-            postalCodes: [73170]
+            postalCodes: ['16110']
         }
     },
-    'Samut Sakhon': {
-        'Meaung Samut Sakhon': {
+    ชัยนาท: {
+        เมืองชัยนาท: {
             subDistrict: [
-                'Mahachai',
-                'Tha Chalorm',
-                'Kok Kram',
-                'Ban Bor',
-                'Bang To Rat',
-                'Kalong',
-                'Na Kok',
-                'Ta Jeen',
-                'Na Dee',
-                'Tha Sai',
-                'Kok Krabue',
-                'Bang Nam Jeud',
-                'Pan Tai Norasingha',
-                'Kok Kam',
-                'Ban Koh',
-                'Bang Krajao',
-                'Bang Ya Prak',
-                'Chai Mongkol'
+                'ในเมือง',
+                'บ้านกล้วย',
+                'ท่าชัย',
+                'ชัยนาท',
+                'เขาท่าพระ',
+                'หาดท่าเสา',
+                'ธรรมามูล',
+                'เสือโฮก',
+                'นางลือ'
             ],
-            postalCodes: [74000]
+            postalCodes: ['17000']
         },
-        'Kratum Ban': {
+        มโนรมย์: {
             subDistrict: [
-                'Talad Kratum Ban',
-                'Tha Mai',
-                'Suan Luang',
-                'Bang Yang',
-                'Klong Madue',
-                'Nong Nok Khai',
-                'Don Kai Dee',
-                'Kaerai',
-                'Ta Sao',
-                'Aom Noi'
+                'คุ้งสำเภา',
+                'วัดโคก',
+                'ศิลาดาน',
+                'ท่าฉนวน',
+                'หางน้ำสาคร',
+                'ไร่พัฒนา',
+                'อู่ตะเภา'
             ],
-            postalCodes: [74110, 74130]
+            postalCodes: ['17110', '17170']
         },
-        'Ban Paew': {
+        วัดสิงห์: {
             subDistrict: [
-                'Ban Paew',
-                'Lak Sam',
-                'Yok Krabat',
-                'Rong Khe',
-                'Nong Song Hong',
-                'Nong Bua',
-                'Lak Song',
-                'Jed Riew',
-                'Klong Madue',
-                'Am Pang',
-                'Suan Som',
-                'Kaset Pattana'
+                'วัดสิงห์',
+                'มะขามเฒ่า',
+                'หนองน้อย',
+                'หนองบัว',
+                'หนองขุ่น',
+                'บ่อแร่',
+                'วังหมัน'
             ],
-            postalCodes: [74120]
+            postalCodes: ['17120']
+        },
+        สรรพยา: {
+            subDistrict: [
+                'สรรพยา',
+                'ตลุก',
+                'เขาแก้ว',
+                'โพนางดำตก',
+                'โพนางดำออก',
+                'บางหลวง',
+                'หาดอาษา'
+            ],
+            postalCodes: ['17150']
+        },
+        สรรคบุรี: {
+            subDistrict: [
+                'แพรกศรีราชา',
+                'เที่ยงแท้',
+                'ห้วยกรด',
+                'โพงาม',
+                'บางขุด',
+                'ดงคอน',
+                'ดอนกำ',
+                'ห้วยกรดพัฒนา'
+            ],
+            postalCodes: ['17140']
+        },
+        หันคา: {
+            subDistrict: [
+                'หันคา',
+                'บ้านเชี่ยน',
+                'ไพรนกยูง',
+                'หนองแซง',
+                'ห้วยงู',
+                'วังไก่เถื่อน',
+                'เด่นใหญ่',
+                'สามง่ามท่าโบสถ์'
+            ],
+            postalCodes: ['17130', '17160']
+        },
+        หนองมะโมง: {
+            subDistrict: ['หนองมะโมง', 'วังตะเคียน', 'สะพานหิน', 'กุดจอก'],
+            postalCodes: ['17120']
+        },
+        เนินขาม: {
+            subDistrict: ['เนินขาม', 'กะบกเตี้ย', 'สุขเดือนห้า'],
+            postalCodes: ['17130']
         }
     },
-    'Samut Songkhram': {
-        'Meaung Samut Songkhram': {
+    สระบุรี: {
+        เมืองสระบุรี: {
             subDistrict: [
-                'Mae Klong',
-                'Bang Kan Tak',
-                'Lad Yai',
-                'Ban Prok',
-                'Bang Kaew',
-                'Tai Had',
-                'Lham Yai',
-                'Klong Kern',
-                'Klong Kone',
-                'Nang Takien',
-                'Bang Ja Greng'
+                'ปากเพรียว',
+                'ดาวเรือง',
+                'นาโฉง',
+                'โคกสว่าง',
+                'หนองโน',
+                'หนองยาว',
+                'ปากข้าวสาร',
+                'หนองปลาไหล',
+                'กุดนกเปล้า',
+                'ตลิ่งชัน',
+                'ตะกุด'
             ],
-            postalCodes: [75000]
+            postalCodes: ['18000']
         },
-        Amphawa: {
+        แก่งคอย: {
             subDistrict: [
-                'Amphawa',
-                'Suan Luang',
-                'Tha Ka',
-                'Wat Pradu',
-                'Meaung Mai',
-                'Bang Chang',
-                'Kwea Aom',
-                'Plai Pong Pong',
-                'Bang Kaew',
-                'Prak Nham Dang',
-                'Yee Sarn',
-                'Bang Nang Lee'
+                'แก่งคอย',
+                'ทับกวาง',
+                'ตาลเดี่ยว',
+                'ห้วยแห้ง',
+                'ท่าคล้อ',
+                'หินซ้อน',
+                'บ้านธาตุ',
+                'บ้านป่า',
+                'ท่าตูม',
+                'ชะอม',
+                'สองคอน',
+                'เตาปูน',
+                'ชำผักแพว',
+                'ท่ามะปราง'
             ],
-            postalCodes: [75110]
+            postalCodes: ['18110', '18260']
         },
-        'Bang Kon Tee': {
+        หนองแค: {
             subDistrict: [
-                'Kradung Nga',
-                'Bang Sa Kae',
-                'Bang Yeerong',
-                'Rong Heep',
-                'Bang Kon Tee',
-                'Don Manorah',
-                'Bang Prom',
-                'Bang Kung',
-                'Jom Pruak',
-                'Bang Nok Kwag',
-                'Yai Pang',
-                'Bang Krabue',
-                'Ban Pramote'
+                'หนองแค',
+                'กุ่มหัก',
+                'คชสิทธิ์',
+                'โคกตูม',
+                'โคกแย้',
+                'บัวลอย',
+                'ไผ่ต่ำ',
+                'โพนทอง',
+                'ห้วยขมิ้น',
+                'ห้วยทราย',
+                'หนองไข่น้ำ',
+                'หนองแขม',
+                'หนองจิก',
+                'หนองจรเข้',
+                'หนองนาก',
+                'หนองปลาหมอ',
+                'หนองปลิง',
+                'หนองโรง'
             ],
-            postalCodes: [75120]
+            postalCodes: ['18140', '18250', '18230']
+        },
+        วิหารแดง: {
+            subDistrict: [
+                'หนองหมู',
+                'บ้านลำ',
+                'คลองเรือ',
+                'วิหารแดง',
+                'หนองสรวง',
+                'เจริญธรรม'
+            ],
+            postalCodes: ['18150']
+        },
+        หนองแซง: {
+            subDistrict: [
+                'หนองแซง',
+                'หนองควายโซ',
+                'หนองหัวโพ',
+                'หนองสีดา',
+                'หนองกบ',
+                'ไก่เส่า',
+                'โคกสะอาด',
+                'ม่วงหวาน',
+                'เขาดิน'
+            ],
+            postalCodes: ['18170']
+        },
+        บ้านหมอ: {
+            subDistrict: [
+                'บ้านหมอ',
+                'บางโขมด',
+                'สร่างโศก',
+                'ตลาดน้อย',
+                'หรเทพ',
+                'โคกใหญ่',
+                'ไผ่ขวาง',
+                'บ้านครัว',
+                'หนองบัว'
+            ],
+            postalCodes: ['18130', '18270']
+        },
+        ดอนพุด: {
+            subDistrict: ['ดอนพุด', 'ไผ่หลิ่ว', 'บ้านหลวง', 'ดงตะงาว'],
+            postalCodes: ['18210']
+        },
+        หนองโดน: {
+            subDistrict: ['หนองโดน', 'บ้านกลับ', 'ดอนทอง', 'บ้านโปร่ง'],
+            postalCodes: ['18190']
+        },
+        พระพุทธบาท: {
+            subDistrict: [
+                'พระพุทธบาท',
+                'ขุนโขลน',
+                'ธารเกษม',
+                'นายาว',
+                'พุคำจาน',
+                'เขาวง',
+                'ห้วยป่าหวาย',
+                'พุกร่าง',
+                'หนองแก'
+            ],
+            postalCodes: ['18120']
+        },
+        เสาไห้: {
+            subDistrict: [
+                'เสาไห้',
+                'บ้านยาง',
+                'หัวปลวก',
+                'งิ้วงาม',
+                'ศาลารีไทย',
+                'ต้นตาล',
+                'ท่าช้าง',
+                'พระยาทด',
+                'ม่วงงาม',
+                'เริงราง',
+                'เมืองเก่า',
+                'สวนดอกไม้'
+            ],
+            postalCodes: ['18160']
+        },
+        มวกเหล็ก: {
+            subDistrict: [
+                'มวกเหล็ก',
+                'มิตรภาพ',
+                'หนองย่างเสือ',
+                'ลำสมพุง',
+                'ลำพญากลาง',
+                'ซับสนุ่น'
+            ],
+            postalCodes: ['18180', '30130', '18220']
+        },
+        วังม่วง: {
+            subDistrict: ['แสลงพัน', 'คำพราน', 'วังม่วง'],
+            postalCodes: ['18220']
+        },
+        เฉลิมพระเกียรติ: {
+            subDistrict: [
+                'เขาดินพัฒนา',
+                'บ้านแก้ง',
+                'ผึ้งรวง',
+                'พุแค',
+                'ห้วยบง',
+                'หน้าพระลาน'
+            ],
+            postalCodes: ['18000', '18240']
         }
     },
-    Phetchaburi: {
-        'Meaung Phetchaburi': {
+    ชลบุรี: {
+        เมืองชลบุรี: {
             subDistrict: [
-                'Tha Rab',
-                'Klong Krasang',
-                'Bang Jarn',
-                'Na Pan Sam',
-                'Tongchai',
-                'Ban Kum',
-                'Nong Sanoh',
-                'Rai Som',
-                'Vieng Koi',
-                'Bang Jak',
-                'Ban Mor',
-                'Ton Mamuang',
-                'Chong Sakae',
-                'Na Whung',
-                'Sam Marong',
-                'Po Pra',
-                'Hua Saphan',
-                'Ton Mapraow',
-                'Wang Tako',
-                'Po Rai Whan',
-                'Don Yang',
-                'Nong Khanhan',
-                'Nong Plub',
-                'Had Jao Samran'
+                'บางปลาสร้อย',
+                'มะขามหย่ง',
+                'บ้านโขด',
+                'แสนสุข',
+                'บ้านสวน',
+                'หนองรี',
+                'นาป่า',
+                'หนองข้างคอก',
+                'ดอนหัวฬ่อ',
+                'หนองไม้แดง',
+                'บางทราย',
+                'คลองตำหรุ',
+                'เหมือง',
+                'บ้านปึก',
+                'ห้วยกะปิ',
+                'เสม็ด',
+                'อ่างศิลา',
+                'สำนักบก'
             ],
-            postalCodes: [76000, 76100]
+            postalCodes: ['20000', '20130']
         },
-        'Ban Lham': {
+        บ้านบึง: {
             subDistrict: [
-                'Lham Pak Bia',
-                'Ban Lham',
-                'Bang Khun Sai',
-                'Pak Talay',
-                'Bang Kaew',
-                'Bang Taboon',
-                'Bang Taboon Ok',
-                'Bang Krok',
-                'Tha Rang',
-                'Tha Rang Ok'
+                'บ้านบึง',
+                'คลองกิ่ว',
+                'มาบไผ่',
+                'หนองซ้ำซาก',
+                'หนองบอนแดง',
+                'หนองชาก',
+                'หนองอิรุณ',
+                'หนองไผ่แก้ว'
             ],
-            postalCodes: [76100, 76110]
+            postalCodes: ['20170', '20220']
         },
-        'Cha Am': {
+        หนองใหญ่: {
             subDistrict: [
-                'Cha Am',
-                'Bang Kao',
-                'Na Yang',
-                'Khao Yai',
-                'Nhong Sala',
-                'Huay Sai Nua',
-                'Rai Mai Pattana',
-                'Sam Praya',
-                'Don Khun Huay'
+                'หนองใหญ่',
+                'คลองพลู',
+                'หนองเสือช้าง',
+                'ห้างสูง',
+                'เขาซก'
             ],
-            postalCodes: [76120]
+            postalCodes: ['20190']
         },
-        'Tha Yang': {
+        บางละมุง: {
             subDistrict: [
-                'Tha Yang',
-                'Tha Koi',
-                'Yang Yong',
-                'Nong Jok',
-                'Mab Pla Kao',
-                'Tha Mai Ruak',
-                'Wang Krai',
-                'Klad Laung',
-                'Peek Tian',
-                'Kao Krapook',
-                'Tha Lang',
-                'Ban Nai Dong'
+                'บางละมุง',
+                'หนองปรือ',
+                'หนองปลาไหล',
+                'โป่ง',
+                'เขาไม้แก้ว',
+                'ห้วยใหญ่',
+                'ตะเคียนเตี้ย',
+                'นาเกลือ'
             ],
-            postalCodes: [76130]
+            postalCodes: ['20150']
         },
-        'Kao Yoi': {
+        พานทอง: {
             subDistrict: [
-                'Kao Yoi',
-                'Sra Pang',
-                'Bang Khem',
-                'Tub Kang',
-                'Nong Pla Lhai',
-                'Nong Prong',
-                'Nong Chumpon',
-                'Huay Rong',
-                'Huay Ta Chang',
-                'Nong Chumpon Nua'
+                'พานทอง',
+                'หนองตำลึง',
+                'มาบโป่ง',
+                'หนองกะขะ',
+                'หนองหงษ์',
+                'โคกขี้หนอน',
+                'บ้านเก่า',
+                'หน้าประดู่',
+                'บางนาง',
+                'เกาะลอย',
+                'บางหัก'
             ],
-            postalCodes: [76140]
+            postalCodes: ['20160']
         },
-        'Ban Lad': {
+        พนัสนิคม: {
             subDistrict: [
-                'Ban Lad',
-                'Ban Had',
-                'Ban Tan',
-                'Tam Ru',
-                'Smor Pleur',
-                'Rai Makham',
-                'Ta Sane',
-                'Nong Krajed',
-                'Nong Kapoo',
-                'Lad Poh',
-                'Saphan Krai',
-                'Rai Kok',
-                'Rong Khe',
-                'Rai Sathon',
-                'Huay Kong',
-                'Tha Chang',
-                'Tham Rong',
-                'Huay Leak'
+                'พนัสนิคม',
+                'หน้าพระธาตุ',
+                'วัดหลวง',
+                'บ้านเซิด',
+                'นาเริก',
+                'หมอนนาง',
+                'สระสี่เหลี่ยม',
+                'วัดโบสถ์',
+                'กุฎโง้ง',
+                'หัวถนน',
+                'ท่าข้าม',
+                'หนองปรือ',
+                'หนองขยาด',
+                'ทุ่งขวาง',
+                'หนองเหียง',
+                'นาวังหิน',
+                'บ้านช้าง',
+                'โคกเพลาะ',
+                'ไร่หลักทอง',
+                'นามะตูม'
             ],
-            postalCodes: [76150]
+            postalCodes: ['20140']
         },
-        'Nong Yah Plong': {
+        ศรีราชา: {
             subDistrict: [
-                'Nong Yah Plong',
-                'Yang Nam Glad Nua',
-                'Yang Nam Glad Tai',
-                'Ta Takro'
+                'ศรีราชา',
+                'สุรศักดิ์',
+                'ทุ่งสุขลา',
+                'บึง',
+                'หนองขาม',
+                'เขาคันทรง',
+                'บางพระ',
+                'บ่อวิน'
             ],
-            postalCodes: [76160]
+            postalCodes: ['20110', '20230']
         },
-        'Kang Krajarn': {
+        เกาะสีชัง: {
+            subDistrict: ['ท่าเทววงษ์'],
+            postalCodes: ['20120']
+        },
+        สัตหีบ: {
             subDistrict: [
-                'Kang Krajarn',
-                'Song Pee Nong',
-                'Wang Chan',
-                'Pa Tenk',
-                'Phu Sawhan',
-                'Huay Mae Prieng'
+                'สัตหีบ',
+                'นาจอมเทียน',
+                'พลูตาหลวง',
+                'บางเสร่',
+                'แสมสาร'
             ],
-            postalCodes: [76170]
+            postalCodes: ['20180', '20250']
+        },
+        บ่อทอง: {
+            subDistrict: [
+                'บ่อทอง',
+                'วัดสุวรรณ',
+                'บ่อกวางทอง',
+                'ธาตุทอง',
+                'เกษตรสุวรรณ',
+                'พลวงทอง'
+            ],
+            postalCodes: ['20270']
+        },
+        เกาะจันทร์: {
+            subDistrict: ['เกาะจันทร์', 'ท่าบุญมี'],
+            postalCodes: ['20240']
         }
     },
-    'Prachuap Khiri Khan': {
-        'Meaung Prachuap Khiri Khan': {
+    ระยอง: {
+        เมืองระยอง: {
             subDistrict: [
-                'Prachuap Khiri Khan',
-                'Koh Lak',
-                'Klong Wan',
-                'Huay Sai',
-                'Aoy Noi',
-                'Bor Nok'
+                'ท่าประดู่',
+                'เชิงเนิน',
+                'ตะพง',
+                'ปากน้ำ',
+                'เพ',
+                'แกลง',
+                'บ้านแลง',
+                'นาตาขวัญ',
+                'เนินพระ',
+                'กะเฉด',
+                'ทับมา',
+                'น้ำคอก',
+                'ห้วยโป่ง',
+                'มาบตาพุด',
+                'สำนักทอง'
             ],
-            postalCodes: [77000, 77210]
+            postalCodes: ['21000', '21160', '21100', '21150']
         },
-        'Hua Hin': {
-            subDistrict: [
-                'Hua Hin',
-                'Nhong Kae',
-                'Hin Lhek Fai',
-                'Nhong Plub',
-                'Tub Tai',
-                'Huay Sat Yai',
-                'Beung Nakorn'
-            ],
-            postalCodes: [77110]
+        บ้านฉาง: {
+            subDistrict: ['สำนักท้อน', 'พลา', 'บ้านฉาง'],
+            postalCodes: ['21130']
         },
-        Pranburi: {
+        แกลง: {
             subDistrict: [
-                'Pranburi',
-                'Khao Noi',
-                'Nong Ta Tam',
-                'Wang Pong',
-                'Khao Jao',
-                'Pak Nam Pran'
+                'ทางเกวียน',
+                'วังหว้า',
+                'ชากโดน',
+                'เนินฆ้อ',
+                'กร่ำ',
+                'ชากพง',
+                'กระแสบน',
+                'บ้านนา',
+                'ทุ่งควายกิน',
+                'กองดิน',
+                'คลองปูน',
+                'พังราด',
+                'ปากน้ำกระแส',
+                'ห้วยยาง',
+                'สองสลึง'
             ],
-            postalCodes: [77120, 77220, 77160]
+            postalCodes: ['21110', '21190', '22160', '21170']
         },
-        'Sam Roi Yot': {
-            subDistrict: [
-                'Sam Roi Yot',
-                'Sila Loi',
-                'Rai Khao',
-                'Sala Lai',
-                'Rhai Mai'
-            ],
-            postalCodes: [77120, 77180]
+        วังจันทร์: {
+            subDistrict: ['วังจันทร์', 'ชุมแสง', 'ป่ายุบใน', 'พลงตาเอี่ยม'],
+            postalCodes: ['21210']
         },
-        'Tub Sakae': {
+        บ้านค่าย: {
             subDistrict: [
-                'Tub Sakae',
-                'Ang Tong',
-                'Na Hoo Kwang',
-                'Kao Larn',
-                'Huay Yang',
-                'Sang Arun'
+                'บ้านค่าย',
+                'หนองละลอก',
+                'หนองตะพาน',
+                'ตาขัน',
+                'บางบุตร',
+                'หนองบัว',
+                'ชากบก'
             ],
-            postalCodes: [77130]
+            postalCodes: ['21120']
         },
-        'Bang Saphan': {
+        ปลวกแดง: {
             subDistrict: [
-                'Kamnerd Noppakun',
-                'Pong Prasas',
-                'Mae Rampeung',
-                'Tong Chai',
-                'Chai Kasem',
-                'Ron Tong',
-                'Tong Mongkol'
+                'ปลวกแดง',
+                'ตาสิทธิ์',
+                'ละหาร',
+                'แม่น้ำคู้',
+                'มาบยางพร',
+                'หนองไร่'
             ],
-            postalCodes: [77140, 77190, 77230]
+            postalCodes: ['21140']
         },
-        Kuiburee: {
-            subDistrict: [
-                'Kuiburee',
-                'Kui Nua',
-                'Khao Dang',
-                'Don Yai Nua',
-                'Sam Kra Tai',
-                'Had Kham'
-            ],
-            postalCodes: [77150]
+        เขาชะเมา: {
+            subDistrict: ['น้ำเป็น', 'ห้วยทับมอญ', 'ชำฆ้อ', 'เขาน้อย'],
+            postalCodes: ['21110']
         },
-        'Bang Saphan Noi': {
-            subDistrict: [
-                'Pak Prak',
-                'Bang Saphan',
-                'Sai Tong',
-                'Chang Rak',
-                'Chai Rat'
-            ],
-            postalCodes: [77170]
+        นิคมพัฒนา: {
+            subDistrict: ['นิคมพัฒนา', 'มาบข่า', 'พนานิคม', 'มะขามคู่'],
+            postalCodes: ['21180']
         }
     },
-    'Nakhon Si Thammarat': {
-        'Meaung Nakhon Si Thammarat': {
+    จันทบุรี: {
+        เมืองจันทบุรี: {
             subDistrict: [
-                'Nai Meaung',
-                'Tha Wang',
-                'Klang',
-                'Tha Rai',
-                'Pak Nakorn',
-                'Chai Montri',
-                'Mamuang Song Tan',
-                'Na Kien',
-                'Poh Sadet',
-                'Pak Poon',
-                'Tha Chak',
-                'Tha Rua',
-                'Na Sai',
-                'Kampang Sao',
-                'Tha Ngiew',
-                'Ban Jak'
+                'ตลาด',
+                'วัดใหม่',
+                'คลองนารายณ์',
+                'เกาะขวาง',
+                'คมบาง',
+                'ท่าช้าง',
+                'จันทนิมิต',
+                'บางกะจะ',
+                'แสลง',
+                'หนองบัว',
+                'พลับพลา'
             ],
-            postalCodes: [80000, 80280, 80330]
+            postalCodes: ['22000']
         },
-        'Pra Prom': {
-            subDistrict: ['Na Pru', 'Na Sarn', 'Tai Sampao', 'Chang Sai'],
-            postalCodes: [80000]
-        },
-        'Tung Song': {
+        ขลุง: {
             subDistrict: [
-                'Pak Prak',
-                'Cha Mine',
-                'Nong Hong',
-                'Kuan Krot',
-                'Na Mai Phai',
-                'Na Luang Sane',
-                'Khao Ro',
-                'Tee Wang',
-                'Nam Tok',
-                'Tham Yai',
-                'Na Poh',
-                'Kao Khao',
-                'Ka Pang'
+                'ขลุง',
+                'บ่อ',
+                'เกวียนหัก',
+                'ตะปอน',
+                'บางชัน',
+                'วันยาว',
+                'ซึ้ง',
+                'มาบไพ',
+                'วังสรรพรส',
+                'ตรอกนอง',
+                'ตกพรม',
+                'บ่อเวฬุ'
             ],
-            postalCodes: [80110, 80310]
+            postalCodes: ['22110', '22150']
         },
-        'Si Chon': {
+        ท่าใหม่: {
             subDistrict: [
-                'Si Chon',
-                'Tung Prung',
-                'Chalong',
-                'Pien',
-                'Si Kied',
-                'Kao Noi',
-                'Tung Sai',
-                'Sao Pao',
-                'Thep Rat'
+                'ท่าใหม่',
+                'ยายร้า',
+                'สีพยา',
+                'บ่อพุ',
+                'พลอยแหวน',
+                'เขาวัว',
+                'เขาบายศรี',
+                'สองพี่น้อง',
+                'ทุ่งเบญจา',
+                'รำพัน',
+                'โขมง',
+                'ตะกาดเง้า',
+                'คลองขุด',
+                'เขาแก้ว'
             ],
-            postalCodes: [80120, 80340]
+            postalCodes: ['22120', '22170']
         },
-        'Ron Piboon': {
+        โป่งน้ำร้อน: {
             subDistrict: [
-                'Ron Piboon',
-                'Kuan Keoi',
-                'Kuan Pung',
-                'Kuan Chum',
-                'Hin Tok',
-                'Sao Tong'
+                'ทับไทร',
+                'โป่งน้ำร้อน',
+                'หนองตาคง',
+                'เทพนิมิต',
+                'คลองใหญ่'
             ],
-            postalCodes: [80130, 80350]
+            postalCodes: ['22140']
         },
-        Julaporn: {
+        มะขาม: {
             subDistrict: [
-                'Kuan Nong Kwa',
-                'Tung Poh',
-                'Na Mor Boon',
-                'Sam Tambon',
-                'Ban Kuan Mud',
-                'Ban Cha Oud'
+                'มะขาม',
+                'ท่าหลวง',
+                'ปัถวี',
+                'วังแซ้ม',
+                'ฉมัน',
+                'อ่างคีรี'
             ],
-            postalCodes: [80130, 80180]
+            postalCodes: ['22150']
         },
-        'Pak Panang': {
+        แหลมสิงห์: {
             subDistrict: [
-                'Pak Panang',
-                'Pah Rakam',
-                'Klong Krabue',
-                'Ban Mai',
-                'Hoo Long',
-                'Lham Talum Puk',
-                'Pak Panang Fang Tawan Tok',
-                'Bang Sala',
-                'Bang Pra',
-                'Bang Trapong',
-                'Pak Panang Fang Tawan Ook',
-                'Ban Perng',
-                'Tha Praya',
-                'Pak Prak',
-                'Kanab Nak',
-                'Klong Noi',
-                'Cha Mao',
-                'Koh Tuad'
+                'ปากน้ำแหลมสิงห์',
+                'เกาะเปริด',
+                'หนองชิ่ม',
+                'พลิ้ว',
+                'คลองน้ำเค็ม',
+                'บางสระเก้า',
+                'บางกะไชย'
             ],
-            postalCodes: [80140, 80330]
+            postalCodes: ['22130', '22190', '22120']
         },
-        Chawang: {
+        สอยดาว: {
+            subDistrict: ['ปะตง', 'ทุ่งขนาน', 'ทับช้าง', 'ทรายขาว', 'สะตอน'],
+            postalCodes: ['22180']
+        },
+        แก่งหางแมว: {
             subDistrict: [
-                'Chawang',
-                'Na Wae',
-                'Mai Riang',
-                'Na Ka Sa',
-                'Sai Rha',
-                'La Eye',
-                'Jan Dee',
-                'Ka Piad',
-                'Huay Prik',
-                'Na Klieng'
+                'แก่งหางแมว',
+                'ขุนซ่อง',
+                'สามพี่น้อง',
+                'พวา',
+                'เขาวงกต'
             ],
-            postalCodes: [80150, 80250, 80260]
+            postalCodes: ['22160']
         },
-        'Tha Sala': {
+        นายายอาม: {
             subDistrict: [
-                'Tha Sala',
-                'Klai',
-                'Tha Keun',
-                'Hua Taparn',
-                'Sra Kaew',
-                'Mo Klarn',
-                'Thai Buri',
-                'Don Tako',
-                'Taling Chan',
-                'Poh Tong'
+                'นายายอาม',
+                'วังโตนด',
+                'กระแจะ',
+                'สนามไชย',
+                'ช้างข้าม',
+                'วังใหม่'
             ],
-            postalCodes: [80160]
+            postalCodes: ['22160', '22170']
         },
-        'Nop Pitam': {
-            subDistrict: ['Nop Pitam', 'Krung Ching', 'Ka Lor', 'Na Leng'],
-            postalCodes: [80160]
-        },
-        'Hua Sai': {
+        เขาคิชฌกูฏ: {
             subDistrict: [
-                'Hua Sai',
-                'Na Saton',
-                'Sai Kao',
-                'Lham',
-                'Kao Pung Krai',
-                'Ban Ram',
-                'Bang Nop',
-                'Tha Chom',
-                'Kuan Cha Lik',
-                'Ram Kaew',
-                'Koh Petch'
+                'ชากไทย',
+                'พลวง',
+                'ตะเคียนทอง',
+                'คลองพลู',
+                'จันทเขลม'
             ],
-            postalCodes: [80170]
-        },
-        'Cha Oud': {
-            subDistrict: [
-                'Cha Oud',
-                'Tha Samed',
-                'Tha Praja',
-                'Kreng',
-                'Wang Ang',
-                'Ban Toon',
-                'Kon Had',
-                'Koh Kan',
-                'Kuan Nong Hong',
-                'Kao Pra Tong',
-                'Nang Lhong'
-            ],
-            postalCodes: [80180]
-        },
-        'Chian Yai': {
-            subDistrict: [
-                'Chian Yai',
-                'Tha Khanarn',
-                'Ban Klang',
-                'Ban Nern',
-                'Sai Mak',
-                'Tong Lam Jiak',
-                'Seu Heung',
-                'Karaked',
-                'Kao Pra Bat',
-                'Mae Jao Yu Hua'
-            ],
-            postalCodes: [80190]
-        },
-        'Chalerm Prakiat': {
-            subDistrict: ['Chian Kao', 'Suan Luang', 'Don Tro', 'Tang Poon'],
-            postalCodes: [80190, 80290]
-        },
-        Kanhom: {
-            subDistrict: ['Kanhom', 'Kuan Tong', 'Tong Nian'],
-            postalCodes: [80210]
-        },
-        'Na Bon': {
-            subDistrict: ['Na Bon', 'Tung Song', 'Kaew San'],
-            postalCodes: [80220]
-        },
-        'Larn Ska': {
-            subDistrict: [
-                'Kao Kaew',
-                'Larn Ska',
-                'Tha Dee',
-                'Kam Lone ',
-                'Khun Talay'
-            ],
-            postalCodes: [80230]
-        },
-        'Tung Yai': {
-            subDistrict: [
-                'Tha Yang',
-                'Tung Sung',
-                'Tung Yai',
-                'Ku Lae',
-                'Prik',
-                'Bang Roop',
-                'Krung Yun'
-            ],
-            postalCodes: [80240]
-        },
-        'Chang Klang': {
-            subDistrict: ['Chang Klang', 'Lak Chang', 'Suan Kon'],
-            postalCodes: [80250]
-        },
-        'Tham Prannara': {
-            subDistrict: ['Tham Prannara', 'Klong Say', 'Dusit'],
-            postalCodes: [80260]
-        },
-        'Pi Poon': {
-            subDistrict: [
-                'Pi Poon',
-                'Katoon',
-                'Khao Pra',
-                'Yang Kom',
-                'Kuan Klang'
-            ],
-            postalCodes: [80270]
-        },
-        'Prom Kiri': {
-            subDistrict: [
-                'Prom Lok',
-                'Ban Koh',
-                'In Kiri',
-                'Ton Hong',
-                'Na Riang'
-            ],
-            postalCodes: [80320]
-        },
-        'Bang Kan': {
-            subDistrict: ['Bang Kan', 'Ban Lam Nao', 'Wang Hin', 'Ban Nikom'],
-            postalCodes: [80360]
+            postalCodes: ['22210']
         }
     },
-    Krabi: {
-        'Khao Panom': {
-            subDistrict: ['Sin Pun', 'Kok Harn'],
-            postalCodes: [80240]
-        },
-        'Meaung Krabi': {
+    ตราด: {
+        เมืองตราด: {
             subDistrict: [
-                'Pak Nam',
-                'Krabi Yai',
-                'Krabi Noi',
-                'Kao Kram',
-                'Kao Tong',
-                'Tab Prik',
-                'Sai Thai',
-                'Ao Nang',
-                'Nong Talay',
-                'Klong Prasong',
-                'Ao Nang',
-                'Ao Nang'
+                'บางพระ',
+                'หนองเสม็ด',
+                'หนองโสน',
+                'หนองคันทรง',
+                'ห้วงน้ำขาว',
+                'อ่าวใหญ่',
+                'วังกระแจะ',
+                'ห้วยแร้ง',
+                'เนินทราย',
+                'ท่าพริก',
+                'ท่ากุ่ม',
+                'ตะกาง',
+                'ชำราก',
+                'แหลมกลัด'
             ],
-            postalCodes: [81000, 81180, 81210]
+            postalCodes: ['23000']
         },
-        'Ao Leuk': {
+        คลองใหญ่: {
+            subDistrict: ['คลองใหญ่', 'ไม้รูด', 'หาดเล็ก'],
+            postalCodes: ['23110']
+        },
+        เขาสมิง: {
             subDistrict: [
-                'Ao Leuk Tai',
-                'Lam Sak',
-                'Na Nua',
-                'Klong Hin',
-                'Ao Leuk Noi',
-                'Ao Leuk Nua',
-                'Kao Yai',
-                'Klong Ya',
-                'Ban Klang'
+                'เขาสมิง',
+                'แสนตุ้ง',
+                'วังตะเคียน',
+                'ท่าโสม',
+                'สะตอ',
+                'ประณีต',
+                'เทพนิมิต',
+                'ทุ่งนนทรี'
             ],
-            postalCodes: [81110]
+            postalCodes: ['23130', '23150']
         },
-        'Koh Lanta': {
+        บ่อไร่: {
             subDistrict: [
-                'Koh Klang',
-                'Klong Yang',
-                'Koh Lanta Yai',
-                'Koh Lanta Noi',
-                'Sala Darn'
+                'บ่อพลอย',
+                'ช้างทูน',
+                'ด่านชุมพล',
+                'หนองบอน',
+                'นนทรีย์'
             ],
-            postalCodes: [81120, 81150]
+            postalCodes: ['23140']
         },
-        'Klong Tom': {
-            subDistrict: [
-                'Klong Tom Tai',
-                'Klong Tom Nua',
-                'Huay Nam Kao',
-                'Pru Din Na',
-                'Pay Lha',
-                'Klong Pon',
-                'Sine Kao'
-            ],
-            postalCodes: [81120, 81170]
+        แหลมงอบ: {
+            subDistrict: ['แหลมงอบ', 'น้ำเชี่ยว', 'บางปิด', 'คลองใหญ่'],
+            postalCodes: ['23120']
         },
-        'Lam Tub': {
-            subDistrict: ['Lam Tub', 'Din Udom', 'Tung Sai Tong', 'Din Dang'],
-            postalCodes: [81120]
+        เกาะกูด: {
+            subDistrict: ['เกาะหมาก', 'เกาะกูด'],
+            postalCodes: ['23120', '23000']
         },
-        'Nua Klong': {
-            subDistrict: [
-                'Nua Klong',
-                'Koh Sri Bo Ya',
-                'Klong Kanhan',
-                'Klong Kamao',
-                'Kok Yang',
-                'Taling Chan',
-                'Pakasai',
-                'Huay Yoong'
-            ],
-            postalCodes: [81130]
-        },
-        'Kao Panom': {
-            subDistrict: ['Kao Panom', 'Kao Din', 'Pru Tiew', 'Nha Khao'],
-            postalCodes: [81140]
-        },
-        'Plai Praya': {
-            subDistrict: ['Plai Praya', 'Khao Khen', 'Khao Tor', 'Kiriwong'],
-            postalCodes: [81160]
+        เกาะช้าง: {
+            subDistrict: ['เกาะช้าง', 'เกาะช้างใต้'],
+            postalCodes: ['23170']
         }
     },
-    Phangnga: {
-        'Meaung Phangnga': {
+    ฉะเชิงเทรา: {
+        เมืองฉะเชิงเทรา: {
             subDistrict: [
-                'Tai Chang',
-                'Nob Pring',
-                'Tham Nam Pood',
-                'Bang Toei',
-                'Tak Dad',
-                'Song Prag',
-                'Tung Ka Ngok',
-                'Koh Panyee',
-                'Pah Kor'
+                'หน้าเมือง',
+                'ท่าไข่',
+                'บ้านใหม่',
+                'คลองนา',
+                'บางตีนเป็ด',
+                'บางไผ่',
+                'คลองจุกกระเฌอ',
+                'บางแก้ว',
+                'บางขวัญ',
+                'คลองนครเนื่องเขต',
+                'วังตะเคียน',
+                'โสธร',
+                'บางพระ',
+                'บางกะไห',
+                'หนามแดง',
+                'คลองเปรง',
+                'คลองอุดมชลจร',
+                'คลองหลวงแพ่ง',
+                'บางเตย'
             ],
-            postalCodes: [82000]
+            postalCodes: ['24000']
         },
-        'Takua Pa': {
+        บางคล้า: {
             subDistrict: [
-                'Takua Pa',
-                'Bang Nai See',
-                'Bang Sai',
-                'Tam Tua',
-                'Kok Kien',
-                'Bang Muang',
-                'Kik Kak',
-                'Ko Koh Kao',
-                'Khuekkhak'
+                'บางคล้า',
+                'บางสวน',
+                'บางกระเจ็ด',
+                'ปากน้ำ',
+                'ท่าทองหลาง',
+                'สาวชะโงก',
+                'เสม็ดเหนือ',
+                'เสม็ดใต้',
+                'หัวไทร'
             ],
-            postalCodes: [82110, 82190, 82220]
+            postalCodes: ['24110']
         },
-        'Tai Meuang': {
+        บางน้ำเปรี้ยว: {
             subDistrict: [
-                'Tai Meaung',
-                'Na Toei',
-                'Bang Tong',
-                'Tung Mapraw',
-                'Lampee',
-                'Lamkan'
+                'บางน้ำเปรี้ยว',
+                'บางขนาก',
+                'สิงโตทอง',
+                'หมอนทอง',
+                'บึงน้ำรักษ์',
+                'ดอนเกาะกา',
+                'โยธะกา',
+                'ดอนฉิมพลี',
+                'ศาลาแดง',
+                'โพรงอากาศ'
             ],
-            postalCodes: [82120]
+            postalCodes: ['24150', '24170', '24000']
         },
-        'Takua Tung': {
+        บางปะกง: {
             subDistrict: [
-                'Tham',
-                'Kra Some',
-                'Ka Lai',
-                'Tha Yoo',
-                'Klong Kien',
-                'Lor Yoong',
-                'Kok Kloy'
+                'บางปะกง',
+                'ท่าสะอ้าน',
+                'บางวัว',
+                'บางสมัคร',
+                'บางผึ้ง',
+                'บางเกลือ',
+                'สองคลอง',
+                'หนองจอก',
+                'พิมพา',
+                'ท่าข้าม',
+                'หอมศีล',
+                'เขาดิน'
             ],
-            postalCodes: [82130, 82140]
+            postalCodes: ['24130', '24180']
         },
-        'Kura Buree': {
-            subDistrict: ['Kura', 'Bang Wan', 'Koh Pra Tong', 'Mae Nang Kao'],
-            postalCodes: [82150]
-        },
-        'Koh Yao': {
-            subDistrict: ['Koh Yao Noi', 'Koh Yao Yai'],
-            postalCodes: [82160]
-        },
-        'Ka Pong': {
-            subDistrict: ['Ka Pong', 'Tha Na', 'Moh', 'Lae', 'Rom Manee'],
-            postalCodes: [82170]
-        },
-        'Tub Pud': {
+        บ้านโพธิ์: {
             subDistrict: [
-                'Tub Pud',
-                'Ma Rui',
-                'Bor San',
-                'Tam Tong Lang',
-                'Kok Jaroen',
-                'Ban Lieng'
+                'บ้านโพธิ์',
+                'เกาะไร่',
+                'คลองขุด',
+                'คลองบ้านโพธิ์',
+                'คลองประเวศ',
+                'ดอนทราย',
+                'เทพราช',
+                'ท่าพลับ',
+                'หนองตีนนก',
+                'หนองบัว',
+                'บางซ่อน',
+                'บางกรูด',
+                'แหลมประดู่',
+                'ลาดขวาง',
+                'สนามจันทร์',
+                'แสนภูดาษ',
+                'สิบเอ็ดศอก'
             ],
-            postalCodes: [82180]
+            postalCodes: ['24140']
         },
-        'Lam Kan': { subDistrict: ['Tai Meaung'], postalCodes: [82210] },
-        'Ko Yao': { subDistrict: ['Phru Nai'], postalCodes: [83000] }
-    },
-    Phuket: {
-        'Mueang Phuket': {
+        พนมสารคาม: {
             subDistrict: [
-                'Talat Yai',
-                'Talat Nuea',
-                'Ko Kaeo',
-                'Ratsada',
-                'Wichit',
-                'Karon',
-                'Chalong',
-                'Rawai'
+                'เกาะขนุน',
+                'บ้านซ่อง',
+                'พนมสารคาม',
+                'เมืองเก่า',
+                'หนองยาว',
+                'ท่าถ่าน',
+                'หนองแหน',
+                'เขาหินซ้อน'
             ],
-            postalCodes: [83000, 83100, 83130]
+            postalCodes: ['24120']
         },
-        Thalang: {
+        ราชสาส์น: {
+            subDistrict: ['บางคา', 'เมืองใหม่', 'ดงน้อย'],
+            postalCodes: ['24120']
+        },
+        สนามชัยเขต: {
+            subDistrict: ['คู้ยายหมี', 'ท่ากระดาน', 'ทุ่งพระยา', 'ลาดกระทิง'],
+            postalCodes: ['24160']
+        },
+        แปลงยาว: {
+            subDistrict: ['แปลงยาว', 'วังเย็น', 'หัวสำโรง', 'หนองไม้แก่น'],
+            postalCodes: ['24190']
+        },
+        ท่าตะเกียบ: {
+            subDistrict: ['ท่าตะเกียบ', 'คลองตะเกรา'],
+            postalCodes: ['24160']
+        },
+        คลองเขื่อน: {
             subDistrict: [
-                'Thep Krasatti',
-                'Si Sunthon',
-                'Choeng Thale',
-                'Pa Khlok',
-                'Mai Khao',
-                'Sakhu'
+                'ก้อนแก้ว',
+                'คลองเขื่อน',
+                'บางเล่า',
+                'บางโรง',
+                'บางตลาด'
             ],
-            postalCodes: [83110]
-        },
-        Kathu: {
-            subDistrict: ['Kathu', 'Pa Tong', 'Kamala'],
-            postalCodes: [83120, 83150]
+            postalCodes: ['24000', '24110']
         }
     },
-    Ranong: {
-        'Mueang Ranong': {
+    ปราจีนบุรี: {
+        เมืองปราจีนบุรี: {
             subDistrict: [
-                'Khao Niwet',
-                'Ratchakrut',
-                'Ngao',
-                'Bang Rin',
-                'Pak Nam',
-                'Bang Non',
-                'Hat Som Paen',
-                'Ko Phayam',
-                'Sai Daeng'
+                'หน้าเมือง',
+                'รอบเมือง',
+                'วัดโบสถ์',
+                'บางเดชะ',
+                'ท่างาม',
+                'บางบริบูรณ์',
+                'ดงพระราม',
+                'บ้านพระ',
+                'โคกไม้ลาย',
+                'ไม้เค็ด',
+                'ดงขี้เหล็ก',
+                'เนินหอม',
+                'โนนห้อม'
             ],
-            postalCodes: [85000, 85130]
+            postalCodes: ['25000', '25230']
         },
-        'Kra Buri': {
+        กบินทร์บุรี: {
             subDistrict: [
-                'Nam Chuet',
-                'Nam Chuet Noi',
-                'Mamu',
-                'Pak Chan',
-                'Lam Liang',
-                'Choporo',
-                'Bang Yai'
+                'กบินทร์',
+                'เมืองเก่า',
+                'วังดาล',
+                'นนทรี',
+                'ย่านรี',
+                'วังตะเคียน',
+                'หาดนางแก้ว',
+                'ลาดตะเคียน',
+                'บ้านนา',
+                'บ่อทอง',
+                'หนองกี่',
+                'นาแขม',
+                'เขาไม้แก้ว',
+                'วังท่าช้าง'
             ],
-            postalCodes: [85110]
+            postalCodes: ['25110', '25240']
         },
-        Kapoe: {
+        นาดี: {
             subDistrict: [
-                'Muang Kluang',
-                'Kapoe',
-                'Chiao Liang',
-                'Ban Na',
-                'Bang Hin'
+                'นาดี',
+                'สำพันตา',
+                'สะพานหิน',
+                'ทุ่งโพธิ์',
+                'แก่งดินสอ',
+                'บุพราหมณ์'
             ],
-            postalCodes: [85120]
+            postalCodes: ['25220']
         },
-        'Suk Samran': {
-            subDistrict: ['Nakha', 'Kamphuan'],
-            postalCodes: [85120]
-        },
-        'La-un': {
+        บ้านสร้าง: {
             subDistrict: [
-                'La-un Tai',
-                'La-un Nuea',
-                'Bang Phra Tai',
-                'Bang Phra Nuea',
-                'Bang Kaeo',
-                'Nai Wong Nuea',
-                'Nai Wong Tai'
+                'บ้านสร้าง',
+                'บางกระเบา',
+                'บางเตย',
+                'บางยาง',
+                'บางแตน',
+                'บางพลวง',
+                'บางปลาร้า',
+                'บางขาม',
+                'กระทุ่มแพ้ว'
             ],
-            postalCodes: [85130]
+            postalCodes: ['25150']
+        },
+        ประจันตคาม: {
+            subDistrict: [
+                'ประจันตคาม',
+                'เกาะลอย',
+                'บ้านหอย',
+                'หนองแสง',
+                'ดงบัง',
+                'คำโตนด',
+                'บุฝ้าย',
+                'หนองแก้ว',
+                'โพธิ์งาม'
+            ],
+            postalCodes: ['25130']
+        },
+        ศรีมหาโพธิ: {
+            subDistrict: [
+                'ศรีมหาโพธิ',
+                'สัมพันธ์',
+                'บ้านทาม',
+                'ท่าตูม',
+                'บางกุ้ง',
+                'ดงกระทงยาม',
+                'หนองโพรง',
+                'หัวหว้า',
+                'หาดยาง',
+                'กรอกสมบูรณ์'
+            ],
+            postalCodes: ['25140']
+        },
+        ศรีมโหสถ: {
+            subDistrict: ['โคกปีบ', 'โคกไทย', 'คู้ลำพัน', 'ไผ่ชะเลือด'],
+            postalCodes: ['25190']
         }
     },
-    Chumphon: {
-        'Mueang Chumphon': {
+    นครนายก: {
+        เมืองนครนายก: {
             subDistrict: [
-                'Tha Taphao',
-                'Tha Yang',
-                'Bang Mak',
-                'Na Thung',
-                'Na Cha-ang',
-                'Tak Daet',
-                'Bang Luek',
-                'Hat Phan Krai',
-                'Wang Phai',
-                'Khun Krathing',
-                'Thung Kha',
-                'Wisai Nuea',
-                'Tham Sing',
-                'Pak Nam',
-                'Hat Sai Ri',
-                'Wang Mai',
-                'Ban Na'
+                'นครนายก',
+                'ท่าช้าง',
+                'บ้านใหญ่',
+                'วังกระโจม',
+                'ท่าทราย',
+                'ดอนยอ',
+                'ศรีจุฬา',
+                'ดงละคร',
+                'ศรีนาวา',
+                'สาริกา',
+                'หินตั้ง',
+                'เขาพระ',
+                'พรหมณี'
             ],
-            postalCodes: [86000, 86100, 86120, 86190]
+            postalCodes: ['26000']
         },
-        'Lang Suan': {
+        ปากพลี: {
             subDistrict: [
-                'Lang Suan',
-                'Khan Ngoen',
-                'Tha Maphla',
-                'Na Kha',
-                'Na Phaya',
-                'Ban Khuan',
-                'Bang Maphrao',
-                'Pho Daeng',
-                'Laem Sai',
-                'Wang Tako',
-                'Hat yai',
-                'Bang Nam Chuet',
-                'Pak Nam'
+                'เกาะหวาย',
+                'เกาะโพธิ์',
+                'ปากพลี',
+                'โคกกรวด',
+                'ท่าเรือ',
+                'หนองแสง',
+                'นาหินลาด'
             ],
-            postalCodes: [86110, 86150]
+            postalCodes: ['26130']
         },
-        Sawi: {
+        บ้านนา: {
             subDistrict: [
-                'Na Pho',
-                'Sawi',
-                'Na Pho',
-                'Tha Hin',
-                'Pak Phraek',
-                'Dan Sawi',
-                'Khron',
-                'Wisai Tai',
-                'Na Sak',
-                'Khao Thalu',
-                'Khao Khai'
+                'บ้านนา',
+                'บ้านพร้าว',
+                'บ้านพริก',
+                'อาษา',
+                'ทองหลาง',
+                'บางอ้อ',
+                'พิกุลออก',
+                'ป่าขะ',
+                'เขาเพิ่ม',
+                'ศรีกะอาง'
             ],
-            postalCodes: [86130]
+            postalCodes: ['26110']
         },
-        'Tha Sae': {
+        องครักษ์: {
             subDistrict: [
-                'Tha Sae',
-                'Khuring',
-                'Salui',
-                'Na Kratam',
-                'Rap Ro',
-                'Tha Kham',
-                'Hong Charoen',
-                'Sap Anan',
-                'Song Phi Nong',
-                'Hin Kaeo'
+                'พระอาจารย์',
+                'บึงศาล',
+                'ศีรษะกระบือ',
+                'โพธิ์แทน',
+                'บางสมบูรณ์',
+                'ทรายมูล',
+                'บางปลากด',
+                'บางลูกเสือ',
+                'องครักษ์',
+                'ชุมพล',
+                'คลองใหญ่'
             ],
-            postalCodes: [86140, 86190]
-        },
-        Pathio: {
-            subDistrict: [
-                'Bang Son',
-                'Thale Sap',
-                'Chum Kho',
-                'Don Yang',
-                'Pak Khlong',
-                'Khao Chai Rat',
-                'Saphli'
-            ],
-            postalCodes: [86160, 86210, 86230]
-        },
-        Lamae: {
-            subDistrict: [
-                'Lamae',
-                'Thung Luang',
-                'Suan Taeng',
-                'Thung Kha Wat'
-            ],
-            postalCodes: [86170]
-        },
-        Phato: {
-            subDistrict: ['Phato', 'Pak Song', 'Pang Wan', 'Phra Rak'],
-            postalCodes: [86180]
-        },
-        'Thung Tako': {
-            subDistrict: [
-                'Pak Tako',
-                'Thung Takhrai',
-                'Tako',
-                'Chong Mai Kaeo'
-            ],
-            postalCodes: [86220]
+            postalCodes: ['26120']
         }
     },
-    Songkhla: {
-        'Mueang Songkhla': {
+    สระแก้ว: {
+        เมืองสระแก้ว: {
             subDistrict: [
-                'Bo Yang',
-                'Khao Rup Chang',
-                'Ko Taeo',
-                'Thung Wang',
-                'Phawong',
-                'Ko Yo'
+                'สระแก้ว',
+                'บ้านแก้ง',
+                'ศาลาลำดวน',
+                'โคกปี่ฆ้อง',
+                'ท่าแยก',
+                'ท่าเกษม',
+                'สระขวัญ',
+                'หนองบอน'
             ],
-            postalCodes: [90000, 90100]
+            postalCodes: ['27000']
         },
-        'Hat Yai': {
+        คลองหาด: {
             subDistrict: [
-                'Hat Yai',
-                'Khuan Lang',
-                'Khu Tao',
-                'Kho Hong',
-                'Khlong Hae',
-                'Khlong U Taphao',
-                'Chalung',
-                'Thung Yai',
-                'Thung Tam Sao',
-                'Tha Kham',
-                'Nam Noi',
-                'Phatong',
-                'Ban Phru'
+                'คลองหาด',
+                'ไทยอุดม',
+                'ซับมะกรูด',
+                'ไทรเดี่ยว',
+                'คลองไก่เถื่อน',
+                'เบญจขร',
+                'ไทรทอง'
             ],
-            postalCodes: [90110, 90230, 90250]
+            postalCodes: ['27260']
         },
-        'Bang Klam': {
-            subDistrict: ['Bang Klam', 'Tha Chang', 'Mae Thom', 'Ban Han'],
-            postalCodes: [90110]
+        ตาพระยา: {
+            subDistrict: ['ตาพระยา', 'ทัพเสด็จ', 'ทัพราช', 'ทัพไทย', 'โคคลาน'],
+            postalCodes: ['27180']
         },
-        'Khlong Hoi Khong': {
+        วังน้ำเย็น: {
             subDistrict: [
-                'Khlong La',
-                'Khlong Hoi Khong',
-                'Thung Lan',
-                'Khok Muang'
+                'วังน้ำเย็น',
+                'ตาหลังใน',
+                'คลองหินปูน',
+                'ทุ่งมหาเจริญ'
             ],
-            postalCodes: [90115, 90230]
+            postalCodes: ['27210']
         },
-        Sadao: {
+        วัฒนานคร: {
             subDistrict: [
-                'Sadao',
-                'Prik',
-                'Samnak Taeo',
-                'Samnak Kham',
-                'Phang La',
-                'Tha Pho',
-                'Khao Mi Kiat',
-                'Thung Mo',
-                'Padang Besa',
-                'Samnak Kham'
+                'วัฒนานคร',
+                'ท่าเกวียน',
+                'ผักขะ',
+                'โนนหมากเค็ง',
+                'หนองน้ำใส',
+                'ช่องกุ่ม',
+                'หนองแวง',
+                'แซร์ออ',
+                'หนองหมากฝ้าย',
+                'หนองตะเคียนบอน',
+                'ห้วยโจด'
             ],
-            postalCodes: [90120, 90170, 90240, 90320]
+            postalCodes: ['27160']
         },
-        Chana: {
+        อรัญประเทศ: {
             subDistrict: [
-                'Ban Na',
-                'Pa Ching',
-                'Saphan Mai Kaen',
-                'Sakom',
-                'Na Wa',
-                'Na Thap',
-                'Nam Khao',
-                'Khun Tat Wai',
-                'Tha Mo Sai',
-                'Chanong',
-                'Khu',
-                'Khae',
-                'Khlong Pia',
-                'Taling Chan'
+                'อรัญประเทศ',
+                'เมืองไผ่',
+                'หันทราย',
+                'คลองน้ำใส',
+                'ท่าข้าม',
+                'ป่าไร่',
+                'ทับพริก',
+                'บ้านใหม่หนองไทร',
+                'ผ่านศึก',
+                'หนองสังข์',
+                'คลองทับจันทร์',
+                'ฟากห้วย',
+                'บ้านด่าน'
             ],
-            postalCodes: [90130]
+            postalCodes: ['27120']
         },
-        Ranot: {
-            subDistrict: [
-                'Ranot',
-                'Khlong Daen',
-                'Takhria',
-                'Tha Bon',
-                'Ban Mai',
-                'Bo Tru',
-                'Pak Trae',
-                'Phang Yang',
-                'Rawa',
-                'Wat Son',
-                'Ban Kao',
-                'Daen Sa-nguan'
-            ],
-            postalCodes: [90140]
+        เขาฉกรรจ์: {
+            subDistrict: ['เขาฉกรรจ์', 'หนองหว้า', 'พระเพลิง', 'เขาสามสิบ'],
+            postalCodes: ['27000']
         },
-        Thepha: {
-            subDistrict: [
-                'Thepha',
-                'Pak Bang',
-                'Ko Saba',
-                'Tha Muang',
-                'Sakom',
-                'Lam Phlai',
-                'Wang Yai'
-            ],
-            postalCodes: [90150, 90260]
+        โคกสูง: {
+            subDistrict: ['โคกสูง', 'หนองม่วง', 'หนองแวง', 'โนนหมากมุ่น'],
+            postalCodes: ['27120']
         },
-        'Na Thawi': {
-            subDistrict: [
-                'Na Thawi',
-                'Chang',
-                'Na Mo Si',
-                'Khlong Sai',
-                'Plak Nu',
-                'Tha Pradu',
-                'Sathon',
-                'Thap Chang',
-                'Prakop',
-                'Khlong Kwang'
-            ],
-            postalCodes: [90160]
-        },
-        Rattaphum: {
-            subDistrict: [
-                'Kamphaeng Phet',
-                'Tha Chamuang',
-                'Khuha Tai',
-                'Khuan Ru',
-                'Khao Phra'
-            ],
-            postalCodes: [90180]
-        },
-        'Sathing Phra': {
-            subDistrict: [
-                'Chathing Phra',
-                'Kradang-nga',
-                'Sanam Chai',
-                'Di Luang',
-                'Chumphon',
-                'Khlong Ri',
-                'Khu Khut',
-                'Tha Hin',
-                'Wat Chan',
-                'Bo Daeng',
-                'Bo Dan'
-            ],
-            postalCodes: [90190]
-        },
-        'Saba Yoi': {
-            subDistrict: [
-                'Saba Yoi',
-                'Thung Pho',
-                'Pian',
-                'Ban Not',
-                'Chanae',
-                'Khuha',
-                'Khao Daeng',
-                'Ba Hoi',
-                'Than Khiri'
-            ],
-            postalCodes: [90210]
-        },
-        'Khuan Niang': {
-            subDistrict: ['Rattaphum', 'Khuan So', 'Huai Luek', 'Bang Riang'],
-            postalCodes: [90220]
-        },
-        'Krasae Sin': {
-            subDistrict: ['Ko Yai', 'Rong', 'Choeng Sae', 'Krasae Sin'],
-            postalCodes: [90270]
-        },
-        Singhanakhon: {
-            subDistrict: [
-                'Ching Kho',
-                'Sathing Mo',
-                'Thamnop',
-                'Hua Khao',
-                'Ram Daeng',
-                'Wat Khanun',
-                'Chalae',
-                'Pak Ro',
-                'Pa Khat',
-                'Bang Khiat',
-                'Muang Ngam'
-            ],
-            postalCodes: [90280, 90330]
-        },
-        'Na Mom': {
-            subDistrict: ['Na Mom', 'Phichit', 'Thung Khamin', 'Khlong Rang'],
-            postalCodes: [90310]
+        วังสมบูรณ์: {
+            subDistrict: ['วังสมบูรณ์', 'วังใหม่', 'วังทอง'],
+            postalCodes: ['27250']
         }
     },
-    Satun: {
-        'Mueang Satun': {
+    นครราชสีมา: {
+        เมืองนครราชสีมา: {
             subDistrict: [
-                'Phiman',
-                'Khlong Khut',
-                'Khuan Khan',
-                'Ko Sarai',
-                'Tanyong Po',
-                'Che Bilang',
-                'Tam Malang',
-                'Puyu',
-                'Ban Khuan',
-                'Chalung',
-                'Khuan Pho',
-                'Ket Ri'
+                'ในเมือง',
+                'โพธิ์กลาง',
+                'หนองจะบก',
+                'โคกสูง',
+                'มะเริง',
+                'หนองระเวียง',
+                'ปรุใหญ่',
+                'หมื่นไวย',
+                'พลกรัง',
+                'หนองไผ่ล้อม',
+                'หัวทะเล',
+                'บ้านเกาะ',
+                'บ้านใหม่',
+                'พุดซา',
+                'บ้านโพธิ์',
+                'จอหอ',
+                'โคกกรวด',
+                'ไชยมงคล',
+                'หนองบัวศาลา',
+                'สุรนารี',
+                'สีมุม',
+                'ตลาด',
+                'พะเนา',
+                'หนองกระทุ่ม',
+                'หนองไข่น้ำ'
             ],
-            postalCodes: [91000, 91140]
+            postalCodes: ['30000', '30310', '30280']
         },
-        'La-ngu': {
+        ครบุรี: {
             subDistrict: [
-                'Kamphaeng',
-                'La-ngu',
-                'Khao Khao',
-                'Pak Nam',
-                'Nam Phut',
-                'Laem Son'
+                'แชะ',
+                'เฉลียง',
+                'ครบุรี',
+                'โคกกระชาย',
+                'จระเข้หิน',
+                'มาบตะโกเอน',
+                'อรพิมพ์',
+                'บ้านใหม่',
+                'ลำเพียก',
+                'ครบุรีใต้',
+                'ตะแบกบาน',
+                'สระว่านพระยา'
             ],
-            postalCodes: [91110]
+            postalCodes: ['30250']
         },
-        'Thung Wa': {
+        เสิงสาง: {
             subDistrict: [
-                'Thung Wa',
-                'Na Thon',
-                'Khon Khlan',
-                'Thung Bu Lang',
-                'Pa Kae Bo Hin'
+                'เสิงสาง',
+                'สระตะเคียน',
+                'โนนสมบูรณ์',
+                'กุดโบสถ์',
+                'สุขไพบูลย์',
+                'บ้านราษฎร์'
             ],
-            postalCodes: [91120]
+            postalCodes: ['30330']
         },
-        'Khuan Kalong': {
-            subDistrict: ['Thung Nui', 'Khuan Kalong', 'Udai Charoen'],
-            postalCodes: [91130]
+        คง: {
+            subDistrict: [
+                'เมืองคง',
+                'คูขาด',
+                'เทพาลัย',
+                'ตาจั่น',
+                'บ้านปรางค์',
+                'หนองมะนาว',
+                'หนองบัว',
+                'โนนเต็ง',
+                'ดอนใหญ่',
+                'ขามสมบูรณ์'
+            ],
+            postalCodes: ['30260']
         },
-        Manang: {
-            subDistrict: ['Pam Phatthana', 'Nikhom Phatthana'],
-            postalCodes: [91130]
+        บ้านเหลื่อม: {
+            subDistrict: ['บ้านเหลื่อม', 'วังโพธิ์', 'โคกกระเบื้อง', 'ช่อระกา'],
+            postalCodes: ['30350']
         },
-        'Tha Phae': {
-            subDistrict: ['Tha Phae', 'Pae-ra', 'Sakhon', 'Tha Ruea'],
-            postalCodes: [91150]
+        จักราช: {
+            subDistrict: [
+                'จักราช',
+                'ทองหลาง',
+                'สีสุก',
+                'หนองขาม',
+                'หนองพลวง',
+                'ศรีละกอ',
+                'คลองเมือง',
+                'หินโคน'
+            ],
+            postalCodes: ['30230']
         },
-        'Khuan Don': {
-            subDistrict: ['Khuan Don', 'Khuan Sato', 'Yan Sue', 'Wang Prachan'],
-            postalCodes: [91160]
+        โชคชัย: {
+            subDistrict: [
+                'กระโทก',
+                'พลับพลา',
+                'ท่าอ่าง',
+                'ทุ่งอรุณ',
+                'ท่าลาดขาว',
+                'ท่าจะหลุง',
+                'ท่าเยี่ยม',
+                'โชคชัย',
+                'ละลมใหม่พัฒนา',
+                'ด่านเกวียน'
+            ],
+            postalCodes: ['30190']
+        },
+        ด่านขุนทด: {
+            subDistrict: [
+                'กุดพิมาน',
+                'ด่านขุนทด',
+                'ด่านนอก',
+                'ด่านใน',
+                'ตะเคียน',
+                'บ้านเก่า',
+                'บ้านแปรง',
+                'พันชนะ',
+                'สระจรเข้',
+                'หนองกราด',
+                'หนองบัวตะเกียด',
+                'หนองบัวละคร',
+                'หินดาด',
+                'ห้วยบง',
+                'โนนเมืองพัฒนา',
+                'หนองไทร'
+            ],
+            postalCodes: ['30210', '36220']
+        },
+        โนนไทย: {
+            subDistrict: [
+                'โนนไทย',
+                'ด่านจาก',
+                'กำปัง',
+                'สำโรง',
+                'ค้างพลู',
+                'บ้านวัง',
+                'บัลลังก์',
+                'สายออ',
+                'ถนนโพธิ์',
+                'มะค่า'
+            ],
+            postalCodes: ['30220']
+        },
+        โนนสูง: {
+            subDistrict: [
+                'โนนสูง',
+                'ใหม่',
+                'โตนด',
+                'บิง',
+                'ดอนชมพู',
+                'ธารปราสาท',
+                'หลุมข้าว',
+                'มะค่า',
+                'พลสงคราม',
+                'จันอัด',
+                'ขามเฒ่า',
+                'ด่านคล้า',
+                'ลำคอหงษ์',
+                'เมืองปราสาท',
+                'ดอนหวาย',
+                'ลำมูล'
+            ],
+            postalCodes: ['30160', '30420']
+        },
+        ขามสะแกแสง: {
+            subDistrict: [
+                'ขามสะแกแสง',
+                'โนนเมือง',
+                'เมืองนาท',
+                'ชีวึก',
+                'พะงาด',
+                'หนองหัวฟาน',
+                'เมืองเกษตร'
+            ],
+            postalCodes: ['30290']
+        },
+        บัวใหญ่: {
+            subDistrict: [
+                'บัวใหญ่',
+                'ห้วยยาง',
+                'เสมาใหญ่',
+                'ดอนตะหนิน',
+                'หนองบัวสะอาด',
+                'โนนทองหลาง',
+                'กุดจอก',
+                'ด่านช้าง',
+                'ขุนทอง',
+                'หนองแจ้งใหญ่'
+            ],
+            postalCodes: ['30120']
+        },
+        ประทาย: {
+            subDistrict: [
+                'ประทาย',
+                'กระทุ่มราย',
+                'วังไม้แดง',
+                'ตลาดไทร',
+                'หนองพลวง',
+                'หนองค่าย',
+                'หันห้วยทราย',
+                'ดอนมัน',
+                'นางรำ',
+                'โนนเพ็ด',
+                'ทุ่งสว่าง',
+                'โคกกลาง',
+                'เมืองโดน'
+            ],
+            postalCodes: ['30180']
+        },
+        ปักธงชัย: {
+            subDistrict: [
+                'เมืองปัก',
+                'ตะคุ',
+                'โคกไทย',
+                'สำโรง',
+                'ตะขบ',
+                'นกออก',
+                'ดอน',
+                'ตูม',
+                'งิ้ว',
+                'สะแกราช',
+                'ลำนางแก้ว',
+                'ภูหลวง',
+                'ธงชัยเหนือ',
+                'สุขเกษม',
+                'เกษมทรัพย์',
+                'บ่อปลาทอง'
+            ],
+            postalCodes: ['30150']
+        },
+        พิมาย: {
+            subDistrict: [
+                'ในเมือง',
+                'สัมฤทธิ์',
+                'โบสถ์',
+                'กระเบื้องใหญ่',
+                'ท่าหลวง',
+                'รังกาใหญ่',
+                'ชีวาน',
+                'นิคมสร้างตนเอง',
+                'กระชอน',
+                'ดงใหญ่',
+                'ธารละหลอด',
+                'หนองระเวียง'
+            ],
+            postalCodes: ['30110']
+        },
+        ห้วยแถลง: {
+            subDistrict: [
+                'ห้วยแถลง',
+                'ทับสวาย',
+                'เมืองพลับพลา',
+                'หลุ่งตะเคียน',
+                'หินดาด',
+                'งิ้ว',
+                'กงรถ',
+                'หลุ่งประดู่',
+                'ตะโก',
+                'ห้วยแคน'
+            ],
+            postalCodes: ['30240']
+        },
+        ชุมพวง: {
+            subDistrict: [
+                'ชุมพวง',
+                'ประสุข',
+                'ท่าลาด',
+                'สาหร่าย',
+                'ตลาดไทร',
+                'โนนรัง',
+                'หนองหลัก',
+                'โนนตูม',
+                'โนนยอ'
+            ],
+            postalCodes: ['30270']
+        },
+        สูงเนิน: {
+            subDistrict: [
+                'สูงเนิน',
+                'เสมา',
+                'โคราช',
+                'บุ่งขี้เหล็ก',
+                'โนนค่า',
+                'โค้งยาง',
+                'มะเกลือเก่า',
+                'มะเกลือใหม่',
+                'นากลาง',
+                'หนองตะไก้',
+                'กุดจิก'
+            ],
+            postalCodes: ['30170', '30380']
+        },
+        ขามทะเลสอ: {
+            subDistrict: [
+                'ขามทะเลสอ',
+                'โป่งแดง',
+                'พันดุง',
+                'หนองสรวง',
+                'บึงอ้อ'
+            ],
+            postalCodes: ['30280']
+        },
+        สีคิ้ว: {
+            subDistrict: [
+                'สีคิ้ว',
+                'บ้านหัน',
+                'กฤษณา',
+                'ลาดบัวขาว',
+                'หนองหญ้าขาว',
+                'กุดน้อย',
+                'หนองน้ำใส',
+                'วังโรงใหญ่',
+                'มิตรภาพ',
+                'คลองไผ่',
+                'ดอนเมือง',
+                'หนองบัวน้อย'
+            ],
+            postalCodes: ['30140', '30340']
+        },
+        ปากช่อง: {
+            subDistrict: [
+                'ปากช่อง',
+                'กลางดง',
+                'จันทึก',
+                'วังกะทะ',
+                'หมูสี',
+                'หนองสาหร่าย',
+                'ขนงพระ',
+                'โป่งตาลอง',
+                'คลองม่วง',
+                'หนองน้ำแดง',
+                'วังไทร',
+                'พญาเย็น'
+            ],
+            postalCodes: ['30130', '30320']
+        },
+        หนองบุญมาก: {
+            subDistrict: [
+                'หนองบุนนาก',
+                'สารภี',
+                'ไทยเจริญ',
+                'หนองหัวแรต',
+                'แหลมทอง',
+                'หนองตะไก้',
+                'ลุงเขว้า',
+                'หนองไม้ไผ่',
+                'บ้านใหม่'
+            ],
+            postalCodes: ['30410']
+        },
+        แก้งสนามนาง: {
+            subDistrict: [
+                'แก้งสนามนาง',
+                'โนนสำราญ',
+                'บึงพะไล',
+                'สีสุก',
+                'บึงสำโรง'
+            ],
+            postalCodes: ['30440']
+        },
+        โนนแดง: {
+            subDistrict: [
+                'โนนแดง',
+                'โนนตาเถร',
+                'สำพะเนียง',
+                'วังหิน',
+                'ดอนยาวใหญ่'
+            ],
+            postalCodes: ['30360']
+        },
+        วังน้ำเขียว: {
+            subDistrict: [
+                'วังน้ำเขียว',
+                'วังหมี',
+                'ระเริง',
+                'อุดมทรัพย์',
+                'ไทยสามัคคี'
+            ],
+            postalCodes: ['30370', '30150']
+        },
+        เทพารักษ์: {
+            subDistrict: ['สำนักตะคร้อ', 'หนองแวง', 'บึงปรือ', 'วังยายทอง'],
+            postalCodes: ['30210']
+        },
+        เมืองยาง: {
+            subDistrict: [
+                'เมืองยาง',
+                'กระเบื้องนอก',
+                'ละหานปลาค้าว',
+                'โนนอุดม'
+            ],
+            postalCodes: ['30270']
+        },
+        พระทองคำ: {
+            subDistrict: [
+                'สระพระ',
+                'มาบกราด',
+                'พังเทียม',
+                'ทัพรั้ง',
+                'หนองหอย'
+            ],
+            postalCodes: ['30220']
+        },
+        ลำทะเมนชัย: {
+            subDistrict: ['ขุย', 'บ้านยาง', 'ช่องแมว', 'ไพล'],
+            postalCodes: ['30270']
+        },
+        บัวลาย: {
+            subDistrict: ['เมืองพะไล', 'โนนจาน', 'บัวลาย', 'หนองหว้า'],
+            postalCodes: ['30120']
+        },
+        สีดา: {
+            subDistrict: [
+                'สีดา',
+                'โพนทอง',
+                'โนนประดู่',
+                'สามเมือง',
+                'หนองตาดใหญ่'
+            ],
+            postalCodes: ['30430']
+        },
+        เฉลิมพระเกียรติ: {
+            subDistrict: [
+                'ช้างทอง',
+                'ท่าช้าง',
+                'พระพุทธ',
+                'หนองงูเหลือม',
+                'หนองยาง'
+            ],
+            postalCodes: ['30230', '30000']
         }
     },
-    Trang: {
-        'Mueang Trang': {
+    บุรีรัมย์: {
+        เมืองบุรีรัมย์: {
             subDistrict: [
-                'Thap Thiang',
-                'Na Phala',
-                'Ban Khuan',
-                'Na Bin La',
-                'Khuan Pring',
-                'Bang Rak',
-                'Khok Lo',
-                'Na To Ming',
-                'Nong Trut',
-                'Nam Phut',
-                'Na Ta Luang',
-                'Ban Pho',
-                'Na Yong Tai',
-                'Na Tham Nuea',
-                'Na Tham Tai'
+                'ในเมือง',
+                'อิสาณ',
+                'เสม็ด',
+                'บ้านบัว',
+                'สะแกโพรง',
+                'สวายจีก',
+                'บ้านยาง',
+                'พระครู',
+                'ถลุงเหล็ก',
+                'หนองตาด',
+                'ลุมปุ๊ก',
+                'สองห้อง',
+                'บัวทอง',
+                'ชุมเห็ด',
+                'หลักเขต',
+                'สะแกซำ',
+                'กลันทา',
+                'กระสัง',
+                'เมืองฝาง'
             ],
-            postalCodes: [92000, 92170, 92190]
+            postalCodes: ['31000']
         },
-        Sikao: {
+        คูเมือง: {
             subDistrict: [
-                'Na Mueang Phet',
-                'Bo Hin',
-                'Khao Mai Kaeo',
-                'Kalase',
-                'Mai Fat'
+                'คูเมือง',
+                'ปะเคียบ',
+                'บ้านแพ',
+                'พรสำราญ',
+                'หินเหล็กไฟ',
+                'ตูมใหญ่',
+                'หนองขมาร'
             ],
-            postalCodes: [92000, 92150]
+            postalCodes: ['31190']
         },
-        'Wang Wiset': {
+        กระสัง: {
             subDistrict: [
-                'Tha Saba',
-                'Khao Wiset',
-                'Wang Maprang',
-                'Ao Tong',
-                'Wang Maprang Nuea'
+                'กระสัง',
+                'ลำดวน',
+                'สองชั้น',
+                'สูงเนิน',
+                'หนองเต็ง',
+                'เมืองไผ่',
+                'ชุมแสง',
+                'บ้านปรือ',
+                'ห้วยสำราญ',
+                'กันทรารมย์',
+                'ศรีภูมิ'
             ],
-            postalCodes: [92000, 92220]
+            postalCodes: ['31160']
         },
-        Kantang: {
+        นางรอง: {
             subDistrict: [
-                'Kantang',
-                'Khuan Thani',
-                'Bang Mak',
-                'Bang Pao',
-                'Wang Won',
-                'Kantang Tai',
-                'Khok Yang',
-                'Khlong Lu',
-                'Yan Sue',
-                'Bo Nam Ron',
-                'Bang Sak',
-                'Na Kluea',
-                'Ko Libong',
-                'Khlong Chi Lom'
+                'นางรอง',
+                'สะเดา',
+                'ชุมแสง',
+                'หนองโบสถ์',
+                'หนองกง',
+                'ถนนหัก',
+                'หนองไทร',
+                'ก้านเหลือง',
+                'บ้านสิงห์',
+                'ลำไทรโยง',
+                'ทรัพย์พระยา',
+                'หนองยายพิมพ์',
+                'หัวถนน',
+                'ทุ่งแสงทอง',
+                'หนองโสน'
             ],
-            postalCodes: [92110]
+            postalCodes: ['31110']
         },
-        Palian: {
+        หนองกี่: {
             subDistrict: [
-                'Tha Kham',
-                'Suso',
-                'Ko Sukon',
-                'Bang Duan',
-                'Ban Na',
-                'Tha Phaya',
-                'Thung Yao',
-                'Palian',
-                'Liphang',
-                'Laem Som'
+                'หนองกี่',
+                'เย้ยปราสาท',
+                'เมืองไผ่',
+                'ดอนอะราง',
+                'โคกสว่าง',
+                'ทุ่งกระตาดพัฒนา',
+                'ทุ่งกระเต็น',
+                'ท่าโพธิ์ชัย',
+                'โคกสูง',
+                'บุกระสัง'
             ],
-            postalCodes: [92120, 92140, 92180]
+            postalCodes: ['31210']
         },
-        'Hat Samran': {
-            subDistrict: ['Hat Samran', 'Ban Wi', 'Tase'],
-            postalCodes: [92120]
-        },
-        'Huai Yot': {
+        ละหานทราย: {
             subDistrict: [
-                'Huai Yot',
-                'Nong Chang Laen',
-                'Khao Kop',
-                'Khao Khao',
-                'Khao Pun',
-                'Pak Khom',
-                'Tha Ngio',
-                'Huai Nang',
-                'Nai Tao',
-                'Thung To',
-                'Pak Chaem',
-                'Lamphu Ra',
-                'Bang Di',
-                'Bang Kung',
-                'Na Wong',
-                'Wang Khiri'
+                'ละหานทราย',
+                'ตาจง',
+                'สำโรงใหม่',
+                'หนองแวง',
+                'หนองตะครอง',
+                'โคกว่าน'
             ],
-            postalCodes: [92130, 92190, 92210]
+            postalCodes: ['31170']
         },
-        Ratsada: {
+        ประโคนชัย: {
             subDistrict: [
-                'Nong Prue',
-                'Khuan Mao',
-                'Khlong Pang',
-                'Nong Bua',
-                'Khao Phrai'
+                'ประโคนชัย',
+                'แสลงโทน',
+                'บ้านไทร',
+                'ละเวี้ย',
+                'จรเข้มาก',
+                'ปังกู',
+                'โคกย่าง',
+                'โคกม้า',
+                'ไพศาล',
+                'ตะโกตาพิ',
+                'เขาคอก',
+                'หนองบอน',
+                'โคกมะขาม',
+                'โคกตูม',
+                'ประทัดบุ',
+                'สี่เหลี่ยม'
             ],
-            postalCodes: [92130, 92160]
+            postalCodes: ['31140']
         },
-        'Yan Ta Khao': {
+        บ้านกรวด: {
             subDistrict: [
-                'Yan Ta Khao',
-                'Nong Bo',
-                'Na Chum Het',
-                'Nai Khuan',
-                'Phrong Chorakhe',
-                'Thung Krabue',
-                'Thung Khai',
-                'Ko Pia'
+                'บ้านกรวด',
+                'โนนเจริญ',
+                'หนองไม้งาม',
+                'ปราสาท',
+                'สายตะกู',
+                'หินลาด',
+                'บึงเจริญ',
+                'จันทบเพชร',
+                'เขาดินเหนือ'
             ],
-            postalCodes: [92140]
+            postalCodes: ['31180']
         },
-        'Na Yong': {
+        พุทไธสง: {
             subDistrict: [
-                'Na Yong Nuea',
-                'Chong',
-                'Lamo',
-                'Khok Saba',
-                'Na Muen Si',
-                'Na Khao Sia'
+                'พุทไธสง',
+                'มะเฟือง',
+                'บ้านจาน',
+                'บ้านเป้า',
+                'บ้านแวง',
+                'บ้านยาง',
+                'หายโศก'
             ],
-            postalCodes: [92170]
+            postalCodes: ['31120']
+        },
+        ลำปลายมาศ: {
+            subDistrict: [
+                'ลำปลายมาศ',
+                'หนองคู',
+                'แสลงพัน',
+                'ทะเมนชัย',
+                'ตลาดโพธิ์',
+                'หนองกะทิง',
+                'โคกกลาง',
+                'โคกสะอาด',
+                'เมืองแฝก',
+                'บ้านยาง',
+                'ผไทรินทร์',
+                'โคกล่าม',
+                'หินโคน',
+                'หนองบัวโคก',
+                'บุโพธิ์',
+                'หนองโดน'
+            ],
+            postalCodes: ['31130']
+        },
+        สตึก: {
+            subDistrict: [
+                'สตึก',
+                'นิคม',
+                'ทุ่งวัง',
+                'เมืองแก',
+                'หนองใหญ่',
+                'ร่อนทอง',
+                'ดอนมนต์',
+                'ชุมแสง',
+                'ท่าม่วง',
+                'สะแก',
+                'สนามชัย',
+                'กระสัง'
+            ],
+            postalCodes: ['31150']
+        },
+        ปะคำ: {
+            subDistrict: ['ปะคำ', 'ไทยเจริญ', 'หนองบัว', 'โคกมะม่วง', 'หูทำนบ'],
+            postalCodes: ['31220']
+        },
+        นาโพธิ์: {
+            subDistrict: ['นาโพธิ์', 'บ้านคู', 'บ้านดู่', 'ดอนกอก', 'ศรีสว่าง'],
+            postalCodes: ['31230']
+        },
+        หนองหงส์: {
+            subDistrict: [
+                'สระแก้ว',
+                'ห้วยหิน',
+                'ไทยสามัคคี',
+                'หนองชัยศรี',
+                'เสาเดียว',
+                'เมืองฝ้าย',
+                'สระทอง'
+            ],
+            postalCodes: ['31240']
+        },
+        พลับพลาชัย: {
+            subDistrict: ['จันดุม', 'โคกขมิ้น', 'ป่าชัน', 'สะเดา', 'สำโรง'],
+            postalCodes: ['31250']
+        },
+        ห้วยราช: {
+            subDistrict: [
+                'ห้วยราช',
+                'สามแวง',
+                'ตาเสา',
+                'บ้านตะโก',
+                'สนวน',
+                'โคกเหล็ก',
+                'เมืองโพธิ์',
+                'ห้วยราชา'
+            ],
+            postalCodes: ['31000']
+        },
+        โนนสุวรรณ: {
+            subDistrict: ['โนนสุวรรณ', 'ทุ่งจังหัน', 'โกรกแก้ว', 'ดงอีจาน'],
+            postalCodes: ['31110']
+        },
+        ชำนิ: {
+            subDistrict: [
+                'ชำนิ',
+                'หนองปล่อง',
+                'เมืองยาง',
+                'ช่อผกา',
+                'ละลวด',
+                'โคกสนวน'
+            ],
+            postalCodes: ['31110']
+        },
+        บ้านใหม่ไชยพจน์: {
+            subDistrict: [
+                'หนองแวง',
+                'ทองหลาง',
+                'แดงใหญ่',
+                'กู่สวนแตง',
+                'หนองเยือง'
+            ],
+            postalCodes: ['31120']
+        },
+        โนนดินแดง: {
+            subDistrict: ['โนนดินแดง', 'ส้มป่อย', 'ลำนางรอง'],
+            postalCodes: ['31260']
+        },
+        บ้านด่าน: {
+            subDistrict: ['บ้านด่าน', 'ปราสาท', 'วังเหนือ', 'โนนขวาง'],
+            postalCodes: ['31000']
+        },
+        แคนดง: {
+            subDistrict: ['แคนดง', 'ดงพลอง', 'สระบัว', 'หัวฝาย'],
+            postalCodes: ['31150']
+        },
+        เฉลิมพระเกียรติ: {
+            subDistrict: [
+                'เจริญสุข',
+                'ตาเป๊ก',
+                'อีสานเขต',
+                'ถาวร',
+                'ยายแย้มวัฒนา'
+            ],
+            postalCodes: ['31110', '31170']
         }
     },
-    Phatthalung: {
-        'Mueang Phatthalung': {
+    สุรินทร์: {
+        เมืองสุรินทร์: {
             subDistrict: [
-                'Khuha Sawan',
-                'Khao Chiak',
-                'Tha Miram',
-                'Khok Cha-ngai',
-                'Na Thom',
-                'Prang Mu',
-                'Tha Kae',
-                'Lampam',
-                'Tamnan',
-                'Khuan Maphrao',
-                'Rom Mueang',
-                'Chai Buri',
-                'Na Not',
-                'Phaya Khan'
+                'ในเมือง',
+                'ตั้งใจ',
+                'เพี้ยราม',
+                'นาดี',
+                'ท่าสว่าง',
+                'สลักได',
+                'ตาอ็อง',
+                'สำโรง',
+                'แกใหญ่',
+                'นอกเมือง',
+                'คอโค',
+                'สวาย',
+                'เฉนียง',
+                'เทนมีย์',
+                'นาบัว',
+                'เมืองที',
+                'ราม',
+                'บุฤาษี',
+                'ตระแสง',
+                'แสลงพันธ์',
+                'กาเกาะ'
             ],
-            postalCodes: [93000]
+            postalCodes: ['32000']
         },
-        'Kong Ra': {
+        ชุมพลบุรี: {
             subDistrict: [
-                'Charat',
-                'Som Wang',
-                'Kong Ra',
-                'Khlong Chaloem',
-                'Khlong Sai Khao'
+                'ชุมพลบุรี',
+                'นาหนองไผ่',
+                'ไพรขลา',
+                'ศรีณรงค์',
+                'ยะวึก',
+                'เมืองบัว',
+                'สระขุด',
+                'กระเบื้อง',
+                'หนองเรือ'
             ],
-            postalCodes: [93000, 93180]
+            postalCodes: ['32190']
         },
-        Srinagarindra: {
-            subDistrict: ['Chumpon', 'Ban Na', 'Ang Thong', 'Lam Sin'],
-            postalCodes: [93000]
-        },
-        'Khuan Khanun': {
+        ท่าตูม: {
             subDistrict: [
-                'Khuan Khanun',
-                'Na Khayat',
-                'Phanom Wang',
-                'Laem Tanot',
-                'Pan Tae',
-                'Tanot Duan',
-                'Don Sai',
-                'Chamuang',
-                'Phraek Ha',
-                'Thale Noi',
-                'Makok Nuea',
-                'Phanang Tung'
+                'ท่าตูม',
+                'กระโพ',
+                'พรมเทพ',
+                'โพนครก',
+                'เมืองแก',
+                'บะ',
+                'หนองบัว',
+                'บัวโคก',
+                'หนองเมธี',
+                'ทุ่งกุลา'
             ],
-            postalCodes: [93110, 93150]
+            postalCodes: ['32120']
         },
-        'Pa Phayom': {
-            subDistrict: ['Pa Phayom', 'Lan Khoi', 'Ko Tao', 'Ban Phrao'],
-            postalCodes: [93110]
-        },
-        'Pak Phayun': {
+        จอมพระ: {
             subDistrict: [
-                'Pak Phayun',
-                'Don Pradu',
-                'Ko Nang Kham',
-                'Ko Mak',
-                'Falami',
-                'Han Thao',
-                'Don Sai'
+                'จอมพระ',
+                'เมืองลีง',
+                'กระหาด',
+                'บุแกรง',
+                'หนองสนิท',
+                'บ้านผือ',
+                'ลุ่มระวี',
+                'ชุมแสง',
+                'เป็นสุข'
             ],
-            postalCodes: [93120]
+            postalCodes: ['32180']
         },
-        'Khao Chaison': {
+        ปราสาท: {
             subDistrict: [
-                'Khao Chaison',
-                'Khuan Khanun',
-                'Chong Thanon',
-                'Han Pho',
-                'Khok Muang'
+                'กังแอน',
+                'ทมอ',
+                'ไพล',
+                'ปรือ',
+                'ทุ่งมน',
+                'ตาเบา',
+                'หนองใหญ่',
+                'โคกยาง',
+                'โคกสะอาด',
+                'บ้านไทร',
+                'โชคนาสาม',
+                'เชื้อเพลิง',
+                'ปราสาททนง',
+                'ตานี',
+                'บ้านพลวง',
+                'กันตวจระมวล',
+                'สมุด',
+                'ประทัดบุ'
             ],
-            postalCodes: [93130]
+            postalCodes: ['32140']
         },
-        'Bang Kaeo': {
-            subDistrict: ['Tha Maduea', 'Na Pakho', 'Khok Sak'],
-            postalCodes: [93140]
-        },
-        Tamot: {
-            subDistrict: ['Mae Khari', 'Tamot', 'Khlong Yai'],
-            postalCodes: [93160]
-        },
-        'Pa Bon': {
+        กาบเชิง: {
             subDistrict: [
-                'Pa Bon',
-                'Khok Sai,',
-                'Nong Thong',
-                'Thung Nari',
-                'Wang Mai'
+                'กาบเชิง',
+                'คูตัน',
+                'ด่าน',
+                'แนงมุด',
+                'โคกตะเคียน',
+                'ตะเคียน'
             ],
-            postalCodes: [93170]
+            postalCodes: ['32210']
         },
-        'Si Banphot': {
-            subDistrict: ['Khao Ya,', 'Khao Pu', 'Taphaen,'],
-            postalCodes: [93190]
+        รัตนบุรี: {
+            subDistrict: [
+                'รัตนบุรี',
+                'ธาตุ',
+                'แก',
+                'ดอนแรด',
+                'หนองบัวทอง',
+                'หนองบัวบาน',
+                'ไผ่',
+                'เบิด',
+                'น้ำเขียว',
+                'กุดขาคีม',
+                'ยางสว่าง',
+                'ทับใหญ่'
+            ],
+            postalCodes: ['32130']
+        },
+        สนม: {
+            subDistrict: [
+                'สนม',
+                'โพนโก',
+                'หนองระฆัง',
+                'นานวน',
+                'แคน',
+                'หัวงัว',
+                'หนองอียอ'
+            ],
+            postalCodes: ['32160']
+        },
+        ศีขรภูมิ: {
+            subDistrict: [
+                'ระแงง',
+                'ตรึม',
+                'จารพัต',
+                'ยาง',
+                'แตล',
+                'หนองบัว',
+                'คาละแมะ',
+                'หนองเหล็ก',
+                'หนองขวาว',
+                'ช่างปี่',
+                'กุดหวาย',
+                'ขวาวใหญ่',
+                'นารุ่ง',
+                'ตรมไพร',
+                'ผักไหม'
+            ],
+            postalCodes: ['32110']
+        },
+        สังขะ: {
+            subDistrict: [
+                'สังขะ',
+                'ขอนแตก',
+                'ดม',
+                'พระแก้ว',
+                'บ้านจารย์',
+                'กระเทียม',
+                'สะกาด',
+                'ตาตุม',
+                'ทับทัน',
+                'ตาคง',
+                'บ้านชบ',
+                'เทพรักษา'
+            ],
+            postalCodes: ['32150']
+        },
+        ลำดวน: {
+            subDistrict: [
+                'ลำดวน',
+                'โชคเหนือ',
+                'อู่โลก',
+                'ตรำดม',
+                'ตระเปียงเตีย'
+            ],
+            postalCodes: ['32220']
+        },
+        สำโรงทาบ: {
+            subDistrict: [
+                'สำโรงทาบ',
+                'หนองไผ่ล้อม',
+                'กระออม',
+                'หนองฮะ',
+                'ศรีสุข',
+                'เกาะแก้ว',
+                'หมื่นศรี',
+                'เสม็จ',
+                'สะโน',
+                'ประดู่'
+            ],
+            postalCodes: ['32170']
+        },
+        บัวเชด: {
+            subDistrict: [
+                'บัวเชด',
+                'สะเดา',
+                'จรัส',
+                'ตาวัง',
+                'อาโพน',
+                'สำเภาลูน'
+            ],
+            postalCodes: ['32230']
+        },
+        พนมดงรัก: {
+            subDistrict: ['บักได', 'โคกกลาง', 'จีกแดก', 'ตาเมียง'],
+            postalCodes: ['32140']
+        },
+        ศรีณรงค์: {
+            subDistrict: ['ณรงค์', 'แจนแวน', 'ตรวจ', 'หนองแวง', 'ศรีสุข'],
+            postalCodes: ['32150']
+        },
+        เขวาสินรินทร์: {
+            subDistrict: [
+                'เขวาสินรินทร์',
+                'บึง',
+                'ตากูก',
+                'ปราสาททอง',
+                'บ้านแร่'
+            ],
+            postalCodes: ['32000']
+        },
+        โนนนารายณ์: {
+            subDistrict: ['หนองหลวง', 'คำผง', 'โนน', 'ระเวียง', 'หนองเทพ'],
+            postalCodes: ['32130']
         }
     },
-    Pattani: {
-        'Mueang Pattani': {
+    ศรีสะเกษ: {
+        เมืองศรีสะเกษ: {
             subDistrict: [
-                'Sabarang,',
-                'Anoru',
-                'Chabang Tiko',
-                'Bana',
-                'Tanyong Lulo',
-                'Khlong Maning,',
-                'Kamiyo',
-                'Bara Hom',
-                'Paka Harang',
-                'Ru Samilae',
-                'Talubo,',
-                'Bara Ho',
-                'Puyut'
+                'เมืองเหนือ',
+                'เมืองใต้',
+                'คูซอด',
+                'ซำ',
+                'จาน',
+                'ตะดอบ',
+                'หนองครก',
+                'โพนข่า',
+                'โพนค้อ',
+                'โพนเขวา',
+                'หญ้าปล้อง',
+                'ทุ่ม',
+                'หนองไฮ',
+                'หนองแก้ว',
+                'น้ำคำ',
+                'โพธิ์',
+                'หมากเขียบ',
+                'หนองไผ่'
             ],
-            postalCodes: [94000]
+            postalCodes: ['33000']
         },
-        'Sai Buri': {
+        ยางชุมน้อย: {
             subDistrict: [
-                'Taluban,',
-                'Tabing',
-                'Pase Yawo,',
-                'Bang Kao',
-                'Bue Re',
-                'Tro Bon',
-                'Kadunong',
-                'Lahan',
-                'Manang Dalam',
-                'Paen',
-                'Thung Khla'
+                'ยางชุมน้อย',
+                'ลิ้นฟ้า',
+                'คอนกาม',
+                'โนนคูณ',
+                'กุดเมืองฮาม',
+                'บึงบอน',
+                'ยางชุมใหญ่'
             ],
-            postalCodes: [94110, 94190]
+            postalCodes: ['33190']
         },
-        'Khok Pho': {
+        กันทรารมย์: {
             subDistrict: [
-                'Khok Pho',
-                'Makrut',
-                'Bang Kro',
-                'Pa Bon',
-                'Sai Khao',
-                'Tha Ruea,',
-                'Na Ket',
-                'Chang Hai Tok',
-                'Na Pradu',
-                'Pak Lo',
-                'Thung Phala',
-                'Khuan Nori,'
+                'ดูน',
+                'โนนสัง',
+                'หนองหัวช้าง',
+                'ยาง',
+                'หนองแวง',
+                'หนองแก้ว',
+                'ทาม',
+                'ละทาย',
+                'เมืองน้อย',
+                'อีปาด',
+                'บัวน้อย',
+                'หนองบัว',
+                'ดู่',
+                'ผักแพว',
+                'จาน',
+                'คำเนียม'
             ],
-            postalCodes: [94120, 94180]
+            postalCodes: ['33130']
         },
-        Panare: {
+        กันทรลักษ์: {
             subDistrict: [
-                'Panare',
-                'Tha Kham',
-                'Ban Nok,',
-                'Don',
-                'Tha Nam,',
-                'Khok Krabue',
-                'Pho Ming,',
-                'Ban Klang',
-                'Ban Nam Bo',
-                'Khuan'
+                'บึงมะลู',
+                'กุดเสลา',
+                'เมือง',
+                'สังเม็ก',
+                'น้ำอ้อม',
+                'ละลาย',
+                'รุง',
+                'ตระกาจ',
+                'จานใหญ่',
+                'ภูเงิน',
+                'ชำ',
+                'กระแชง',
+                'โนนสำราญ',
+                'หนองหญ้าลาด',
+                'เสาธงชัย',
+                'ขนุน',
+                'สวนกล้วย',
+                'เวียงเหนือ',
+                'ทุ่งใหญ่',
+                'ภูผาหมอก'
             ],
-            postalCodes: [94130, 94190]
+            postalCodes: ['33110']
         },
-        Mayo: {
+        ขุขันธ์: {
             subDistrict: [
-                'Mayo',
-                'Thanon',
-                'Trang',
-                'Krawa',
-                'Lubo Yilai',
-                'Kraso',
-                'Ko Chan',
-                'Pado',
-                'Sakho Bon',
-                'Sakho Tai',
-                'Sakam',
-                'Panan',
-                'La-nga'
+                'กันทรารมย์',
+                'จะกง',
+                'ใจดี',
+                'ดองกำเม็ด',
+                'โสน',
+                'ปรือใหญ่',
+                'สะเดาใหญ่',
+                'ตาอุด',
+                'ห้วยเหนือ',
+                'ห้วยใต้',
+                'หัวเสือ',
+                'ตะเคียน',
+                'นิคมพัฒนา',
+                'โคกเพชร',
+                'ปราสาท',
+                'สำโรงตาเจ็น',
+                'ห้วยสำราญ',
+                'กฤษณา',
+                'ลมศักดิ์',
+                'หนองฉลอง',
+                'ศรีตระกูล',
+                'ศรีสะอาด'
             ],
-            postalCodes: [94140, 94190]
+            postalCodes: ['33140']
         },
-        'Thung Yand Daeng': {
-            subDistrict: ['Talo Maena', 'Phithen', 'Nam Dam', 'Paku'],
-            postalCodes: [94140]
-        },
-        Yaring: {
+        ไพรบึง: {
             subDistrict: [
-                'Talo',
-                'Talo Kapo',
-                'Tanyong Dalo',
-                'Tolang',
-                'Takae',
-                'Tali-ai,',
-                'Yamu',
-                'Bang Pu',
-                'Nong Raet,',
-                'Piya Mumang',
-                'Pulakong',
-                'Saban',
-                'Manang Yong',
-                'Rata Panyang,',
-                'Charang',
-                'Laem Pho',
-                'Tanyong Chueng-nga',
-                'Baloi'
+                'ไพรบึง',
+                'ดินแดง',
+                'ปราสาทเยอ',
+                'สำโรงพลัน',
+                'สุขสวัสดิ์',
+                'โนนปูน'
             ],
-            postalCodes: [94150, 94190]
+            postalCodes: ['33180']
         },
-        Yarang: {
+        ปรางค์กู่: {
             subDistrict: [
-                'Yarang',
-                'Sadawa',
-                'Prachan',
-                'Sano',
-                'Rawaeng',
-                'Pitu Mudi,',
-                'Wat',
-                'Krado',
-                'Khlong Mai',
-                'Mo Mawi',
-                'Kolam',
-                'Khao Tum'
+                'พิมาย',
+                'กู่',
+                'หนองเชียงทูน',
+                'ตูม',
+                'สมอ',
+                'โพธิ์ศรี',
+                'สำโรงปราสาท',
+                'ดู่',
+                'สวาย',
+                'พิมายเหนือ'
             ],
-            postalCodes: [94160]
+            postalCodes: ['33170']
         },
-        'Nong Chik': {
+        ขุนหาญ: {
             subDistrict: [
-                'Ko Po',
-                'Kholo Tanyong',
-                'Don Rak',
-                'Dato',
-                'Tuyong',
-                'Tha Kamcham,',
-                'Bo Thong,',
-                'Bang Khao',
-                'Bang Tawa',
-                'Pulo Puyo',
-                'Yabi',
-                'Lipa Sa-ngo'
+                'สิ',
+                'บักดอง',
+                'พราน',
+                'โพธิ์วงศ์',
+                'ไพร',
+                'กระหวัน',
+                'ขุนหาญ',
+                'โนนสูง',
+                'กันทรอม',
+                'ภูฝ้าย',
+                'โพธิ์กระสังข์',
+                'ห้วยจันทร์'
             ],
-            postalCodes: [94170]
+            postalCodes: ['33150']
         },
-        'Mae Lan': {
-            subDistrict: ['Mae Lan', 'Muang Tia', 'Pa Rai'],
-            postalCodes: [94180]
+        ราษีไศล: {
+            subDistrict: [
+                'เมืองคง',
+                'เมืองแคน',
+                'หนองแค',
+                'จิกสังข์ทอง',
+                'ด่าน',
+                'ดู่',
+                'หนองอึ่ง',
+                'บัวหุ่ง',
+                'ไผ่',
+                'ส้มป่อย',
+                'หนองหมี',
+                'หว้านคำ',
+                'สร้างปี่'
+            ],
+            postalCodes: ['33160']
         },
-        'Mai Kaen': {
-            subDistrict: ['Sai Thong', 'Mai Kaen', 'Talo Kraithong', 'Don Sai'],
-            postalCodes: [94220]
+        อุทุมพรพิสัย: {
+            subDistrict: [
+                'กำแพง',
+                'อี่หล่ำ',
+                'ก้านเหลือง',
+                'ทุ่งไชย',
+                'สำโรง',
+                'แขม',
+                'หนองไฮ',
+                'ขะยูง',
+                'ตาเกษ',
+                'หัวช้าง',
+                'รังแร้ง',
+                'แต้',
+                'แข้',
+                'โพธิ์ชัย',
+                'ปะอาว',
+                'หนองห้าง',
+                'สระกำแพงใหญ่',
+                'โคกหล่าม',
+                'โคกจาน'
+            ],
+            postalCodes: ['33120']
         },
-        Kapho: {
-            subDistrict: ['Karubi', 'Talo Tue Raman', 'Plong Hoi'],
-            postalCodes: [94230]
+        บึงบูรพ์: {
+            subDistrict: ['เป๊าะ', 'บึงบูรพ์'],
+            postalCodes: ['33220']
+        },
+        ห้วยทับทัน: {
+            subDistrict: [
+                'ห้วยทับทัน',
+                'เมืองหลวง',
+                'กล้วยกว้าง',
+                'ผักไหม',
+                'จานแสนไชย',
+                'ปราสาท'
+            ],
+            postalCodes: ['33210']
+        },
+        โนนคูณ: {
+            subDistrict: ['โนนค้อ', 'บก', 'โพธิ์', 'หนองกุง', 'เหล่ากวาง'],
+            postalCodes: ['33250']
+        },
+        ศรีรัตนะ: {
+            subDistrict: [
+                'ศรีแก้ว',
+                'พิงพวย',
+                'สระเยาว์',
+                'ตูม',
+                'เสื่องข้าว',
+                'ศรีโนนงาม',
+                'สะพุง'
+            ],
+            postalCodes: ['33240']
+        },
+        น้ำเกลี้ยง: {
+            subDistrict: [
+                'น้ำเกลี้ยง',
+                'ละเอาะ',
+                'ตองปิด',
+                'เขิน',
+                'รุ่งระวี',
+                'คูบ'
+            ],
+            postalCodes: ['33130']
+        },
+        วังหิน: {
+            subDistrict: [
+                'บุสูง',
+                'ธาตุ',
+                'ดวนใหญ่',
+                'บ่อแก้ว',
+                'ศรีสำราญ',
+                'ทุ่งสว่าง',
+                'วังหิน',
+                'โพนยาง'
+            ],
+            postalCodes: ['33270']
+        },
+        ภูสิงห์: {
+            subDistrict: [
+                'โคกตาล',
+                'ห้วยตามอญ',
+                'ห้วยตึ๊กชู',
+                'ละลม',
+                'ตะเคียนราม',
+                'ดงรัก',
+                'ไพรพัฒนา'
+            ],
+            postalCodes: ['33140']
+        },
+        เมืองจันทร์: {
+            subDistrict: ['เมืองจันทร์', 'ตาโกน', 'หนองใหญ่'],
+            postalCodes: ['33120']
+        },
+        เบญจลักษ์: {
+            subDistrict: [
+                'เสียว',
+                'หนองหว้า',
+                'หนองงูเหลือม',
+                'หนองฮาง',
+                'ท่าคล้อ'
+            ],
+            postalCodes: ['33110']
+        },
+        พยุห์: {
+            subDistrict: ['พยุห์', 'พรหมสวัสดิ์', 'ตำแย', 'โนนเพ็ก', 'หนองค้า'],
+            postalCodes: ['33230']
+        },
+        โพธิ์ศรีสุวรรณ: {
+            subDistrict: ['โดด', 'เสียว', 'หนองม้า', 'ผือใหญ่', 'อีเซ'],
+            postalCodes: ['33120']
+        },
+        ศิลาลาด: {
+            subDistrict: ['กุง', 'คลีกลิ้ง', 'หนองบัวดง', 'โจดม่วง'],
+            postalCodes: ['33160']
         }
     },
-    Yala: {
-        'Mueang Yala': {
+    อุบลราชธานี: {
+        เมืองอุบลราชธานี: {
             subDistrict: [
-                'Sateng',
-                'Budi',
-                'Yupo',
-                'Yala',
-                'Tha Sap',
-                'Na Tham',
-                'Po Seng',
-                'Bannang Sareng',
-                'Sateng Nok',
-                'Tase',
-                'Lidon',
-                'Lam Mai',
-                'Lam Phaya',
-                'Phron'
+                'ในเมือง',
+                'หัวเรือ',
+                'หนองขอน',
+                'ปทุม',
+                'ขามใหญ่',
+                'แจระแม',
+                'หนองบ่อ',
+                'ไร่น้อย',
+                'กระโสบ',
+                'กุดลาด',
+                'ขี้เหล็ก',
+                'ปะอาว'
             ],
-            postalCodes: [95000, 95160]
+            postalCodes: ['34000']
         },
-        'Krong Pinang': {
-            subDistrict: ['Krong Pinang', 'Sa-e', 'Huai Krathing', 'Purong'],
-            postalCodes: [95000]
-        },
-        Betong: {
+        ศรีเมืองใหม่: {
             subDistrict: [
-                'Betong',
-                'Yarom',
-                'Tano Maero',
-                'Aiyoeweng',
-                'Than Nam Thip'
+                'นาคำ',
+                'แก้งกอก',
+                'เอือดใหญ่',
+                'วาริน',
+                'ลาดควาย',
+                'สงยาง',
+                'ตะบ่าย',
+                'คำไหล',
+                'หนามแท่ง',
+                'นาเลิน',
+                'ดอนใหญ่'
             ],
-            postalCodes: [95110]
+            postalCodes: ['34250']
         },
-        Yaha: {
+        โขงเจียม: {
             subDistrict: [
-                'Yaha',
-                'La-ae',
-                'Patae',
-                'Baro',
-                'Tasi',
-                'Ba-ngoi Sinae',
-                'Ka Tong'
+                'โขงเจียม',
+                'ห้วยยาง',
+                'นาโพธิ์กลาง',
+                'หนองแสงใหญ่',
+                'ห้วยไผ่'
             ],
-            postalCodes: [95120]
+            postalCodes: ['34220']
         },
-        Kabang: { subDistrict: ['Kabang', 'Bala'], postalCodes: [95120] },
-        'Bannang Sata': {
+        เขื่องใน: {
             subDistrict: [
-                'Bannang Sata',
-                'Bacho',
-                'Tanao Pute',
-                'Tham Thalu',
-                'Taling Chan',
-                'Khuean Bang Lang'
+                'เขื่องใน',
+                'สร้างถ่อ',
+                'ค้อทอง',
+                'ก่อเอ้',
+                'หัวดอน',
+                'ชีทวน',
+                'ท่าไห',
+                'นาคำใหญ่',
+                'แดงหม้อ',
+                'ธาตุน้อย',
+                'บ้านไทย',
+                'บ้านกอก',
+                'กลางใหญ่',
+                'โนนรัง',
+                'ยางขี้นก',
+                'ศรีสุข',
+                'สหธาตุ',
+                'หนองเหล่า'
             ],
-            postalCodes: [95130]
+            postalCodes: ['34150', '34320']
         },
-        Raman: {
+        เขมราฐ: {
             subDistrict: [
-                'Kayu Boko',
-                'Klupang',
-                'Kalo',
-                'Koto Tuera',
-                'Kota Baru',
-                'Kero',
-                'Cha-kwa',
-                'Tha Thong',
-                'Noen Ngam',
-                'Balo',
-                'Ba-ngoi',
-                'Buemang',
-                'Yata',
-                'Wang Phaya',
-                'A-song',
-                'Talo Halo'
+                'เขมราฐ',
+                'ขามป้อม',
+                'เจียด',
+                'หนองผือ',
+                'นาแวง',
+                'แก้งเหนือ',
+                'หนองนกทา',
+                'หนองสิม',
+                'หัวนา'
             ],
-            postalCodes: [95140]
+            postalCodes: ['34170']
         },
-        'Than To': {
-            subDistrict: ['Than To', 'Ban Rae', 'Khiri Khet', 'Mae Wat'],
-            postalCodes: [95150, 95170]
+        เดชอุดม: {
+            subDistrict: [
+                'เมืองเดช',
+                'นาส่วง',
+                'นาเจริญ',
+                'ทุ่งเทิง',
+                'สมสะอาด',
+                'กุดประทาย',
+                'ตบหู',
+                'กลาง',
+                'แก้ง',
+                'ท่าโพธิ์ศรี',
+                'บัวงาม',
+                'คำครั่ง',
+                'นากระแซง',
+                'โพนงาม',
+                'ป่าโมง',
+                'โนนสมบูรณ์'
+            ],
+            postalCodes: ['34160']
+        },
+        นาจะหลวย: {
+            subDistrict: [
+                'นาจะหลวย',
+                'โนนสมบูรณ์',
+                'พรสวรรค์',
+                'บ้านตูม',
+                'โสกแสง',
+                'โนนสวรรค์'
+            ],
+            postalCodes: ['34280']
+        },
+        น้ำยืน: {
+            subDistrict: [
+                'โซง',
+                'ยาง',
+                'โดมประดิษฐ์',
+                'บุเปือย',
+                'สีวิเชียร',
+                'ยางใหญ่',
+                'เก่าขาม'
+            ],
+            postalCodes: ['34260']
+        },
+        บุณฑริก: {
+            subDistrict: [
+                'โพนงาม',
+                'ห้วยข่า',
+                'คอแลน',
+                'นาโพธิ์',
+                'หนองสะโน',
+                'โนนค้อ',
+                'บัวงาม',
+                'บ้านแมด'
+            ],
+            postalCodes: ['34230']
+        },
+        ตระการพืชผล: {
+            subDistrict: [
+                'ขุหลุ',
+                'กระเดียน',
+                'เกษม',
+                'กุศกร',
+                'ขามเปี้ย',
+                'คอนสาย',
+                'โคกจาน',
+                'นาพิน',
+                'นาสะไม',
+                'โนนกุง',
+                'ตระการ',
+                'ตากแดด',
+                'ไหล่ทุ่ง',
+                'เป้า',
+                'เซเป็ด',
+                'สะพือ',
+                'หนองเต่า',
+                'ถ้ำแข้',
+                'ท่าหลวง',
+                'ห้วยฝ้ายพัฒนา',
+                'กุดยาลวน',
+                'บ้านแดง',
+                'คำเจริญ'
+            ],
+            postalCodes: ['34130']
+        },
+        กุดข้าวปุ้น: {
+            subDistrict: [
+                'ข้าวปุ้น',
+                'โนนสวาง',
+                'แก่งเค็ง',
+                'กาบิน',
+                'หนองทันน้ำ'
+            ],
+            postalCodes: ['34270']
+        },
+        ม่วงสามสิบ: {
+            subDistrict: [
+                'ม่วงสามสิบ',
+                'เหล่าบก',
+                'ดุมใหญ่',
+                'หนองช้างใหญ่',
+                'หนองเมือง',
+                'เตย',
+                'ยางสักกระโพหลุ่ม',
+                'หนองไข่นก',
+                'หนองเหล่า',
+                'หนองฮาง',
+                'ยางโยภาพ',
+                'ไผ่ใหญ่',
+                'นาเลิง',
+                'โพนแพง'
+            ],
+            postalCodes: ['34140']
+        },
+        วารินชำราบ: {
+            subDistrict: [
+                'วารินชำราบ',
+                'ธาตุ',
+                'ท่าลาด',
+                'โนนโหนน',
+                'คูเมือง',
+                'สระสมิง',
+                'คำน้ำแซบ',
+                'บุ่งหวาย',
+                'คำขวาง',
+                'โพธิ์ใหญ่',
+                'แสนสุข',
+                'หนองกินเพล',
+                'โนนผึ้ง',
+                'เมืองศรีไค',
+                'ห้วยขะยุง',
+                'บุ่งไหม'
+            ],
+            postalCodes: ['34190', '34310']
+        },
+        พิบูลมังสาหาร: {
+            subDistrict: [
+                'พิบูล',
+                'กุดชมภู',
+                'ดอนจิก',
+                'ทรายมูล',
+                'นาโพธิ์',
+                'โนนกลาง',
+                'โพธิ์ไทร',
+                'โพธิ์ศรี',
+                'ระเว',
+                'ไร่ใต้',
+                'หนองบัวฮี',
+                'อ่างศิลา',
+                'โนนกาหลง',
+                'บ้านแขม'
+            ],
+            postalCodes: ['34110']
+        },
+        ตาลสุม: {
+            subDistrict: [
+                'ตาลสุม',
+                'สำโรง',
+                'จิกเทิง',
+                'หนองกุง',
+                'นาคาย',
+                'คำหว้า'
+            ],
+            postalCodes: ['34330']
+        },
+        โพธิ์ไทร: {
+            subDistrict: [
+                'โพธิ์ไทร',
+                'ม่วงใหญ่',
+                'สำโรง',
+                'สองคอน',
+                'สารภี',
+                'เหล่างาม'
+            ],
+            postalCodes: ['34340']
+        },
+        สำโรง: {
+            subDistrict: [
+                'สำโรง',
+                'โคกก่อง',
+                'หนองไฮ',
+                'ค้อน้อย',
+                'โนนกาเล็น',
+                'โคกสว่าง',
+                'โนนกลาง',
+                'บอน',
+                'ขามป้อม'
+            ],
+            postalCodes: ['34360']
+        },
+        ดอนมดแดง: {
+            subDistrict: ['ดอนมดแดง', 'เหล่าแดง', 'ท่าเมือง', 'คำไฮใหญ่'],
+            postalCodes: ['34000']
+        },
+        สิรินธร: {
+            subDistrict: [
+                'คันไร่',
+                'ช่องเม็ก',
+                'โนนก่อ',
+                'นิคมสร้างตนเองลำโดมน้อย',
+                'ฝางคำ',
+                'คำเขื่อนแก้ว'
+            ],
+            postalCodes: ['34350']
+        },
+        ทุ่งศรีอุดม: {
+            subDistrict: ['หนองอ้ม', 'นาเกษม', 'กุดเรือ', 'โคกชำแระ', 'นาห่อม'],
+            postalCodes: ['34160']
+        },
+        นาเยีย: {
+            subDistrict: ['นาเยีย', 'นาดี', 'นาเรือง'],
+            postalCodes: ['34160']
+        },
+        นาตาล: {
+            subDistrict: ['นาตาล', 'พะลาน', 'กองโพน', 'พังเคน'],
+            postalCodes: ['34170']
+        },
+        เหล่าเสือโก้ก: {
+            subDistrict: ['เหล่าเสือโก้ก', 'โพนเมือง', 'แพงใหญ่', 'หนองบก'],
+            postalCodes: ['34000']
+        },
+        สว่างวีระวงศ์: {
+            subDistrict: ['แก่งโดม', 'ท่าช้าง', 'บุ่งมะแลง', 'สว่าง'],
+            postalCodes: ['34190']
+        },
+        น้ำขุ่น: {
+            subDistrict: ['ตาเกา', 'ไพบูลย์', 'ขี้เหล็ก', 'โคกสะอาด'],
+            postalCodes: ['34260']
         }
     },
-    Narathiwat: {
-        'Mueang Narathiwat': {
+    ยโสธร: {
+        เมืองยโสธร: {
             subDistrict: [
-                'Bang Nak',
-                'Lamphu',
-                'Manang Tayo',
-                'Bang Po',
-                'Kaluwo',
-                'Kaluwo Nuea',
-                'Khok Khian'
+                'ในเมือง',
+                'น้ำคำใหญ่',
+                'ตาดทอง',
+                'สำราญ',
+                'ค้อเหนือ',
+                'ดู่ทุ่ง',
+                'เดิด',
+                'ขั้นไดใหญ่',
+                'ทุ่งแต้',
+                'สิงห์',
+                'นาสะไมย์',
+                'เขื่องคำ',
+                'หนองหิน',
+                'หนองคู',
+                'ขุมเงิน',
+                'ทุ่งนางโอก',
+                'หนองเรือ',
+                'หนองเป็ด'
             ],
-            postalCodes: [96000]
+            postalCodes: ['35000']
         },
-        'Tak Bai': {
+        ทรายมูล: {
+            subDistrict: ['ทรายมูล', 'ดู่ลาด', 'ดงมะไฟ', 'นาเวียง', 'ไผ่'],
+            postalCodes: ['35170']
+        },
+        กุดชุม: {
             subDistrict: [
-                'Chehe',
-                'Phraiwan',
-                'Phron',
-                'Sala Mai',
-                'Bang Khun Thong',
-                'Ko Sathon',
-                'Na Nak',
-                'Khosit'
+                'กุดชุม',
+                'โนนเปือย',
+                'กำแมด',
+                'นาโส่',
+                'ห้วยแก้ง',
+                'หนองหมี',
+                'โพนงาม',
+                'คำน้ำสร้าง',
+                'หนองแหน'
             ],
-            postalCodes: [96110]
+            postalCodes: ['35140']
         },
-        'Su-ngai Kolok': {
-            subDistrict: ['Su-ngai Kolok', 'Pasemat', 'Muno', 'Puyo'],
-            postalCodes: [96120]
-        },
-        'Ra-ngae': {
+        คำเขื่อนแก้ว: {
             subDistrict: [
-                'Tanyong Mat',
-                'Tanyong Limo',
-                'Kalicha',
-                'Ba-ngo Sato',
-                'Chaloem',
-                'Marue Botok',
-                'Bo-ngo'
+                'ลุมพุก',
+                'ย่อ',
+                'สงเปือย',
+                'โพนทัน',
+                'ทุ่งมน',
+                'นาคำ',
+                'ดงแคนใหญ่',
+                'กู่จาน',
+                'นาแก',
+                'กุดกุง',
+                'เหล่าไฮ',
+                'แคนน้อย',
+                'ดงเจริญ'
             ],
-            postalCodes: [96130, 96220]
+            postalCodes: ['35110', '35180']
         },
-        'Cho-airong': {
-            subDistrict: ['Chuap', 'Bukit', 'Maruebo Ok'],
-            postalCodes: [96130]
-        },
-        'Su-ngai Padi': {
+        ป่าติ้ว: {
             subDistrict: [
-                'Paluru',
-                'Su-ngai Padi',
-                'Toteng',
-                'Sako',
-                'Riko',
-                'Kawa'
+                'โพธิ์ไทร',
+                'กระจาย',
+                'โคกนาโก',
+                'เชียงเพ็ง',
+                'ศรีฐาน'
             ],
-            postalCodes: [96140]
+            postalCodes: ['35150']
         },
-        Rueso: {
+        มหาชนะชัย: {
             subDistrict: [
-                'Rueso',
-                'Sawo',
-                'Riang',
-                'Samakkhi',
-                'Batong',
-                'Lalo',
-                'Rueso Ok',
-                'Khok Sato',
-                'Suwari'
+                'ฟ้าหยาด',
+                'หัวเมือง',
+                'คูเมือง',
+                'ผือฮี',
+                'บากเรือ',
+                'ม่วง',
+                'โนนทราย',
+                'บึงแก',
+                'พระเสาร์',
+                'สงยาง'
             ],
-            postalCodes: [96150]
+            postalCodes: ['35130']
         },
-        Waeng: {
+        ค้อวัง: {
+            subDistrict: ['ฟ้าห่วน', 'กุดน้ำใส', 'น้ำอ้อม', 'ค้อวัง'],
+            postalCodes: ['35160']
+        },
+        เลิงนกทา: {
             subDistrict: [
-                'Waeng',
-                'Kayu Khla',
-                'Kholo',
-                'Lochut',
-                'Mae Dong',
-                'Erawan'
+                'บุ่งค้า',
+                'สวาท',
+                'ห้องแซง',
+                'สามัคคี',
+                'กุดเชียงหมี',
+                'สามแยก',
+                'กุดแห่',
+                'โคกสำราญ',
+                'สร้างมิ่ง',
+                'ศรีแก้ว'
             ],
-            postalCodes: [96160]
+            postalCodes: ['35120']
         },
-        Bacho: {
+        ไทยเจริญ: {
+            subDistrict: ['ไทยเจริญ', 'น้ำคำ', 'ส้มผ่อ', 'คำเตย', 'คำไผ่'],
+            postalCodes: ['35120']
+        }
+    },
+    ชัยภูมิ: {
+        เมืองชัยภูมิ: {
             subDistrict: [
-                'Bacho',
-                'Lubo Sawo',
-                'Kayo Mati',
-                'Paluka Samo',
-                'Bare Nuea',
-                'Bare Tai'
+                'ในเมือง',
+                'รอบเมือง',
+                'โพนทอง',
+                'นาฝาย',
+                'บ้านค่าย',
+                'กุดตุ้ม',
+                'ชีลอง',
+                'บ้านเล่า',
+                'นาเสียว',
+                'หนองนาแซง',
+                'ลาดใหญ่',
+                'หนองไผ่',
+                'ท่าหินโงม',
+                'ห้วยต้อน',
+                'ห้วยบง',
+                'โนนสำราญ',
+                'โคกสูง',
+                'บุ่งคล้า',
+                'ซับสีทอง'
             ],
-            postalCodes: [96170]
+            postalCodes: ['36000', '36240']
         },
-        'Yi-ngo': {
+        บ้านเขว้า: {
             subDistrict: [
-                'Yi-ngo',
-                'Lahan',
-                'Cho Bo',
-                'Lubo Baya',
-                'Lubo Buesa',
-                'Tapoyo'
+                'บ้านเขว้า',
+                'ตลาดแร้ง',
+                'ลุ่มลำชี',
+                'ชีบน',
+                'ภูแลนคา',
+                'โนนแดง'
             ],
-            postalCodes: [96180]
+            postalCodes: ['36170']
         },
-        Sukhirin: {
+        คอนสวรรค์: {
             subDistrict: [
-                'Mamong',
-                'Sukhirin',
-                'Kia',
-                'Phukhao Thong',
-                'Rom Sai'
+                'คอนสวรรค์',
+                'ยางหวาย',
+                'ช่องสามหมอ',
+                'โนนสะอาด',
+                'ห้วยไร่',
+                'บ้านโสก',
+                'โคกมั่งงอย',
+                'หนองขาม',
+                'ศรีสำราญ'
             ],
-            postalCodes: [96190]
+            postalCodes: ['36140']
         },
-        'Si Sakhon': {
+        เกษตรสมบูรณ์: {
             subDistrict: [
-                'Sako',
-                'Tamayung',
-                'Si Sakhon',
-                'Choeng Khiri',
-                'Kalong',
-                'Si Banphot'
+                'บ้านยาง',
+                'บ้านหัน',
+                'บ้านเดื่อ',
+                'บ้านเป้า',
+                'กุดเลาะ',
+                'โนนกอก',
+                'สระโพนทอง',
+                'หนองข่า',
+                'หนองโพนงาม',
+                'บ้านบัว',
+                'โนนทอง'
             ],
-            postalCodes: [96210]
+            postalCodes: ['36120']
         },
-        Chanae: {
-            subDistrict: ['Chanae', 'Dusongyo', 'Phadung Mat', 'Chang Phueak'],
-            postalCodes: [96220]
+        หนองบัวแดง: {
+            subDistrict: [
+                'หนองบัวแดง',
+                'กุดชุมแสง',
+                'ถ้ำวัวแดง',
+                'นางแดด',
+                'หนองแวง',
+                'คูเมือง',
+                'ท่าใหญ่',
+                'วังชมภู'
+            ],
+            postalCodes: ['36210']
+        },
+        จัตุรัส: {
+            subDistrict: [
+                'บ้านกอก',
+                'หนองบัวบาน',
+                'บ้านขาม',
+                'กุดน้ำใส',
+                'หนองโดน',
+                'ละหาน',
+                'หนองบัวใหญ่',
+                'หนองบัวโคก',
+                'ส้มป่อย'
+            ],
+            postalCodes: ['36130', '36220']
+        },
+        บำเหน็จณรงค์: {
+            subDistrict: [
+                'บ้านชวน',
+                'บ้านเพชร',
+                'บ้านตาล',
+                'หัวทะเล',
+                'โคกเริงรมย์',
+                'เกาะมะนาว',
+                'โคกเพชรพัฒนา'
+            ],
+            postalCodes: ['36160', '36220']
+        },
+        หนองบัวระเหว: {
+            subDistrict: [
+                'หนองบัวระเหว',
+                'วังตะเฆ่',
+                'ห้วยแย้',
+                'โคกสะอาด',
+                'โสกปลาดุก'
+            ],
+            postalCodes: ['36250']
+        },
+        เทพสถิต: {
+            subDistrict: [
+                'วะตะแบก',
+                'ห้วยยายจิ๋ว',
+                'นายางกลัก',
+                'บ้านไร่',
+                'โป่งนก'
+            ],
+            postalCodes: ['36230']
+        },
+        ภูเขียว: {
+            subDistrict: [
+                'ผักปัง',
+                'กวางโจน',
+                'หนองคอนไทย',
+                'บ้านแก้ง',
+                'กุดยม',
+                'บ้านเพชร',
+                'โคกสะอาด',
+                'หนองตูม',
+                'โอโล',
+                'ธาตุทอง',
+                'บ้านดอน'
+            ],
+            postalCodes: ['36110']
+        },
+        บ้านแท่น: {
+            subDistrict: ['บ้านแท่น', 'สามสวน', 'สระพัง', 'บ้านเต่า', 'หนองคู'],
+            postalCodes: ['36190']
+        },
+        แก้งคร้อ: {
+            subDistrict: [
+                'ช่องสามหมอ',
+                'หนองขาม',
+                'นาหนองทุ่ม',
+                'บ้านแก้ง',
+                'หนองสังข์',
+                'หลุบคา',
+                'โคกกุง',
+                'เก่าย่าดี',
+                'ท่ามะไฟหวาน',
+                'หนองไผ่'
+            ],
+            postalCodes: ['36150']
+        },
+        คอนสาร: {
+            subDistrict: [
+                'คอนสาร',
+                'ทุ่งพระ',
+                'โนนคูณ',
+                'ห้วยยาง',
+                'ทุ่งลุยลาย',
+                'ดงบัง',
+                'ทุ่งนาเลา',
+                'ดงกลาง'
+            ],
+            postalCodes: ['36180']
+        },
+        ภักดีชุมพล: {
+            subDistrict: ['บ้านเจียง', 'เจาทอง', 'วังทอง', 'แหลมทอง'],
+            postalCodes: ['36260']
+        },
+        เนินสง่า: {
+            subDistrict: ['หนองฉิม', 'ตาเนิน', 'กะฮาด', 'รังงาม'],
+            postalCodes: ['36130']
+        },
+        ซับใหญ่: {
+            subDistrict: ['ซับใหญ่', 'ท่ากูบ', 'ตะโกทอง'],
+            postalCodes: ['36130']
+        }
+    },
+    อำนาจเจริญ: {
+        เมืองอำนาจเจริญ: {
+            subDistrict: [
+                'บุ่ง',
+                'ไก่คำ',
+                'นาจิก',
+                'ปลาค้าว',
+                'เหล่าพรวน',
+                'สร้างนกทา',
+                'คึมใหญ่',
+                'นาผือ',
+                'น้ำปลีก',
+                'นาวัง',
+                'นาหมอม้า',
+                'โนนโพธิ์',
+                'โนนหนามแท่ง',
+                'ห้วยไร่',
+                'หนองมะแซว',
+                'กุดปลาดุก',
+                'ดอนเมย',
+                'นายม',
+                'นาแต้'
+            ],
+            postalCodes: ['37000']
+        },
+        ชานุมาน: {
+            subDistrict: [
+                'ชานุมาน',
+                'โคกสาร',
+                'คำเขื่อนแก้ว',
+                'โคกก่ง',
+                'ป่าก่อ'
+            ],
+            postalCodes: ['37210']
+        },
+        ปทุมราชวงศา: {
+            subDistrict: [
+                'หนองข่า',
+                'คำโพน',
+                'นาหว้า',
+                'ลือ',
+                'ห้วย',
+                'โนนงาม',
+                'นาป่าแซง'
+            ],
+            postalCodes: ['37110']
+        },
+        พนา: {
+            subDistrict: ['พนา', 'จานลาน', 'ไม้กลอน', 'พระเหลา'],
+            postalCodes: ['37180']
+        },
+        เสนางคนิคม: {
+            subDistrict: [
+                'เสนางคนิคม',
+                'โพนทอง',
+                'ไร่สีสุก',
+                'นาเวียง',
+                'หนองไฮ',
+                'หนองสามสี'
+            ],
+            postalCodes: ['37290']
+        },
+        หัวตะพาน: {
+            subDistrict: [
+                'หัวตะพาน',
+                'คำพระ',
+                'เค็งใหญ่',
+                'หนองแก้ว',
+                'โพนเมืองน้อย',
+                'สร้างถ่อน้อย',
+                'จิกดู่',
+                'รัตนวารี'
+            ],
+            postalCodes: ['37240']
+        },
+        ลืออำนาจ: {
+            subDistrict: [
+                'อำนาจ',
+                'ดงมะยาง',
+                'เปือย',
+                'ดงบัง',
+                'ไร่ขี',
+                'แมด',
+                'โคกกลาง'
+            ],
+            postalCodes: ['37120']
+        }
+    },
+    บึงกาฬ: {
+        เมืองบึงกาฬ: {
+            subDistrict: [
+                'บึงกาฬ',
+                'โนนสมบูรณ์',
+                'โนนสว่าง',
+                'หอคำ',
+                'หนองเลิง',
+                'โคกก่อง',
+                'นาสวรรค์',
+                'ไคสี',
+                'ชัยพร',
+                'วิศิษฐ์',
+                'คำนาดี',
+                'โป่งเปือย'
+            ],
+            postalCodes: ['38000']
+        },
+        พรเจริญ: {
+            subDistrict: [
+                'ศรีชมภู',
+                'ดอนหญ้านาง',
+                'พรเจริญ',
+                'หนองหัวช้าง',
+                'วังชมภู',
+                'ป่าแฝก',
+                'ศรีสำราญ'
+            ],
+            postalCodes: ['38180']
+        },
+        โซ่พิสัย: {
+            subDistrict: [
+                'โซ่',
+                'หนองพันทา',
+                'ศรีชมภู',
+                'คำแก้ว',
+                'บัวตูม',
+                'ถ้ำเจริญ',
+                'เหล่าทอง'
+            ],
+            postalCodes: ['38170']
+        },
+        เซกา: {
+            subDistrict: [
+                'เซกา',
+                'ซาง',
+                'ท่ากกแดง',
+                'บ้านต้อง',
+                'ป่งไฮ',
+                'น้ำจั้น',
+                'ท่าสะอาด',
+                'หนองทุ่ม',
+                'โสกก่าม'
+            ],
+            postalCodes: ['38150']
+        },
+        ปากคาด: {
+            subDistrict: [
+                'ปากคาด',
+                'หนองยอง',
+                'นากั้ง',
+                'โนนศิลา',
+                'สมสนุก',
+                'นาดง'
+            ],
+            postalCodes: ['38190']
+        },
+        บึงโขงหลง: {
+            subDistrict: ['บึงโขงหลง', 'โพธิ์หมากแข้ง', 'ดงบัง', 'ท่าดอกคำ'],
+            postalCodes: ['38220']
+        },
+        ศรีวิไล: {
+            subDistrict: ['ศรีวิไล', 'ชุมภูพร', 'นาแสง', 'นาสะแบง', 'นาสิงห์'],
+            postalCodes: ['38210']
+        },
+        บุ่งคล้า: {
+            subDistrict: ['บุ่งคล้า', 'หนองเดิ่น', 'โคกกว้าง'],
+            postalCodes: ['38000']
+        }
+    },
+    หนองบัวลำภู: {
+        เมืองหนองบัวลำภู: {
+            subDistrict: [
+                'หนองบัว',
+                'หนองภัยศูนย์',
+                'โพธิ์ชัย',
+                'หนองสวรรค์',
+                'หัวนา',
+                'บ้านขาม',
+                'นามะเฟือง',
+                'บ้านพร้าว',
+                'โนนขมิ้น',
+                'ลำภู',
+                'กุดจิก',
+                'โนนทัน',
+                'นาคำไฮ',
+                'ป่าไม้งาม',
+                'หนองหว้า'
+            ],
+            postalCodes: ['39000']
+        },
+        นากลาง: {
+            subDistrict: [
+                'นากลาง',
+                'ด่านช้าง',
+                'กุดดินจี่',
+                'ฝั่งแดง',
+                'เก่ากลอย',
+                'โนนเมือง',
+                'อุทัยสวรรค์',
+                'ดงสวรรค์',
+                'กุดแห่'
+            ],
+            postalCodes: ['39170', '39350']
+        },
+        โนนสัง: {
+            subDistrict: [
+                'โนนสัง',
+                'บ้านถิ่น',
+                'หนองเรือ',
+                'กุดดู่',
+                'บ้านค้อ',
+                'โนนเมือง',
+                'โคกใหญ่',
+                'โคกม่วง',
+                'นิคมพัฒนา',
+                'ปางกู่'
+            ],
+            postalCodes: ['39140']
+        },
+        ศรีบุญเรือง: {
+            subDistrict: [
+                'เมืองใหม่',
+                'ศรีบุญเรือง',
+                'หนองบัวใต้',
+                'กุดสะเทียน',
+                'นากอก',
+                'โนนสะอาด',
+                'ยางหล่อ',
+                'โนนม่วง',
+                'หนองกุงแก้ว',
+                'หนองแก',
+                'ทรายทอง',
+                'หันนางาม'
+            ],
+            postalCodes: ['39180']
+        },
+        สุวรรณคูหา: {
+            subDistrict: [
+                'นาสี',
+                'บ้านโคก',
+                'นาดี',
+                'นาด่าน',
+                'ดงมะไฟ',
+                'สุวรรณคูหา',
+                'บุญทัน',
+                'กุดผึ้ง'
+            ],
+            postalCodes: ['39270']
+        },
+        นาวัง: {
+            subDistrict: ['นาเหล่า', 'นาแก', 'วังทอง', 'วังปลาป้อม', 'เทพคีรี'],
+            postalCodes: ['39170']
+        }
+    },
+    ขอนแก่น: {
+        เมืองขอนแก่น: {
+            subDistrict: [
+                'ในเมือง',
+                'สำราญ',
+                'โคกสี',
+                'ท่าพระ',
+                'บ้านทุ่ม',
+                'เมืองเก่า',
+                'พระลับ',
+                'สาวะถี',
+                'บ้านหว้า',
+                'บ้านค้อ',
+                'แดงใหญ่',
+                'ดอนช้าง',
+                'ดอนหัน',
+                'ศิลา',
+                'บ้านเป็ด',
+                'หนองตูม',
+                'บึงเนียม',
+                'โนนท่อน'
+            ],
+            postalCodes: ['40000', '40260']
+        },
+        บ้านฝาง: {
+            subDistrict: [
+                'หนองบัว',
+                'ป่าหวายนั่ง',
+                'โนนฆ้อง',
+                'บ้านเหล่า',
+                'ป่ามะนาว',
+                'บ้านฝาง',
+                'โคกงาม'
+            ],
+            postalCodes: ['40270']
+        },
+        พระยืน: {
+            subDistrict: ['พระยืน', 'พระบุ', 'บ้านโต้น', 'หนองแวง', 'ขามป้อม'],
+            postalCodes: ['40320']
+        },
+        หนองเรือ: {
+            subDistrict: [
+                'หนองเรือ',
+                'บ้านเม็ง',
+                'บ้านกง',
+                'ยางคำ',
+                'จระเข้',
+                'โนนทอง',
+                'กุดกว้าง',
+                'โนนทัน',
+                'โนนสะอาด',
+                'บ้านผือ'
+            ],
+            postalCodes: ['40210', '40240']
+        },
+        ชุมแพ: {
+            subDistrict: [
+                'ชุมแพ',
+                'โนนหัน',
+                'นาหนองทุ่ม',
+                'โนนอุดม',
+                'ขัวเรียง',
+                'หนองไผ่',
+                'ไชยสอ',
+                'วังหินลาด',
+                'นาเพียง',
+                'หนองเขียด',
+                'หนองเสาเล้า',
+                'โนนสะอาด'
+            ],
+            postalCodes: ['40130', '40290']
+        },
+        สีชมพู: {
+            subDistrict: [
+                'สีชมพู',
+                'ศรีสุข',
+                'นาจาน',
+                'วังเพิ่ม',
+                'ซำยาง',
+                'หนองแดง',
+                'ดงลาน',
+                'บริบูรณ์',
+                'บ้านใหม่',
+                'ภูห่าน'
+            ],
+            postalCodes: ['40220']
+        },
+        น้ำพอง: {
+            subDistrict: [
+                'น้ำพอง',
+                'วังชัย',
+                'หนองกุง',
+                'บัวใหญ่',
+                'สะอาด',
+                'ม่วงหวาน',
+                'บ้านขาม',
+                'บัวเงิน',
+                'ทรายมูล',
+                'ท่ากระเสริม',
+                'พังทุย',
+                'กุดน้ำใส'
+            ],
+            postalCodes: ['40140', '40310']
+        },
+        อุบลรัตน์: {
+            subDistrict: [
+                'โคกสูง',
+                'บ้านดง',
+                'เขื่อนอุบลรัตน์',
+                'นาคำ',
+                'ศรีสุขสำราญ',
+                'ทุ่งโป่ง'
+            ],
+            postalCodes: ['40250']
+        },
+        กระนวน: {
+            subDistrict: [
+                'หนองโก',
+                'หนองกุงใหญ่',
+                'ห้วยโจด',
+                'ห้วยยาง',
+                'บ้านฝาง',
+                'ดูนสาด',
+                'หนองโน',
+                'น้ำอ้อม',
+                'หัวนาคำ'
+            ],
+            postalCodes: ['40170']
+        },
+        บ้านไผ่: {
+            subDistrict: [
+                'บ้านไผ่',
+                'ในเมือง',
+                'เมืองเพีย',
+                'บ้านลาน',
+                'แคนเหนือ',
+                'ภูเหล็ก',
+                'ป่าปอ',
+                'หินตั้ง',
+                'หนองน้ำใส',
+                'หัวหนอง'
+            ],
+            postalCodes: ['40110']
+        },
+        เปือยน้อย: {
+            subDistrict: ['เปือยน้อย', 'วังม่วง', 'ขามป้อม', 'สระแก้ว'],
+            postalCodes: ['40340']
+        },
+        พล: {
+            subDistrict: [
+                'เมืองพล',
+                'โจดหนองแก',
+                'เก่างิ้ว',
+                'หนองมะเขือ',
+                'หนองแวงโสกพระ',
+                'เพ็กใหญ่',
+                'โคกสง่า',
+                'หนองแวงนางเบ้า',
+                'ลอมคอม',
+                'โนนข่า',
+                'โสกนกเต็น',
+                'หัวทุ่ง'
+            ],
+            postalCodes: ['40120']
+        },
+        แวงใหญ่: {
+            subDistrict: [
+                'คอนฉิม',
+                'ใหม่นาเพียง',
+                'โนนทอง',
+                'แวงใหญ่',
+                'โนนสะอาด'
+            ],
+            postalCodes: ['40330']
+        },
+        แวงน้อย: {
+            subDistrict: [
+                'แวงน้อย',
+                'ก้านเหลือง',
+                'ท่านางแนว',
+                'ละหานนา',
+                'ท่าวัด',
+                'ทางขวาง'
+            ],
+            postalCodes: ['40230']
+        },
+        หนองสองห้อง: {
+            subDistrict: [
+                'หนองสองห้อง',
+                'คึมชาด',
+                'โนนธาตุ',
+                'ตะกั่วป่า',
+                'สำโรง',
+                'หนองเม็ก',
+                'ดอนดู่',
+                'ดงเค็ง',
+                'หันโจด',
+                'ดอนดั่ง',
+                'วังหิน',
+                'หนองไผ่ล้อม'
+            ],
+            postalCodes: ['40190']
+        },
+        ภูเวียง: {
+            subDistrict: [
+                'บ้านเรือ',
+                'หว้าทอง',
+                'กุดขอนแก่น',
+                'นาชุมแสง',
+                'นาหว้า',
+                'หนองกุงธนสาร',
+                'หนองกุงเซิน',
+                'สงเปือย',
+                'ทุ่งชมพู',
+                'ดินดำ',
+                'ภูเวียง'
+            ],
+            postalCodes: ['40150']
+        },
+        มัญจาคีรี: {
+            subDistrict: [
+                'กุดเค้า',
+                'สวนหม่อน',
+                'หนองแปน',
+                'โพนเพ็ก',
+                'คำแคน',
+                'นาข่า',
+                'นางาม',
+                'ท่าศาลา'
+            ],
+            postalCodes: ['40160']
+        },
+        ชนบท: {
+            subDistrict: [
+                'ชนบท',
+                'กุดเพียขอม',
+                'วังแสง',
+                'ห้วยแก',
+                'บ้านแท่น',
+                'ศรีบุญเรือง',
+                'โนนพะยอม',
+                'ปอแดง'
+            ],
+            postalCodes: ['40180']
+        },
+        เขาสวนกวาง: {
+            subDistrict: [
+                'เขาสวนกวาง',
+                'ดงเมืองแอม',
+                'นางิ้ว',
+                'โนนสมบูรณ์',
+                'คำม่วง'
+            ],
+            postalCodes: ['40280']
+        },
+        ภูผาม่าน: {
+            subDistrict: ['โนนคอม', 'นาฝาย', 'ภูผาม่าน', 'วังสวาบ', 'ห้วยม่วง'],
+            postalCodes: ['40350']
+        },
+        ซำสูง: {
+            subDistrict: ['กระนวน', 'คำแมด', 'บ้านโนน', 'คูคำ', 'ห้วยเตย'],
+            postalCodes: ['40170']
+        },
+        โคกโพธิ์ไชย: {
+            subDistrict: ['บ้านโคก', 'โพธิ์ไชย', 'ซับสมบูรณ์', 'นาแพง'],
+            postalCodes: ['40160']
+        },
+        หนองนาคำ: {
+            subDistrict: ['กุดธาตุ', 'บ้านโคก', 'ขนวน'],
+            postalCodes: ['40150']
+        },
+        บ้านแฮด: {
+            subDistrict: ['บ้านแฮด', 'โคกสำราญ', 'โนนสมบูรณ์', 'หนองแซง'],
+            postalCodes: ['40110']
+        },
+        โนนศิลา: {
+            subDistrict: [
+                'โนนศิลา',
+                'หนองปลาหมอ',
+                'บ้านหัน',
+                'เปือยใหญ่',
+                'โนนแดง'
+            ],
+            postalCodes: ['40110']
+        },
+        เวียงเก่า: {
+            subDistrict: ['ในเมือง', 'เมืองเก่าพัฒนา', 'เขาน้อย'],
+            postalCodes: ['40150']
+        }
+    },
+    อุดรธานี: {
+        เมืองอุดรธานี: {
+            subDistrict: [
+                'หมากแข้ง',
+                'นิคมสงเคราะห์',
+                'บ้านขาว',
+                'หนองบัว',
+                'บ้านตาด',
+                'โนนสูง',
+                'หมูม่น',
+                'เชียงยืน',
+                'หนองนาคำ',
+                'กุดสระ',
+                'นาดี',
+                'บ้านเลื่อม',
+                'เชียงพิณ',
+                'สามพร้าว',
+                'หนองไฮ',
+                'นาข่า',
+                'บ้านจั่น',
+                'หนองขอนกว้าง',
+                'โคกสะอาด',
+                'นากว้าง',
+                'หนองไผ่'
+            ],
+            postalCodes: ['41000', '41330']
+        },
+        กุดจับ: {
+            subDistrict: [
+                'กุดจับ',
+                'ปะโค',
+                'ขอนยูง',
+                'เชียงเพ็ง',
+                'สร้างก่อ',
+                'เมืองเพีย',
+                'ตาลเลียน'
+            ],
+            postalCodes: ['41250']
+        },
+        หนองวัวซอ: {
+            subDistrict: [
+                'หมากหญ้า',
+                'หนองอ้อ',
+                'อูบมุง',
+                'กุดหมากไฟ',
+                'น้ำพ่น',
+                'หนองบัวบาน',
+                'โนนหวาย',
+                'หนองวัวซอ'
+            ],
+            postalCodes: ['41360', '41220']
+        },
+        กุมภวาปี: {
+            subDistrict: [
+                'ตูมใต้',
+                'พันดอน',
+                'เวียงคำ',
+                'แชแล',
+                'เชียงแหว',
+                'ห้วยเกิ้ง',
+                'เสอเพลอ',
+                'สีออ',
+                'ปะโค',
+                'ผาสุก',
+                'ท่าลี่',
+                'กุมภวาปี',
+                'หนองหว้า'
+            ],
+            postalCodes: ['41110', '41370']
+        },
+        โนนสะอาด: {
+            subDistrict: [
+                'โนนสะอาด',
+                'บุ่งแก้ว',
+                'โพธิ์ศรีสำราญ',
+                'ทมนางาม',
+                'หนองกุงศรี',
+                'โคกกลาง'
+            ],
+            postalCodes: ['41240']
+        },
+        หนองหาน: {
+            subDistrict: [
+                'หนองหาน',
+                'หนองเม็ก',
+                'พังงู',
+                'สะแบง',
+                'สร้อยพร้าว',
+                'บ้านเชียง',
+                'บ้านยา',
+                'โพนงาม',
+                'ผักตบ',
+                'หนองไผ่',
+                'ดอนหายโศก',
+                'หนองสระปลา'
+            ],
+            postalCodes: ['41130', '41320']
+        },
+        ทุ่งฝน: {
+            subDistrict: ['ทุ่งฝน', 'ทุ่งใหญ่', 'นาชุมแสง', 'นาทม'],
+            postalCodes: ['41310']
+        },
+        ไชยวาน: {
+            subDistrict: ['ไชยวาน', 'หนองหลัก', 'คำเลาะ', 'โพนสูง'],
+            postalCodes: ['41290']
+        },
+        ศรีธาตุ: {
+            subDistrict: [
+                'ศรีธาตุ',
+                'จำปี',
+                'บ้านโปร่ง',
+                'หัวนาคำ',
+                'หนองนกเขียน',
+                'นายูง',
+                'ตาดทอง'
+            ],
+            postalCodes: ['41230']
+        },
+        วังสามหมอ: {
+            subDistrict: [
+                'หนองกุงทับม้า',
+                'หนองหญ้าไซ',
+                'บะยาว',
+                'ผาสุก',
+                'คำโคกสูง',
+                'วังสามหมอ'
+            ],
+            postalCodes: ['41280']
+        },
+        บ้านดุง: {
+            subDistrict: [
+                'ศรีสุทโธ',
+                'บ้านดุง',
+                'ดงเย็น',
+                'โพนสูง',
+                'อ้อมกอ',
+                'บ้านจันทน์',
+                'บ้านชัย',
+                'นาไหม',
+                'ถ่อนนาลับ',
+                'วังทอง',
+                'บ้านม่วง',
+                'บ้านตาด',
+                'นาคำ'
+            ],
+            postalCodes: ['41190']
+        },
+        บ้านผือ: {
+            subDistrict: [
+                'บ้านผือ',
+                'หายโศก',
+                'เขือน้ำ',
+                'คำบง',
+                'โนนทอง',
+                'ข้าวสาร',
+                'จำปาโมง',
+                'กลางใหญ่',
+                'เมืองพาน',
+                'คำด้วง',
+                'หนองหัวคู',
+                'บ้านค้อ',
+                'หนองแวง'
+            ],
+            postalCodes: ['41160']
+        },
+        น้ำโสม: {
+            subDistrict: [
+                'นางัว',
+                'น้ำโสม',
+                'หนองแวง',
+                'บ้านหยวก',
+                'โสมเยี่ยม',
+                'ศรีสำราญ',
+                'สามัคคี'
+            ],
+            postalCodes: ['41210']
+        },
+        เพ็ญ: {
+            subDistrict: [
+                'เพ็ญ',
+                'บ้านธาตุ',
+                'นาพู่',
+                'เชียงหวาง',
+                'สุมเส้า',
+                'นาบัว',
+                'บ้านเหล่า',
+                'จอมศรี',
+                'เตาไห',
+                'โคกกลาง',
+                'สร้างแป้น'
+            ],
+            postalCodes: ['41150']
+        },
+        สร้างคอม: {
+            subDistrict: [
+                'สร้างคอม',
+                'เชียงดา',
+                'บ้านยวด',
+                'บ้านโคก',
+                'นาสะอาด',
+                'บ้านหินโงม'
+            ],
+            postalCodes: ['41260']
+        },
+        หนองแสง: {
+            subDistrict: ['หนองแสง', 'แสงสว่าง', 'นาดี', 'ทับกุง'],
+            postalCodes: ['41340']
+        },
+        นายูง: {
+            subDistrict: ['นายูง', 'บ้านก้อง', 'นาแค', 'โนนทอง'],
+            postalCodes: ['41380']
+        },
+        พิบูลย์รักษ์: {
+            subDistrict: ['บ้านแดง', 'นาทราย', 'ดอนกลอย'],
+            postalCodes: ['41130']
+        },
+        กู่แก้ว: {
+            subDistrict: ['บ้านจีต', 'โนนทองอินทร์', 'ค้อใหญ่', 'คอนสาย'],
+            postalCodes: ['41130']
+        },
+        ประจักษ์ศิลปาคม: {
+            subDistrict: ['นาม่วง', 'ห้วยสามพาด', 'อุ่มจาน'],
+            postalCodes: ['41110']
+        }
+    },
+    เลย: {
+        เมืองเลย: {
+            subDistrict: [
+                'กุดป่อง',
+                'เมือง',
+                'นาอ้อ',
+                'กกดู่',
+                'น้ำหมาน',
+                'เสี้ยว',
+                'นาอาน',
+                'นาโป่ง',
+                'นาดินดำ',
+                'น้ำสวย',
+                'ชัยพฤกษ์',
+                'นาแขม',
+                'ศรีสองรัก',
+                'กกทอง'
+            ],
+            postalCodes: ['42000', '42100']
+        },
+        นาด้วง: {
+            subDistrict: ['นาด้วง', 'นาดอกคำ', 'ท่าสะอาด', 'ท่าสวรรค์'],
+            postalCodes: ['42210']
+        },
+        เชียงคาน: {
+            subDistrict: [
+                'เชียงคาน',
+                'ธาตุ',
+                'นาซ่าว',
+                'เขาแก้ว',
+                'ปากตม',
+                'บุฮม',
+                'จอมศรี',
+                'หาดทรายขาว'
+            ],
+            postalCodes: ['42110']
+        },
+        ปากชม: {
+            subDistrict: [
+                'ปากชม',
+                'เชียงกลม',
+                'หาดคัมภีร์',
+                'ห้วยบ่อซืน',
+                'ห้วยพิชัย',
+                'ชมเจริญ'
+            ],
+            postalCodes: ['42150']
+        },
+        ด่านซ้าย: {
+            subDistrict: [
+                'ด่านซ้าย',
+                'ปากหมัน',
+                'นาดี',
+                'โคกงาม',
+                'โพนสูง',
+                'อิปุ่ม',
+                'กกสะทอน',
+                'โป่ง',
+                'วังยาว',
+                'นาหอ'
+            ],
+            postalCodes: ['42120']
+        },
+        นาแห้ว: {
+            subDistrict: ['นาแห้ว', 'แสงภา', 'นาพึง', 'นามาลา', 'เหล่ากอหก'],
+            postalCodes: ['42170']
+        },
+        ภูเรือ: {
+            subDistrict: [
+                'หนองบัว',
+                'ท่าศาลา',
+                'ร่องจิก',
+                'ปลาบ่า',
+                'ลาดค่าง',
+                'สานตม'
+            ],
+            postalCodes: ['42160']
+        },
+        ท่าลี่: {
+            subDistrict: [
+                'ท่าลี่',
+                'หนองผือ',
+                'อาฮี',
+                'น้ำแคม',
+                'โคกใหญ่',
+                'น้ำทูน'
+            ],
+            postalCodes: ['42140']
+        },
+        วังสะพุง: {
+            subDistrict: [
+                'วังสะพุง',
+                'ทรายขาว',
+                'หนองหญ้าปล้อง',
+                'หนองงิ้ว',
+                'ปากปวน',
+                'ผาน้อย',
+                'ผาบิ้ง',
+                'เขาหลวง',
+                'โคกขมิ้น',
+                'ศรีสงคราม'
+            ],
+            postalCodes: ['42130']
+        },
+        ภูกระดึง: {
+            subDistrict: ['ศรีฐาน', 'ผานกเค้า', 'ภูกระดึง', 'ห้วยส้ม'],
+            postalCodes: ['42180']
+        },
+        ภูหลวง: {
+            subDistrict: [
+                'ภูหอ',
+                'หนองคัน',
+                'ห้วยสีเสียด',
+                'เลยวังไสย์',
+                'แก่งศรีภูมิ'
+            ],
+            postalCodes: ['42230']
+        },
+        ผาขาว: {
+            subDistrict: [
+                'ผาขาว',
+                'ท่าช้างคล้อง',
+                'โนนปอแดง',
+                'โนนป่าซาง',
+                'บ้านเพิ่ม'
+            ],
+            postalCodes: ['42240']
+        },
+        เอราวัณ: {
+            subDistrict: [
+                'เอราวัณ',
+                'ผาอินทร์แปลง',
+                'ผาสามยอด',
+                'ทรัพย์ไพวัลย์'
+            ],
+            postalCodes: ['42220']
+        },
+        หนองหิน: {
+            subDistrict: ['หนองหิน', 'ตาดข่า', 'ปวนพุ'],
+            postalCodes: ['42190']
+        }
+    },
+    หนองคาย: {
+        เมืองหนองคาย: {
+            subDistrict: [
+                'ในเมือง',
+                'มีชัย',
+                'โพธิ์ชัย',
+                'กวนวัน',
+                'เวียงคุก',
+                'วัดธาตุ',
+                'หาดคำ',
+                'หินโงม',
+                'บ้านเดื่อ',
+                'ค่ายบกหวาน',
+                'โพนสว่าง',
+                'พระธาตุบังพวน',
+                'หนองกอมเกาะ',
+                'ปะโค',
+                'เมืองหมี',
+                'สีกาย'
+            ],
+            postalCodes: ['43000', '43100']
+        },
+        ท่าบ่อ: {
+            subDistrict: [
+                'ท่าบ่อ',
+                'น้ำโมง',
+                'กองนาง',
+                'โคกคอน',
+                'บ้านเดื่อ',
+                'บ้านถ่อน',
+                'บ้านว่าน',
+                'นาข่า',
+                'โพนสา',
+                'หนองนาง'
+            ],
+            postalCodes: ['43110']
+        },
+        โพนพิสัย: {
+            subDistrict: [
+                'จุมพล',
+                'วัดหลวง',
+                'กุดบง',
+                'ชุมช้าง',
+                'ทุ่งหลวง',
+                'เหล่าต่างคำ',
+                'นาหนัง',
+                'เซิม',
+                'บ้านโพธิ์',
+                'บ้านผือ',
+                'สร้างนางขาว'
+            ],
+            postalCodes: ['43120']
+        },
+        ศรีเชียงใหม่: {
+            subDistrict: ['พานพร้าว', 'บ้านหม้อ', 'พระพุทธบาท', 'หนองปลาปาก'],
+            postalCodes: ['43130']
+        },
+        สังคม: {
+            subDistrict: ['แก้งไก่', 'ผาตั้ง', 'บ้านม่วง', 'นางิ้ว', 'สังคม'],
+            postalCodes: ['43160']
+        },
+        สระใคร: {
+            subDistrict: ['สระใคร', 'คอกช้าง', 'บ้านฝาง'],
+            postalCodes: ['43100']
+        },
+        เฝ้าไร่: {
+            subDistrict: ['เฝ้าไร่', 'นาดี', 'หนองหลวง', 'วังหลวง', 'อุดมพร'],
+            postalCodes: ['43230']
+        },
+        รัตนวาปี: {
+            subDistrict: [
+                'รัตนวาปี',
+                'นาทับไฮ',
+                'บ้านต้อน',
+                'พระบาทนาสิงห์',
+                'โพนแพง'
+            ],
+            postalCodes: ['43120']
+        },
+        โพธิ์ตาก: {
+            subDistrict: ['โพธิ์ตาก', 'โพนทอง', 'ด่านศรีสุข'],
+            postalCodes: ['43130']
+        }
+    },
+    มหาสารคาม: {
+        เมืองมหาสารคาม: {
+            subDistrict: [
+                'ตลาด',
+                'เขวา',
+                'ท่าตูม',
+                'แวงน่าง',
+                'โคกก่อ',
+                'ดอนหว่าน',
+                'เกิ้ง',
+                'แก่งเลิงจาน',
+                'ท่าสองคอน',
+                'ลาดพัฒนา',
+                'หนองปลิง',
+                'ห้วยแอ่ง',
+                'หนองโน',
+                'บัวค้อ'
+            ],
+            postalCodes: ['44000']
+        },
+        แกดำ: {
+            subDistrict: ['แกดำ', 'วังแสง', 'มิตรภาพ', 'หนองกุง', 'โนนภิบาล'],
+            postalCodes: ['44190']
+        },
+        โกสุมพิสัย: {
+            subDistrict: [
+                'หัวขวาง',
+                'ยางน้อย',
+                'วังยาว',
+                'เขวาไร่',
+                'แพง',
+                'แก้งแก',
+                'หนองเหล็ก',
+                'หนองบัว',
+                'เหล่า',
+                'เขื่อน',
+                'หนองบอน',
+                'โพนงาม',
+                'ยางท่าแจ้ง',
+                'แห่ใต้',
+                'หนองกุงสวรรค์',
+                'เลิงใต้',
+                'ดอนกลาง'
+            ],
+            postalCodes: ['44140']
+        },
+        กันทรวิชัย: {
+            subDistrict: [
+                'โคกพระ',
+                'คันธารราษฎร์',
+                'มะค่า',
+                'ท่าขอนยาง',
+                'นาสีนวน',
+                'ขามเรียง',
+                'เขวาใหญ่',
+                'ศรีสุข',
+                'กุดใส้จ่อ',
+                'ขามเฒ่าพัฒนา'
+            ],
+            postalCodes: ['44150']
+        },
+        เชียงยืน: {
+            subDistrict: [
+                'เชียงยืน',
+                'หนองซอน',
+                'ดอนเงิน',
+                'กู่ทอง',
+                'นาทอง',
+                'เสือเฒ่า',
+                'โพนทอง',
+                'เหล่าบัวบาน'
+            ],
+            postalCodes: ['44160']
+        },
+        บรบือ: {
+            subDistrict: [
+                'บรบือ',
+                'บ่อใหญ่',
+                'วังไชย',
+                'หนองม่วง',
+                'กำพี้',
+                'โนนราษี',
+                'โนนแดง',
+                'หนองจิก',
+                'บัวมาศ',
+                'หนองคูขาด',
+                'วังใหม่',
+                'ยาง',
+                'หนองสิม',
+                'หนองโก',
+                'ดอนงัว'
+            ],
+            postalCodes: ['44130']
+        },
+        นาเชือก: {
+            subDistrict: [
+                'นาเชือก',
+                'สำโรง',
+                'หนองแดง',
+                'เขวาไร่',
+                'หนองโพธิ์',
+                'ปอพาน',
+                'หนองเม็ก',
+                'หนองเรือ',
+                'หนองกุง',
+                'สันป่าตอง'
+            ],
+            postalCodes: ['44170']
+        },
+        พยัคฆภูมิพิสัย: {
+            subDistrict: [
+                'ปะหลาน',
+                'ก้ามปู',
+                'เวียงสะอาด',
+                'เม็กดำ',
+                'นาสีนวล',
+                'ราษฎร์เจริญ',
+                'หนองบัวแก้ว',
+                'เมืองเตา',
+                'ลานสะแก',
+                'เวียงชัย',
+                'หนองบัว',
+                'ราษฎร์พัฒนา',
+                'เมืองเสือ',
+                'ภารแอ่น'
+            ],
+            postalCodes: ['44110']
+        },
+        วาปีปทุม: {
+            subDistrict: [
+                'หนองแสง',
+                'ขามป้อม',
+                'เสือโก้ก',
+                'ดงใหญ่',
+                'โพธิ์ชัย',
+                'หัวเรือ',
+                'แคน',
+                'งัวบา',
+                'นาข่า',
+                'บ้านหวาย',
+                'หนองไฮ',
+                'ประชาพัฒนา',
+                'หนองทุ่ม',
+                'หนองแสน',
+                'โคกสีทองหลาง'
+            ],
+            postalCodes: ['44120']
+        },
+        นาดูน: {
+            subDistrict: [
+                'นาดูน',
+                'หนองไผ่',
+                'หนองคู',
+                'ดงบัง',
+                'ดงดวน',
+                'หัวดง',
+                'ดงยาง',
+                'กู่สันตรัตน์',
+                'พระธาตุ'
+            ],
+            postalCodes: ['44180']
+        },
+        ยางสีสุราช: {
+            subDistrict: [
+                'ยางสีสุราช',
+                'นาภู',
+                'แวงดง',
+                'บ้านกู่',
+                'ดงเมือง',
+                'สร้างแซ่ง',
+                'หนองบัวสันตุ'
+            ],
+            postalCodes: ['44210']
+        },
+        กุดรัง: {
+            subDistrict: ['กุดรัง', 'นาโพธิ์', 'เลิงแฝก', 'หนองแวง', 'ห้วยเตย'],
+            postalCodes: ['44130']
+        },
+        ชื่นชม: {
+            subDistrict: ['ชื่นชม', 'กุดปลาดุก', 'เหล่าดอกไม้', 'หนองกุง'],
+            postalCodes: ['44160']
+        }
+    },
+    ร้อยเอ็ด: {
+        เมืองร้อยเอ็ด: {
+            subDistrict: [
+                'ในเมือง',
+                'รอบเมือง',
+                'เหนือเมือง',
+                'ขอนแก่น',
+                'นาโพธิ์',
+                'สะอาดสมบูรณ์',
+                'สีแก้ว',
+                'ปอภาร',
+                'โนนรัง',
+                'หนองแก้ว',
+                'หนองแวง',
+                'ดงลาน',
+                'แคนใหญ่',
+                'โนนตาล',
+                'เมืองทอง'
+            ],
+            postalCodes: ['45000']
+        },
+        เกษตรวิสัย: {
+            subDistrict: [
+                'เกษตรวิสัย',
+                'เมืองบัว',
+                'เหล่าหลวง',
+                'สิงห์โคก',
+                'ดงครั่งใหญ่',
+                'บ้านฝาง',
+                'หนองแวง',
+                'กำแพง',
+                'กู่กาสิงห์',
+                'น้ำอ้อม',
+                'โนนสว่าง',
+                'ทุ่งทอง',
+                'ดงครั่งน้อย'
+            ],
+            postalCodes: ['45150']
+        },
+        ปทุมรัตต์: {
+            subDistrict: [
+                'บัวแดง',
+                'ดอกล้ำ',
+                'หนองแคน',
+                'โพนสูง',
+                'โนนสวรรค์',
+                'สระบัว',
+                'โนนสง่า',
+                'ขี้เหล็ก'
+            ],
+            postalCodes: ['45190']
+        },
+        จตุรพักตรพิมาน: {
+            subDistrict: [
+                'หัวช้าง',
+                'หนองผือ',
+                'เมืองหงส์',
+                'โคกล่าม',
+                'น้ำใส',
+                'ดงแดง',
+                'ดงกลาง',
+                'ป่าสังข์',
+                'อีง่อง',
+                'ลิ้นฟ้า',
+                'ดู่น้อย',
+                'ศรีโคตร'
+            ],
+            postalCodes: ['45180']
+        },
+        ธวัชบุรี: {
+            subDistrict: [
+                'นิเวศน์',
+                'ธงธานี',
+                'หนองไผ่',
+                'ธวัชบุรี',
+                'อุ่มเม้า',
+                'มะอึ',
+                'เขวาทุ่ง',
+                'ไพศาล',
+                'เมืองน้อย',
+                'บึงนคร',
+                'ราชธานี',
+                'หนองพอก'
+            ],
+            postalCodes: ['45170']
+        },
+        พนมไพร: {
+            subDistrict: [
+                'พนมไพร',
+                'แสนสุข',
+                'กุดน้ำใส',
+                'หนองทัพไทย',
+                'โพธิ์ใหญ่',
+                'วารีสวัสดิ์',
+                'โคกสว่าง',
+                'โพธิ์ชัย',
+                'นานวล',
+                'คำไฮ',
+                'สระแก้ว',
+                'ค้อใหญ่',
+                'ชานุวรรณ'
+            ],
+            postalCodes: ['45140']
+        },
+        โพนทอง: {
+            subDistrict: [
+                'แวง',
+                'โคกกกม่วง',
+                'นาอุดม',
+                'สว่าง',
+                'หนองใหญ่',
+                'โพธิ์ทอง',
+                'โนนชัยศรี',
+                'โพธิ์ศรีสว่าง',
+                'อุ่มเม่า',
+                'คำนาดี',
+                'พรมสวรรค์',
+                'สระนกแก้ว',
+                'วังสามัคคี',
+                'โคกสูง'
+            ],
+            postalCodes: ['45110']
+        },
+        โพธิ์ชัย: {
+            subDistrict: [
+                'ขามเปี้ย',
+                'เชียงใหม่',
+                'บัวคำ',
+                'อัคคะคำ',
+                'สะอาด',
+                'คำพอุง',
+                'หนองตาไก้',
+                'ดอนโอง',
+                'โพธิ์ศรี'
+            ],
+            postalCodes: ['45230']
+        },
+        หนองพอก: {
+            subDistrict: [
+                'หนองพอก',
+                'บึงงาม',
+                'ภูเขาทอง',
+                'กกโพธิ์',
+                'โคกสว่าง',
+                'หนองขุ่นใหญ่',
+                'รอบเมือง',
+                'ผาน้ำย้อย',
+                'ท่าสีดา'
+            ],
+            postalCodes: ['45210']
+        },
+        เสลภูมิ: {
+            subDistrict: [
+                'กลาง',
+                'นางาม',
+                'เมืองไพร',
+                'นาแซง',
+                'นาเมือง',
+                'วังหลวง',
+                'ท่าม่วง',
+                'ขวาว',
+                'โพธิ์ทอง',
+                'ภูเงิน',
+                'เกาะแก้ว',
+                'นาเลิง',
+                'เหล่าน้อย',
+                'ศรีวิลัย',
+                'หนองหลวง',
+                'พรสวรรค์',
+                'ขวัญเมือง',
+                'บึงเกลือ'
+            ],
+            postalCodes: ['45120']
+        },
+        สุวรรณภูมิ: {
+            subDistrict: [
+                'สระคู',
+                'ดอกไม้',
+                'นาใหญ่',
+                'หินกอง',
+                'เมืองทุ่ง',
+                'หัวโทน',
+                'บ่อพันขัน',
+                'ทุ่งหลวง',
+                'หัวช้าง',
+                'น้ำคำ',
+                'ห้วยหินลาด',
+                'ช้างเผือก',
+                'ทุ่งกุลา',
+                'ทุ่งศรีเมือง',
+                'จำปาขัน'
+            ],
+            postalCodes: ['45130']
+        },
+        เมืองสรวง: {
+            subDistrict: [
+                'หนองผือ',
+                'หนองหิน',
+                'คูเมือง',
+                'กกกุง',
+                'เมืองสรวง'
+            ],
+            postalCodes: ['45220']
+        },
+        โพนทราย: {
+            subDistrict: ['โพนทราย', 'สามขา', 'ศรีสว่าง', 'ยางคำ', 'ท่าหาดยาว'],
+            postalCodes: ['45240']
+        },
+        อาจสามารถ: {
+            subDistrict: [
+                'อาจสามารถ',
+                'โพนเมือง',
+                'บ้านแจ้ง',
+                'หน่อม',
+                'หนองหมื่นถ่าน',
+                'หนองขาม',
+                'โหรา',
+                'หนองบัว',
+                'ขี้เหล็ก',
+                'บ้านดู่'
+            ],
+            postalCodes: ['45160']
+        },
+        เมยวดี: {
+            subDistrict: ['เมยวดี', 'ชุมพร', 'บุ่งเลิศ', 'ชมสะอาด'],
+            postalCodes: ['45250']
+        },
+        ศรีสมเด็จ: {
+            subDistrict: [
+                'โพธิ์ทอง',
+                'ศรีสมเด็จ',
+                'เมืองเปลือย',
+                'หนองใหญ่',
+                'สวนจิก',
+                'โพธิ์สัย',
+                'หนองแวงควง',
+                'บ้านบาก'
+            ],
+            postalCodes: ['45000', '45280']
+        },
+        จังหาร: {
+            subDistrict: [
+                'ดินดำ',
+                'ปาฝา',
+                'ม่วงลาด',
+                'จังหาร',
+                'ดงสิงห์',
+                'ยางใหญ่',
+                'ผักแว่น',
+                'แสนชาติ'
+            ],
+            postalCodes: ['45000']
+        },
+        เชียงขวัญ: {
+            subDistrict: [
+                'เชียงขวัญ',
+                'พลับพลา',
+                'พระธาตุ',
+                'พระเจ้า',
+                'หมูม้น',
+                'บ้านเขือง'
+            ],
+            postalCodes: ['45000', '45170']
+        },
+        หนองฮี: {
+            subDistrict: ['หนองฮี', 'สาวแห', 'ดูกอึ่ง', 'เด่นราษฎร์'],
+            postalCodes: ['45140']
+        },
+        ทุ่งเขาหลวง: {
+            subDistrict: ['ทุ่งเขาหลวง', 'เทอดไทย', 'บึงงาม', 'มะบ้า', 'เหล่า'],
+            postalCodes: ['45170']
+        }
+    },
+    กาฬสินธุ์: {
+        เมืองกาฬสินธุ์: {
+            subDistrict: [
+                'กาฬสินธุ์',
+                'เหนือ',
+                'หลุบ',
+                'ไผ่',
+                'ลำปาว',
+                'ลำพาน',
+                'เชียงเครือ',
+                'บึงวิชัย',
+                'ห้วยโพธิ์',
+                'ภูปอ',
+                'ภูดิน',
+                'หนองกุง',
+                'กลางหมื่น',
+                'ขมิ้น',
+                'โพนทอง',
+                'นาจารย์',
+                'ลำคลอง'
+            ],
+            postalCodes: ['46000']
+        },
+        นามน: {
+            subDistrict: [
+                'นามน',
+                'ยอดแกง',
+                'สงเปลือย',
+                'หลักเหลี่ยม',
+                'หนองบัว'
+            ],
+            postalCodes: ['46230']
+        },
+        กมลาไสย: {
+            subDistrict: [
+                'กมลาไสย',
+                'หลักเมือง',
+                'โพนงาม',
+                'ดงลิง',
+                'ธัญญา',
+                'หนองแปน',
+                'เจ้าท่า',
+                'โคกสมบูรณ์'
+            ],
+            postalCodes: ['46130']
+        },
+        ร่องคำ: {
+            subDistrict: ['ร่องคำ', 'สามัคคี', 'เหล่าอ้อย'],
+            postalCodes: ['46210']
+        },
+        กุฉินารายณ์: {
+            subDistrict: [
+                'บัวขาว',
+                'แจนแลน',
+                'เหล่าใหญ่',
+                'จุมจัง',
+                'เหล่าไฮงาม',
+                'กุดหว้า',
+                'สามขา',
+                'นาขาม',
+                'หนองห้าง',
+                'นาโก',
+                'สมสะอาด',
+                'กุดค้าว'
+            ],
+            postalCodes: ['46110']
+        },
+        เขาวง: {
+            subDistrict: [
+                'คุ้มเก่า',
+                'สงเปลือย',
+                'หนองผือ',
+                'กุดสิมคุ้มใหม่',
+                'สระพังทอง',
+                'กุดปลาค้าว'
+            ],
+            postalCodes: ['46160']
+        },
+        ยางตลาด: {
+            subDistrict: [
+                'ยางตลาด',
+                'หัวงัว',
+                'อุ่มเม่า',
+                'บัวบาน',
+                'เว่อ',
+                'อิตื้อ',
+                'หัวนาคำ',
+                'หนองอิเฒ่า',
+                'ดอนสมบูรณ์',
+                'นาเชือก',
+                'คลองขาม',
+                'เขาพระนอน',
+                'นาดี',
+                'โนนสูง',
+                'หนองตอกแป้น'
+            ],
+            postalCodes: ['46120']
+        },
+        ห้วยเม็ก: {
+            subDistrict: [
+                'ห้วยเม็ก',
+                'คำใหญ่',
+                'กุดโดน',
+                'บึงนาเรียง',
+                'หัวหิน',
+                'พิมูล',
+                'คำเหมือดแก้ว',
+                'โนนสะอาด',
+                'ทรายทอง'
+            ],
+            postalCodes: ['46170']
+        },
+        สหัสขันธ์: {
+            subDistrict: [
+                'ภูสิงห์',
+                'สหัสขันธ์',
+                'นามะเขือ',
+                'โนนศิลา',
+                'นิคม',
+                'โนนแหลมทอง',
+                'โนนบุรี',
+                'โนนน้ำเกลี้ยง'
+            ],
+            postalCodes: ['46140']
+        },
+        คำม่วง: {
+            subDistrict: [
+                'ทุ่งคลอง',
+                'โพน',
+                'ดินจี่',
+                'นาบอน',
+                'นาทัน',
+                'เนินยาง'
+            ],
+            postalCodes: ['46180']
+        },
+        ท่าคันโท: {
+            subDistrict: [
+                'ท่าคันโท',
+                'กุงเก่า',
+                'ยางอู้ม',
+                'กุดจิก',
+                'นาตาล',
+                'ดงสมบูรณ์'
+            ],
+            postalCodes: ['46190']
+        },
+        หนองกุงศรี: {
+            subDistrict: [
+                'หนองกุงศรี',
+                'หนองบัว',
+                'โคกเครือ',
+                'หนองสรวง',
+                'เสาเล้า',
+                'หนองใหญ่',
+                'ดงมูล',
+                'ลำหนองแสน',
+                'หนองหิน'
+            ],
+            postalCodes: ['46220']
+        },
+        สมเด็จ: {
+            subDistrict: [
+                'สมเด็จ',
+                'หนองแวง',
+                'แซงบาดาล',
+                'มหาไชย',
+                'หมูม่น',
+                'ผาเสวย',
+                'ศรีสมเด็จ',
+                'ลำห้วยหลัว'
+            ],
+            postalCodes: ['46150']
+        },
+        ห้วยผึ้ง: {
+            subDistrict: ['คำบง', 'ไค้นุ่น', 'นิคมห้วยผึ้ง', 'หนองอีบุตร'],
+            postalCodes: ['46240']
+        },
+        สามชัย: {
+            subDistrict: ['สำราญ', 'สำราญใต้', 'คำสร้างเที่ยง', 'หนองช้าง'],
+            postalCodes: ['46180']
+        },
+        นาคู: {
+            subDistrict: [
+                'นาคู',
+                'สายนาวัง',
+                'โนนนาจาน',
+                'บ่อแก้ว',
+                'ภูแล่นช้าง'
+            ],
+            postalCodes: ['46160']
+        },
+        ดอนจาน: {
+            subDistrict: [
+                'ดอนจาน',
+                'สะอาดไชยศรี',
+                'ดงพยุง',
+                'ม่วงนา',
+                'นาจำปา'
+            ],
+            postalCodes: ['46000']
+        },
+        ฆ้องชัย: {
+            subDistrict: [
+                'ฆ้องชัยพัฒนา',
+                'เหล่ากลาง',
+                'โคกสะอาด',
+                'โนนศิลาเลิง',
+                'ลำชี'
+            ],
+            postalCodes: ['46130']
+        }
+    },
+    สกลนคร: {
+        เมืองสกลนคร: {
+            subDistrict: [
+                'ธาตุเชิงชุม',
+                'ขมิ้น',
+                'งิ้วด่อน',
+                'โนนหอม',
+                'เชียงเครือ',
+                'ท่าแร่',
+                'ม่วงลาย',
+                'ดงชน',
+                'ห้วยยาง',
+                'พังขว้าง',
+                'ดงมะไฟ',
+                'ธาตุนาเวง',
+                'เหล่าปอแดง',
+                'หนองลาด',
+                'ฮางโฮง',
+                'โคกก่อง'
+            ],
+            postalCodes: ['47000', '47220', '47230']
+        },
+        กุสุมาลย์: {
+            subDistrict: [
+                'กุสุมาลย์',
+                'นาโพธิ์',
+                'นาเพียง',
+                'โพธิไพศาล',
+                'อุ่มจาน'
+            ],
+            postalCodes: ['47210', '47230']
+        },
+        กุดบาก: {
+            subDistrict: ['กุดบาก', 'นาม่อง', 'กุดไห'],
+            postalCodes: ['47180']
+        },
+        พรรณานิคม: {
+            subDistrict: [
+                'พรรณา',
+                'วังยาง',
+                'พอกน้อย',
+                'นาหัวบ่อ',
+                'ไร่',
+                'ช้างมิ่ง',
+                'นาใน',
+                'สว่าง',
+                'บะฮี',
+                'เชิงชุม'
+            ],
+            postalCodes: ['47130', '47220']
+        },
+        พังโคน: {
+            subDistrict: ['พังโคน', 'ม่วงไข่', 'แร่', 'ไฮหย่อง', 'ต้นผึ้ง'],
+            postalCodes: ['47160']
+        },
+        วาริชภูมิ: {
+            subDistrict: [
+                'วาริชภูมิ',
+                'ปลาโหล',
+                'หนองลาด',
+                'คำบ่อ',
+                'ค้อเขียว'
+            ],
+            postalCodes: ['47150']
+        },
+        นิคมน้ำอูน: {
+            subDistrict: ['นิคมน้ำอูน', 'หนองปลิง', 'หนองบัว', 'สุวรรณคาม'],
+            postalCodes: ['47270']
+        },
+        วานรนิวาส: {
+            subDistrict: [
+                'วานรนิวาส',
+                'เดื่อศรีคันไชย',
+                'ขัวก่าย',
+                'หนองสนม',
+                'คูสะคาม',
+                'ธาตุ',
+                'หนองแวง',
+                'ศรีวิชัย',
+                'นาซอ',
+                'อินทร์แปลง',
+                'นาคำ',
+                'คอนสวรรค์',
+                'กุดเรือคำ',
+                'หนองแวงใต้'
+            ],
+            postalCodes: ['47120']
+        },
+        คำตากล้า: {
+            subDistrict: ['คำตากล้า', 'หนองบัวสิม', 'นาแต้', 'แพด'],
+            postalCodes: ['47250']
+        },
+        บ้านม่วง: {
+            subDistrict: [
+                'ม่วง',
+                'มาย',
+                'ดงหม้อทอง',
+                'ดงเหนือ',
+                'ดงหม้อทองใต้',
+                'ห้วยหลัว',
+                'โนนสะอาด',
+                'หนองกวั่ง',
+                'บ่อแก้ว'
+            ],
+            postalCodes: ['47140']
+        },
+        อากาศอำนวย: {
+            subDistrict: [
+                'อากาศ',
+                'โพนแพง',
+                'วาใหญ่',
+                'โพนงาม',
+                'ท่าก้อน',
+                'นาฮี',
+                'บะหว้า',
+                'สามัคคีพัฒนา'
+            ],
+            postalCodes: ['47170']
+        },
+        สว่างแดนดิน: {
+            subDistrict: [
+                'สว่างแดนดิน',
+                'คำสะอาด',
+                'บ้านต้าย',
+                'บงเหนือ',
+                'โพนสูง',
+                'โคกสี',
+                'หนองหลวง',
+                'บงใต้',
+                'ค้อใต้',
+                'พันนา',
+                'แวง',
+                'ทรายมูล',
+                'ตาลโกน',
+                'ตาลเนิ้ง',
+                'ธาตุทอง',
+                'บ้านถ่อน'
+            ],
+            postalCodes: ['47110', '47240']
+        },
+        ส่องดาว: {
+            subDistrict: ['ส่องดาว', 'ท่าศิลา', 'วัฒนา', 'ปทุมวาปี'],
+            postalCodes: ['47190']
+        },
+        เต่างอย: {
+            subDistrict: ['เต่างอย', 'บึงทวาย', 'นาตาล', 'จันทร์เพ็ญ'],
+            postalCodes: ['47260']
+        },
+        โคกศรีสุพรรณ: {
+            subDistrict: ['ตองโขบ', 'เหล่าโพนค้อ', 'ด่านม่วงคำ', 'แมดนาท่ม'],
+            postalCodes: ['47280']
+        },
+        เจริญศิลป์: {
+            subDistrict: [
+                'บ้านเหล่า',
+                'เจริญศิลป์',
+                'ทุ่งแก',
+                'โคกศิลา',
+                'หนองแปน'
+            ],
+            postalCodes: ['47290']
+        },
+        โพนนาแก้ว: {
+            subDistrict: [
+                'บ้านโพน',
+                'นาแก้ว',
+                'นาตงวัฒนา',
+                'บ้านแป้น',
+                'เชียงสือ'
+            ],
+            postalCodes: ['47230']
+        },
+        ภูพาน: {
+            subDistrict: ['สร้างค้อ', 'หลุบเลา', 'โคกภู', 'กกปลาซิว'],
+            postalCodes: ['47180']
+        }
+    },
+    นครพนม: {
+        เมืองนครพนม: {
+            subDistrict: [
+                'ในเมือง',
+                'หนองแสง',
+                'นาทราย',
+                'นาราชควาย',
+                'กุรุคุ',
+                'บ้านผึ้ง',
+                'อาจสามารถ',
+                'ขามเฒ่า',
+                'บ้านกลาง',
+                'ท่าค้อ',
+                'คำเตย',
+                'หนองญาติ',
+                'ดงขวาง',
+                'วังตามัว',
+                'โพธิ์ตาก'
+            ],
+            postalCodes: ['48000']
+        },
+        ปลาปาก: {
+            subDistrict: [
+                'ปลาปาก',
+                'หนองฮี',
+                'กุตาไก้',
+                'โคกสว่าง',
+                'โคกสูง',
+                'มหาชัย',
+                'นามะเขือ',
+                'หนองเทาใหญ่'
+            ],
+            postalCodes: ['48160']
+        },
+        ท่าอุเทน: {
+            subDistrict: [
+                'ท่าอุเทน',
+                'โนนตาล',
+                'ท่าจำปา',
+                'ไชยบุรี',
+                'พนอม',
+                'พะทาย',
+                'เวินพระบาท',
+                'รามราช',
+                'หนองเทา'
+            ],
+            postalCodes: ['48120']
+        },
+        บ้านแพง: {
+            subDistrict: [
+                'บ้านแพง',
+                'ไผ่ล้อม',
+                'โพนทอง',
+                'หนองแวง',
+                'นางัว',
+                'นาเข'
+            ],
+            postalCodes: ['48140']
+        },
+        ธาตุพนม: {
+            subDistrict: [
+                'ธาตุพนม',
+                'ฝั่งแดง',
+                'โพนแพง',
+                'พระกลางทุ่ง',
+                'นาถ่อน',
+                'แสนพัน',
+                'ดอนนางหงส์',
+                'น้ำก่ำ',
+                'อุ่มเหม้า',
+                'นาหนาด',
+                'กุดฉิม',
+                'ธาตุพนมเหนือ'
+            ],
+            postalCodes: ['48110']
+        },
+        เรณูนคร: {
+            subDistrict: [
+                'เรณู',
+                'โพนทอง',
+                'ท่าลาด',
+                'นางาม',
+                'โคกหินแฮ่',
+                'หนองย่างชิ้น',
+                'เรณูใต้',
+                'นาขาม'
+            ],
+            postalCodes: ['48170']
+        },
+        นาแก: {
+            subDistrict: [
+                'นาแก',
+                'พระซอง',
+                'หนองสังข์',
+                'นาคู่',
+                'พิมาน',
+                'พุ่มแก',
+                'ก้านเหลือง',
+                'หนองบ่อ',
+                'นาเลียง',
+                'บ้านแก้ง',
+                'คำพี้',
+                'สีชมพู'
+            ],
+            postalCodes: ['48130']
+        },
+        ศรีสงคราม: {
+            subDistrict: [
+                'ศรีสงคราม',
+                'นาเดื่อ',
+                'บ้านเอื้อง',
+                'สามผง',
+                'ท่าบ่อสงคราม',
+                'บ้านข่า',
+                'นาคำ',
+                'โพนสว่าง',
+                'หาดแพง'
+            ],
+            postalCodes: ['48150']
+        },
+        นาหว้า: {
+            subDistrict: [
+                'นาหว้า',
+                'นางัว',
+                'บ้านเสียว',
+                'นาคูณใหญ่',
+                'เหล่าพัฒนา',
+                'ท่าเรือ'
+            ],
+            postalCodes: ['48180']
+        },
+        โพนสวรรค์: {
+            subDistrict: [
+                'โพนสวรรค์',
+                'นาหัวบ่อ',
+                'นาขมิ้น',
+                'โพนบก',
+                'บ้านค้อ',
+                'โพนจาน',
+                'นาใน'
+            ],
+            postalCodes: ['48190']
+        },
+        นาทม: {
+            subDistrict: ['นาทม', 'หนองซน', 'ดอนเตย'],
+            postalCodes: ['48140']
+        },
+        วังยาง: {
+            subDistrict: ['วังยาง', 'โคกสี', 'ยอดชาด', 'หนองโพธิ์'],
+            postalCodes: ['48130']
+        }
+    },
+    มุกดาหาร: {
+        เมืองมุกดาหาร: {
+            subDistrict: [
+                'มุกดาหาร',
+                'ศรีบุญเรือง',
+                'บ้านโคก',
+                'บางทรายใหญ่',
+                'โพนทราย',
+                'ผึ่งแดด',
+                'นาโสก',
+                'นาสีนวน',
+                'คำป่าหลาย',
+                'คำอาฮวน',
+                'ดงเย็น',
+                'ดงมอน',
+                'กุดแข้'
+            ],
+            postalCodes: ['49000']
+        },
+        นิคมคำสร้อย: {
+            subDistrict: [
+                'นิคมคำสร้อย',
+                'นากอก',
+                'หนองแวง',
+                'กกแดง',
+                'นาอุดม',
+                'โชคชัย',
+                'ร่มเกล้า'
+            ],
+            postalCodes: ['49130']
+        },
+        ดอนตาล: {
+            subDistrict: [
+                'ดอนตาล',
+                'โพธิ์ไทร',
+                'ป่าไร่',
+                'เหล่าหมี',
+                'บ้านบาก',
+                'นาสะเม็ง',
+                'บ้านแก้ง'
+            ],
+            postalCodes: ['49120']
+        },
+        ดงหลวง: {
+            subDistrict: [
+                'ดงหลวง',
+                'หนองบัว',
+                'กกตูม',
+                'หนองแคน',
+                'ชะโนดน้อย',
+                'พังแดง'
+            ],
+            postalCodes: ['49140']
+        },
+        คำชะอี: {
+            subDistrict: [
+                'บ้านซ่ง',
+                'คำชะอี',
+                'หนองเอี่ยน',
+                'บ้านค้อ',
+                'บ้านเหล่า',
+                'โพนงาม',
+                'เหล่าสร้างถ่อ',
+                'คำบก',
+                'น้ำเที่ยง'
+            ],
+            postalCodes: ['49110']
+        },
+        หว้านใหญ่: {
+            subDistrict: [
+                'หว้านใหญ่',
+                'ป่งขาม',
+                'บางทรายน้อย',
+                'ชะโนด',
+                'ดงหมู'
+            ],
+            postalCodes: ['49150']
+        },
+        หนองสูง: {
+            subDistrict: [
+                'หนองสูง',
+                'โนนยาง',
+                'ภูวง',
+                'บ้านเป้า',
+                'หนองสูงใต้',
+                'หนองสูงเหนือ'
+            ],
+            postalCodes: ['49160']
+        }
+    },
+    เชียงใหม่: {
+        เมืองเชียงใหม่: {
+            subDistrict: [
+                'ศรีภูมิ',
+                'พระสิงห์',
+                'หายยา',
+                'ช้างม่อย',
+                'ช้างคลาน',
+                'วัดเกต',
+                'ช้างเผือก',
+                'สุเทพ',
+                'แม่เหียะ',
+                'ป่าแดด',
+                'หนองหอย',
+                'ท่าศาลา',
+                'หนองป่าครั่ง',
+                'ฟ้าฮ่าม',
+                'ป่าตัน',
+                'สันผีเสื้อ'
+            ],
+            postalCodes: ['50200', '50100', '50300', '50000']
+        },
+        จอมทอง: {
+            subDistrict: [
+                'บ้านหลวง',
+                'ข่วงเปา',
+                'สบเตี๊ยะ',
+                'บ้านแปะ',
+                'ดอยแก้ว',
+                'แม่สอย'
+            ],
+            postalCodes: ['50160', '50240']
+        },
+        แม่แจ่ม: {
+            subDistrict: [
+                'ช่างเคิ่ง',
+                'ท่าผา',
+                'บ้านทับ',
+                'แม่ศึก',
+                'แม่นาจร',
+                'ปางหินฝน',
+                'กองแขก'
+            ],
+            postalCodes: ['50270']
+        },
+        เชียงดาว: {
+            subDistrict: [
+                'เชียงดาว',
+                'เมืองนะ',
+                'เมืองงาย',
+                'แม่นะ',
+                'เมืองคอง',
+                'ปิงโค้ง',
+                'ทุ่งข้าวพวง'
+            ],
+            postalCodes: ['50170']
+        },
+        ดอยสะเก็ด: {
+            subDistrict: [
+                'เชิงดอย',
+                'สันปูเลย',
+                'ลวงเหนือ',
+                'ป่าป้อง',
+                'สง่าบ้าน',
+                'ป่าลาน',
+                'ตลาดขวัญ',
+                'สำราญราษฎร์',
+                'แม่คือ',
+                'ตลาดใหญ่',
+                'แม่ฮ้อยเงิน',
+                'แม่โป่ง',
+                'ป่าเมี่ยง',
+                'เทพเสด็จ'
+            ],
+            postalCodes: ['50220']
+        },
+        แม่แตง: {
+            subDistrict: [
+                'สันมหาพน',
+                'แม่แตง',
+                'ขี้เหล็ก',
+                'ช่อแล',
+                'แม่หอพระ',
+                'สบเปิง',
+                'บ้านเป้า',
+                'สันป่ายาง',
+                'ป่าแป๋',
+                'เมืองก๋าย',
+                'บ้านช้าง',
+                'กื้ดช้าง',
+                'อินทขิล'
+            ],
+            postalCodes: ['50150', '50330']
+        },
+        แม่ริม: {
+            subDistrict: [
+                'ริมใต้',
+                'ริมเหนือ',
+                'สันโป่ง',
+                'ขี้เหล็ก',
+                'สะลวง',
+                'ห้วยทราย',
+                'แม่แรม',
+                'โป่งแยง',
+                'แม่สา',
+                'ดอนแก้ว',
+                'เหมืองแก้ว'
+            ],
+            postalCodes: ['50180', '50330']
+        },
+        สะเมิง: {
+            subDistrict: [
+                'สะเมิงใต้',
+                'สะเมิงเหนือ',
+                'แม่สาบ',
+                'บ่อแก้ว',
+                'ยั้งเมิน'
+            ],
+            postalCodes: ['50250']
+        },
+        ฝาง: {
+            subDistrict: [
+                'เวียง',
+                'ม่อนปิ่น',
+                'แม่งอน',
+                'แม่สูน',
+                'สันทราย',
+                'แม่คะ',
+                'แม่ข่า',
+                'โป่งน้ำร้อน'
+            ],
+            postalCodes: ['50110', '50320']
+        },
+        แม่อาย: {
+            subDistrict: [
+                'แม่อาย',
+                'แม่สาว',
+                'สันต้นหมื้อ',
+                'แม่นาวาง',
+                'ท่าตอน',
+                'บ้านหลวง',
+                'มะลิกา'
+            ],
+            postalCodes: ['50280']
+        },
+        พร้าว: {
+            subDistrict: [
+                'เวียง',
+                'ทุ่งหลวง',
+                'ป่าตุ้ม',
+                'ป่าไหน่',
+                'สันทราย',
+                'บ้านโป่ง',
+                'น้ำแพร่',
+                'เขื่อนผาก',
+                'แม่แวน',
+                'แม่ปั๋ง',
+                'โหล่งขอด'
+            ],
+            postalCodes: ['50190']
+        },
+        สันป่าตอง: {
+            subDistrict: [
+                'ยุหว่า',
+                'สันกลาง',
+                'ท่าวังพร้าว',
+                'มะขามหลวง',
+                'แม่ก๊า',
+                'บ้านแม',
+                'บ้านกลาง',
+                'ทุ่งสะโตก',
+                'ทุ่งต้อม',
+                'น้ำบ่อหลวง',
+                'มะขุนหวาน'
+            ],
+            postalCodes: ['50120']
+        },
+        สันกำแพง: {
+            subDistrict: [
+                'สันกำแพง',
+                'ทรายมูล',
+                'ร้องวัวแดง',
+                'บวกค้าง',
+                'แช่ช้าง',
+                'ออนใต้',
+                'แม่ปูคา',
+                'ห้วยทราย',
+                'ต้นเปา',
+                'สันกลาง'
+            ],
+            postalCodes: ['50130']
+        },
+        สันทราย: {
+            subDistrict: [
+                'สันทรายหลวง',
+                'สันทรายน้อย',
+                'สันพระเนตร',
+                'สันนาเม็ง',
+                'สันป่าเปา',
+                'หนองแหย่ง',
+                'หนองจ๊อม',
+                'หนองหาร',
+                'แม่แฝก',
+                'แม่แฝกใหม่',
+                'เมืองเล็น',
+                'ป่าไผ่'
+            ],
+            postalCodes: ['50210', '50290']
+        },
+        หางดง: {
+            subDistrict: [
+                'หางดง',
+                'หนองแก๋ว',
+                'หารแก้ว',
+                'หนองตอง',
+                'ขุนคง',
+                'สบแม่ข่า',
+                'บ้านแหวน',
+                'สันผักหวาน',
+                'หนองควาย',
+                'บ้านปง',
+                'น้ำแพร่'
+            ],
+            postalCodes: ['50230', '50340']
+        },
+        ฮอด: {
+            subDistrict: [
+                'หางดง',
+                'ฮอด',
+                'บ้านตาล',
+                'บ่อหลวง',
+                'บ่อสลี',
+                'นาคอเรือ'
+            ],
+            postalCodes: ['50240']
+        },
+        ดอยเต่า: {
+            subDistrict: [
+                'ดอยเต่า',
+                'ท่าเดื่อ',
+                'มืดกา',
+                'บ้านแอ่น',
+                'บงตัน',
+                'โปงทุ่ง'
+            ],
+            postalCodes: ['50260']
+        },
+        อมก๋อย: {
+            subDistrict: [
+                'อมก๋อย',
+                'ยางเปียง',
+                'แม่ตื่น',
+                'ม่อนจอง',
+                'สบโขง',
+                'นาเกียน'
+            ],
+            postalCodes: ['50310']
+        },
+        สารภี: {
+            subDistrict: [
+                'ยางเนิ้ง',
+                'สารภี',
+                'ชมภู',
+                'ไชยสถาน',
+                'ขัวมุง',
+                'หนองแฝก',
+                'หนองผึ้ง',
+                'ท่ากว้าง',
+                'ดอนแก้ว',
+                'ท่าวังตาล',
+                'สันทราย',
+                'ป่าบง'
+            ],
+            postalCodes: ['50140']
+        },
+        เวียงแหง: {
+            subDistrict: ['เมืองแหง', 'เปียงหลวง', 'แสนไห'],
+            postalCodes: ['50350']
+        },
+        ไชยปราการ: {
+            subDistrict: ['ปงตำ', 'ศรีดงเย็น', 'แม่ทะลบ', 'หนองบัว'],
+            postalCodes: ['50320']
+        },
+        แม่วาง: {
+            subDistrict: [
+                'บ้านกาด',
+                'ทุ่งปี๊',
+                'ทุ่งรวงทอง',
+                'แม่วิน',
+                'ดอนเปา'
+            ],
+            postalCodes: ['50360']
+        },
+        แม่ออน: {
+            subDistrict: [
+                'ออนเหนือ',
+                'ออนกลาง',
+                'บ้านสหกรณ์',
+                'ห้วยแก้ว',
+                'แม่ทา',
+                'ทาเหนือ'
+            ],
+            postalCodes: ['50130']
+        },
+        ดอยหล่อ: {
+            subDistrict: ['ดอยหล่อ', 'สองแคว', 'ยางคราม', 'สันติสุข'],
+            postalCodes: ['50160']
+        },
+        กัลยาณิวัฒนา: {
+            subDistrict: ['บ้านจันทร์', 'แม่แดด', 'แจ่มหลวง'],
+            postalCodes: ['58130']
+        }
+    },
+    ลำพูน: {
+        เมืองลำพูน: {
+            subDistrict: [
+                'ในเมือง',
+                'เหมืองง่า',
+                'อุโมงค์',
+                'หนองช้างคืน',
+                'ประตูป่า',
+                'ริมปิง',
+                'ต้นธง',
+                'บ้านแป้น',
+                'เหมืองจี้',
+                'ป่าสัก',
+                'เวียงยอง',
+                'บ้านกลาง',
+                'มะเขือแจ้',
+                'ศรีบัวบาน',
+                'หนองหนาม'
+            ],
+            postalCodes: ['51000', '51150']
+        },
+        แม่ทา: {
+            subDistrict: [
+                'ทาปลาดุก',
+                'ทาสบเส้า',
+                'ทากาศ',
+                'ทาขุมเงิน',
+                'ทาทุ่งหลวง',
+                'ทาแม่ลอบ'
+            ],
+            postalCodes: ['51140', '51170']
+        },
+        บ้านโฮ่ง: {
+            subDistrict: [
+                'บ้านโฮ่ง',
+                'ป่าพลู',
+                'เหล่ายาว',
+                'ศรีเตี้ย',
+                'หนองปลาสะวาย'
+            ],
+            postalCodes: ['51130']
+        },
+        ลี้: {
+            subDistrict: [
+                'ลี้',
+                'แม่ตืน',
+                'นาทราย',
+                'ดงดำ',
+                'ก้อ',
+                'แม่ลาน',
+                'ป่าไผ่',
+                'ศรีวิชัย'
+            ],
+            postalCodes: ['51110']
+        },
+        ทุ่งหัวช้าง: {
+            subDistrict: ['ทุ่งหัวช้าง', 'บ้านปวง', 'ตะเคียนปม'],
+            postalCodes: ['51160']
+        },
+        ป่าซาง: {
+            subDistrict: [
+                'ปากบ่อง',
+                'ป่าซาง',
+                'แม่แรง',
+                'ม่วงน้อย',
+                'บ้านเรือน',
+                'มะกอก',
+                'ท่าตุ้ม',
+                'น้ำดิบ',
+                'นครเจดีย์'
+            ],
+            postalCodes: ['51120']
+        },
+        บ้านธิ: {
+            subDistrict: ['บ้านธิ', 'ห้วยยาบ'],
+            postalCodes: ['51180']
+        },
+        เวียงหนองล่อง: {
+            subDistrict: ['หนองล่อง', 'หนองยวง', 'วังผาง'],
+            postalCodes: ['51120']
+        }
+    },
+    ลำปาง: {
+        เมืองลำปาง: {
+            subDistrict: [
+                'เวียงเหนือ',
+                'หัวเวียง',
+                'สวนดอก',
+                'สบตุ๋ย',
+                'พระบาท',
+                'ชมพู',
+                'กล้วยแพะ',
+                'ปงแสนทอง',
+                'บ้านแลง',
+                'บ้านเสด็จ',
+                'พิชัย',
+                'ทุ่งฝาย',
+                'บ้านเอื้อม',
+                'บ้านเป้า',
+                'บ้านค่า',
+                'บ่อแฮ้ว',
+                'ต้นธงชัย',
+                'นิคมพัฒนา',
+                'บุญนาคพัฒนา'
+            ],
+            postalCodes: ['52000', '52100']
+        },
+        แม่เมาะ: {
+            subDistrict: ['บ้านดง', 'นาสัก', 'จางเหนือ', 'แม่เมาะ', 'สบป้าด'],
+            postalCodes: ['52220']
+        },
+        เกาะคา: {
+            subDistrict: [
+                'ลำปางหลวง',
+                'นาแก้ว',
+                'ไหล่หิน',
+                'วังพร้าว',
+                'ศาลา',
+                'เกาะคา',
+                'นาแส่ง',
+                'ท่าผา',
+                'ใหม่พัฒนา'
+            ],
+            postalCodes: ['52130']
+        },
+        เสริมงาม: {
+            subDistrict: ['ทุ่งงาม', 'เสริมขวา', 'เสริมซ้าย', 'เสริมกลาง'],
+            postalCodes: ['52210']
+        },
+        งาว: {
+            subDistrict: [
+                'หลวงเหนือ',
+                'หลวงใต้',
+                'บ้านโป่ง',
+                'บ้านร้อง',
+                'ปงเตา',
+                'นาแก',
+                'บ้านอ้อน',
+                'บ้านแหง',
+                'บ้านหวด',
+                'แม่ตีบ'
+            ],
+            postalCodes: ['52110']
+        },
+        แจ้ห่ม: {
+            subDistrict: [
+                'แจ้ห่ม',
+                'บ้านสา',
+                'ปงดอน',
+                'แม่สุก',
+                'เมืองมาย',
+                'ทุ่งผึ้ง',
+                'วิเชตนคร'
+            ],
+            postalCodes: ['52120']
+        },
+        วังเหนือ: {
+            subDistrict: [
+                'ทุ่งฮั้ว',
+                'วังเหนือ',
+                'วังใต้',
+                'ร่องเคาะ',
+                'วังทอง',
+                'วังซ้าย',
+                'วังแก้ว',
+                'วังทรายคำ'
+            ],
+            postalCodes: ['52140']
+        },
+        เถิน: {
+            subDistrict: [
+                'ล้อมแรด',
+                'แม่วะ',
+                'แม่ปะ',
+                'แม่มอก',
+                'เวียงมอก',
+                'นาโป่ง',
+                'แม่ถอด',
+                'เถินบุรี'
+            ],
+            postalCodes: ['52160', '52230']
+        },
+        แม่พริก: {
+            subDistrict: ['แม่พริก', 'ผาปัง', 'แม่ปุ', 'พระบาทวังตวง'],
+            postalCodes: ['52180', '52230']
+        },
+        แม่ทะ: {
+            subDistrict: [
+                'แม่ทะ',
+                'นาครัว',
+                'ป่าตัน',
+                'บ้านกิ่ว',
+                'บ้านบอม',
+                'น้ำโจ้',
+                'ดอนไฟ',
+                'หัวเสือ',
+                'วังเงิน',
+                'สันดอนแก้ว'
+            ],
+            postalCodes: ['52150']
+        },
+        สบปราบ: {
+            subDistrict: ['สบปราบ', 'สมัย', 'แม่กัวะ', 'นายาง'],
+            postalCodes: ['52170']
+        },
+        ห้างฉัตร: {
+            subDistrict: [
+                'ห้างฉัตร',
+                'หนองหล่ม',
+                'เมืองยาว',
+                'ปงยางคก',
+                'เวียงตาล',
+                'แม่สัน',
+                'วอแก้ว'
+            ],
+            postalCodes: ['52190']
+        },
+        เมืองปาน: {
+            subDistrict: [
+                'เมืองปาน',
+                'บ้านขอ',
+                'ทุ่งกว๋าว',
+                'แจ้ซ้อน',
+                'หัวเมือง'
+            ],
+            postalCodes: ['52240']
+        }
+    },
+    อุตรดิตถ์: {
+        เมืองอุตรดิตถ์: {
+            subDistrict: [
+                'ท่าอิฐ',
+                'ท่าเสา',
+                'บ้านเกาะ',
+                'ป่าเซ่า',
+                'คุ้งตะเภา',
+                'วังกะพี้',
+                'หาดกรวด',
+                'น้ำริด',
+                'งิ้วงาม',
+                'บ้านด่านนาขาม',
+                'บ้านด่าน',
+                'ผาจุก',
+                'วังดิน',
+                'แสนตอ',
+                'หาดงิ้ว',
+                'ขุนฝาง',
+                'ถ้ำฉลอง'
+            ],
+            postalCodes: ['53000', '53170']
+        },
+        ตรอน: {
+            subDistrict: [
+                'วังแดง',
+                'บ้านแก่ง',
+                'หาดสองแคว',
+                'น้ำอ่าง',
+                'ข่อยสูง'
+            ],
+            postalCodes: ['53140']
+        },
+        ท่าปลา: {
+            subDistrict: [
+                'ท่าปลา',
+                'หาดล้า',
+                'ผาเลือด',
+                'จริม',
+                'น้ำหมัน',
+                'นางพญา',
+                'ร่วมจิต'
+            ],
+            postalCodes: ['53150', '53190']
+        },
+        น้ำปาด: {
+            subDistrict: [
+                'แสนตอ',
+                'บ้านฝาย',
+                'เด่นเหล็ก',
+                'น้ำไคร้',
+                'น้ำไผ่',
+                'ห้วยมุ่น',
+                'ท่าแฝก'
+            ],
+            postalCodes: ['53110']
+        },
+        ฟากท่า: {
+            subDistrict: ['ฟากท่า', 'สองคอน', 'บ้านเสี้ยว', 'สองห้อง'],
+            postalCodes: ['53160']
+        },
+        บ้านโคก: {
+            subDistrict: ['ม่วงเจ็ดต้น', 'บ้านโคก', 'นาขุม', 'บ่อเบี้ย'],
+            postalCodes: ['53180']
+        },
+        พิชัย: {
+            subDistrict: [
+                'ในเมือง',
+                'บ้านดารา',
+                'ไร่อ้อย',
+                'ท่าสัก',
+                'คอรุม',
+                'บ้านหม้อ',
+                'ท่ามะเฟือง',
+                'บ้านโคน',
+                'พญาแมน',
+                'นาอิน',
+                'นายาง'
+            ],
+            postalCodes: ['53120', '53220']
+        },
+        ลับแล: {
+            subDistrict: [
+                'ศรีพนมมาศ',
+                'แม่พูล',
+                'นานกกก',
+                'ฝายหลวง',
+                'ชัยจุมพล',
+                'ไผ่ล้อม',
+                'ทุ่งยั้ง',
+                'ด่านแม่คำมัน'
+            ],
+            postalCodes: ['53130', '53210']
+        },
+        ทองแสนขัน: {
+            subDistrict: ['ผักขวง', 'บ่อทอง', 'ป่าคาย', 'น้ำพี้'],
+            postalCodes: ['53230']
+        }
+    },
+    แพร่: {
+        เมืองแพร่: {
+            subDistrict: [
+                'ในเวียง',
+                'นาจักร',
+                'น้ำชำ',
+                'ป่าแดง',
+                'ทุ่งโฮ้ง',
+                'เหมืองหม้อ',
+                'วังธง',
+                'แม่หล่าย',
+                'ห้วยม้า',
+                'ป่าแมต',
+                'บ้านถิ่น',
+                'สวนเขื่อน',
+                'วังหงส์',
+                'แม่คำมี',
+                'ทุ่งกวาว',
+                'ท่าข้าม',
+                'แม่ยม',
+                'ช่อแฮ',
+                'ร่องฟอง',
+                'กาญจนา'
+            ],
+            postalCodes: ['54000']
+        },
+        ร้องกวาง: {
+            subDistrict: [
+                'ร้องกวาง',
+                'ร้องเข็ม',
+                'น้ำเลา',
+                'บ้านเวียง',
+                'ทุ่งศรี',
+                'แม่ยางตาล',
+                'แม่ยางฮ่อ',
+                'ไผ่โทน',
+                'ห้วยโรง',
+                'แม่ทราย',
+                'แม่ยางร้อง'
+            ],
+            postalCodes: ['54140']
+        },
+        ลอง: {
+            subDistrict: [
+                'ห้วยอ้อ',
+                'บ้านปิน',
+                'ต้าผามอก',
+                'เวียงต้า',
+                'ปากกาง',
+                'หัวทุ่ง',
+                'ทุ่งแล้ง',
+                'บ่อเหล็กลอง',
+                'แม่ปาน'
+            ],
+            postalCodes: ['54150']
+        },
+        สูงเม่น: {
+            subDistrict: [
+                'สูงเม่น',
+                'น้ำชำ',
+                'หัวฝาย',
+                'ดอนมูล',
+                'บ้านเหล่า',
+                'บ้านกวาง',
+                'บ้านปง',
+                'บ้านกาศ',
+                'ร่องกาศ',
+                'สบสาย',
+                'เวียงทอง',
+                'พระหลวง'
+            ],
+            postalCodes: ['54130', '54000']
+        },
+        เด่นชัย: {
+            subDistrict: [
+                'เด่นชัย',
+                'แม่จั๊วะ',
+                'ไทรย้อย',
+                'ห้วยไร่',
+                'ปงป่าหวาย'
+            ],
+            postalCodes: ['54110']
+        },
+        สอง: {
+            subDistrict: [
+                'บ้านหนุน',
+                'บ้านกลาง',
+                'ห้วยหม้าย',
+                'เตาปูน',
+                'หัวเมือง',
+                'สะเอียบ',
+                'แดนชุมพล',
+                'ทุ่งน้าว'
+            ],
+            postalCodes: ['54120']
+        },
+        วังชิ้น: {
+            subDistrict: [
+                'วังชิ้น',
+                'สรอย',
+                'แม่ป้าก',
+                'นาพูน',
+                'แม่พุง',
+                'ป่าสัก',
+                'แม่เกิ๋ง'
+            ],
+            postalCodes: ['54160']
+        },
+        หนองม่วงไข่: {
+            subDistrict: [
+                'แม่คำมี',
+                'หนองม่วงไข่',
+                'น้ำรัด',
+                'วังหลวง',
+                'ตำหนักธรรม',
+                'ทุ่งแค้ว'
+            ],
+            postalCodes: ['54170']
+        }
+    },
+    น่าน: {
+        เมืองน่าน: {
+            subDistrict: [
+                'ในเวียง',
+                'บ่อ',
+                'ผาสิงห์',
+                'ไชยสถาน',
+                'ถืมตอง',
+                'เรือง',
+                'นาซาว',
+                'ดู่ใต้',
+                'กองควาย',
+                'บ่อสวก',
+                'สะเนียน'
+            ],
+            postalCodes: ['55000']
+        },
+        แม่จริม: {
+            subDistrict: ['หนองแดง', 'หมอเมือง', 'น้ำพาง', 'น้ำปาย', 'แม่จริม'],
+            postalCodes: ['55170']
+        },
+        บ้านหลวง: {
+            subDistrict: ['บ้านฟ้า', 'ป่าคาหลวง', 'สวด', 'บ้านพี้'],
+            postalCodes: ['55190']
+        },
+        นาน้อย: {
+            subDistrict: [
+                'นาน้อย',
+                'เชียงของ',
+                'ศรีษะเกษ',
+                'สถาน',
+                'สันทะ',
+                'บัวใหญ่',
+                'น้ำตก'
+            ],
+            postalCodes: ['55150']
+        },
+        ปัว: {
+            subDistrict: [
+                'ปัว',
+                'แงง',
+                'สถาน',
+                'ศิลาแลง',
+                'ศิลาเพชร',
+                'อวน',
+                'ไชยวัฒนา',
+                'เจดีย์ชัย',
+                'ภูคา',
+                'สกาด',
+                'ป่ากลาง',
+                'วรนคร'
+            ],
+            postalCodes: ['55120']
+        },
+        ท่าวังผา: {
+            subDistrict: [
+                'ริม',
+                'ป่าคา',
+                'ผาตอ',
+                'ยม',
+                'ตาลชุม',
+                'ศรีภูมิ',
+                'จอมพระ',
+                'แสนทอง',
+                'ท่าวังผา',
+                'ผาทอง'
+            ],
+            postalCodes: ['55140']
+        },
+        เวียงสา: {
+            subDistrict: [
+                'กลางเวียง',
+                'ขึ่ง',
+                'ไหล่น่าน',
+                'ตาลชุม',
+                'นาเหลือง',
+                'ส้าน',
+                'น้ำมวบ',
+                'น้ำปั้ว',
+                'ยาบหัวนา',
+                'ปงสนุก',
+                'อ่ายนาไลย',
+                'ส้านนาหนองใหม่',
+                'แม่ขะนิง',
+                'แม่สาคร',
+                'จอมจันทร์',
+                'แม่สา',
+                'ทุ่งศรีทอง'
+            ],
+            postalCodes: ['55110']
+        },
+        ทุ่งช้าง: {
+            subDistrict: ['ปอน', 'งอบ', 'และ', 'ทุ่งช้าง'],
+            postalCodes: ['55130']
+        },
+        เชียงกลาง: {
+            subDistrict: [
+                'เชียงกลาง',
+                'เปือ',
+                'เชียงคาน',
+                'พระธาตุ',
+                'พญาแก้ว',
+                'พระพุทธบาท'
+            ],
+            postalCodes: ['55160']
+        },
+        นาหมื่น: {
+            subDistrict: ['นาทะนุง', 'บ่อแก้ว', 'เมืองลี', 'ปิงหลวง'],
+            postalCodes: ['55180']
+        },
+        สันติสุข: {
+            subDistrict: ['ดู่พงษ์', 'ป่าแลวหลวง', 'พงษ์'],
+            postalCodes: ['55210']
+        },
+        บ่อเกลือ: {
+            subDistrict: ['บ่อเกลือเหนือ', 'บ่อเกลือใต้', 'ภูฟ้า', 'ดงพญา'],
+            postalCodes: ['55220']
+        },
+        สองแคว: {
+            subDistrict: ['นาไร่หลวง', 'ชนแดน', 'ยอด'],
+            postalCodes: ['55160']
+        },
+        ภูเพียง: {
+            subDistrict: [
+                'ม่วงตึ๊ด',
+                'นาปัง',
+                'น้ำแก่น',
+                'น้ำเกี๋ยน',
+                'เมืองจัง',
+                'ท่าน้าว',
+                'ฝายแก้ว'
+            ],
+            postalCodes: ['55000']
+        },
+        เฉลิมพระเกียรติ: {
+            subDistrict: ['ห้วยโก๋น', 'ขุนน่าน'],
+            postalCodes: ['55130', '55220']
+        }
+    },
+    พะเยา: {
+        เมืองพะเยา: {
+            subDistrict: [
+                'เวียง',
+                'แม่ต๋ำ',
+                'แม่นาเรือ',
+                'บ้านตุ่น',
+                'บ้านต๊ำ',
+                'บ้านต๋อม',
+                'แม่ปืม',
+                'แม่กา',
+                'บ้านใหม่',
+                'จำป่าหวาย',
+                'ท่าวังทอง',
+                'แม่ใส',
+                'บ้านสาง',
+                'ท่าจำปี',
+                'สันป่าม่วง'
+            ],
+            postalCodes: ['56000']
+        },
+        จุน: {
+            subDistrict: [
+                'ห้วยข้าวก่ำ',
+                'จุน',
+                'ลอ',
+                'หงส์หิน',
+                'ทุ่งรวงทอง',
+                'ห้วยยางขาม',
+                'พระธาตุขิงแกง'
+            ],
+            postalCodes: ['56150']
+        },
+        เชียงคำ: {
+            subDistrict: [
+                'หย่วน',
+                'น้ำแวน',
+                'เวียง',
+                'ฝายกวาง',
+                'เจดีย์คำ',
+                'ร่มเย็น',
+                'เชียงบาน',
+                'แม่ลาว',
+                'อ่างทอง',
+                'ทุ่งผาสุข'
+            ],
+            postalCodes: ['56110']
+        },
+        เชียงม่วน: {
+            subDistrict: ['เชียงม่วน', 'บ้านมาง', 'สระ'],
+            postalCodes: ['56160']
+        },
+        ดอกคำใต้: {
+            subDistrict: [
+                'ดอกคำใต้',
+                'ดอนศรีชุม',
+                'บ้านถ้ำ',
+                'บ้านปิน',
+                'ห้วยลาน',
+                'สันโค้ง',
+                'ป่าซาง',
+                'หนองหล่ม',
+                'ดงสุวรรณ',
+                'บุญเกิด',
+                'สว่างอารมณ์',
+                'คือเวียง'
+            ],
+            postalCodes: ['56120']
+        },
+        ปง: {
+            subDistrict: [
+                'ปง',
+                'ควร',
+                'ออย',
+                'งิม',
+                'ผาช้างน้อย',
+                'นาปรัง',
+                'ขุนควร'
+            ],
+            postalCodes: ['56140']
+        },
+        แม่ใจ: {
+            subDistrict: [
+                'แม่ใจ',
+                'ศรีถ้อย',
+                'แม่สุก',
+                'ป่าแฝก',
+                'บ้านเหล่า',
+                'เจริญราษฎร์'
+            ],
+            postalCodes: ['56130']
+        },
+        ภูซาง: {
+            subDistrict: ['ภูซาง', 'ป่าสัก', 'ทุ่งกล้วย', 'เชียงแรง', 'สบบง'],
+            postalCodes: ['56110']
+        },
+        ภูกามยาว: {
+            subDistrict: ['ห้วยแก้ว', 'ดงเจน', 'แม่อิง'],
+            postalCodes: ['56000']
+        }
+    },
+    เชียงราย: {
+        เมืองเชียงราย: {
+            subDistrict: [
+                'เวียง',
+                'รอบเวียง',
+                'บ้านดู่',
+                'นางแล',
+                'แม่ข้าวต้ม',
+                'แม่ยาว',
+                'สันทราย',
+                'แม่กรณ์',
+                'ห้วยชมภู',
+                'ห้วยสัก',
+                'ริมกก',
+                'ดอยลาน',
+                'ป่าอ้อดอนชัย',
+                'ท่าสาย',
+                'ดอยฮาง',
+                'ท่าสุด'
+            ],
+            postalCodes: ['57000', '57100']
+        },
+        เวียงชัย: {
+            subDistrict: [
+                'เวียงชัย',
+                'ผางาม',
+                'เวียงเหนือ',
+                'ดอนศิลา',
+                'เมืองชุม'
+            ],
+            postalCodes: ['57210']
+        },
+        เชียงของ: {
+            subDistrict: [
+                'เวียง',
+                'สถาน',
+                'ครึ่ง',
+                'บุญเรือง',
+                'ห้วยซ้อ',
+                'ศรีดอนชัย',
+                'ริมโขง'
+            ],
+            postalCodes: ['57140']
+        },
+        เทิง: {
+            subDistrict: [
+                'เวียง',
+                'งิ้ว',
+                'ปล้อง',
+                'แม่ลอย',
+                'เชียงเคี่ยน',
+                'ตับเต่า',
+                'หงาว',
+                'สันทรายงาม',
+                'ศรีดอนไชย',
+                'หนองแรด'
+            ],
+            postalCodes: ['57160', '57230']
+        },
+        พาน: {
+            subDistrict: [
+                'สันมะเค็ด',
+                'แม่อ้อ',
+                'ธารทอง',
+                'สันติสุข',
+                'ดอยงาม',
+                'หัวง้ม',
+                'เจริญเมือง',
+                'ป่าหุ่ง',
+                'ม่วงคำ',
+                'ทรายขาว',
+                'สันกลาง',
+                'แม่เย็น',
+                'เมืองพาน',
+                'ทานตะวัน',
+                'เวียงห้าว'
+            ],
+            postalCodes: ['57120', '57250', '57280']
+        },
+        ป่าแดด: {
+            subDistrict: [
+                'ป่าแดด',
+                'ป่าแงะ',
+                'สันมะค่า',
+                'โรงช้าง',
+                'ศรีโพธิ์เงิน'
+            ],
+            postalCodes: ['57190']
+        },
+        แม่จัน: {
+            subDistrict: [
+                'แม่จัน',
+                'จันจว้า',
+                'แม่คำ',
+                'ป่าซาง',
+                'สันทราย',
+                'ท่าข้าวเปลือก',
+                'ป่าตึง',
+                'แม่ไร่',
+                'ศรีค้ำ',
+                'จันจว้าใต้',
+                'จอมสวรรค์'
+            ],
+            postalCodes: ['57110', '57270', '57240']
+        },
+        เชียงแสน: {
+            subDistrict: [
+                'เวียง',
+                'ป่าสัก',
+                'บ้านแซว',
+                'ศรีดอนมูล',
+                'แม่เงิน',
+                'โยนก'
+            ],
+            postalCodes: ['57150']
+        },
+        แม่สาย: {
+            subDistrict: [
+                'แม่สาย',
+                'ห้วยไคร้',
+                'เกาะช้าง',
+                'โป่งผา',
+                'ศรีเมืองชุม',
+                'เวียงพางคำ',
+                'บ้านด้าย',
+                'โป่งงาม'
+            ],
+            postalCodes: ['57130', '57220']
+        },
+        แม่สรวย: {
+            subDistrict: [
+                'แม่สรวย',
+                'ป่าแดด',
+                'แม่พริก',
+                'ศรีถ้อย',
+                'ท่าก๊อ',
+                'วาวี',
+                'เจดีย์หลวง'
+            ],
+            postalCodes: ['57180']
+        },
+        เวียงป่าเป้า: {
+            subDistrict: [
+                'สันสลี',
+                'เวียง',
+                'บ้านโป่ง',
+                'ป่างิ้ว',
+                'เวียงกาหลง',
+                'แม่เจดีย์',
+                'แม่เจดีย์ใหม่'
+            ],
+            postalCodes: ['57170', '57260']
+        },
+        พญาเม็งราย: {
+            subDistrict: ['แม่เปา', 'แม่ต๋ำ', 'ไม้ยา', 'เม็งราย', 'ตาดควัน'],
+            postalCodes: ['57290']
+        },
+        เวียงแก่น: {
+            subDistrict: ['ม่วงยาย', 'ปอ', 'หล่ายงาว', 'ท่าข้าม'],
+            postalCodes: ['57310']
+        },
+        ขุนตาล: {
+            subDistrict: ['ต้า', 'ป่าตาล', 'ยางฮอม'],
+            postalCodes: ['57340']
+        },
+        แม่ฟ้าหลวง: {
+            subDistrict: ['เทอดไทย', 'แม่สลองใน', 'แม่สลองนอก', 'แม่ฟ้าหลวง'],
+            postalCodes: ['57240', '57110']
+        },
+        แม่ลาว: {
+            subDistrict: [
+                'ดงมะดะ',
+                'จอมหมอกแก้ว',
+                'บัวสลี',
+                'ป่าก่อดำ',
+                'โป่งแพร่'
+            ],
+            postalCodes: ['57250', '57000']
+        },
+        เวียงเชียงรุ้ง: {
+            subDistrict: ['ทุ่งก่อ', 'ดงมหาวัน', 'ป่าซาง'],
+            postalCodes: ['57210']
+        },
+        ดอยหลวง: {
+            subDistrict: ['ปงน้อย', 'โชคชัย', 'หนองป่าก่อ'],
+            postalCodes: ['57110']
+        }
+    },
+    แม่ฮ่องสอน: {
+        เมืองแม่ฮ่องสอน: {
+            subDistrict: [
+                'จองคำ',
+                'ห้วยโป่ง',
+                'ผาบ่อง',
+                'ปางหมู',
+                'หมอกจำแป่',
+                'ห้วยผา',
+                'ห้วยปูลิง'
+            ],
+            postalCodes: ['58000']
+        },
+        ขุนยวม: {
+            subDistrict: [
+                'ขุนยวม',
+                'แม่เงา',
+                'เมืองปอน',
+                'แม่ยวมน้อย',
+                'แม่กิ๊',
+                'แม่อูคอ'
+            ],
+            postalCodes: ['58140']
+        },
+        ปาย: {
+            subDistrict: [
+                'เวียงใต้',
+                'เวียงเหนือ',
+                'แม่นาเติง',
+                'แม่ฮี้',
+                'ทุ่งยาว',
+                'เมืองแปง',
+                'โป่งสา'
+            ],
+            postalCodes: ['58130']
+        },
+        แม่สะเรียง: {
+            subDistrict: [
+                'บ้านกาศ',
+                'แม่สะเรียง',
+                'แม่คง',
+                'แม่เหาะ',
+                'แม่ยวม',
+                'เสาหิน',
+                'ป่าแป๋'
+            ],
+            postalCodes: ['58110']
+        },
+        แม่ลาน้อย: {
+            subDistrict: [
+                'แม่ลาน้อย',
+                'แม่ลาหลวง',
+                'ท่าผาปุ้ม',
+                'แม่โถ',
+                'ห้วยห้อม',
+                'แม่นาจาง',
+                'สันติคีรี',
+                'ขุนแม่ลาน้อย'
+            ],
+            postalCodes: ['58120']
+        },
+        สบเมย: {
+            subDistrict: [
+                'สบเมย',
+                'แม่คะตวน',
+                'กองก๋อย',
+                'แม่สวด',
+                'ป่าโปง',
+                'แม่สามแลบ'
+            ],
+            postalCodes: ['58110']
+        },
+        ปางมะผ้า: {
+            subDistrict: ['สบป่อง', 'ปางมะผ้า', 'ถ้ำลอด', 'นาปู่ป้อม'],
+            postalCodes: ['58150']
+        }
+    },
+    นครสวรรค์: {
+        เมืองนครสวรรค์: {
+            subDistrict: [
+                'ปากน้ำโพ',
+                'กลางแดด',
+                'เกรียงไกร',
+                'แควใหญ่',
+                'ตะเคียนเลื่อน',
+                'นครสวรรค์ตก',
+                'นครสวรรค์ออก',
+                'บางพระหลวง',
+                'บางม่วง',
+                'บ้านมะเกลือ',
+                'บ้านแก่ง',
+                'พระนอน',
+                'วัดไทร',
+                'หนองกรด',
+                'หนองกระโดน',
+                'หนองปลิง',
+                'บึงเสนาท'
+            ],
+            postalCodes: ['60000', '60240']
+        },
+        โกรกพระ: {
+            subDistrict: [
+                'โกรกพระ',
+                'ยางตาล',
+                'บางมะฝ่อ',
+                'บางประมุง',
+                'นากลาง',
+                'ศาลาแดง',
+                'เนินกว้าว',
+                'เนินศาลา',
+                'หาดสูง'
+            ],
+            postalCodes: ['60170']
+        },
+        ชุมแสง: {
+            subDistrict: [
+                'ชุมแสง',
+                'ทับกฤช',
+                'พิกุล',
+                'เกยไชย',
+                'ท่าไม้',
+                'บางเคียน',
+                'หนองกระเจา',
+                'พันลาน',
+                'โคกหม้อ',
+                'ไผ่สิงห์',
+                'ฆะมัง',
+                'ทับกฤชใต้'
+            ],
+            postalCodes: ['60120', '60250']
+        },
+        หนองบัว: {
+            subDistrict: [
+                'หนองบัว',
+                'หนองกลับ',
+                'ธารทหาร',
+                'ห้วยร่วม',
+                'ห้วยถั่วใต้',
+                'ห้วยถั่วเหนือ',
+                'ห้วยใหญ่',
+                'ทุ่งทอง',
+                'วังบ่อ'
+            ],
+            postalCodes: ['60110']
+        },
+        บรรพตพิสัย: {
+            subDistrict: [
+                'ท่างิ้ว',
+                'บางตาหงาย',
+                'หูกวาง',
+                'อ่างทอง',
+                'บ้านแดน',
+                'บางแก้ว',
+                'ตาขีด',
+                'ตาสัง',
+                'ด่านช้าง',
+                'หนองกรด',
+                'หนองตางู',
+                'บึงปลาทู',
+                'เจริญผล'
+            ],
+            postalCodes: ['60180']
+        },
+        เก้าเลี้ยว: {
+            subDistrict: [
+                'มหาโพธิ',
+                'เก้าเลี้ยว',
+                'หนองเต่า',
+                'เขาดิน',
+                'หัวดง'
+            ],
+            postalCodes: ['60230']
+        },
+        ตาคลี: {
+            subDistrict: [
+                'ตาคลี',
+                'ช่องแค',
+                'จันเสน',
+                'ห้วยหอม',
+                'หัวหวาย',
+                'หนองโพ',
+                'หนองหม้อ',
+                'สร้อยทอง',
+                'ลาดทิพรส',
+                'พรหมนิมิต'
+            ],
+            postalCodes: ['60140', '60210', '60260']
+        },
+        ท่าตะโก: {
+            subDistrict: [
+                'ท่าตะโก',
+                'พนมรอก',
+                'หัวถนน',
+                'สายลำโพง',
+                'วังมหากร',
+                'ดอนคา',
+                'ทำนบ',
+                'วังใหญ่',
+                'พนมเศษ',
+                'หนองหลวง'
+            ],
+            postalCodes: ['60160']
+        },
+        ไพศาลี: {
+            subDistrict: [
+                'โคกเดื่อ',
+                'สำโรงชัย',
+                'วังน้ำลัด',
+                'ตะคร้อ',
+                'โพธิ์ประสาท',
+                'วังข่อย',
+                'นาขอม',
+                'ไพศาลี'
+            ],
+            postalCodes: ['60220']
+        },
+        พยุหะคีรี: {
+            subDistrict: [
+                'พยุหะ',
+                'เนินมะกอก',
+                'นิคมเขาบ่อแก้ว',
+                'ม่วงหัก',
+                'ยางขาว',
+                'ย่านมัทรี',
+                'เขาทอง',
+                'ท่าน้ำอ้อย',
+                'น้ำทรง',
+                'เขากะลา',
+                'สระทะเล'
+            ],
+            postalCodes: ['60130']
+        },
+        ลาดยาว: {
+            subDistrict: [
+                'ลาดยาว',
+                'ห้วยน้ำหอม',
+                'วังม้า',
+                'วังเมือง',
+                'สร้อยละคร',
+                'มาบแก',
+                'หนองยาว',
+                'หนองนมวัว',
+                'บ้านไร่',
+                'เนินขี้เหล็ก',
+                'ศาลเจ้าไก่ต่อ',
+                'สระแก้ว'
+            ],
+            postalCodes: ['60150']
+        },
+        ตากฟ้า: {
+            subDistrict: [
+                'ตากฟ้า',
+                'ลำพยนต์',
+                'สุขสำราญ',
+                'หนองพิกุล',
+                'พุนกยูง',
+                'อุดมธัญญา',
+                'เขาชายธง'
+            ],
+            postalCodes: ['60190']
+        },
+        แม่วงก์: {
+            subDistrict: ['แม่วงก์', 'แม่เล่ย์', 'วังซ่าน', 'เขาชนกัน'],
+            postalCodes: ['60150']
+        },
+        แม่เปิน: {
+            subDistrict: ['แม่เปิน'],
+            postalCodes: ['60150']
+        },
+        ชุมตาบง: {
+            subDistrict: ['ชุมตาบง', 'ปางสวรรค์'],
+            postalCodes: ['60150']
+        }
+    },
+    อุทัยธานี: {
+        เมืองอุทัยธานี: {
+            subDistrict: [
+                'อุทัยใหม่',
+                'น้ำซึม',
+                'สะแกกรัง',
+                'ดอนขวาง',
+                'หาดทนง',
+                'เกาะเทโพ',
+                'ท่าซุง',
+                'หนองแก',
+                'โนนเหล็ก',
+                'หนองเต่า',
+                'หนองไผ่แบน',
+                'หนองพังค่า',
+                'ทุ่งใหญ่',
+                'เนินแจง'
+            ],
+            postalCodes: ['61000']
+        },
+        ทัพทัน: {
+            subDistrict: [
+                'ทัพทัน',
+                'ทุ่งนาไทย',
+                'เขาขี้ฝอย',
+                'หนองหญ้าปล้อง',
+                'โคกหม้อ',
+                'หนองยายดา',
+                'หนองกลางดง',
+                'หนองกระทุ่ม',
+                'หนองสระ',
+                'ตลุกดู่'
+            ],
+            postalCodes: ['61120']
+        },
+        สว่างอารมณ์: {
+            subDistrict: [
+                'สว่างอารมณ์',
+                'หนองหลวง',
+                'พลวงสองนาง',
+                'ไผ่เขียว',
+                'บ่อยาง'
+            ],
+            postalCodes: ['61150']
+        },
+        หนองฉาง: {
+            subDistrict: [
+                'หนองฉาง',
+                'หนองยาง',
+                'หนองนางนวล',
+                'หนองสรวง',
+                'บ้านเก่า',
+                'อุทัยเก่า',
+                'ทุ่งโพ',
+                'ทุ่งพง',
+                'เขาบางแกรก',
+                'เขากวางทอง'
+            ],
+            postalCodes: ['61110', '61170']
+        },
+        หนองขาหย่าง: {
+            subDistrict: [
+                'หนองขาหย่าง',
+                'หนองไผ่',
+                'ดอนกลอย',
+                'ห้วยรอบ',
+                'ทุ่งพึ่ง',
+                'ท่าโพ',
+                'หมกแถว',
+                'หลุมเข้า',
+                'ดงขวาง'
+            ],
+            postalCodes: ['61130']
+        },
+        บ้านไร่: {
+            subDistrict: [
+                'บ้านไร่',
+                'ทัพหลวง',
+                'ห้วยแห้ง',
+                'คอกควาย',
+                'วังหิน',
+                'เมืองการุ้ง',
+                'แก่นมะกรูด',
+                'หนองจอก',
+                'หูช้าง',
+                'บ้านบึง',
+                'บ้านใหม่คลองเคียน',
+                'หนองบ่มกล้วย',
+                'เจ้าวัด'
+            ],
+            postalCodes: ['61140', '61180']
+        },
+        ลานสัก: {
+            subDistrict: [
+                'ลานสัก',
+                'ประดู่ยืน',
+                'ป่าอ้อ',
+                'ระบำ',
+                'น้ำรอบ',
+                'ทุ่งนางาม'
+            ],
+            postalCodes: ['61160']
+        },
+        ห้วยคต: {
+            subDistrict: ['สุขฤทัย', 'ทองหลาง', 'ห้วยคต'],
+            postalCodes: ['61170']
+        }
+    },
+    กำแพงเพชร: {
+        เมืองกำแพงเพชร: {
+            subDistrict: [
+                'ในเมือง',
+                'ไตรตรึงษ์',
+                'อ่างทอง',
+                'นาบ่อคำ',
+                'นครชุม',
+                'ทรงธรรม',
+                'ลานดอกไม้',
+                'หนองปลิง',
+                'คณฑี',
+                'นิคมทุ่งโพธิ์ทะเล',
+                'เทพนคร',
+                'วังทอง',
+                'ท่าขุนราม',
+                'คลองแม่ลาย',
+                'ธำมรงค์',
+                'สระแก้ว'
+            ],
+            postalCodes: ['62000', '62160']
+        },
+        ไทรงาม: {
+            subDistrict: [
+                'ไทรงาม',
+                'หนองคล้า',
+                'หนองทอง',
+                'หนองไม้กอง',
+                'มหาชัย',
+                'พานทอง',
+                'หนองแม่แตง'
+            ],
+            postalCodes: ['62150']
+        },
+        คลองลาน: {
+            subDistrict: [
+                'คลองน้ำไหล',
+                'โป่งน้ำร้อน',
+                'คลองลานพัฒนา',
+                'สักงาม'
+            ],
+            postalCodes: ['62180']
+        },
+        ขาณุวรลักษบุรี: {
+            subDistrict: [
+                'ยางสูง',
+                'ป่าพุทรา',
+                'แสนตอ',
+                'สลกบาตร',
+                'บ่อถ้ำ',
+                'ดอนแตง',
+                'วังชะพลู',
+                'โค้งไผ่',
+                'ปางมะค่า',
+                'วังหามแห',
+                'เกาะตาล'
+            ],
+            postalCodes: ['62130', '62140']
+        },
+        คลองขลุง: {
+            subDistrict: [
+                'คลองขลุง',
+                'ท่ามะเขือ',
+                'ท่าพุทรา',
+                'แม่ลาด',
+                'วังยาง',
+                'วังแขม',
+                'หัวถนน',
+                'วังไทร',
+                'วังบัว',
+                'คลองสมบูรณ์'
+            ],
+            postalCodes: ['62120']
+        },
+        พรานกระต่าย: {
+            subDistrict: [
+                'พรานกระต่าย',
+                'หนองหัววัว',
+                'ท่าไม้',
+                'วังควง',
+                'วังตะแบก',
+                'เขาคีริส',
+                'คุยบ้านโอง',
+                'คลองพิไกร',
+                'ถ้ำกระต่ายทอง',
+                'ห้วยยั้ง'
+            ],
+            postalCodes: ['62110']
+        },
+        ลานกระบือ: {
+            subDistrict: [
+                'ลานกระบือ',
+                'ช่องลม',
+                'หนองหลวง',
+                'โนนพลวง',
+                'ประชาสุขสันต์',
+                'บึงทับแรต',
+                'จันทิมา'
+            ],
+            postalCodes: ['62170']
+        },
+        ทรายทองวัฒนา: {
+            subDistrict: ['ทุ่งทราย', 'ทุ่งทอง', 'ถาวรวัฒนา'],
+            postalCodes: ['62190']
+        },
+        ปางศิลาทอง: {
+            subDistrict: ['โพธิ์ทอง', 'หินดาต', 'ปางตาไว'],
+            postalCodes: ['62120']
+        },
+        บึงสามัคคี: {
+            subDistrict: ['บึงสามัคคี', 'วังชะโอน', 'ระหาน', 'เทพนิมิต'],
+            postalCodes: ['62210']
+        },
+        โกสัมพีนคร: {
+            subDistrict: ['โกสัมพี', 'เพชรชมภู', 'ลานดอกไม้ตก'],
+            postalCodes: ['62000']
+        }
+    },
+    ตาก: {
+        เมืองตาก: {
+            subDistrict: [
+                'ระแหง',
+                'หนองหลวง',
+                'เชียงเงิน',
+                'หัวเดียด',
+                'หนองบัวเหนือ',
+                'ไม้งาม',
+                'โป่งแดง',
+                'น้ำรึม',
+                'วังหิน',
+                'แม่ท้อ',
+                'ป่ามะม่วง',
+                'หนองบัวใต้',
+                'วังประจบ',
+                'ตลุกกลางทุ่ง'
+            ],
+            postalCodes: ['63000']
+        },
+        บ้านตาก: {
+            subDistrict: [
+                'ตากออก',
+                'สมอโคน',
+                'แม่สลิด',
+                'ตากตก',
+                'เกาะตะเภา',
+                'ทุ่งกระเชาะ',
+                'ท้องฟ้า'
+            ],
+            postalCodes: ['63120']
+        },
+        สามเงา: {
+            subDistrict: [
+                'สามเงา',
+                'วังหมัน',
+                'ยกกระบัตร',
+                'ย่านรี',
+                'บ้านนา',
+                'วังจันทร์'
+            ],
+            postalCodes: ['63130']
+        },
+        แม่ระมาด: {
+            subDistrict: [
+                'แม่ระมาด',
+                'แม่จะเรา',
+                'ขะเนจื้อ',
+                'แม่ตื่น',
+                'สามหมื่น',
+                'พระธาตุ'
+            ],
+            postalCodes: ['63140']
+        },
+        ท่าสองยาง: {
+            subDistrict: [
+                'ท่าสองยาง',
+                'แม่ต้าน',
+                'แม่สอง',
+                'แม่หละ',
+                'แม่วะหลวง',
+                'แม่อุสุ'
+            ],
+            postalCodes: ['63150']
+        },
+        แม่สอด: {
+            subDistrict: [
+                'แม่สอด',
+                'แม่กุ',
+                'พะวอ',
+                'แม่ตาว',
+                'แม่กาษา',
+                'ท่าสายลวด',
+                'แม่ปะ',
+                'มหาวัน',
+                'ด่านแม่ละเมา',
+                'พระธาตุผาแดง'
+            ],
+            postalCodes: ['63110']
+        },
+        พบพระ: {
+            subDistrict: [
+                'พบพระ',
+                'ช่องแคบ',
+                'คีรีราษฎร์',
+                'วาเล่ย์',
+                'รวมไทยพัฒนา'
+            ],
+            postalCodes: ['63160']
+        },
+        อุ้มผาง: {
+            subDistrict: [
+                'อุ้มผาง',
+                'หนองหลวง',
+                'โมโกร',
+                'แม่จัน',
+                'แม่ละมุ้ง',
+                'แม่กลอง'
+            ],
+            postalCodes: ['63170']
+        },
+        วังเจ้า: {
+            subDistrict: ['เชียงทอง', 'นาโบสถ์', 'ประดาง'],
+            postalCodes: ['63180']
+        }
+    },
+    สุโขทัย: {
+        เมืองสุโขทัย: {
+            subDistrict: [
+                'ธานี',
+                'บ้านสวน',
+                'เมืองเก่า',
+                'ปากแคว',
+                'ยางซ้าย',
+                'บ้านกล้วย',
+                'บ้านหลุม',
+                'ตาลเตี้ย',
+                'ปากพระ',
+                'วังทองแดง'
+            ],
+            postalCodes: ['64000', '64220', '64210']
+        },
+        บ้านด่านลานหอย: {
+            subDistrict: [
+                'ลานหอย',
+                'บ้านด่าน',
+                'วังตะคร้อ',
+                'วังน้ำขาว',
+                'ตลิ่งชัน',
+                'หนองหญ้าปล้อง',
+                'วังลึก'
+            ],
+            postalCodes: ['64140']
+        },
+        คีรีมาศ: {
+            subDistrict: [
+                'โตนด',
+                'ทุ่งหลวง',
+                'บ้านป้อม',
+                'สามพวง',
+                'ศรีคีรีมาศ',
+                'หนองจิก',
+                'นาเชิงคีรี',
+                'หนองกระดิ่ง',
+                'บ้านน้ำพุ',
+                'ทุ่งยางเมือง'
+            ],
+            postalCodes: ['64160']
+        },
+        กงไกรลาศ: {
+            subDistrict: [
+                'กง',
+                'บ้านกร่าง',
+                'ไกรนอก',
+                'ไกรกลาง',
+                'ไกรใน',
+                'ดงเดือย',
+                'ป่าแฝก',
+                'กกแรต',
+                'ท่าฉนวน',
+                'หนองตูม',
+                'บ้านใหม่สุขเกษม'
+            ],
+            postalCodes: ['64170']
+        },
+        ศรีสัชนาลัย: {
+            subDistrict: [
+                'หาดเสี้ยว',
+                'ป่างิ้ว',
+                'แม่สำ',
+                'แม่สิน',
+                'บ้านตึก',
+                'หนองอ้อ',
+                'ท่าชัย',
+                'ศรีสัชนาลัย',
+                'ดงคู่',
+                'บ้านแก่ง',
+                'สารจิตร'
+            ],
+            postalCodes: ['64130', '64190']
+        },
+        ศรีสำโรง: {
+            subDistrict: [
+                'คลองตาล',
+                'วังลึก',
+                'สามเรือน',
+                'บ้านนา',
+                'วังทอง',
+                'นาขุนไกร',
+                'เกาะตาเลี้ยง',
+                'วัดเกาะ',
+                'บ้านไร่',
+                'ทับผึ้ง',
+                'บ้านซ่าน',
+                'วังใหญ่',
+                'ราวต้นจันทร์'
+            ],
+            postalCodes: ['64120']
+        },
+        สวรรคโลก: {
+            subDistrict: [
+                'เมืองสวรรคโลก',
+                'ในเมือง',
+                'คลองกระจง',
+                'วังพิณพาทย์',
+                'วังไม้ขอน',
+                'ย่านยาว',
+                'นาทุ่ง',
+                'คลองยาง',
+                'เมืองบางยม',
+                'ท่าทอง',
+                'ปากน้ำ',
+                'ป่ากุมเกาะ',
+                'เมืองบางขลัง',
+                'หนองกลับ'
+            ],
+            postalCodes: ['64110']
+        },
+        ศรีนคร: {
+            subDistrict: [
+                'ศรีนคร',
+                'นครเดิฐ',
+                'น้ำขุม',
+                'คลองมะพลับ',
+                'หนองบัว'
+            ],
+            postalCodes: ['64180']
+        },
+        ทุ่งเสลี่ยม: {
+            subDistrict: [
+                'บ้านใหม่ไชยมงคล',
+                'ไทยชนะศึก',
+                'ทุ่งเสลี่ยม',
+                'กลางดง',
+                'เขาแก้วศรีสมบูรณ์'
+            ],
+            postalCodes: ['64230', '64150']
+        }
+    },
+    พิษณุโลก: {
+        เมืองพิษณุโลก: {
+            subDistrict: [
+                'ในเมือง',
+                'วังน้ำคู้',
+                'วัดจันทร์',
+                'วัดพริก',
+                'ท่าทอง',
+                'ท่าโพธิ์',
+                'สมอแข',
+                'ดอนทอง',
+                'บ้านป่า',
+                'ปากโทก',
+                'หัวรอ',
+                'จอมทอง',
+                'บ้านกร่าง',
+                'บ้านคลอง',
+                'พลายชุมพล',
+                'มะขามสูง',
+                'อรัญญิก',
+                'บึงพระ',
+                'ไผ่ขอดอน',
+                'งิ้วงาม'
+            ],
+            postalCodes: ['65000', '65230']
+        },
+        นครไทย: {
+            subDistrict: [
+                'นครไทย',
+                'หนองกะท้าว',
+                'บ้านแยง',
+                'เนินเพิ่ม',
+                'นาบัว',
+                'นครชุม',
+                'น้ำกุ่ม',
+                'ยางโกลน',
+                'บ่อโพธิ์',
+                'บ้านพร้าว',
+                'ห้วยเฮี้ย'
+            ],
+            postalCodes: ['65120']
+        },
+        ชาติตระการ: {
+            subDistrict: [
+                'ป่าแดง',
+                'ชาติตระการ',
+                'สวนเมี่ยง',
+                'บ้านดง',
+                'บ่อภาค',
+                'ท่าสะแก'
+            ],
+            postalCodes: ['65170']
+        },
+        บางระกำ: {
+            subDistrict: [
+                'บางระกำ',
+                'ปลักแรด',
+                'พันเสา',
+                'วังอิทก',
+                'บึงกอก',
+                'หนองกุลา',
+                'ชุมแสงสงคราม',
+                'นิคมพัฒนา',
+                'บ่อทอง',
+                'ท่านางงาม',
+                'คุยม่วง'
+            ],
+            postalCodes: ['65140', '65240']
+        },
+        บางกระทุ่ม: {
+            subDistrict: [
+                'บางกระทุ่ม',
+                'บ้านไร่',
+                'โคกสลุด',
+                'สนามคลี',
+                'ท่าตาล',
+                'ไผ่ล้อม',
+                'นครป่าหมาก',
+                'เนินกุ่ม',
+                'วัดตายม'
+            ],
+            postalCodes: ['65110', '65210']
+        },
+        พรหมพิราม: {
+            subDistrict: [
+                'พรหมพิราม',
+                'ท่าช้าง',
+                'วงฆ้อง',
+                'มะตูม',
+                'หอกลอง',
+                'ศรีภิรมย์',
+                'ตลุกเทียม',
+                'วังวน',
+                'หนองแขม',
+                'มะต้อง',
+                'ทับยายเชียง',
+                'ดงประคำ'
+            ],
+            postalCodes: ['65150', '65180']
+        },
+        วัดโบสถ์: {
+            subDistrict: [
+                'วัดโบสถ์',
+                'ท่างาม',
+                'ท้อแท้',
+                'บ้านยาง',
+                'หินลาด',
+                'คันโช้ง'
+            ],
+            postalCodes: ['65160']
+        },
+        วังทอง: {
+            subDistrict: [
+                'วังทอง',
+                'พันชาลี',
+                'แม่ระกา',
+                'บ้านกลาง',
+                'วังพิกุล',
+                'แก่งโสภา',
+                'ท่าหมื่นราม',
+                'วังนกแอ่น',
+                'หนองพระ',
+                'ชัยนาม',
+                'ดินทอง'
+            ],
+            postalCodes: ['65130', '65220']
+        },
+        เนินมะปราง: {
+            subDistrict: [
+                'ชมพู',
+                'บ้านมุง',
+                'ไทรย้อย',
+                'วังโพรง',
+                'บ้านน้อยซุ้มขี้เหล็ก',
+                'เนินมะปราง',
+                'วังยาง'
+            ],
+            postalCodes: ['65190']
+        }
+    },
+    พิจิตร: {
+        เมืองพิจิตร: {
+            subDistrict: [
+                'ในเมือง',
+                'ไผ่ขวาง',
+                'ย่านยาว',
+                'ท่าฬ่อ',
+                'ปากทาง',
+                'คลองคะเชนทร์',
+                'โรงช้าง',
+                'เมืองเก่า',
+                'ท่าหลวง',
+                'บ้านบุ่ง',
+                'ฆะมัง',
+                'ดงป่าคำ',
+                'หัวดง',
+                'ป่ามะคาบ',
+                'สายคำโห้',
+                'ดงกลาง'
+            ],
+            postalCodes: ['66000', '66170']
+        },
+        วังทรายพูน: {
+            subDistrict: ['วังทรายพูน', 'หนองปลาไหล', 'หนองพระ', 'หนองปล้อง'],
+            postalCodes: ['66180']
+        },
+        โพธิ์ประทับช้าง: {
+            subDistrict: [
+                'โพธิ์ประทับช้าง',
+                'ไผ่ท่าโพ',
+                'วังจิก',
+                'ไผ่รอบ',
+                'ดงเสือเหลือง',
+                'เนินสว่าง',
+                'ทุ่งใหญ่'
+            ],
+            postalCodes: ['66190']
+        },
+        ตะพานหิน: {
+            subDistrict: [
+                'ตะพานหิน',
+                'งิ้วราย',
+                'ห้วยเกตุ',
+                'ไทรโรงโขน',
+                'หนองพยอม',
+                'ทุ่งโพธิ์',
+                'ดงตะขบ',
+                'คลองคูณ',
+                'วังสำโรง',
+                'วังหว้า',
+                'วังหลุม',
+                'ทับหมัน',
+                'ไผ่หลวง'
+            ],
+            postalCodes: ['66110', '66150']
+        },
+        บางมูลนาก: {
+            subDistrict: [
+                'บางมูลนาก',
+                'บางไผ่',
+                'หอไกร',
+                'เนินมะกอก',
+                'วังสำโรง',
+                'ภูมิ',
+                'วังกรด',
+                'ห้วยเขน',
+                'วังตะกู',
+                'ลำประดา'
+            ],
+            postalCodes: ['66120', '66210']
+        },
+        โพทะเล: {
+            subDistrict: [
+                'โพทะเล',
+                'ท้ายน้ำ',
+                'ทะนง',
+                'ท่าบัว',
+                'ทุ่งน้อย',
+                'ท่าขมิ้น',
+                'ท่าเสา',
+                'บางคลาน',
+                'ท่านั่ง',
+                'บ้านน้อย',
+                'วัดขวาง'
+            ],
+            postalCodes: ['66130']
+        },
+        สามง่าม: {
+            subDistrict: ['สามง่าม', 'กำแพงดิน', 'รังนก', 'เนินปอ', 'หนองโสน'],
+            postalCodes: ['66140', '66220']
+        },
+        ทับคล้อ: {
+            subDistrict: ['ทับคล้อ', 'เขาทราย', 'เขาเจ็ดลูก', 'ท้ายทุ่ง'],
+            postalCodes: ['66150', '66230']
+        },
+        สากเหล็ก: {
+            subDistrict: [
+                'สากเหล็ก',
+                'ท่าเยี่ยม',
+                'คลองทราย',
+                'หนองหญ้าไทร',
+                'วังทับไทร'
+            ],
+            postalCodes: ['66160']
+        },
+        บึงนาราง: {
+            subDistrict: [
+                'ห้วยแก้ว',
+                'โพธิ์ไทรงาม',
+                'แหลมรัง',
+                'บางลาย',
+                'บึงนาราง'
+            ],
+            postalCodes: ['66130']
+        },
+        ดงเจริญ: {
+            subDistrict: [
+                'วังงิ้วใต้',
+                'วังงิ้ว',
+                'ห้วยร่วม',
+                'ห้วยพุก',
+                'สำนักขุนเณร'
+            ],
+            postalCodes: ['66210']
+        },
+        วชิรบารมี: {
+            subDistrict: ['บ้านนา', 'บึงบัว', 'วังโมกข์', 'หนองหลุม'],
+            postalCodes: ['66140', '66220']
+        }
+    },
+    เพชรบูรณ์: {
+        เมืองเพชรบูรณ์: {
+            subDistrict: [
+                'ในเมือง',
+                'ตะเบาะ',
+                'บ้านโตก',
+                'สะเดียง',
+                'ป่าเลา',
+                'นางั่ว',
+                'ท่าพล',
+                'ดงมูลเหล็ก',
+                'บ้านโคก',
+                'ชอนไพร',
+                'นาป่า',
+                'นายม',
+                'วังชมภู',
+                'น้ำร้อน',
+                'ห้วยสะแก',
+                'ห้วยใหญ่',
+                'ระวิง'
+            ],
+            postalCodes: ['67000', '67250', '67210']
+        },
+        ชนแดน: {
+            subDistrict: [
+                'ชนแดน',
+                'ดงขุย',
+                'ท่าข้าม',
+                'พุทธบาท',
+                'ลาดแค',
+                'บ้านกล้วย',
+                'ซับพุทรา',
+                'ตะกุดไร',
+                'ศาลาลาย'
+            ],
+            postalCodes: ['67150', '67190']
+        },
+        หล่มสัก: {
+            subDistrict: [
+                'หล่มสัก',
+                'วัดป่า',
+                'ตาลเดี่ยว',
+                'ฝายนาแซง',
+                'หนองสว่าง',
+                'น้ำเฮี้ย',
+                'สักหลง',
+                'ท่าอิบุญ',
+                'บ้านโสก',
+                'บ้านติ้ว',
+                'ห้วยไร่',
+                'น้ำก้อ',
+                'ปากช่อง',
+                'น้ำชุน',
+                'หนองไขว่',
+                'ลานบ่า',
+                'บุ่งคล้า',
+                'บุ่งน้ำเต้า',
+                'บ้านกลาง',
+                'ช้างตะลูด',
+                'บ้านไร่',
+                'ปากดุก',
+                'บ้านหวาย'
+            ],
+            postalCodes: ['67110']
+        },
+        หล่มเก่า: {
+            subDistrict: [
+                'หล่มเก่า',
+                'นาซำ',
+                'หินฮาว',
+                'บ้านเนิน',
+                'ศิลา',
+                'นาแซง',
+                'วังบาล',
+                'นาเกาะ',
+                'ตาดกลอย'
+            ],
+            postalCodes: ['67120']
+        },
+        วิเชียรบุรี: {
+            subDistrict: [
+                'ท่าโรง',
+                'สระประดู่',
+                'สามแยก',
+                'โคกปรง',
+                'น้ำร้อน',
+                'บ่อรัง',
+                'พุเตย',
+                'พุขาม',
+                'ภูน้ำหยด',
+                'ซับสมบูรณ์',
+                'บึงกระจับ',
+                'วังใหญ่',
+                'ยางสาว',
+                'ซับน้อย'
+            ],
+            postalCodes: ['67130', '67180']
+        },
+        ศรีเทพ: {
+            subDistrict: [
+                'ศรีเทพ',
+                'สระกรวด',
+                'คลองกระจัง',
+                'นาสนุ่น',
+                'โคกสะอาด',
+                'หนองย่างทอย',
+                'ประดู่งาม'
+            ],
+            postalCodes: ['67170']
+        },
+        หนองไผ่: {
+            subDistrict: [
+                'กองทูล',
+                'นาเฉลียง',
+                'บ้านโภชน์',
+                'ท่าแดง',
+                'เพชรละคร',
+                'บ่อไทย',
+                'ห้วยโป่ง',
+                'วังท่าดี',
+                'บัววัฒนา',
+                'หนองไผ่',
+                'วังโบสถ์',
+                'ยางงาม',
+                'ท่าด้วง'
+            ],
+            postalCodes: ['67140', '67220']
+        },
+        บึงสามพัน: {
+            subDistrict: [
+                'ซับสมอทอด',
+                'ซับไม้แดง',
+                'หนองแจง',
+                'กันจุ',
+                'วังพิกุล',
+                'พญาวัง',
+                'ศรีมงคล',
+                'สระแก้ว',
+                'บึงสามพัน'
+            ],
+            postalCodes: ['67160', '67230']
+        },
+        น้ำหนาว: {
+            subDistrict: ['น้ำหนาว', 'หลักด่าน', 'วังกวาง', 'โคกมน'],
+            postalCodes: ['67260']
+        },
+        วังโป่ง: {
+            subDistrict: ['วังโป่ง', 'ท้ายดง', 'ซับเปิบ', 'วังหิน', 'วังศาล'],
+            postalCodes: ['67240']
+        },
+        เขาค้อ: {
+            subDistrict: [
+                'ทุ่งสมอ',
+                'แคมป์สน',
+                'เขาค้อ',
+                'ริมสีม่วง',
+                'สะเดาะพง',
+                'หนองแม่นา',
+                'เข็กน้อย'
+            ],
+            postalCodes: ['67270', '67280']
+        }
+    },
+    ราชบุรี: {
+        เมืองราชบุรี: {
+            subDistrict: [
+                'หน้าเมือง',
+                'เจดีย์หัก',
+                'ดอนตะโก',
+                'หนองกลางนา',
+                'ห้วยไผ่',
+                'คุ้งน้ำวน',
+                'คุ้งกระถิน',
+                'อ่างทอง',
+                'โคกหม้อ',
+                'สามเรือน',
+                'พิกุลทอง',
+                'น้ำพุ',
+                'ดอนแร่',
+                'หินกอง',
+                'เขาแร้ง',
+                'เกาะพลับพลา',
+                'หลุมดิน',
+                'บางป่า',
+                'พงสวาย',
+                'คูบัว',
+                'ท่าราบ',
+                'บ้านไร่'
+            ],
+            postalCodes: ['70000']
+        },
+        จอมบึง: {
+            subDistrict: [
+                'จอมบึง',
+                'ปากช่อง',
+                'เบิกไพร',
+                'ด่านทับตะโก',
+                'แก้มอ้น',
+                'รางบัว'
+            ],
+            postalCodes: ['70150']
+        },
+        สวนผึ้ง: {
+            subDistrict: ['สวนผึ้ง', 'ป่าหวาย', 'ท่าเคย', 'ตะนาวศรี'],
+            postalCodes: ['70180']
+        },
+        ดำเนินสะดวก: {
+            subDistrict: [
+                'ดำเนินสะดวก',
+                'ประสาทสิทธิ์',
+                'ศรีสุราษฎร์',
+                'ตาหลวง',
+                'ดอนกรวย',
+                'ดอนคลัง',
+                'บัวงาม',
+                'บ้านไร่',
+                'แพงพวย',
+                'สี่หมื่น',
+                'ท่านัด',
+                'ขุนพิทักษ์',
+                'ดอนไผ่'
+            ],
+            postalCodes: ['70130', '70210']
+        },
+        บ้านโป่ง: {
+            subDistrict: [
+                'บ้านโป่ง',
+                'ท่าผา',
+                'กรับใหญ่',
+                'ปากแรต',
+                'หนองกบ',
+                'หนองอ้อ',
+                'ดอนกระเบื้อง',
+                'สวนกล้วย',
+                'นครชุมน์',
+                'บ้านม่วง',
+                'คุ้งพยอม',
+                'หนองปลาหมอ',
+                'เขาขลุง',
+                'เบิกไพร',
+                'ลาดบัวขาว'
+            ],
+            postalCodes: ['70110', '70190']
+        },
+        บางแพ: {
+            subDistrict: [
+                'บางแพ',
+                'วังเย็น',
+                'หัวโพ',
+                'วัดแก้ว',
+                'ดอนใหญ่',
+                'ดอนคา',
+                'โพหัก'
+            ],
+            postalCodes: ['70160']
+        },
+        โพธาราม: {
+            subDistrict: [
+                'โพธาราม',
+                'ดอนกระเบื้อง',
+                'หนองโพ',
+                'บ้านเลือก',
+                'คลองตาคต',
+                'บ้านฆ้อง',
+                'บ้านสิงห์',
+                'ดอนทราย',
+                'เจ็ดเสมียน',
+                'คลองข่อย',
+                'ชำแระ',
+                'สร้อยฟ้า',
+                'ท่าชุมพล',
+                'บางโตนด',
+                'เตาปูน',
+                'นางแก้ว',
+                'ธรรมเสน',
+                'เขาชะงุ้ม',
+                'หนองกวาง'
+            ],
+            postalCodes: ['70120']
+        },
+        ปากท่อ: {
+            subDistrict: [
+                'ทุ่งหลวง',
+                'วังมะนาว',
+                'ดอนทราย',
+                'หนองกระทุ่ม',
+                'ปากท่อ',
+                'ป่าไก่',
+                'วัดยางงาม',
+                'อ่างหิน',
+                'บ่อกระดาน',
+                'ยางหัก',
+                'วันดาว',
+                'ห้วยยางโทน'
+            ],
+            postalCodes: ['70140']
+        },
+        วัดเพลง: {
+            subDistrict: ['เกาะศาลพระ', 'จอมประทัด', 'วัดเพลง'],
+            postalCodes: ['70170']
+        },
+        บ้านคา: {
+            subDistrict: ['บ้านคา', 'บ้านบึง', 'หนองพันจันทร์'],
+            postalCodes: ['70180']
+        }
+    },
+    กาญจนบุรี: {
+        เมืองกาญจนบุรี: {
+            subDistrict: [
+                'บ้านเหนือ',
+                'บ้านใต้',
+                'ปากแพรก',
+                'ท่ามะขาม',
+                'แก่งเสี้ยน',
+                'หนองบัว',
+                'ลาดหญ้า',
+                'วังด้ง',
+                'ช่องสะเดา',
+                'หนองหญ้า',
+                'เกาะสำโรง',
+                'บ้านเก่า',
+                'วังเย็น'
+            ],
+            postalCodes: ['71000', '71190']
+        },
+        ไทรโยค: {
+            subDistrict: [
+                'ลุ่มสุ่ม',
+                'ท่าเสา',
+                'สิงห์',
+                'ไทรโยค',
+                'วังกระแจะ',
+                'ศรีมงคล',
+                'บ้องตี้'
+            ],
+            postalCodes: ['71150']
+        },
+        บ่อพลอย: {
+            subDistrict: [
+                'บ่อพลอย',
+                'หนองกุ่ม',
+                'หนองรี',
+                'หลุมรัง',
+                'ช่องด่าน',
+                'หนองกร่าง'
+            ],
+            postalCodes: ['71160', '71220']
+        },
+        ศรีสวัสดิ์: {
+            subDistrict: [
+                'นาสวน',
+                'ด่านแม่แฉลบ',
+                'หนองเป็ด',
+                'ท่ากระดาน',
+                'เขาโจด',
+                'แม่กระบุง'
+            ],
+            postalCodes: ['71250', '71220']
+        },
+        ท่ามะกา: {
+            subDistrict: [
+                'พงตึก',
+                'ยางม่วง',
+                'ดอนชะเอม',
+                'ท่าไม้',
+                'ตะคร้ำเอน',
+                'ท่ามะกา',
+                'ท่าเรือ',
+                'โคกตะบอง',
+                'ดอนขมิ้น',
+                'อุโลกสี่หมื่น',
+                'เขาสามสิบหาบ',
+                'พระแท่น',
+                'หวายเหนียว',
+                'แสนตอ',
+                'สนามแย้',
+                'ท่าเสา',
+                'หนองลาน'
+            ],
+            postalCodes: ['71120', '71130', '70190']
+        },
+        ท่าม่วง: {
+            subDistrict: [
+                'ท่าม่วง',
+                'วังขนาย',
+                'วังศาลา',
+                'ท่าล้อ',
+                'หนองขาว',
+                'ทุ่งทอง',
+                'เขาน้อย',
+                'ม่วงชุม',
+                'บ้านใหม่',
+                'พังตรุ',
+                'ท่าตะคร้อ',
+                'รางสาลี่',
+                'หนองตากยา'
+            ],
+            postalCodes: ['71110', '71000', '71130']
+        },
+        ทองผาภูมิ: {
+            subDistrict: [
+                'ท่าขนุน',
+                'ปิล๊อก',
+                'หินดาด',
+                'ลิ่นถิ่น',
+                'ชะแล',
+                'ห้วยเขย่ง',
+                'สหกรณ์นิคม'
+            ],
+            postalCodes: ['71180']
+        },
+        สังขละบุรี: {
+            subDistrict: ['หนองลู', 'ปรังเผล', 'ไล่โว่'],
+            postalCodes: ['71240']
+        },
+        พนมทวน: {
+            subDistrict: [
+                'พนมทวน',
+                'หนองโรง',
+                'ทุ่งสมอ',
+                'ดอนเจดีย์',
+                'พังตรุ',
+                'รางหวาย',
+                'หนองสาหร่าย',
+                'ดอนตาเพชร'
+            ],
+            postalCodes: ['71140', '71170']
+        },
+        เลาขวัญ: {
+            subDistrict: [
+                'เลาขวัญ',
+                'หนองโสน',
+                'หนองประดู่',
+                'หนองปลิง',
+                'หนองนกแก้ว',
+                'ทุ่งกระบ่ำ',
+                'หนองฝ้าย'
+            ],
+            postalCodes: ['71210']
+        },
+        ด่านมะขามเตี้ย: {
+            subDistrict: ['ด่านมะขามเตี้ย', 'กลอนโด', 'จรเข้เผือก', 'หนองไผ่'],
+            postalCodes: ['71260']
+        },
+        หนองปรือ: {
+            subDistrict: ['หนองปรือ', 'หนองปลาไหล', 'สมเด็จเจริญ'],
+            postalCodes: ['71220']
+        },
+        ห้วยกระเจา: {
+            subDistrict: ['ห้วยกระเจา', 'วังไผ่', 'ดอนแสลบ', 'สระลงเรือ'],
+            postalCodes: ['71170']
+        }
+    },
+    สุพรรณบุรี: {
+        เมืองสุพรรณบุรี: {
+            subDistrict: [
+                'ท่าพี่เลี้ยง',
+                'รั้วใหญ่',
+                'ทับตีเหล็ก',
+                'ท่าระหัด',
+                'ไผ่ขวาง',
+                'โคกโคเฒ่า',
+                'ดอนตาล',
+                'ดอนมะสังข์',
+                'พิหารแดง',
+                'ดอนกำยาน',
+                'ดอนโพธิ์ทอง',
+                'บ้านโพธิ์',
+                'สระแก้ว',
+                'ตลิ่งชัน',
+                'บางกุ้ง',
+                'ศาลาขาว',
+                'สวนแตง',
+                'สนามชัย',
+                'โพธิ์พระยา',
+                'สนามคลี'
+            ],
+            postalCodes: ['72000', '72230', '72210']
+        },
+        เดิมบางนางบวช: {
+            subDistrict: [
+                'เขาพระ',
+                'เดิมบาง',
+                'นางบวช',
+                'เขาดิน',
+                'ปากน้ำ',
+                'ทุ่งคลี',
+                'โคกช้าง',
+                'หัวเขา',
+                'หัวนา',
+                'บ่อกรุ',
+                'วังศรีราช',
+                'ป่าสะแก',
+                'ยางนอน',
+                'หนองกระทุ่ม'
+            ],
+            postalCodes: ['72120']
+        },
+        ด่านช้าง: {
+            subDistrict: [
+                'หนองมะค่าโมง',
+                'ด่านช้าง',
+                'ห้วยขมิ้น',
+                'องค์พระ',
+                'วังคัน',
+                'นิคมกระเสียว',
+                'วังยาว'
+            ],
+            postalCodes: ['72180']
+        },
+        บางปลาม้า: {
+            subDistrict: [
+                'โคกคราม',
+                'บางปลาม้า',
+                'ตะค่า',
+                'บางใหญ่',
+                'กฤษณา',
+                'สาลี',
+                'ไผ่กองดิน',
+                'องครักษ์',
+                'จรเข้ใหญ่',
+                'บ้านแหลม',
+                'มะขามล้ม',
+                'วังน้ำเย็น',
+                'วัดโบสถ์',
+                'วัดดาว'
+            ],
+            postalCodes: ['72150']
+        },
+        ศรีประจันต์: {
+            subDistrict: [
+                'ศรีประจันต์',
+                'บ้านกร่าง',
+                'มดแดง',
+                'บางงาม',
+                'ดอนปรู',
+                'ปลายนา',
+                'วังหว้า',
+                'วังน้ำซับ',
+                'วังยาง'
+            ],
+            postalCodes: ['72140']
+        },
+        ดอนเจดีย์: {
+            subDistrict: [
+                'ดอนเจดีย์',
+                'หนองสาหร่าย',
+                'ไร่รถ',
+                'สระกระโจม',
+                'ทะเลบก'
+            ],
+            postalCodes: ['72170', '72250']
+        },
+        สองพี่น้อง: {
+            subDistrict: [
+                'สองพี่น้อง',
+                'บางเลน',
+                'บางตาเถร',
+                'บางตะเคียน',
+                'บ้านกุ่ม',
+                'หัวโพธิ์',
+                'บางพลับ',
+                'เนินพระปรางค์',
+                'บ้านช้าง',
+                'ต้นตาล',
+                'ศรีสำราญ',
+                'ทุ่งคอก',
+                'หนองบ่อ',
+                'บ่อสุพรรณ',
+                'ดอนมะนาว'
+            ],
+            postalCodes: ['72110', '72190']
+        },
+        สามชุก: {
+            subDistrict: [
+                'ย่านยาว',
+                'วังลึก',
+                'สามชุก',
+                'หนองผักนาก',
+                'บ้านสระ',
+                'หนองสะเดา',
+                'กระเสียว'
+            ],
+            postalCodes: ['72130']
+        },
+        อู่ทอง: {
+            subDistrict: [
+                'อู่ทอง',
+                'สระยายโสม',
+                'จรเข้สามพัน',
+                'บ้านดอน',
+                'ยุ้งทะลาย',
+                'ดอนมะเกลือ',
+                'หนองโอ่ง',
+                'ดอนคา',
+                'พลับพลาไชย',
+                'บ้านโข้ง',
+                'เจดีย์',
+                'สระพังลาน',
+                'กระจัน'
+            ],
+            postalCodes: ['72160', '72220', '71170']
+        },
+        หนองหญ้าไซ: {
+            subDistrict: [
+                'หนองหญ้าไซ',
+                'หนองราชวัตร',
+                'หนองโพธิ์',
+                'แจงงาม',
+                'หนองขาม',
+                'ทัพหลวง'
+            ],
+            postalCodes: ['72240']
+        }
+    },
+    นครปฐม: {
+        เมืองนครปฐม: {
+            subDistrict: [
+                'พระปฐมเจดีย์',
+                'บางแขม',
+                'พระประโทน',
+                'ธรรมศาลา',
+                'ตาก้อง',
+                'มาบแค',
+                'สนามจันทร์',
+                'ดอนยายหอม',
+                'ถนนขาด',
+                'บ่อพลับ',
+                'นครปฐม',
+                'วังตะกู',
+                'หนองปากโลง',
+                'สามควายเผือก',
+                'ทุ่งน้อย',
+                'หนองดินแดง',
+                'วังเย็น',
+                'โพรงมะเดื่อ',
+                'ลำพยา',
+                'สระกะเทียม',
+                'สวนป่าน',
+                'ห้วยจรเข้',
+                'ทัพหลวง',
+                'หนองงูเหลือม',
+                'บ้านยาง'
+            ],
+            postalCodes: ['73000']
+        },
+        กำแพงแสน: {
+            subDistrict: [
+                'ทุ่งกระพังโหม',
+                'กระตีบ',
+                'ทุ่งลูกนก',
+                'ห้วยขวาง',
+                'ทุ่งขวาง',
+                'สระสี่มุม',
+                'ทุ่งบัว',
+                'ดอนข่อย',
+                'สระพัฒนา',
+                'ห้วยหมอนทอง',
+                'ห้วยม่วง',
+                'กำแพงแสน',
+                'รางพิกุล',
+                'หนองกระทุ่ม',
+                'วังน้ำเขียว'
+            ],
+            postalCodes: ['73140', '73180']
+        },
+        นครชัยศรี: {
+            subDistrict: [
+                'นครชัยศรี',
+                'บางกระเบา',
+                'วัดแค',
+                'ท่าตำหนัก',
+                'บางแก้ว',
+                'ท่ากระชับ',
+                'ขุนแก้ว',
+                'ท่าพระยา',
+                'พะเนียด',
+                'บางระกำ',
+                'โคกพระเจดีย์',
+                'ศรีษะทอง',
+                'แหลมบัว',
+                'ศรีมหาโพธิ์',
+                'สัมปทวน',
+                'วัดสำโรง',
+                'ดอนแฝก',
+                'ห้วยพลู',
+                'วัดละมุด',
+                'บางพระ',
+                'บางแก้วฟ้า',
+                'ลานตากฟ้า',
+                'งิ้วราย',
+                'ไทยาวาส'
+            ],
+            postalCodes: ['73120']
+        },
+        ดอนตูม: {
+            subDistrict: [
+                'สามง่าม',
+                'ห้วยพระ',
+                'ลำเหย',
+                'ดอนพุทรา',
+                'บ้านหลวง',
+                'ดอนรวก',
+                'ห้วยด้วน',
+                'ลำลูกบัว'
+            ],
+            postalCodes: ['73150']
+        },
+        บางเลน: {
+            subDistrict: [
+                'บางเลน',
+                'บางปลา',
+                'บางหลวง',
+                'บางภาษี',
+                'บางระกำ',
+                'บางไทรป่า',
+                'หินมูล',
+                'ไทรงาม',
+                'ดอนตูม',
+                'นิลเพชร',
+                'บัวปากท่า',
+                'คลองนกกระทุง',
+                'นราภิรมย์',
+                'ลำพญา',
+                'ไผ่หูช้าง'
+            ],
+            postalCodes: ['73130', '73190']
+        },
+        สามพราน: {
+            subDistrict: [
+                'ท่าข้าม',
+                'ทรงคนอง',
+                'หอมเกร็ด',
+                'บางกระทึก',
+                'บางเตย',
+                'สามพราน',
+                'บางช้าง',
+                'ไร่ขิง',
+                'ท่าตลาด',
+                'กระทุ่มล้ม',
+                'คลองใหม่',
+                'ตลาดจินดา',
+                'คลองจินดา',
+                'ยายชา',
+                'บ้านใหม่',
+                'อ้อมใหญ่'
+            ],
+            postalCodes: ['73110', '73210', '73220', '73160']
+        },
+        พุทธมณฑล: {
+            subDistrict: ['ศาลายา', 'คลองโยง', 'มหาสวัสดิ์'],
+            postalCodes: ['73170']
+        }
+    },
+    สมุทรสาคร: {
+        เมืองสมุทรสาคร: {
+            subDistrict: [
+                'มหาชัย',
+                'ท่าฉลอม',
+                'โกรกกราก',
+                'บ้านบ่อ',
+                'บางโทรัด',
+                'กาหลง',
+                'นาโคก',
+                'ท่าจีน',
+                'นาดี',
+                'ท่าทราย',
+                'คอกกระบือ',
+                'บางน้ำจืด',
+                'พันท้ายนรสิงห์',
+                'โคกขาม',
+                'บ้านเกาะ',
+                'บางกระเจ้า',
+                'บางหญ้าแพรก',
+                'ชัยมงคล'
+            ],
+            postalCodes: ['74000']
+        },
+        กระทุ่มแบน: {
+            subDistrict: [
+                'ตลาดกระทุ่มแบน',
+                'อ้อมน้อย',
+                'ท่าไม้',
+                'สวนหลวง',
+                'บางยาง',
+                'คลองมะเดื่อ',
+                'หนองนกไข่',
+                'ดอนไก่ดี',
+                'แคราย',
+                'ท่าเสา'
+            ],
+            postalCodes: ['74110', '74130']
+        },
+        บ้านแพ้ว: {
+            subDistrict: [
+                'บ้านแพ้ว',
+                'หลักสาม',
+                'ยกกระบัตร',
+                'โรงเข้',
+                'หนองสองห้อง',
+                'หนองบัว',
+                'หลักสอง',
+                'เจ็ดริ้ว',
+                'คลองตัน',
+                'อำแพง',
+                'สวนส้ม',
+                'เกษตรพัฒนา'
+            ],
+            postalCodes: ['74120']
+        }
+    },
+    สมุทรสงคราม: {
+        เมืองสมุทรสงคราม: {
+            subDistrict: [
+                'แม่กลอง',
+                'บางขันแตก',
+                'ลาดใหญ่',
+                'บ้านปรก',
+                'บางแก้ว',
+                'ท้ายหาด',
+                'แหลมใหญ่',
+                'คลองเขิน',
+                'คลองโคน',
+                'นางตะเคียน',
+                'บางจะเกร็ง'
+            ],
+            postalCodes: ['75000']
+        },
+        บางคนที: {
+            subDistrict: [
+                'กระดังงา',
+                'บางสะแก',
+                'บางยี่รงค์',
+                'โรงหีบ',
+                'บางคนที',
+                'ดอนมะโนรา',
+                'บางพรม',
+                'บางกุ้ง',
+                'จอมปลวก',
+                'บางนกแขวก',
+                'ยายแพง',
+                'บางกระบือ',
+                'บ้านปราโมทย์'
+            ],
+            postalCodes: ['75120']
+        },
+        อัมพวา: {
+            subDistrict: [
+                'อัมพวา',
+                'สวนหลวง',
+                'ท่าคา',
+                'วัดประดู่',
+                'เหมืองใหม่',
+                'บางช้าง',
+                'แควอ้อม',
+                'ปลายโพงพาง',
+                'บางแค',
+                'แพรกหนามแดง',
+                'ยี่สาร',
+                'บางนางลี่'
+            ],
+            postalCodes: ['75110']
+        }
+    },
+    เพชรบุรี: {
+        เมืองเพชรบุรี: {
+            subDistrict: [
+                'ท่าราบ',
+                'คลองกระแชง',
+                'บางจาน',
+                'นาพันสาม',
+                'ธงชัย',
+                'บ้านกุ่ม',
+                'หนองโสน',
+                'ไร่ส้ม',
+                'เวียงคอย',
+                'บางจาก',
+                'บ้านหม้อ',
+                'ต้นมะม่วง',
+                'ช่องสะแก',
+                'นาวุ้ง',
+                'สำมะโรง',
+                'โพพระ',
+                'หาดเจ้าสำราญ',
+                'หัวสะพาน',
+                'ต้นมะพร้าว',
+                'วังตะโก',
+                'โพไร่หวาน',
+                'ดอนยาง',
+                'หนองขนาน',
+                'หนองพลับ'
+            ],
+            postalCodes: ['76000', '76100']
+        },
+        เขาย้อย: {
+            subDistrict: [
+                'เขาย้อย',
+                'สระพัง',
+                'บางเค็ม',
+                'ทับคาง',
+                'หนองปลาไหล',
+                'หนองปรง',
+                'หนองชุมพล',
+                'ห้วยโรง',
+                'ห้วยท่าช้าง',
+                'หนองชุมพลเหนือ'
+            ],
+            postalCodes: ['76140']
+        },
+        หนองหญ้าปล้อง: {
+            subDistrict: [
+                'หนองหญ้าปล้อง',
+                'ยางน้ำกลัดเหนือ',
+                'ยางน้ำกลัดใต้',
+                'ท่าตะคร้อ'
+            ],
+            postalCodes: ['76160']
+        },
+        ชะอำ: {
+            subDistrict: [
+                'ชะอำ',
+                'บางเก่า',
+                'นายาง',
+                'เขาใหญ่',
+                'หนองศาลา',
+                'ห้วยทรายเหนือ',
+                'ไร่ใหม่พัฒนา',
+                'สามพระยา',
+                'ดอนขุนห้วย'
+            ],
+            postalCodes: ['76120']
+        },
+        ท่ายาง: {
+            subDistrict: [
+                'ท่ายาง',
+                'ท่าคอย',
+                'ยางหย่อง',
+                'หนองจอก',
+                'มาบปลาเค้า',
+                'ท่าไม้รวก',
+                'วังไคร้',
+                'กลัดหลวง',
+                'ปึกเตียน',
+                'เขากระปุก',
+                'ท่าแลง',
+                'บ้านในดง'
+            ],
+            postalCodes: ['76130']
+        },
+        บ้านลาด: {
+            subDistrict: [
+                'บ้านลาด',
+                'บ้านหาด',
+                'บ้านทาน',
+                'ตำหรุ',
+                'สมอพลือ',
+                'ไร่มะขาม',
+                'ท่าเสน',
+                'หนองกระเจ็ด',
+                'หนองกะปุ',
+                'ลาดโพธิ์',
+                'สะพานไกร',
+                'ไร่โคก',
+                'โรงเข้',
+                'ไร่สะท้อน',
+                'ห้วยข้อง',
+                'ท่าช้าง',
+                'ถ้ำรงค์',
+                'ห้วยลึก'
+            ],
+            postalCodes: ['76150']
+        },
+        บ้านแหลม: {
+            subDistrict: [
+                'บ้านแหลม',
+                'บางขุนไทร',
+                'ปากทะเล',
+                'บางแก้ว',
+                'แหลมผักเบี้ย',
+                'บางตะบูน',
+                'บางตะบูนออก',
+                'บางครก',
+                'ท่าแร้ง',
+                'ท่าแร้งออก'
+            ],
+            postalCodes: ['76110', '76100']
+        },
+        แก่งกระจาน: {
+            subDistrict: [
+                'แก่งกระจาน',
+                'สองพี่น้อง',
+                'วังจันทร์',
+                'ป่าเด็ง',
+                'พุสวรรค์',
+                'ห้วยแม่เพรียง'
+            ],
+            postalCodes: ['76170']
+        }
+    },
+    ประจวบคีรีขันธ์: {
+        เมืองประจวบคีรีขันธ์: {
+            subDistrict: [
+                'ประจวบคีรีขันธ์',
+                'เกาะหลัก',
+                'คลองวาฬ',
+                'ห้วยทราย',
+                'อ่าวน้อย',
+                'บ่อนอก'
+            ],
+            postalCodes: ['77000', '77210']
+        },
+        กุยบุรี: {
+            subDistrict: [
+                'กุยบุรี',
+                'กุยเหนือ',
+                'เขาแดง',
+                'ดอนยายหนู',
+                'สามกระทาย',
+                'หาดขาม'
+            ],
+            postalCodes: ['77150']
+        },
+        ทับสะแก: {
+            subDistrict: [
+                'ทับสะแก',
+                'อ่างทอง',
+                'นาหูกวาง',
+                'เขาล้าน',
+                'ห้วยยาง',
+                'แสงอรุณ'
+            ],
+            postalCodes: ['77130']
+        },
+        บางสะพาน: {
+            subDistrict: [
+                'กำเนิดนพคุณ',
+                'พงศ์ประศาสน์',
+                'ร่อนทอง',
+                'ธงชัย',
+                'ชัยเกษม',
+                'ทองมงคล',
+                'แม่รำพึง'
+            ],
+            postalCodes: ['77140', '77230', '77190']
+        },
+        บางสะพานน้อย: {
+            subDistrict: [
+                'ปากแพรก',
+                'บางสะพาน',
+                'ทรายทอง',
+                'ช้างแรก',
+                'ไชยราช'
+            ],
+            postalCodes: ['77170']
+        },
+        ปราณบุรี: {
+            subDistrict: [
+                'ปราณบุรี',
+                'เขาน้อย',
+                'ปากน้ำปราณ',
+                'หนองตาแต้ม',
+                'วังก์พง',
+                'เขาจ้าว'
+            ],
+            postalCodes: ['77120', '77220']
+        },
+        หัวหิน: {
+            subDistrict: [
+                'หัวหิน',
+                'หนองแก',
+                'หินเหล็กไฟ',
+                'หนองพลับ',
+                'ทับใต้',
+                'ห้วยสัตว์ใหญ่',
+                'บึงนคร'
+            ],
+            postalCodes: ['77110']
+        },
+        สามร้อยยอด: {
+            subDistrict: [
+                'สามร้อยยอด',
+                'ศิลาลอย',
+                'ไร่เก่า',
+                'ศาลาลัย',
+                'ไร่ใหม่'
+            ],
+            postalCodes: ['77120', '77180']
+        }
+    },
+    นครศรีธรรมราช: {
+        เมืองนครศรีธรรมราช: {
+            subDistrict: [
+                'ในเมือง',
+                'ท่าวัง',
+                'คลัง',
+                'ท่าไร่',
+                'ปากนคร',
+                'นาทราย',
+                'กำแพงเซา',
+                'ไชยมนตรี',
+                'มะม่วงสองต้น',
+                'นาเคียน',
+                'ท่างิ้ว',
+                'โพธิ์เสด็จ',
+                'บางจาก',
+                'ปากพูน',
+                'ท่าซัก',
+                'ท่าเรือ'
+            ],
+            postalCodes: ['80000', '80280', '80330']
+        },
+        พรหมคีรี: {
+            subDistrict: [
+                'พรหมโลก',
+                'บ้านเกาะ',
+                'อินคีรี',
+                'ทอนหงส์',
+                'นาเรียง'
+            ],
+            postalCodes: ['80320']
+        },
+        ลานสกา: {
+            subDistrict: ['เขาแก้ว', 'ลานสกา', 'ท่าดี', 'กำโลน', 'ขุนทะเล'],
+            postalCodes: ['80230']
+        },
+        ฉวาง: {
+            subDistrict: [
+                'ฉวาง',
+                'ละอาย',
+                'นาแว',
+                'ไม้เรียง',
+                'กะเปียด',
+                'นากะชะ',
+                'ห้วยปริก',
+                'ไสหร้า',
+                'นาเขลียง',
+                'จันดี'
+            ],
+            postalCodes: ['80150', '80250', '80260']
+        },
+        พิปูน: {
+            subDistrict: ['พิปูน', 'กะทูน', 'เขาพระ', 'ยางค้อม', 'ควนกลาง'],
+            postalCodes: ['80270']
+        },
+        เชียรใหญ่: {
+            subDistrict: [
+                'เชียรใหญ่',
+                'ท่าขนาน',
+                'บ้านกลาง',
+                'บ้านเนิน',
+                'ไสหมาก',
+                'ท้องลำเจียก',
+                'เสือหึง',
+                'การะเกด',
+                'เขาพระบาท',
+                'แม่เจ้าอยู่หัว'
+            ],
+            postalCodes: ['80190']
+        },
+        ชะอวด: {
+            subDistrict: [
+                'ชะอวด',
+                'ท่าเสม็ด',
+                'ท่าประจะ',
+                'เคร็ง',
+                'วังอ่าง',
+                'บ้านตูล',
+                'ขอนหาด',
+                'เกาะขันธ์',
+                'ควนหนองหงษ์',
+                'เขาพระทอง',
+                'นางหลง'
+            ],
+            postalCodes: ['80180']
+        },
+        ท่าศาลา: {
+            subDistrict: [
+                'ท่าศาลา',
+                'กลาย',
+                'ท่าขึ้น',
+                'หัวตะพาน',
+                'สระแก้ว',
+                'โมคลาน',
+                'ไทยบุรี',
+                'ดอนตะโก',
+                'ตลิ่งชัน',
+                'โพธิ์ทอง'
+            ],
+            postalCodes: ['80160']
+        },
+        ทุ่งสง: {
+            subDistrict: [
+                'ปากแพรก',
+                'ชะมาย',
+                'หนองหงส์',
+                'ควนกรด',
+                'นาไม้ไผ่',
+                'นาหลวงเสน',
+                'เขาโร',
+                'กะปาง',
+                'ที่วัง',
+                'น้ำตก',
+                'ถ้ำใหญ่',
+                'นาโพธิ์',
+                'เขาขาว'
+            ],
+            postalCodes: ['80110', '80310']
+        },
+        นาบอน: {
+            subDistrict: ['นาบอน', 'ทุ่งสง', 'แก้วแสน'],
+            postalCodes: ['80220']
+        },
+        ทุ่งใหญ่: {
+            subDistrict: [
+                'ท่ายาง',
+                'ทุ่งสัง',
+                'ทุ่งใหญ่',
+                'กุแหระ',
+                'ปริก',
+                'บางรูป',
+                'กรุงหยัน'
+            ],
+            postalCodes: ['80240']
+        },
+        ปากพนัง: {
+            subDistrict: [
+                'ปากพนัง',
+                'คลองน้อย',
+                'ป่าระกำ',
+                'ชะเมา',
+                'คลองกระบือ',
+                'เกาะทวด',
+                'บ้านใหม่',
+                'หูล่อง',
+                'แหลมตะลุมพุก',
+                'ปากพนังฝั่งตะวันตก',
+                'บางศาลา',
+                'บางพระ',
+                'บางตะพง',
+                'ปากพนังฝั่งตะวันออก',
+                'บ้านเพิง',
+                'ท่าพยา',
+                'ปากแพรก',
+                'ขนาบนาก'
+            ],
+            postalCodes: ['80140', '80330']
+        },
+        ร่อนพิบูลย์: {
+            subDistrict: [
+                'ร่อนพิบูลย์',
+                'หินตก',
+                'เสาธง',
+                'ควนเกย',
+                'ควนพัง',
+                'ควนชุม'
+            ],
+            postalCodes: ['80130', '80350']
+        },
+        สิชล: {
+            subDistrict: [
+                'สิชล',
+                'ทุ่งปรัง',
+                'ฉลอง',
+                'เสาเภา',
+                'เปลี่ยน',
+                'สี่ขีด',
+                'เทพราช',
+                'เขาน้อย',
+                'ทุ่งใส'
+            ],
+            postalCodes: ['80120', '80340']
+        },
+        ขนอม: {
+            subDistrict: ['ขนอม', 'ควนทอง', 'ท้องเนียน'],
+            postalCodes: ['80210']
+        },
+        หัวไทร: {
+            subDistrict: [
+                'หัวไทร',
+                'หน้าสตน',
+                'ทรายขาว',
+                'แหลม',
+                'เขาพังไกร',
+                'บ้านราม',
+                'บางนบ',
+                'ท่าซอม',
+                'ควนชะลิก',
+                'รามแก้ว',
+                'เกาะเพชร'
+            ],
+            postalCodes: ['80170']
+        },
+        บางขัน: {
+            subDistrict: ['บางขัน', 'บ้านลำนาว', 'วังหิน', 'บ้านนิคม'],
+            postalCodes: ['80360']
+        },
+        ถ้ำพรรณรา: {
+            subDistrict: ['ถ้ำพรรณรา', 'คลองเส', 'ดุสิต'],
+            postalCodes: ['80260']
+        },
+        จุฬาภรณ์: {
+            subDistrict: [
+                'บ้านควนมุด',
+                'บ้านชะอวด',
+                'ควนหนองคว้า',
+                'ทุ่งโพธิ์',
+                'นาหมอบุญ',
+                'สามตำบล'
+            ],
+            postalCodes: ['80180', '80130']
+        },
+        พระพรหม: {
+            subDistrict: ['นาพรุ', 'นาสาร', 'ท้ายสำเภา', 'ช้างซ้าย'],
+            postalCodes: ['80000']
+        },
+        นบพิตำ: {
+            subDistrict: ['นบพิตำ', 'กรุงชิง', 'กะหรอ', 'นาเหรง'],
+            postalCodes: ['80160']
+        },
+        ช้างกลาง: {
+            subDistrict: ['ช้างกลาง', 'หลักช้าง', 'สวนขัน'],
+            postalCodes: ['80250']
+        },
+        เฉลิมพระเกียรติ: {
+            subDistrict: ['เชียรเขา', 'ดอนตรอ', 'สวนหลวง', 'ทางพูน'],
+            postalCodes: ['80190', '80290']
+        }
+    },
+    กระบี่: {
+        เมืองกระบี่: {
+            subDistrict: [
+                'ปากน้ำ',
+                'กระบี่ใหญ่',
+                'กระบี่น้อย',
+                'เขาคราม',
+                'เขาทอง',
+                'ทับปริก',
+                'ไสไทย',
+                'อ่าวนาง',
+                'หนองทะเล',
+                'คลองประสงค์'
+            ],
+            postalCodes: ['81000']
+        },
+        เขาพนม: {
+            subDistrict: [
+                'เขาพนม',
+                'เขาดิน',
+                'สินปุน',
+                'พรุเตียว',
+                'หน้าเขา',
+                'โคกหาร'
+            ],
+            postalCodes: ['81140', '80240']
+        },
+        เกาะลันตา: {
+            subDistrict: [
+                'เกาะลันตาใหญ่',
+                'เกาะลันตาน้อย',
+                'เกาะกลาง',
+                'คลองยาง',
+                'ศาลาด่าน'
+            ],
+            postalCodes: ['81150', '81120']
+        },
+        คลองท่อม: {
+            subDistrict: [
+                'คลองท่อมใต้',
+                'คลองท่อมเหนือ',
+                'คลองพน',
+                'ทรายขาว',
+                'ห้วยน้ำขาว',
+                'พรุดินนา',
+                'เพหลา'
+            ],
+            postalCodes: ['81120', '81170']
+        },
+        อ่าวลึก: {
+            subDistrict: [
+                'อ่าวลึกใต้',
+                'แหลมสัก',
+                'นาเหนือ',
+                'คลองหิน',
+                'อ่าวลึกน้อย',
+                'อ่าวลึกเหนือ',
+                'เขาใหญ่',
+                'คลองยา',
+                'บ้านกลาง'
+            ],
+            postalCodes: ['81110']
+        },
+        ปลายพระยา: {
+            subDistrict: ['ปลายพระยา', 'เขาเขน', 'เขาต่อ', 'คีรีวง'],
+            postalCodes: ['81160']
+        },
+        ลำทับ: {
+            subDistrict: ['ลำทับ', 'ดินอุดม', 'ทุ่งไทรทอง', 'ดินแดง'],
+            postalCodes: ['81190']
+        },
+        เหนือคลอง: {
+            subDistrict: [
+                'เหนือคลอง',
+                'เกาะศรีบอยา',
+                'คลองขนาน',
+                'คลองเขม้า',
+                'โคกยาง',
+                'ตลิ่งชัน',
+                'ปกาสัย',
+                'ห้วยยูง'
+            ],
+            postalCodes: ['81130']
+        }
+    },
+    พังงา: {
+        เมืองพังงา: {
+            subDistrict: [
+                'ท้ายช้าง',
+                'นบปริง',
+                'ถ้ำน้ำผุด',
+                'บางเตย',
+                'ตากแดด',
+                'สองแพรก',
+                'ทุ่งคาโงก',
+                'เกาะปันหยี',
+                'ป่ากอ'
+            ],
+            postalCodes: ['82000']
+        },
+        เกาะยาว: {
+            subDistrict: ['เกาะยาวน้อย', 'เกาะยาวใหญ่', 'พรุใน'],
+            postalCodes: ['82160', '83000']
+        },
+        กะปง: {
+            subDistrict: ['กะปง', 'ท่านา', 'เหมาะ', 'เหล', 'รมณีย์'],
+            postalCodes: ['82170']
+        },
+        ตะกั่วทุ่ง: {
+            subDistrict: [
+                'ถ้ำ',
+                'กระโสม',
+                'กะไหล',
+                'ท่าอยู่',
+                'หล่อยูง',
+                'โคกกลอย',
+                'คลองเคียน'
+            ],
+            postalCodes: ['82130', '82140']
+        },
+        ตะกั่วป่า: {
+            subDistrict: [
+                'ตะกั่วป่า',
+                'บางนายสี',
+                'บางไทร',
+                'บางม่วง',
+                'ตำตัว',
+                'โคกเคียน',
+                'คึกคัก',
+                'เกาะคอเขา'
+            ],
+            postalCodes: ['82110', '82190']
+        },
+        คุระบุรี: {
+            subDistrict: ['คุระ', 'บางวัน', 'เกาะพระทอง', 'แม่นางขาว'],
+            postalCodes: ['82150']
+        },
+        ทับปุด: {
+            subDistrict: [
+                'ทับปุด',
+                'มะรุ่ย',
+                'บ่อแสน',
+                'ถ้ำทองหลาง',
+                'โคกเจริญ',
+                'บางเหรียง'
+            ],
+            postalCodes: ['82180']
+        },
+        ท้ายเหมือง: {
+            subDistrict: [
+                'ท้ายเหมือง',
+                'นาเตย',
+                'บางทอง',
+                'ทุ่งมะพร้าว',
+                'ลำภี',
+                'ลำแก่น'
+            ],
+            postalCodes: ['82120', '82210']
+        }
+    },
+    ภูเก็ต: {
+        เมืองภูเก็ต: {
+            subDistrict: [
+                'ตลาดใหญ่',
+                'ตลาดเหนือ',
+                'เกาะแก้ว',
+                'รัษฎา',
+                'วิชิต',
+                'ฉลอง',
+                'ราไวย์',
+                'กะรน'
+            ],
+            postalCodes: ['83000', '83130', '83100']
+        },
+        กะทู้: {
+            subDistrict: ['กะทู้', 'ป่าตอง', 'กมลา'],
+            postalCodes: ['83120', '83150']
+        },
+        ถลาง: {
+            subDistrict: [
+                'เทพกระษัตรี',
+                'ศรีสุนทร',
+                'เชิงทะเล',
+                'ป่าคลอก',
+                'ไม้ขาว',
+                'สาคู'
+            ],
+            postalCodes: ['83110']
+        }
+    },
+    สุราษฎร์ธานี: {
+        เมืองสุราษฎร์ธานี: {
+            subDistrict: [
+                'ตลาด',
+                'มะขามเตี้ย',
+                'วัดประดู่',
+                'ขุนทะเล',
+                'บางใบไม้',
+                'บางชนะ',
+                'คลองน้อย',
+                'บางไทร',
+                'บางโพธิ์',
+                'บางกุ้ง',
+                'คลองฉนาก'
+            ],
+            postalCodes: ['84000', '84100']
+        },
+        กาญจนดิษฐ์: {
+            subDistrict: [
+                'ท่าทองใหม่',
+                'ท่าทอง',
+                'กะแดะ',
+                'ทุ่งกง',
+                'กรูด',
+                'ช้างซ้าย',
+                'พลายวาส',
+                'ป่าร่อน',
+                'ตะเคียนทอง',
+                'ช้างขวา',
+                'ท่าอุแท',
+                'ทุ่งรัง',
+                'คลองสระ'
+            ],
+            postalCodes: ['84290', '84160']
+        },
+        ดอนสัก: {
+            subDistrict: ['ดอนสัก', 'ชลคราม', 'ไชยคราม', 'ปากแพรก'],
+            postalCodes: ['84220', '84160', '84340']
+        },
+        เกาะสมุย: {
+            subDistrict: [
+                'อ่างทอง',
+                'ลิปะน้อย',
+                'ตลิ่งงาม',
+                'หน้าเมือง',
+                'มะเร็ต',
+                'บ่อผุด',
+                'แม่น้ำ'
+            ],
+            postalCodes: ['84140', '84310', '84320', '84330']
+        },
+        เกาะพะงัน: {
+            subDistrict: ['เกาะพะงัน', 'บ้านใต้', 'เกาะเต่า'],
+            postalCodes: ['84280', '84360']
+        },
+        ไชยา: {
+            subDistrict: [
+                'ตลาดไชยา',
+                'พุมเรียง',
+                'เลม็ด',
+                'เวียง',
+                'ทุ่ง',
+                'ป่าเว',
+                'ตะกรบ',
+                'โมถ่าย',
+                'ปากหมาก'
+            ],
+            postalCodes: ['84110']
+        },
+        ท่าชนะ: {
+            subDistrict: [
+                'ท่าชนะ',
+                'สมอทอง',
+                'ประสงค์',
+                'คันธุลี',
+                'วัง',
+                'คลองพา'
+            ],
+            postalCodes: ['84170']
+        },
+        คีรีรัฐนิคม: {
+            subDistrict: [
+                'ท่าขนอน',
+                'บ้านยาง',
+                'น้ำหัก',
+                'กะเปา',
+                'ท่ากระดาน',
+                'ย่านยาว',
+                'ถ้ำสิงขร',
+                'บ้านทำเนียบ'
+            ],
+            postalCodes: ['84180']
+        },
+        บ้านตาขุน: {
+            subDistrict: ['เขาวง', 'พะแสง', 'พรุไทย', 'เขาพัง'],
+            postalCodes: ['84230']
+        },
+        พนม: {
+            subDistrict: [
+                'พนม',
+                'ต้นยวน',
+                'คลองศก',
+                'พลูเถื่อน',
+                'พังกาญจน์',
+                'คลองชะอุ่น'
+            ],
+            postalCodes: ['84250']
+        },
+        ท่าฉาง: {
+            subDistrict: [
+                'ท่าฉาง',
+                'ท่าเคย',
+                'คลองไทร',
+                'เขาถ่าน',
+                'เสวียด',
+                'ปากฉลุย'
+            ],
+            postalCodes: ['84150']
+        },
+        บ้านนาสาร: {
+            subDistrict: [
+                'นาสาร',
+                'พรุพี',
+                'ทุ่งเตา',
+                'ลำพูน',
+                'ท่าชี',
+                'ควนศรี',
+                'ควนสุบรรณ',
+                'คลองปราบ',
+                'น้ำพุ',
+                'ทุ่งเตาใหม่',
+                'เพิ่มพูนทรัพย์'
+            ],
+            postalCodes: ['84120', '84270']
+        },
+        บ้านนาเดิม: {
+            subDistrict: ['บ้านนา', 'ท่าเรือ', 'ทรัพย์ทวี', 'นาใต้'],
+            postalCodes: ['84240']
+        },
+        เคียนซา: {
+            subDistrict: [
+                'เคียนซา',
+                'พ่วงพรมคร',
+                'เขาตอก',
+                'อรัญคามวารี',
+                'บ้านเสด็จ'
+            ],
+            postalCodes: ['84260', '84210']
+        },
+        เวียงสระ: {
+            subDistrict: [
+                'เวียงสระ',
+                'บ้านส้อง',
+                'คลองฉนวน',
+                'ทุ่งหลวง',
+                'เขานิพันธ์'
+            ],
+            postalCodes: ['84190']
+        },
+        พระแสง: {
+            subDistrict: [
+                'อิปัน',
+                'สินปุน',
+                'บางสวรรค์',
+                'ไทรขึง',
+                'สินเจริญ',
+                'ไทรโสภา',
+                'สาคู'
+            ],
+            postalCodes: ['84210']
+        },
+        พุนพิน: {
+            subDistrict: [
+                'ท่าข้าม',
+                'ท่าสะท้อน',
+                'ลีเล็ด',
+                'บางมะเดื่อ',
+                'บางเดือน',
+                'ท่าโรงช้าง',
+                'กรูด',
+                'พุนพิน',
+                'บางงอน',
+                'ศรีวิชัย',
+                'น้ำรอบ',
+                'มะลวน',
+                'หัวเตย',
+                'หนองไทร',
+                'เขาหัวควาย',
+                'ตะปาน'
+            ],
+            postalCodes: ['84130']
+        },
+        ชัยบุรี: {
+            subDistrict: ['สองแพรก', 'ชัยบุรี', 'คลองน้อย', 'ไทรทอง'],
+            postalCodes: ['84350']
+        },
+        วิภาวดี: {
+            subDistrict: ['ตะกุกใต้', 'ตะกุกเหนือ'],
+            postalCodes: ['84370']
+        }
+    },
+    ระนอง: {
+        เมืองระนอง: {
+            subDistrict: [
+                'เขานิเวศน์',
+                'ราชกรูด',
+                'หงาว',
+                'บางริ้น',
+                'ปากน้ำ',
+                'บางนอน',
+                'หาดส้มแป้น',
+                'ทรายแดง',
+                'เกาะพยาม'
+            ],
+            postalCodes: ['85000', '85130']
+        },
+        ละอุ่น: {
+            subDistrict: [
+                'ละอุ่นใต้',
+                'ละอุ่นเหนือ',
+                'บางพระใต้',
+                'บางพระเหนือ',
+                'บางแก้ว',
+                'ในวงเหนือ',
+                'ในวงใต้'
+            ],
+            postalCodes: ['85130']
+        },
+        กะเปอร์: {
+            subDistrict: [
+                'ม่วงกลวง',
+                'กะเปอร์',
+                'เชี่ยวเหลียง',
+                'บ้านนา',
+                'บางหิน'
+            ],
+            postalCodes: ['85120']
+        },
+        กระบุรี: {
+            subDistrict: [
+                'น้ำจืด',
+                'น้ำจืดน้อย',
+                'มะมุ',
+                'ปากจั่น',
+                'ลำเลียง',
+                'จ.ป.ร.',
+                'บางใหญ่'
+            ],
+            postalCodes: ['85110']
+        },
+        สุขสำราญ: {
+            subDistrict: ['นาคา', 'กำพวน'],
+            postalCodes: ['85120']
+        }
+    },
+    ชุมพร: {
+        เมืองชุมพร: {
+            subDistrict: [
+                'ท่าตะเภา',
+                'ปากน้ำ',
+                'ท่ายาง',
+                'บางหมาก',
+                'นาทุ่ง',
+                'นาชะอัง',
+                'ตากแดด',
+                'บางลึก',
+                'หาดพันไกร',
+                'วังไผ่',
+                'วังใหม่',
+                'บ้านนา',
+                'ขุนกระทิง',
+                'ทุ่งคา',
+                'วิสัยเหนือ',
+                'หาดทรายรี',
+                'ถ้ำสิงห์'
+            ],
+            postalCodes: ['86000', '86120', '86190', '86100']
+        },
+        ท่าแซะ: {
+            subDistrict: [
+                'ท่าแซะ',
+                'คุริง',
+                'สลุย',
+                'นากระตาม',
+                'รับร่อ',
+                'ท่าข้าม',
+                'หงษ์เจริญ',
+                'หินแก้ว',
+                'ทรัพย์อนันต์',
+                'สองพี่น้อง'
+            ],
+            postalCodes: ['86140', '86190']
+        },
+        ปะทิว: {
+            subDistrict: [
+                'บางสน',
+                'ทะเลทรัพย์',
+                'สะพลี',
+                'ชุมโค',
+                'ดอนยาง',
+                'ปากคลอง',
+                'เขาไชยราช'
+            ],
+            postalCodes: ['86160', '86230', '86210']
+        },
+        หลังสวน: {
+            subDistrict: [
+                'หลังสวน',
+                'ขันเงิน',
+                'ท่ามะพลา',
+                'นาขา',
+                'นาพญา',
+                'บ้านควน',
+                'บางมะพร้าว',
+                'บางน้ำจืด',
+                'ปากน้ำ',
+                'พ้อแดง',
+                'แหลมทราย',
+                'วังตะกอ',
+                'หาดยาย'
+            ],
+            postalCodes: ['86110', '86150']
+        },
+        ละแม: {
+            subDistrict: ['ละแม', 'ทุ่งหลวง', 'สวนแตง', 'ทุ่งคาวัด'],
+            postalCodes: ['86170']
+        },
+        พะโต๊ะ: {
+            subDistrict: ['พะโต๊ะ', 'ปากทรง', 'ปังหวาน', 'พระรักษ์'],
+            postalCodes: ['86180']
+        },
+        สวี: {
+            subDistrict: [
+                'นาโพธิ์',
+                'สวี',
+                'ทุ่งระยะ',
+                'ท่าหิน',
+                'ปากแพรก',
+                'ด่านสวี',
+                'ครน',
+                'วิสัยใต้',
+                'นาสัก',
+                'เขาทะลุ',
+                'เขาค่าย'
+            ],
+            postalCodes: ['86130']
+        },
+        ทุ่งตะโก: {
+            subDistrict: ['ปากตะโก', 'ทุ่งตะไคร', 'ตะโก', 'ช่องไม้แก้ว'],
+            postalCodes: ['86220']
+        }
+    },
+    สงขลา: {
+        เมืองสงขลา: {
+            subDistrict: [
+                'บ่อยาง',
+                'เขารูปช้าง',
+                'เกาะแต้ว',
+                'พะวง',
+                'ทุ่งหวัง',
+                'เกาะยอ'
+            ],
+            postalCodes: ['90000', '90100']
+        },
+        สทิงพระ: {
+            subDistrict: [
+                'จะทิ้งพระ',
+                'กระดังงา',
+                'สนามชัย',
+                'ดีหลวง',
+                'ชุมพล',
+                'คลองรี',
+                'คูขุด',
+                'ท่าหิน',
+                'วัดจันทร์',
+                'บ่อแดง',
+                'บ่อดาน'
+            ],
+            postalCodes: ['90190']
+        },
+        จะนะ: {
+            subDistrict: [
+                'บ้านนา',
+                'ป่าชิง',
+                'สะพานไม้แก่น',
+                'สะกอม',
+                'นาหว้า',
+                'นาทับ',
+                'น้ำขาว',
+                'ขุนตัดหวาย',
+                'ท่าหมอไทร',
+                'จะโหนง',
+                'คู',
+                'แค',
+                'คลองเปียะ',
+                'ตลิ่งชัน'
+            ],
+            postalCodes: ['90130']
+        },
+        นาทวี: {
+            subDistrict: [
+                'นาทวี',
+                'ฉาง',
+                'นาหมอศรี',
+                'คลองทราย',
+                'ปลักหนู',
+                'ท่าประดู่',
+                'สะท้อน',
+                'ทับช้าง',
+                'ประกอบ',
+                'คลองกวาง'
+            ],
+            postalCodes: ['90160']
+        },
+        เทพา: {
+            subDistrict: [
+                'เทพา',
+                'ปากบาง',
+                'เกาะสะบ้า',
+                'ลำไพล',
+                'ท่าม่วง',
+                'วังใหญ่',
+                'สะกอม'
+            ],
+            postalCodes: ['90150', '90260']
+        },
+        สะบ้าย้อย: {
+            subDistrict: [
+                'สะบ้าย้อย',
+                'ทุ่งพอ',
+                'เปียน',
+                'บ้านโหนด',
+                'จะแหน',
+                'คูหา',
+                'เขาแดง',
+                'บาโหย',
+                'ธารคีรี'
+            ],
+            postalCodes: ['90210']
+        },
+        ระโนด: {
+            subDistrict: [
+                'ระโนด',
+                'คลองแดน',
+                'ตะเครียะ',
+                'ท่าบอน',
+                'บ้านใหม่',
+                'บ่อตรุ',
+                'ปากแตระ',
+                'พังยาง',
+                'ระวะ',
+                'วัดสน',
+                'บ้านขาว',
+                'แดนสงวน'
+            ],
+            postalCodes: ['90140']
+        },
+        กระแสสินธุ์: {
+            subDistrict: ['เกาะใหญ่', 'โรง', 'เชิงแส', 'กระแสสินธุ์'],
+            postalCodes: ['90270']
+        },
+        รัตภูมิ: {
+            subDistrict: [
+                'กำแพงเพชร',
+                'ท่าชะมวง',
+                'คูหาใต้',
+                'ควนรู',
+                'เขาพระ'
+            ],
+            postalCodes: ['90180']
+        },
+        สะเดา: {
+            subDistrict: [
+                'สะเดา',
+                'ปริก',
+                'พังลา',
+                'สำนักแต้ว',
+                'ทุ่งหมอ',
+                'ท่าโพธิ์',
+                'ปาดังเบซาร์',
+                'สำนักขาม',
+                'เขามีเกียรติ'
+            ],
+            postalCodes: ['90120', '90170', '90240', '90320']
+        },
+        หาดใหญ่: {
+            subDistrict: [
+                'หาดใหญ่',
+                'ควนลัง',
+                'คูเต่า',
+                'คอหงส์',
+                'คลองแห',
+                'คลองอู่ตะเภา',
+                'ฉลุง',
+                'ทุ่งใหญ่',
+                'ทุ่งตำเสา',
+                'ท่าข้าม',
+                'น้ำน้อย',
+                'บ้านพรุ',
+                'พะตง'
+            ],
+            postalCodes: ['90110', '90250', '90230']
+        },
+        นาหม่อม: {
+            subDistrict: ['นาหม่อม', 'พิจิตร', 'ทุ่งขมิ้น', 'คลองหรัง'],
+            postalCodes: ['90310']
+        },
+        ควนเนียง: {
+            subDistrict: ['รัตภูมิ', 'ควนโส', 'ห้วยลึก', 'บางเหรียง'],
+            postalCodes: ['90220']
+        },
+        บางกล่ำ: {
+            subDistrict: ['บางกล่ำ', 'ท่าช้าง', 'แม่ทอม', 'บ้านหาร'],
+            postalCodes: ['90110']
+        },
+        สิงหนคร: {
+            subDistrict: [
+                'ชิงโค',
+                'สทิงหม้อ',
+                'ทำนบ',
+                'รำแดง',
+                'วัดขนุน',
+                'ชะแล้',
+                'ปากรอ',
+                'ป่าขาด',
+                'หัวเขา',
+                'บางเขียด',
+                'ม่วงงาม'
+            ],
+            postalCodes: ['90280', '90330']
+        },
+        คลองหอยโข่ง: {
+            subDistrict: ['คลองหอยโข่ง', 'ทุ่งลาน', 'โคกม่วง', 'คลองหลา'],
+            postalCodes: ['90230', '90110']
+        }
+    },
+    สตูล: {
+        เมืองสตูล: {
+            subDistrict: [
+                'พิมาน',
+                'คลองขุด',
+                'ควนขัน',
+                'บ้านควน',
+                'ฉลุง',
+                'เกาะสาหร่าย',
+                'ตันหยงโป',
+                'เจ๊ะบิลัง',
+                'ตำมะลัง',
+                'ปูยู',
+                'ควนโพธิ์',
+                'เกตรี'
+            ],
+            postalCodes: ['91000', '91140']
+        },
+        ควนโดน: {
+            subDistrict: ['ควนโดน', 'ควนสตอ', 'ย่านซื่อ', 'วังประจัน'],
+            postalCodes: ['91160']
+        },
+        ควนกาหลง: {
+            subDistrict: ['ทุ่งนุ้ย', 'ควนกาหลง', 'อุใดเจริญ'],
+            postalCodes: ['91130']
+        },
+        ท่าแพ: {
+            subDistrict: ['ท่าแพ', 'แป-ระ', 'สาคร', 'ท่าเรือ'],
+            postalCodes: ['91150']
+        },
+        ละงู: {
+            subDistrict: [
+                'กำแพง',
+                'ละงู',
+                'เขาขาว',
+                'ปากน้ำ',
+                'น้ำผุด',
+                'แหลมสน'
+            ],
+            postalCodes: ['91110']
+        },
+        ทุ่งหว้า: {
+            subDistrict: [
+                'ทุ่งหว้า',
+                'นาทอน',
+                'ขอนคลาน',
+                'ทุ่งบุหลัง',
+                'ป่าแก่บ่อหิน'
+            ],
+            postalCodes: ['91120']
+        },
+        มะนัง: {
+            subDistrict: ['ปาล์มพัฒนา', 'นิคมพัฒนา'],
+            postalCodes: ['91130']
+        }
+    },
+    ตรัง: {
+        เมืองตรัง: {
+            subDistrict: [
+                'ทับเที่ยง',
+                'นาพละ',
+                'บ้านควน',
+                'นาบินหลา',
+                'ควนปริง',
+                'นาโยงใต้',
+                'บางรัก',
+                'โคกหล่อ',
+                'นาโต๊ะหมิง',
+                'หนองตรุด',
+                'น้ำผุด',
+                'นาตาล่วง',
+                'บ้านโพธิ์',
+                'นาท่ามเหนือ',
+                'นาท่ามใต้'
+            ],
+            postalCodes: ['92000', '92170', '92190']
+        },
+        กันตัง: {
+            subDistrict: [
+                'กันตัง',
+                'ควนธานี',
+                'บางหมาก',
+                'บางเป้า',
+                'วังวน',
+                'กันตังใต้',
+                'โคกยาง',
+                'คลองลุ',
+                'ย่านซื่อ',
+                'บ่อน้ำร้อน',
+                'บางสัก',
+                'นาเกลือ',
+                'เกาะลิบง',
+                'คลองชีล้อม'
+            ],
+            postalCodes: ['92110']
+        },
+        ย่านตาขาว: {
+            subDistrict: [
+                'ย่านตาขาว',
+                'หนองบ่อ',
+                'นาชุมเห็ด',
+                'ในควน',
+                'โพรงจระเข้',
+                'ทุ่งกระบือ',
+                'ทุ่งค่าย',
+                'เกาะเปียะ'
+            ],
+            postalCodes: ['92140']
+        },
+        ปะเหลียน: {
+            subDistrict: [
+                'ท่าข้าม',
+                'ทุ่งยาว',
+                'ปะเหลียน',
+                'บางด้วน',
+                'บ้านนา',
+                'สุโสะ',
+                'ลิพัง',
+                'เกาะสุกร',
+                'ท่าพญา',
+                'แหลมสอม'
+            ],
+            postalCodes: ['92120', '92180', '92140']
+        },
+        สิเกา: {
+            subDistrict: [
+                'บ่อหิน',
+                'เขาไม้แก้ว',
+                'กะลาเส',
+                'ไม้ฝาด',
+                'นาเมืองเพชร'
+            ],
+            postalCodes: ['92150', '92000']
+        },
+        ห้วยยอด: {
+            subDistrict: [
+                'ห้วยยอด',
+                'หนองช้างแล่น',
+                'บางดี',
+                'บางกุ้ง',
+                'เขากอบ',
+                'เขาขาว',
+                'เขาปูน',
+                'ปากแจ่ม',
+                'ปากคม',
+                'ท่างิ้ว',
+                'ลำภูรา',
+                'นาวง',
+                'ห้วยนาง',
+                'ในเตา',
+                'ทุ่งต่อ',
+                'วังคีรี'
+            ],
+            postalCodes: ['92130', '92210', '92190']
+        },
+        วังวิเศษ: {
+            subDistrict: [
+                'เขาวิเศษ',
+                'วังมะปราง',
+                'อ่าวตง',
+                'ท่าสะบ้า',
+                'วังมะปรางเหนือ'
+            ],
+            postalCodes: ['92220', '92000']
+        },
+        นาโยง: {
+            subDistrict: [
+                'นาโยงเหนือ',
+                'ช่อง',
+                'ละมอ',
+                'โคกสะบ้า',
+                'นาหมื่นศรี',
+                'นาข้าวเสีย'
+            ],
+            postalCodes: ['92170']
+        },
+        รัษฎา: {
+            subDistrict: ['ควนเมา', 'คลองปาง', 'หนองบัว', 'หนองปรือ', 'เขาไพร'],
+            postalCodes: ['92160', '92130']
+        },
+        หาดสำราญ: {
+            subDistrict: ['หาดสำราญ', 'บ้าหวี', 'ตะเสะ'],
+            postalCodes: ['92120']
+        }
+    },
+    พัทลุง: {
+        เมืองพัทลุง: {
+            subDistrict: [
+                'คูหาสวรรค์',
+                'เขาเจียก',
+                'ท่ามิหรำ',
+                'โคกชะงาย',
+                'นาท่อม',
+                'ปรางหมู่',
+                'ท่าแค',
+                'ลำปำ',
+                'ตำนาน',
+                'ควนมะพร้าว',
+                'ร่มเมือง',
+                'ชัยบุรี',
+                'นาโหนด',
+                'พญาขัน'
+            ],
+            postalCodes: ['93000']
+        },
+        กงหรา: {
+            subDistrict: [
+                'กงหรา',
+                'ชะรัด',
+                'คลองเฉลิม',
+                'คลองทรายขาว',
+                'สมหวัง'
+            ],
+            postalCodes: ['93180', '93000']
+        },
+        เขาชัยสน: {
+            subDistrict: [
+                'เขาชัยสน',
+                'ควนขนุน',
+                'จองถนน',
+                'หานโพธิ์',
+                'โคกม่วง'
+            ],
+            postalCodes: ['93130']
+        },
+        ตะโหมด: {
+            subDistrict: ['แม่ขรี', 'ตะโหมด', 'คลองใหญ่'],
+            postalCodes: ['93160']
+        },
+        ควนขนุน: {
+            subDistrict: [
+                'ควนขนุน',
+                'ทะเลน้อย',
+                'นาขยาด',
+                'พนมวังก์',
+                'แหลมโตนด',
+                'ปันแต',
+                'โตนดด้วน',
+                'ดอนทราย',
+                'มะกอกเหนือ',
+                'พนางตุง',
+                'ชะมวง',
+                'แพรกหา'
+            ],
+            postalCodes: ['93110', '93150']
+        },
+        ปากพะยูน: {
+            subDistrict: [
+                'ปากพะยูน',
+                'ดอนประดู่',
+                'เกาะนางคำ',
+                'เกาะหมาก',
+                'ฝาละมี',
+                'หารเทา',
+                'ดอนทราย'
+            ],
+            postalCodes: ['93120']
+        },
+        ศรีบรรพต: {
+            subDistrict: ['เขาย่า', 'เขาปู่', 'ตะแพน'],
+            postalCodes: ['93190']
+        },
+        ป่าบอน: {
+            subDistrict: ['ป่าบอน', 'โคกทราย', 'หนองธง', 'ทุ่งนารี', 'วังใหม่'],
+            postalCodes: ['93170']
+        },
+        บางแก้ว: {
+            subDistrict: ['ท่ามะเดื่อ', 'นาปะขอ', 'โคกสัก'],
+            postalCodes: ['93140']
+        },
+        ป่าพะยอม: {
+            subDistrict: ['ป่าพะยอม', 'ลานข่อย', 'เกาะเต่า', 'บ้านพร้าว'],
+            postalCodes: ['93210']
+        },
+        ศรีนครินทร์: {
+            subDistrict: ['ชุมพล', 'บ้านนา', 'อ่างทอง', 'ลำสินธุ์'],
+            postalCodes: ['93000']
+        }
+    },
+    ปัตตานี: {
+        เมืองปัตตานี: {
+            subDistrict: [
+                'สะบารัง',
+                'อาเนาะรู',
+                'จะบังติกอ',
+                'บานา',
+                'ตันหยงลุโละ',
+                'คลองมานิง',
+                'กะมิยอ',
+                'บาราโหม',
+                'ปะกาฮะรัง',
+                'รูสะมิแล',
+                'ตะลุโบะ',
+                'บาราเฮาะ',
+                'ปุยุด'
+            ],
+            postalCodes: ['94000']
+        },
+        โคกโพธิ์: {
+            subDistrict: [
+                'โคกโพธิ์',
+                'มะกรูด',
+                'บางโกระ',
+                'ป่าบอน',
+                'ทรายขาว',
+                'นาประดู่',
+                'ปากล่อ',
+                'ทุ่งพลา',
+                'ท่าเรือ',
+                'นาเกตุ',
+                'ควนโนรี',
+                'ช้างให้ตก'
+            ],
+            postalCodes: ['94120', '94180']
+        },
+        หนองจิก: {
+            subDistrict: [
+                'เกาะเปาะ',
+                'คอลอตันหยง',
+                'ดอนรัก',
+                'ดาโต๊ะ',
+                'ตุยง',
+                'ท่ากำชำ',
+                'บ่อทอง',
+                'บางเขา',
+                'บางตาวา',
+                'ปุโละปุโย',
+                'ยาบี',
+                'ลิปะสะโง'
+            ],
+            postalCodes: ['94170']
+        },
+        ปะนาเระ: {
+            subDistrict: [
+                'ปะนาเระ',
+                'ท่าข้าม',
+                'บ้านนอก',
+                'ดอน',
+                'ควน',
+                'ท่าน้ำ',
+                'คอกกระบือ',
+                'พ่อมิ่ง',
+                'บ้านกลาง',
+                'บ้านน้ำบ่อ'
+            ],
+            postalCodes: ['94130', '94190']
+        },
+        มายอ: {
+            subDistrict: [
+                'มายอ',
+                'ถนน',
+                'ตรัง',
+                'กระหวะ',
+                'ลุโบะยิไร',
+                'ลางา',
+                'กระเสาะ',
+                'เกาะจัน',
+                'ปะโด',
+                'สาคอบน',
+                'สาคอใต้',
+                'สะกำ',
+                'ปานัน'
+            ],
+            postalCodes: ['94140', '94190']
+        },
+        ทุ่งยางแดง: {
+            subDistrict: ['ตะโละแมะนา', 'พิเทน', 'น้ำดำ', 'ปากู'],
+            postalCodes: ['94140']
+        },
+        สายบุรี: {
+            subDistrict: [
+                'ตะลุบัน',
+                'ตะบิ้ง',
+                'ปะเสยะวอ',
+                'บางเก่า',
+                'บือเระ',
+                'เตราะบอน',
+                'กะดุนง',
+                'ละหาร',
+                'มะนังดาลำ',
+                'แป้น',
+                'ทุ่งคล้า'
+            ],
+            postalCodes: ['94110', '94190']
+        },
+        ไม้แก่น: {
+            subDistrict: ['ไทรทอง', 'ไม้แก่น', 'ตะโละไกรทอง', 'ดอนทราย'],
+            postalCodes: ['94220']
+        },
+        ยะหริ่ง: {
+            subDistrict: [
+                'ตะโละ',
+                'ตะโละกาโปร์',
+                'ตันหยงดาลอ',
+                'ตันหยงจึงงา',
+                'ตอหลัง',
+                'ตาแกะ',
+                'ตาลีอายร์',
+                'ยามู',
+                'บางปู',
+                'หนองแรต',
+                'ปิยามุมัง',
+                'ปุลากง',
+                'บาโลย',
+                'สาบัน',
+                'มะนังยง',
+                'ราตาปันยัง',
+                'จะรัง',
+                'แหลมโพธิ์'
+            ],
+            postalCodes: ['94150', '94190']
+        },
+        ยะรัง: {
+            subDistrict: [
+                'ยะรัง',
+                'สะดาวา',
+                'ประจัน',
+                'สะนอ',
+                'ระแว้ง',
+                'ปิตูมุดี',
+                'วัด',
+                'กระโด',
+                'คลองใหม่',
+                'เมาะมาวี',
+                'กอลำ',
+                'เขาตูม'
+            ],
+            postalCodes: ['94160']
+        },
+        กะพ้อ: {
+            subDistrict: ['กะรุบี', 'ตะโละดือรามัน', 'ปล่องหอย'],
+            postalCodes: ['94230']
+        },
+        แม่ลาน: {
+            subDistrict: ['แม่ลาน', 'ม่วงเตี้ย', 'ป่าไร่'],
+            postalCodes: ['94180']
+        }
+    },
+    ยะลา: {
+        เมืองยะลา: {
+            subDistrict: [
+                'สะเตง',
+                'บุดี',
+                'ยุโป',
+                'ลิดล',
+                'ยะลา',
+                'ท่าสาป',
+                'ลำใหม่',
+                'หน้าถ้ำ',
+                'ลำพะยา',
+                'เปาะเส้ง',
+                'พร่อน',
+                'บันนังสาเรง',
+                'สะเตงนอก',
+                'ตาเซะ'
+            ],
+            postalCodes: ['95000', '95160']
+        },
+        เบตง: {
+            subDistrict: [
+                'เบตง',
+                'ยะรม',
+                'ตาเนาะแมเราะ',
+                'อัยเยอร์เวง',
+                'ธารน้ำทิพย์'
+            ],
+            postalCodes: ['95110']
+        },
+        บันนังสตา: {
+            subDistrict: [
+                'บันนังสตา',
+                'บาเจาะ',
+                'ตาเนาะปูเต๊ะ',
+                'ถ้ำทะลุ',
+                'ตลิ่งชัน',
+                'เขื่อนบางลาง'
+            ],
+            postalCodes: ['95130']
+        },
+        ธารโต: {
+            subDistrict: ['ธารโต', 'บ้านแหร', 'แม่หวาด', 'คีรีเขต'],
+            postalCodes: ['95150', '95170']
+        },
+        ยะหา: {
+            subDistrict: [
+                'ยะหา',
+                'ละแอ',
+                'ปะแต',
+                'บาโร๊ะ',
+                'ตาชี',
+                'บาโงยซิแน',
+                'กาตอง'
+            ],
+            postalCodes: ['95120']
+        },
+        รามัน: {
+            subDistrict: [
+                'กายูบอเกาะ',
+                'กาลูปัง',
+                'กาลอ',
+                'กอตอตือร๊ะ',
+                'โกตาบารู',
+                'เกะรอ',
+                'จะกว๊ะ',
+                'ท่าธง',
+                'เนินงาม',
+                'บาลอ',
+                'บาโงย',
+                'บือมัง',
+                'ยะต๊ะ',
+                'วังพญา',
+                'อาซ่อง',
+                'ตะโล๊ะหะลอ'
+            ],
+            postalCodes: ['95140']
+        },
+        กาบัง: {
+            subDistrict: ['กาบัง', 'บาละ'],
+            postalCodes: ['95120']
+        },
+        กรงปินัง: {
+            subDistrict: ['กรงปินัง', 'สะเอะ', 'ห้วยกระทิง', 'ปุโรง'],
+            postalCodes: ['95000']
+        }
+    },
+    นราธิวาส: {
+        เมืองนราธิวาส: {
+            subDistrict: [
+                'บางนาค',
+                'ลำภู',
+                'มะนังตายอ',
+                'บางปอ',
+                'กะลุวอ',
+                'กะลุวอเหนือ',
+                'โคกเคียน'
+            ],
+            postalCodes: ['96000']
+        },
+        ตากใบ: {
+            subDistrict: [
+                'เจ๊ะเห',
+                'ไพรวัน',
+                'พร่อน',
+                'ศาลาใหม่',
+                'บางขุนทอง',
+                'เกาะสะท้อน',
+                'นานาค',
+                'โฆษิต'
+            ],
+            postalCodes: ['96110']
+        },
+        บาเจาะ: {
+            subDistrict: [
+                'บาเจาะ',
+                'ลุโบะสาวอ',
+                'กาเยาะมาตี',
+                'ปะลุกาสาเมาะ',
+                'บาเระเหนือ',
+                'บาเระใต้'
+            ],
+            postalCodes: ['96170']
+        },
+        ยี่งอ: {
+            subDistrict: [
+                'ยี่งอ',
+                'ละหาร',
+                'จอเบาะ',
+                'ลุโบะบายะ',
+                'ลุโบะบือซา',
+                'ตะปอเยาะ'
+            ],
+            postalCodes: ['96180']
+        },
+        ระแงะ: {
+            subDistrict: [
+                'ตันหยงมัส',
+                'ตันหยงลิมอ',
+                'บองอ',
+                'กาลิซา',
+                'บาโงสะโต',
+                'เฉลิม',
+                'มะรือโบตก'
+            ],
+            postalCodes: ['96130', '96220']
+        },
+        รือเสาะ: {
+            subDistrict: [
+                'รือเสาะ',
+                'สาวอ',
+                'เรียง',
+                'สามัคคี',
+                'บาตง',
+                'ลาโละ',
+                'รือเสาะออก',
+                'โคกสะตอ',
+                'สุวารี'
+            ],
+            postalCodes: ['96150']
+        },
+        ศรีสาคร: {
+            subDistrict: [
+                'ซากอ',
+                'ตะมะยูง',
+                'ศรีสาคร',
+                'เชิงคีรี',
+                'กาหลง',
+                'ศรีบรรพต'
+            ],
+            postalCodes: ['96210']
+        },
+        แว้ง: {
+            subDistrict: [
+                'แว้ง',
+                'กายูคละ',
+                'ฆอเลาะ',
+                'โละจูด',
+                'แม่ดง',
+                'เอราวัณ'
+            ],
+            postalCodes: ['96160']
+        },
+        สุคิริน: {
+            subDistrict: ['มาโมง', 'สุคิริน', 'เกียร์', 'ภูเขาทอง', 'ร่มไทร'],
+            postalCodes: ['96190']
+        },
+        'สุไหงโก-ลก': {
+            subDistrict: ['สุไหงโก-ลก', 'ปาเสมัส', 'มูโนะ', 'ปูโยะ'],
+            postalCodes: ['96120']
+        },
+        สุไหงปาดี: {
+            subDistrict: [
+                'ปะลุรู',
+                'สุไหงปาดี',
+                'โต๊ะเด็ง',
+                'สากอ',
+                'ริโก๋',
+                'กาวะ'
+            ],
+            postalCodes: ['96140']
+        },
+        จะแนะ: {
+            subDistrict: ['จะแนะ', 'ดุซงญอ', 'ผดุงมาตร', 'ช้างเผือก'],
+            postalCodes: ['96220']
+        },
+        เจาะไอร้อง: {
+            subDistrict: ['จวบ', 'บูกิต', 'มะรือโบออก'],
+            postalCodes: ['96130']
         }
     }
 };

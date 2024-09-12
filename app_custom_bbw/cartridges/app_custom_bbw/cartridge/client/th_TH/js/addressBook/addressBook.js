@@ -398,6 +398,7 @@ module.exports = $.extend({}, base, {
                 .find('.address-zipcode-input');
             var selectedZipCode = zipcodeDropdown.data('selected');
             subDistrictDropdown.empty(); // clear existing options
+            zipcodeDropdown.empty(); // clear existing options
 
             if (
                 addressData[selectedState] &&
