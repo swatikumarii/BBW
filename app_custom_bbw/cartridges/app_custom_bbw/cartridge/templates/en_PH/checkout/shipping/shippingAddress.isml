@@ -135,7 +135,7 @@
                 </select>
             </div>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}Country">
-                <isprint value="${addressFields.country.error}">
+                <isprint value="${addressFields.country.error}"/>
             </div>
         </div>
     </div>
