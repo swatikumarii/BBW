@@ -262,7 +262,7 @@ $(document).on('click', '#editAddress', function () {
                 form.find('#state').val(addressObject.state).trigger('change');
                 form.find('#city').val(addressObject.city).trigger('change');
                 form.find('#subDistrict')
-                    .val(addressObject.cisubDistricty)
+                    .val(addressObject.subDistrict)
                     .trigger('change');
                 if (addressObject.address1 && addressObject.state) {
                     if (
