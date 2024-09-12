@@ -277,6 +277,37 @@ $(document).ready(function () {
                 $('.shippingAddressCity').removeClass('is-invalid');
             }
         }
+        var selectedSubDistrict = $('body')
+            .find('.shippingAddressSubdistrict')
+            .attr('data-selected');
+        if (selectedSubDistrict !== 'null') {
+            var subDistrictShipExits = false;
+            $('.shippingAddressSubdistrict option').each(function () {
+                // eslint-disable-line
+                if ($(this).val() === selectedSubDistrict) {
+                    $('.shippingAddressSubdistrict option').removeAttr(
+                        'selected'
+                    );
+                    $(this).attr('selected', 'selected');
+                    $('body')
+                        .find('.shippingAddressSubdistrict')
+                        .trigger('change');
+                    subDistrictShipExits = true;
+                    return false;
+                }
+            });
+            if (!subDistrictShipExits) {
+                var subDistricShiptDropdown = $('.shippingAddressSubdistrict');
+                subDistricShiptDropdown.empty();
+                subDistricShiptDropdown.prepend(
+                    $('<option>', {
+                        value: selectedSubDistrict,
+                        text: selectedSubDistrict
+                    }).attr('selected', 'selected')
+                );
+                $('.shippingAddressSubdistrict').removeClass('is-invalid');
+            }
+        }
     }
 
     if (checkoutStage === 'payment') {
@@ -309,6 +340,7 @@ $(document).ready(function () {
             }
 
         }
+        
         var selectedBillingCity = $('body')
             .find('.billingAddressCity')
             .attr('data-selected');
@@ -333,6 +365,39 @@ $(document).ready(function () {
                     }).attr('selected', 'selected')
                 );
                 $('.billingAddressCity').removeClass('is-invalid');
+            }
+        }
+
+        var selectedBillingSubDistrict = $('body')
+            .find('.billingAddressSubdistrict')
+            .attr('data-selected');
+        if (selectedBillingSubDistrict !== 'null') {
+            var subDistrictExists = false;
+            $('.billingAddressSubdistrict option').each(function () {
+                // eslint-disable-line
+                if ($(this).val() === selectedBillingSubDistrict) {
+                    $('.billingAddressSubdistrict option').removeAttr(
+                        'selected'
+                    );
+                    $(this).attr('selected', 'selected');
+                    $('body')
+                        .find('.billingAddressSubdistrict')
+                        .trigger('change');
+                    subDistrictExists = true;
+                    return false;
+                }
+            });
+            if (!subDistrictExists) {
+                // setting city as per place API response
+                var subDistrictDropdown = $('.billingAddressSubdistrict');
+                subDistrictDropdown.empty();
+                subDistrictDropdown.prepend(
+                    $('<option>', {
+                        value: selectedBillingSubDistrict,
+                        text: selectedBillingSubDistrict
+                    }).attr('selected', 'selected')
+                );
+                $('.billingAddressSubdistrict').removeClass('is-invalid');
             }
         }
     }
@@ -490,11 +555,12 @@ $('.shippingState').change(function () {
                 text: '---- Select City ----'
             }).attr('selected', 'selected')
         );
-        $.each(addressData[selectedState], function (suburb) {
+        var cityMappingObj = addressData[selectedState];
+        $.each(cityMappingObj, function (suburb) {
             suburbDropdown.append(
                 $('<option>', {
-                    value: addressData[selectedState][suburb],
-                    text: addressData[selectedState][suburb]
+                    value: suburb,
+                    text: suburb
                 })
             );
         });
@@ -524,6 +590,43 @@ $('.shippingState').change(function () {
     });
 });
 
+$('.shippingAddressCity').change(function () {
+    var selectedState = $('.shippingState').val();
+    var selectedSuburb = $(this).val();
+    var subDistrictDropdown = $('.shippingAddressSubdistrict');
+    subDistrictDropdown.empty(); // clear existing options
+
+    if (
+        addressData[selectedState] &&
+        addressData[selectedState][selectedSuburb]
+    ) {
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select Sub-District ----'
+            }).attr('selected', 'selected')
+        );
+        var districtMappingObj = addressData[selectedState][selectedSuburb];
+        $.each(districtMappingObj, function (index,district) {
+            subDistrictDropdown.append(
+                $('<option>', {
+                    value: district,
+                    text: district
+                })
+            );
+        });
+        subDistrictDropdown.trigger('change');
+    } else {
+        $(this).val('');
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select City First----'
+            }).attr('selected', 'selected')
+        );
+        subDistrictDropdown.trigger('change');
+    }
+});
 
 $('.billingState').change(function () {
     var selectedState = $(this).val();
@@ -541,8 +644,8 @@ $('.billingState').change(function () {
         $.each(addressData[selectedState], function (suburb) {
             suburbDropdown.append(
                 $('<option>', {
-                    value: addressData[selectedState][suburb],
-                    text: addressData[selectedState][suburb]
+                    value: suburb,
+                    text: suburb
                 })
             );
         });
@@ -555,6 +658,44 @@ $('.billingState').change(function () {
             }).attr('selected', 'selected')
         );
         suburbDropdown.trigger('change');
+    }
+});
+
+$('.billingAddressCity').change(function () {
+    var selectedState = $('.billingState').val();
+    var selectedSuburb = $(this).val();
+    var subDistrictDropdown = $('.billingAddressSubdistrict');
+    subDistrictDropdown.empty(); // clear existing options
+
+    if (
+        addressData[selectedState] &&
+        addressData[selectedState][selectedSuburb]
+    ) {
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select Sub-District ----'
+            }).attr('selected', 'selected')
+        );
+        var districtMappingObj = addressData[selectedState][selectedSuburb];
+        $.each(Object.keys(districtMappingObj), function (district) {
+            subDistrictDropdown.append(
+                $('<option>', {
+                    value: Object.keys(districtMappingObj)[district],
+                    text: Object.keys(districtMappingObj)[district]
+                })
+            );
+        });
+        subDistrictDropdown.trigger('change');
+    } else {
+        $(this).val('');
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select City First----'
+            }).attr('selected', 'selected')
+        );
+        subDistrictDropdown.trigger('change');
     }
 });
 

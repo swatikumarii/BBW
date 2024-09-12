@@ -1,18 +1,17 @@
 <isif condition="${pdict.customer.addresses && pdict.customer.addresses.length > 0}">
-    <option data-first-name="${''}" data-last-name="${''}"
-        data-address1="${''}" data-address2="${''}"
-        data-city="${''}" data-state-code="${''}"
-        data-country-code="${''}" data-postal-code="${''}"
-        data-phone="${''}">${Resource.msg('msg.account.addresses', 'checkout', null)}</option>
+    <option data-first-name="${''}" data-last-name="${''}" data-address1="${''}" data-address2="${''}" data-city="${''}"
+        data-state-code="${''}" data-country-code="${''}" data-postal-code="${''}" data-phone="${''}">
+        ${Resource.msg('msg.account.addresses', 'checkout', null)}</option>
     <isloop items="${pdict.customer.addresses}" var="address">
-        <option value="${'ab_'+address.ID}"
-                ${address.ID==shippingModel.matchingAddressId ? 'selected="selected"' : '' }
-        data-first-name="${address.firstName||''}" data-last-name="${address.lastName||''}"
-        data-address1="${address.address1||''}" data-address2="${address.address2||''}"
-        data-city="${address.city||''}" data-state-code="${address.stateCode||''}"
-        data-country-code="${address.countryCode.value||''}" data-postal-code="${address.postalCode||'1111'}"
-        data-phone="${address.phone||''}" data-dial-code="${address.dialCode||''}" data-dial-code-country="${address.dialCodeCountry||''}">
-        ${address.ID ? '(' + address.ID + ')' : ''} - ${address.firstName || ''} ${address.lastName || ''} ${address.stateCode||''}
+        <option value="${'ab_' + address.ID}" ${address.ID == shippingModel.matchingAddressId ? 'selected="selected"' : ''} data-first-name="${address.firstName || ''}" data-last-name="${address.lastName || ''}"
+            data-address1="${address.address1 || ''}" data-address2="${address.address2 || ''}"
+            data-city="${address.city || ''}" data-state-code="${address.stateCode || ''}"
+            data-district="${address.district || ''}" data-subdistrict="${address.subDistrict || ''}"
+            data-country-code="${address.countryCode.value || ''}" data-postal-code="${address.postalCode || '999077'}"
+            data-phone="${address.phone || ''}" data-dial-code="${address.dialCode || ''}"
+            data-dial-code-country="${address.dialCodeCountry || ''}">
+            ${address.ID ? '(' + address.ID + ')' : ''} - ${address.firstName || ''} ${address.lastName || ''}
+            ${address.stateCode || ''} ${address.postalCode || ''}
         </option>
     </isloop>
 </isif>
