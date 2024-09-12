@@ -199,6 +199,38 @@
             </div>
         </div>
     </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+                                ${addressFields.subdistrict.mandatory === true ? 'required' : ''}
+                                ${addressFields.subdistrict.htmlName}">
+            <label class="form-control-label h-font-size--16 h-fw--semibold"
+                for="shippingAddressSubdistrict${lineItem ? lineItem.UUID : 'default'}">
+                <span
+                    class="h-clr--red-9 require-indicator">${'*'}</span>${Resource.msg('field.shipping.address.subdistrict', 'address', null)}
+            </label>
+            <div class="custom-select-wrap">
+                <select class="form-control shippingAddressSubdistrict custom-select"
+                    id="shippingAddressSubdistrict${lineItem ? lineItem.UUID : 'default'}"
+                    aria-describedby="${lineItem ? lineItem.UUID : 'default'}Subdistrict"
+                    data-missing-error="${Resource.msg('error.subdistrict', 'forms', null)}"
+                    data-selected="${shippingAddress.subDistrict}" autocomplete="shipping address-subdistrict" <isprint
+                    value="${addressFields.subDistrict.attributes}" encoding="off" />
+                >
+                <isif condition="${shippingAddress && shippingAddress.Subdistrict}">
+                    <option id="${shippingAddress.subDistrict}" value="${shippingAddress.Subdistrict}" selected>
+                        ${shippingAddress.Subdistrict}
+                    </option>
+                </isif>
+                </select>
+                <div class="invalid-feedback shipping-select-error" id="${lineItem ? lineItem.UUID : 'default'}Subdistrict">
+                    <isprint value="${addressFields.subDistrict.error}" />
+                </div>
+            </div>
+        </div>
+</div>
+</div>
     <div class="col-sm-12 d-none">
         <div class="form-group
                 ${addressFields.postalCode.mandatory === true ? 'required' : ''}
@@ -217,7 +249,6 @@
                 <isprint value="${addressFields.postalCode.error}" />
             </div>
         </div>
-</div>
 </div>
 
 <div class="row">
@@ -255,7 +286,7 @@
                 <div class="info-icon-border-arrow-outline"></div>
                 <div class="info-icon-border-arrow"></div>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber">
-                <isprint value="${addressFields.phone.error}">
+                <isprint value="${addressFields.phone.error}"/>
             </div>
         </div>
     </div>

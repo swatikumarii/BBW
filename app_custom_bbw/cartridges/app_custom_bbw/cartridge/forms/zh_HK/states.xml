@@ -4,9 +4,9 @@
 		<options>
 			<!-- regular HK states -->
 			<option optionid="" 	label="resource.select.state" 		value=""/>
-			<option label="Hong Kong Island" 		value="Hong Kong Island"/>
-			<option label="Kowloon" 		value="Kowloon"/>
-			<option label="New Territories" 		value="New Territories"/>
+			<option label="香港島" 		value="香港島"/>
+			<option label="九龍" 		value="九龍"/>
+			<option label="新界" 		value="新界"/>
 		</options>
 	</field>
 </form>

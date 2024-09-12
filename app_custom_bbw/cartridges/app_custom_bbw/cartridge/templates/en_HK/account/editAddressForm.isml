@@ -195,6 +195,30 @@
                 </div>
             </div>
         </div>
+
+        <!-- Sub District  -->
+        <div class="col-12">
+            <div class="form-group select-box">
+                <div class="form-label-require d-flex align-items-center justify-content-between">
+                    <label class="form-control-label mb-0" for="subDistrict">
+                        <span class="required-indicator"></span>
+                        <isprint value="${pdict.addressForm.subDistrict.label}" encoding="htmlcontent" />
+                    </label>
+                    <iscomment> <span
+                            class="${pdict.addressForm.subdistrict.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                        </span> </iscomment>
+                </div>
+                <div class="select-address-wrap">
+                    <select type="text" class="form-control address-subdistrict-input" id="subDistrict"
+                        data-selected="${pdict.addressForm.subDistrict.htmlValue}"
+                        data-missing-error="${Resource.msg('address.subdistrict.missing', 'forms', null)}" <isprint
+                        value="${pdict.addressForm.subDistrict.attributes}" encoding="off" />
+                    autocomplete="address-level2">
+                    </select>
+                    <div class="invalid-feedback select-error"></div>
+                </div>
+            </div>
+        </div>
     
         <!-- ZIP Code -->
         <div class="col-12 d-none">
@@ -209,7 +233,7 @@
                     data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
                     data-pattern-mismatch="${Resource.msg('error.message.zip.upto6', 'forms', null)}"
                     data-range-error="${Resource.msg('error.message.zip.upto6', 'forms', null)}" <isprint
-                    value="${pdict.addressForm.postalCode.attributes || '111111'}" encoding="off" />
+                    value="${pdict.addressForm.postalCode.attributes || '999077'}" encoding="off" />
                 autocomplete="postal-code">
                 <div class="invalid-feedback"></div>
             </div>
