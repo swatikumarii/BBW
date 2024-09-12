@@ -239,8 +239,7 @@
                         <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 ">
                             ${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
                         <isif condition="${!pdict.isGiftProductAvailable}">
-                            <button class="edit-button pull-right b-link--underlined h-clr--black-1"
-                                aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
+                            <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}" class="edit-button pull-right b-link--underlined h-clr--black-1">${Resource.msg('action.edit.step', 'checkout', null)}</a>
                         </isif>
                     </div>
                     <isinclude template="checkout/shipping/shippingSummary" />
