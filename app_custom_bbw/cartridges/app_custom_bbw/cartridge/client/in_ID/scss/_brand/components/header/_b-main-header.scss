@@ -1,0 +1,16 @@
+// Indonesia IN_ID SCSS
+
+header {
+    .bbw-nav {
+        .bbw-nav-wrap {
+            .primary-logo {
+                @include media-up(sm) {
+                    left: -17px;
+                }
+                @include media-up(md) {
+                    left: 20px;
+                }
+            }
+        }
+    }
+}
