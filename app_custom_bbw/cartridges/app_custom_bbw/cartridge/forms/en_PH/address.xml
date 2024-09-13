@@ -67,7 +67,7 @@
     <field formid="country" label="label.input.country" type="string" mandatory="true" binding="countryCode"
            missing-error="address.country.missing">
         <options>
-            <option optionid="TH" label="select.option.country.thailand" value="TH"/>
+            <option optionid="PH" label="select.option.country.philippines" value="PH"/>
         </options>
     </field>
 
