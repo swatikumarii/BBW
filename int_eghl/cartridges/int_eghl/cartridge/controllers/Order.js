@@ -184,21 +184,6 @@ function failOrder(order, isEhlCallback, req, res, next) {
 }
 
 /**
- * Get full name of payment method
- * @param {String} paymentMethod - Payment Method short name
- */
-function paymentMethodName(paymentMethod) {
-    switch (paymentMethod) {
-      case "CC":
-        return "Credit Card";
-      case "DD":
-        return "Online Banking";
-      default:
-        return paymentMethod;
-    }
-}
-
-/**
  * placeOrder function is responsible to update the order staus accoding to eGHL txn status
  * @param  {Object} order order object
  * @param  {boolean} isEhlCallback eghlCallback flag
@@ -224,7 +209,21 @@ function placeOrder(order, isEhlCallback, req, res, next, paymentMethod) {
         paymentTransaction.paymentInstrument.paymentTransaction.transactionID = queryParam.TxnID.value;
         order.custom.eghlPaymentId = queryParam.PaymentID.value; // eslint-disable-line no-param-reassign
         order.custom.eghlTxnId = queryParam.TxnID.value; // eslint-disable-line no-param-reassign
-        order.custom.eghlPaymentMethod = paymentMethodName(paymentMethod);
+        var paymentMethodName;
+        if (queryParam.PymtMethod.value == "CC") {
+          paymentMethodName = "eGHLCredit Card";
+        } else if (queryParam.PymtMethod.value == "DD") {
+          paymentMethodName = "Online Banking";
+        } else if (queryParam.PymtMethod.value == "WA") {
+          paymentMethodName = "eWallet";
+        } else {
+          paymentMethodName =
+            queryParam.PymtMethod.value || queryParam.PymtMethod;
+        }
+        order.custom.eghlPaymentMethod =
+          paymentMethodName +
+          " via " +
+          (queryParam.IssuingBank.value || queryParam.Acquirer.value || "eGHL");
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
         Transaction.commit();
 
