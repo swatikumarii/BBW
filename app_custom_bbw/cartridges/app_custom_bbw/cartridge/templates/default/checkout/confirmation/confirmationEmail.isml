@@ -292,6 +292,11 @@
                                                     <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
                                                     <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
                                                     <isprint value="${payment.amount}" /></p>
+                                                <iselseif condition="${payment.paymentMethod === '2c2p'}" />
+                                                    <isinclude template="checkout/billing/paymentOptions/2c2pSummary" />
+                                                    <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
+                                                        <isprint value="${payment.amount}" />
+                                                    </p>
                                                 </isif>
                                             </isloop>
                                         </td>
