@@ -251,6 +251,8 @@
                                                     <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
                                                 <iselseif condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
                                                     <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
+                                                <iselseif condition="${payment.paymentMethod === '2c2p'}" />
+                                                    <isinclude template="checkout/billing/paymentOptions/2c2pSummary" />
                                                 </isif>
                                                 <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.totals.grandTotal}</p>
                                             </isloop>
