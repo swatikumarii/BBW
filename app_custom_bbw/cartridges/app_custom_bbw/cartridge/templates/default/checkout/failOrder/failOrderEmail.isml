@@ -252,6 +252,11 @@
                                                         <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
                                                             <isprint value="${payment.amount}" />
                                                         </p>
+                                                    <iselseif condition="${payment.paymentMethod === 'EGHL'}" />
+                                                        <isinclude template="checkout/billing/paymentOptions/eghlSummary" />
+                                                        <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
+                                                            <isprint value="${payment.amount}" />
+                                                        </p>
                                                     </isif>
                                             </isloop>
                                         </td>

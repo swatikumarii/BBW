@@ -1,0 +1,66 @@
+<div
+    style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:0;padding-bottom:13px;margin-bottom:16px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+    ${Resource.msg('email.order.billing.heading', 'confirmation', null)}
+</div>
+<div style="border:1px solid #e5e5e5;margin-bottom:30px">
+    <table width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed">
+        <tbody>
+            <tr>
+                <td
+                    style="vertical-align:top;padding:21px 12px 33px 24px;color:#666666;font-size:16px;line-height:24px">
+                    <div style="color:#333;font-weight:bold;margin-bottom:10px">
+                        ${Resource.msg('email.order.billto.heading', 'confirmation', null)}
+                    </div>
+                    <isinclude template="checkout/addressSummary" />
+                    <isif condition="${pdict.order.taxID}">
+                        ${Resource.msgf('tax.id.with.label', 'checkout', null, pdict.order.taxID)}
+                    </isif>
+                </td>
+                <td style="vertical-align:top;padding:21px 0 33px 50px;color:#666666;font-size:16px;line-height:24px">
+                    <div style="color:#333;font-weight:bold;margin-bottom:10px">
+                        ${Resource.msg('email.order.payment.method.heading', 'confirmation', null)}
+                    </div>
+                    <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
+                        <isif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}">
+                            <p>${Resource.msg('label.add.egift.title', 'giftcards', null)}</p>
+                            <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}:
+                                ${pdict.order.currencyCode}
+                                <isprint value="${pdict.order.eGiftTotalAmount}" />
+                            </p>
+                        </isif>
+                        <isif
+                            condition="${payment.paymentMethod === 'AdyenComponent' || payment.paymentMethod === 'CREDIT_CARD'}">
+                            <isinclude template="checkout/confirmation/adyenConfirmationDetails" />
+                            <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}:
+                                ${pdict.order.currencyCode}
+                                <isprint value="${payment.amount}" />
+                            </p>
+                            <iselseif
+                                condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
+                                <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
+                                <iselseif
+                                    condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
+                                <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
+                                <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}:
+                                    ${pdict.order.currencyCode}
+                                    <isprint value="${payment.amount}" />
+                                </p>
+                            <iselseif condition="${payment.paymentMethod === '2c2p'}" />
+                                <isinclude template="checkout/billing/paymentOptions/2c2pSummary" />
+                                <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}:
+                                    ${pdict.order.currencyCode}
+                                    <isprint value="${payment.amount}" />
+                                </p>
+                            <iselseif condition="${payment.paymentMethod === 'EGHL'}" />
+                                <isinclude template="checkout/billing/paymentOptions/eghlSummary" />
+                                <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}:
+                                    ${pdict.order.currencyCode}
+                                    <isprint value="${payment.amount}" />
+                                </p>
+                        </isif>
+                    </isloop>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

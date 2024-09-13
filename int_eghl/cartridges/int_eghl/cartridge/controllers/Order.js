@@ -184,6 +184,21 @@ function failOrder(order, isEhlCallback, req, res, next) {
 }
 
 /**
+ * Get full name of payment method
+ * @param {String} paymentMethod - Payment Method short name
+ */
+function paymentMethodName(paymentMethod) {
+    switch (paymentMethod) {
+      case "CC":
+        return "Credit Card";
+      case "DD":
+        return "Online Banking";
+      default:
+        return paymentMethod;
+    }
+}
+
+/**
  * placeOrder function is responsible to update the order staus accoding to eGHL txn status
  * @param  {Object} order order object
  * @param  {boolean} isEhlCallback eghlCallback flag
@@ -191,7 +206,7 @@ function failOrder(order, isEhlCallback, req, res, next) {
  * @param  {response} res response object
  * @param  {pointer} next pointer
  */
-function placeOrder(order, isEhlCallback, req, res, next) {
+function placeOrder(order, isEhlCallback, req, res, next, paymentMethod) {
     var result = { error: false, message: '' };
     var queryParam = req.httpParameterMap;
     var paymentTransaction = order.paymentInstrument.getPaymentTransaction();
@@ -209,7 +224,7 @@ function placeOrder(order, isEhlCallback, req, res, next) {
         paymentTransaction.paymentInstrument.paymentTransaction.transactionID = queryParam.TxnID.value;
         order.custom.eghlPaymentId = queryParam.PaymentID.value; // eslint-disable-line no-param-reassign
         order.custom.eghlTxnId = queryParam.TxnID.value; // eslint-disable-line no-param-reassign
-        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod; // eslint-disable-line no-param-reassign
+        order.custom.eghlPaymentMethod = paymentMethodName(paymentMethod);
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
         Transaction.commit();
 
@@ -299,7 +314,7 @@ server.prepend('Confirm',
                         var isEhlCallback = false;
                         if (txnStatus == eGHLPreference.txnSuccessStatus) {
                             logger.error('EGHL:Successfull callback on order controller for order id {0}', requestOrderId);
-                            placeOrder(order, isEhlCallback, req, res, next);
+                            placeOrder(order, isEhlCallback, req, res, next, requestParameter.PymtMethod.rawValue);
                             this.emit('route:Complete', req, res);
                             // eslint-disable-next-line consistent-return
                             return;
