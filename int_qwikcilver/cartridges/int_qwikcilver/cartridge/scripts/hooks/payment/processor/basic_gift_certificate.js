@@ -66,6 +66,10 @@ function Handle(paymentMethodName, basket, paymentInformation) {
                 currentBasket.createPaymentInstrument(
                     paymentMethodName, grandtotal
                 );
+            } else if (paymentMethodName === 'EGHL') {
+                currentBasket.createPaymentInstrument(
+                    paymentMethodName, grandtotal
+                );
             }
         } else {
             currentBasket.createPaymentInstrument(

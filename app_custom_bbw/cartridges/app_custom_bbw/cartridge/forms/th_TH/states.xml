@@ -3,84 +3,84 @@
 		<options>
 			<option optionid="" 	label="resource.select.state" 		value=""/>
 
-			<!-- regular ID states -->
-			<option label="Amnat Charoen" value="Amnat Charoen"/>
-			<option label="Ang Thong" value="Ang Thong"/>
-			<option label="Bangkok" value="Bangkok"/>
-			<option label="Bueng Kan" value="Bueng Kan"/>
-			<option label="Buri Ram" value="Buri Ram"/>
-			<option label="Chachoengsao" value="Chachoengsao"/>
-			<option label="Chai Nat" value="Chai Nat"/>
-			<option label="Chaiyaphum" value="Chaiyaphum"/>
-			<option label="Chanthaburi" value="Chanthaburi"/>
-			<option label="Chiang Mai" value="Chiang Mai"/>
-			<option label="Chiang Rai" value="Chiang Rai"/>
-			<option label="Chon Buri" value="Chon Buri"/>
-			<option label="Chumphon" value="Chumphon"/>
-			<option label="Kalasin" value="Kalasin"/>
-			<option label="Kamphaeng Phet" value="Kamphaeng Phet"/>
-			<option label="Kanchanaburi" value="Kanchanaburi"/>
-			<option label="Khon Kaen" value="Khon Kaen"/>
-			<option label="Krabi" value="Krabi"/>
-			<option label="Lampang" value="Lampang"/>
-			<option label="Lamphun" value="Lamphun"/>
-			<option label="Loei" value="Loei"/>
-			<option label="Lop Buri" value="Lop Buri"/>
-			<option label="Mae Hong Son" value="Mae Hong Son"/>
-			<option label="Maha Sarakham" value="Maha Sarakham"/>
-			<option label="Mukdahan" value="Mukdahan"/>
-			<option label="Nakhon Nayok" value="Nakhon Nayok"/>
-			<option label="Nakhon Pathom" value="Nakhon Pathom"/>
-			<option label="Nakhon Phanom" value="Nakhon Phanom"/>
-			<option label="Nakhon Ratchasima" value="Nakhon Ratchasima"/>
-			<option label="Nakhon Sawan" value="Nakhon Sawan"/>
-			<option label="Nakhon Si Thammarat" value="Nakhon Si Thammarat"/>
-			<option label="Nan" value="Nan"/>
-			<option label="Narathiwat" value="Narathiwat"/>
-			<option label="Nong Bua Lam Phu" value="Nong Bua Lam Phu"/>
-			<option label="Nong Khai" value="Nong Khai"/>
-			<option label="Nonthaburi" value="Nonthaburi"/>
-			<option label="Pathum Thani" value="Pathum Thani"/>
-			<option label="Pattani" value="Pattani"/>
-			<option label="Phangnga" value="Phangnga"/>
-			<option label="Phatthalung" value="Phatthalung"/>
-			<option label="Phayao" value="Phayao"/>
-			<option label="Phetchabun" value="Phetchabun"/>
-			<option label="Phetchaburi" value="Phetchaburi"/>
-			<option label="Phichit" value="Phichit"/>
-			<option label="Phitsanulok" value="Phitsanulok"/>
-			<option label="Phra Nakhon Si Ayutthaya" value="Phra Nakhon Si Ayutthaya"/>
-			<option label="Phrae" value="Phrae"/>
-			<option label="Phuket" value="Phuket"/>
-			<option label="Prachin Buri" value="Prachin Buri"/>
-			<option label="Prachuap Khiri Khan" value="Prachuap Khiri Khan"/>
-			<option label="Ranong" value="Ranong"/>
-			<option label="Ratchaburi" value="Ratchaburi"/>
-			<option label="Rayong" value="Rayong"/>
-			<option label="Roi Et" value="Roi Et"/>
-			<option label="Sa Kaeo" value="Sa Kaeo"/>
-			<option label="Sakon Nakhon" value="Sakon Nakhon"/>
-			<option label="Samut Prakan" value="Samut Prakan"/>
-			<option label="Samut Sakhon" value="Samut Sakhon"/>
-			<option label="Samut Songkhram" value="Samut Songkhram"/>
-			<option label="Saraburi" value="Saraburi"/>
-			<option label="Satun" value="Satun"/>
-			<option label="Si Sa Ket" value="Si Sa Ket"/>
-			<option label="Sing Buri" value="Sing Buri"/>
-			<option label="Songkhla" value="Songkhla"/>
-			<option label="Sukhothai" value="Sukhothai"/>
-			<option label="Suphan Buri" value="Suphan Buri"/>
-			<option label="Surat Thani" value="Surat Thani"/>
-			<option label="Surin" value="Surin"/>
-			<option label="Tak" value="Tak"/>
-			<option label="Trang" value="Trang"/>
-			<option label="Trat" value="Trat"/>
-			<option label="Ubon Ratchathani" value="Ubon Ratchathani"/>
-			<option label="Udon Thani" value="Udon Thani"/>
-			<option label="Uthai Thani" value="Uthai Thani"/>
-			<option label="Uttaradit" value="Uttaradit"/>
-			<option label="Yala" value="Yala"/>
-			<option label="Yasothon" value="Yasothon"/>
+			<!-- regular TH states -->
+			<option label="กรุงเทพมหานคร" value="กรุงเทพมหานคร"/>
+			<option label="สมุทรปราการ" value="สมุทรปราการ"/>
+			<option label="นนทบุรี" value="นนทบุรี"/>
+			<option label="ปทุมธานี" value="ปทุมธานี"/>
+			<option label="พระนครศรีอยุธยา" value="พระนครศรีอยุธยา"/>
+			<option label="อ่างทอง" value="อ่างทอง"/>
+			<option label="ลพบุรี" value="ลพบุรี"/>
+			<option label="สิงห์บุรี" value="สิงห์บุรี"/>
+			<option label="ชัยนาท" value="ชัยนาท"/>
+			<option label="สระบุรี" value="สระบุรี"/>
+			<option label="ชลบุรี" value="ชลบุรี"/>
+			<option label="ระยอง" value="ระยอง"/>
+			<option label="จันทบุรี" value="จันทบุรี"/>
+			<option label="ตราด" value="ตราด"/>
+			<option label="ฉะเชิงเทรา" value="ฉะเชิงเทรา"/>
+			<option label="ปราจีนบุรี" value="ปราจีนบุรี"/>
+			<option label="นครนายก" value="นครนายก"/>
+			<option label="สระแก้ว" value="สระแก้ว"/>
+			<option label="นครราชสีมา" value="นครราชสีมา"/>
+			<option label="บุรีรัมย์" value="บุรีรัมย์"/>
+			<option label="สุรินทร์" value="สุรินทร์"/>
+			<option label="ศรีสะเกษ" value="ศรีสะเกษ"/>
+			<option label="อุบลราชธานี" value="อุบลราชธานี"/>
+			<option label="ยโสธร" value="ยโสธร"/>
+			<option label="ชัยภูมิ" value="ชัยภูมิ"/>
+			<option label="อำนาจเจริญ" value="อำนาจเจริญ"/>
+			<option label="บึงกาฬ" value="บึงกาฬ"/>
+			<option label="หนองบัวลำภู" value="หนองบัวลำภู"/>
+			<option label="ขอนแก่น" value="ขอนแก่น"/>
+			<option label="อุดรธานี" value="อุดรธานี"/>
+			<option label="เลย" value="เลย"/>
+			<option label="หนองคาย" value="หนองคาย"/>
+			<option label="มหาสารคาม" value="มหาสารคาม"/>
+			<option label="ร้อยเอ็ด" value="ร้อยเอ็ด"/>
+			<option label="กาฬสินธุ์" value="กาฬสินธุ์"/>
+			<option label="สกลนคร" value="สกลนคร"/>
+			<option label="นครพนม" value="นครพนม"/>
+			<option label="มุกดาหาร" value="มุกดาหาร"/>
+			<option label="เชียงใหม่" value="เชียงใหม่"/>
+			<option label="ลำพูน" value="ลำพูน"/>
+			<option label="ลำปาง" value="ลำปาง"/>
+			<option label="อุตรดิตถ์" value="อุตรดิตถ์"/>
+			<option label="แพร่" value="แพร่"/>
+			<option label="น่าน" value="น่าน"/>
+			<option label="พะเยา" value="พะเยา"/>
+			<option label="เชียงราย" value="เชียงราย"/>
+			<option label="แม่ฮ่องสอน" value="แม่ฮ่องสอน"/>
+			<option label="นครสวรรค์" value="นครสวรรค์"/>
+			<option label="อุทัยธานี" value="อุทัยธานี"/>
+			<option label="กำแพงเพชร" value="กำแพงเพชร"/>
+			<option label="ตาก" value="ตาก"/>
+			<option label="สุโขทัย" value="สุโขทัย"/>
+			<option label="พิษณุโลก" value="พิษณุโลก"/>
+			<option label="พิจิตร" value="พิจิตร"/>
+			<option label="เพชรบูรณ์" value="เพชรบูรณ์"/>
+			<option label="ราชบุรี" value="ราชบุรี"/>
+			<option label="กาญจนบุรี" value="กาญจนบุรี"/>
+			<option label="สุพรรณบุรี" value="สุพรรณบุรี"/>
+			<option label="นครปฐม" value="นครปฐม"/>
+			<option label="สมุทรสาคร" value="สมุทรสาคร"/>
+			<option label="สมุทรสงคราม" value="สมุทรสงคราม"/>
+			<option label="เพชรบุรี" value="เพชรบุรี"/>
+			<option label="ประจวบคีรีขันธ์" value="ประจวบคีรีขันธ์"/>
+			<option label="นครศรีธรรมราช" value="นครศรีธรรมราช"/>
+			<option label="กระบี่" value="กระบี่"/>
+			<option label="พังงา" value="พังงา"/>
+			<option label="ภูเก็ต" value="ภูเก็ต"/>
+			<option label="สุราษฎร์ธานี" value="สุราษฎร์ธานี"/>
+			<option label="ระนอง" value="ระนอง"/>
+			<option label="ชุมพร" value="ชุมพร"/>
+			<option label="สงขลา" value="สงขลา"/>
+			<option label="สตูล" value="สตูล"/>
+			<option label="ตรัง" value="ตรัง"/>
+			<option label="พัทลุง" value="พัทลุง"/>
+			<option label="ปัตตานี" value="ปัตตานี"/>
+			<option label="ยะลา" value="ยะลา"/>
+			<option label="นราธิวาส" value="นราธิวาส"/>
 		</options>
 	</field>
 </form>

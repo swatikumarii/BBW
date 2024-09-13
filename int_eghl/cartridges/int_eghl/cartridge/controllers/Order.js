@@ -60,24 +60,24 @@ function renderCustomer(order, result, orderStatus, req, res) {
         keywords: Resource.msg('site.common.keywords', 'common', null)
     };
     // prepare transactional data for GTM
-    var orderData = orderModel;
-    var orderStatusValue = orderData.orderStatus.value;
-    viewData.gtmData = {};
-    if (orderStatusValue == Order.ORDER_STATUS_NEW || orderStatusValue == Order.ORDER_STATUS_COMPLETED) {
-        var event = Resource.msg('label.gtm.event', 'order', null);
-        viewData.gtmData = OrderHelpers.prepareGtmRequest(orderData);
-        viewData.gtmGAData = OrderHelpers.prepareGtmRequestG4(event, orderData, currentLocale);
-        viewData.emrasyGtm = OrderHelpers.prepareEmrasysGtmRequest( orderData );
-    }
-    if (orderStatusValue == Order.ORDER_STATUS_FAILED) {
-        var event = Resource.msg('label.gtm.event.orderFail', 'googleEvents', null);
-        viewData.gtmGAData = {
-            event: event,
-            userId: orderModel.customerID,
-            userEmail: orderModel.orderEmail,
-            payment_type: 'eghl'
-        };
-    }
+    // var orderData = orderModel;
+    // var orderStatusValue = orderData.orderStatus.value;
+    // viewData.gtmData = {};
+    // if (orderStatusValue == Order.ORDER_STATUS_NEW || orderStatusValue == Order.ORDER_STATUS_COMPLETED) {
+    //     var event = Resource.msg('label.gtm.event', 'order', null);
+    //     viewData.gtmData = OrderHelpers.prepareGtmRequest(orderData);
+    //     viewData.gtmGAData = OrderHelpers.prepareGtmRequestG4(event, orderData, currentLocale);
+    //     viewData.emrasyGtm = OrderHelpers.prepareEmrasysGtmRequest( orderData );
+    // }
+    // if (orderStatusValue == Order.ORDER_STATUS_FAILED) {
+    //     var event = Resource.msg('label.gtm.event.orderFail', 'googleEvents', null);
+    //     viewData.gtmGAData = {
+    //         event: event,
+    //         userId: orderModel.customerID,
+    //         userEmail: orderModel.orderEmail,
+    //         payment_type: 'eghl'
+    //     };
+    // }
     res.setViewData(viewData);
     if (!req.currentCustomer.profile) {
         passwordForm = server.forms.getForm('newPasswords');
