@@ -1,5 +1,5 @@
 <isif condition="${pdict.localeModel.locale.localeLinks.length > 0}">
-    <div class="bbw-locale-links country-selector d-none d-md-flex" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0" >
+    <div class="bbw-locale-links country-selector d-none d-md-flex align-items-center" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0" >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10" class="nav-flag">
             <rect width="16" height="10" fill="#A51931"></rect>
             <rect width="16" height="6.67" y="1.67" fill="#F4F5F8"></rect>
