@@ -2,6 +2,7 @@
 
 var formatMoney = require('dw/util/StringUtils').formatMoney;
 var Money = require('dw/value/Money');
+var Resource = require('dw/web/Resource');
 
 /**
  *
@@ -11,7 +12,7 @@ var Money = require('dw/value/Money');
 function getPromoPrice(lineItem) {
     if (lineItem.adjustedGrossPrice.value !== lineItem.grossPrice.value) {
         if (lineItem.adjustedGrossPrice.value === 0) {
-            return 'FREE';
+            return Resource.msg('label.free.price', 'cart', null);
         }
         var promoPrice = lineItem.adjustedGrossPrice.value / lineItem.quantityValue;
         return formatMoney(

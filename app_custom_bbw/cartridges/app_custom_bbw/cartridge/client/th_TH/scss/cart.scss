@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+// Import from default
+
+@import "../../default/scss/cart";
+
+// Indonesia IN_ID SCSS
+
+.promotion-callout {
+    .callout-detail {
+        &::after {
+            content: "รายละเอียดโปรโมชั่น";
+        }
+    }
+}
