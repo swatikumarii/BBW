@@ -339,8 +339,17 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
+            var subDistrict = attrs.subdistrict.trim();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
+                $('.billingState option').removeAttr('selected');
+                $('.billingState').append(
+                    $('<option>', {
+                        value: stateCode,
+                        text: stateCode
+                    }).attr('selected', 'selected')
+                );
+                $('.billingState').trigger('change');
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
                         $('.billingState option').removeAttr('selected');
@@ -349,37 +358,70 @@ module.exports = {
                         return false;
                     }
                 });
+            } else {
+                $('.billingState option').removeAttr('selected');
+                $('.billingState').val('').trigger('change');
+                $('.billingAddressCity').val('');
+                $('.billingAddressSubdistrict').val('');
             }
             if (city) {
-                $('.billingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+                $('.billingAddressCity').prepend(
+                    $('<option></option>')
+                        .attr('value', '')
+                        .attr('selected', 'selected')
+                );
                 $('.billingAddressCity option').each(function () {
                     if ($(this).val() === city) {
                         $('.billingAddressCity option').removeAttr('selected');
                         $('.billingAddressCity option')[0].remove();
                         $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.billingAddressCity')
-                            .trigger('change');
+                        $('body').find('.billingAddressCity').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (subDistrict) {
+                $('.billingAddressSubdistrict option').each(function () {
+                    if ($(this).val() === subDistrict) {
+                        $('.billingAddressSubdistrict option').removeAttr(
+                            'selected'
+                        );
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingAddressCity').trigger('change');
                         return false;
                     }
                 });
             }
             if (dialCodeCountry) {
+                // Get the instance of intl-tel-input
                 if (window.billingInstance) {
                     window.billingInstance.setCountry(dialCodeCountry);
                 }
             }
 
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (
+                    ![
+                        'stateCode',
+                        'city',
+                        'postalCode',
+                        'countryCode',
+                        'district'
+                    ].includes(attr)
+                ) {
                     element = attr === 'countryCode' ? 'country' : attr;
+                    var $input = $('[name$=' + element + ']', form);
+                    if ($input.length === 0 && element === 'subdistrict') {
+                        $input = $('[name$=subDistrict]', form);
+                    }
                     if (element === 'cardNumber') {
-                        $('.cardNumber').data('cleave').setRawValue(attrs[attr]);
+                        $('.cardNumber')
+                            .data('cleave')
+                            .setRawValue(attrs[attr]);
                     } else {
                         $('[name$=' + element + ']', form).val(attrs[attr]);
                     }
                     // validate an hide/show errors
-                    var $input = $('[name$=' + element + ']', form);
                     var $errorMessage = $input.next('.invalid-feedback');
                     if ($input[0].checkValidity()) {
                         $errorMessage.hide();
