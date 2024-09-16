@@ -26,6 +26,7 @@
  var Site = require('dw/system/Site');
  var Transaction = require('dw/system/Transaction');
  var logger = require('dw/system/Logger').getLogger('2c2p');
+ var seo = require('*/cartridge/scripts/middleware/seo');
 
  /**
   * 2c2p-Notification : This endpoint is invoked when the 2c2p call Notification url
@@ -144,7 +145,7 @@
    }
    _2c2pHelper.renderCustomer(order, result, transactionStatus, server, req, res, next);
    next();
- });
+ },seo.addCurrentPageMetaData);
 
 
  module.exports = server.exports();
