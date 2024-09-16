@@ -191,7 +191,7 @@ function failOrder(order, isEhlCallback, req, res, next) {
  * @param  {response} res response object
  * @param  {pointer} next pointer
  */
-function placeOrder(order, isEhlCallback, req, res, next) {
+function placeOrder(order, isEhlCallback, req, res, next, paymentMethod) {
     var result = { error: false, message: '' };
     var queryParam = req.httpParameterMap;
     var paymentTransaction = order.paymentInstrument.getPaymentTransaction();
@@ -209,7 +209,21 @@ function placeOrder(order, isEhlCallback, req, res, next) {
         paymentTransaction.paymentInstrument.paymentTransaction.transactionID = queryParam.TxnID.value;
         order.custom.eghlPaymentId = queryParam.PaymentID.value; // eslint-disable-line no-param-reassign
         order.custom.eghlTxnId = queryParam.TxnID.value; // eslint-disable-line no-param-reassign
-        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod; // eslint-disable-line no-param-reassign
+        var paymentMethodName;
+        if (queryParam.PymtMethod.value == "CC") {
+          paymentMethodName = "eGHLCredit Card";
+        } else if (queryParam.PymtMethod.value == "DD") {
+          paymentMethodName = "Online Banking";
+        } else if (queryParam.PymtMethod.value == "WA") {
+          paymentMethodName = "eWallet";
+        } else {
+          paymentMethodName =
+            queryParam.PymtMethod.value || queryParam.PymtMethod;
+        }
+        order.custom.eghlPaymentMethod =
+          paymentMethodName +
+          " via " +
+          (queryParam.IssuingBank.value || queryParam.Acquirer.value || "eGHL");
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
         Transaction.commit();
 
@@ -299,7 +313,7 @@ server.prepend('Confirm',
                         var isEhlCallback = false;
                         if (txnStatus == eGHLPreference.txnSuccessStatus) {
                             logger.error('EGHL:Successfull callback on order controller for order id {0}', requestOrderId);
-                            placeOrder(order, isEhlCallback, req, res, next);
+                            placeOrder(order, isEhlCallback, req, res, next, requestParameter.PymtMethod.rawValue);
                             this.emit('route:Complete', req, res);
                             // eslint-disable-next-line consistent-return
                             return;
