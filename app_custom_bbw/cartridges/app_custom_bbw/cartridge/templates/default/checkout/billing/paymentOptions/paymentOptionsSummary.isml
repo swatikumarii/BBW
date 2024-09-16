@@ -8,9 +8,11 @@
             <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
         <iselseif
             condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
-        <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
+            <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
         <iselseif condition="${payment.paymentMethod === '2c2p'}" />
             <isinclude template="checkout/billing/paymentOptions/2c2pSummary" />
+        <iselseif condition="${payment.paymentMethod === 'EGHL'}" />
+            <isinclude template="checkout/billing/paymentOptions/eghlSummary" />
         <iselseif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}" />
             <div class="mb-2">
                 ${Resource.msg('label.add.egift.title', 'giftcards', null)}

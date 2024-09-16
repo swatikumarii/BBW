@@ -253,6 +253,8 @@
                                                     <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
                                                 <iselseif condition="${payment.paymentMethod === '2c2p'}" />
                                                     <isinclude template="checkout/billing/paymentOptions/2c2pSummary" />
+                                                <iselseif condition="${payment.paymentMethod === 'EGHL'}" />
+                                                    <isinclude template="checkout/billing/paymentOptions/eghlSummary" />
                                                 </isif>
                                                 <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.totals.grandTotal}</p>
                                             </isloop>
