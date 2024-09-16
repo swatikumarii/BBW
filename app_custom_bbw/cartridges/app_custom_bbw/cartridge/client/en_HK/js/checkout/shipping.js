@@ -836,6 +836,14 @@ module.exports = {
             var subDistrict = attrs.subdistrict.trim();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
+                $('.shippingState option').removeAttr('selected');
+                $('.shippingState').append(
+                    $('<option>', {
+                        value: stateCode,
+                        text: stateCode
+                    }).attr('selected', 'selected')
+                );
+                $('.shippingState').trigger('change');
                 $('.shippingState option').each(function () {
                     if ($(this).val() === stateCode) {
                         $('.shippingState option').removeAttr('selected');
@@ -846,7 +854,7 @@ module.exports = {
                 });
             } else {
                 $('.shippingState option').removeAttr('selected');
-                $('.shippingState').val('');
+                $('.shippingState').val('').trigger('change');
                 $('.shippingAddressCity').val('');
                 $('.shippingAddressSubdistrict').val('');
             };
@@ -883,11 +891,18 @@ module.exports = {
                 }
             }
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode','district'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
-                    $('[name$=' + element + ']', form).val(attrs[attr]);
-                    // validate an hide/show errors
                     var $input = $('[name$=' + element + ']', form);
+                    if  ($input.length === 0 && element === 'subdistrict') {
+                        $input = $('[name$=subDistrict]', form);
+                    }
+                    if ($input.length > 1) {
+                        $('[name$=' + element + ']', form)[0].val(attrs[attr]);
+                    } else {
+                        $('[name$=' + element + ']', form).val(attrs[attr]);
+                    }
+                    // validate an hide/show errors
                     var $errorMessage = $input.next('.invalid-feedback');
                     if ($input[0].checkValidity()) {
                         $errorMessage.hide();
@@ -919,7 +934,7 @@ module.exports = {
     updateShippingList: function () {
         var baseObj = this;
         $(
-            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="dwfrm_shipping_shippingAddress_addressFields_subDistrict"]'
+            'select[name$="shippingAddress_addressFields_states_stateCode"],select[name$="dwfrm_shipping_shippingAddress_addressFields_city"],select[name$="dwfrm_shipping_shippingAddress_addressFields_subDistrict"]'
         ).on('change', function (e) {
             if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
                 baseObj.methods.updateShippingMethodList(

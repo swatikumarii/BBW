@@ -9,7 +9,9 @@ var addressAutocomplete = require('./checkout/addressAutocomplete');
 var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
 );
-var addressData = require('./addressData');
+var addressDataEN = require('./addressData');
+var addressDataNativeLocale = require('./addressDataZH');
+var addressData;
 var shippingHelpers = require('./checkout/shipping');
 
 /**
@@ -67,6 +69,14 @@ function checkFields(form) {
 
 $(document).ready(function () {
     processInclude(require('./checkout/checkout'));
+    var shippingState = $('body').find('.shippingState');
+    var selectedState = shippingState.attr('data-selected');
+    if (addressDataNativeLocale[selectedState]) {
+        addressData = addressDataNativeLocale;
+    } else {
+        addressData = addressDataEN;
+    }
+    shippingState.trigger('change');
     var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     var name = 'paymentError';
     var error = new RegExp(
@@ -223,7 +233,7 @@ $(document).ready(function () {
         });
 
     if (checkoutStage === 'shipping') {
-        var selectedState = $('body')
+        selectedState = $('body')
             .find('.shippingState')
             .attr('data-selected');
         if (selectedState !== 'null') {
@@ -238,7 +248,7 @@ $(document).ready(function () {
                 }
             });
             if (!stateShipExists) {
-                var shippingState = $('.shippingState');
+                shippingState = $('.shippingState');
                 shippingState.empty();
                 shippingState
                     .prepend(
@@ -249,6 +259,7 @@ $(document).ready(function () {
                     )
                     .attr('selected', 'selected');
             }
+            $('.shippingState').trigger('change');
         }
         var selectedCity = $('body')
             .find('.shippingAddressCity')
@@ -257,6 +268,7 @@ $(document).ready(function () {
             var cityShipExists = false;
             $('.shippingAddressCity option').each(function () {
                 if ($(this).val() === selectedCity) {
+                    cityShipExists=true;
                     $('.shippingAddressCity option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingAddressCity').trigger('change');
@@ -265,15 +277,13 @@ $(document).ready(function () {
             });
             if (!cityShipExists) {
                 var shippingAddressCity = $('.shippingAddressCity');
-                shippingAddressCity.empty();
                 shippingAddressCity
                     .prepend(
                         $('<option>', {
                             value: selectedCity,
                             text: selectedCity
-                        })
-                    )
-                    .attr('selected', 'selected');
+                        }).attr('selected', 'selected')
+                    );
                 $('.shippingAddressCity').removeClass('is-invalid');
             }
         }
@@ -298,7 +308,6 @@ $(document).ready(function () {
             });
             if (!subDistrictShipExits) {
                 var subDistricShiptDropdown = $('.shippingAddressSubdistrict');
-                subDistricShiptDropdown.empty();
                 subDistricShiptDropdown.prepend(
                     $('<option>', {
                         value: selectedSubDistrict,
@@ -338,9 +347,8 @@ $(document).ready(function () {
                     .attr('selected', 'selected');
                 $('.billingState').removeClass('is-invalid');
             }
-
+            $('.billingState').trigger('change');
         }
-        
         var selectedBillingCity = $('body')
             .find('.billingAddressCity')
             .attr('data-selected');
@@ -348,16 +356,15 @@ $(document).ready(function () {
             var cityExists = false;
             $('.billingAddressCity option').each(function () {
                 if ($(this).val() === selectedBillingCity) {
+                    cityExists = true;
                     $('.billingAddressCity option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingAddressCity').trigger('change');
-                    cityExists = true;
                     return false;
                 }
             });
             if (!cityExists) {
                 var suburbDropdown = $('.billingAddressCity');
-                suburbDropdown.empty();
                 suburbDropdown.prepend(
                     $('<option>', {
                         value: selectedBillingCity,
@@ -367,7 +374,6 @@ $(document).ready(function () {
                 $('.billingAddressCity').removeClass('is-invalid');
             }
         }
-
         var selectedBillingSubDistrict = $('body')
             .find('.billingAddressSubdistrict')
             .attr('data-selected');
@@ -388,9 +394,7 @@ $(document).ready(function () {
                 }
             });
             if (!subDistrictExists) {
-                // setting city as per place API response
                 var subDistrictDropdown = $('.billingAddressSubdistrict');
-                subDistrictDropdown.empty();
                 subDistrictDropdown.prepend(
                     $('<option>', {
                         value: selectedBillingSubDistrict,
@@ -546,16 +550,86 @@ $('button.submit-payment').on('click', function () {
 $('.shippingState').change(function () {
     var selectedState = $(this).val();
     var suburbDropdown = $('.shippingAddressCity');
+    var stateDropdown = $('.shippingState');
+    var cityMappingObj;
     suburbDropdown.empty(); // clear existing options
-
-    if (addressData[selectedState]) {
+    if (addressDataEN[selectedState]) {
+        $(this).empty();
+        stateDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select State----'
+            }).attr('selected', 'selected')
+        );
+        $.each(addressDataEN, function (state) {
+            if (selectedState === state) {
+                $('.shippingState option').removeAttr('selected');
+                $(this).attr('selected', 'selected');
+                stateDropdown.append(
+                    $('<option>', {
+                        value: state,
+                        text: state
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                stateDropdown.append(
+                    $('<option>', {
+                        value: state,
+                        text: state
+                    })
+                );
+            }
+        });
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
                 text: '---- Select City ----'
             }).attr('selected', 'selected')
         );
-        var cityMappingObj = addressData[selectedState];
+        cityMappingObj = addressDataEN[selectedState];
+        $.each(cityMappingObj, function (suburb) {
+            suburbDropdown.append(
+                $('<option>', {
+                    value: suburb,
+                    text: suburb
+                })
+            );
+        });
+        suburbDropdown.trigger('change');
+    } else if (addressDataNativeLocale[selectedState]) {
+        $(this).empty();
+        stateDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select State----'
+            }).attr('selected', 'selected')
+        );
+        $.each(addressDataNativeLocale, function (state) {
+            if (selectedState === state) {
+                $('.shippingState option').removeAttr('selected');
+                $(this).attr('selected', 'selected');
+                stateDropdown.append(
+                    $('<option>', {
+                        value: state,
+                        text: state
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                stateDropdown.append(
+                    $('<option>', {
+                        value: state,
+                        text: state
+                    })
+                );
+            }
+        });
+        suburbDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select City ----'
+            }).attr('selected', 'selected')
+        );
+        cityMappingObj = addressDataNativeLocale[selectedState];
         $.each(cityMappingObj, function (suburb) {
             suburbDropdown.append(
                 $('<option>', {
@@ -594,20 +668,36 @@ $('.shippingAddressCity').change(function () {
     var selectedState = $('.shippingState').val();
     var selectedSuburb = $(this).val();
     var subDistrictDropdown = $('.shippingAddressSubdistrict');
+    var districtMappingObj;
     subDistrictDropdown.empty(); // clear existing options
 
-    if (
-        addressData[selectedState] &&
-        addressData[selectedState][selectedSuburb]
-    ) {
+    if (addressDataEN[selectedState] && addressDataEN[selectedState][selectedSuburb]) 
+    {
         subDistrictDropdown.prepend(
             $('<option>', {
                 value: '',
                 text: '---- Select Sub-District ----'
             }).attr('selected', 'selected')
         );
-        var districtMappingObj = addressData[selectedState][selectedSuburb];
+        districtMappingObj = addressDataEN[selectedState][selectedSuburb];
         $.each(districtMappingObj, function (index,district) {
+            subDistrictDropdown.append(
+                $('<option>', {
+                    value: district,
+                    text: district
+                })
+            );
+        });
+        subDistrictDropdown.trigger('change');
+    } else if (addressDataNativeLocale[selectedState] && addressDataNativeLocale[selectedState][selectedSuburb]) {
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select Sub-District ----'
+            }).attr('selected', 'selected')
+        );
+        districtMappingObj = addressDataNativeLocale[selectedState][selectedSuburb];
+        $.each(districtMappingObj, function (index, district) {
             subDistrictDropdown.append(
                 $('<option>', {
                     value: district,
@@ -631,17 +721,87 @@ $('.shippingAddressCity').change(function () {
 $('.billingState').change(function () {
     var selectedState = $(this).val();
     var suburbDropdown = $('.billingAddressCity');
-
+    var stateDropdown = $('.billingState');
+    var cityMappingObj;
     suburbDropdown.empty(); // clear existing options
-
-    if (addressData[selectedState]) {
+    if (addressDataEN[selectedState]) {
+        $(this).empty();
+        stateDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select State----'
+            }).attr('selected', 'selected')
+        );
+        $.each(addressDataEN, function (state) {
+            if (selectedState === state) {
+                $('.billingState option').removeAttr('selected');
+                $(this).attr('selected', 'selected');
+                stateDropdown.append(
+                    $('<option>', {
+                        value: state,
+                        text: state
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                stateDropdown.append(
+                    $('<option>', {
+                        value: state,
+                        text: state
+                    })
+                );
+            }
+        });
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
                 text: '---- Select City ----'
             }).attr('selected', 'selected')
         );
-        $.each(addressData[selectedState], function (suburb) {
+        cityMappingObj = addressDataEN[selectedState];
+        $.each(cityMappingObj, function (suburb) {
+            suburbDropdown.append(
+                $('<option>', {
+                    value: suburb,
+                    text: suburb
+                })
+            );
+        });
+        suburbDropdown.trigger('change');
+    } else if (addressDataNativeLocale[selectedState]) {
+        $(this).empty();
+        stateDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select State----'
+            }).attr('selected', 'selected')
+        );
+        $.each(addressDataNativeLocale, function (state) {
+            if (selectedState === state) {
+                $('.billingState option').removeAttr('selected');
+                $(this).attr('selected', 'selected');
+                stateDropdown.append(
+                    $('<option>', {
+                        value: state,
+                        text: state
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                stateDropdown.append(
+                    $('<option>', {
+                        value: state,
+                        text: state
+                    })
+                );
+            }
+        });
+        suburbDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select City ----'
+            }).attr('selected', 'selected')
+        );
+        cityMappingObj = addressDataNativeLocale[selectedState];
+        $.each(cityMappingObj, function (suburb) {
             suburbDropdown.append(
                 $('<option>', {
                     value: suburb,
@@ -665,11 +825,12 @@ $('.billingAddressCity').change(function () {
     var selectedState = $('.billingState').val();
     var selectedSuburb = $(this).val();
     var subDistrictDropdown = $('.billingAddressSubdistrict');
+    var districtMappingObj;
     subDistrictDropdown.empty(); // clear existing options
 
     if (
-        addressData[selectedState] &&
-        addressData[selectedState][selectedSuburb]
+        addressDataEN[selectedState] &&
+        addressDataEN[selectedState][selectedSuburb]
     ) {
         subDistrictDropdown.prepend(
             $('<option>', {
@@ -677,12 +838,33 @@ $('.billingAddressCity').change(function () {
                 text: '---- Select Sub-District ----'
             }).attr('selected', 'selected')
         );
-        var districtMappingObj = addressData[selectedState][selectedSuburb];
-        $.each(Object.keys(districtMappingObj), function (district) {
+        districtMappingObj = addressDataEN[selectedState][selectedSuburb];
+        $.each(districtMappingObj, function (index, district) {
             subDistrictDropdown.append(
                 $('<option>', {
-                    value: Object.keys(districtMappingObj)[district],
-                    text: Object.keys(districtMappingObj)[district]
+                    value: district,
+                    text: district
+                })
+            );
+        });
+        subDistrictDropdown.trigger('change');
+    } else if (
+        addressDataNativeLocale[selectedState] &&
+        addressDataNativeLocale[selectedState][selectedSuburb]
+    ) {
+        subDistrictDropdown.prepend(
+            $('<option>', {
+                value: '',
+                text: '---- Select Sub-District ----'
+            }).attr('selected', 'selected')
+        );
+        districtMappingObj =
+            addressDataNativeLocale[selectedState][selectedSuburb];
+        $.each(districtMappingObj, function (index, district) {
+            subDistrictDropdown.append(
+                $('<option>', {
+                    value: district,
+                    text: district
                 })
             );
         });

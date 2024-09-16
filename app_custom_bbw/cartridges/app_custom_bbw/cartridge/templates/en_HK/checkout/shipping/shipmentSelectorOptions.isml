@@ -12,7 +12,7 @@
             data-phone="${address.phone || ''}" data-dial-code="${address.dialCode || ''}"
             data-dial-code-country="${address.dialCodeCountry || ''}">
             ${address.ID ? '(' + address.ID + ')' : ''} - ${address.firstName || ''} ${address.lastName || ''}
-            ${address.stateCode || ''} ${address.postalCode || ''}
+            ${address.stateCode || ''}
         </option>
     </isloop>
 </isif>
