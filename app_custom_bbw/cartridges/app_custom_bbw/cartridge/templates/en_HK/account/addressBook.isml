@@ -76,6 +76,9 @@
                                 <div class="card border-0 default">
                                     <div class="card-address">
                                         <div class="address-id">${address.address.ID}</div>
+                                        <div class="hidden-state d-none">
+                                            ${address.address.stateCode}
+                                        </div>
                                         <div>${address.address.firstName} ${address.address.lastName}</div>
                                         <div>${address.address.address1}</div>
                                         <isif condition="${address.address.address2 !== null}">
@@ -128,6 +131,9 @@
                                 <div class="other-address">
                                     <div class="card-address">
                                         <div class="address-id">${address.address.ID}</div>
+                                        <div class="hidden-state d-none">
+                                            ${address.address.stateCode}
+                                        </div>
                                         <div>${address.address.firstName} ${address.address.lastName}</div>
                                         <div>${address.address.address1}</div>
                                         <isif condition="${address.address.address2 !== null}">

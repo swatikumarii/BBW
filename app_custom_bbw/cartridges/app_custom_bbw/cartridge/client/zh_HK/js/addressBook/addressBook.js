@@ -2,7 +2,9 @@
 
 var base = require('base/addressBook/addressBook');
 var formValidation = require('../components/formValidation.js');
-var addressData = require('../addressData.js');
+var addressDataEN = require('../addressDataEN');
+var addressDataNativeLocale = require('../addressData');
+var addressData;
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 var action;
@@ -190,6 +192,8 @@ $(document).on('click', '#editAddress', function () {
     var data = {
         addressId: addressID
     };
+    var state = false;
+    state = $(this).siblings('.hidden-state').text().trim();
     $.ajax({
         url: action,
         method: 'GET',
@@ -305,7 +309,17 @@ $(document).on('click', '#editAddress', function () {
             });
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
-            $('#modalContent').find('.address-state-input').trigger('change');
+            var stateDropdown = $('#modalContent').find('.address-state-input');
+            if (!stateDropdown.val() && state) {
+                stateDropdown.empty();
+                stateDropdown.append(
+                    $('<option>', {
+                        value: state,
+                        text: state
+                    }).attr('selected', 'selected')
+                );
+            }
+            stateDropdown.trigger('change');
             var addressForm = $($(response)[0]).find('input,select');
             window.addressForm = $(addressForm).serialize();
         }
@@ -327,17 +341,83 @@ module.exports = $.extend({}, base, {
                 .closest('form')
                 .find('.address-city-input');
             suburbDropdown.empty(); // clear existing options
-
-            if (addressData[selectedState]) {
-                $.each(addressData[selectedState], function (suburb) {
-                    suburbDropdown.append(
-                        $('<option>', {
-                            value: suburb,
-                            text: suburb
-                        })
-                    );
+            var stateDropdown = $(this);
+            var selectedSuburb = suburbDropdown.attr('data-selected');
+            if (addressDataEN[selectedState]) {
+                stateDropdown.empty();
+                $.each(addressDataEN, function (state) {
+                    if (state === selectedState) {
+                        stateDropdown.append(
+                            $('<option>', {
+                                value: state,
+                                text: state
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        stateDropdown.append(
+                            $('<option>', {
+                                value: state,
+                                text: state
+                            })
+                        );
+                    }
                 });
-                suburbDropdown.trigger('change');
+                $.each(addressDataEN[selectedState], function (suburb) {
+                    if (suburb === selectedSuburb) {
+                        suburbDropdown.append(
+                            $('<option>', {
+                                value: suburb,
+                                text: suburb
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        suburbDropdown.append(
+                            $('<option>', {
+                                value: suburb,
+                                text: suburb
+                            })
+                        );
+                    }
+                });
+            } else if (addressDataNativeLocale[selectedState]) {
+                stateDropdown.empty();
+                $.each(addressDataNativeLocale, function (state) {
+                    if (state === selectedState) {
+                        stateDropdown.append(
+                            $('<option>', {
+                                value: state,
+                                text: state
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        stateDropdown.append(
+                            $('<option>', {
+                                value: state,
+                                text: state
+                            })
+                        );
+                    }
+                });
+                $.each(
+                    addressDataNativeLocale[selectedState],
+                    function (suburb) {
+                        if (suburb === selectedSuburb) {
+                            suburbDropdown.append(
+                                $('<option>', {
+                                    value: suburb,
+                                    text: suburb
+                                }).attr('selected', 'selected')
+                            );
+                        } else {
+                            suburbDropdown.append(
+                                $('<option>', {
+                                    value: suburb,
+                                    text: suburb
+                                })
+                            );
+                        }
+                    }
+                );
             } else {
                 suburbDropdown.prepend(
                     $('<option>', {
@@ -345,12 +425,12 @@ module.exports = $.extend({}, base, {
                         text: '---- Select State First----'
                     }).attr('selected', 'selected')
                 );
-                suburbDropdown.trigger('change');
             }
             if (suburbDropdown.data('selected') !== '' || suburbDropdown.data('selected') !== null) {
                 var selectedVal = suburbDropdown.data('selected');
                 suburbDropdown.val(selectedVal);
             }
+            suburbDropdown.trigger('change');
         });
     },
     cityDropdown: function () {
@@ -365,12 +445,14 @@ module.exports = $.extend({}, base, {
                 .find('.address-subdistrict-input');
             var selectedSubDistrict = subDistrictDropdown.data('selected');
             subDistrictDropdown.empty(); // clear existing options
+            var districtMappingObj;
 
             if (
-                addressData[selectedState] &&
-                addressData[selectedState][selectedSuburb]
+                addressDataEN[selectedState] &&
+                addressDataEN[selectedState][selectedSuburb]
             ) {
-                var districtMappingObj = addressData[selectedState][selectedSuburb];
+                districtMappingObj =
+                    addressDataEN[selectedState][selectedSuburb];
                 districtMappingObj.forEach((subDistrict) => {
                     if (selectedSubDistrict === subDistrict) {
                         subDistrictDropdown.append(
@@ -388,7 +470,29 @@ module.exports = $.extend({}, base, {
                         );
                     }
                 });
-                subDistrictDropdown.trigger('change');
+            } else if (
+                addressDataNativeLocale[selectedState] &&
+                addressDataNativeLocale[selectedState][selectedSuburb]
+            ) {
+                districtMappingObj =
+                    addressDataNativeLocale[selectedState][selectedSuburb];
+                districtMappingObj.forEach((subDistrict) => {
+                    if (selectedSubDistrict === subDistrict) {
+                        subDistrictDropdown.append(
+                            $('<option>', {
+                                value: subDistrict,
+                                text: subDistrict
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        subDistrictDropdown.append(
+                            $('<option>', {
+                                value: subDistrict,
+                                text: subDistrict
+                            })
+                        );
+                    }
+                });
             }
         });
     },
