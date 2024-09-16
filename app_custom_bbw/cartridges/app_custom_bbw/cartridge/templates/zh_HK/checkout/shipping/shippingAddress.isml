@@ -203,8 +203,8 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group
-                                ${addressFields.subdistrict.mandatory === true ? 'required' : ''}
-                                ${addressFields.subdistrict.htmlName}">
+                                ${addressFields.subDistrict.mandatory === true ? 'required' : ''}
+                                ${addressFields.subDistrict.htmlName}">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
                 for="shippingAddressSubdistrict${lineItem ? lineItem.UUID : 'default'}">
                 <span

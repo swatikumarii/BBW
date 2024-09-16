@@ -10,8 +10,8 @@ var baseAddress = require('base/checkout/address');
 function populateAddressSummary(parentSelector, address) {
     $.each(address, function (attr) {
         var val = address[attr];
-        if (attr === 'countryCode' && typeof val === 'object' && val.value === 'SG') {
-            val = 'Singapore';
+        if (attr === 'countryCode' && typeof val === 'object' && val.value === 'HK') {
+            val = 'Hong Kong';
         }
         $('.' + attr, parentSelector).text(val || '');
     });
