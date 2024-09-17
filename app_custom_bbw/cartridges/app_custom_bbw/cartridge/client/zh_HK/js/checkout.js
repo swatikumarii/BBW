@@ -838,7 +838,7 @@ $('.shippingAddressSubdistrict').change(function () {
 });
 
 $('.billingState').change(function () {
-    var selectedState = $(this).val();
+    var selectedState = $(this).val() || $(this).attr('data-selected');
     var suburbDropdown = $('.billingAddressCity');
     var selectedSuburb = suburbDropdown.attr('data-selected');
     var stateDropdown = $('.billingState');
