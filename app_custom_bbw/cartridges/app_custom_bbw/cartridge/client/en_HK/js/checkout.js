@@ -69,14 +69,7 @@ function checkFields(form) {
 
 $(document).ready(function () {
     processInclude(require('./checkout/checkout'));
-    var shippingState = $('body').find('.shippingState');
-    var selectedState = shippingState.attr('data-selected');
-    if (addressDataNativeLocale[selectedState]) {
-        addressData = addressDataNativeLocale;
-    } else {
-        addressData = addressDataEN;
-    }
-    shippingState.trigger('change');
+    $('.shippingState').trigger('change');
     var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     var name = 'paymentError';
     var error = new RegExp(
@@ -233,6 +226,14 @@ $(document).ready(function () {
         });
 
     if (checkoutStage === 'shipping') {
+        var shippingState = $('body').find('.shippingState');
+        var selectedState = shippingState.attr('data-selected');
+        if (addressDataNativeLocale[selectedState]) {
+            addressData = addressDataNativeLocale;
+        } else {
+            addressData = addressDataEN;
+        }
+        shippingState.trigger('change');
         selectedState = $('body')
             .find('.shippingState')
             .attr('data-selected');
@@ -315,9 +316,14 @@ $(document).ready(function () {
     }
 
     if (checkoutStage === 'payment') {
-        var selectedBillingState = $('body')
-            .find('.billingState')
-            .attr('data-selected');
+        var billingState = $('body').find('.shippingState');
+        var selectedBillingState = billingState.attr('data-selected');
+        if (addressDataNativeLocale[selectedBillingState]) {
+            addressData = addressDataNativeLocale;
+        } else {
+            addressData = addressDataEN;
+        }
+        billingState.trigger('change');
         if (selectedBillingState !== 'null') {
             var stateBillExists = false;
             $('.billingState option').each(function () {
@@ -330,7 +336,7 @@ $(document).ready(function () {
                 }
             });
             if (!stateBillExists) {
-                var billingState = $('.billingState');
+                billingState = $('.billingState');
                 billingState.empty();
                 billingState
                     .prepend(
@@ -545,6 +551,7 @@ $('button.submit-payment').on('click', function () {
 $('.shippingState').change(function () {
     var selectedState = $(this).val();
     var suburbDropdown = $('.shippingAddressCity');
+    var selectedSuburb = suburbDropdown.attr('data-selected');
     var stateDropdown = $(this);
     var cityMappingObj;
     suburbDropdown.empty(); // clear existing options
@@ -582,12 +589,22 @@ $('.shippingState').change(function () {
         );
         cityMappingObj = addressDataEN[selectedState];
         $.each(cityMappingObj, function (suburb) {
-            suburbDropdown.append(
-                $('<option>', {
-                    value: suburb,
-                    text: suburb
-                })
-            );
+            if (suburb === selectedSuburb) {
+                $('.shippingAddressCity option').removeAttr('selected');
+                suburbDropdown.append(
+                    $('<option>', {
+                        value: suburb,
+                        text: suburb
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                suburbDropdown.append(
+                    $('<option>', {
+                        value: suburb,
+                        text: suburb
+                    })
+                );
+            }
         });
     } else if (addressDataNativeLocale[selectedState]) {
         $(this).empty();
@@ -623,12 +640,22 @@ $('.shippingState').change(function () {
         );
         cityMappingObj = addressDataNativeLocale[selectedState];
         $.each(cityMappingObj, function (suburb) {
-            suburbDropdown.append(
-                $('<option>', {
-                    value: suburb,
-                    text: suburb
-                })
-            );
+            if (suburb === selectedSuburb) {
+                $('.shippingAddressCity option').removeAttr('selected');
+                suburbDropdown.append(
+                    $('<option>', {
+                        value: suburb,
+                        text: suburb
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                suburbDropdown.append(
+                    $('<option>', {
+                        value: suburb,
+                        text: suburb
+                    })
+                );
+            }
         });
     } else {
         suburbDropdown.prepend(
@@ -659,6 +686,7 @@ $('.shippingAddressCity').change(function () {
     var selectedState = $('.shippingState').val();
     var selectedSuburb = $(this).val();
     var subDistrictDropdown = $('.shippingAddressSubdistrict');
+    var selectedSubDistrict = subDistrictDropdown.attr('data-selected');
     var districtMappingObj;
     subDistrictDropdown.empty(); // clear existing options
 
@@ -671,13 +699,22 @@ $('.shippingAddressCity').change(function () {
             }).attr('selected', 'selected')
         );
         districtMappingObj = addressDataEN[selectedState][selectedSuburb];
-        $.each(districtMappingObj, function (index,district) {
-            subDistrictDropdown.append(
-                $('<option>', {
-                    value: district,
-                    text: district
-                })
-            );
+        $.each(districtMappingObj, function (index, district) {
+            if (district === selectedSubDistrict) {
+                subDistrictDropdown.append(
+                    $('<option>', {
+                        value: district,
+                        text: district
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                subDistrictDropdown.append(
+                    $('<option>', {
+                        value: district,
+                        text: district
+                    })
+                );
+            }
         });
     } else if (addressDataNativeLocale[selectedState] && addressDataNativeLocale[selectedState][selectedSuburb]) {
         subDistrictDropdown.prepend(
@@ -688,15 +725,23 @@ $('.shippingAddressCity').change(function () {
         );
         districtMappingObj = addressDataNativeLocale[selectedState][selectedSuburb];
         $.each(districtMappingObj, function (index, district) {
-            subDistrictDropdown.append(
-                $('<option>', {
-                    value: district,
-                    text: district
-                })
-            );
+            if (district === selectedSubDistrict) {
+                subDistrictDropdown.append(
+                    $('<option>', {
+                        value: district,
+                        text: district
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                subDistrictDropdown.append(
+                    $('<option>', {
+                        value: district,
+                        text: district
+                    })
+                );
+            }
         });
     } else {
-        $(this).val('');
         subDistrictDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -709,6 +754,7 @@ $('.shippingAddressCity').change(function () {
 $('.billingState').change(function () {
     var selectedState = $(this).val();
     var suburbDropdown = $('.billingAddressCity');
+    var selectedSuburb = suburbDropdown.attr('data-selected');
     var stateDropdown = $('.billingState');
     var cityMappingObj;
     suburbDropdown.empty(); // clear existing options
@@ -746,12 +792,22 @@ $('.billingState').change(function () {
         );
         cityMappingObj = addressDataEN[selectedState];
         $.each(cityMappingObj, function (suburb) {
-            suburbDropdown.append(
-                $('<option>', {
-                    value: suburb,
-                    text: suburb
-                })
-            );
+            if (suburb === selectedSuburb) {
+                $('.shippingAddressCity option').removeAttr('selected');
+                suburbDropdown.append(
+                    $('<option>', {
+                        value: suburb,
+                        text: suburb
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                suburbDropdown.append(
+                    $('<option>', {
+                        value: suburb,
+                        text: suburb
+                    })
+                );
+            }
         });
     } else if (addressDataNativeLocale[selectedState]) {
         $(this).empty();
@@ -787,12 +843,22 @@ $('.billingState').change(function () {
         );
         cityMappingObj = addressDataNativeLocale[selectedState];
         $.each(cityMappingObj, function (suburb) {
-            suburbDropdown.append(
-                $('<option>', {
-                    value: suburb,
-                    text: suburb
-                })
-            );
+            if (suburb === selectedSuburb) {
+                $('.shippingAddressCity option').removeAttr('selected');
+                suburbDropdown.append(
+                    $('<option>', {
+                        value: suburb,
+                        text: suburb
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                suburbDropdown.append(
+                    $('<option>', {
+                        value: suburb,
+                        text: suburb
+                    })
+                );
+            }
         });
     } else {
         suburbDropdown.prepend(
@@ -809,6 +875,7 @@ $('.billingAddressCity').change(function () {
     var selectedState = $('.billingState').val();
     var selectedSuburb = $(this).val();
     var subDistrictDropdown = $('.billingAddressSubdistrict');
+    var selectedSubDistrict = subDistrictDropdown.attr('data-selected');
     var districtMappingObj;
     subDistrictDropdown.empty(); // clear existing options
 
@@ -824,12 +891,21 @@ $('.billingAddressCity').change(function () {
         );
         districtMappingObj = addressDataEN[selectedState][selectedSuburb];
         $.each(districtMappingObj, function (index, district) {
-            subDistrictDropdown.append(
-                $('<option>', {
-                    value: district,
-                    text: district
-                })
-            );
+            if (district === selectedSubDistrict) {
+                subDistrictDropdown.append(
+                    $('<option>', {
+                        value: district,
+                        text: district
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                subDistrictDropdown.append(
+                    $('<option>', {
+                        value: district,
+                        text: district
+                    })
+                );
+            }
         });
     } else if (
         addressDataNativeLocale[selectedState] &&
@@ -844,12 +920,21 @@ $('.billingAddressCity').change(function () {
         districtMappingObj =
             addressDataNativeLocale[selectedState][selectedSuburb];
         $.each(districtMappingObj, function (index, district) {
-            subDistrictDropdown.append(
-                $('<option>', {
-                    value: district,
-                    text: district
-                })
-            );
+            if (district === selectedSubDistrict) {
+                subDistrictDropdown.append(
+                    $('<option>', {
+                        value: district,
+                        text: district
+                    }).attr('selected', 'selected')
+                );
+            } else {
+                subDistrictDropdown.append(
+                    $('<option>', {
+                        value: district,
+                        text: district
+                    })
+                );
+            }
         });
     } else {
         $(this).val('');
