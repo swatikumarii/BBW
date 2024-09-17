@@ -383,7 +383,6 @@ module.exports = {
                             'selected'
                         );
                         $(this).attr('selected', 'selected');
-                        $('body').find('.billingAddressCity').trigger('change');
                         return false;
                     }
                 });

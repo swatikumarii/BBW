@@ -383,11 +383,8 @@ module.exports = {
             if (subDistrict) {
                 $('.billingAddressSubdistrict option').each(function () {
                     if ($(this).val() === subDistrict) {
-                        $('.billingAddressSubdistrict option').removeAttr(
-                            'selected'
-                        );
+                        $('.billingAddressSubdistrict option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
-                        $('body').find('.billingAddressCity').trigger('change');
                         return false;
                     }
                 });
