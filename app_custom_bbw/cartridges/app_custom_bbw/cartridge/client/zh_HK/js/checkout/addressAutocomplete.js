@@ -40,10 +40,7 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'neighborhood':
-                        addressObject.city = element.long_name;
-                        break;
-                    case 'locality':
+                    case 'administrative_area_level_1':
                         addressObject.state = element.long_name;
                         break;
                     default:
@@ -60,32 +57,6 @@ module.exports = {
             form.find('#shippingStatedefault')
                 .val(addressObject.state)
                 .trigger('change');
-            form.find('#shippingAddressCitydefault')
-                .val(addressObject.city)
-                .trigger('change');
-            if (
-                addressObject.address1 &&
-                    addressObject.state &&
-                    addressObject.city
-            ) {
-                if (
-                    form.find('#shippingAddressCitydefault').val() === '' ||
-                    form.find('#shippingAddressCitydefault').val() === null
-                ) {
-                    // setting city as per place API response
-                    var suburbDropdown = $('.shippingAddressCity');
-                    suburbDropdown.empty();
-                    suburbDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.city,
-                            text: addressObject.city
-                        }).attr('selected', 'selected')
-                    );
-                    var cityError = $('#defaultCity');
-                    cityError.empty();
-                    $('.shippingAddressCity').removeClass('is-invalid');
-                }
-            }
         });
     },
     initializeBilling: function () {
@@ -127,10 +98,7 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'neighborhood':
-                        addressObject.city = element.long_name;
-                        break;
-                    case 'locality':
+                    case 'administrative_area_level_1':
                         addressObject.state = element.long_name;
                         break;
                     default:
@@ -147,30 +115,6 @@ module.exports = {
             form.find('#billingState')
                 .val(addressObject.state)
                 .trigger('change');
-            form.find('#billingAddressCity')
-                .val(addressObject.city)
-                .trigger('change');
-            if (
-                addressObject.address1 &&
-                    addressObject.state &&
-                    addressObject.city
-            ) {
-                if (
-                    form.find('#billingAddressCity').val() === '' ||
-                    form.find('#billingAddressCity').val() === null
-                ) {
-                    // setting city as per place API response
-                    var suburbDropdown = $('.billingAddressCity');
-                    suburbDropdown.empty();
-                    suburbDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.city,
-                            text: addressObject.city
-                        }).attr('selected', 'selected')
-                    );
-                    $('.billingAddressCity').removeClass('is-invalid');
-                }
-            }
         });
     },
     initializeAccount: function () {
@@ -212,10 +156,7 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'neighborhood':
-                        addressObject.city = element.long_name;
-                        break;
-                    case 'locality':
+                    case 'administrative_area_level_1':
                         addressObject.state = element.long_name;
                         break;
                     default:
@@ -230,27 +171,6 @@ module.exports = {
                 .val(addressObject.address2)
                 .trigger('change');
             form.find('#state').val(addressObject.state).trigger('change');
-            form.find('#city').val(addressObject.city).trigger('change');
-            if (
-                addressObject.address1 &&
-                addressObject.state &&
-                addressObject.city
-            ) {
-                if (
-                    form.find('#city').val() === '' ||
-                    form.find('#city').val() === null
-                ) {
-                    // setting city as per place API response
-                    var suburbDropdown = $('.address-city-input');
-                    suburbDropdown.empty();
-                    suburbDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.city,
-                            text: addressObject.city
-                        }).attr('selected', 'selected')
-                    );
-                }
-            }
         });
     }
 };
