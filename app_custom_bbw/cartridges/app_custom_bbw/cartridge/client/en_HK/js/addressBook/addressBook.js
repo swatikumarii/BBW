@@ -345,6 +345,12 @@ module.exports = $.extend({}, base, {
             var selectedSuburb = suburbDropdown.attr('data-selected');
             if (addressDataEN[selectedState]) {
                 stateDropdown.empty();
+                stateDropdown.prepend(
+                    $('<option>', {
+                        value: '',
+                        text: '---- Select State ----'
+                    }).attr('selected', 'selected')
+                );
                 $.each(addressDataEN, function (state) {
                     if (state === selectedState) {
                         stateDropdown.append(
@@ -381,6 +387,12 @@ module.exports = $.extend({}, base, {
                 });
             } else if (addressDataNativeLocale[selectedState]) {
                 stateDropdown.empty();
+                stateDropdown.prepend(
+                    $('<option>', {
+                        value: '',
+                        text: '---- Select State ----'
+                    }).attr('selected', 'selected')
+                );
                 $.each(addressDataNativeLocale, function (state) {
                     if (state === selectedState) {
                         stateDropdown.append(

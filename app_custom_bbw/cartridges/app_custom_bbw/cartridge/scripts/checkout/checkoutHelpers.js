@@ -466,9 +466,13 @@ function copyCustomerAddressToBilling(address) {
         if ('raw' in address) {
             billingAddress.custom.dialCode = address.raw.custom.dialCode ? address.raw.custom.dialCode : defaultDialCode;
             billingAddress.custom.dialCodeCountry = address.raw.custom.dialCodeCountry ? address.raw.custom.dialCodeCountry : defaultDialCodeCountry;
+            billingAddress.custom.district = address.raw.custom.district ? address.raw.custom.district : '';
+            billingAddress.custom.subDistrict = address.raw.custom.subDistrict ? address.raw.custom.subDistrict : '';
         } else {
             billingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
             billingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
+            billingAddress.custom.district = address.custom.district ? address.custom.district : '';
+            billingAddress.custom.subDistrict = address.custom.subDistrict ? address.custom.subDistrict : '';
         }
     });
 }

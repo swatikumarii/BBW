@@ -112,7 +112,7 @@
                     data-missing-error="${Resource.msg('error.state', 'forms', null)}"
                     data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress
                                    .address.stateCode}"
-                    <isprint value="${pdict.addressForm.states.stateCode.attributes}" encoding="off" />
+                    <isprint value="${pdict.forms.billingForm.addressFields.states.stateCode.attributes}" encoding="off" />
                 autocomplete="shipping address-level1"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}State">
                 <isloop items=${addressFields.states.stateCode.options} var="state">
@@ -155,6 +155,33 @@
             </div>
 
 
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="form-group
+                        ${billingFields.subDistrict.mandatory === true ? 'required' : ''}
+                        ${billingFields.subDistrict.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingAddressSubdistrict"><span
+                    class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.subdistrict', 'address', null)}</label>
+    
+            <div class="custom-select-wrap">
+                <select class="form-control billingAddressSubdistrict custom-select" id="billingAddressSubdistrict"
+                    data-missing-error="${Resource.msg('error.subdistrict', 'forms', null)}"
+                    autocomplete="billing address-level2" data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress
+                                                                         .address.subDistrict}" <isprint value="${billingFields.subDistrict.attributes}"
+                    encoding="off" />>
+                <isif
+                    condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.subdistrict}">
+                    <option id="${pdict.order.billing.billingAddress.address.subdistrict}"
+                        value="${pdict.order.billing.billingAddress.address.subdistrict}" selected>
+                        ${pdict.order.billing.billingAddress.address.subdistrict}</option>
+                </isif>
+                </select>
+                <div class="invalid-feedback shipping-select-error"></div>
+            </div>
+    
+    
         </div>
     </div>
     <div class="col-sm-12 d-none">
