@@ -185,7 +185,7 @@ function search(req, res) {
 
     pageMetaHelper.setPageMetaTags(req.pageMetaData, productSearch);
 
-    var canonicalUrl = URLUtils.url('Search-Show', 'cgid', req.querystring.cgid);
+    var canonicalUrl = URLUtils.abs('Search-Show', 'cgid', req.querystring.cgid);
     var refineurl = URLUtils.url('Search-Refinebar');
     var allowedParams = ['q', 'cgid', 'pmin', 'pmax', 'srule', 'pmid'];
     var isRefinedSearch = false;
