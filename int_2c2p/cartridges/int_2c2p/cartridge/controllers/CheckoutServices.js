@@ -229,8 +229,9 @@ server.prepend(
           address1: { value: paymentForm.addressFields.address1.value },
           address2: { value: paymentForm.addressFields.address2.value },
           city: { value: paymentForm.addressFields.city.value },
+          subDistrict: { value: paymentForm.addressFields.subDistrict.value },
           postalCode: { value: paymentForm.addressFields.postalCode.value },
-          countryCode: { value: paymentForm.addressFields.country.value }
+          countryCode: { value: paymentForm.addressFields.country.value },
         };
 
         if (Object.prototype.hasOwnProperty.call(paymentForm.addressFields, 'states')) {
