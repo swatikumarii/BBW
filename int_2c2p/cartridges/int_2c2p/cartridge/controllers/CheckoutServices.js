@@ -335,12 +335,12 @@ server.prepend(
         billingAddress.setAddress1(billingData.address.address1.value);
         billingAddress.setAddress2(billingData.address.address2.value);
         billingAddress.setCity(billingData.address.city.value);
-        // var subDistrictString = JSON.stringify(billingData.address.subDistrict);
-        // if (billingAddress.custom) {
-        //   billingAddress.custom.subDistrict = JSON.parse(subDistrictString).value;
-        // }
+        var subDistrictString = JSON.stringify(billingData.address.subDistrict);
+        if (billingAddress.custom) {
+          billingAddress.custom.subDistrict = JSON.parse(subDistrictString).value;
+        }
         billingAddress.setPostalCode(billingData.address.postalCode.value);
-        // billingAddress.custom.subDistrict = billingData.address.subDistrict.value;
+        billingAddress.custom.subDistrict = billingData.address.subDistrict.value;
         if (Object.prototype.hasOwnProperty.call(billingData.address, 'stateCode')) {
           billingAddress.setStateCode(billingData.address.stateCode.value);
         }
