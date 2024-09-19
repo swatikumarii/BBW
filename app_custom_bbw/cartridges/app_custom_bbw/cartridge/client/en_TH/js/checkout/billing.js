@@ -338,11 +338,18 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
-            var district = attrs.district.trim();
             var subDistrict = attrs.subdistrict.trim();
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
+                $('.billingState option').removeAttr('selected');
+                $('.billingState').append(
+                    $('<option>', {
+                        value: stateCode,
+                        text: stateCode
+                    }).attr('selected', 'selected')
+                );
+                $('.billingState').trigger('change');
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
                         $('.billingState option').removeAttr('selected');
@@ -351,14 +358,14 @@ module.exports = {
                         return false;
                     }
                 });
+            } else {
+                $('.billingState option').removeAttr('selected');
+                $('.billingState').val('').trigger('change');
+                $('.billingAddressCity').val('');
+                $('.billingAddressSubdistrict').val('');
             }
             if (city) {
                 $('.billingAddressCity').prepend(
-                    $('<option></option>')
-                        .attr('value', '')
-                        .attr('selected', 'selected')
-                );
-                $('.billingZipCode').prepend(
                     $('<option></option>')
                         .attr('value', '')
                         .attr('selected', 'selected')
@@ -371,22 +378,6 @@ module.exports = {
                         $('body').find('.billingAddressCity').trigger('change');
                         return false;
                     }
-                    $('.billingZipCode option').slice(1).remove();
-                });
-            }
-            if (district) {
-                $('.billingAddressDistrict option').each(function () {
-                    if ($(this).val() === district) {
-                        $('.billingAddressDistrict option').removeAttr(
-                            'selected'
-                        );
-                        $('.billingAddressDistrict option')[0].remove();
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.billingAddressDistrict')
-                            .trigger('change');
-                        return false;
-                    }
                 });
             }
             if (subDistrict) {
@@ -395,11 +386,8 @@ module.exports = {
                         $('.billingAddressSubdistrict option').removeAttr(
                             'selected'
                         );
-                        $('.billingAddressSubdistrict option')[0].remove();
                         $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.billingAddressSubdistrict')
-                            .trigger('change');
+                        $('body').find('.billingAddressSubdistrict').trigger('change');
                         return false;
                     }
                 });
@@ -415,13 +403,23 @@ module.exports = {
                 });
             }
             if (dialCodeCountry) {
+                // Get the instance of intl-tel-input
                 if (window.billingInstance) {
                     window.billingInstance.setCountry(dialCodeCountry);
                 }
             }
 
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (
+                    ![
+                        'stateCode',
+                        'city',
+                        'postalCode',
+                        'countryCode',
+                        'district',
+                        'subdistrict'
+                    ].includes(attr)
+                ) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     if (element === 'cardNumber') {
                         $('.cardNumber')
@@ -538,11 +536,11 @@ module.exports = {
                         $('.billingState option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingState').trigger('change');
-                        exists =true;
+                        exists = true;
                         return false;
                     }
                 });
-                if(!exists){
+                if (!exists) {
                     var billingState = $('.billingState');
                     billingState.empty();
                     billingState
@@ -554,7 +552,6 @@ module.exports = {
                         )
                         .attr('selected', 'selected');
                 }
-
             }
             if (city !== 'null') {
                 var cityExists = false;
@@ -653,9 +650,7 @@ module.exports = {
                     }
                 });
                 if (!zipCodeExists) {
-                    var billingZipCode = $(
-                        '.billingZipCode'
-                    );
+                    var billingZipCode = $('.billingZipCode');
                     billingZipCode.empty();
                     billingZipCode
                         .prepend(

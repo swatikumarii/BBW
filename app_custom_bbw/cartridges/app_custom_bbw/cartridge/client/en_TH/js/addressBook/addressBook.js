@@ -2,7 +2,8 @@
 
 var base = require('base/addressBook/addressBook');
 var formValidation = require('../components/formValidation');
-var addressData = require('../addressData.js');
+var addressDataNativeLocale = require('../addressDataTH');
+var addressDataEN = require('../addressData');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 var action;
@@ -10,6 +11,34 @@ var isDefault;
 var deleteUrl;
 
 var location = window.location;
+
+/**
+ * validateFields
+ * @param {object} $input input field
+ */
+function validateFields($input) {
+    try {
+        var $errorMessage = $input.next('.invalid-feedback');
+        if ($input[0].checkValidity()) {
+            $errorMessage.hide();
+            $input.removeClass('is-invalid');
+            if ($input.parents('.iti').length)
+                $input.parents('.iti').removeClass('is-invalid border-danger');
+        } else {
+            var errorText;
+            if ($input.val() && $input.val().length === 0) {
+                errorText = $input.data('missing-error');
+            } else {
+                errorText = $input.data('pattern-mismatch');
+            }
+            if ($input.parents('.iti').length)
+                $input.parents('.iti').addClass('is-invalid border-danger');
+            $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 /**
  * Create an alert to display the error message
@@ -370,45 +399,127 @@ module.exports = $.extend({}, base, {
                 .closest('form')
                 .find('.address-city-input');
             suburbDropdown.empty(); // clear existing options
-
-            if (addressData[selectedState]) {
-                $.each(addressData[selectedState], function (suburb) {
-                    suburbDropdown.append(
-                        $('<option>', {
-                            value: suburb,
-                            text: suburb
-                        })
-                    );
+            var stateDropdown = $(this);
+            var selectedSuburb = suburbDropdown.attr('data-selected');
+            if (addressDataEN[selectedState]) {
+                stateDropdown.empty();
+                stateDropdown.prepend(
+                    $('<option>', {
+                        value: '',
+                        text: '---- Select State ----'
+                    }).attr('selected', 'selected')
+                );
+                $.each(addressDataEN, function (state) {
+                    if (state === selectedState) {
+                        stateDropdown.append(
+                            $('<option>', {
+                                value: state,
+                                text: state
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        stateDropdown.append(
+                            $('<option>', {
+                                value: state,
+                                text: state
+                            })
+                        );
+                    }
                 });
-                suburbDropdown.trigger('change');
+                $.each(addressDataEN[selectedState], function (suburb) {
+                    if (suburb === selectedSuburb) {
+                        suburbDropdown.append(
+                            $('<option>', {
+                                value: suburb,
+                                text: suburb
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        suburbDropdown.append(
+                            $('<option>', {
+                                value: suburb,
+                                text: suburb
+                            })
+                        );
+                    }
+                });
+            } else if (addressDataNativeLocale[selectedState]) {
+                stateDropdown.empty();
+                stateDropdown.prepend(
+                    $('<option>', {
+                        value: '',
+                        text: '---- Select State ----'
+                    }).attr('selected', 'selected')
+                );
+                $.each(addressDataNativeLocale, function (state) {
+                    if (state === selectedState) {
+                        stateDropdown.append(
+                            $('<option>', {
+                                value: state,
+                                text: state
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        stateDropdown.append(
+                            $('<option>', {
+                                value: state,
+                                text: state
+                            })
+                        );
+                    }
+                });
+                $.each(
+                    addressDataNativeLocale[selectedState],
+                    function (suburb) {
+                        if (suburb === selectedSuburb) {
+                            suburbDropdown.append(
+                                $('<option>', {
+                                    value: suburb,
+                                    text: suburb
+                                }).attr('selected', 'selected')
+                            );
+                        } else {
+                            suburbDropdown.append(
+                                $('<option>', {
+                                    value: suburb,
+                                    text: suburb
+                                })
+                            );
+                        }
+                    }
+                );
+            } else {
+                suburbDropdown.prepend(
+                    $('<option>', {
+                        value: '',
+                        text: '---- Select State First----'
+                    }).attr('selected', 'selected')
+                );
             }
+            if (
+                suburbDropdown.data('selected') !== '' ||
+                suburbDropdown.data('selected') !== null
+            ) {
+                var selectedVal = suburbDropdown.data('selected');
+                suburbDropdown.val(selectedVal);
+            }
+            suburbDropdown.trigger('change');
         });
     },
     cityDropdown: function () {
         $('body').on('change', '.address-city-input', function () {
-            var selectedState = $(this)
-                .closest('form')
-                .find('.address-state-input')
-                .val();
+            var selectedState = $(this).closest('form').find('.address-state-input').val();
             var selectedSuburb = $(this).val();
-            var subDistrictDropdown = $(this)
-                .closest('form')
-                .find('.address-subdistrict-input');
+            var subDistrictDropdown = $(this).closest('form').find('.address-subdistrict-input');
             var selectedSubDistrict = subDistrictDropdown.data('selected');
-            var zipcodeDropdown = $(this)
-                .closest('form')
-                .find('.address-zipcode-input');
+            var zipcodeDropdown = $(this).closest('form').find('.address-zipcode-input');
             var selectedZipCode = zipcodeDropdown.data('selected');
             subDistrictDropdown.empty(); // clear existing options
-            zipcodeDropdown.empty(); // clear existing options
+            var districtMappingObj;
 
-            if (
-                addressData[selectedState] &&
-                addressData[selectedState][selectedSuburb]
-            ) {
-                var subDistrictMappingObj =
-                    addressData[selectedState][selectedSuburb].subDistrict;
-                subDistrictMappingObj.forEach((subDistrict) => {
+            if (addressDataEN[selectedState] && addressDataEN[selectedState][selectedSuburb]) {
+                districtMappingObj = addressDataEN[selectedState][selectedSuburb];
+                districtMappingObj.subDistrict.forEach((subDistrict) => {
                     if (selectedSubDistrict === subDistrict) {
                         subDistrictDropdown.append(
                             $('<option>', {
@@ -425,27 +536,59 @@ module.exports = $.extend({}, base, {
                         );
                     }
                 });
-                subDistrictDropdown.trigger('change');
-                var zipCodeMappingObj =
-                    addressData[selectedState][selectedSuburb].postalCodes;
-                zipCodeMappingObj.forEach((postalCode) => {
-                    if (selectedZipCode === postalCode) {
+                districtMappingObj.postalCodes.forEach((zipCode) => {
+                    if (selectedZipCode === zipCode) {
                         zipcodeDropdown.append(
                             $('<option>', {
-                                value: postalCode,
-                                text: postalCode
+                                value: zipCode,
+                                text: zipCode
                             }).attr('selected', 'selected')
                         );
                     } else {
                         zipcodeDropdown.append(
                             $('<option>', {
-                                value: postalCode,
-                                text: postalCode
+                                value: zipCode,
+                                text: zipCode
                             })
                         );
                     }
                 });
-                zipcodeDropdown.trigger('change');
+            } else if (addressDataNativeLocale[selectedState] && addressDataNativeLocale[selectedState][selectedSuburb]) {
+                districtMappingObj = addressDataNativeLocale[selectedState][selectedSuburb];
+                districtMappingObj.subDistrict.forEach((subDistrict) => {
+                    if (selectedSubDistrict === subDistrict) {
+                        subDistrictDropdown.append(
+                            $('<option>', {
+                                value: subDistrict,
+                                text: subDistrict
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        subDistrictDropdown.append(
+                            $('<option>', {
+                                value: subDistrict,
+                                text: subDistrict
+                            })
+                        );
+                    }
+                });
+                districtMappingObj.postalCodes.forEach((zipCode) => {
+                    if (selectedZipCode === zipCode) {
+                        zipcodeDropdown.append(
+                            $('<option>', {
+                                value: zipCode,
+                                text: zipCode
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        zipcodeDropdown.append(
+                            $('<option>', {
+                                value: zipCode,
+                                text: zipCode
+                            })
+                        );
+                    }
+                });
             }
         });
     },
@@ -463,12 +606,16 @@ module.exports = $.extend({}, base, {
         var initCountryData = iti.getSelectedCountryData();
         $('.dialCode').val(initCountryData.dialCode);
         $('.dialCodeCountry').val(initCountryData.iso2);
-        $('.addressPhoneNumber').on('countrychange', function() {
+        $('.addressPhoneNumber').on('countrychange', function () {
             var countryData = iti.getSelectedCountryData();
             $('.dialCode').val(countryData.dialCode);
             $('.dialCodeCountry').val(countryData.iso2);
         });
+    },
+    validation: function () {
+        $('.form-control').on('input change', function () {
+            validateFields($(this));
+        });
     }
 });
-
 
