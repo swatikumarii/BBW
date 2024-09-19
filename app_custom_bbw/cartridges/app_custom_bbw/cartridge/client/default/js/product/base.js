@@ -52,7 +52,6 @@ function parseHtml(html) {
  * @param {object} data - data object used to fill in dynamic portions of the html
  */
 function chooseBonusProducts(data) {
-    console.log(data);
     $('.modal-body').spinner().start();
 
     if ($('#chooseBonusProductModal').length !== 0) {

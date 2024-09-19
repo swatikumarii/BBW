@@ -92,7 +92,7 @@
                     <isinclude template="wishlist/components/addToWishListButtonCart" sf-toolkit="on" />
                 </isif>
                 <isif condition="${lineItem.isBonusProductLineItem}">
-                   <span class="change-bonus-product mt-3 text-decoration-underline" data-uuid="${lineItem.bonusProductLineItemUUID}">Choose a different gift</span>
+                   <span class="change-bonus-product mt-3 text-decoration-underline" data-uuid="${lineItem.bonusProductLineItemUUID}">Choose a different gift/product</span>
                     <iscomment> TODO: Implement remove </iscomment>
                    <iscomment> <span class="change-bonus-product mt-2 text-decoration-underline" data-uuid="${lineItem.bonusProductLineItemUUID}">Remove Gift</span> </iscomment>
                 </isif>

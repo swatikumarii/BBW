@@ -72,9 +72,14 @@
                                             </td>
                                             <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
                                                 <div style="width:245px">
-                                                    <isif condition="${lineItem.isBonusProductLineItem}">
+                                                    <isif condition="${lineItem.isBonusProductLineItem && !lineItem.isPWP}">
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${Resource.msg('label.free.gift', 'common', null)}
+                                                        </div>
+                                                    </isif>
+                                                    <isif condition="${lineItem.isPWP}">
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${Resource.msg('label.pwp.product', 'common', null)}
                                                         </div>
                                                     </isif>
                                                     <div
