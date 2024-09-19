@@ -103,7 +103,7 @@
                 <div class="cart-lineitems">
                     <isloop items="${pdict.items}" var="lineItem">
                         <isif condition="${showBonusTitle && lineItem.isBonusProductLineItem}">
-                            <span class="bonus-product-title h-font-size--20 h-clr--black-1 ml-3">Your Free Gift(s)</span>
+                            <span class="bonus-product-title h-font-size--20 h-clr--black-1 ml-3">Your Free Gifts/Discounted Products</span>
                             <isset name="showBonusTitle" value="${false}" scope="page" />
                         </isif>
                         <isif condition="${lineItem.isGiftWrapCategory}">

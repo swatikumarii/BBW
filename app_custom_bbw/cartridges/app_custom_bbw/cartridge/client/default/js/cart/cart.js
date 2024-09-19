@@ -542,7 +542,7 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-            if (response.initialAddBonusProduct) {
+            if (response.initialAddBonusProduct && !data.isPWP) {
                 $.ajax({
                     type: 'POST',
                     url: response.initialAddBonusProductUrl,

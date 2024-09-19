@@ -745,6 +745,11 @@ function getNewBonusDiscountLineItem(
     });
 
     if (newBonusDiscountLineItem) {
+        var newBonusPromo = newBonusDiscountLineItem.promotion;
+        var isPWP = false;
+        if (newBonusPromo && 'custom' in newBonusPromo && 'isPWP' in newBonusPromo.custom && newBonusPromo.custom.isPWP) {
+            isPWP = true;
+        }
         result.bonusChoiceRuleBased = newBonusDiscountLineItem.bonusChoiceRuleBased;
         result.bonuspids = [];
         var iterBonusProducts = newBonusDiscountLineItem.bonusProducts.iterator();
@@ -764,9 +769,9 @@ function getNewBonusDiscountLineItem(
         result.newBonusDiscountLineItem = newBonusDiscountLineItem;
         result.labels = {
             close: Resource.msg('link.choiceofbonus.close', 'product', null),
-            selectprods: Resource.msgf('modal.header.selectproducts', 'product', null, null),
-            selectedprods:  Resource.msgf('modal.header.selected.products', 'product', null,0, newBonusDiscountLineItem.maxBonusItems),
-            maxprods: Resource.msgf('label.choiceofbonus.selectproducts', 'product', null, newBonusDiscountLineItem.maxBonusItems)
+            selectprods: isPWP ? Resource.msgf('modal.header.selectPWP', 'product', null, null) : Resource.msgf('modal.header.selectproducts', 'product', null, null),
+            selectedprods: isPWP ? Resource.msgf('modal.header.selected.pwp', 'product',null ,0, newBonusDiscountLineItem.maxBonusItems) : Resource.msgf('modal.header.selected.products', 'product', null,0, newBonusDiscountLineItem.maxBonusItems),
+            maxprods:  isPWP ? Resource.msgf('label.pwp.selectproducts', 'product', null, newBonusDiscountLineItem.maxBonusItems) : Resource.msgf('label.choiceofbonus.selectproducts', 'product', null, newBonusDiscountLineItem.maxBonusItems)
         };
     }
     return newBonusDiscountLineItem ? result : undefined;

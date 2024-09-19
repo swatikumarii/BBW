@@ -56,4 +56,9 @@
             ${pdict.product.promoPrice}
         </span>
     </isif>
+    <isif condition="${pdict.product && pdict.product.pwpPrice}">
+        <span class="promo-price h-clr--pink h-fw--semibold gift-cards-price">
+            ${pdict.product.pwpPrice}
+        </span>
+    </isif>
 </span>
