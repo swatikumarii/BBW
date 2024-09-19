@@ -98,6 +98,7 @@ function optionValueForAddress(shipping, selected, order, options) {
         'data-address1': 'address1',
         'data-address2': 'address2',
         'data-city': 'city',
+        'data-subDistrict': 'subDistrict',
         'data-state-code': 'stateCode',
         'data-postal-code': 'postalCode',
         'data-country-code': 'countryCode',
