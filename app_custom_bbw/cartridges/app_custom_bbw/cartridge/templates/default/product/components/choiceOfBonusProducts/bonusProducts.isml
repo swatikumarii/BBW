@@ -38,6 +38,17 @@
                             </isif>
                         </div>
                     </div>
+                    <isif condition="${product && product.pwpPrice}">
+                        <div class="pwp-price">
+                            <span
+                                class="strike-through h-clr--black-1">
+                                ${product.price.sales.formatted}
+                            </span>
+                            <span class="promo-price h-clr--pink h-fw--semibold gift-cards-price">
+                                ${product.pwpPrice}
+                            </span>
+                        </div>
+                    </isif>
                     <input type="hidden"
                         class="h-bg--gray-1 input-text text-center bonus-quantity-select p-0 float-left border-0 h-fw--semibold quantity-select w-50"
                         name="Quantity" id="Quantity" value="1" />

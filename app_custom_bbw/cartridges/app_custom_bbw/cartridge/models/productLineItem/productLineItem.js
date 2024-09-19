@@ -26,5 +26,13 @@ module.exports = function productLineItem(product, apiProduct, options) {
     productDecorators.dynamicBadge(product, apiProduct);
     productDecorators.badge(product, apiProduct);
     productDecorators.images(product, apiProduct, { types: ['small', 'small_2x'], quantity: 'single' });
+    if (product.isBonusProductLineItem) {
+        product.isPWP = false;
+        product.promotions.forEach(function (promotion) {
+            if (promotion.isPWPPromo) {
+                product.isPWP = true;
+            }
+        });
+    }
     return product;
 };

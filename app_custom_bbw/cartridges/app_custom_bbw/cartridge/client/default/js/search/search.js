@@ -394,7 +394,7 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-            if (response.initialAddBonusProduct) {
+            if (response.initialAddBonusProduct && !data.isPWP) {
                 $.ajax({
                     type: 'POST',
                     url: response.initialAddBonusProductUrl,
@@ -825,7 +825,7 @@ module.exports = {
                             self.addClass('disable');
                         }
                         if (
-                            data.newBonusDiscountLineItem &&
+                            data.newBonusDiscountLineItem && data.newBonusDiscountLineItem!== undefined &&
                             Object.keys(data.newBonusDiscountLineItem).length !== 0
                         ) {
                             chooseBonusProducts(data.newBonusDiscountLineItem);
@@ -856,7 +856,7 @@ module.exports = {
                 success: function (data) {
                     $('.minicart').trigger('count:update', data);
                     if (
-                        data.newBonusDiscountLineItem &&
+                        data.newBonusDiscountLineItem && data.newBonusDiscountLineItem!== undefined &&
                         Object.keys(data.newBonusDiscountLineItem).length !== 0
                     ) {
                         chooseBonusProducts(data.newBonusDiscountLineItem);

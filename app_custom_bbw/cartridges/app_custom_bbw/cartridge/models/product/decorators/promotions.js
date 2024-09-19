@@ -180,6 +180,7 @@ module.exports = function (object, promotions) {
         value: promotions.length === 0 ? null : collections.map(promotions, function (promotion) {
             var motivator = currentBasket ? checkMotivator(promotion) : false;
             var calloutMsg = promotion.calloutMsg ? promotion.calloutMsg.markup : '';
+            var isPWPPromo = 'custom' in promotion && 'isPWP' in promotion.custom && promotion.custom.isPWP ? promotion.custom.isPWP : false;
             return {
                 calloutMsg: calloutMsg,
                 motivator: motivator,
@@ -188,7 +189,8 @@ module.exports = function (object, promotions) {
                 id: promotion.ID,
                 name: promotion.name,
                 promotionClass: promotion.promotionClass,
-                rank: promotion.rank
+                rank: promotion.rank,
+                isPWPPromo: isPWPPromo
             };
         })
     });

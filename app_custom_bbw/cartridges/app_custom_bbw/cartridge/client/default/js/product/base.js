@@ -52,6 +52,7 @@ function parseHtml(html) {
  * @param {object} data - data object used to fill in dynamic portions of the html
  */
 function chooseBonusProducts(data) {
+    console.log(data);
     $('.modal-body').spinner().start();
 
     if ($('#chooseBonusProductModal').length !== 0) {
@@ -116,7 +117,7 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-            if (response.initialAddBonusProduct) {
+            if (response.initialAddBonusProduct && !data.isPWP) {
                 $.ajax({
                     type: 'POST',
                     url: response.initialAddBonusProductUrl,

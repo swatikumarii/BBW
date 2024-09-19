@@ -280,6 +280,11 @@ server.replace('UpdateQuantity', function (req, res, next) {
         matchingLineItem.UUID
     );
     if (newBonusDiscountLineItem) {
+
+        var newBonusPromo = newBonusDiscountLineItem && 'newBonusDiscountLineItem' in newBonusDiscountLineItem ? newBonusDiscountLineItem.newBonusDiscountLineItem.promotion : null;
+        if (newBonusPromo && 'custom' in newBonusPromo && 'isPWP' in newBonusPromo.custom && newBonusPromo.custom.isPWP) {
+            newBonusDiscountLineItem.isPWP = true;
+        }
         var allLineItems = currentBasket.allProductLineItems;
         collections.forEach(allLineItems, function (pli) {
             if (pli.UUID === matchingLineItem.UUID) {
@@ -589,6 +594,10 @@ server.append('AddProduct', function (req, res, next) {
             maxOrderQtyValue,
             apiProduct.name
         );
+    }
+    var newBonusPromo = viewData.newBonusDiscountLineItem && 'newBonusDiscountLineItem' in viewData.newBonusDiscountLineItem ? viewData.newBonusDiscountLineItem.newBonusDiscountLineItem.promotion : null;
+    if (newBonusPromo && 'custom' in newBonusPromo && 'isPWP' in newBonusPromo.custom && newBonusPromo.custom.isPWP) {
+        viewData.newBonusDiscountLineItem.isPWP = true;
     }
     res.setViewData(viewData);
     next();

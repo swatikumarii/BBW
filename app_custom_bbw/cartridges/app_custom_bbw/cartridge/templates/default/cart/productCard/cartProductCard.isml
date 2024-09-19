@@ -105,7 +105,7 @@
 
         <iscomment> Price, Qty, Total Price </iscomment>
 
-        <isif condition="${!lineItem.isBonusProductLineItem}">
+        <isif condition="${!lineItem.isBonusProductLineItem || lineItem.isPWP}">
             <isinclude template="cart/productCard/cartProductCardProductPrice" />
             <div class="line-item-remove">
                 <span class="cart-delete-confirmation-btn" data-pid="${lineItem.id}" data-name="${lineItem.productName}"

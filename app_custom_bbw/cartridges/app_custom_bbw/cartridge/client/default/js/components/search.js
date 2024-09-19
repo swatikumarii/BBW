@@ -364,7 +364,7 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-            if (response.initialAddBonusProduct) {
+            if (response.initialAddBonusProduct && !data.isPWP) {
                 $.ajax({
                     type: 'POST',
                     url: response.initialAddBonusProductUrl,
@@ -401,7 +401,7 @@ function handlePostCartAdd(response) {
     var messageType = response.error ? 'alert-danger' : 'alert-success';
     // show add to cart toast
     if (
-        response.newBonusDiscountLineItem &&
+        response.newBonusDiscountLineItem && response.newBonusDiscountLineItem!== undefined &&
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
