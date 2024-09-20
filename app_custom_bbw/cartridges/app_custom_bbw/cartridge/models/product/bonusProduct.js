@@ -9,5 +9,7 @@ module.exports = function bonusProduct(product, apiProduct, options, duuid) {
     decorators.fragrance(product, apiProduct);
     decorators.titlePartB(product, apiProduct);
     decorators.volume(product, apiProduct);
+    decorators.pwpPrice(product, options.promotions, apiProduct);
+    decorators.price(product, apiProduct, options.promotions, false, options.optionModel);
     return product;
 };
