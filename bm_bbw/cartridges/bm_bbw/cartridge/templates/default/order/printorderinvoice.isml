@@ -15,7 +15,7 @@
 <body id="print_invoice">
     <isscript>
         var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
-        var orderDetail = orderModel.getInvoice(pdict.Order.orderNo);
+        var orderDetail = orderModel.getInvoice(pdict.Order.orderNo, pdict.Order.customerLocaleID);
     </isscript>
     <isprint value="${orderDetail}" encoding="off" />
     </body>

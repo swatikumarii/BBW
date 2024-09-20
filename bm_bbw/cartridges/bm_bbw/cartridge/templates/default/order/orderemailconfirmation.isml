@@ -29,7 +29,7 @@ Multiple email address can be separated by , (a la RFC2822)
     <body>
         <isscript>
             var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
-            var orderDetail = orderModel.getConfirmationEmailData(pdict.Order.orderNo);
+            var orderDetail = orderModel.getConfirmationEmailData(pdict.Order.orderNo, pdict.Order.customerLocaleID);
         </isscript>
         <isprint value="${orderDetail}" encoding="off" />
     </body>
