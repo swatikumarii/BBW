@@ -290,7 +290,6 @@ $(document).ready(function () {
                 }
             });
             if (!stateShipExists) {
-                shippingState.empty();
                 shippingState
                     .prepend(
                         $('<option>', {
@@ -379,7 +378,6 @@ $(document).ready(function () {
             });
             if (!stateBillExists) {
                 billingState = $('.billingState');
-                billingState.empty();
                 billingState
                     .prepend(
                         $('<option>', {
@@ -466,7 +464,6 @@ $(document).ready(function () {
             if (!postalCodeExists) {
                 // setting city as per place API response
                 var zipCodeDropdown = $('.billingZipCode');
-                zipCodeDropdown.empty();
                 zipCodeDropdown.prepend(
                     $('<option>', {
                         value: selectedBillingPostalCode,
@@ -789,7 +786,6 @@ $('.shippingAddressCity').change(function () {
             }
         });
     } else {
-        $(this).val('');
         subDistrictDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -879,7 +875,6 @@ $('.shippingAddressSubdistrict').change(function () {
             }
         );
     } else {
-        $(this).val('');
         subDistrictDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -955,7 +950,6 @@ $('.shippingZipCode').change(function () {
             }
         });
     } else {
-        $(this).val('');
         zipCodeDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -1200,7 +1194,6 @@ $('.billingAddressCity').change(function () {
             }
         });
     } else {
-        $(this).val('');
         subDistrictDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -1290,7 +1283,6 @@ $('.billingAddressSubdistrict').change(function () {
             }
         );
     } else {
-        $(this).val('');
         subDistrictDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -1366,7 +1358,6 @@ $('.billingZipCode').change(function () {
             }
         });
     } else {
-        $(this).val('');
         zipCodeDropdown.prepend(
             $('<option>', {
                 value: '',
