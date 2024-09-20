@@ -860,6 +860,7 @@ server.get('MissingFree', function (req, res, next) {
 server.append('EditBonusProduct', function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var viewData = res.getViewData();
+    viewData.labels.selectprods =  Resource.msg('modal.header.selected.products.pwp', 'product', null);
     viewData.labels.selectedprods =  Resource.msgf('modal.header.selected.products', 'product', null,viewData.selectedBonusProducts.length, viewData.maxBonusItems);
     res.setViewData(viewData);
     next();
