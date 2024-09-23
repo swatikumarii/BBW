@@ -423,7 +423,7 @@ module.exports = {
                         $input.removeClass('is-invalid');
                     } else {
                         var errorText;
-                        if ($input.val().length === 0) {
+                        if ($input.val() && $input.val().length === 0) {
                             errorText = $input.data('missing-error');
                         } else {
                             errorText = $input.data('pattern-mismatch');

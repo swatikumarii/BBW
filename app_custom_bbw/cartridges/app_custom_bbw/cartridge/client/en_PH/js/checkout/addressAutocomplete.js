@@ -20,6 +20,7 @@ module.exports = {
             var place = autocomplete.getPlace();
             var components = place.address_components;
             var addressObject = {};
+            var isStateSet = false;
             for (var index = 0; index < components.length; index++) {
                 var element = components[index];
                 switch (element.types[0]) {
@@ -44,7 +45,13 @@ module.exports = {
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
+                        if (!isStateSet) {
+                            addressObject.state = element.long_name;
+                        }
+                        break;
+                    case 'administrative_area_level_2':
                         addressObject.state = element.long_name;
+                        isStateSet = true;
                         break;
                     case 'administrative_area_level_4':
                         addressObject.shippingAddressSubdistrict =
@@ -97,6 +104,7 @@ module.exports = {
             var place = autocomplete.getPlace();
             var components = place.address_components;
             var addressObject = {};
+            var isStateSet = false;
             for (var index = 0; index < components.length; index++) {
                 var element = components[index];
                 switch (element.types[0]) {
@@ -121,7 +129,13 @@ module.exports = {
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
+                        if (!isStateSet) {
+                            addressObject.state = element.long_name;
+                        }
+                        break;
+                    case 'administrative_area_level_2':
                         addressObject.state = element.long_name;
+                        isStateSet = true;
                         break;
                     case 'administrative_area_level_4':
                         addressObject.addressSubdistrict = element.long_name;
@@ -173,6 +187,7 @@ module.exports = {
             var place = autocomplete.getPlace();
             var components = place.address_components;
             var addressObject = {};
+            var isStateSet = false;
             for (var index = 0; index < components.length; index++) {
                 var element = components[index];
                 switch (element.types[0]) {
@@ -197,7 +212,13 @@ module.exports = {
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
+                        if (!isStateSet) {
+                            addressObject.state = element.long_name;
+                        }
+                        break;
+                    case 'administrative_area_level_2':
                         addressObject.state = element.long_name;
+                        isStateSet = true;
                         break;
                     case 'administrative_area_level_4':
                         addressObject.addressSubdistrict = element.long_name;
