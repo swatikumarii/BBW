@@ -2,6 +2,7 @@
     <option data-first-name="${''}" data-last-name="${''}"
         data-address1="${''}" data-address2="${''}"
         data-city="${''}" data-state-code="${''}"
+        data-district="${''}" data-subdistrict="${''}"
         data-country-code="${''}" data-postal-code="${''}"
         data-phone="${''}">${Resource.msg('msg.account.addresses', 'checkout', null)}</option>
     <isloop items="${pdict.customer.addresses}" var="address">

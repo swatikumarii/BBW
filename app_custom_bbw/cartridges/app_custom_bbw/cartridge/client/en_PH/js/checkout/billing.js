@@ -338,7 +338,6 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
-            var district = attrs.district.trim();
             var subDistrict = attrs.subdistrict.trim();
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
@@ -374,21 +373,7 @@ module.exports = {
                     $('.billingZipCode option').slice(1).remove();
                 });
             }
-            if (district) {
-                $('.billingAddressDistrict option').each(function () {
-                    if ($(this).val() === district) {
-                        $('.billingAddressDistrict option').removeAttr(
-                            'selected'
-                        );
-                        $('.billingAddressDistrict option')[0].remove();
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.billingAddressDistrict')
-                            .trigger('change');
-                        return false;
-                    }
-                });
-            }
+
             if (subDistrict) {
                 $('.billingAddressSubdistrict option').each(function () {
                     if ($(this).val() === subDistrict) {
@@ -421,7 +406,7 @@ module.exports = {
             }
 
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode','district','subdistrict'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     if (element === 'cardNumber') {
                         $('.cardNumber')
@@ -517,11 +502,6 @@ module.exports = {
                 .text()
                 .trim()
                 .replace(',', '');
-            var district = billingAddrSummary
-                .find('.district')
-                .text()
-                .trim()
-                .replace(',', '');
             var subDistrict = billingAddrSummary
                 .find('.subDistrict')
                 .text()
@@ -581,35 +561,7 @@ module.exports = {
                     $('.billingAddressCity').removeClass('is-invalid');
                 }
             }
-            if (district !== 'null') {
-                var disExists = false;
-                $('.billingAddressDistrict option').each(function () {
-                    if ($(this).val() === district) {
-                        $('.billingAddressDistrict option').removeAttr(
-                            'selected'
-                        );
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.billingAddressDistrict')
-                            .trigger('change');
-                        disExists = true;
-                        return false;
-                    }
-                });
-                if (!disExists) {
-                    var billingAddressDistrict = $('.billingAddressDistrict');
-                    billingAddressDistrict.empty();
-                    billingAddressDistrict
-                        .prepend(
-                            $('<option>', {
-                                value: district,
-                                text: district
-                            })
-                        )
-                        .attr('selected', 'selected');
-                    $('.billingAddressDistrict').removeClass('is-invalid');
-                }
-            }
+
             if (subDistrict !== 'null') {
                 var subDisExists = false;
                 $('.billingAddressSubdistrict option').each(function () {

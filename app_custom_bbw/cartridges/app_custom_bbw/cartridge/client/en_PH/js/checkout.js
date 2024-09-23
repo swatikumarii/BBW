@@ -291,20 +291,6 @@ $(document).ready(function () {
             });
         }
 
-        var selectedDistrict = $('body')
-            .find('.shippingAddressDistrict')
-            .attr('data-selected');
-        if (selectedDistrict !== 'null') {
-            $('.shippingAddressDistrict option').each(function () { // eslint-disable-line
-                if ($(this).val() === selectedDistrict) {
-                    $('.shippingAddressDistrict option').removeAttr('selected');
-                    $(this).attr('selected', 'selected');
-                    $('body').find('.shippingAddressDistrict').trigger('change');
-                    return false;
-                }
-            });
-        }
-
         var selectedSubDistrict = $('body')
             .find('.shippingAddressSubdistrict')
             .attr('data-selected');
@@ -339,22 +325,27 @@ $(document).ready(function () {
             .find('.billingState')
             .attr('data-selected');
         if (selectedBillingState !== 'null') {
-            $('.billingState option').each(function () { // eslint-disable-line
+            var exists = false;
+            $('.billingState option').each(function () {
                 if ($(this).val() === selectedBillingState) {
                     $('.billingState option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingState').trigger('change');
+                    exists = true;
                     return false;
                 }
             });
-            var billingState = $('.billingState');
-            billingState.empty();
-            billingState.prepend(
-                $('<option>', {
-                    value: selectedBillingState,
-                    text: selectedBillingState
-                })
-            ).attr('selected', 'selected');
+            if (!exists) {
+                var billingState = $('.billingState');
+                billingState
+                    .prepend(
+                        $('<option>', {
+                            value: selectedBillingState,
+                            text: selectedBillingState
+                        })
+                    )
+                    .attr('selected', 'selected');
+            }
         }
         var selectedBillingCity = $('body')
             .find('.billingAddressCity')
@@ -385,34 +376,7 @@ $(document).ready(function () {
                 $('.billingAddressCity').removeClass('is-invalid');
             }
         }
-        var selectedBillingDistrict = $('body')
-            .find('.billingAddressDistrict')
-            .attr('data-selected');
-        if (selectedBillingDistrict !== 'null') {
-            var districtExists = false;
-            $('.billingAddressDistrict option').each(function () {
-                // eslint-disable-line
-                if ($(this).val() === selectedBillingDistrict) {
-                    $('.billingAddressDistrict option').removeAttr('selected');
-                    $(this).attr('selected', 'selected');
-                    $('body').find('.billingAddressDistrict').trigger('change');
-                    districtExists = true;
-                    return false;
-                }
-            });
-            if (!districtExists) {
-                // setting city as per place API response
-                var districtDropdown = $('.billingAddressDistrict');
-                districtDropdown.empty();
-                districtDropdown.prepend(
-                    $('<option>', {
-                        value: selectedBillingDistrict,
-                        text: selectedBillingDistrict
-                    }).attr('selected', 'selected')
-                );
-                $('.billingAddressDistrict').removeClass('is-invalid');
-            }
-        }
+
         var selectedBillingSubDistrict = $('body')
             .find('.billingAddressSubdistrict')
             .attr('data-selected');
