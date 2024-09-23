@@ -833,7 +833,6 @@ module.exports = {
             var element;
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
-            var district = attrs.district.trim();
             var subDistrict = attrs.subdistrict.trim();
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
@@ -906,33 +905,7 @@ module.exports = {
                     );
                 }
             }
-            if (district) {
-                var districtShipExists = false;
-                $('.shippingAddressDistrict option').each(function () {
-                    if ($(this).val() === district) {
-                        $('.shippingAddressDistrict option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body')
-                            .find('.shippingAddressDistrict')
-                            .trigger('change');
-                        districtShipExists = true;
-                        return false;
-                    }
-                });
-                if (!districtShipExists) {
-                    var shippingAddressDistrict = $('.shippingAddressDistrict');
-                    shippingAddressDistrict.empty();
-                    shippingAddressDistrict
-                        .prepend(
-                            $('<option>', {
-                                value: district,
-                                text: district
-                            })
-                        )
-                        .attr('selected', 'selected');
-                    $('.shippingAddressDistrict').removeClass('is-invalid');
-                }
-            }
+
             if (subDistrict) {
                 var subDistrictExistss = false;
                 $('.shippingAddressSubdistrict option').each(function () {
@@ -996,7 +969,7 @@ module.exports = {
                 }
             }
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode','district'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     var $input = $('[name$=' + element + ']', form);
                     if  ($input.length === 0 && element === 'subdistrict') {
