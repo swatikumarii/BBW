@@ -178,9 +178,6 @@ function renderCustomer(order, result, orderStatus, server, req, res) {
     var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
     var viewData = res.getViewData();
     viewData.isThankYouPage = true;
-    viewData.CurrentPageMetaData = {
-        'title': Resource.msg('site.common.title', 'common', null)
-    };
     res.setViewData(viewData);
     if (!req.currentCustomer.profile) {
         passwordForm = server.forms.getForm('newPasswords');

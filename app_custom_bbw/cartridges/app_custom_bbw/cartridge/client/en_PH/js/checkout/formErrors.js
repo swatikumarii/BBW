@@ -21,7 +21,7 @@ function loadFormErrors(parentSelector, fieldErrors) { // eslint-disable-line
         var $errorMessage = $input
             .parents('.iti')
             .siblings('.invalid-feedback');
-        if ($input.val().length === 0) {
+        if ($input.val() &&  $input.val().length === 0) {
             errorText = $input.data('missing-error');
         } else {
             errorText = $input.data('pattern-mismatch');
