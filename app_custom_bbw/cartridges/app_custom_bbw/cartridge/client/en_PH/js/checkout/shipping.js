@@ -969,7 +969,7 @@ module.exports = {
                 }
             }
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode','district'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode','district','subdistrict'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     var $input = $('[name$=' + element + ']', form);
                     if  ($input.length === 0 && element === 'subdistrict') {

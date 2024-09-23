@@ -6,8 +6,8 @@
 
 			<!-- regular PH states -->
 			<option label="Abra" value="Abra"/>
-			<option label="Agusan del Norte" value="Agusan del Norte"/>
-			<option label="Agusan del Sur" value="Agusan del Sur"/>
+			<option label="Agusan Del Norte" value="Agusan Del Norte"/>
+			<option label="Agusan Del Sur" value="Agusan Del Sur"/>
 			<option label="Aklan" value="Aklan"/>
 			<option label="Albay" value="Albay"/>
 			<option label="Antique" value="Antique"/>
@@ -32,8 +32,8 @@
 			<option label="Cebu" value="Cebu"/>
 			<option label="Cotabato" value="Cotabato"/>
 			<option label="Davao de Oro" value="Davao de Oro"/>
-			<option label="Davao del Norte" value="Davao del Norte"/>
-			<option label="Davao del Sur" value="Davao del Sur"/>
+			<option label="Davao Del Norte" value="Davao Del Norte"/>
+			<option label="Davao Del Sur" value="Davao Del Sur"/>
 			<option label="Davao Occidental" value="Davao Occidental"/>
 			<option label="Davao Oriental" value="Davao Oriental"/>
 			<option label="Dinagat Islands" value="Dinagat Islands"/>
@@ -47,8 +47,8 @@
 			<option label="Kalinga" value="Kalinga"/>
 			<option label="La Union" value="La Union"/>
 			<option label="Laguna" value="Laguna"/>
-			<option label="Lanao del Norte" value="Lanao del Norte"/>
-			<option label="Lanao del Sur" value="Lanao del Sur"/>
+			<option label="Lanao Del Norte" value="Lanao Del Norte"/>
+			<option label="Lanao Del Sur" value="Lanao Del Sur"/>
 			<option label="Leyte" value="Leyte"/>
 			<option label="Maguindanao" value="Maguindanao"/>
 			<option label="Marinduque" value="Marinduque"/>
@@ -79,13 +79,13 @@
 			<option label="Southern Leyte" value="Southern Leyte"/>
 			<option label="Sultan Kudarat" value="Sultan Kudarat"/>
 			<option label="Sulu" value="Sulu"/>
-			<option label="Surigao del Norte" value="Surigao del Norte"/>
-			<option label="Surigao del Sur" value="Surigao del Sur"/>
+			<option label="Surigao Del Norte" value="Surigao Del Norte"/>
+			<option label="Surigao Del Sur" value="Surigao Del Sur"/>
 			<option label="Tarlac" value="Tarlac"/>
 			<option label="Tawi-Tawi" value="Tawi-Tawi"/>
 			<option label="Zambales" value="Zambales"/>
-			<option label="Zamboanga del Norte" value="Zamboanga del Norte"/>
-			<option label="Zamboanga del Sur" value="Zamboanga del Sur"/>
+			<option label="Zamboanga Del Norte" value="Zamboanga Del Norte"/>
+			<option label="Zamboanga Del Sur" value="Zamboanga Del Sur"/>
 			<option label="Zamboanga Sibugay" value="Zamboanga Sibugay"/>
 		</options>
 	</field>

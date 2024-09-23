@@ -325,22 +325,27 @@ $(document).ready(function () {
             .find('.billingState')
             .attr('data-selected');
         if (selectedBillingState !== 'null') {
-            $('.billingState option').each(function () { // eslint-disable-line
+            var exists = false;
+            $('.billingState option').each(function () {
                 if ($(this).val() === selectedBillingState) {
                     $('.billingState option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingState').trigger('change');
+                    exists = true;
                     return false;
                 }
             });
-            var billingState = $('.billingState');
-            billingState.empty();
-            billingState.prepend(
-                $('<option>', {
-                    value: selectedBillingState,
-                    text: selectedBillingState
-                })
-            ).attr('selected', 'selected');
+            if (!exists) {
+                var billingState = $('.billingState');
+                billingState
+                    .prepend(
+                        $('<option>', {
+                            value: selectedBillingState,
+                            text: selectedBillingState
+                        })
+                    )
+                    .attr('selected', 'selected');
+            }
         }
         var selectedBillingCity = $('body')
             .find('.billingAddressCity')

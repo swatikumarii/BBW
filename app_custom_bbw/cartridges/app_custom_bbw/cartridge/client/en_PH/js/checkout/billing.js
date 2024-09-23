@@ -406,7 +406,7 @@ module.exports = {
             }
 
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode','district'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode','district','subdistrict'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     if (element === 'cardNumber') {
                         $('.cardNumber')

@@ -425,7 +425,7 @@ module.exports = {
             postalCodes: [2811]
         }
     },
-    'Agusan del Norte': {
+    'Agusan Del Norte': {
         Buenavista: {
             subDistrict: [
                 'Abilan',
@@ -740,7 +740,7 @@ module.exports = {
             postalCodes: [8606]
         }
     },
-    'Agusan del Sur': {
+    'Agusan Del Sur': {
         Bayugan: {
             subDistrict: [
                 'Berseba',
@@ -1798,7 +1798,7 @@ module.exports = {
         },
         'Legazpi City': {
             subDistrict: [
-                "Bgy. 1 - Em's Barrio (Pob.)",
+                'Bgy. 1 - Em\'s Barrio (Pob.)',
                 'Bgy. 10 - Cabugao',
                 'Bgy. 11 - Maoyod Pob.',
                 'Bgy. 12 - Tula-tula (Pob.)',
@@ -1809,7 +1809,7 @@ module.exports = {
                 'Bgy. 17 - Rizal Street.',
                 'Bgy. 18 - Cabagñan West (Pob.)',
                 'Bgy. 19 - Cabagñan',
-                "Bgy. 2 - Em's Barrio South (Pob.)",
+                'Bgy. 2 - Em\'s Barrio South (Pob.)',
                 'Bgy. 20 - Cabagñan East (Pob.)',
                 'Bgy. 21 - Binanuahan West (Pob.)',
                 'Bgy. 22 - Binanuahan East (Pob.)',
@@ -1820,7 +1820,7 @@ module.exports = {
                 'Bgy. 27 - Victory Village South (Pob.)',
                 'Bgy. 28 - Victory Village North (Pob.)',
                 'Bgy. 29 - Sabang (Pob.)',
-                "Bgy. 3 - Em's Barrio East (Pob.)",
+                'Bgy. 3 - Em\'s Barrio East (Pob.)',
                 'Bgy. 30 - Pigcale (Pob.)',
                 'Bgy. 31 - Centro-Baybay (Pob.)',
                 'Bgy. 32 - San Roque',
@@ -5309,7 +5309,7 @@ module.exports = {
                 'BGH Compound',
                 'Brookside',
                 'Brookspoint',
-                "Cabinet Hill-Teacher's Camp",
+                'Cabinet Hill-Teacher\'s Camp',
                 'Camdas Subdivision',
                 'Camp 7',
                 'Camp 8',
@@ -5324,10 +5324,10 @@ module.exports = {
                 'Dominican Hill-Mirador',
                 'Dontogan',
                 'DPS Area',
-                "Engineers' Hill",
+                'Engineers\' Hill',
                 'Fairview Village',
                 'Ferdinand',
-                'Fort del Pilar',
+                'Fort Del Pilar',
                 'Gabriela Silang',
                 'General Emilio F. Aguinaldo',
                 'General Luna',
@@ -7847,7 +7847,7 @@ module.exports = {
                 'Gatbuca',
                 'Gugo',
                 'Iba Este',
-                "Iba O'Este",
+                'Iba O\'Este',
                 'Longos',
                 'Meysulao',
                 'Meyto',
@@ -14643,7 +14643,7 @@ module.exports = {
             ],
             postalCodes: [9411]
         },
-        "M'Lang": {
+        'M\'Lang': {
             subDistrict: [
                 'Bagontapay',
                 'Bialong',
@@ -15317,7 +15317,7 @@ module.exports = {
             postalCodes: [8809]
         }
     },
-    'Davao del Norte': {
+    'Davao Del Norte': {
         Asuncion: {
             subDistrict: [
                 'Binancian',
@@ -15593,7 +15593,7 @@ module.exports = {
             postalCodes: [8107]
         }
     },
-    'Davao del Sur': {
+    'Davao Del Sur': {
         Bansalan: {
             subDistrict: [
                 'Alegre',
@@ -18568,7 +18568,7 @@ module.exports = {
             ],
             postalCodes: [2709]
         },
-        'Gregorio del Pilar': {
+        'Gregorio Del Pilar': {
             subDistrict: [
                 'Alfonso',
                 'Bussot',
@@ -20129,7 +20129,7 @@ module.exports = {
                 'Magsaysay Village',
                 'Malipayon-Delgado',
                 'Mansaya-Lapuz',
-                'Marcelo H. del Pilar',
+                'Marcelo H. Del Pilar',
                 'Maria Clara',
                 'Maria Cristina',
                 'Mohon',
@@ -21390,7 +21390,7 @@ module.exports = {
                 'Dagupan',
                 'Inanama',
                 'Linglingay',
-                'M.H. del Pilar',
+                'M.H. Del Pilar',
                 'Mabini',
                 'Magsaysay (Pob.)',
                 'Mataas na Kahoy',
@@ -22644,7 +22644,7 @@ module.exports = {
                 'Mabongtot',
                 'Poblacion',
                 'Tanglag',
-                'Uma del Norte',
+                'Uma Del Norte',
                 'Upper Uma'
             ],
             postalCodes: [3802]
@@ -23977,10 +23977,10 @@ module.exports = {
                 'Bagumbayan (Pob.)',
                 'Bangkusay (Pob.)',
                 'Ermita (Pob.)',
-                'Ibaba del Norte (Pob.)',
-                'Ibaba del Sur (Pob.)',
-                'Ilaya del Norte (Pob.)',
-                'Ilaya del Sur (Pob.)',
+                'Ibaba Del Norte (Pob.)',
+                'Ibaba Del Sur (Pob.)',
+                'Ilaya Del Norte (Pob.)',
+                'Ilaya Del Sur (Pob.)',
                 'Maytoong (Pob.)',
                 'Quinale (Pob.)'
             ],
@@ -24317,7 +24317,7 @@ module.exports = {
             postalCodes: [4011]
         }
     },
-    'Lanao del Norte': {
+    'Lanao Del Norte': {
         Bacolod: {
             subDistrict: [
                 'Alegria',
@@ -24940,7 +24940,7 @@ module.exports = {
             postalCodes: [9209]
         }
     },
-    'Lanao del Sur': {
+    'Lanao Del Sur': {
         'Amai Manabilang': {
             subDistrict: [
                 'Bagumbayan',
@@ -29808,14 +29808,14 @@ module.exports = {
                 'Fil-Japan Shipping Co.',
                 'Filipino Star, Manila',
                 'In-rl. Correspondence Inst.',
-                "Int'l. Rice Research Inst.",
+                'Int\'l. Rice Research Inst.',
                 'Manila Bulletin',
                 'Manila Hilton Hotel',
                 'Manila Hotel',
                 'Manila Medical Center',
                 'Manila Midtown Hotel',
                 'Midland Plaza Hotel, Manila',
-                "Nat'l. Census & Stat. Office",
+                'Nat\'l. Census & Stat. Office',
                 'Pan-Fil. Shipping, Manila',
                 'Phil. Campus Crusade',
                 'Phil. National Bank, Manila',
@@ -29846,7 +29846,7 @@ module.exports = {
                 'Cut-cut',
                 'Gatchalian Subd.',
                 'Las Pinas CPO',
-                "Manila Doctor's Village",
+                'Manila Doctor\'s Village',
                 'Manuyo',
                 'Pulang Lupa & Zapote',
                 'Remarville Subd.',
@@ -29888,7 +29888,7 @@ module.exports = {
                 'Palanan',
                 'Pembo',
                 'Pinagkaisahan-Pitogo',
-                'Pio del Pilar',
+                'Pio Del Pilar',
                 'Poblacion',
                 'Rembo (East)',
                 'Rembo (West)',
@@ -30263,7 +30263,7 @@ module.exports = {
                 'Eisenhower-Crame',
                 'Greenhills North',
                 'Greenhills PO',
-                "Int'l Correspondence School",
+                'Int\'l Correspondence School',
                 'Radio Bible Class',
                 'San Juan CPO'
             ],
@@ -33437,8 +33437,8 @@ module.exports = {
                 'Cabarasan',
                 'Cadac-an',
                 'Cade-an',
-                'Cagamutan del Norte',
-                'Cagamutan del Sur',
+                'Cagamutan Del Norte',
+                'Cagamutan Del Sur',
                 'Dao',
                 'G. M. Osias',
                 'Gamay Central (Pob.)',
@@ -35095,7 +35095,7 @@ module.exports = {
             ],
             postalCodes: [3712]
         },
-        'Dupax del Norte': {
+        'Dupax Del Norte': {
             subDistrict: [
                 'Belance',
                 'Binnuangan',
@@ -35115,7 +35115,7 @@ module.exports = {
             ],
             postalCodes: [3706]
         },
-        'Dupax del Sur': {
+        'Dupax Del Sur': {
             subDistrict: [
                 'Abaca',
                 'Bagumbayan',
@@ -36123,7 +36123,7 @@ module.exports = {
             ],
             postalCodes: [5306]
         },
-        "Brooke'S Point": {
+        'Brooke\'S Point': {
             subDistrict: [
                 'Amas',
                 'Aribungos',
@@ -36569,7 +36569,7 @@ module.exports = {
     Pampanga: {
         'Angeles City': {
             subDistrict: [
-                'Agapito del Rosario',
+                'Agapito Del Rosario',
                 'Amsic',
                 'Anunas',
                 'Balibago',
@@ -37514,7 +37514,7 @@ module.exports = {
                 'Iton',
                 'Langiran',
                 'Ligue',
-                'M. H. del Pilar',
+                'M. H. Del Pilar',
                 'Macayocayo',
                 'Magsaysay',
                 'Maigpa',
@@ -39961,7 +39961,7 @@ module.exports = {
                 'Corazon',
                 'Loob',
                 'Magsaysay',
-                'Manuel del Valle',
+                'Manuel Del Valle',
                 'Matipunso',
                 'Niing',
                 'Poblacion',
@@ -42273,7 +42273,7 @@ module.exports = {
                 'Alkikan',
                 'Ampon',
                 'Atlae',
-                "B'Laan",
+                'B\'Laan',
                 'Banahaw',
                 'Banate',
                 'Datal Batong',
@@ -42844,8 +42844,8 @@ module.exports = {
                 'Banacud',
                 'Behia',
                 'Biga',
-                'Binisitahan del Norte',
-                'Binisitahan del Sur',
+                'Binisitahan Del Norte',
+                'Binisitahan Del Sur',
                 'Biton',
                 'Bulala',
                 'Busay',
@@ -43288,7 +43288,7 @@ module.exports = {
             ],
             postalCodes: [9512]
         },
-        "T'Boli": {
+        'T\'Boli': {
             subDistrict: [
                 'Aflek',
                 'Afus',
@@ -43311,7 +43311,7 @@ module.exports = {
                 'Poblacion',
                 'Salacafe',
                 'Sinolon',
-                "T'bolok",
+                'T\'bolok',
                 'Talcon',
                 'Talufo',
                 'Tudok'
@@ -44047,7 +44047,7 @@ module.exports = {
             subDistrict: [
                 'Bambad',
                 'Bual',
-                "D'Lotilla",
+                'D\'Lotilla',
                 'Dansuli',
                 'Impao',
                 'Kalawag I (Pob.)',
@@ -44264,7 +44264,7 @@ module.exports = {
                 'Buenaflor',
                 'Calean',
                 'Carmen',
-                "D'Ledesma",
+                'D\'Ledesma',
                 'Enrique JC Montilla',
                 'Kalandagan',
                 'Lancheta',
@@ -44791,7 +44791,7 @@ module.exports = {
             postalCodes: [7406]
         }
     },
-    'Surigao del Norte': {
+    'Surigao Del Norte': {
         Alegria: {
             subDistrict: [
                 'Alipao',
@@ -45233,7 +45233,7 @@ module.exports = {
             postalCodes: [9209]
         }
     },
-    'Surigao del Sur': {
+    'Surigao Del Sur': {
         Barobo: {
             subDistrict: [
                 'Amaga',
@@ -45763,7 +45763,7 @@ module.exports = {
                 'Manga',
                 'Manlapig',
                 'Maruglu',
-                "O'Donnell",
+                'O\'Donnell',
                 'Santa Juliana',
                 'Santa Lucia',
                 'Santa Rita',
@@ -46818,7 +46818,7 @@ module.exports = {
             postalCodes: [2209]
         }
     },
-    'Zamboanga del Norte': {
+    'Zamboanga Del Norte': {
         Bacungan: {
             subDistrict: [
                 'Bacungan (Pob.)',
@@ -47646,7 +47646,7 @@ module.exports = {
             postalCodes: [7116]
         }
     },
-    'Zamboanga del Sur': {
+    'Zamboanga Del Sur': {
         Aurora: {
             subDistrict: [
                 'Acad',
@@ -48711,7 +48711,7 @@ module.exports = {
                 'Timalang',
                 'Tomitom',
                 'Upper Pangi',
-                "Veteran's Village"
+                'Veteran\'s Village'
             ],
             postalCodes: [7001]
         },
