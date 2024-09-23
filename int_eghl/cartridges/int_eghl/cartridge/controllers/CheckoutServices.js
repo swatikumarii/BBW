@@ -250,13 +250,14 @@ server.prepend("SubmitPayment", function (req, res, next) {
             formFieldErrors.push(billingFormErrors);
         } else {
             viewData.address = {
-                firstName: { value: paymentForm.addressFields.firstName.value },
-                lastName: { value: paymentForm.addressFields.lastName.value },
-                address1: { value: paymentForm.addressFields.address1.value },
-                address2: { value: paymentForm.addressFields.address2.value },
-                city: { value: paymentForm.addressFields.city.value },
-                postalCode: { value: paymentForm.addressFields.postalCode.value },
-                countryCode: { value: paymentForm.addressFields.country.value },
+              firstName: { value: paymentForm.addressFields.firstName.value },
+              lastName: { value: paymentForm.addressFields.lastName.value },
+              address1: { value: paymentForm.addressFields.address1.value },
+              address2: { value: paymentForm.addressFields.address2.value },
+              city: { value: paymentForm.addressFields.city.value },
+              postalCode: { value: paymentForm.addressFields.postalCode.value },
+              countryCode: { value: paymentForm.addressFields.country.value },
+              subDistrict: { value: paymentForm.addressFields.subDistrict.value },
             };
 
             if (
@@ -382,6 +383,16 @@ server.prepend("SubmitPayment", function (req, res, next) {
             billingAddress.setAddress1(billingData.address.address1.value);
             billingAddress.setAddress2(billingData.address.address2.value);
             billingAddress.setCity(billingData.address.city.value);
+            var subDistrictString = JSON.stringify(
+              billingData.address.subDistrict
+            );
+            if (billingAddress.custom) {
+              billingAddress.custom.subDistrict =
+                JSON.parse(subDistrictString).value;
+            }
+            billingAddress.setPostalCode(billingData.address.postalCode.value);
+            billingAddress.custom.subDistrict =
+              billingData.address.subDistrict.value;
             billingAddress.setPostalCode(billingData.address.postalCode.value);
             if (
                 Object.prototype.hasOwnProperty.call(billingData.address, "stateCode")
@@ -474,6 +485,11 @@ server.prepend("SubmitPayment", function (req, res, next) {
             this.emit("route:Complete", req, res);
             return;
         }
+        // set value in session
+        session.privacy.addressBook = !!req.currentCustomer.addressBook;
+        session.privacy.saveAddress = paymentForm.saveAddress.value;
+        session.privacy.billingDialCode = paymentForm.addressFields.dialCode.value;
+        session.privacy.billingDialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
 
         // If everything is okay then  create the order and redirect merchant to eGHL portal
         createOrder(req, res);

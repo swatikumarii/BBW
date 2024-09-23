@@ -283,6 +283,29 @@ server.prepend('Confirm',
             var requestParameter = req.httpParameterMap;
             logger.error('EGHL:Callback data from EGHL in order controller is {0}', JSON.stringify(requestParameter));
             var requestOrderId = requestParameter.ID.value;
+
+             // save address
+            if (session.privacy.addressBook && session.privacy.saveAddress) {
+                var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
+                var address = addressHelpers.copyShippingAddress(order.billingAddress);
+                // save all used billing addresses to address book of the logged in customer
+                if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
+                    addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
+                }
+                session.privacy.addressBook = null;
+                session.privacy.saveAddress = null;
+            }
+
+            // save billingaddress dial code and dial code country
+            if (session.privacy.billingDialCode && session.privacy.billingDialCodeCountry) {
+                Transaction.wrap(function () {
+                    order.billingAddress.custom.dialCode = session.privacy.billingDialCode;
+                    order.billingAddress.custom.dialCodeCountry = session.privacy.billingDialCodeCountry;
+                });
+                session.privacy.billingDialCode = null;
+                session.privacy.billingDialCodeCountry = null;
+            }
+
             if (requestOrderId == queryOrderId) {
                 if (order.status.value == Order.ORDER_STATUS_CREATED) {
                     // Get data from eGHL response

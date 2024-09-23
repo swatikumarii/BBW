@@ -5,7 +5,7 @@ module.exports = {
         var input = document.getElementById('shippingAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'TH' },
+            componentRestrictions: { country: 'PH' },
             fields: [
                 'formatted_address',
                 'geometry',
@@ -40,17 +40,15 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'administrative_area_level_2':
+                    case 'locality':
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
                         addressObject.state = element.long_name;
                         break;
-                    case 'administrative_area_level_3':
-                        addressObject.shippingAddressDistrict = element.long_name;
-                        break;
                     case 'administrative_area_level_4':
-                        addressObject.shippingAddressSubdistrict = element.long_name;
+                        addressObject.shippingAddressSubdistrict =
+                            element.long_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
@@ -75,85 +73,16 @@ module.exports = {
             form.find('#shippingZipCodedefault')
                 .val(addressObject.zipcode)
                 .trigger('change');
-            form.find('#shippingAddressDistrictdefault')
-                .val(addressObject.shippingAddressDistrict)
-                .trigger('change');
             form.find('#shippingAddressSubdistrictdefault')
                 .val(addressObject.shippingAddressSubdistrict)
                 .trigger('change');
-            if (
-                addressObject.address1 &&
-                addressObject.state &&
-                addressObject.shippingAddressDistrict &&
-                addressObject.shippingAddressSubdistrict &&
-                addressObject.zipcode
-            ) {
-                if (
-                    form.find('#shippingAddressCitydefault').val() === '' ||
-                    form.find('#shippingAddressCitydefault').val() === null
-                ) {
-                    // setting city as per place API response
-                    var suburbDropdown = $('.shippingAddressCity');
-                    suburbDropdown.empty();
-                    suburbDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.city,
-                            text: addressObject.city
-                        }).attr('selected', 'selected')
-                    );
-                    var cityError = $('#defaultCity');
-                    cityError.empty();
-                    $('.shippingAddressCity').removeClass('is-invalid');
-
-                    // setting district as per place API response
-                    var shippingAddressDistrictDropdown = $('.shippingAddressDistrict');
-                    shippingAddressDistrictDropdown.empty();
-                    shippingAddressDistrictDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.shippingAddressDistrict,
-                            text: addressObject.shippingAddressDistrict
-                        }).attr('selected', 'selected')
-                    );
-                    var shippingAddressDistrictError = $('#defaultDistrict');
-                    shippingAddressDistrictError.empty();
-                    $('.shippingAddressDistrict').removeClass(
-                        'is-invalid'
-                    );
-
-                    // setting subdistrict as per place API response
-                    var shippingAddressSubDistrictDropdown = $('.shippingAddressSubdistrict');
-                    shippingAddressSubDistrictDropdown.empty();
-                    shippingAddressSubDistrictDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.shippingAddressSubdistrict,
-                            text: addressObject.shippingAddressSubdistrict
-                        }).attr('selected', 'selected')
-                    );
-                    var shippingAddressSubDistrictError = $('#defaultSubdistrict');
-                    shippingAddressSubDistrictError.empty();
-                    $('.shippingAddressSubdistrict').removeClass('is-invalid');
-
-                    // setting zipcode as per place API response
-                    var zipcodeDropdown = $('.shippingZipCode');
-                    zipcodeDropdown.empty();
-                    zipcodeDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.zipcode,
-                            text: addressObject.zipcode
-                        }).attr('selected', 'selected')
-                    );
-                    var zipcodeError = $('#defaultZipCode');
-                    zipcodeError.empty();
-                    $('.shippingZipCode').removeClass('is-invalid');
-                }
-            }
         });
     },
     initializeBilling: function () {
         var input = document.getElementById('billingAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'TH' },
+            componentRestrictions: { country: 'PH' },
             fields: [
                 'formatted_address',
                 'geometry',
@@ -188,14 +117,11 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'administrative_area_level_2':
+                    case 'locality':
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
                         addressObject.state = element.long_name;
-                        break;
-                    case 'administrative_area_level_3':
-                        addressObject.addressDistrict = element.long_name;
                         break;
                     case 'administrative_area_level_4':
                         addressObject.addressSubdistrict = element.long_name;
@@ -223,79 +149,16 @@ module.exports = {
             form.find('#billingZipCode')
                 .val(addressObject.zipcode)
                 .trigger('change');
-            form.find('#billingAddressDistrict')
-                .val(addressObject.addressDistrict)
-                .trigger('change');
             form.find('#billingAddressSubdistrict')
                 .val(addressObject.addressSubdistrict)
-                .trigger('change');
-            if (
-                addressObject.address1 &&
-                addressObject.state &&
-                addressObject.addressDistrict &&
-                addressObject.addressSubdistrict &&
-                addressObject.zipcode
-            ) {
-                if (
-                    form.find('#billingAddressCity').val() === '' ||
-                    form.find('#billingAddressCity').val() === null
-                ) {
-                    // setting city as per place API response
-                    var suburbDropdown = $('.billingAddressCity');
-                    suburbDropdown.empty();
-                    suburbDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.city,
-                            text: addressObject.city
-                        }).attr('selected', 'selected')
-                    );
-                    $('.billingAddressCity').removeClass('is-invalid');
-
-                    // setting district as per place API response
-                    var billingAddressDistrictDropdown = $(
-                        '.billingAddressDistrict'
-                    );
-                    billingAddressDistrictDropdown.empty();
-                    billingAddressDistrictDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.addressDistrict,
-                            text: addressObject.addressDistrict
-                        }).attr('selected', 'selected')
-                    );
-                    $('.billingAddressDistrict').removeClass('is-invalid');
-
-                    // setting subdistrict as per place API response
-                    var billingAddressSubDistrictDropdown = $(
-                        '.billingAddressSubdistrict'
-                    );
-                    billingAddressSubDistrictDropdown.empty();
-                    billingAddressSubDistrictDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.addressSubdistrict,
-                            text: addressObject.addressSubdistrict
-                        }).attr('selected', 'selected')
-                    );
-                    $('.billingAddressSubdistrict').removeClass('is-invalid');
-
-                    // setting zipcode as per place API response
-                    var billingZipcodeDropdown = $('.billingZipCode');
-                    billingZipcodeDropdown.empty();
-                    billingZipcodeDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.zipcode,
-                            text: addressObject.zipcode
-                        }).attr('selected', 'selected')
-                    );
-                    $('.billingZipCode').removeClass('is-invalid');
-                }
-            }                
+                .trigger('change');             
         });
     },
     initializeAccount: function () {
         var input = document.getElementById('accountAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'TH' },
+            componentRestrictions: { country: 'PH' },
             fields: [
                 'formatted_address',
                 'geometry',
@@ -330,14 +193,11 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'administrative_area_level_2':
+                    case 'locality':
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
                         addressObject.state = element.long_name;
-                        break;
-                    case 'administrative_area_level_3':
-                        addressObject.addressDistrict = element.long_name;
                         break;
                     case 'administrative_area_level_4':
                         addressObject.addressSubdistrict = element.long_name;
@@ -358,69 +218,8 @@ module.exports = {
                 .trigger('change');
             form.find('#state').val(addressObject.state).trigger('change');
             form.find('#city').val(addressObject.city).trigger('change');
-            form.find('#shippingAddressDistrict').val(addressObject.addressDistrict).trigger('change');
-            form.find('#shippingAddressSubdistrict').val(addressObject.addressSubdistrict).trigger('change');
+            form.find('#subDistrict').val(addressObject.addressSubdistrict).trigger('change');
             form.find('#zipCode').val(addressObject.zipcode).trigger('change');
-            if (
-                addressObject.address1 &&
-                addressObject.state &&
-                addressObject.addressDistrict &&
-                addressObject.addressSubdistrict &&
-                addressObject.zipcode
-            ) {
-                if (
-                    form.find('#city').val() === '' ||
-                    form.find('#city').val() === null
-                ) {
-                    // setting city as per place API response
-                    var suburbDropdown = $('.address-city-input');
-                    suburbDropdown.empty();
-                    suburbDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.city,
-                            text: addressObject.city
-                        }).attr('selected', 'selected')
-                    );
-                    $('.address-city-input').removeClass('is-invalid');
-
-                    // setting district as per place API response
-                    var billingAddressDistrictDropdown = $(
-                        '.address-district-input'
-                    );
-                    billingAddressDistrictDropdown.empty();
-                    billingAddressDistrictDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.addressDistrict,
-                            text: addressObject.addressDistrict
-                        }).attr('selected', 'selected')
-                    );
-                    $('.address-district-input').removeClass('is-invalid');
-
-                    // setting subdistrict as per place API response
-                    var billingAddressSubDistrictDropdown = $(
-                        '.address-subdistrict-input'
-                    );
-                    billingAddressSubDistrictDropdown.empty();
-                    billingAddressSubDistrictDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.addressSubdistrict,
-                            text: addressObject.addressSubdistrict
-                        }).attr('selected', 'selected')
-                    );
-                    $('.address-subdistrict-input').removeClass('is-invalid');
-
-                    // setting zipcode as per place API response
-                    var billingZipcodeDropdown = $('.address-zipcode-input');
-                    billingZipcodeDropdown.empty();
-                    billingZipcodeDropdown.prepend(
-                        $('<option>', {
-                            value: addressObject.zipcode,
-                            text: addressObject.zipcode
-                        }).attr('selected', 'selected')
-                    );
-                    $('.address-zipcode-input').removeClass('is-invalid');
-                }
-            }
         });
     }
 };
