@@ -15,6 +15,7 @@ var server = require('server');
 
 var OrderMgr = require('dw/order/OrderMgr');
 var Order = require('dw/order/Order');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Eghl-Callback : This endpoint is invoked when the eGHL call callback url
@@ -81,7 +82,7 @@ server.post(
         logger.info('eGHL callback was called successfully.');
         res.print('OK');
         next();
-    }
+    },seo.addCurrentPageMetaData
 );
 
 module.exports = server.exports();
