@@ -305,7 +305,7 @@ function placeOrder(order, isEhlCallback, server, req, res, next) {
     if ('locale' in req && req.locale.id) {
         currentLocale = Locale.getLocale(req.locale.id);
     } else {
-        currentLocale = 'en_MY';
+        currentLocale = 'en_PH';
     }
     var giftCardAPIResult;
     var giftCardAPIRedeemResult;
