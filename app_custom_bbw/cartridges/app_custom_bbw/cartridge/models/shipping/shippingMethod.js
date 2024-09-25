@@ -17,9 +17,9 @@ function ShippingMethodModel(shippingMethod, shipment) {
     var shippingTotalPrice = shipment.shippingTotalPrice.value;
     var shippingID =  shippingMethod.ID;
     var applyMethodID =  shipment.shippingMethodID;
-    var isDiscountPrice = (shippingTotalPrice - adjustedShippingTotalPrice).toFixed(2);
+    var isDiscountPrice = adjustedShippingTotalPrice > 0 ? parseFloat(shippingTotalPrice - adjustedShippingTotalPrice).toFixed(2) : 0;
     this.isFree = (shippingID == applyMethodID && shippingTotalPrice == adjustedShippingTotalPrice) ? true : shippingCost.amount.value === 0;
-    this.isShippingDiscountPrice = (shippingID == applyMethodID && adjustedShippingTotalPrice > 0) ? dw.util.StringUtils.formatMoney(new dw.value.Money(isDiscountPrice, session.currency.getCurrencyCode())) : 0;
+    this.isShippingDiscountPrice = (shippingID == applyMethodID && isDiscountPrice > 0) ? dw.util.StringUtils.formatMoney(new dw.value.Money(isDiscountPrice, session.currency.getCurrencyCode())) : 0;
 }
-
 module.exports = ShippingMethodModel;
+
