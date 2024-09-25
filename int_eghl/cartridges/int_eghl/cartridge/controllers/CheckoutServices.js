@@ -8,7 +8,7 @@ server.extend(module.superModule);
  * @param  {Object} req place order request
  * @param  {Object} res place order response
  */
-function createOrder(req, res) {
+function createOrder(req, res, taxID) {
     var BasketMgr = require("dw/order/BasketMgr");
     var OrderMgr = require("dw/order/OrderMgr");
     var Resource = require("dw/web/Resource");
@@ -187,6 +187,12 @@ function createOrder(req, res) {
     // Reset usingMultiShip after successful Order placement
     req.session.privacyCache.set("usingMultiShipping", false);
 
+    if (taxID) {
+      Transaction.wrap(function () {
+        order.custom.taxID = taxID;
+      });
+    }
+    
     // Generate eGHL redirect URL
     var continueUrl = eghlHelper.generateEghlPaymentUrl(order, paymentId);
     logger.error("EGHL:Order is created with continue url {0}", continueUrl);
@@ -404,6 +410,7 @@ server.prepend("SubmitPayment", function (req, res, next) {
             billingAddress.setPhone(billingData.phone.value);
             currentBasket.setCustomerEmail(billingData.email.value);
         });
+        var taxID = req.httpParameterMap.dwfrm_billing_taxID.value;
 
         // if there is no selected payment option and balance is greater than zero
         if (!paymentMethodID && currentBasket.totalGrossPrice.value > 0) {
@@ -492,7 +499,7 @@ server.prepend("SubmitPayment", function (req, res, next) {
         session.privacy.billingDialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
 
         // If everything is okay then  create the order and redirect merchant to eGHL portal
-        createOrder(req, res);
+        createOrder(req, res, taxID);
 
         this.emit("route:Complete", req, res);
         return;

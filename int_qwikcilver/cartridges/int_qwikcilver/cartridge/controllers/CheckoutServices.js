@@ -628,6 +628,19 @@ server.prepend('SubmitPayment', server.middleware.https, csrfProtection.validate
             }
             this.emit('route:Complete', req, res);
         }
+        if (paymentMethodIdValue === 'EGHL') {
+            var eghlHelper = require('*/cartridge/scripts/helpers/eghlHelper');
+            var order = COHelpers.createOrder(currentBasket);
+            var paymentId = eghlHelper.generatePaymentId(order.orderNo);
+            var continueUrl = eghlHelper.generateEghlPaymentUrl(order, paymentId);
+            logger.error('EGHL:Order is created with continue url {0}', continueUrl);
+            res.json({
+                error: false,
+                continueUrl: continueUrl,
+                isEghl: true,
+            });
+            this.emit('route:Complete', req, res);
+        }
     } else {
         next();
     }

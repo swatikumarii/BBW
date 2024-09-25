@@ -66,7 +66,19 @@ function generateEghlPaymentUrl(order, paymentId) {
     var merchantReturnUrl = eGHLPreference.merchantReturnUrl.toString() + '?ID=' + order.getOrderNo() + '&orderToken=' + order.orderToken;
     merchantReturnUrl = merchantReturnUrl.replace('&', ';');
     var merchantCallBackUrl = eGHLPreference.merchantCallBackUrl.toString();
-    var amount = order.totalGrossPrice.value.toFixed(2);
+    var amount;
+    var instrumentcount;
+    for (instrumentcount = 0; instrumentcount < order.paymentInstruments.length;
+        instrumentcount++) {
+        if (order.paymentInstruments[instrumentcount].paymentMethod === 'EGHL') {
+        amount = order.paymentInstruments[instrumentcount].paymentTransaction.amount.value;
+        }
+    }
+    if (amount) {
+        amount = parseFloat(amount, 10).toFixed(2);
+    } else {
+        amount = order.totalGrossPrice.value.toFixed(2);
+    }
     // var amount = 0.14;
     var currencyCode = eGHLPreference.currencyCode;
     var pageTimeOut = eGHLPreference.pageTimeOut || '';
