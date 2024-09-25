@@ -162,7 +162,7 @@ function failOrder(order, isEhlCallback, req, res, next) {
         paymentTransaction.paymentInstrument.paymentTransaction.transactionID = queryParam.TxnID.value;
         order.custom.eghlPaymentId = queryParam.PaymentID.value; // eslint-disable-line no-param-reassign
         order.custom.eghlTxnId = queryParam.TxnID.value; // eslint-disable-line no-param-reassign
-        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod; // eslint-disable-line no-param-reassign
+        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod === 'ANY' ? 'eGHL' : 'ANY'; // eslint-disable-line no-param-reassign
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
         Transaction.commit();
 
