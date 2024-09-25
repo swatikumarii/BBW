@@ -84,7 +84,8 @@ function renderCustomer(order, result, orderStatus, req, res) {
             passwordForm: passwordForm,
             reportingURLs: reportingURLs,
             orderUUID: order.getUUID(),
-            orderStatus: orderStatus
+            orderStatus: orderStatus,
+            orderStatusVal: order
         });
     } else {
         res.render('checkout/confirmation/confirmation', {
@@ -92,7 +93,8 @@ function renderCustomer(order, result, orderStatus, req, res) {
             returningCustomer: true,
             reportingURLs: reportingURLs,
             orderUUID: order.getUUID(),
-            orderStatus: orderStatus
+            orderStatus: orderStatus,
+            orderStatusVal: order
         });
     }
     req.session.raw.custom.orderID = req.querystring.ID; // eslint-disable-line no-param-reassign
@@ -160,7 +162,7 @@ function failOrder(order, isEhlCallback, req, res, next) {
         paymentTransaction.paymentInstrument.paymentTransaction.transactionID = queryParam.TxnID.value;
         order.custom.eghlPaymentId = queryParam.PaymentID.value; // eslint-disable-line no-param-reassign
         order.custom.eghlTxnId = queryParam.TxnID.value; // eslint-disable-line no-param-reassign
-        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod; // eslint-disable-line no-param-reassign
+        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod === 'ANY' ? 'eGHL' : 'ANY'; // eslint-disable-line no-param-reassign
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
         Transaction.commit();
 
@@ -358,7 +360,14 @@ server.prepend('Confirm',
         }
 
         var orderPaymentInstruments = order.getPaymentInstruments();
-        if (orderPaymentInstruments.length > 0 && orderPaymentInstruments[0].paymentMethod == 'EGHL') {
+        var instrumentcount;
+        var eghlPaymentInstrumentExists = false;
+        for (instrumentcount = 0; instrumentcount < orderPaymentInstruments.length; instrumentcount++) {
+            if (orderPaymentInstruments[instrumentcount].paymentMethod === 'EGHL') {
+                eghlPaymentInstrumentExists = true
+            }
+        }
+        if (orderPaymentInstruments.length > 0 && eghlPaymentInstrumentExists) {
             var eghlHelper = require('*/cartridge/scripts/helpers/eghlHelper');
             var eghlApi = require('*/cartridge/scripts/service/eGHLApi');
             var eGHLPreference = require('*/cartridge/scripts/service/eGHLPreference');
