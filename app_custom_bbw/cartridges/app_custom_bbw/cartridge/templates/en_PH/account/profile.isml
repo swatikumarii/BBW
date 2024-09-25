@@ -52,7 +52,7 @@
                         </div>
                     </div>
 
-                    <isinclude url="${URLUtils.url('Page-ProfileLocale')}" sf-toolkit="on" />
+                    <iscomment> <isinclude url="${URLUtils.url('Page-ProfileLocale')}" sf-toolkit="on" /> </iscomment>
 
                     <div class="account-profile">
                         <div class="profile-heading">
