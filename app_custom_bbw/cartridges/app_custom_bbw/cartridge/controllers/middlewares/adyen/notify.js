@@ -38,7 +38,7 @@ function notify(req, res, next) {
         return {};
     }
     Transaction.begin();
-    var notificationResult = handleNotify.notify(JSON.parse(req.body).notificationItems[0]);
+    var notificationResult = handleNotify.notify(JSON.parse(req.body).notificationItems[0].NotificationRequestItem);
     if (notificationResult.success) {
         Transaction.commit();
         res.render('/notify');
