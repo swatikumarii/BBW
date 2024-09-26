@@ -27,6 +27,7 @@
  var Transaction = require('dw/system/Transaction');
  var logger = require('dw/system/Logger').getLogger('2c2p');
  var seo = require('*/cartridge/scripts/middleware/seo');
+var gaMeasurementProtocolApi = require("*/cartridge/scripts/service/gaMeasurementProtocolApi");
 
  /**
   * 2c2p-Notification : This endpoint is invoked when the 2c2p call Notification url
@@ -80,14 +81,17 @@
          });
        }
        if (paymentStatus.response.payment.channel_response_code === '00' || paymentStatus.response.payment.channel_response_code === '000') {
+         gaMeasurementProtocolApi.gaMpAPICall(order.orderNo, "Success");
          _2c2pHelper.placeOrder(order, true, paymentStatus, paymentChannel, server, req, res, next);
        } else {
+         gaMeasurementProtocolApi.gaMpAPICall(order.orderNo, "Failed");
          _2c2pHelper.failOrder(order, true, paymentStatus, paymentChannel, server, req, res, next);
        }
      }  else if ((paymentStatus.response.payment.channel_response_code === '00' || paymentStatus.response.payment.channel_response_code === '000') && order.status.value === Order.ORDER_STATUS_FAILED) {
           Transaction.wrap(function () {
           OrderMgr.undoFailOrder(order);
           });
+          gaMeasurementProtocolApi.gaMpAPICall(order.orderNo, "Success");
           dokuHelper.placeOrder(order, true, paymentStatus, paymentChannel, server, req, res, next);
      }
    }

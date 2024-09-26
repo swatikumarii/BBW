@@ -66,6 +66,7 @@ server.post('Notification', server.middleware.https, function (req, res, next) {
     Transaction.wrap(function () {
       OrderMgr.undoFailOrder(order);
     });
+    gaMeasurementProtocolApi.gaMpAPICall(requestOrderId, "Success");
     dokuHelper.placeOrder(order, isDokuCallback, requestParameter, server, req, res, next);
   } else {
     logger.info('Doku Notification: Requested order with order id {0} is not in created state', requestOrderId);
