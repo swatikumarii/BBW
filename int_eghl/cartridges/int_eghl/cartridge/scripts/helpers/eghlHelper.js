@@ -425,6 +425,20 @@ function placeOrder(order, isEhlCallback, server, req, res, next) {
             }
         }  
         if (order.getCustomerEmail()) {
+            var queryParam = req.httpParameterMap;
+            Transaction.begin();
+                var paymentMethodName;
+                if (queryParam.PymtMethod.value == "CC") {
+                    paymentMethodName = "eGHLCredit Card";
+                } else if (queryParam.PymtMethod.value == "DD") {
+                    paymentMethodName = "eGHLOnline Banking";
+                } else if (queryParam.PymtMethod.value == "WA") {
+                    paymentMethodName = "eGHLeWallet";
+                } else {
+                    paymentMethodName = "eGHL";
+                }
+                order.custom.eghlPaymentMethod = paymentMethodName;
+            Transaction.commit();
             COHelpers.sendConfirmationEmail(order, req.locale.id);
         }
 
