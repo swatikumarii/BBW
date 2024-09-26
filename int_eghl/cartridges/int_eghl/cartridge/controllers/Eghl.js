@@ -16,6 +16,7 @@ var server = require('server');
 var OrderMgr = require('dw/order/OrderMgr');
 var Order = require('dw/order/Order');
 var seo = require('*/cartridge/scripts/middleware/seo');
+var gaMeasurementProtocolApi = require("*/cartridge/scripts/service/gaMeasurementProtocolApi");
 
 /**
  * Eghl-Callback : This endpoint is invoked when the eGHL call callback url
@@ -65,9 +66,11 @@ server.post(
                 // check txn status and update the order status accordingly
                 var isEhlCallback = true;
                 if (txnStatus == eGHLPreference.txnSuccessStatus) {
+                    gaMeasurementProtocolApi.gaMpAPICall(orderNumber, "Success");
                     logger.error('EGHL:Successfull callback is called for order id {0}', orderNumber);
                     eghlHelper.placeOrder(order, isEhlCallback, server, req, res, next);
                 } else if (txnStatus == eGHLPreference.txnFailedStatus) {
+                    gaMeasurementProtocolApi.gaMpAPICall(orderNumber, "Failed");
                     eghlHelper.failOrder(order, isEhlCallback, server, req, res, next);
                 } else if (txnStatus == eGHLPreference.txnPendingStatus) {
                     eghlHelper.pendingOrder(order, isEhlCallback, server, req, res, next);

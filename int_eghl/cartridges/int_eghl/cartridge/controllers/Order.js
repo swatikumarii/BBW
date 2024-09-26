@@ -55,25 +55,7 @@ function renderCustomer(order, result, orderStatus, req, res) {
     var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
     var viewData = res.getViewData();
     viewData.isThankYouPage = true;
-    // prepare transactional data for GTM
-    // var orderData = orderModel;
-    // var orderStatusValue = orderData.orderStatus.value;
-    // viewData.gtmData = {};
-    // if (orderStatusValue == Order.ORDER_STATUS_NEW || orderStatusValue == Order.ORDER_STATUS_COMPLETED) {
-    //     var event = Resource.msg('label.gtm.event', 'order', null);
-    //     viewData.gtmData = OrderHelpers.prepareGtmRequest(orderData);
-    //     viewData.gtmGAData = OrderHelpers.prepareGtmRequestG4(event, orderData, currentLocale);
-    //     viewData.emrasyGtm = OrderHelpers.prepareEmrasysGtmRequest( orderData );
-    // }
-    // if (orderStatusValue == Order.ORDER_STATUS_FAILED) {
-    //     var event = Resource.msg('label.gtm.event.orderFail', 'googleEvents', null);
-    //     viewData.gtmGAData = {
-    //         event: event,
-    //         userId: orderModel.customerID,
-    //         userEmail: orderModel.orderEmail,
-    //         payment_type: 'eghl'
-    //     };
-    // }
+    viewData.orderStatusVal = Order;
     res.setViewData(viewData);
     if (!req.currentCustomer.profile) {
         passwordForm = server.forms.getForm('newPasswords');
@@ -118,7 +100,17 @@ function pendingOrder(order, isEhlCallback, req, res, next) {
         paymentTransaction.paymentInstrument.paymentTransaction.transactionID = queryParam.TxnID.value;
         order.custom.eghlPaymentId = queryParam.PaymentID.value; // eslint-disable-line no-param-reassign
         order.custom.eghlTxnId = queryParam.TxnID.value; // eslint-disable-line no-param-reassign
-        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod; // eslint-disable-line no-param-reassign
+        var paymentMethodName;
+        if (queryParam.PymtMethod.value == "CC") {
+          paymentMethodName = "eGHLCredit Card";
+        } else if (queryParam.PymtMethod.value == "DD") {
+          paymentMethodName = "eGHLOnline Banking";
+        } else if (queryParam.PymtMethod.value == "WA") {
+          paymentMethodName = "eGHLeWallet";
+        } else {
+          paymentMethodName = "eGHL";
+        }
+        order.custom.eghlPaymentMethod = paymentMethodName;
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
 
         var checkEghlNotofication = co.getCustomObject('eghlNotification', queryParam.ID.value);
@@ -162,7 +154,17 @@ function failOrder(order, isEhlCallback, req, res, next) {
         paymentTransaction.paymentInstrument.paymentTransaction.transactionID = queryParam.TxnID.value;
         order.custom.eghlPaymentId = queryParam.PaymentID.value; // eslint-disable-line no-param-reassign
         order.custom.eghlTxnId = queryParam.TxnID.value; // eslint-disable-line no-param-reassign
-        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod === 'ANY' ? 'eGHL' : 'ANY'; // eslint-disable-line no-param-reassign
+        var paymentMethodName;
+        if (queryParam.PymtMethod.value == "CC") {
+          paymentMethodName = "eGHLCredit Card";
+        } else if (queryParam.PymtMethod.value == "DD") {
+          paymentMethodName = "eGHLOnline Banking";
+        } else if (queryParam.PymtMethod.value == "WA") {
+          paymentMethodName = "eGHLeWallet";
+        } else {
+          paymentMethodName = "eGHL";
+        }
+        order.custom.eghlPaymentMethod = paymentMethodName
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
         Transaction.commit();
 
@@ -248,17 +250,13 @@ function placeOrder(order, isEhlCallback, req, res, next, paymentMethod) {
         if (queryParam.PymtMethod.value == "CC") {
           paymentMethodName = "eGHLCredit Card";
         } else if (queryParam.PymtMethod.value == "DD") {
-          paymentMethodName = "Online Banking";
+          paymentMethodName = "eGHLOnline Banking";
         } else if (queryParam.PymtMethod.value == "WA") {
-          paymentMethodName = "eWallet";
+          paymentMethodName = "eGHLeWallet";
         } else {
-          paymentMethodName =
-            queryParam.PymtMethod.value || queryParam.PymtMethod;
+          paymentMethodName = "eGHL";
         }
-        order.custom.eghlPaymentMethod =
-          paymentMethodName +
-          " via " +
-          (queryParam.IssuingBank.value || queryParam.Acquirer.value || "eGHL");
+        order.custom.eghlPaymentMethod = paymentMethodName;
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
         Transaction.commit();
 
