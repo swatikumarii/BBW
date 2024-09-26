@@ -322,6 +322,7 @@ server.prepend('Confirm',
     consentTracking.consent,
     server.middleware.https,
     csrfProtection.generateToken,
+    seo.addCurrentPageMetaData,
     function (req, res, next) {
         var queryData = req.querystring;
         var queryOrderId = queryData.ID;
@@ -446,6 +447,6 @@ server.prepend('Confirm',
             }
         }
         return next();
-    },seo.addCurrentPageMetaData);
+    });
 
 module.exports = server.exports();
