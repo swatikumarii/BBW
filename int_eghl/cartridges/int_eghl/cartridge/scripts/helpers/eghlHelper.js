@@ -312,7 +312,7 @@ function placeOrder(order, isEhlCallback, server, req, res, next) {
     var paymentTransaction = order.paymentInstrument.getPaymentTransaction();
     var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
     var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
-    var qwikcilverApis = require('*/cartridge/scripts/service/apis');
+    var qwikcilverApis = require("*/cartridge/scripts/service/qwikcilver/apis");
     var currentLocale;
     if ('locale' in req && req.locale.id) {
         currentLocale = Locale.getLocale(req.locale.id);
