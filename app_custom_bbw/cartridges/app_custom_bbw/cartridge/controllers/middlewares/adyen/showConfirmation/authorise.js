@@ -4,6 +4,7 @@ var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
 var handleOrderConfirm = require('*/cartridge/controllers/middlewares/adyen/showConfirmation/order');
 var payment = require('*/cartridge/controllers/middlewares/adyen/showConfirmation/payment');
 var Transaction = require('dw/system/Transaction');
+var constants = require('*/cartridge/adyenConstants/constants');
 
 /**
  *
@@ -21,14 +22,16 @@ function handleAuthorised(adyenPaymentInstrument, detailsResult, order, options)
     };
 
     // Places the order
-    var placeOrderResult = COHelpers.placeOrder(order, fraudDetectionStatus);
-    if (placeOrderResult.error) {
-        return payment.handlePaymentError(order, 'placeOrder', options);
+    if (detailsResult.resultCode === constants.RESULTCODES.AUTHORISED) {
+        var placeOrderResult = COHelpers.placeOrder(order, fraudDetectionStatus);
+        if (placeOrderResult.error) {
+            return payment.handlePaymentError(order, 'placeOrder', options);
+        }
+        Transaction.wrap(function () {
+            order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
+        });
+        COHelpers.sendConfirmationEmail(order, request.locale);
     }
-    Transaction.wrap(function () {
-        order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
-    });
-    COHelpers.sendConfirmationEmail(order, request.locale);
     return handleOrderConfirm(adyenPaymentInstrument, detailsResult, order, options);
 }
 module.exports = handleAuthorised;
