@@ -27,6 +27,7 @@ var OrderModel = require('*/cartridge/models/order');
 var reportingUrlsHelper = require('*/cartridge/scripts/reportingUrls');
 var OrderHelpers = require('*/cartridge/scripts/order/orderHelpers');
 var qwikcilverApis = require("*/cartridge/scripts/service/qwikcilver/apis");
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * renderCustomer function is responsible to render the customer on order success page
@@ -445,6 +446,6 @@ server.prepend('Confirm',
             }
         }
         return next();
-    });
+    },seo.addCurrentPageMetaData);
 
 module.exports = server.exports();

@@ -196,6 +196,12 @@ function updateShippingMethods(shipping) {
                     } else {
                         $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
                     }
+                    // set shipping cost
+                    if (shippingMethod.isShippingDiscountPrice) {
+                       $('.shipping-cost-discount', tmpl).css('display',"block");
+                       $('.shipping-cost', tmpl).addClass('discountPrice');
+                       $('.shipping-cost-discount', tmpl).text(shippingMethod.isShippingDiscountPrice);
+                    }
                     $shippingMethodList.append(tmpl.html());
                 });
             }
