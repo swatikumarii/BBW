@@ -327,7 +327,7 @@ $(document).ready(function () {
         if (selectedBillingState !== 'null') {
             $('.billingState option').each(function () {
                 // eslint-disable-line
-                if ($(this).val() === selectedState) {
+                if ($(this).val() === selectedBillingState) {
                     $('.billingState option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingState').trigger('change');
@@ -708,6 +708,7 @@ $('.billingAddressCity').change(function () {
             }).attr('selected', 'selected')
         );
         subDistrictDropdown.trigger('change');
+        zipDropdown.trigger('change');
     }
 });
 

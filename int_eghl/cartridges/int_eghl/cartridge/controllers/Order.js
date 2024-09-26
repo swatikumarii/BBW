@@ -297,6 +297,20 @@ function placeOrder(order, isEhlCallback, req, res, next, paymentMethod) {
 
         // Trigger order place email to user
         if (order.getCustomerEmail()) {
+            var queryParam = req.httpParameterMap;
+            Transaction.begin();
+                var paymentMethodName;
+                if (queryParam.PymtMethod.value == "CC") {
+                    paymentMethodName = "eGHLCredit Card";
+                } else if (queryParam.PymtMethod.value == "DD") {
+                    paymentMethodName = "eGHLOnline Banking";
+                } else if (queryParam.PymtMethod.value == "WA") {
+                    paymentMethodName = "eGHLeWallet";
+                } else {
+                    paymentMethodName = "eGHL";
+                }
+                order.custom.eghlPaymentMethod = paymentMethodName;
+            Transaction.commit();
             COHelpers.sendConfirmationEmail(order, req.locale.id);
         }
         if (!isEhlCallback) {
@@ -322,6 +336,7 @@ server.prepend('Confirm',
     consentTracking.consent,
     server.middleware.https,
     csrfProtection.generateToken,
+    seo.addCurrentPageMetaData,
     function (req, res, next) {
         var queryData = req.querystring;
         var queryOrderId = queryData.ID;
@@ -446,6 +461,6 @@ server.prepend('Confirm',
             }
         }
         return next();
-    },seo.addCurrentPageMetaData);
+    });
 
 module.exports = server.exports();
