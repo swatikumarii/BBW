@@ -40,6 +40,8 @@ module.exports = {
                         } else {
                             addressObject.address1 += element.long_name;
                         }
+                        addressObject.shippingAddressSubdistrict =
+                            element.long_name;
                         break;
                     case 'locality':
                         addressObject.city = element.long_name;
@@ -52,10 +54,6 @@ module.exports = {
                     case 'administrative_area_level_2':
                         addressObject.state = element.long_name;
                         isStateSet = true;
-                        break;
-                    case 'administrative_area_level_4':
-                        addressObject.shippingAddressSubdistrict =
-                            element.long_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
@@ -124,6 +122,7 @@ module.exports = {
                         } else {
                             addressObject.address1 += element.long_name;
                         }
+                        addressObject.addressSubdistrict = element.long_name;
                         break;
                     case 'locality':
                         addressObject.city = element.long_name;
@@ -136,9 +135,6 @@ module.exports = {
                     case 'administrative_area_level_2':
                         addressObject.state = element.long_name;
                         isStateSet = true;
-                        break;
-                    case 'administrative_area_level_4':
-                        addressObject.addressSubdistrict = element.long_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
@@ -207,6 +203,7 @@ module.exports = {
                         } else {
                             addressObject.address1 += element.long_name;
                         }
+                        addressObject.addressSubdistrict = element.long_name;
                         break;
                     case 'locality':
                         addressObject.city = element.long_name;
@@ -219,9 +216,6 @@ module.exports = {
                     case 'administrative_area_level_2':
                         addressObject.state = element.long_name;
                         isStateSet = true;
-                        break;
-                    case 'administrative_area_level_4':
-                        addressObject.addressSubdistrict = element.long_name;
                         break;
                     case 'postal_code':
                         addressObject.zipcode = element.long_name;
