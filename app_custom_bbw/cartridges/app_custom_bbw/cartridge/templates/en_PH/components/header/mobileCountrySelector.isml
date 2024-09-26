@@ -1,5 +1,5 @@
 <isif condition="${pdict.localeModel.locale.localeLinks.length > 0}">
-    <li class="bbw-locale-links country-selector d-block d-md-none" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0">
+    <li class="bbw-locale-links country-selector d-none" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0">
         <div class="dropdown-country-selector">
             <isloop items="${pdict.localeModel.locale.localeLinks}" var="localeLink">
                 <a class="bbw-country-link h-fw--normal h-clr--black-3 d-flex align-items-center ${localeLink.isCurrentLocale ? 'selected-locale' : ''}" href="${'#'}"

@@ -854,21 +854,19 @@ module.exports = {
                     }
                 });
                 if(!stateCodeExists){
-                    var shippingState = $(
-                        '.shippingState'
-                    );
-                    shippingState.empty();
+                    var shippingState = $('.shippingState');
+                    $('.shippingState option').removeAttr('selected');
                     shippingState
-                        .prepend(
+                        .append(
                             $('<option>', {
                                 value: stateCode,
                                 text: stateCode
                             })
-                        )
-                        .attr('selected', 'selected');
-                    $('.shippingState').removeClass(
-                        'is-invalid'
-                    );
+                        ).attr('selected', 'selected').trigger('change');
+                    // We will not check city, sub-district and postal code.
+                    city='';
+                    subDistrict='';
+                    postalCode='';
                 }
             } else {
                 $('.shippingState option').removeAttr('selected');
@@ -885,7 +883,6 @@ module.exports = {
                 $('.shippingAddressCity option').each(function () {
                     if ($(this).val() === city) {
                         $('.shippingAddressCity option').removeAttr('selected');
-                        $('.shippingAddressCity option')[0].remove();
                         $(this).attr('selected', 'selected');
                         $('body').find('.shippingAddressCity').trigger('change');
                         cityExistsShiping = true;
@@ -897,18 +894,15 @@ module.exports = {
                     var shippingAddressCity = $(
                         '.shippingAddressCity'
                     );
-                    shippingAddressCity.empty();
+                    $('.shippingAddressCity option').removeAttr('selected');
                     shippingAddressCity
-                        .prepend(
+                        .append(
                             $('<option>', {
                                 value: city,
                                 text: city
                             })
                         )
-                        .attr('selected', 'selected');
-                    $('.shippingAddressCity').removeClass(
-                        'is-invalid'
-                    );
+                        .attr('selected', 'selected').trigger('change');
                 }
             }
 

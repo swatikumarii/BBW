@@ -29,7 +29,7 @@
             "script": "./cartridge/scripts/hooks/payment/processor/basic_gift_certificate"
         },
         {
-            "name": "app.partial.payment.processor.EGHL",
+            "name": "app.partial.payment.processor.eghl",
             "script": "./cartridge/scripts/hooks/payment/processor/basic_gift_certificate"
         }
     ]

@@ -26,6 +26,7 @@ var Locale = require('dw/util/Locale');
 var OrderModel = require('*/cartridge/models/order');
 var reportingUrlsHelper = require('*/cartridge/scripts/reportingUrls');
 var OrderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+var qwikcilverApis = require("*/cartridge/scripts/service/qwikcilver/apis");
 
 /**
  * renderCustomer function is responsible to render the customer on order success page
@@ -54,30 +55,7 @@ function renderCustomer(order, result, orderStatus, req, res) {
     var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
     var viewData = res.getViewData();
     viewData.isThankYouPage = true;
-    viewData.CurrentPageMetaData = {
-        title: Resource.msg('site.common.title', 'common', null),
-        description: Resource.msg('site.description', 'common', null),
-        keywords: Resource.msg('site.common.keywords', 'common', null)
-    };
-    // prepare transactional data for GTM
-    // var orderData = orderModel;
-    // var orderStatusValue = orderData.orderStatus.value;
-    // viewData.gtmData = {};
-    // if (orderStatusValue == Order.ORDER_STATUS_NEW || orderStatusValue == Order.ORDER_STATUS_COMPLETED) {
-    //     var event = Resource.msg('label.gtm.event', 'order', null);
-    //     viewData.gtmData = OrderHelpers.prepareGtmRequest(orderData);
-    //     viewData.gtmGAData = OrderHelpers.prepareGtmRequestG4(event, orderData, currentLocale);
-    //     viewData.emrasyGtm = OrderHelpers.prepareEmrasysGtmRequest( orderData );
-    // }
-    // if (orderStatusValue == Order.ORDER_STATUS_FAILED) {
-    //     var event = Resource.msg('label.gtm.event.orderFail', 'googleEvents', null);
-    //     viewData.gtmGAData = {
-    //         event: event,
-    //         userId: orderModel.customerID,
-    //         userEmail: orderModel.orderEmail,
-    //         payment_type: 'eghl'
-    //     };
-    // }
+    viewData.orderStatusVal = Order;
     res.setViewData(viewData);
     if (!req.currentCustomer.profile) {
         passwordForm = server.forms.getForm('newPasswords');
@@ -88,7 +66,8 @@ function renderCustomer(order, result, orderStatus, req, res) {
             passwordForm: passwordForm,
             reportingURLs: reportingURLs,
             orderUUID: order.getUUID(),
-            orderStatus: orderStatus
+            orderStatus: orderStatus,
+            orderStatusVal: order
         });
     } else {
         res.render('checkout/confirmation/confirmation', {
@@ -96,7 +75,8 @@ function renderCustomer(order, result, orderStatus, req, res) {
             returningCustomer: true,
             reportingURLs: reportingURLs,
             orderUUID: order.getUUID(),
-            orderStatus: orderStatus
+            orderStatus: orderStatus,
+            orderStatusVal: order
         });
     }
     req.session.raw.custom.orderID = req.querystring.ID; // eslint-disable-line no-param-reassign
@@ -120,7 +100,17 @@ function pendingOrder(order, isEhlCallback, req, res, next) {
         paymentTransaction.paymentInstrument.paymentTransaction.transactionID = queryParam.TxnID.value;
         order.custom.eghlPaymentId = queryParam.PaymentID.value; // eslint-disable-line no-param-reassign
         order.custom.eghlTxnId = queryParam.TxnID.value; // eslint-disable-line no-param-reassign
-        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod; // eslint-disable-line no-param-reassign
+        var paymentMethodName;
+        if (queryParam.PymtMethod.value == "CC") {
+          paymentMethodName = "eGHLCredit Card";
+        } else if (queryParam.PymtMethod.value == "DD") {
+          paymentMethodName = "eGHLOnline Banking";
+        } else if (queryParam.PymtMethod.value == "WA") {
+          paymentMethodName = "eGHLeWallet";
+        } else {
+          paymentMethodName = "eGHL";
+        }
+        order.custom.eghlPaymentMethod = paymentMethodName;
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
 
         var checkEghlNotofication = co.getCustomObject('eghlNotification', queryParam.ID.value);
@@ -164,14 +154,24 @@ function failOrder(order, isEhlCallback, req, res, next) {
         paymentTransaction.paymentInstrument.paymentTransaction.transactionID = queryParam.TxnID.value;
         order.custom.eghlPaymentId = queryParam.PaymentID.value; // eslint-disable-line no-param-reassign
         order.custom.eghlTxnId = queryParam.TxnID.value; // eslint-disable-line no-param-reassign
-        order.custom.eghlPaymentMethod = paymentTransaction.paymentInstrument.custom.eghlPaymentMethod; // eslint-disable-line no-param-reassign
+        var paymentMethodName;
+        if (queryParam.PymtMethod.value == "CC") {
+          paymentMethodName = "eGHLCredit Card";
+        } else if (queryParam.PymtMethod.value == "DD") {
+          paymentMethodName = "eGHLOnline Banking";
+        } else if (queryParam.PymtMethod.value == "WA") {
+          paymentMethodName = "eGHLeWallet";
+        } else {
+          paymentMethodName = "eGHL";
+        }
+        order.custom.eghlPaymentMethod = paymentMethodName
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
         Transaction.commit();
 
         // Trigger order place email to user
-        if (order.getCustomerEmail()) {
-            COHelpers.sendFailOrderEmail(order, req.locale.id);
-        }
+        // if (order.getCustomerEmail()) {
+        //     COHelpers.sendFailOrderEmail(order, req.locale.id);
+        // }
         if (!isEhlCallback) {
             var orderStatus = queryParam.TxnStatus.value;
             renderCustomer(order, result, orderStatus, req, res, next);
@@ -192,10 +192,47 @@ function failOrder(order, isEhlCallback, req, res, next) {
  * @param  {pointer} next pointer
  */
 function placeOrder(order, isEhlCallback, req, res, next, paymentMethod) {
+    var currentLocale;
+    if ("locale" in req && req.locale.id) {
+      currentLocale = Locale.getLocale(req.locale.id);
+    } else {
+      currentLocale = "en_PH";
+    }
     var result = { error: false, message: '' };
     var queryParam = req.httpParameterMap;
     var paymentTransaction = order.paymentInstrument.getPaymentTransaction();
+    var qwikcilverHelpers = require("*/cartridge/scripts/helpers/qwikcilverHelpers");
+    var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
+    var qwikcilverApis = require("*/cartridge/scripts/service/qwikcilver/apis");
+    var giftCardAPIResult;
+    var giftCardAPIRedeemResult;
     try {
+        // Redeem Qwikcilver Gift Card
+        if (order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0) {
+            giftCardAPIRedeemResult = qwikcilverApis.redeemGiftCards(order);
+
+            if (giftCardAPIRedeemResult && giftCardAPIRedeemResult.status === 'OK' && giftCardAPIRedeemResult.object) {
+                var redeemGiftCard = JSON.parse(giftCardAPIRedeemResult.object);
+                if (redeemGiftCard.ResponseCode !== 0 && redeemGiftCard.Cards && redeemGiftCard.Cards.length > 0) {
+                    for (var i = 0; i < redeemGiftCard.Cards.length; i++) {
+                        result.error = true;
+                        result.message = redeemGiftCard.Cards[i].ResponseMessage;
+                    }
+                }
+            } else if (giftCardAPIRedeemResult && giftCardAPIRedeemResult.errorMessage) {
+                if ('status' in giftCardAPIRedeemResult && giftCardAPIRedeemResult.getStatus().equals('SERVICE_UNAVAILABLE')) {
+                    result.error = true;
+                    result.message = Resource.msg('qwikcilver.service.unavailable', 'qwikcilver', null);
+                } else if (giftCardAPIRedeemResult.msg !== 'Connection reset') {
+                    var redeemErrorMessageObj = JSON.parse(giftCardAPIRedeemResult.errorMessage);
+                    result.error = true;
+                    result.message = redeemErrorMessageObj.message;
+                } else {
+                    result.error = true;
+                    result.message = Resource.msg('error.technical', 'checkout', null);
+                }
+            }
+        }
         Transaction.begin();
         var placeOrderStatus = OrderMgr.placeOrder(order);
         if (placeOrderStatus == Status.ERROR) {
@@ -213,19 +250,65 @@ function placeOrder(order, isEhlCallback, req, res, next, paymentMethod) {
         if (queryParam.PymtMethod.value == "CC") {
           paymentMethodName = "eGHLCredit Card";
         } else if (queryParam.PymtMethod.value == "DD") {
-          paymentMethodName = "Online Banking";
+          paymentMethodName = "eGHLOnline Banking";
         } else if (queryParam.PymtMethod.value == "WA") {
-          paymentMethodName = "eWallet";
+          paymentMethodName = "eGHLeWallet";
         } else {
-          paymentMethodName =
-            queryParam.PymtMethod.value || queryParam.PymtMethod;
+          paymentMethodName = "eGHL";
         }
-        order.custom.eghlPaymentMethod =
-          paymentMethodName +
-          " via " +
-          (queryParam.IssuingBank.value || queryParam.Acquirer.value || "eGHL");
+        order.custom.eghlPaymentMethod = paymentMethodName;
         paymentTransaction.paymentInstrument.custom.eghlLog = queryParam;
         Transaction.commit();
+
+        if (giftCardAPIRedeemResult) {
+            var redeemedGiftCard = JSON.parse(giftCardAPIRedeemResult.object);
+            if (redeemedGiftCard.ResponseCode === 0) {
+                qwikcilverHelpers.saveGiftCardDetails(order, redeemedGiftCard, 'Redeemed');
+            }
+        }
+
+        // Send GiftCard Email
+        var log = dw.system.Logger.getLogger('QwikcilverService');
+        if (isGiftProductAvailable) {
+            for (var index = 0; index < order.productLineItems.length; index++) {
+                // Create GiftCard
+                giftCardAPIResult = qwikcilverApis.createGiftCards(order, index);
+                if (giftCardAPIResult && giftCardAPIResult.errorMessage) {
+                    if ('status' in giftCardAPIResult && giftCardAPIResult.getStatus().equals('SERVICE_UNAVAILABLE')) {
+                        result.error = true;
+                        result.message = Resource.msg('qwikcilver.service.unavailable', 'qwikcilver', null);
+                    } else if (giftCardAPIResult.msg !== 'Connection reset') {
+                        var errorMessageObj = JSON.parse(giftCardAPIResult.errorMessage);
+                        result.error = true;
+                        result.message = errorMessageObj.message;
+                    } else {
+                        result.error = true;
+                        result.message = Resource.msg('error.technical', 'checkout', null);
+                    }
+                }
+                if (giftCardAPIResult && giftCardAPIResult.status === 'OK' && giftCardAPIResult.object) {
+                    var giftCard = JSON.parse(giftCardAPIResult.object);
+                    if (giftCard.ResponseCode === 0) {
+                        qwikcilverHelpers.saveGiftCardDetails(order, giftCard, 'Created', index);
+                        qwikcilverHelpers.sendGiftCardEmail(order, currentLocale, false, true, index);
+                    } else {
+                        qwikcilverHelpers.sendGiftCardEmail(order, currentLocale, false, false, index);
+                        log.info('Error while Creating a Gift Card for OrderNo: {0}', order.orderNo);
+                        log.info('Gift Card Email is Not Sent to the Customer for OrderID: {0} for item number {1}', order.orderNo, index);
+                        if (index === order.productLineItems.length - 1) {
+                        renderCustomer(order, result, 'CardIssueFailed', server, req, res, next);
+                        }
+                        return;
+                    }
+                } else if (!giftCardAPIResult && !giftCardAPIRedeemResult && isGiftProductAvailable) {
+                    qwikcilverHelpers.sendGiftCardEmail(order, currentLocale, false, false, index);
+                    log.info('Error while Creating a Gift Card for OrderNo: {0}', order.orderNo);
+                    log.info('Gift Card Email is Not Sent to the Customer for OrderID: {0} for item number {1}', order.orderNo, index);
+                    renderCustomer(order, result, 'CardIssueFailed', server, req, res, next);
+                return;
+                }
+            }
+        }
 
         // Trigger order place email to user
         if (order.getCustomerEmail()) {
@@ -275,7 +358,14 @@ server.prepend('Confirm',
         }
 
         var orderPaymentInstruments = order.getPaymentInstruments();
-        if (orderPaymentInstruments.length > 0 && orderPaymentInstruments[0].paymentMethod == 'EGHL') {
+        var instrumentcount;
+        var eghlPaymentInstrumentExists = false;
+        for (instrumentcount = 0; instrumentcount < orderPaymentInstruments.length; instrumentcount++) {
+            if (orderPaymentInstruments[instrumentcount].paymentMethod === 'EGHL') {
+                eghlPaymentInstrumentExists = true
+            }
+        }
+        if (orderPaymentInstruments.length > 0 && eghlPaymentInstrumentExists) {
             var eghlHelper = require('*/cartridge/scripts/helpers/eghlHelper');
             var eghlApi = require('*/cartridge/scripts/service/eGHLApi');
             var eGHLPreference = require('*/cartridge/scripts/service/eGHLPreference');

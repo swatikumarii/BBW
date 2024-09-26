@@ -66,7 +66,19 @@ function generateEghlPaymentUrl(order, paymentId) {
     var merchantReturnUrl = eGHLPreference.merchantReturnUrl.toString() + '?ID=' + order.getOrderNo() + '&orderToken=' + order.orderToken;
     merchantReturnUrl = merchantReturnUrl.replace('&', ';');
     var merchantCallBackUrl = eGHLPreference.merchantCallBackUrl.toString();
-    var amount = order.totalGrossPrice.value.toFixed(2);
+    var amount;
+    var instrumentcount;
+    for (instrumentcount = 0; instrumentcount < order.paymentInstruments.length;
+        instrumentcount++) {
+        if (order.paymentInstruments[instrumentcount].paymentMethod === 'EGHL') {
+        amount = order.paymentInstruments[instrumentcount].paymentTransaction.amount.value;
+        }
+    }
+    if (amount) {
+        amount = parseFloat(amount, 10).toFixed(2);
+    } else {
+        amount = order.totalGrossPrice.value.toFixed(2);
+    }
     // var amount = 0.14;
     var currencyCode = eGHLPreference.currencyCode;
     var pageTimeOut = eGHLPreference.pageTimeOut || '';
@@ -300,12 +312,12 @@ function placeOrder(order, isEhlCallback, server, req, res, next) {
     var paymentTransaction = order.paymentInstrument.getPaymentTransaction();
     var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
     var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
-    var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilverApis');
+    var qwikcilverApis = require("*/cartridge/scripts/service/qwikcilver/apis");
     var currentLocale;
     if ('locale' in req && req.locale.id) {
         currentLocale = Locale.getLocale(req.locale.id);
     } else {
-        currentLocale = 'en_MY';
+        currentLocale = 'en_PH';
     }
     var giftCardAPIResult;
     var giftCardAPIRedeemResult;

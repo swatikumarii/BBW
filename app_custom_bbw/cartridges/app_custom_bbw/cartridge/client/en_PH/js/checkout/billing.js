@@ -342,14 +342,31 @@ module.exports = {
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
+                var stateCodeExists = false;
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
                         $('.billingState option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.billingState').trigger('change');
+                        stateCodeExists = true;
                         return false;
                     }
                 });
+                if (!stateCodeExists) {
+                    var billingState = $('.billingState');
+                    $('.billingState option').removeAttr('selected');
+                    billingState
+                        .append(
+                            $('<option>', {
+                                value: stateCode,
+                                text: stateCode
+                            })
+                        ).attr('selected', 'selected').trigger('change');
+                    // We will not check city, sub-district and postal code.
+                    city = '';
+                    subDistrict = '';
+                    postalCode = '';
+                }
             }
             if (city) {
                 $('.billingAddressCity').prepend(
