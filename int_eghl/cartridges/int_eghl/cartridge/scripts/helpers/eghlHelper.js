@@ -423,7 +423,8 @@ function placeOrder(order, isEhlCallback, server, req, res, next) {
                     return;
                 }
             }
-        } else if (order.getCustomerEmail()) {
+        }  
+        if (order.getCustomerEmail()) {
             COHelpers.sendConfirmationEmail(order, req.locale.id);
         }
 
