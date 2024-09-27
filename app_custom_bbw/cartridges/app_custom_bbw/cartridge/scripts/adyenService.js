@@ -25,7 +25,7 @@ function sendEmail(order) {
       'Order Confirmation mail trigger for this ' + order.customerEmail
   );
   confirmationEmail.addTo(order.customerEmail);
-  confirmationEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'order', null));
+  confirmationEmail.setSubject(Resource.msgf('subject.order.confirmation.email', 'order', null, order.orderNo));
   confirmationEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@salesforce.com');
   Object.keys(orderObject).forEach(function (key) {
     context.put(key, orderObject[key]);
