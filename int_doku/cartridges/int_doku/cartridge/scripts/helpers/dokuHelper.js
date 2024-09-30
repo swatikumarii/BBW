@@ -55,9 +55,12 @@ function createRequestBody(order, basket, paymentForm) {
     });
   }
   var payment = {
-    payment_due_date: dokuPreference.paymentDueDate,
-    type: "SALE"
+    payment_due_date: dokuPreference.paymentDueDate
   };
+  // var payment = {
+  //   payment_due_date: dokuPreference.paymentDueDate,
+  //   type: "SALE"
+  // };
   var paymentMethodTypes = dokuPreference.dokuPaymentMethods;
   if (paymentMethodTypes) {
     payment.payment_method_types = paymentMethodTypes.split(',');
@@ -78,9 +81,9 @@ function createRequestBody(order, basket, paymentForm) {
       address: paymentForm.addressFields.address1.value + ' ' + paymentForm.addressFields.address2.value + ' ' + paymentForm.addressFields.city.value + ' ' + paymentForm.addressFields.postalCode.value,
       country: paymentForm.addressFields.country.value
     },
-    additional_info: {
-      doku_wallet_notify_url: URLUtils.abs('Doku-Notifcation').toString()
-    }
+    // additional_info: {
+    //   doku_wallet_notify_url: URLUtils.abs('Doku-Notifcation').toString()
+    // }
   };
 
   return JSON.stringify(requestJSON);
