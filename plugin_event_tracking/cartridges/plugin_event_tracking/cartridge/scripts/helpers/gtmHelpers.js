@@ -699,6 +699,8 @@ function getDataLayer(res) {
                 return getConfirmationData(res);
             case 'Order-Check':
                 return getOrderCheckData(res);
+            case '2c2p-Callback':
+                return getConfirmationData(res);
             default:
                 return false;
         }
