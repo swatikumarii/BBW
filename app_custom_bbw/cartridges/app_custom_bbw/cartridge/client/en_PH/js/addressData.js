@@ -28484,7 +28484,7 @@ module.exports = {
                 'Poblacion',
                 'Upper Taviran'
             ],
-            postalCodes: ['9606', 9618]
+            postalCodes: ['9606', '9618']
         },
         Mamasapano: {
             subDistrict: [
