@@ -1798,7 +1798,7 @@ module.exports = {
         },
         'Legazpi City': {
             subDistrict: [
-                'Bgy. 1 - Em\'s Barrio (Pob.)',
+                "Bgy. 1 - Em's Barrio (Pob.)",
                 'Bgy. 10 - Cabugao',
                 'Bgy. 11 - Maoyod Pob.',
                 'Bgy. 12 - Tula-tula (Pob.)',
@@ -1809,7 +1809,7 @@ module.exports = {
                 'Bgy. 17 - Rizal Street.',
                 'Bgy. 18 - Cabagñan West (Pob.)',
                 'Bgy. 19 - Cabagñan',
-                'Bgy. 2 - Em\'s Barrio South (Pob.)',
+                "Bgy. 2 - Em's Barrio South (Pob.)",
                 'Bgy. 20 - Cabagñan East (Pob.)',
                 'Bgy. 21 - Binanuahan West (Pob.)',
                 'Bgy. 22 - Binanuahan East (Pob.)',
@@ -1820,7 +1820,7 @@ module.exports = {
                 'Bgy. 27 - Victory Village South (Pob.)',
                 'Bgy. 28 - Victory Village North (Pob.)',
                 'Bgy. 29 - Sabang (Pob.)',
-                'Bgy. 3 - Em\'s Barrio East (Pob.)',
+                "Bgy. 3 - Em's Barrio East (Pob.)",
                 'Bgy. 30 - Pigcale (Pob.)',
                 'Bgy. 31 - Centro-Baybay (Pob.)',
                 'Bgy. 32 - San Roque',
@@ -5309,7 +5309,7 @@ module.exports = {
                 'BGH Compound',
                 'Brookside',
                 'Brookspoint',
-                'Cabinet Hill-Teacher\'s Camp',
+                "Cabinet Hill-Teacher's Camp",
                 'Camdas Subdivision',
                 'Camp 7',
                 'Camp 8',
@@ -5324,7 +5324,7 @@ module.exports = {
                 'Dominican Hill-Mirador',
                 'Dontogan',
                 'DPS Area',
-                'Engineers\' Hill',
+                "Engineers' Hill",
                 'Fairview Village',
                 'Ferdinand',
                 'Fort Del Pilar',
@@ -7847,7 +7847,7 @@ module.exports = {
                 'Gatbuca',
                 'Gugo',
                 'Iba Este',
-                'Iba O\'Este',
+                "Iba O'Este",
                 'Longos',
                 'Meysulao',
                 'Meyto',
@@ -14643,7 +14643,7 @@ module.exports = {
             ],
             postalCodes: [9411]
         },
-        'M\'Lang': {
+        "M'Lang": {
             subDistrict: [
                 'Bagontapay',
                 'Bialong',
@@ -29808,14 +29808,14 @@ module.exports = {
                 'Fil-Japan Shipping Co.',
                 'Filipino Star, Manila',
                 'In-rl. Correspondence Inst.',
-                'Int\'l. Rice Research Inst.',
+                "Int'l. Rice Research Inst.",
                 'Manila Bulletin',
                 'Manila Hilton Hotel',
                 'Manila Hotel',
                 'Manila Medical Center',
                 'Manila Midtown Hotel',
                 'Midland Plaza Hotel, Manila',
-                'Nat\'l. Census & Stat. Office',
+                "Nat'l. Census & Stat. Office",
                 'Pan-Fil. Shipping, Manila',
                 'Phil. Campus Crusade',
                 'Phil. National Bank, Manila',
@@ -29834,9 +29834,10 @@ module.exports = {
                 'World Map ,Manila'
             ],
             postalCodes: [
-                917, 912, 926, 925, 922, 970, 910, 923, 902, 918, 905, 915, 960,
-                900, 903, 913, 906, 950, 904, 911, 908, 928, 940, 921, 927, 990,
-                914, 901, 916, 907, 909, 920, 930, 919, 924
+                0917, 0912, 0926, 0925, 0922, 0970, 0910, 0923, 0902, 0918,
+                0905, 0915, 0960, 0900, 0903, 0913, 0906, 0950, 0904, 0911,
+                0908, 0928, 0940, 0921, 0927, 0990, 0914, 0901, 0916, 0907,
+                0909, 0920, 0930, 0919, 0924
             ]
         },
         'Las Piñas City': {
@@ -29846,7 +29847,7 @@ module.exports = {
                 'Cut-cut',
                 'Gatchalian Subd.',
                 'Las Pinas CPO',
-                'Manila Doctor\'s Village',
+                "Manila Doctor's Village",
                 'Manuyo',
                 'Pulang Lupa & Zapote',
                 'Remarville Subd.',
@@ -30263,11 +30264,11 @@ module.exports = {
                 'Eisenhower-Crame',
                 'Greenhills North',
                 'Greenhills PO',
-                'Int\'l Correspondence School',
+                "Int'l Correspondence School",
                 'Radio Bible Class',
                 'San Juan CPO'
             ],
-            postalCodes: [401, 420, 1504, 1503, 1502, 400, 410, 1500]
+            postalCodes: [0401, 0420, 1504, 1503, 1502, 0400, 0410, 1500]
         },
         'Taguig City': {
             subDistrict: [
@@ -30313,7 +30314,7 @@ module.exports = {
                 'Valenzuela P.O. Boxes'
             ],
             postalCodes: [
-                1444, 1445, 1443, 1447, 560, 550, 1442, 1441, 1446, 1440, 1448,
+                1444, 1445, 1443, 1447, 0560, 0550, 1442, 1441, 1446, 1440, 1448,
                 1496
             ]
         }
@@ -36123,7 +36124,7 @@ module.exports = {
             ],
             postalCodes: [5306]
         },
-        'Brooke\'S Point': {
+        "Brooke'S Point": {
             subDistrict: [
                 'Amas',
                 'Aribungos',
@@ -42273,7 +42274,7 @@ module.exports = {
                 'Alkikan',
                 'Ampon',
                 'Atlae',
-                'B\'Laan',
+                "B'Laan",
                 'Banahaw',
                 'Banate',
                 'Datal Batong',
@@ -43288,7 +43289,7 @@ module.exports = {
             ],
             postalCodes: [9512]
         },
-        'T\'Boli': {
+        "T'Boli": {
             subDistrict: [
                 'Aflek',
                 'Afus',
@@ -43311,7 +43312,7 @@ module.exports = {
                 'Poblacion',
                 'Salacafe',
                 'Sinolon',
-                'T\'bolok',
+                "T'bolok",
                 'Talcon',
                 'Talufo',
                 'Tudok'
@@ -44047,7 +44048,7 @@ module.exports = {
             subDistrict: [
                 'Bambad',
                 'Bual',
-                'D\'Lotilla',
+                "D'Lotilla",
                 'Dansuli',
                 'Impao',
                 'Kalawag I (Pob.)',
@@ -44264,7 +44265,7 @@ module.exports = {
                 'Buenaflor',
                 'Calean',
                 'Carmen',
-                'D\'Ledesma',
+                "D'Ledesma",
                 'Enrique JC Montilla',
                 'Kalandagan',
                 'Lancheta',
@@ -45763,7 +45764,7 @@ module.exports = {
                 'Manga',
                 'Manlapig',
                 'Maruglu',
-                'O\'Donnell',
+                "O'Donnell",
                 'Santa Juliana',
                 'Santa Lucia',
                 'Santa Rita',
@@ -48711,7 +48712,7 @@ module.exports = {
                 'Timalang',
                 'Tomitom',
                 'Upper Pangi',
-                'Veteran\'s Village'
+                "Veteran's Village"
             ],
             postalCodes: [7001]
         },
