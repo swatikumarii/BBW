@@ -36,7 +36,7 @@ module.exports = {
                 'Zone 6 Pob.',
                 'Zone 7 Pob.'
             ],
-            postalCodes: [2800]
+            postalCodes: ['2800']
         },
         Boliney: {
             subDistrict: [
@@ -49,7 +49,7 @@ module.exports = {
                 'Kilong-Olao',
                 'Poblacion'
             ],
-            postalCodes: [2815]
+            postalCodes: ['2815']
         },
         Bucay: {
             subDistrict: [
@@ -75,15 +75,15 @@ module.exports = {
                 'South Poblacion',
                 'Tabiog'
             ],
-            postalCodes: [2805]
+            postalCodes: ['2805']
         },
         Bucloc: {
             subDistrict: ['Ducligan', 'Labaan', 'Lamao (Pob.)', 'Lingay'],
-            postalCodes: [2817]
+            postalCodes: ['2817']
         },
         Daguioman: {
             subDistrict: ['Ableg', 'Cabaruyan', 'Pikek', 'Tui (Pob.)'],
-            postalCodes: [2816]
+            postalCodes: ['2816']
         },
         Danglas: {
             subDistrict: [
@@ -95,7 +95,7 @@ module.exports = {
                 'Padangitan',
                 'Pangal'
             ],
-            postalCodes: [2825]
+            postalCodes: ['2825']
         },
         Dolores: {
             subDistrict: [
@@ -115,7 +115,7 @@ module.exports = {
                 'Talogtog',
                 'Taping'
             ],
-            postalCodes: [2801]
+            postalCodes: ['2801']
         },
         'La Paz': {
             subDistrict: [
@@ -132,7 +132,7 @@ module.exports = {
                 'Toon',
                 'Udangan'
             ],
-            postalCodes: [2826]
+            postalCodes: ['2826']
         },
         Lacub: {
             subDistrict: [
@@ -143,7 +143,7 @@ module.exports = {
                 'Pacoc',
                 'Poblacion'
             ],
-            postalCodes: [2821]
+            postalCodes: ['2821']
         },
         Lagangilang: {
             subDistrict: [
@@ -165,11 +165,11 @@ module.exports = {
                 'Tagodtod',
                 'Taping'
             ],
-            postalCodes: [2802]
+            postalCodes: ['2802']
         },
         Lagayan: {
             subDistrict: ['Ba-i', 'Collago', 'Pang-ot', 'Poblacion', 'Pulot'],
-            postalCodes: [2824]
+            postalCodes: ['2824']
         },
         Langiden: {
             subDistrict: [
@@ -180,7 +180,7 @@ module.exports = {
                 'Poblacion',
                 'Quillat'
             ],
-            postalCodes: [2807]
+            postalCodes: ['2807']
         },
         'Licuan-Baay': {
             subDistrict: [
@@ -196,7 +196,7 @@ module.exports = {
                 'Subagan',
                 'Tumalip'
             ],
-            postalCodes: [2819]
+            postalCodes: ['2819']
         },
         Luba: {
             subDistrict: [
@@ -209,7 +209,7 @@ module.exports = {
                 'Poblacion',
                 'Sabnangan'
             ],
-            postalCodes: [2813]
+            postalCodes: ['2813']
         },
         Malibcong: {
             subDistrict: [
@@ -226,7 +226,7 @@ module.exports = {
                 'Taripan',
                 'Umnap'
             ],
-            postalCodes: [2820]
+            postalCodes: ['2820']
         },
         Manabo: {
             subDistrict: [
@@ -242,7 +242,7 @@ module.exports = {
                 'San Ramon West',
                 'Santo Tomas'
             ],
-            postalCodes: [2810]
+            postalCodes: ['2810']
         },
         Peñarrubia: {
             subDistrict: [
@@ -256,7 +256,7 @@ module.exports = {
                 'Santa Rosa',
                 'Tattawa'
             ],
-            postalCodes: [2804]
+            postalCodes: ['2804']
         },
         Pidigan: {
             subDistrict: [
@@ -276,7 +276,7 @@ module.exports = {
                 'Suyo',
                 'Yuyeng'
             ],
-            postalCodes: [2806]
+            postalCodes: ['2806']
         },
         Pilar: {
             subDistrict: [
@@ -300,7 +300,7 @@ module.exports = {
                 'Tikitik',
                 'Villavieja'
             ],
-            postalCodes: [2812]
+            postalCodes: ['2812']
         },
         Sallapadan: {
             subDistrict: [
@@ -314,7 +314,7 @@ module.exports = {
                 'Subusob',
                 'Ud-udiao'
             ],
-            postalCodes: [2818]
+            postalCodes: ['2818']
         },
         'San Isidro': {
             subDistrict: [
@@ -328,7 +328,7 @@ module.exports = {
                 'San Marcial',
                 'Tangbao'
             ],
-            postalCodes: [1234]
+            postalCodes: ['1234']
         },
         'San Juan': {
             subDistrict: [
@@ -352,7 +352,7 @@ module.exports = {
                 'Supi-il',
                 'Tagaytay'
             ],
-            postalCodes: [2823]
+            postalCodes: ['2823']
         },
         'San Quintin': {
             subDistrict: [
@@ -363,7 +363,7 @@ module.exports = {
                 'Tangadan',
                 'Villa Mercedes'
             ],
-            postalCodes: [2808]
+            postalCodes: ['2808']
         },
         Tayum: {
             subDistrict: [
@@ -379,7 +379,7 @@ module.exports = {
                 'Poblacion',
                 'Velasco'
             ],
-            postalCodes: [2803]
+            postalCodes: ['2803']
         },
         Tineg: {
             subDistrict: [
@@ -394,7 +394,7 @@ module.exports = {
                 'Naglibacan',
                 'Poblacion'
             ],
-            postalCodes: [2822]
+            postalCodes: ['2822']
         },
         Tubo: {
             subDistrict: [
@@ -409,7 +409,7 @@ module.exports = {
                 'Tubtuba',
                 'Wayangan'
             ],
-            postalCodes: [2814]
+            postalCodes: ['2814']
         },
         Villaviciosa: {
             subDistrict: [
@@ -422,7 +422,7 @@ module.exports = {
                 'Tamac',
                 'Tuquib'
             ],
-            postalCodes: [2811]
+            postalCodes: ['2811']
         }
     },
     'Agusan Del Norte': {
@@ -454,7 +454,7 @@ module.exports = {
                 'Simbalan',
                 'Talo-ao'
             ],
-            postalCodes: [4904]
+            postalCodes: ['4904']
         },
         'Butuan City': {
             subDistrict: [
@@ -545,7 +545,7 @@ module.exports = {
                 'Urduja Pob.',
                 'Villa Kananga'
             ],
-            postalCodes: [8600]
+            postalCodes: ['8600']
         },
         Cabadbaran: {
             subDistrict: [
@@ -581,7 +581,7 @@ module.exports = {
                 'Soriano',
                 'Tolosa'
             ],
-            postalCodes: [8605]
+            postalCodes: ['8605']
         },
         Carmen: {
             subDistrict: [
@@ -594,7 +594,7 @@ module.exports = {
                 'Tagcatong',
                 'Vinapor'
             ],
-            postalCodes: [6319]
+            postalCodes: ['6319']
         },
         Jabonga: {
             subDistrict: [
@@ -614,7 +614,7 @@ module.exports = {
                 'San Vicente',
                 'Santo Niño'
             ],
-            postalCodes: [8607]
+            postalCodes: ['8607']
         },
         Kitcharao: {
             subDistrict: [
@@ -630,7 +630,7 @@ module.exports = {
                 'Sangay',
                 'Songkoy'
             ],
-            postalCodes: [8609]
+            postalCodes: ['8609']
         },
         'Las Nieves': {
             subDistrict: [
@@ -655,7 +655,7 @@ module.exports = {
                 'San Roque',
                 'Tinucoran'
             ],
-            postalCodes: [8610]
+            postalCodes: ['8610']
         },
         Magallanes: {
             subDistrict: [
@@ -668,7 +668,7 @@ module.exports = {
                 'Santo Rosario',
                 'Taod-oy'
             ],
-            postalCodes: [4113]
+            postalCodes: ['4113']
         },
         Nasipit: {
             subDistrict: [
@@ -692,7 +692,7 @@ module.exports = {
                 'Talisay',
                 'Triangulo'
             ],
-            postalCodes: [8602]
+            postalCodes: ['8602']
         },
         'Remedios T. Romualdez': {
             subDistrict: [
@@ -705,7 +705,7 @@ module.exports = {
                 'San Antonio',
                 'Tagbongabong'
             ],
-            postalCodes: [8611]
+            postalCodes: ['8611']
         },
         Santiago: {
             subDistrict: [
@@ -719,7 +719,7 @@ module.exports = {
                 'San Isidro',
                 'Tagbuyacan'
             ],
-            postalCodes: [2707]
+            postalCodes: ['2707']
         },
         Tubay: {
             subDistrict: [
@@ -737,7 +737,7 @@ module.exports = {
                 'Tinigbasan',
                 'Victory'
             ],
-            postalCodes: [8606]
+            postalCodes: ['8606']
         }
     },
     'Agusan Del Sur': {
@@ -787,7 +787,7 @@ module.exports = {
                 'Villa Undayon',
                 'Wawa'
             ],
-            postalCodes: [8502]
+            postalCodes: ['8502']
         },
         Bunawan: {
             subDistrict: [
@@ -802,7 +802,7 @@ module.exports = {
                 'San Marcos',
                 'San Teodoro'
             ],
-            postalCodes: [8506]
+            postalCodes: ['8506']
         },
         Esperanza: {
             subDistrict: [
@@ -854,7 +854,7 @@ module.exports = {
                 'Tandang Sora',
                 'Valentina'
             ],
-            postalCodes: [5407]
+            postalCodes: ['5407']
         },
         'La Paz': {
             subDistrict: [
@@ -874,7 +874,7 @@ module.exports = {
                 'Valentina',
                 'Villa Paz'
             ],
-            postalCodes: [2826]
+            postalCodes: ['2826']
         },
         Loreto: {
             subDistrict: [
@@ -896,7 +896,7 @@ module.exports = {
                 'Violanta',
                 'Waloe'
             ],
-            postalCodes: [8507]
+            postalCodes: ['8507']
         },
         Prosperidad: {
             subDistrict: [
@@ -933,7 +933,7 @@ module.exports = {
                 'Santa Irene',
                 'Santa Maria'
             ],
-            postalCodes: [8500]
+            postalCodes: ['8500']
         },
         Rosario: {
             subDistrict: [
@@ -949,7 +949,7 @@ module.exports = {
                 'Tagbayagan',
                 'Wasi-an'
             ],
-            postalCodes: [1609]
+            postalCodes: ['1609']
         },
         'San Francisco': {
             subDistrict: [
@@ -981,7 +981,7 @@ module.exports = {
                 'Santa Ana',
                 'Tagapua'
             ],
-            postalCodes: [4315]
+            postalCodes: ['4315']
         },
         'San Luis': {
             subDistrict: [
@@ -1011,7 +1011,7 @@ module.exports = {
                 'Santiago',
                 'Wegguam'
             ],
-            postalCodes: [3201]
+            postalCodes: ['3201']
         },
         'Santa Josefa': {
             subDistrict: [
@@ -1027,7 +1027,7 @@ module.exports = {
                 'Sayon',
                 'Tapaz'
             ],
-            postalCodes: [8512]
+            postalCodes: ['8512']
         },
         Sibagat: {
             subDistrict: [
@@ -1056,7 +1056,7 @@ module.exports = {
                 'Tag-uyango',
                 'Villangit'
             ],
-            postalCodes: [8503]
+            postalCodes: ['8503']
         },
         Talacogon: {
             subDistrict: [
@@ -1077,7 +1077,7 @@ module.exports = {
                 'Zamora',
                 'Zillovia'
             ],
-            postalCodes: [8510]
+            postalCodes: ['8510']
         },
         Trento: {
             subDistrict: [
@@ -1098,7 +1098,7 @@ module.exports = {
                 'Santa Maria',
                 'Tudela'
             ],
-            postalCodes: [8505]
+            postalCodes: ['8505']
         },
         Veruela: {
             subDistrict: [
@@ -1123,7 +1123,7 @@ module.exports = {
                 'Sinobong',
                 'Sisimon'
             ],
-            postalCodes: [8509]
+            postalCodes: ['8509']
         }
     },
     Aklan: {
@@ -1144,11 +1144,11 @@ module.exports = {
                 'Talon',
                 'Tibiao'
             ],
-            postalCodes: [5616]
+            postalCodes: ['5616']
         },
         Balete: {
             subDistrict: ['Aranas'],
-            postalCodes: [4700]
+            postalCodes: ['4700']
         },
         Balite: {
             subDistrict: [
@@ -1162,7 +1162,7 @@ module.exports = {
                 'Oquendo',
                 'Poblacion'
             ],
-            postalCodes: [5614]
+            postalCodes: ['5614']
         },
         Banga: {
             subDistrict: [
@@ -1197,7 +1197,7 @@ module.exports = {
                 'Ugsod',
                 'Venturanza'
             ],
-            postalCodes: [5601]
+            postalCodes: ['5601']
         },
         Batan: {
             subDistrict: [
@@ -1222,7 +1222,7 @@ module.exports = {
                 'Songcolan',
                 'Tabon'
             ],
-            postalCodes: [5615]
+            postalCodes: ['5615']
         },
         Buruanga: {
             subDistrict: [
@@ -1242,7 +1242,7 @@ module.exports = {
                 'Tag-osip',
                 'Tigum'
             ],
-            postalCodes: [5609]
+            postalCodes: ['5609']
         },
         Ibajay: {
             subDistrict: [
@@ -1282,7 +1282,7 @@ module.exports = {
                 'Unat',
                 'Yawan'
             ],
-            postalCodes: [5613]
+            postalCodes: ['5613']
         },
         Kalibo: {
             subDistrict: [
@@ -1303,7 +1303,7 @@ module.exports = {
                 'Tigayon',
                 'Tinigaw'
             ],
-            postalCodes: [5600]
+            postalCodes: ['5600']
         },
         Lezo: {
             subDistrict: [
@@ -1320,7 +1320,7 @@ module.exports = {
                 'Silakat-Nonok',
                 'Tayhawan'
             ],
-            postalCodes: [5605]
+            postalCodes: ['5605']
         },
         Libacao: {
             subDistrict: [
@@ -1349,7 +1349,7 @@ module.exports = {
                 'Rosal',
                 'Sibalew'
             ],
-            postalCodes: [5602]
+            postalCodes: ['5602']
         },
         Madalag: {
             subDistrict: [
@@ -1379,7 +1379,7 @@ module.exports = {
                 'Talimagao',
                 'Tigbawan'
             ],
-            postalCodes: [5603]
+            postalCodes: ['5603']
         },
         Makato: {
             subDistrict: [
@@ -1402,7 +1402,7 @@ module.exports = {
                 'Tina',
                 'Tugas'
             ],
-            postalCodes: [5611]
+            postalCodes: ['5611']
         },
         Malay: {
             subDistrict: [
@@ -1424,7 +1424,7 @@ module.exports = {
                 'San Viray',
                 'Yapak'
             ],
-            postalCodes: [5608]
+            postalCodes: ['5608']
         },
         Malinao: {
             subDistrict: [
@@ -1452,7 +1452,7 @@ module.exports = {
                 'Tambuan',
                 'Tigpalas'
             ],
-            postalCodes: [4512]
+            postalCodes: ['4512']
         },
         Nabas: {
             subDistrict: [
@@ -1477,7 +1477,7 @@ module.exports = {
                 'Unidos',
                 'Union'
             ],
-            postalCodes: [5607]
+            postalCodes: ['5607']
         },
         'New Washington': {
             subDistrict: [
@@ -1498,7 +1498,7 @@ module.exports = {
                 'Puis',
                 'Tambak'
             ],
-            postalCodes: [5610]
+            postalCodes: ['5610']
         },
         Numancia: {
             subDistrict: [
@@ -1520,7 +1520,7 @@ module.exports = {
                 'Pusiw',
                 'Tabangka'
             ],
-            postalCodes: [5604]
+            postalCodes: ['5604']
         },
         Tangalan: {
             subDistrict: [
@@ -1540,7 +1540,7 @@ module.exports = {
                 'Tondog',
                 'Vivo'
             ],
-            postalCodes: [5612]
+            postalCodes: ['5612']
         }
     },
     Albay: {
@@ -1603,7 +1603,7 @@ module.exports = {
                 'Vinisitahan-Basud',
                 'Vinisitahan-Napao'
             ],
-            postalCodes: [4509]
+            postalCodes: ['4509']
         },
         Camalig: {
             subDistrict: [
@@ -1658,7 +1658,7 @@ module.exports = {
                 'Tinago',
                 'Tumpa'
             ],
-            postalCodes: [4502]
+            postalCodes: ['4502']
         },
         Daraga: {
             subDistrict: [
@@ -1717,7 +1717,7 @@ module.exports = {
                 'Talahib',
                 'Villahermosa'
             ],
-            postalCodes: [4501]
+            postalCodes: ['4501']
         },
         Guinobatan: {
             subDistrict: [
@@ -1766,7 +1766,7 @@ module.exports = {
                 'Tandarora',
                 'Travesia'
             ],
-            postalCodes: [4503]
+            postalCodes: ['4503']
         },
         Jovellar: {
             subDistrict: [
@@ -1794,7 +1794,7 @@ module.exports = {
                 'Villa Paz',
                 'White Deer Pob.'
             ],
-            postalCodes: [4515]
+            postalCodes: ['4515']
         },
         'Legazpi City': {
             subDistrict: [
@@ -1869,7 +1869,7 @@ module.exports = {
                 'Bgy. 8 - Bagumbayan (Pob.)',
                 'Bgy. 9 - Pinaric (Pob.)'
             ],
-            postalCodes: [4500]
+            postalCodes: ['4500']
         },
         Libon: {
             subDistrict: [
@@ -1921,7 +1921,7 @@ module.exports = {
                 'Zone VI (Pob.)',
                 'Zone VII (Pob.)'
             ],
-            postalCodes: [4507]
+            postalCodes: ['4507']
         },
         Ligao: {
             subDistrict: [
@@ -1981,7 +1981,7 @@ module.exports = {
                 'Tula-tula Pequeño',
                 'Tupas'
             ],
-            postalCodes: [4504]
+            postalCodes: ['4504']
         },
         Malilipot: {
             subDistrict: [
@@ -2004,7 +2004,7 @@ module.exports = {
                 'Santa Cruz',
                 'Santa Teresa'
             ],
-            postalCodes: [4510]
+            postalCodes: ['4510']
         },
         Malinao: {
             subDistrict: [
@@ -2038,7 +2038,7 @@ module.exports = {
                 'Tanawan',
                 'Tuliw'
             ],
-            postalCodes: [4512]
+            postalCodes: ['4512']
         },
         Manito: {
             subDistrict: [
@@ -2058,7 +2058,7 @@ module.exports = {
                 'Pawa',
                 'Tinapian'
             ],
-            postalCodes: [4514]
+            postalCodes: ['4514']
         },
         Oas: {
             subDistrict: [
@@ -2116,7 +2116,7 @@ module.exports = {
                 'Tobgon',
                 'Tobog'
             ],
-            postalCodes: [4504]
+            postalCodes: ['4504']
         },
         'Pio Duran (Malacbalac)': {
             subDistrict: [
@@ -2154,7 +2154,7 @@ module.exports = {
                 'Sukip',
                 'Tibabo'
             ],
-            postalCodes: [4516]
+            postalCodes: ['4516']
         },
         Polangui: {
             subDistrict: [
@@ -2203,7 +2203,7 @@ module.exports = {
                 'Sugcad',
                 'Ubaliw'
             ],
-            postalCodes: [4506]
+            postalCodes: ['4506']
         },
         'Rapu-Rapu': {
             subDistrict: [
@@ -2242,7 +2242,7 @@ module.exports = {
                 'Viga',
                 'Villahermosa'
             ],
-            postalCodes: [4517]
+            postalCodes: ['4517']
         },
         'Santo Domingo': {
             subDistrict: [
@@ -2270,7 +2270,7 @@ module.exports = {
                 'Santo Domingo Pob.',
                 'Santo Niño'
             ],
-            postalCodes: [2729]
+            postalCodes: ['2729']
         },
         Tabaco: {
             subDistrict: [
@@ -2322,7 +2322,7 @@ module.exports = {
                 'Tayhi (Pob.)',
                 'Visita'
             ],
-            postalCodes: [4511]
+            postalCodes: ['4511']
         },
         Tiwi: {
             subDistrict: [
@@ -2352,7 +2352,7 @@ module.exports = {
                 'Sogod',
                 'Tigbi (Pob.)'
             ],
-            postalCodes: [4513]
+            postalCodes: ['4513']
         }
     },
     Antique: {
@@ -2382,7 +2382,7 @@ module.exports = {
                 'Tagaytay',
                 'Talisayan'
             ],
-            postalCodes: [5717]
+            postalCodes: ['5717']
         },
         Barbasa: {
             subDistrict: [
@@ -2426,7 +2426,7 @@ module.exports = {
                 'Tig-Alaran',
                 'Yapo'
             ],
-            postalCodes: [5706]
+            postalCodes: ['5706']
         },
         Belison: {
             subDistrict: [
@@ -2442,7 +2442,7 @@ module.exports = {
                 'Salvacion',
                 'Sinaja'
             ],
-            postalCodes: [5701]
+            postalCodes: ['5701']
         },
         Bugasong: {
             subDistrict: [
@@ -2474,7 +2474,7 @@ module.exports = {
                 'Yapu',
                 'Zaragoza'
             ],
-            postalCodes: [5704]
+            postalCodes: ['5704']
         },
         Caluya: {
             subDistrict: [
@@ -2497,7 +2497,7 @@ module.exports = {
                 'Sibolo',
                 'Tinogboc'
             ],
-            postalCodes: [5711]
+            postalCodes: ['5711']
         },
         Culasi: {
             subDistrict: [
@@ -2546,7 +2546,7 @@ module.exports = {
                 'Tomao',
                 'Valderama'
             ],
-            postalCodes: [5708]
+            postalCodes: ['5708']
         },
         Hamtic: {
             subDistrict: [
@@ -2598,7 +2598,7 @@ module.exports = {
                 'Suloc',
                 'Villavert-Jimenez'
             ],
-            postalCodes: [5715]
+            postalCodes: ['5715']
         },
         'Laua-an': {
             subDistrict: [
@@ -2643,7 +2643,7 @@ module.exports = {
                 'Tigunhao',
                 'Virginia'
             ],
-            postalCodes: [5705]
+            postalCodes: ['5705']
         },
         Libertad: {
             subDistrict: [
@@ -2667,7 +2667,7 @@ module.exports = {
                 'Tinindugan',
                 'Union'
             ],
-            postalCodes: [5710]
+            postalCodes: ['5710']
         },
         Pandan: {
             subDistrict: [
@@ -2706,7 +2706,7 @@ module.exports = {
                 'Tingib',
                 'Zaldivar'
             ],
-            postalCodes: [4809]
+            postalCodes: ['4809']
         },
         Patnongan: {
             subDistrict: [
@@ -2747,7 +2747,7 @@ module.exports = {
                 'Villa Salomon',
                 'Vista Alegre'
             ],
-            postalCodes: [5702]
+            postalCodes: ['5702']
         },
         'San Jose': {
             subDistrict: [
@@ -2780,7 +2780,7 @@ module.exports = {
                 'San Pedro',
                 'Supa'
             ],
-            postalCodes: [5700]
+            postalCodes: ['5700']
         },
         'San Remigio': {
             subDistrict: [
@@ -2830,7 +2830,7 @@ module.exports = {
                 'Vilvar',
                 'Walker'
             ],
-            postalCodes: [5714]
+            postalCodes: ['5714']
         },
         Sebaste: {
             subDistrict: [
@@ -2845,7 +2845,7 @@ module.exports = {
                 'P. Javier',
                 'Poblacion'
             ],
-            postalCodes: [5709]
+            postalCodes: ['5709']
         },
         Sibalom: {
             subDistrict: [
@@ -2926,7 +2926,7 @@ module.exports = {
                 'Villahermosa',
                 'Villar'
             ],
-            postalCodes: [5713]
+            postalCodes: ['5713']
         },
         Tibiao: {
             subDistrict: [
@@ -2952,7 +2952,7 @@ module.exports = {
                 'Tigbaboy',
                 'Tuno'
             ],
-            postalCodes: [5707]
+            postalCodes: ['5707']
         },
         'Tobias Fornier (Dao)': {
             subDistrict: [
@@ -3007,7 +3007,7 @@ module.exports = {
                 'Villaflor',
                 'Ysulat'
             ],
-            postalCodes: [5716]
+            postalCodes: ['5716']
         },
         Valderrama: {
             subDistrict: [
@@ -3034,7 +3034,7 @@ module.exports = {
                 'Tigmamale',
                 'Ubos (Pob.)'
             ],
-            postalCodes: [5703]
+            postalCodes: ['5703']
         }
     },
     Apayao: {
@@ -3059,7 +3059,7 @@ module.exports = {
                 'Tubang',
                 'Tubongan'
             ],
-            postalCodes: [3814]
+            postalCodes: ['3814']
         },
         Conner: {
             subDistrict: [
@@ -3085,7 +3085,7 @@ module.exports = {
                 'Sacpil',
                 'Talifugo'
             ],
-            postalCodes: [3807]
+            postalCodes: ['3807']
         },
         Flora: {
             subDistrict: [
@@ -3106,7 +3106,7 @@ module.exports = {
                 'Tamalunog',
                 'Upper Atok'
             ],
-            postalCodes: [3807]
+            postalCodes: ['3807']
         },
         Kabugao: {
             subDistrict: [
@@ -3132,7 +3132,7 @@ module.exports = {
                 'Tuyangan',
                 'Waga'
             ],
-            postalCodes: [3809]
+            postalCodes: ['3809']
         },
         Luna: {
             subDistrict: [
@@ -3159,7 +3159,7 @@ module.exports = {
                 'Turod',
                 'Zumigui'
             ],
-            postalCodes: [3304]
+            postalCodes: ['3304']
         },
         Pudtol: {
             subDistrict: [
@@ -3186,7 +3186,7 @@ module.exports = {
                 'Swan',
                 'Upper Maton'
             ],
-            postalCodes: [3812]
+            postalCodes: ['3812']
         },
         'Santa Marcela': {
             subDistrict: [
@@ -3204,7 +3204,7 @@ module.exports = {
                 'San Mariano',
                 'Sipa Proper'
             ],
-            postalCodes: [3811]
+            postalCodes: ['3811']
         }
     },
     Aurora: {
@@ -3224,7 +3224,7 @@ module.exports = {
                 'Suclayin',
                 'Zabali'
             ],
-            postalCodes: [3200]
+            postalCodes: ['3200']
         },
         Casiguran: {
             subDistrict: [
@@ -3253,7 +3253,7 @@ module.exports = {
                 'Tabas',
                 'Tinib'
             ],
-            postalCodes: [3204]
+            postalCodes: ['3204']
         },
         Dilasag: {
             subDistrict: [
@@ -3269,7 +3269,7 @@ module.exports = {
                 'Masagana (Pob.)',
                 'Ura'
             ],
-            postalCodes: [3205]
+            postalCodes: ['3205']
         },
         Dinalungan: {
             subDistrict: [
@@ -3283,7 +3283,7 @@ module.exports = {
                 'Zone I (Pob.)',
                 'Zone II (Pob.)'
             ],
-            postalCodes: [3206]
+            postalCodes: ['3206']
         },
         Dingalan: {
             subDistrict: [
@@ -3299,7 +3299,7 @@ module.exports = {
                 'Tanawan',
                 'Umiray'
             ],
-            postalCodes: [3207]
+            postalCodes: ['3207']
         },
         Dipaculao: {
             subDistrict: [
@@ -3329,7 +3329,7 @@ module.exports = {
                 'South Poblacion',
                 'Toytoyan'
             ],
-            postalCodes: [3203]
+            postalCodes: ['3203']
         },
         'Maria Aurora': {
             subDistrict: [
@@ -3374,7 +3374,7 @@ module.exports = {
                 'Villa Aurora',
                 'Wenceslao'
             ],
-            postalCodes: [3202]
+            postalCodes: ['3202']
         },
         'San Luis': {
             subDistrict: [
@@ -3397,7 +3397,7 @@ module.exports = {
                 'San Jose',
                 'Zarah'
             ],
-            postalCodes: [3201]
+            postalCodes: ['3201']
         }
     },
     Basilan: {
@@ -3413,7 +3413,7 @@ module.exports = {
                 'Upper Bato-bato',
                 'Upper Sinangkapan'
             ],
-            postalCodes: [7306]
+            postalCodes: ['7306']
         },
         'Al-Barka': {
             subDistrict: [
@@ -3434,7 +3434,7 @@ module.exports = {
                 'Magcawa',
                 'Sangkahan'
             ],
-            postalCodes: [7304]
+            postalCodes: ['7304']
         },
         'Hadji Mohammad Ajul': {
             subDistrict: [
@@ -3450,7 +3450,7 @@ module.exports = {
                 'Sulutan Matangal',
                 'Tuburan Proper (Pob.)'
             ],
-            postalCodes: [7306]
+            postalCodes: ['7306']
         },
         'Hadji Muhtamad': {
             subDistrict: [
@@ -3465,7 +3465,7 @@ module.exports = {
                 'Sangbay Small',
                 'Tausan'
             ],
-            postalCodes: [7301]
+            postalCodes: ['7301']
         },
         Lamitan: {
             subDistrict: [
@@ -3515,7 +3515,7 @@ module.exports = {
                 'Ubit',
                 'Ulame'
             ],
-            postalCodes: [7302]
+            postalCodes: ['7302']
         },
         Lantawan: {
             subDistrict: [
@@ -3545,7 +3545,7 @@ module.exports = {
                 'Upper Bañas',
                 'Upper Manggas'
             ],
-            postalCodes: [7301]
+            postalCodes: ['7301']
         },
         Maluso: {
             subDistrict: [
@@ -3570,7 +3570,7 @@ module.exports = {
                 'Tubigan',
                 'Upper Garlayan'
             ],
-            postalCodes: [7303]
+            postalCodes: ['7303']
         },
         Sumisip: {
             subDistrict: [
@@ -3604,7 +3604,7 @@ module.exports = {
                 'Tongsengal',
                 'Tumahubong'
             ],
-            postalCodes: [7305]
+            postalCodes: ['7305']
         },
         'Tabuan-Lasa': {
             subDistrict: [
@@ -3621,7 +3621,7 @@ module.exports = {
                 'Tambulig Buton',
                 'Tong-Umus'
             ],
-            postalCodes: [7305]
+            postalCodes: ['7305']
         },
         'Tipo-Tipo': {
             subDistrict: [
@@ -3637,7 +3637,7 @@ module.exports = {
                 'Silangkum',
                 'Tipo-tipo Proper (Pob.)'
             ],
-            postalCodes: [7304]
+            postalCodes: ['7304']
         },
         Tuburan: {
             subDistrict: [
@@ -3652,7 +3652,7 @@ module.exports = {
                 'Sinulatan',
                 'Tablas Usew'
             ],
-            postalCodes: [6043]
+            postalCodes: ['6043']
         },
         'Ungkaya Pukan': {
             subDistrict: [
@@ -3669,7 +3669,7 @@ module.exports = {
                 'Tongbato',
                 'Ulitan'
             ],
-            postalCodes: [7304]
+            postalCodes: ['7304']
         }
     },
     Bataan: {
@@ -3685,7 +3685,7 @@ module.exports = {
                 'Salian',
                 'Wawa (Pob.)'
             ],
-            postalCodes: [2114]
+            postalCodes: ['2114']
         },
         Bagac: {
             subDistrict: [
@@ -3704,7 +3704,7 @@ module.exports = {
                 'Saysain',
                 'Tabing-Ilog (Pob.)'
             ],
-            postalCodes: [2107]
+            postalCodes: ['2107']
         },
         Balanga: {
             subDistrict: [
@@ -3734,7 +3734,7 @@ module.exports = {
                 'Tortugas',
                 'Tuyo'
             ],
-            postalCodes: [2100]
+            postalCodes: ['2100']
         },
         Dinalupihan: {
             subDistrict: [
@@ -3785,7 +3785,7 @@ module.exports = {
                 'Tucop',
                 'Zamora (Pob.)'
             ],
-            postalCodes: [2110]
+            postalCodes: ['2110']
         },
         Hermosa: {
             subDistrict: [
@@ -3813,7 +3813,7 @@ module.exports = {
                 'Sumalo',
                 'Tipo'
             ],
-            postalCodes: [2111]
+            postalCodes: ['2111']
         },
         Limay: {
             subDistrict: [
@@ -3830,7 +3830,7 @@ module.exports = {
                 'Townsite',
                 'Wawa'
             ],
-            postalCodes: [2103]
+            postalCodes: ['2103']
         },
         Mariveles: {
             subDistrict: [
@@ -3853,7 +3853,7 @@ module.exports = {
                 'Sisiman',
                 'Townsite'
             ],
-            postalCodes: [2105]
+            postalCodes: ['2105']
         },
         Morong: {
             subDistrict: [
@@ -3863,7 +3863,7 @@ module.exports = {
                 'Poblacion',
                 'Sabang'
             ],
-            postalCodes: [2108]
+            postalCodes: ['2108']
         },
         Orani: {
             subDistrict: [
@@ -3897,7 +3897,7 @@ module.exports = {
                 'Tugatog',
                 'Wawa (Pob.)'
             ],
-            postalCodes: [2112]
+            postalCodes: ['2112']
         },
         Orion: {
             subDistrict: [
@@ -3925,7 +3925,7 @@ module.exports = {
                 'Wakas (Pob.)',
                 'Wawa (Pob.)'
             ],
-            postalCodes: [2102]
+            postalCodes: ['2102']
         },
         Pilar: {
             subDistrict: [
@@ -3949,7 +3949,7 @@ module.exports = {
                 'Wakas South',
                 'Wawa'
             ],
-            postalCodes: [2812]
+            postalCodes: ['2812']
         },
         Samal: {
             subDistrict: [
@@ -3968,7 +3968,7 @@ module.exports = {
                 'West Calaguiman (Pob.)',
                 'West Daang Bago (Pob.)'
             ],
-            postalCodes: [2113]
+            postalCodes: ['2113']
         }
     },
     Batanes: {
@@ -3981,7 +3981,7 @@ module.exports = {
                 'San Antonio',
                 'San Joaquin'
             ],
-            postalCodes: [3900]
+            postalCodes: ['3900']
         },
         Itbayat: {
             subDistrict: [
@@ -3991,15 +3991,15 @@ module.exports = {
                 'Santa Maria',
                 'Santa Rosa'
             ],
-            postalCodes: [3905]
+            postalCodes: ['3905']
         },
         Ivana: {
             subDistrict: ['Radiwan', 'Salagao', 'San Vicente', 'Tuhel (Pob.)'],
-            postalCodes: [3902]
+            postalCodes: ['3902']
         },
         Mahatao: {
             subDistrict: ['Hañib', 'Kaumbakan', 'Panatayan', 'Uvoy (Pob.)'],
-            postalCodes: [3901]
+            postalCodes: ['3901']
         },
         Sabtang: {
             subDistrict: [
@@ -4010,7 +4010,7 @@ module.exports = {
                 'Sinakan (Pob.)',
                 'Sumnanga'
             ],
-            postalCodes: [3904]
+            postalCodes: ['3904']
         },
         Uyugan: {
             subDistrict: [
@@ -4019,7 +4019,7 @@ module.exports = {
                 'Kayuganan (Pob.)',
                 'Kayvaluganan (Pob.)'
             ],
-            postalCodes: [3903]
+            postalCodes: ['3903']
         }
     },
     Batangas: {
@@ -4047,7 +4047,7 @@ module.exports = {
                 'Subic Ibaba',
                 'Subic Ilaya'
             ],
-            postalCodes: [4211]
+            postalCodes: ['4211']
         },
         Alitagtag: {
             subDistrict: [
@@ -4071,7 +4071,7 @@ module.exports = {
                 'Santa Cruz',
                 'Tadlac'
             ],
-            postalCodes: [4205]
+            postalCodes: ['4205']
         },
         Balayan: {
             subDistrict: [
@@ -4124,7 +4124,7 @@ module.exports = {
                 'Taludtud',
                 'Tanggoy'
             ],
-            postalCodes: [4213]
+            postalCodes: ['4213']
         },
         Balete: {
             subDistrict: [
@@ -4142,7 +4142,7 @@ module.exports = {
                 'San Sebastian',
                 'Solis'
             ],
-            postalCodes: [4219]
+            postalCodes: ['4219']
         },
         'Batangas City': {
             subDistrict: [
@@ -4252,7 +4252,7 @@ module.exports = {
                 'Tulo',
                 'Wawa'
             ],
-            postalCodes: [4200]
+            postalCodes: ['4200']
         },
         Bauan: {
             subDistrict: [
@@ -4297,7 +4297,7 @@ module.exports = {
                 'Santo Domingo',
                 'Sinala'
             ],
-            postalCodes: [4201]
+            postalCodes: ['4201']
         },
         Calaca: {
             subDistrict: [
@@ -4342,7 +4342,7 @@ module.exports = {
                 'Tamayo',
                 'Timbain'
             ],
-            postalCodes: [4212]
+            postalCodes: ['4212']
         },
         Calatagan: {
             subDistrict: [
@@ -4372,7 +4372,7 @@ module.exports = {
                 'Talisay',
                 'Tanagan'
             ],
-            postalCodes: [4215]
+            postalCodes: ['4215']
         },
         Cuenca: {
             subDistrict: [
@@ -4398,7 +4398,7 @@ module.exports = {
                 'San Felipe',
                 'San Isidro'
             ],
-            postalCodes: [4222]
+            postalCodes: ['4222']
         },
         Ibaan: {
             subDistrict: [
@@ -4429,7 +4429,7 @@ module.exports = {
                 'Talaibon',
                 'Tulay Na Patpat'
             ],
-            postalCodes: [4230]
+            postalCodes: ['4230']
         },
         Laurel: {
             subDistrict: [
@@ -4455,7 +4455,7 @@ module.exports = {
                 'Santa Maria',
                 'Ticub'
             ],
-            postalCodes: [4221]
+            postalCodes: ['4221']
         },
         Lemery: {
             subDistrict: [
@@ -4506,7 +4506,7 @@ module.exports = {
                 'Wawa Ibaba',
                 'Wawa Ilaya'
             ],
-            postalCodes: [4209]
+            postalCodes: ['4209']
         },
         Lian: {
             subDistrict: [
@@ -4530,7 +4530,7 @@ module.exports = {
                 'Puting-Kahoy',
                 'San Diego'
             ],
-            postalCodes: [4216]
+            postalCodes: ['4216']
         },
         'Lipa City': {
             subDistrict: [
@@ -4607,7 +4607,7 @@ module.exports = {
                 'Tibig',
                 'Tipacan'
             ],
-            postalCodes: [4217]
+            postalCodes: ['4217']
         },
         Lobo: {
             subDistrict: [
@@ -4638,7 +4638,7 @@ module.exports = {
                 'Soloc',
                 'Tayuman'
             ],
-            postalCodes: [4229]
+            postalCodes: ['4229']
         },
         Mabini: {
             subDistrict: [
@@ -4677,7 +4677,7 @@ module.exports = {
                 'Talaga East',
                 'Talaga Proper'
             ],
-            postalCodes: [4202]
+            postalCodes: ['4202']
         },
         Malvar: {
             subDistrict: [
@@ -4697,7 +4697,7 @@ module.exports = {
                 'San Pioquinto',
                 'Santiago'
             ],
-            postalCodes: [4233]
+            postalCodes: ['4233']
         },
         'Mataas na Kahoy': {
             subDistrict: [
@@ -4718,7 +4718,7 @@ module.exports = {
                 'Santol',
                 'Upa'
             ],
-            postalCodes: [4223]
+            postalCodes: ['4223']
         },
         Nasugbu: {
             subDistrict: [
@@ -4765,7 +4765,7 @@ module.exports = {
                 'Utod',
                 'Wawa'
             ],
-            postalCodes: [4231]
+            postalCodes: ['4231']
         },
         'Padre Garcia': {
             subDistrict: [
@@ -4788,7 +4788,7 @@ module.exports = {
                 'Tamak',
                 'Tangob'
             ],
-            postalCodes: [4224]
+            postalCodes: ['4224']
         },
         Rosario: {
             subDistrict: [
@@ -4841,7 +4841,7 @@ module.exports = {
                 'Tiquiwan',
                 'Tulos'
             ],
-            postalCodes: [1609]
+            postalCodes: ['1609']
         },
         'San Jose': {
             subDistrict: [
@@ -4879,7 +4879,7 @@ module.exports = {
                 'Taysan',
                 'Tugtug'
             ],
-            postalCodes: [1404]
+            postalCodes: ['1404']
         },
         'San Juan': {
             subDistrict: [
@@ -4926,7 +4926,7 @@ module.exports = {
                 'Ticalan',
                 'Tipaz'
             ],
-            postalCodes: [2823]
+            postalCodes: ['2823']
         },
         'San Luis': {
             subDistrict: [
@@ -4957,7 +4957,7 @@ module.exports = {
                 'Tejero',
                 'Tungal'
             ],
-            postalCodes: [3201]
+            postalCodes: ['3201']
         },
         'San Nicolas': {
             subDistrict: [
@@ -4980,7 +4980,7 @@ module.exports = {
                 'Tagudtod',
                 'Talang'
             ],
-            postalCodes: [1010]
+            postalCodes: ['1010']
         },
         'San Pascual': {
             subDistrict: [
@@ -5014,7 +5014,7 @@ module.exports = {
                 'Santa Elena',
                 'Santo Niño'
             ],
-            postalCodes: [4204]
+            postalCodes: ['4204']
         },
         'Santa Teresita': {
             subDistrict: [
@@ -5036,7 +5036,7 @@ module.exports = {
                 'Tambo Ibaba',
                 'Tambo Ilaya'
             ],
-            postalCodes: [1114]
+            postalCodes: ['1114']
         },
         'Sto. Tomas': {
             subDistrict: [
@@ -5071,7 +5071,7 @@ module.exports = {
                 'Santa Teresita',
                 'Santiago'
             ],
-            postalCodes: [4234]
+            postalCodes: ['4234']
         },
         Taal: {
             subDistrict: [
@@ -5118,7 +5118,7 @@ module.exports = {
                 'Tierra Alta',
                 'Tulo'
             ],
-            postalCodes: [4208]
+            postalCodes: ['4208']
         },
         Talisay: {
             subDistrict: [
@@ -5144,7 +5144,7 @@ module.exports = {
                 'Tranca',
                 'Tumaway'
             ],
-            postalCodes: [4220]
+            postalCodes: ['4220']
         },
         Tanauan: {
             subDistrict: [
@@ -5197,7 +5197,7 @@ module.exports = {
                 'Ulango',
                 'Wawa'
             ],
-            postalCodes: [4232]
+            postalCodes: ['4232']
         },
         Taysan: {
             subDistrict: [
@@ -5222,7 +5222,7 @@ module.exports = {
                 'Santo Niño',
                 'Tilambo'
             ],
-            postalCodes: [4228]
+            postalCodes: ['4228']
         },
         Tingloy: {
             subDistrict: [
@@ -5242,7 +5242,7 @@ module.exports = {
                 'Santo Tomas',
                 'Talahib'
             ],
-            postalCodes: [4203]
+            postalCodes: ['4203']
         },
         Tuy: {
             subDistrict: [
@@ -5269,7 +5269,7 @@ module.exports = {
                 'Toong',
                 'Tuyon-tuyon'
             ],
-            postalCodes: [4214]
+            postalCodes: ['4214']
         }
     },
     Benguet: {
@@ -5284,7 +5284,7 @@ module.exports = {
                 'Poblacion',
                 'Topdac'
             ],
-            postalCodes: [2612]
+            postalCodes: ['2612']
         },
         'Baguio City': {
             subDistrict: [
@@ -5406,7 +5406,7 @@ module.exports = {
                 'Trancoville',
                 'Victoria Village'
             ],
-            postalCodes: [2600]
+            postalCodes: ['2600']
         },
         Bakun: {
             subDistrict: [
@@ -5418,7 +5418,7 @@ module.exports = {
                 'Poblacion',
                 'Sinacbat'
             ],
-            postalCodes: [2610]
+            postalCodes: ['2610']
         },
         Bokod: {
             subDistrict: [
@@ -5433,7 +5433,7 @@ module.exports = {
                 'Poblacion',
                 'Tikey'
             ],
-            postalCodes: [2605]
+            postalCodes: ['2605']
         },
         Buguias: {
             subDistrict: [
@@ -5452,7 +5452,7 @@ module.exports = {
                 'Poblacion',
                 'Sebang'
             ],
-            postalCodes: [2607]
+            postalCodes: ['2607']
         },
         Itogon: {
             subDistrict: [
@@ -5466,7 +5466,7 @@ module.exports = {
                 'Ucab',
                 'Virac'
             ],
-            postalCodes: [2604]
+            postalCodes: ['2604']
         },
         Kabayan: {
             subDistrict: [
@@ -5484,7 +5484,7 @@ module.exports = {
                 'Poblacion',
                 'Tawangan'
             ],
-            postalCodes: [2606]
+            postalCodes: ['2606']
         },
         Kapangan: {
             subDistrict: [
@@ -5504,7 +5504,7 @@ module.exports = {
                 'Sagubo',
                 'Taba-ao'
             ],
-            postalCodes: [2613]
+            postalCodes: ['2613']
         },
         Kibungan: {
             subDistrict: [
@@ -5516,7 +5516,7 @@ module.exports = {
                 'Sagpat',
                 'Tacadang'
             ],
-            postalCodes: [2611]
+            postalCodes: ['2611']
         },
         'La Trinidad': {
             subDistrict: [
@@ -5537,7 +5537,7 @@ module.exports = {
                 'Tawang',
                 'Wangal'
             ],
-            postalCodes: [2601]
+            postalCodes: ['2601']
         },
         Mankayan: {
             subDistrict: [
@@ -5554,7 +5554,7 @@ module.exports = {
                 'Tabio',
                 'Taneg'
             ],
-            postalCodes: [2608]
+            postalCodes: ['2608']
         },
         Sablan: {
             subDistrict: [
@@ -5567,7 +5567,7 @@ module.exports = {
                 'Pappa',
                 'Poblacion'
             ],
-            postalCodes: [2614]
+            postalCodes: ['2614']
         },
         Tuba: {
             subDistrict: [
@@ -5585,7 +5585,7 @@ module.exports = {
                 'Taloy Sur',
                 'Twin Peaks'
             ],
-            postalCodes: [2603]
+            postalCodes: ['2603']
         },
         Tublay: {
             subDistrict: [
@@ -5598,7 +5598,7 @@ module.exports = {
                 'Tublay Central',
                 'Tuel'
             ],
-            postalCodes: [2615]
+            postalCodes: ['2615']
         }
     },
     Biliran: {
@@ -5618,7 +5618,7 @@ module.exports = {
                 'Talahid',
                 'Tamarindo'
             ],
-            postalCodes: [6544]
+            postalCodes: ['6544']
         },
         Biliran: {
             subDistrict: [
@@ -5634,7 +5634,7 @@ module.exports = {
                 'Sanggalang',
                 'Villa Enage'
             ],
-            postalCodes: [6549]
+            postalCodes: ['6549']
         },
         Cabucgayan: {
             subDistrict: [
@@ -5652,7 +5652,7 @@ module.exports = {
                 'Salawad',
                 'Talibong'
             ],
-            postalCodes: [6549]
+            postalCodes: ['6549']
         },
         Caibiran: {
             subDistrict: [
@@ -5674,7 +5674,7 @@ module.exports = {
                 'Victory (Pob.)',
                 'Villa Vicenta'
             ],
-            postalCodes: [6548]
+            postalCodes: ['6548']
         },
         Culaba: {
             subDistrict: [
@@ -5696,7 +5696,7 @@ module.exports = {
                 'San Roque',
                 'Virginia (Pob.)'
             ],
-            postalCodes: [6547]
+            postalCodes: ['6547']
         },
         Kawayan: {
             subDistrict: [
@@ -5721,7 +5721,7 @@ module.exports = {
                 'Ungale',
                 'Villa Cornejo'
             ],
-            postalCodes: [6545]
+            postalCodes: ['6545']
         },
         Maripipi: {
             subDistrict: [
@@ -5741,7 +5741,7 @@ module.exports = {
                 'Trabugan',
                 'Viga'
             ],
-            postalCodes: [6546]
+            postalCodes: ['6546']
         },
         Naval: {
             subDistrict: [
@@ -5772,7 +5772,7 @@ module.exports = {
                 'Villa Caneja',
                 'Villa Consuelo'
             ],
-            postalCodes: [6543]
+            postalCodes: ['6543']
         }
     },
     Bohol: {
@@ -5790,7 +5790,7 @@ module.exports = {
                 'Toril',
                 'West Poblacion'
             ],
-            postalCodes: [6302]
+            postalCodes: ['6302']
         },
         Alicia: {
             subDistrict: [
@@ -5810,7 +5810,7 @@ module.exports = {
                 'Sudlon',
                 'Untaga'
             ],
-            postalCodes: [1105]
+            postalCodes: ['1105']
         },
         Anda: {
             subDistrict: [
@@ -5831,7 +5831,7 @@ module.exports = {
                 'Tawid',
                 'Virgen'
             ],
-            postalCodes: [2405]
+            postalCodes: ['2405']
         },
         Antequera: {
             subDistrict: [
@@ -5857,7 +5857,7 @@ module.exports = {
                 'Viga',
                 'Villa Aurora'
             ],
-            postalCodes: [6335]
+            postalCodes: ['6335']
         },
         Baclayon: {
             subDistrict: [
@@ -5879,7 +5879,7 @@ module.exports = {
                 'Taguihon',
                 'Tanday'
             ],
-            postalCodes: [6301]
+            postalCodes: ['6301']
         },
         Balilihan: {
             subDistrict: [
@@ -5915,7 +5915,7 @@ module.exports = {
                 'Santo Niño',
                 'Tagustusan'
             ],
-            postalCodes: [6342]
+            postalCodes: ['6342']
         },
         Batuan: {
             subDistrict: [
@@ -5935,7 +5935,7 @@ module.exports = {
                 'Rosariohan',
                 'Santa Cruz'
             ],
-            postalCodes: [6318]
+            postalCodes: ['6318']
         },
         'Bien Unido': {
             subDistrict: [
@@ -5955,7 +5955,7 @@ module.exports = {
                 'Sagasa',
                 'Tuboran'
             ],
-            postalCodes: [6326]
+            postalCodes: ['6326']
         },
         Bilar: {
             subDistrict: [
@@ -5979,7 +5979,7 @@ module.exports = {
                 'Yanaya',
                 'Zamora'
             ],
-            postalCodes: [6317]
+            postalCodes: ['6317']
         },
         Buenavista: {
             subDistrict: [
@@ -6019,7 +6019,7 @@ module.exports = {
                 'Sweetland',
                 'Western Cabul-an'
             ],
-            postalCodes: [4904]
+            postalCodes: ['4904']
         },
         Calape: {
             subDistrict: [
@@ -6057,7 +6057,7 @@ module.exports = {
                 'Tultugan',
                 'Ulbujan'
             ],
-            postalCodes: [6328]
+            postalCodes: ['6328']
         },
         Candijay: {
             subDistrict: [
@@ -6083,7 +6083,7 @@ module.exports = {
                 'Tubod',
                 'Tugas'
             ],
-            postalCodes: [6312]
+            postalCodes: ['6312']
         },
         Carmen: {
             subDistrict: [
@@ -6117,7 +6117,7 @@ module.exports = {
                 'Villafuerte',
                 'Villarcayo'
             ],
-            postalCodes: [6319]
+            postalCodes: ['6319']
         },
         Catigbian: {
             subDistrict: [
@@ -6144,7 +6144,7 @@ module.exports = {
                 'Sinakayanan',
                 'Triple Union'
             ],
-            postalCodes: [6343]
+            postalCodes: ['6343']
         },
         Clarin: {
             subDistrict: [
@@ -6173,7 +6173,7 @@ module.exports = {
                 'Tubod',
                 'Villaflor'
             ],
-            postalCodes: [6330]
+            postalCodes: ['6330']
         },
         Corella: {
             subDistrict: [
@@ -6186,7 +6186,7 @@ module.exports = {
                 'Sambog',
                 'Tanday'
             ],
-            postalCodes: [6337]
+            postalCodes: ['6337']
         },
         Cortes: {
             subDistrict: [
@@ -6205,7 +6205,7 @@ module.exports = {
                 'San Roque',
                 'Upper de la Paz'
             ],
-            postalCodes: [6341]
+            postalCodes: ['6341']
         },
         Dagohoy: {
             subDistrict: [
@@ -6225,7 +6225,7 @@ module.exports = {
                 'Santa Cruz',
                 'Villa Aurora'
             ],
-            postalCodes: [6322]
+            postalCodes: ['6322']
         },
         Danao: {
             subDistrict: [
@@ -6247,7 +6247,7 @@ module.exports = {
                 'Taming',
                 'Villa Anunciado'
             ],
-            postalCodes: [6344]
+            postalCodes: ['6344']
         },
         Dauis: {
             subDistrict: [
@@ -6264,7 +6264,7 @@ module.exports = {
                 'Tinago',
                 'Totolan'
             ],
-            postalCodes: [6339]
+            postalCodes: ['6339']
         },
         Dimiao: {
             subDistrict: [
@@ -6304,7 +6304,7 @@ module.exports = {
                 'Taongon Can-andam',
                 'Tawid Bitaog'
             ],
-            postalCodes: [6305]
+            postalCodes: ['6305']
         },
         Duero: {
             subDistrict: [
@@ -6330,7 +6330,7 @@ module.exports = {
                 'San Pedro',
                 'Taytay'
             ],
-            postalCodes: [6309]
+            postalCodes: ['6309']
         },
         'Garcia Hernandez': {
             subDistrict: [
@@ -6365,7 +6365,7 @@ module.exports = {
                 'Ulbujan West',
                 'Victoria'
             ],
-            postalCodes: [6307]
+            postalCodes: ['6307']
         },
         Getafe: {
             subDistrict: [
@@ -6394,7 +6394,7 @@ module.exports = {
                 'Tugas',
                 'Tulang'
             ],
-            postalCodes: [6334]
+            postalCodes: ['6334']
         },
         Guindulman: {
             subDistrict: [
@@ -6418,7 +6418,7 @@ module.exports = {
                 'Tabunok',
                 'Trinidad'
             ],
-            postalCodes: [6310]
+            postalCodes: ['6310']
         },
         Inabanga: {
             subDistrict: [
@@ -6473,7 +6473,7 @@ module.exports = {
                 'U-og',
                 'Ubujan'
             ],
-            postalCodes: [6332]
+            postalCodes: ['6332']
         },
         Jagna: {
             subDistrict: [
@@ -6511,7 +6511,7 @@ module.exports = {
                 'Tubod Mar',
                 'Tubod Monte'
             ],
-            postalCodes: [6308]
+            postalCodes: ['6308']
         },
         Lila: {
             subDistrict: [
@@ -6534,7 +6534,7 @@ module.exports = {
                 'Taug',
                 'Tiguis'
             ],
-            postalCodes: [6304]
+            postalCodes: ['6304']
         },
         Loay: {
             subDistrict: [
@@ -6563,7 +6563,7 @@ module.exports = {
                 'Villalimpia',
                 'Yanangan'
             ],
-            postalCodes: [6303]
+            postalCodes: ['6303']
         },
         Loboc: {
             subDistrict: [
@@ -6596,7 +6596,7 @@ module.exports = {
                 'Valladolid',
                 'Villaflor'
             ],
-            postalCodes: [6316]
+            postalCodes: ['6316']
         },
         Loon: {
             subDistrict: [
@@ -6668,7 +6668,7 @@ module.exports = {
                 'Ubayon',
                 'Ubojan'
             ],
-            postalCodes: [6327]
+            postalCodes: ['6327']
         },
         Mabini: {
             subDistrict: [
@@ -6695,7 +6695,7 @@ module.exports = {
                 'Tangkigan',
                 'Valaga'
             ],
-            postalCodes: [4202]
+            postalCodes: ['4202']
         },
         Maribojoc: {
             subDistrict: [
@@ -6722,7 +6722,7 @@ module.exports = {
                 'Tinibgan',
                 'Toril'
             ],
-            postalCodes: [6336]
+            postalCodes: ['6336']
         },
         Panglao: {
             subDistrict: [
@@ -6737,7 +6737,7 @@ module.exports = {
                 'Tangnan',
                 'Tawala'
             ],
-            postalCodes: [6340]
+            postalCodes: ['6340']
         },
         Pilar: {
             subDistrict: [
@@ -6763,7 +6763,7 @@ module.exports = {
                 'San Isidro',
                 'San Vicente'
             ],
-            postalCodes: [2812]
+            postalCodes: ['2812']
         },
         'Pres. Carlos P. Garcia': {
             subDistrict: [
@@ -6791,7 +6791,7 @@ module.exports = {
                 'Tugnao',
                 'Villa Milagrosa'
             ],
-            postalCodes: [6346]
+            postalCodes: ['6346']
         },
         Sagbayan: {
             subDistrict: [
@@ -6820,7 +6820,7 @@ module.exports = {
                 'Santa Cruz',
                 'Ubojan'
             ],
-            postalCodes: [6331]
+            postalCodes: ['6331']
         },
         'San Isidro': {
             subDistrict: [
@@ -6837,7 +6837,7 @@ module.exports = {
                 'Masonoy',
                 'Poblacion'
             ],
-            postalCodes: [1234]
+            postalCodes: ['1234']
         },
         'San Miguel': {
             subDistrict: [
@@ -6860,7 +6860,7 @@ module.exports = {
                 'Santo Niño',
                 'Tomoc'
             ],
-            postalCodes: [1005]
+            postalCodes: ['1005']
         },
         Sevilla: {
             subDistrict: [
@@ -6878,7 +6878,7 @@ module.exports = {
                 'Magsaysay',
                 'Poblacion'
             ],
-            postalCodes: [6347]
+            postalCodes: ['6347']
         },
         'Sierra Bullones': {
             subDistrict: [
@@ -6905,7 +6905,7 @@ module.exports = {
                 'Santa Cruz',
                 'Villa Garcia'
             ],
-            postalCodes: [6320]
+            postalCodes: ['6320']
         },
         Sikatuna: {
             subDistrict: [
@@ -6920,7 +6920,7 @@ module.exports = {
                 'Poblacion I',
                 'Poblacion II'
             ],
-            postalCodes: [6338]
+            postalCodes: ['6338']
         },
         'Tagbilaran City': {
             subDistrict: [
@@ -6940,7 +6940,7 @@ module.exports = {
                 'Tiptip',
                 'Ubujan'
             ],
-            postalCodes: [6300]
+            postalCodes: ['6300']
         },
         Talibon: {
             subDistrict: [
@@ -6970,7 +6970,7 @@ module.exports = {
                 'Tanghaligue',
                 'Zamora'
             ],
-            postalCodes: [6325]
+            postalCodes: ['6325']
         },
         Trinidad: {
             subDistrict: [
@@ -6995,7 +6995,7 @@ module.exports = {
                 'Tagum Norte',
                 'Tagum Sur'
             ],
-            postalCodes: [6324]
+            postalCodes: ['6324']
         },
         Tubigon: {
             subDistrict: [
@@ -7034,7 +7034,7 @@ module.exports = {
                 'Ubojan',
                 'Villanueva'
             ],
-            postalCodes: [6329]
+            postalCodes: ['6329']
         },
         Ubay: {
             subDistrict: [
@@ -7083,7 +7083,7 @@ module.exports = {
                 'Union',
                 'Villa Teresita'
             ],
-            postalCodes: [6315]
+            postalCodes: ['6315']
         },
         Valencia: {
             subDistrict: [
@@ -7123,7 +7123,7 @@ module.exports = {
                 'Taytay',
                 'Ticum'
             ],
-            postalCodes: [1112]
+            postalCodes: ['1112']
         }
     },
     Bukidnon: {
@@ -7147,7 +7147,7 @@ module.exports = {
                 'San Vicente',
                 'Tampalan'
             ],
-            postalCodes: [8707]
+            postalCodes: ['8707']
         },
         Cabanglasan: {
             subDistrict: [
@@ -7167,7 +7167,7 @@ module.exports = {
                 'Paradise',
                 'Poblacion'
             ],
-            postalCodes: [8723]
+            postalCodes: ['8723']
         },
         Damulog: {
             subDistrict: [
@@ -7189,7 +7189,7 @@ module.exports = {
                 'San Isidro',
                 'Tangkulan'
             ],
-            postalCodes: [8721]
+            postalCodes: ['8721']
         },
         Dangcagan: {
             subDistrict: [
@@ -7208,7 +7208,7 @@ module.exports = {
                 'Sagbayan',
                 'San Vicente'
             ],
-            postalCodes: [8719]
+            postalCodes: ['8719']
         },
         'Don Carlos': {
             subDistrict: [
@@ -7242,7 +7242,7 @@ module.exports = {
                 'San Roque',
                 'Sinangguyan'
             ],
-            postalCodes: [8712]
+            postalCodes: ['8712']
         },
         'Impasug-ong': {
             subDistrict: [
@@ -7260,7 +7260,7 @@ module.exports = {
                 'Poblacion',
                 'Sayawan'
             ],
-            postalCodes: [8702]
+            postalCodes: ['8702']
         },
         Kadingilan: {
             subDistrict: [
@@ -7282,7 +7282,7 @@ module.exports = {
                 'San Andres',
                 'Sibonga'
             ],
-            postalCodes: [8713]
+            postalCodes: ['8713']
         },
         Kalilangan: {
             subDistrict: [
@@ -7301,7 +7301,7 @@ module.exports = {
                 'San Vicente Ferrer',
                 'West Poblacion'
             ],
-            postalCodes: [8718]
+            postalCodes: ['8718']
         },
         Kibawe: {
             subDistrict: [
@@ -7329,7 +7329,7 @@ module.exports = {
                 'Tumaras',
                 'West Kibawe (Pob.)'
             ],
-            postalCodes: [8720]
+            postalCodes: ['8720']
         },
         Kitaotao: {
             subDistrict: [
@@ -7369,7 +7369,7 @@ module.exports = {
                 'West Dalurong',
                 'White Kulaman'
             ],
-            postalCodes: [8716]
+            postalCodes: ['8716']
         },
         Lantapan: {
             subDistrict: [
@@ -7388,7 +7388,7 @@ module.exports = {
                 'Songco',
                 'Victory'
             ],
-            postalCodes: [8722]
+            postalCodes: ['8722']
         },
         Libona: {
             subDistrict: [
@@ -7407,7 +7407,7 @@ module.exports = {
                 'Santa Fe',
                 'Sil-ipon'
             ],
-            postalCodes: [8706]
+            postalCodes: ['8706']
         },
         Malaybalay: {
             subDistrict: [
@@ -7458,7 +7458,7 @@ module.exports = {
                 'Violeta',
                 'Zamboanguita'
             ],
-            postalCodes: [8700]
+            postalCodes: ['8700']
         },
         Malitbog: {
             subDistrict: [
@@ -7474,7 +7474,7 @@ module.exports = {
                 'Silo-o',
                 'Sumalsag'
             ],
-            postalCodes: [6603]
+            postalCodes: ['6603']
         },
         'Manolo Fortich': {
             subDistrict: [
@@ -7501,7 +7501,7 @@ module.exports = {
                 'Tankulan (Pob.)',
                 'Ticala'
             ],
-            postalCodes: [8703]
+            postalCodes: ['8703']
         },
         Maramag: {
             subDistrict: [
@@ -7526,7 +7526,7 @@ module.exports = {
                 'South Poblacion',
                 'Tubigon'
             ],
-            postalCodes: [8714]
+            postalCodes: ['8714']
         },
         Pangantucan: {
             subDistrict: [
@@ -7550,7 +7550,7 @@ module.exports = {
                 'Poblacion',
                 'Portulin'
             ],
-            postalCodes: [8717]
+            postalCodes: ['8717']
         },
         Quezon: {
             subDistrict: [
@@ -7586,7 +7586,7 @@ module.exports = {
                 'Santa Cruz',
                 'Santa Filomena'
             ],
-            postalCodes: [3324]
+            postalCodes: ['3324']
         },
         'San Fernando': {
             subDistrict: [
@@ -7615,7 +7615,7 @@ module.exports = {
                 'Santo Domingo',
                 'Tugop'
             ],
-            postalCodes: [4415]
+            postalCodes: ['4415']
         },
         Sumilao: {
             subDistrict: [
@@ -7630,7 +7630,7 @@ module.exports = {
                 'San Vicente',
                 'Vista Villa'
             ],
-            postalCodes: [8701]
+            postalCodes: ['8701']
         },
         Talakag: {
             subDistrict: [
@@ -7664,7 +7664,7 @@ module.exports = {
                 'Tagbak',
                 'Tikalaan'
             ],
-            postalCodes: [8708]
+            postalCodes: ['8708']
         },
         Valencia: {
             subDistrict: [
@@ -7700,7 +7700,7 @@ module.exports = {
                 'Tugaya',
                 'Vintar'
             ],
-            postalCodes: [8709]
+            postalCodes: ['8709']
         }
     },
     Bulacan: {
@@ -7723,7 +7723,7 @@ module.exports = {
                 'Sulucan',
                 'Taboc'
             ],
-            postalCodes: [3012]
+            postalCodes: ['3012']
         },
         Balagtas: {
             subDistrict: [
@@ -7737,7 +7737,7 @@ module.exports = {
                 'Santol',
                 'Wawa (Pob.)'
             ],
-            postalCodes: [3016]
+            postalCodes: ['3016']
         },
         Baliuag: {
             subDistrict: [
@@ -7769,7 +7769,7 @@ module.exports = {
                 'Tilapayong',
                 'Virgen delas Flores'
             ],
-            postalCodes: [3006]
+            postalCodes: ['3006']
         },
         Bocaue: {
             subDistrict: [
@@ -7793,7 +7793,7 @@ module.exports = {
                 'Turo',
                 'Wakas'
             ],
-            postalCodes: [3018]
+            postalCodes: ['3018']
         },
         Bulacan: {
             subDistrict: [
@@ -7812,7 +7812,7 @@ module.exports = {
                 'Taliptip',
                 'Tibig'
             ],
-            postalCodes: [3017]
+            postalCodes: ['3017']
         },
         Bustos: {
             subDistrict: [
@@ -7831,7 +7831,7 @@ module.exports = {
                 'Tanawan',
                 'Tibagan'
             ],
-            postalCodes: [3007]
+            postalCodes: ['3007']
         },
         Calumpit: {
             subDistrict: [
@@ -7865,7 +7865,7 @@ module.exports = {
                 'Sergio Bayan',
                 'Sucol'
             ],
-            postalCodes: [3003]
+            postalCodes: ['3003']
         },
         'Doña Remedios Trinidad': {
             subDistrict: [
@@ -7878,7 +7878,7 @@ module.exports = {
                 'Sapang Bulak',
                 'Talbak'
             ],
-            postalCodes: [3009]
+            postalCodes: ['3009']
         },
         Guiguinto: {
             subDistrict: [
@@ -7897,7 +7897,7 @@ module.exports = {
                 'Tiaong',
                 'Tuktukan'
             ],
-            postalCodes: [3015]
+            postalCodes: ['3015']
         },
         Hagonoy: {
             subDistrict: [
@@ -7928,7 +7928,7 @@ module.exports = {
                 'Tampok',
                 'Tibaguin'
             ],
-            postalCodes: [3002]
+            postalCodes: ['3002']
         },
         Malolos: {
             subDistrict: [
@@ -7984,7 +7984,7 @@ module.exports = {
                 'Taal',
                 'Tikay'
             ],
-            postalCodes: [3000]
+            postalCodes: ['3000']
         },
         Marilao: {
             subDistrict: [
@@ -8005,7 +8005,7 @@ module.exports = {
                 'Saog',
                 'Tabing Ilog'
             ],
-            postalCodes: [3019]
+            postalCodes: ['3019']
         },
         Meycauayan: {
             subDistrict: [
@@ -8036,7 +8036,7 @@ module.exports = {
                 'Ubihan',
                 'Zamora'
             ],
-            postalCodes: [3020]
+            postalCodes: ['3020']
         },
         Norzagaray: {
             subDistrict: [
@@ -8054,7 +8054,7 @@ module.exports = {
                 'San Mateo',
                 'Tigbe'
             ],
-            postalCodes: [3013]
+            postalCodes: ['3013']
         },
         Obando: {
             subDistrict: [
@@ -8070,7 +8070,7 @@ module.exports = {
                 'San Pascual',
                 'Tawiran'
             ],
-            postalCodes: [3021]
+            postalCodes: ['3021']
         },
         Pandi: {
             subDistrict: [
@@ -8097,7 +8097,7 @@ module.exports = {
                 'Siling Bata',
                 'Siling Matanda'
             ],
-            postalCodes: [3014]
+            postalCodes: ['3014']
         },
         Paombong: {
             subDistrict: [
@@ -8116,7 +8116,7 @@ module.exports = {
                 'Santo Niño',
                 'Santo Rosario'
             ],
-            postalCodes: [3001]
+            postalCodes: ['3001']
         },
         Plaridel: {
             subDistrict: [
@@ -8140,7 +8140,7 @@ module.exports = {
                 'Sipat',
                 'Tabang'
             ],
-            postalCodes: [3004]
+            postalCodes: ['3004']
         },
         Pulilan: {
             subDistrict: [
@@ -8164,7 +8164,7 @@ module.exports = {
                 'Tibag',
                 'Tinejero'
             ],
-            postalCodes: [3005]
+            postalCodes: ['3005']
         },
         'San Ildefonso': {
             subDistrict: [
@@ -8205,7 +8205,7 @@ module.exports = {
                 'Umpucan',
                 'Upig'
             ],
-            postalCodes: [3010]
+            postalCodes: ['3010']
         },
         'San Jose Del Monte': {
             subDistrict: [
@@ -8269,7 +8269,7 @@ module.exports = {
                 'St. Martin de Porres',
                 'Tungkong Mangga'
             ],
-            postalCodes: [3023]
+            postalCodes: ['3023']
         },
         'San Miguel': {
             subDistrict: [
@@ -8323,7 +8323,7 @@ module.exports = {
                 'Tibagan',
                 'Tigpalas'
             ],
-            postalCodes: [1005]
+            postalCodes: ['1005']
         },
         'San Rafael': {
             subDistrict: [
@@ -8362,7 +8362,7 @@ module.exports = {
                 'Tukod',
                 'Ulingao'
             ],
-            postalCodes: [1302]
+            postalCodes: ['1302']
         },
         'Santa Maria': {
             subDistrict: [
@@ -8391,7 +8391,7 @@ module.exports = {
                 'Tabing Bakod',
                 'Tumana'
             ],
-            postalCodes: [3022]
+            postalCodes: ['3022']
         }
     },
     Cagayan: {
@@ -8418,7 +8418,7 @@ module.exports = {
                 'Simayung',
                 'Sirit'
             ],
-            postalCodes: [3517]
+            postalCodes: ['3517']
         },
         Alcala: {
             subDistrict: [
@@ -8448,7 +8448,7 @@ module.exports = {
                 'Tamban',
                 'Tupang'
             ],
-            postalCodes: [3506]
+            postalCodes: ['3506']
         },
         Allacapan: {
             subDistrict: [
@@ -8480,7 +8480,7 @@ module.exports = {
                 'Tubel',
                 'Utan'
             ],
-            postalCodes: [3523]
+            postalCodes: ['3523']
         },
         Amulung: {
             subDistrict: [
@@ -8532,7 +8532,7 @@ module.exports = {
                 'Tana',
                 'Unag'
             ],
-            postalCodes: [3505]
+            postalCodes: ['3505']
         },
         Aparri: {
             subDistrict: [
@@ -8579,7 +8579,7 @@ module.exports = {
                 'Toran',
                 'Zinarag'
             ],
-            postalCodes: [3515]
+            postalCodes: ['3515']
         },
         Baggao: {
             subDistrict: [
@@ -8632,7 +8632,7 @@ module.exports = {
                 'Temblique',
                 'Tungel'
             ],
-            postalCodes: [3506]
+            postalCodes: ['3506']
         },
         Ballesteros: {
             subDistrict: [
@@ -8656,7 +8656,7 @@ module.exports = {
                 'Santa Cruz',
                 'Zitanga'
             ],
-            postalCodes: [3516]
+            postalCodes: ['3516']
         },
         Buguey: {
             subDistrict: [
@@ -8691,7 +8691,7 @@ module.exports = {
                 'Villa Gracia',
                 'Villa Leonora'
             ],
-            postalCodes: [3511]
+            postalCodes: ['3511']
         },
         Calayan: {
             subDistrict: [
@@ -8708,7 +8708,7 @@ module.exports = {
                 'Naguilian',
                 'Poblacion'
             ],
-            postalCodes: [3520]
+            postalCodes: ['3520']
         },
         Camalaniugan: {
             subDistrict: [
@@ -8741,7 +8741,7 @@ module.exports = {
                 'Tuluttuging',
                 'Ziminila'
             ],
-            postalCodes: [3510]
+            postalCodes: ['3510']
         },
         Claveria: {
             subDistrict: [
@@ -8787,7 +8787,7 @@ module.exports = {
                 'Taggat Sur',
                 'Union'
             ],
-            postalCodes: [3519]
+            postalCodes: ['3519']
         },
         Enrile: {
             subDistrict: [
@@ -8814,7 +8814,7 @@ module.exports = {
                 'Roma Sur',
                 'San Antonio'
             ],
-            postalCodes: [3501]
+            postalCodes: ['3501']
         },
         Gattaran: {
             subDistrict: [
@@ -8869,7 +8869,7 @@ module.exports = {
                 'Tubungan Este',
                 'Tubungan Weste'
             ],
-            postalCodes: [3508]
+            postalCodes: ['3508']
         },
         Gonzaga: {
             subDistrict: [
@@ -8899,7 +8899,7 @@ module.exports = {
                 'Smart (Pob.)',
                 'Tapel'
             ],
-            postalCodes: [3511]
+            postalCodes: ['3511']
         },
         Iguig: {
             subDistrict: [
@@ -8927,7 +8927,7 @@ module.exports = {
                 'Santa Teresa',
                 'Santiago'
             ],
-            postalCodes: [3504]
+            postalCodes: ['3504']
         },
         'Lal-Lo': {
             subDistrict: [
@@ -8967,7 +8967,7 @@ module.exports = {
                 'Santa Maria',
                 'Tucalana'
             ],
-            postalCodes: [3509]
+            postalCodes: ['3509']
         },
         Lasam: {
             subDistrict: [
@@ -9002,7 +9002,7 @@ module.exports = {
                 'Tucalan Passing',
                 'Viga'
             ],
-            postalCodes: [3524]
+            postalCodes: ['3524']
         },
         Pamplona: {
             subDistrict: [
@@ -9025,7 +9025,7 @@ module.exports = {
                 'Tabba',
                 'Tupanna'
             ],
-            postalCodes: [3522]
+            postalCodes: ['3522']
         },
         Peñablanca: {
             subDistrict: [
@@ -9054,7 +9054,7 @@ module.exports = {
                 'San Roque',
                 'Sisim'
             ],
-            postalCodes: [3502]
+            postalCodes: ['3502']
         },
         Piat: {
             subDistrict: [
@@ -9077,7 +9077,7 @@ module.exports = {
                 'Villa Reyno',
                 'Warat'
             ],
-            postalCodes: [3527]
+            postalCodes: ['3527']
         },
         Rizal: {
             subDistrict: [
@@ -9111,7 +9111,7 @@ module.exports = {
                 'San Juan',
                 'Sinicking'
             ],
-            postalCodes: [3526]
+            postalCodes: ['3526']
         },
         'Sanchez-Mira': {
             subDistrict: [
@@ -9134,7 +9134,7 @@ module.exports = {
                 'Santor',
                 'Tokitok'
             ],
-            postalCodes: [3518]
+            postalCodes: ['3518']
         },
         'Santa Ana': {
             subDistrict: [
@@ -9155,7 +9155,7 @@ module.exports = {
                 'Tangatan',
                 'Visitacion (Pob.)'
             ],
-            postalCodes: [3514]
+            postalCodes: ['3514']
         },
         'Santa Praxedes': {
             subDistrict: [
@@ -9170,7 +9170,7 @@ module.exports = {
                 'San Miguel',
                 'Sicul'
             ],
-            postalCodes: [3521]
+            postalCodes: ['3521']
         },
         'Santa Teresita': {
             subDistrict: [
@@ -9188,7 +9188,7 @@ module.exports = {
                 'Simpatuyo',
                 'Villa'
             ],
-            postalCodes: [1114]
+            postalCodes: ['1114']
         },
         'Santo Niño': {
             subDistrict: [
@@ -9224,7 +9224,7 @@ module.exports = {
                 'Tamucco',
                 'Virginia'
             ],
-            postalCodes: [1704]
+            postalCodes: ['1704']
         },
         Solana: {
             subDistrict: [
@@ -9267,7 +9267,7 @@ module.exports = {
                 'Sampaguita',
                 'Ubong'
             ],
-            postalCodes: [3503]
+            postalCodes: ['3503']
         },
         Tuao: {
             subDistrict: [
@@ -9304,7 +9304,7 @@ module.exports = {
                 'Taribubu',
                 'Villa Laida'
             ],
-            postalCodes: [3528]
+            postalCodes: ['3528']
         },
         'Tuguegarao City (Capital)': {
             subDistrict: [
@@ -9358,7 +9358,7 @@ module.exports = {
                 'Ugac Norte',
                 'Ugac Sur'
             ],
-            postalCodes: [3500]
+            postalCodes: ['3500']
         }
     },
     'Camarines Norte': {
@@ -9394,7 +9394,7 @@ module.exports = {
                 'Taisan',
                 'Tuaca'
             ],
-            postalCodes: [4608]
+            postalCodes: ['4608']
         },
         Capalonga: {
             subDistrict: [
@@ -9421,7 +9421,7 @@ module.exports = {
                 'Villa Aurora',
                 'Villa Belen'
             ],
-            postalCodes: [4606]
+            postalCodes: ['4606']
         },
         Daet: {
             subDistrict: [
@@ -9451,7 +9451,7 @@ module.exports = {
                 'Pamorangon',
                 'San Isidro'
             ],
-            postalCodes: [4600]
+            postalCodes: ['4600']
         },
         'Jose Panganiban': {
             subDistrict: [
@@ -9483,7 +9483,7 @@ module.exports = {
                 'South Poblacion',
                 'Tamisan'
             ],
-            postalCodes: [4606]
+            postalCodes: ['4606']
         },
         Labo: {
             subDistrict: [
@@ -9540,7 +9540,7 @@ module.exports = {
                 'Tigbinan',
                 'Tulay Na Lupa'
             ],
-            postalCodes: [4604]
+            postalCodes: ['4604']
         },
         Mercedes: {
             subDistrict: [
@@ -9571,7 +9571,7 @@ module.exports = {
                 'San Roque',
                 'Tarum'
             ],
-            postalCodes: [6808]
+            postalCodes: ['6808']
         },
         Paracale: {
             subDistrict: [
@@ -9603,7 +9603,7 @@ module.exports = {
                 'Tawig',
                 'Tugos'
             ],
-            postalCodes: [4605]
+            postalCodes: ['4605']
         },
         'San Lorenzo Ruiz (formerly Imelda)': {
             subDistrict: [
@@ -9620,7 +9620,7 @@ module.exports = {
                 'San Isidro',
                 'San Ramon'
             ],
-            postalCodes: [4610]
+            postalCodes: ['4610']
         },
         'San Vicente': {
             subDistrict: [
@@ -9634,7 +9634,7 @@ module.exports = {
                 'Poblacion District II',
                 'San Jose'
             ],
-            postalCodes: [1101]
+            postalCodes: ['1101']
         },
         'Santa Elena': {
             subDistrict: [
@@ -9658,7 +9658,7 @@ module.exports = {
                 'Tabugon',
                 'Villa San Isidro'
             ],
-            postalCodes: [4611]
+            postalCodes: ['4611']
         },
         Talisay: {
             subDistrict: [
@@ -9678,7 +9678,7 @@ module.exports = {
                 'Santa Elena',
                 'Santo Niño'
             ],
-            postalCodes: [4220]
+            postalCodes: ['4220']
         },
         Vinzons: {
             subDistrict: [
@@ -9702,7 +9702,7 @@ module.exports = {
                 'Singi',
                 'Sula'
             ],
-            postalCodes: [4603]
+            postalCodes: ['4603']
         }
     },
     'Camarines Sur': {
@@ -9739,7 +9739,7 @@ module.exports = {
                 'Santa Teresita',
                 'Tapol'
             ],
-            postalCodes: [4432]
+            postalCodes: ['4432']
         },
         Balatan: {
             subDistrict: [
@@ -9761,7 +9761,7 @@ module.exports = {
                 'Tapayas',
                 'Tomatarayo'
             ],
-            postalCodes: [4436]
+            postalCodes: ['4436']
         },
         Bato: {
             subDistrict: [
@@ -9799,7 +9799,7 @@ module.exports = {
                 'Tagpolo',
                 'Tres Reyes (Pob.)'
             ],
-            postalCodes: [4435]
+            postalCodes: ['4435']
         },
         Bombon: {
             subDistrict: [
@@ -9812,7 +9812,7 @@ module.exports = {
                 'Santo Domingo',
                 'Siembre'
             ],
-            postalCodes: [4404]
+            postalCodes: ['4404']
         },
         Buhi: {
             subDistrict: [
@@ -9855,7 +9855,7 @@ module.exports = {
                 'Santa Justina',
                 'Tambo'
             ],
-            postalCodes: [4433]
+            postalCodes: ['4433']
         },
         Bula: {
             subDistrict: [
@@ -9893,7 +9893,7 @@ module.exports = {
                 'Santo Niño',
                 'Taisan'
             ],
-            postalCodes: [4430]
+            postalCodes: ['4430']
         },
         Cabusao: {
             subDistrict: [
@@ -9907,7 +9907,7 @@ module.exports = {
                 'Santa Cruz',
                 'Santa Lutgarda (Pob.)'
             ],
-            postalCodes: [4406]
+            postalCodes: ['4406']
         },
         Calabanga: {
             subDistrict: [
@@ -9960,7 +9960,7 @@ module.exports = {
                 'Sogod',
                 'Tomagodtod'
             ],
-            postalCodes: [4405]
+            postalCodes: ['4405']
         },
         Camaligan: {
             subDistrict: [
@@ -9978,7 +9978,7 @@ module.exports = {
                 'Sua',
                 'Tarosanan'
             ],
-            postalCodes: [4401]
+            postalCodes: ['4401']
         },
         Canaman: {
             subDistrict: [
@@ -10007,7 +10007,7 @@ module.exports = {
                 'Talidtid',
                 'Tibgao (Pob.)'
             ],
-            postalCodes: [4402]
+            postalCodes: ['4402']
         },
         Caramoan: {
             subDistrict: [
@@ -10061,7 +10061,7 @@ module.exports = {
                 'Terogo',
                 'Toboan'
             ],
-            postalCodes: [4429]
+            postalCodes: ['4429']
         },
         'Del Gallego': {
             subDistrict: [
@@ -10098,7 +10098,7 @@ module.exports = {
                 'Zone I Fatima (Pob.)',
                 'Zone II San Antonio (Pob.)'
             ],
-            postalCodes: [4411]
+            postalCodes: ['4411']
         },
         Gainza: {
             subDistrict: [
@@ -10111,7 +10111,7 @@ module.exports = {
                 'Namuat',
                 'Sampaloc'
             ],
-            postalCodes: [4412]
+            postalCodes: ['4412']
         },
         Garchitorena: {
             subDistrict: [
@@ -10139,7 +10139,7 @@ module.exports = {
                 'Tamiawon',
                 'Toytoy'
             ],
-            postalCodes: [4428]
+            postalCodes: ['4428']
         },
         Goa: {
             subDistrict: [
@@ -10178,7 +10178,7 @@ module.exports = {
                 'Tamban',
                 'Taytay'
             ],
-            postalCodes: [4422]
+            postalCodes: ['4422']
         },
         'Iriga City': {
             subDistrict: [
@@ -10219,7 +10219,7 @@ module.exports = {
                 'Santo Domingo',
                 'Santo Niño'
             ],
-            postalCodes: [4431]
+            postalCodes: ['4431']
         },
         Lagonoy: {
             subDistrict: [
@@ -10262,7 +10262,7 @@ module.exports = {
                 'Saripongpong (Pob.)',
                 'Sipaco'
             ],
-            postalCodes: [4425]
+            postalCodes: ['4425']
         },
         Libmanan: {
             subDistrict: [
@@ -10342,7 +10342,7 @@ module.exports = {
                 'Villadima',
                 'Villasocorro'
             ],
-            postalCodes: [4407]
+            postalCodes: ['4407']
         },
         Lupi: {
             subDistrict: [
@@ -10385,7 +10385,7 @@ module.exports = {
                 'Tapi',
                 'Tible'
             ],
-            postalCodes: [4409]
+            postalCodes: ['4409']
         },
         Magarao: {
             subDistrict: [
@@ -10405,7 +10405,7 @@ module.exports = {
                 'Santa Rosa',
                 'Santo Tomas (Pob.)'
             ],
-            postalCodes: [4403]
+            postalCodes: ['4403']
         },
         Milaor: {
             subDistrict: [
@@ -10430,7 +10430,7 @@ module.exports = {
                 'Santo Domingo (Pob.)',
                 'Tarusanan'
             ],
-            postalCodes: [4413]
+            postalCodes: ['4413']
         },
         Minalabac: {
             subDistrict: [
@@ -10460,7 +10460,7 @@ module.exports = {
                 'Tariric',
                 'Timbang'
             ],
-            postalCodes: [4414]
+            postalCodes: ['4414']
         },
         Nabua: {
             subDistrict: [
@@ -10507,7 +10507,7 @@ module.exports = {
                 'Topas Proper',
                 'Topas Sogod'
             ],
-            postalCodes: [4434]
+            postalCodes: ['4434']
         },
         'Naga City': {
             subDistrict: [
@@ -10539,7 +10539,7 @@ module.exports = {
                 'Tinago',
                 'Triangulo'
             ],
-            postalCodes: [4400]
+            postalCodes: ['4400']
         },
         Ocampo: {
             subDistrict: [
@@ -10569,7 +10569,7 @@ module.exports = {
                 'Santo Niño',
                 'Villaflorida'
             ],
-            postalCodes: [4419]
+            postalCodes: ['4419']
         },
         Pamplona: {
             subDistrict: [
@@ -10591,7 +10591,7 @@ module.exports = {
                 'Tampadong',
                 'Veneracion'
             ],
-            postalCodes: [3522]
+            postalCodes: ['3522']
         },
         Pasacao: {
             subDistrict: [
@@ -10615,7 +10615,7 @@ module.exports = {
                 'Tilnac',
                 'Tinalmud'
             ],
-            postalCodes: [4417]
+            postalCodes: ['4417']
         },
         Pili: {
             subDistrict: [
@@ -10646,7 +10646,7 @@ module.exports = {
                 'Tagbong',
                 'Tinangis'
             ],
-            postalCodes: [4418]
+            postalCodes: ['4418']
         },
         Presentacion: {
             subDistrict: [
@@ -10669,7 +10669,7 @@ module.exports = {
                 'Santa Maria (Pob.)',
                 'Tanawan'
             ],
-            postalCodes: [4424]
+            postalCodes: ['4424']
         },
         Ragay: {
             subDistrict: [
@@ -10712,7 +10712,7 @@ module.exports = {
                 'Upper Omon',
                 'Upper Santa Cruz'
             ],
-            postalCodes: [4410]
+            postalCodes: ['4410']
         },
         Sagñay: {
             subDistrict: [
@@ -10736,7 +10736,7 @@ module.exports = {
                 'Tinorongan',
                 'Turague'
             ],
-            postalCodes: [4421]
+            postalCodes: ['4421']
         },
         'San Fernando': {
             subDistrict: [
@@ -10763,7 +10763,7 @@ module.exports = {
                 'Santa Cruz',
                 'Tagpocol'
             ],
-            postalCodes: [4415]
+            postalCodes: ['4415']
         },
         'San Jose': {
             subDistrict: [
@@ -10797,7 +10797,7 @@ module.exports = {
                 'Telegrafo',
                 'Tominawog'
             ],
-            postalCodes: [1404]
+            postalCodes: ['1404']
         },
         Sipocot: {
             subDistrict: [
@@ -10848,7 +10848,7 @@ module.exports = {
                 'Vigaan',
                 'Yabo'
             ],
-            postalCodes: [4408]
+            postalCodes: ['4408']
         },
         Siruma: {
             subDistrict: [
@@ -10875,7 +10875,7 @@ module.exports = {
                 'Tongo-Bantigue',
                 'Vito'
             ],
-            postalCodes: [4427]
+            postalCodes: ['4427']
         },
         Tigaon: {
             subDistrict: [
@@ -10903,7 +10903,7 @@ module.exports = {
                 'Tinawagan',
                 'Vinagre'
             ],
-            postalCodes: [4420]
+            postalCodes: ['4420']
         },
         Tinambac: {
             subDistrict: [
@@ -10952,7 +10952,7 @@ module.exports = {
                 'Tierra Nevada',
                 'Union'
             ],
-            postalCodes: [4426]
+            postalCodes: ['4426']
         }
     },
     Camiguin: {
@@ -10973,7 +10973,7 @@ module.exports = {
                 'Santo Niño',
                 'Tangaro'
             ],
-            postalCodes: [6400]
+            postalCodes: ['6400']
         },
         Guinsiliban: {
             subDistrict: [
@@ -10985,7 +10985,7 @@ module.exports = {
                 'North Poblacion',
                 'South Poblacion'
             ],
-            postalCodes: [9102]
+            postalCodes: ['9102']
         },
         Mahinog: {
             subDistrict: [
@@ -11003,7 +11003,7 @@ module.exports = {
                 'Tubod',
                 'Tupsan Pequeño'
             ],
-            postalCodes: [9101]
+            postalCodes: ['9101']
         },
         Mambajao: {
             subDistrict: [
@@ -11023,7 +11023,7 @@ module.exports = {
                 'Tupsan',
                 'Yumbing'
             ],
-            postalCodes: [9100]
+            postalCodes: ['9100']
         },
         Sagay: {
             subDistrict: [
@@ -11037,7 +11037,7 @@ module.exports = {
                 'Mayana',
                 'Poblacion'
             ],
-            postalCodes: [6122]
+            postalCodes: ['6122']
         }
     },
     Capiz: {
@@ -11066,7 +11066,7 @@ module.exports = {
                 'San Antonio',
                 'Sinabsaban'
             ],
-            postalCodes: [5811]
+            postalCodes: ['5811']
         },
         Dao: {
             subDistrict: [
@@ -11091,7 +11091,7 @@ module.exports = {
                 'Quinayuya',
                 'San Agustin'
             ],
-            postalCodes: [5810]
+            postalCodes: ['5810']
         },
         Dumalag: {
             subDistrict: [
@@ -11115,7 +11115,7 @@ module.exports = {
                 'Santo Niño',
                 'Santo Rosario'
             ],
-            postalCodes: [5813]
+            postalCodes: ['5813']
         },
         Dumarao: {
             subDistrict: [
@@ -11153,7 +11153,7 @@ module.exports = {
                 'Tinaytayan',
                 'Traciano'
             ],
-            postalCodes: [5812]
+            postalCodes: ['5812']
         },
         Ivisan: {
             subDistrict: [
@@ -11173,7 +11173,7 @@ module.exports = {
                 'Poblacion Sur',
                 'Santa Cruz'
             ],
-            postalCodes: [5805]
+            postalCodes: ['5805']
         },
         Jamindan: {
             subDistrict: [
@@ -11208,7 +11208,7 @@ module.exports = {
                 'San Vicente',
                 'Santo Rosario'
             ],
-            postalCodes: [5808]
+            postalCodes: ['5808']
         },
         'Ma-Ayon': {
             subDistrict: [
@@ -11245,7 +11245,7 @@ module.exports = {
                 'Tuburan',
                 'West Villaflores'
             ],
-            postalCodes: [5809]
+            postalCodes: ['5809']
         },
         Mambusao: {
             subDistrict: [
@@ -11276,7 +11276,7 @@ module.exports = {
                 'Tugas',
                 'Tumalalud'
             ],
-            postalCodes: [5807]
+            postalCodes: ['5807']
         },
         Panay: {
             subDistrict: [
@@ -11323,7 +11323,7 @@ module.exports = {
                 'Tanza Sur',
                 'Tico'
             ],
-            postalCodes: [5801]
+            postalCodes: ['5801']
         },
         Panitan: {
             subDistrict: [
@@ -11354,7 +11354,7 @@ module.exports = {
                 'Tincupon',
                 'Tinigban'
             ],
-            postalCodes: [5815]
+            postalCodes: ['5815']
         },
         Pilar: {
             subDistrict: [
@@ -11383,7 +11383,7 @@ module.exports = {
                 'Tabun-acan',
                 'Yating'
             ],
-            postalCodes: [2812]
+            postalCodes: ['2812']
         },
         Pontevedra: {
             subDistrict: [
@@ -11414,7 +11414,7 @@ module.exports = {
                 'Tacas',
                 'Yatingan'
             ],
-            postalCodes: [6105]
+            postalCodes: ['6105']
         },
         'Pres. Roxas': {
             subDistrict: [
@@ -11441,7 +11441,7 @@ module.exports = {
                 'Santo Niño',
                 'Vizcaya'
             ],
-            postalCodes: [5803]
+            postalCodes: ['5803']
         },
         'Roxas City': {
             subDistrict: [
@@ -11493,7 +11493,7 @@ module.exports = {
                 'Tanza',
                 'Tiza'
             ],
-            postalCodes: [5800]
+            postalCodes: ['5800']
         },
         Sapian: {
             subDistrict: [
@@ -11508,7 +11508,7 @@ module.exports = {
                 'Maninang',
                 'Poblacion'
             ],
-            postalCodes: [5806]
+            postalCodes: ['5806']
         },
         Sigma: {
             subDistrict: [
@@ -11534,7 +11534,7 @@ module.exports = {
                 'Poblacion Sur',
                 'Tawog'
             ],
-            postalCodes: [5816]
+            postalCodes: ['5816']
         },
         Tapaz: {
             subDistrict: [
@@ -11597,7 +11597,7 @@ module.exports = {
                 'Taslan',
                 'Wright'
             ],
-            postalCodes: [5814]
+            postalCodes: ['5814']
         }
     },
     Catanduanes: {
@@ -11622,7 +11622,7 @@ module.exports = {
                 'Santa Teresa',
                 'Suchan'
             ],
-            postalCodes: [4807]
+            postalCodes: ['4807']
         },
         Baras: {
             subDistrict: [
@@ -11656,7 +11656,7 @@ module.exports = {
                 'Tilod',
                 'Western Poblacion'
             ],
-            postalCodes: [4803]
+            postalCodes: ['4803']
         },
         Bato: {
             subDistrict: [
@@ -11688,7 +11688,7 @@ module.exports = {
                 'Tamburan',
                 'Tilis'
             ],
-            postalCodes: [4435]
+            postalCodes: ['4435']
         },
         Caramoran: {
             subDistrict: [
@@ -11720,7 +11720,7 @@ module.exports = {
                 'Tubli',
                 'Tucao'
             ],
-            postalCodes: [4808]
+            postalCodes: ['4808']
         },
         Gigmoto: {
             subDistrict: [
@@ -11734,7 +11734,7 @@ module.exports = {
                 'Sicmil',
                 'Sioron'
             ],
-            postalCodes: [4804]
+            postalCodes: ['4804']
         },
         Pandan: {
             subDistrict: [
@@ -11765,7 +11765,7 @@ module.exports = {
                 'Tokio',
                 'Wagdas'
             ],
-            postalCodes: [4809]
+            postalCodes: ['4809']
         },
         Panganiban: {
             subDistrict: [
@@ -11793,7 +11793,7 @@ module.exports = {
                 'Taopon',
                 'Tibo'
             ],
-            postalCodes: [4806]
+            postalCodes: ['4806']
         },
         'San Andres': {
             subDistrict: [
@@ -11836,7 +11836,7 @@ module.exports = {
                 'Wagdas (Pob.)',
                 'Yocti'
             ],
-            postalCodes: [4810]
+            postalCodes: ['4810']
         },
         'San Miguel': {
             subDistrict: [
@@ -11865,7 +11865,7 @@ module.exports = {
                 'Solong',
                 'Tobrehon'
             ],
-            postalCodes: [1005]
+            postalCodes: ['1005']
         },
         Viga: {
             subDistrict: [
@@ -11901,7 +11901,7 @@ module.exports = {
                 'Tinago',
                 'Villa Aurora'
             ],
-            postalCodes: [4805]
+            postalCodes: ['4805']
         },
         Virac: {
             subDistrict: [
@@ -11969,7 +11969,7 @@ module.exports = {
                 'Tubaon',
                 'Valencia'
             ],
-            postalCodes: [4800]
+            postalCodes: ['4800']
         }
     },
     Cavite: {
@@ -12008,7 +12008,7 @@ module.exports = {
                 'Taywanak Ilaya',
                 'Upli'
             ],
-            postalCodes: [4123]
+            postalCodes: ['4123']
         },
         Amadeo: {
             subDistrict: [
@@ -12039,7 +12039,7 @@ module.exports = {
                 'Talon',
                 'Tamacan'
             ],
-            postalCodes: [4119]
+            postalCodes: ['4119']
         },
         Bacoor: {
             subDistrict: [
@@ -12117,7 +12117,7 @@ module.exports = {
                 'Zapote IV',
                 'Zapote V'
             ],
-            postalCodes: [4102]
+            postalCodes: ['4102']
         },
         Carmona: {
             subDistrict: [
@@ -12136,7 +12136,7 @@ module.exports = {
                 'Maduya',
                 'Milagrosa'
             ],
-            postalCodes: [4116]
+            postalCodes: ['4116']
         },
         'Cavite City': {
             subDistrict: [
@@ -12225,7 +12225,7 @@ module.exports = {
                 'Barangay 8',
                 'Barangay 9'
             ],
-            postalCodes: [4100]
+            postalCodes: ['4100']
         },
         Dasmariñas: {
             subDistrict: [
@@ -12305,7 +12305,7 @@ module.exports = {
                 'Zone III (Pob.)',
                 'Zone IV (Pob.)'
             ],
-            postalCodes: [4114]
+            postalCodes: ['4114']
         },
         'Gen. Aguinaldo (Bailen)': {
             subDistrict: [
@@ -12324,7 +12324,7 @@ module.exports = {
                 'Poblacion IV',
                 'Tabora'
             ],
-            postalCodes: [4124]
+            postalCodes: ['4124']
         },
         'Gen. Mariano Alvarez': {
             subDistrict: [
@@ -12356,7 +12356,7 @@ module.exports = {
                 'Severino De Las Alas',
                 'Tiniente Tiago'
             ],
-            postalCodes: [4117]
+            postalCodes: ['4117']
         },
         'Gen. Trias': {
             subDistrict: [
@@ -12394,7 +12394,7 @@ module.exports = {
                 'Tejero',
                 'Vibora Pob.'
             ],
-            postalCodes: [4107]
+            postalCodes: ['4107']
         },
         Imus: {
             subDistrict: [
@@ -12496,7 +12496,7 @@ module.exports = {
                 'Toclong II-A',
                 'Toclong II-B'
             ],
-            postalCodes: [4103]
+            postalCodes: ['4103']
         },
         Indang: {
             subDistrict: [
@@ -12537,7 +12537,7 @@ module.exports = {
                 'Tambo Kulit',
                 'Tambo Malaki'
             ],
-            postalCodes: [4122]
+            postalCodes: ['4122']
         },
         Kawit: {
             subDistrict: [
@@ -12565,7 +12565,7 @@ module.exports = {
                 'Wakas I',
                 'Wakas II'
             ],
-            postalCodes: [4104]
+            postalCodes: ['4104']
         },
         Magallanes: {
             subDistrict: [
@@ -12586,7 +12586,7 @@ module.exports = {
                 'Tua',
                 'Urdaneta'
             ],
-            postalCodes: [4113]
+            postalCodes: ['4113']
         },
         Maragondon: {
             subDistrict: [
@@ -12618,7 +12618,7 @@ module.exports = {
                 'Tulay Kanluran',
                 'Tulay Silangan'
             ],
-            postalCodes: [4112]
+            postalCodes: ['4112']
         },
         Mendez: {
             subDistrict: [
@@ -12647,7 +12647,7 @@ module.exports = {
                 'Poblacion VI',
                 'Poblacion VII'
             ],
-            postalCodes: [4121]
+            postalCodes: ['4121']
         },
         Naic: {
             subDistrict: [
@@ -12682,7 +12682,7 @@ module.exports = {
                 'Timalan Balsahan',
                 'Timalan Concepcion'
             ],
-            postalCodes: [4110]
+            postalCodes: ['4110']
         },
         Noveleta: {
             subDistrict: [
@@ -12703,7 +12703,7 @@ module.exports = {
                 'Santa Rosa I',
                 'Santa Rosa II'
             ],
-            postalCodes: [4105]
+            postalCodes: ['4105']
         },
         Rosario: {
             subDistrict: [
@@ -12728,7 +12728,7 @@ module.exports = {
                 'Wawa II',
                 'Wawa III'
             ],
-            postalCodes: [1609]
+            postalCodes: ['1609']
         },
         Silang: {
             subDistrict: [
@@ -12797,7 +12797,7 @@ module.exports = {
                 'Ulat',
                 'Yakal'
             ],
-            postalCodes: [4118]
+            postalCodes: ['4118']
         },
         'Tagaytay City': {
             subDistrict: [
@@ -12836,7 +12836,7 @@ module.exports = {
                 'Tolentino West',
                 'Zambal'
             ],
-            postalCodes: [4120]
+            postalCodes: ['4120']
         },
         Tanza: {
             subDistrict: [
@@ -12882,7 +12882,7 @@ module.exports = {
                 'Tanauan',
                 'Tres Cruses'
             ],
-            postalCodes: [1490]
+            postalCodes: ['1490']
         },
         Ternate: {
             subDistrict: [
@@ -12897,7 +12897,7 @@ module.exports = {
                 'Sapang I',
                 'Sapang II'
             ],
-            postalCodes: [4111]
+            postalCodes: ['4111']
         },
         'Trece Martirez City': {
             subDistrict: [
@@ -12915,7 +12915,7 @@ module.exports = {
                 'Perez',
                 'San Agustin (Pob.)'
             ],
-            postalCodes: [4109]
+            postalCodes: ['4109']
         }
     },
     Cebu: {
@@ -12931,7 +12931,7 @@ module.exports = {
                 'Polo',
                 'Salagmaya'
             ],
-            postalCodes: [6033]
+            postalCodes: ['6033']
         },
         Alcoy: {
             subDistrict: [
@@ -12943,7 +12943,7 @@ module.exports = {
                 'Poblacion',
                 'Pugalo'
             ],
-            postalCodes: [6023]
+            postalCodes: ['6023']
         },
         Alegria: {
             subDistrict: [
@@ -12958,7 +12958,7 @@ module.exports = {
                 'Santa Filomena',
                 'Valencia'
             ],
-            postalCodes: [6030]
+            postalCodes: ['6030']
         },
         Aloguinsan: {
             subDistrict: [
@@ -12978,7 +12978,7 @@ module.exports = {
                 'Toyokon',
                 'Zaragosa'
             ],
-            postalCodes: [6040]
+            postalCodes: ['6040']
         },
         Argao: {
             subDistrict: [
@@ -13028,7 +13028,7 @@ module.exports = {
                 'Ubaub',
                 'Usmad'
             ],
-            postalCodes: [6021]
+            postalCodes: ['6021']
         },
         Asturias: {
             subDistrict: [
@@ -13060,7 +13060,7 @@ module.exports = {
                 'Tubod',
                 'Ubogon'
             ],
-            postalCodes: [6042]
+            postalCodes: ['6042']
         },
         Badian: {
             subDistrict: [
@@ -13094,7 +13094,7 @@ module.exports = {
                 'Tubod',
                 'Zaragosa'
             ],
-            postalCodes: [6031]
+            postalCodes: ['6031']
         },
         Balamban: {
             subDistrict: [
@@ -13127,7 +13127,7 @@ module.exports = {
                 'Sunog',
                 'Vito'
             ],
-            postalCodes: [6041]
+            postalCodes: ['6041']
         },
         Bantayan: {
             subDistrict: [
@@ -13157,7 +13157,7 @@ module.exports = {
                 'Tamiao',
                 'Ticad (Pob.)'
             ],
-            postalCodes: [6042]
+            postalCodes: ['6042']
         },
         Barili: {
             subDistrict: [
@@ -13204,7 +13204,7 @@ module.exports = {
                 'Tubod',
                 'Vito'
             ],
-            postalCodes: [6036]
+            postalCodes: ['6036']
         },
         Bogo: {
             subDistrict: [
@@ -13238,7 +13238,7 @@ module.exports = {
                 'Sudlonon',
                 'Taytayan'
             ],
-            postalCodes: [6010]
+            postalCodes: ['6010']
         },
         Boljoon: {
             subDistrict: [
@@ -13254,7 +13254,7 @@ module.exports = {
                 'South Granada',
                 'Upper Becerril'
             ],
-            postalCodes: [6024]
+            postalCodes: ['6024']
         },
         Borbon: {
             subDistrict: [
@@ -13278,7 +13278,7 @@ module.exports = {
                 'Tabunan',
                 'Tagnucan'
             ],
-            postalCodes: [6008]
+            postalCodes: ['6008']
         },
         Carcar: {
             subDistrict: [
@@ -13298,7 +13298,7 @@ module.exports = {
                 'Valencia',
                 'Valladolid'
             ],
-            postalCodes: [6019]
+            postalCodes: ['6019']
         },
         Carmen: {
             subDistrict: [
@@ -13324,7 +13324,7 @@ module.exports = {
                 'Triumfo',
                 'Upper Natimao-an'
             ],
-            postalCodes: [6319]
+            postalCodes: ['6319']
         },
         Catmon: {
             subDistrict: [
@@ -13349,7 +13349,7 @@ module.exports = {
                 'Tabili',
                 'Tinabyonan'
             ],
-            postalCodes: [6006]
+            postalCodes: ['6006']
         },
         'Cebu City': {
             subDistrict: [
@@ -13434,7 +13434,7 @@ module.exports = {
                 'To-ong Pardo',
                 'Zapatera'
             ],
-            postalCodes: [6000]
+            postalCodes: ['6000']
         },
         Compostela: {
             subDistrict: [
@@ -13456,7 +13456,7 @@ module.exports = {
                 'Tamiao',
                 'Tubigan'
             ],
-            postalCodes: [6003]
+            postalCodes: ['6003']
         },
         Consolacion: {
             subDistrict: [
@@ -13482,7 +13482,7 @@ module.exports = {
                 'Tolotolo',
                 'Tugbongan'
             ],
-            postalCodes: [6001]
+            postalCodes: ['6001']
         },
         Cordova: {
             subDistrict: [
@@ -13500,7 +13500,7 @@ module.exports = {
                 'Poblacion',
                 'San Miguel'
             ],
-            postalCodes: [6017]
+            postalCodes: ['6017']
         },
         Daanbantayan: {
             subDistrict: [
@@ -13525,7 +13525,7 @@ module.exports = {
                 'Tinubdan',
                 'Tominjao'
             ],
-            postalCodes: [6013]
+            postalCodes: ['6013']
         },
         Dalaguete: {
             subDistrict: [
@@ -13563,7 +13563,7 @@ module.exports = {
                 'Tapun',
                 'Tuba'
             ],
-            postalCodes: [6022]
+            postalCodes: ['6022']
         },
         'Danao City': {
             subDistrict: [
@@ -13610,7 +13610,7 @@ module.exports = {
                 'Togonon',
                 'Tuburan Sur'
             ],
-            postalCodes: [6004]
+            postalCodes: ['6004']
         },
         Dumanjug: {
             subDistrict: [
@@ -13652,7 +13652,7 @@ module.exports = {
                 'Tubod-Bitoon',
                 'Tubod-Dugoan'
             ],
-            postalCodes: [6035]
+            postalCodes: ['6035']
         },
         Ginatilan: {
             subDistrict: [
@@ -13671,7 +13671,7 @@ module.exports = {
                 'Salamanca',
                 'San Roque'
             ],
-            postalCodes: [6026]
+            postalCodes: ['6026']
         },
         'Lapu-Lapu City': {
             subDistrict: [
@@ -13706,7 +13706,7 @@ module.exports = {
                 'Tingo',
                 'Tungasan'
             ],
-            postalCodes: [6004, 6015]
+            postalCodes: [6004, '6015']
         },
         Liloan: {
             subDistrict: [
@@ -13725,7 +13725,7 @@ module.exports = {
                 'Tayud',
                 'Yati'
             ],
-            postalCodes: [6002]
+            postalCodes: ['6002']
         },
         Madridejos: {
             subDistrict: [
@@ -13744,7 +13744,7 @@ module.exports = {
                 'Tarong',
                 'Tugas'
             ],
-            postalCodes: [6053]
+            postalCodes: ['6053']
         },
         Malabuyoc: {
             subDistrict: [
@@ -13763,7 +13763,7 @@ module.exports = {
                 'Sorsogon',
                 'Tolosa'
             ],
-            postalCodes: [6029]
+            postalCodes: ['6029']
         },
         'Mandaue City': {
             subDistrict: [
@@ -13795,7 +13795,7 @@ module.exports = {
                 'Tipolo',
                 'Umapad'
             ],
-            postalCodes: [6014]
+            postalCodes: ['6014']
         },
         Medellin: {
             subDistrict: [
@@ -13819,7 +13819,7 @@ module.exports = {
                 'Poblacion',
                 'Tindog'
             ],
-            postalCodes: [6012]
+            postalCodes: ['6012']
         },
         Minglanilla: {
             subDistrict: [
@@ -13843,7 +13843,7 @@ module.exports = {
                 'Tungkop',
                 'Vito'
             ],
-            postalCodes: [6046]
+            postalCodes: ['6046']
         },
         Moalboal: {
             subDistrict: [
@@ -13863,7 +13863,7 @@ module.exports = {
                 'Tuble',
                 'Tunga'
             ],
-            postalCodes: [6032]
+            postalCodes: ['6032']
         },
         Naga: {
             subDistrict: [
@@ -13896,7 +13896,7 @@ module.exports = {
                 'Uling',
                 'West Poblacion'
             ],
-            postalCodes: [6037]
+            postalCodes: ['6037']
         },
         Oslob: {
             subDistrict: [
@@ -13922,7 +13922,7 @@ module.exports = {
                 'Tan-awan',
                 'Tumalog'
             ],
-            postalCodes: [6025]
+            postalCodes: ['6025']
         },
         Pilar: {
             subDistrict: [
@@ -13940,7 +13940,7 @@ module.exports = {
                 'Upper Poblacion',
                 'Villahermosa'
             ],
-            postalCodes: [2812]
+            postalCodes: ['2812']
         },
         Pinamungajan: {
             subDistrict: [
@@ -13971,7 +13971,7 @@ module.exports = {
                 'Tupas',
                 'Tutay'
             ],
-            postalCodes: [6039]
+            postalCodes: ['6039']
         },
         Poro: {
             subDistrict: [
@@ -13993,7 +13993,7 @@ module.exports = {
                 'Teguis',
                 'Western Poblacion'
             ],
-            postalCodes: [6049]
+            postalCodes: ['6049']
         },
         Ronda: {
             subDistrict: [
@@ -14012,7 +14012,7 @@ module.exports = {
                 'Tupas',
                 'Vive'
             ],
-            postalCodes: [6034]
+            postalCodes: ['6034']
         },
         Samboan: {
             subDistrict: [
@@ -14032,7 +14032,7 @@ module.exports = {
                 'Suba',
                 'Tangbo'
             ],
-            postalCodes: [6027]
+            postalCodes: ['6027']
         },
         'San Fernando': {
             subDistrict: [
@@ -14058,7 +14058,7 @@ module.exports = {
                 'Tonggo',
                 'Tubod'
             ],
-            postalCodes: [4415]
+            postalCodes: ['4415']
         },
         'San Francisco': {
             subDistrict: [
@@ -14078,7 +14078,7 @@ module.exports = {
                 'Union',
                 'Western Poblacion'
             ],
-            postalCodes: [4315]
+            postalCodes: ['4315']
         },
         'San Remigio': {
             subDistrict: [
@@ -14110,7 +14110,7 @@ module.exports = {
                 'To-ong',
                 'Victoria'
             ],
-            postalCodes: [6011]
+            postalCodes: ['6011']
         },
         'Santa Fe': {
             subDistrict: [
@@ -14125,7 +14125,7 @@ module.exports = {
                 'Pooc',
                 'Talisay'
             ],
-            postalCodes: [6047]
+            postalCodes: ['6047']
         },
         Santander: {
             subDistrict: [
@@ -14140,7 +14140,7 @@ module.exports = {
                 'Poblacion',
                 'Talisay'
             ],
-            postalCodes: [6026]
+            postalCodes: ['6026']
         },
         Sibonga: {
             subDistrict: [
@@ -14170,7 +14170,7 @@ module.exports = {
                 'Simala',
                 'Tubod'
             ],
-            postalCodes: [6020]
+            postalCodes: ['6020']
         },
         Sogod: {
             subDistrict: [
@@ -14193,7 +14193,7 @@ module.exports = {
                 'Tabunok',
                 'Takay'
             ],
-            postalCodes: [6007]
+            postalCodes: ['6007']
         },
         Tabogon: {
             subDistrict: [
@@ -14223,7 +14223,7 @@ module.exports = {
                 'Taba-ao',
                 'Tapul'
             ],
-            postalCodes: [6009]
+            postalCodes: ['6009']
         },
         Tabuelan: {
             subDistrict: [
@@ -14240,7 +14240,7 @@ module.exports = {
                 'Tigbawan',
                 'Villahermosa'
             ],
-            postalCodes: [6044]
+            postalCodes: ['6044']
         },
         Talisay: {
             subDistrict: [
@@ -14267,7 +14267,7 @@ module.exports = {
                 'Tangke',
                 'Tapul'
             ],
-            postalCodes: [6045]
+            postalCodes: ['6045']
         },
         'Toledo City': {
             subDistrict: [
@@ -14310,7 +14310,7 @@ module.exports = {
                 'Tubod',
                 'Tungkay'
             ],
-            postalCodes: [6038]
+            postalCodes: ['6038']
         },
         Tuburan: {
             subDistrict: [
@@ -14369,7 +14369,7 @@ module.exports = {
                 'Tominjao',
                 'Tomugpa'
             ],
-            postalCodes: [6043]
+            postalCodes: ['6043']
         },
         Tudela: {
             subDistrict: [
@@ -14385,7 +14385,7 @@ module.exports = {
                 'Southern Poblacion',
                 'Villahermosa'
             ],
-            postalCodes: [7202]
+            postalCodes: ['7202']
         }
     },
     Cotabato: {
@@ -14409,7 +14409,7 @@ module.exports = {
                 'Rangayen',
                 'Raradangan'
             ],
-            postalCodes: [9413]
+            postalCodes: ['9413']
         },
         Aleosan: {
             subDistrict: [
@@ -14433,7 +14433,7 @@ module.exports = {
                 'Tomado',
                 'Upper Mingading'
             ],
-            postalCodes: [9415]
+            postalCodes: ['9415']
         },
         Antipas: {
             subDistrict: [
@@ -14451,7 +14451,7 @@ module.exports = {
                 'New Pontevedra',
                 'Poblacion'
             ],
-            postalCodes: [9414]
+            postalCodes: ['9414']
         },
         Arakan: {
             subDistrict: [
@@ -14484,7 +14484,7 @@ module.exports = {
                 'Sumalili',
                 'Tumanding'
             ],
-            postalCodes: [9417]
+            postalCodes: ['9417']
         },
         Banisilan: {
             subDistrict: [
@@ -14509,7 +14509,7 @@ module.exports = {
                 'Tumbao-Camalig',
                 'Wadya'
             ],
-            postalCodes: [9416]
+            postalCodes: ['9416']
         },
         Carmen: {
             subDistrict: [
@@ -14542,7 +14542,7 @@ module.exports = {
                 'Tupig',
                 'Ugalingan'
             ],
-            postalCodes: [6319]
+            postalCodes: ['6319']
         },
         Kabacan: {
             subDistrict: [
@@ -14571,7 +14571,7 @@ module.exports = {
                 'Simone',
                 'Tamped'
             ],
-            postalCodes: [9407]
+            postalCodes: ['9407']
         },
         Kidapawan: {
             subDistrict: [
@@ -14616,7 +14616,7 @@ module.exports = {
                 'Sudapin',
                 'Sumbao'
             ],
-            postalCodes: [9400]
+            postalCodes: ['9400']
         },
         Libungan: {
             subDistrict: [
@@ -14641,7 +14641,7 @@ module.exports = {
                 'Sinawingan',
                 'Ulamian'
             ],
-            postalCodes: [9411]
+            postalCodes: ['9411']
         },
         'M\'Lang': {
             subDistrict: [
@@ -14683,7 +14683,7 @@ module.exports = {
                 'Tibao',
                 'Ugpay'
             ],
-            postalCodes: [9402]
+            postalCodes: ['9402']
         },
         Magpet: {
             subDistrict: [
@@ -14720,7 +14720,7 @@ module.exports = {
                 'Tagbac',
                 'Temporan'
             ],
-            postalCodes: [9404]
+            postalCodes: ['9404']
         },
         Makilala: {
             subDistrict: [
@@ -14763,7 +14763,7 @@ module.exports = {
                 'Taluntalunan',
                 'Villaflores'
             ],
-            postalCodes: [9401]
+            postalCodes: ['9401']
         },
         Matalam: {
             subDistrict: [
@@ -14802,7 +14802,7 @@ module.exports = {
                 'Taguranao',
                 'Tamped'
             ],
-            postalCodes: [9406]
+            postalCodes: ['9406']
         },
         Midsayap: {
             subDistrict: [
@@ -14864,7 +14864,7 @@ module.exports = {
                 'Upper Labas',
                 'Villarica'
             ],
-            postalCodes: [9410]
+            postalCodes: ['9410']
         },
         Pigkawayan: {
             subDistrict: [
@@ -14909,7 +14909,7 @@ module.exports = {
                 'Upper Baguer',
                 'Upper Pangangkalan'
             ],
-            postalCodes: [9412]
+            postalCodes: ['9412']
         },
         Pikit: {
             subDistrict: [
@@ -14956,7 +14956,7 @@ module.exports = {
                 'Talitay',
                 'Tinutulan'
             ],
-            postalCodes: [9409]
+            postalCodes: ['9409']
         },
         'President Roxas': {
             subDistrict: [
@@ -14986,7 +14986,7 @@ module.exports = {
                 'Sarayan',
                 'Tuael'
             ],
-            postalCodes: [9405]
+            postalCodes: ['9405']
         },
         Tulunan: {
             subDistrict: [
@@ -15020,7 +15020,7 @@ module.exports = {
                 'Tambac',
                 'Tuburan'
             ],
-            postalCodes: [9403]
+            postalCodes: ['9403']
         }
     },
     'Davao de Oro': {
@@ -15043,7 +15043,7 @@ module.exports = {
                 'Siocon',
                 'Tamia'
             ],
-            postalCodes: [6003]
+            postalCodes: ['6003']
         },
         Laak: {
             subDistrict: [
@@ -15088,7 +15088,7 @@ module.exports = {
                 'Santo Niño',
                 'Sisimon'
             ],
-            postalCodes: [8810]
+            postalCodes: ['8810']
         },
         Mabini: {
             subDistrict: [
@@ -15104,7 +15104,7 @@ module.exports = {
                 'San Antonio',
                 'Tagnanan'
             ],
-            postalCodes: [4202]
+            postalCodes: ['4202']
         },
         Maco: {
             subDistrict: [
@@ -15146,7 +15146,7 @@ module.exports = {
                 'Taglawig',
                 'Teresa'
             ],
-            postalCodes: [8806]
+            postalCodes: ['8806']
         },
         Maragusan: {
             subDistrict: [
@@ -15175,7 +15175,7 @@ module.exports = {
                 'Tigbao',
                 'Tupaz'
             ],
-            postalCodes: [8808]
+            postalCodes: ['8808']
         },
         Mawab: {
             subDistrict: [
@@ -15191,7 +15191,7 @@ module.exports = {
                 'Sawangan',
                 'Tuboran'
             ],
-            postalCodes: [8802]
+            postalCodes: ['8802']
         },
         Monkayo: {
             subDistrict: [
@@ -15217,7 +15217,7 @@ module.exports = {
                 'Union',
                 'Upper Ulip'
             ],
-            postalCodes: [8805]
+            postalCodes: ['8805']
         },
         Montevista: {
             subDistrict: [
@@ -15242,7 +15242,7 @@ module.exports = {
                 'San Vicente',
                 'Tapia'
             ],
-            postalCodes: [8801]
+            postalCodes: ['8801']
         },
         Nabunturan: {
             subDistrict: [
@@ -15275,7 +15275,7 @@ module.exports = {
                 'Sasa',
                 'Tagnocon'
             ],
-            postalCodes: [8800]
+            postalCodes: ['8800']
         },
         'New Bataan': {
             subDistrict: [
@@ -15296,7 +15296,7 @@ module.exports = {
                 'San Roque',
                 'Tandawan'
             ],
-            postalCodes: [8804]
+            postalCodes: ['8804']
         },
         Pantukan: {
             subDistrict: [
@@ -15314,7 +15314,7 @@ module.exports = {
                 'Tambongon',
                 'Tibagon'
             ],
-            postalCodes: [8809]
+            postalCodes: ['8809']
         }
     },
     'Davao Del Norte': {
@@ -15341,7 +15341,7 @@ module.exports = {
                 'Santa Filomena',
                 'Sonlon'
             ],
-            postalCodes: [8102]
+            postalCodes: ['8102']
         },
         'Braulio E. Dujali': {
             subDistrict: [
@@ -15351,7 +15351,7 @@ module.exports = {
                 'New Casay',
                 'Tanglaw'
             ],
-            postalCodes: [8106]
+            postalCodes: ['8106']
         },
         Carmen: {
             subDistrict: [
@@ -15376,7 +15376,7 @@ module.exports = {
                 'Tubod',
                 'Tuganay'
             ],
-            postalCodes: [6319]
+            postalCodes: ['6319']
         },
         Kapalong: {
             subDistrict: [
@@ -15395,7 +15395,7 @@ module.exports = {
                 'Sua-on',
                 'Tiburcia'
             ],
-            postalCodes: [8113]
+            postalCodes: ['8113']
         },
         'New Corella': {
             subDistrict: [
@@ -15420,7 +15420,7 @@ module.exports = {
                 'Santo Niño',
                 'Suawon'
             ],
-            postalCodes: [8104]
+            postalCodes: ['8104']
         },
         Panabo: {
             subDistrict: [
@@ -15465,7 +15465,7 @@ module.exports = {
                 'Upper Licanan',
                 'Waterfall'
             ],
-            postalCodes: [8105]
+            postalCodes: ['8105']
         },
         Samal: {
             subDistrict: [
@@ -15516,7 +15516,7 @@ module.exports = {
                 'Tambo',
                 'Toril'
             ],
-            postalCodes: [8119]
+            postalCodes: ['8119']
         },
         'San Isidro': {
             subDistrict: [
@@ -15534,7 +15534,7 @@ module.exports = {
                 'Santo Niño',
                 'Sawata'
             ],
-            postalCodes: [1234]
+            postalCodes: ['1234']
         },
         'Santo Tomas': {
             subDistrict: [
@@ -15558,7 +15558,7 @@ module.exports = {
                 'Tibal-og (Pob.)',
                 'Tulalian'
             ],
-            postalCodes: [4234]
+            postalCodes: ['4234']
         },
         Tagum: {
             subDistrict: [
@@ -15586,11 +15586,11 @@ module.exports = {
                 'San Miguel',
                 'Visayan Village'
             ],
-            postalCodes: [8100]
+            postalCodes: ['8100']
         },
         Talaingod: {
             subDistrict: ['Dagohoy', 'Palma Gil', 'Santo Niño'],
-            postalCodes: [8107]
+            postalCodes: ['8107']
         }
     },
     'Davao Del Sur': {
@@ -15622,7 +15622,7 @@ module.exports = {
                 'Tubod',
                 'Union'
             ],
-            postalCodes: [8005]
+            postalCodes: ['8005']
         },
         'Davao City': {
             subDistrict: [
@@ -15809,7 +15809,7 @@ module.exports = {
                 'Wilfredo Aquino',
                 'Wines'
             ],
-            postalCodes: [8000]
+            postalCodes: ['8000']
         },
         'Digos City': {
             subDistrict: [
@@ -15840,7 +15840,7 @@ module.exports = {
                 'Zone 2 (Pob.)',
                 'Zone 3 (Pob.)'
             ],
-            postalCodes: [8002]
+            postalCodes: ['8002']
         },
         Hagonoy: {
             subDistrict: [
@@ -15866,7 +15866,7 @@ module.exports = {
                 'Sinayawan',
                 'Tologan'
             ],
-            postalCodes: [3002]
+            postalCodes: ['3002']
         },
         Kiblawan: {
             subDistrict: [
@@ -15901,7 +15901,7 @@ module.exports = {
                 'Tacul',
                 'Waterfall'
             ],
-            postalCodes: [8008]
+            postalCodes: ['8008']
         },
         Magsaysay: {
             subDistrict: [
@@ -15928,7 +15928,7 @@ module.exports = {
                 'Tagaytay',
                 'Upper Bala'
             ],
-            postalCodes: [5101]
+            postalCodes: ['5101']
         },
         Malalag: {
             subDistrict: [
@@ -15948,7 +15948,7 @@ module.exports = {
                 'San Isidro',
                 'Tagansule'
             ],
-            postalCodes: [8010]
+            postalCodes: ['8010']
         },
         Matanao: {
             subDistrict: [
@@ -15986,7 +15986,7 @@ module.exports = {
                 'Tibongbong',
                 'Towak'
             ],
-            postalCodes: [8003]
+            postalCodes: ['8003']
         },
         Padada: {
             subDistrict: [
@@ -16008,7 +16008,7 @@ module.exports = {
                 'Upper Limonzo',
                 'Upper Malinao'
             ],
-            postalCodes: [8007]
+            postalCodes: ['8007']
         },
         'Santa Cruz': {
             subDistrict: [
@@ -16031,7 +16031,7 @@ module.exports = {
                 'Zone III (Pob.)',
                 'Zone IV (Pob.)'
             ],
-            postalCodes: [1104]
+            postalCodes: ['1104']
         },
         Sulop: {
             subDistrict: [
@@ -16061,7 +16061,7 @@ module.exports = {
                 'Tanwalang',
                 'Waterfall'
             ],
-            postalCodes: [8009]
+            postalCodes: ['8009']
         }
     },
     'Davao Occidental': {
@@ -16083,7 +16083,7 @@ module.exports = {
                 'Talagutong (Pob.)',
                 'West Lamidan'
             ],
-            postalCodes: [8013]
+            postalCodes: ['8013']
         },
         'Jose Abad Santos': {
             subDistrict: [
@@ -16114,7 +16114,7 @@ module.exports = {
                 'Tabayon',
                 'Tanuman'
             ],
-            postalCodes: [8014]
+            postalCodes: ['8014']
         },
         Malita: {
             subDistrict: [
@@ -16149,7 +16149,7 @@ module.exports = {
                 'Tingolo',
                 'Tubalan'
             ],
-            postalCodes: [8012]
+            postalCodes: ['8012']
         },
         'Santa Maria': {
             subDistrict: [
@@ -16176,7 +16176,7 @@ module.exports = {
                 'Santo Rosario',
                 'Tanglad'
             ],
-            postalCodes: [3022]
+            postalCodes: ['3022']
         },
         Sarangani: {
             subDistrict: [
@@ -16193,7 +16193,7 @@ module.exports = {
                 'Tinina',
                 'Tucal'
             ],
-            postalCodes: [8015]
+            postalCodes: ['8015']
         }
     },
     'Davao Oriental': {
@@ -16218,7 +16218,7 @@ module.exports = {
                 'San Victor',
                 'Saoquegue'
             ],
-            postalCodes: [8204]
+            postalCodes: ['8204']
         },
         Banaybanay: {
             subDistrict: [
@@ -16237,7 +16237,7 @@ module.exports = {
                 'Rang-ay',
                 'San Vicente'
             ],
-            postalCodes: [8208]
+            postalCodes: ['8208']
         },
         Boston: {
             subDistrict: [
@@ -16250,7 +16250,7 @@ module.exports = {
                 'Sibajay',
                 'Simulao'
             ],
-            postalCodes: [8206]
+            postalCodes: ['8206']
         },
         Caraga: {
             subDistrict: [
@@ -16272,7 +16272,7 @@ module.exports = {
                 'Santiago',
                 'Sobrecarey'
             ],
-            postalCodes: [8203]
+            postalCodes: ['8203']
         },
         Cateel: {
             subDistrict: [
@@ -16293,7 +16293,7 @@ module.exports = {
                 'Santa Filomena',
                 'Taytayan'
             ],
-            postalCodes: [8205]
+            postalCodes: ['8205']
         },
         'Governor Generoso': {
             subDistrict: [
@@ -16318,7 +16318,7 @@ module.exports = {
                 'Tiblawan',
                 'Upper Tibanban'
             ],
-            postalCodes: [8210]
+            postalCodes: ['8210']
         },
         Lupon: {
             subDistrict: [
@@ -16344,7 +16344,7 @@ module.exports = {
                 'Tagboa',
                 'Tagugpo'
             ],
-            postalCodes: [8207]
+            postalCodes: ['8207']
         },
         Manay: {
             subDistrict: [
@@ -16366,7 +16366,7 @@ module.exports = {
                 'San Isidro',
                 'Zaragosa'
             ],
-            postalCodes: [8202]
+            postalCodes: ['8202']
         },
         Mati: {
             subDistrict: [
@@ -16397,7 +16397,7 @@ module.exports = {
                 'Taguibo',
                 'Tamisan'
             ],
-            postalCodes: [8200]
+            postalCodes: ['8200']
         },
         'San Isidro': {
             subDistrict: [
@@ -16418,7 +16418,7 @@ module.exports = {
                 'Sudlon',
                 'Talisay'
             ],
-            postalCodes: [1234]
+            postalCodes: ['1234']
         },
         Tarragona: {
             subDistrict: [
@@ -16433,7 +16433,7 @@ module.exports = {
                 'Tomoaong',
                 'Tubaon'
             ],
-            postalCodes: [8201]
+            postalCodes: ['8201']
         }
     },
     'Dinagat Islands': {
@@ -16467,7 +16467,7 @@ module.exports = {
                 'Villa Ecleo',
                 'Villa Pantinople'
             ],
-            postalCodes: [8413]
+            postalCodes: ['8413']
         },
         Cagdianao: {
             subDistrict: [
@@ -16486,7 +16486,7 @@ module.exports = {
                 'Tigbao',
                 'Valencia'
             ],
-            postalCodes: [8411]
+            postalCodes: ['8411']
         },
         Dinagat: {
             subDistrict: [
@@ -16503,7 +16503,7 @@ module.exports = {
                 'Wadas',
                 'White Beach (Pob.)'
             ],
-            postalCodes: [8412]
+            postalCodes: ['8412']
         },
         Libjo: {
             subDistrict: [
@@ -16524,7 +16524,7 @@ module.exports = {
                 'San Jose',
                 'Santo Niño'
             ],
-            postalCodes: [8414]
+            postalCodes: ['8414']
         },
         Loreto: {
             subDistrict: [
@@ -16539,7 +16539,7 @@ module.exports = {
                 'Santa Cruz (Pob.)',
                 'Santiago (Pob.)'
             ],
-            postalCodes: [8507]
+            postalCodes: ['8507']
         },
         'San Jose': {
             subDistrict: [
@@ -16556,7 +16556,7 @@ module.exports = {
                 'Santa Cruz',
                 'Wilson'
             ],
-            postalCodes: [8427]
+            postalCodes: ['8427']
         },
         Tubajon: {
             subDistrict: [
@@ -16570,7 +16570,7 @@ module.exports = {
                 'San Vicente (Pob.)',
                 'Santa Cruz (Pob.)'
             ],
-            postalCodes: [8426]
+            postalCodes: ['8426']
         }
     },
     'Eastern Samar': {
@@ -16597,7 +16597,7 @@ module.exports = {
                 'Tawagan',
                 'Tebalawon'
             ],
-            postalCodes: [6822]
+            postalCodes: ['6822']
         },
         Balangiga: {
             subDistrict: [
@@ -16615,7 +16615,7 @@ module.exports = {
                 'San Miguel',
                 'Santa Rosa'
             ],
-            postalCodes: [6812]
+            postalCodes: ['6812']
         },
         Balangkayan: {
             subDistrict: [
@@ -16635,7 +16635,7 @@ module.exports = {
                 'Poblacion IV',
                 'Poblacion V'
             ],
-            postalCodes: [6801]
+            postalCodes: ['6801']
         },
         Borongan: {
             subDistrict: [
@@ -16701,7 +16701,7 @@ module.exports = {
                 'Tabunan',
                 'Tamoso'
             ],
-            postalCodes: [6800]
+            postalCodes: ['6800']
         },
         'Can-Avid': {
             subDistrict: [
@@ -16734,7 +16734,7 @@ module.exports = {
                 'Salvacion',
                 'Solong'
             ],
-            postalCodes: [6806]
+            postalCodes: ['6806']
         },
         Dolores: {
             subDistrict: [
@@ -16785,7 +16785,7 @@ module.exports = {
                 'Tikling',
                 'Villahermosa'
             ],
-            postalCodes: [2801]
+            postalCodes: ['2801']
         },
         'General Macarthur': {
             subDistrict: [
@@ -16820,7 +16820,7 @@ module.exports = {
                 'Tugop',
                 'Vigan'
             ],
-            postalCodes: [6805]
+            postalCodes: ['6805']
         },
         Giporlos: {
             subDistrict: [
@@ -16843,7 +16843,7 @@ module.exports = {
                 'San Miguel',
                 'Santa Cruz'
             ],
-            postalCodes: [6811]
+            postalCodes: ['6811']
         },
         Guiuan: {
             subDistrict: [
@@ -16908,7 +16908,7 @@ module.exports = {
                 'Trinidad',
                 'Victory Island'
             ],
-            postalCodes: [6809]
+            postalCodes: ['6809']
         },
         Hernani: {
             subDistrict: [
@@ -16926,7 +16926,7 @@ module.exports = {
                 'San Isidro',
                 'San Miguel'
             ],
-            postalCodes: [6804]
+            postalCodes: ['6804']
         },
         Jipapad: {
             subDistrict: [
@@ -16944,7 +16944,7 @@ module.exports = {
                 'Roxas',
                 'San Roque'
             ],
-            postalCodes: [6819]
+            postalCodes: ['6819']
         },
         Lawaan: {
             subDistrict: [
@@ -16965,7 +16965,7 @@ module.exports = {
                 'San Isidro',
                 'Taguite'
             ],
-            postalCodes: [6813]
+            postalCodes: ['6813']
         },
         Llorente: {
             subDistrict: [
@@ -17003,7 +17003,7 @@ module.exports = {
                 'Tabok',
                 'Waso'
             ],
-            postalCodes: [6803]
+            postalCodes: ['6803']
         },
         Maslog: {
             subDistrict: [
@@ -17020,7 +17020,7 @@ module.exports = {
                 'Taytay',
                 'Tugas'
             ],
-            postalCodes: [6820]
+            postalCodes: ['6820']
         },
         Maydolong: {
             subDistrict: [
@@ -17045,7 +17045,7 @@ module.exports = {
                 'San Gabriel',
                 'Tagaslian'
             ],
-            postalCodes: [6802]
+            postalCodes: ['6802']
         },
         Mercedes: {
             subDistrict: [
@@ -17066,7 +17066,7 @@ module.exports = {
                 'San Roque',
                 'Sung-an'
             ],
-            postalCodes: [6808]
+            postalCodes: ['6808']
         },
         Oras: {
             subDistrict: [
@@ -17113,7 +17113,7 @@ module.exports = {
                 'Tiguib (Pob.)',
                 'Trinidad'
             ],
-            postalCodes: [6818]
+            postalCodes: ['6818']
         },
         Quinapondan: {
             subDistrict: [
@@ -17143,7 +17143,7 @@ module.exports = {
                 'Santa Margarita',
                 'Santo Niño'
             ],
-            postalCodes: [6810]
+            postalCodes: ['6810']
         },
         Salcedo: {
             subDistrict: [
@@ -17189,7 +17189,7 @@ module.exports = {
                 'Tagbacan',
                 'Talangdawan'
             ],
-            postalCodes: [6807]
+            postalCodes: ['6807']
         },
         'San Julian': {
             subDistrict: [
@@ -17210,7 +17210,7 @@ module.exports = {
                 'San Isidro',
                 'San Miguel'
             ],
-            postalCodes: [6814]
+            postalCodes: ['6814']
         },
         'San Policarpo': {
             subDistrict: [
@@ -17232,7 +17232,7 @@ module.exports = {
                 'Tabo',
                 'Tan-awan'
             ],
-            postalCodes: [6821]
+            postalCodes: ['6821']
         },
         Sulat: {
             subDistrict: [
@@ -17255,7 +17255,7 @@ module.exports = {
                 'Santo Tomas',
                 'Tabi (Pob.)'
             ],
-            postalCodes: [6815]
+            postalCodes: ['6815']
         },
         Taft: {
             subDistrict: [
@@ -17284,7 +17284,7 @@ module.exports = {
                 'San Pablo',
                 'San Rafael'
             ],
-            postalCodes: [6816]
+            postalCodes: ['6816']
         }
     },
     Guimaras: {
@@ -17327,7 +17327,7 @@ module.exports = {
                 'Umilig',
                 'Zaldivar'
             ],
-            postalCodes: [4904]
+            postalCodes: ['4904']
         },
         Jordan: {
             subDistrict: [
@@ -17346,7 +17346,7 @@ module.exports = {
                 'Santa Teresa',
                 'Sinapsapan'
             ],
-            postalCodes: [5045]
+            postalCodes: ['5045']
         },
         'Nueva Valencia': {
             subDistrict: [
@@ -17373,7 +17373,7 @@ module.exports = {
                 'Santo Domingo',
                 'Tando'
             ],
-            postalCodes: [5046]
+            postalCodes: ['5046']
         },
         'San Lorenzo': {
             subDistrict: [
@@ -17390,7 +17390,7 @@ module.exports = {
                 'Suclaran',
                 'Tamborong'
             ],
-            postalCodes: [5047]
+            postalCodes: ['5047']
         },
         Sibunag: {
             subDistrict: [
@@ -17409,7 +17409,7 @@ module.exports = {
                 'Sebaste',
                 'Tanglad'
             ],
-            postalCodes: [5048]
+            postalCodes: ['5048']
         }
     },
     Ifugao: {
@@ -17432,7 +17432,7 @@ module.exports = {
                 'Talite',
                 'Ubao'
             ],
-            postalCodes: [3606]
+            postalCodes: ['3606']
         },
         'Alfonso Lista': {
             subDistrict: [
@@ -17457,7 +17457,7 @@ module.exports = {
                 'Santa Maria',
                 'Santo Domingo'
             ],
-            postalCodes: [3608]
+            postalCodes: ['3608']
         },
         Asipulo: {
             subDistrict: [
@@ -17472,7 +17472,7 @@ module.exports = {
                 'Panubtuban',
                 'Pula'
             ],
-            postalCodes: [3610]
+            postalCodes: ['3610']
         },
         Banaue: {
             subDistrict: [
@@ -17495,7 +17495,7 @@ module.exports = {
                 'Tam-an',
                 'View Point'
             ],
-            postalCodes: [3601]
+            postalCodes: ['3601']
         },
         Hingyon: {
             subDistrict: [
@@ -17512,7 +17512,7 @@ module.exports = {
                 'Ubuag',
                 'Umalbong'
             ],
-            postalCodes: [3607]
+            postalCodes: ['3607']
         },
         Hungduan: {
             subDistrict: [
@@ -17526,7 +17526,7 @@ module.exports = {
                 'Nungulunan',
                 'Poblacion'
             ],
-            postalCodes: [3603]
+            postalCodes: ['3603']
         },
         Kiangan: {
             subDistrict: [
@@ -17545,7 +17545,7 @@ module.exports = {
                 'Poblacion',
                 'Tuplac'
             ],
-            postalCodes: [3604]
+            postalCodes: ['3604']
         },
         Lagawe: {
             subDistrict: [
@@ -17570,7 +17570,7 @@ module.exports = {
                 'Tungngod',
                 'Tupaya'
             ],
-            postalCodes: [3600]
+            postalCodes: ['3600']
         },
         Lamut: {
             subDistrict: [
@@ -17593,7 +17593,7 @@ module.exports = {
                 'Sanafe',
                 'Umilag'
             ],
-            postalCodes: [3605]
+            postalCodes: ['3605']
         },
         Mayoyao: {
             subDistrict: [
@@ -17625,7 +17625,7 @@ module.exports = {
                 'Talboc',
                 'Tulaed'
             ],
-            postalCodes: [3602]
+            postalCodes: ['3602']
         },
         Tinoc: {
             subDistrict: [
@@ -17642,13 +17642,13 @@ module.exports = {
                 'Tulludan',
                 'Wangwang'
             ],
-            postalCodes: [3609]
+            postalCodes: ['3609']
         }
     },
     'Ilocos Norte': {
         Adams: {
             subDistrict: ['Adams (Pob.)'],
-            postalCodes: [2922]
+            postalCodes: ['2922']
         },
         Bacarra: {
             subDistrict: [
@@ -17696,7 +17696,7 @@ module.exports = {
                 'Teppang',
                 'Tubburan'
             ],
-            postalCodes: [2916]
+            postalCodes: ['2916']
         },
         Badoc: {
             subDistrict: [
@@ -17732,7 +17732,7 @@ module.exports = {
                 'Saud',
                 'Turod'
             ],
-            postalCodes: [2904]
+            postalCodes: ['2904']
         },
         Bangui: {
             subDistrict: [
@@ -17751,7 +17751,7 @@ module.exports = {
                 'Taguiporo',
                 'Utol'
             ],
-            postalCodes: [2920]
+            postalCodes: ['2920']
         },
         Banna: {
             subDistrict: [
@@ -17776,7 +17776,7 @@ module.exports = {
                 'Valdez',
                 'Valenciano (Pob.)'
             ],
-            postalCodes: [2908]
+            postalCodes: ['2908']
         },
         Batac: {
             subDistrict: [
@@ -17824,7 +17824,7 @@ module.exports = {
                 'Tabug',
                 'Valdez Pob.'
             ],
-            postalCodes: [2906]
+            postalCodes: ['2906']
         },
         Burgos: {
             subDistrict: [
@@ -17840,11 +17840,11 @@ module.exports = {
                 'Saoit',
                 'Tanap'
             ],
-            postalCodes: [2918]
+            postalCodes: ['2918']
         },
         Carasi: {
             subDistrict: ['Angset', 'Barbaqueso (Pob.)', 'Virbira'],
-            postalCodes: [2911]
+            postalCodes: ['2911']
         },
         Currimao: {
             subDistrict: [
@@ -17872,7 +17872,7 @@ module.exports = {
                 'Torre',
                 'Victoria'
             ],
-            postalCodes: [2903]
+            postalCodes: ['2903']
         },
         Dingras: {
             subDistrict: [
@@ -17908,11 +17908,11 @@ module.exports = {
                 'Suyo',
                 'Ver'
             ],
-            postalCodes: [2913]
+            postalCodes: ['2913']
         },
         Dumalneg: {
             subDistrict: ['Cabaritan', 'Kalaw', 'Quibel', 'San Isidro'],
-            postalCodes: [2921]
+            postalCodes: ['2921']
         },
         'Laoag City': {
             subDistrict: [
@@ -17997,7 +17997,7 @@ module.exports = {
                 'Bry. No. 18',
                 'Bry. No. 48-A'
             ],
-            postalCodes: [2900]
+            postalCodes: ['2900']
         },
         Marcos: {
             subDistrict: [
@@ -18015,7 +18015,7 @@ module.exports = {
                 'Tabucbuc',
                 'Valdez'
             ],
-            postalCodes: [2907]
+            postalCodes: ['2907']
         },
         'Nueva Era': {
             subDistrict: [
@@ -18031,7 +18031,7 @@ module.exports = {
                 'Santo Niño',
                 'Uguis'
             ],
-            postalCodes: [2909]
+            postalCodes: ['2909']
         },
         Pagudpud: {
             subDistrict: [
@@ -18052,7 +18052,7 @@ module.exports = {
                 'Subec',
                 'Tarrag'
             ],
-            postalCodes: [2919]
+            postalCodes: ['2919']
         },
         Paoay: {
             subDistrict: [
@@ -18088,7 +18088,7 @@ module.exports = {
                 'Surgui',
                 'Veronica'
             ],
-            postalCodes: [2902]
+            postalCodes: ['2902']
         },
         Pasuquin: {
             subDistrict: [
@@ -18126,7 +18126,7 @@ module.exports = {
                 'Tabungao',
                 'Tadao'
             ],
-            postalCodes: [2917]
+            postalCodes: ['2917']
         },
         Piddig: {
             subDistrict: [
@@ -18154,7 +18154,7 @@ module.exports = {
                 'Tangaoan',
                 'Tonoton'
             ],
-            postalCodes: [2912]
+            postalCodes: ['2912']
         },
         Pinili: {
             subDistrict: [
@@ -18184,7 +18184,7 @@ module.exports = {
                 'Upon',
                 'Valbuena (Pob.)'
             ],
-            postalCodes: [2905]
+            postalCodes: ['2905']
         },
         'San Nicolas': {
             subDistrict: [
@@ -18213,7 +18213,7 @@ module.exports = {
                 'Santa Cecilia',
                 'Santa Monica'
             ],
-            postalCodes: [1010]
+            postalCodes: ['1010']
         },
         Sarrat: {
             subDistrict: [
@@ -18242,7 +18242,7 @@ module.exports = {
                 'Santo Santiago',
                 'Santo Tomas'
             ],
-            postalCodes: [2914]
+            postalCodes: ['2914']
         },
         Solsona: {
             subDistrict: [
@@ -18269,7 +18269,7 @@ module.exports = {
                 'Santiago',
                 'Talugtog'
             ],
-            postalCodes: [2910]
+            postalCodes: ['2910']
         },
         Vintar: {
             subDistrict: [
@@ -18307,7 +18307,7 @@ module.exports = {
                 'Tamdagan',
                 'Visaya'
             ],
-            postalCodes: [2915]
+            postalCodes: ['2915']
         }
     },
     'Ilocos Sur': {
@@ -18323,7 +18323,7 @@ module.exports = {
                 'Dalawa',
                 'Kiat'
             ],
-            postalCodes: [2716]
+            postalCodes: ['2716']
         },
         Banayoyo: {
             subDistrict: [
@@ -18342,7 +18342,7 @@ module.exports = {
                 'Pila',
                 'Poblacion'
             ],
-            postalCodes: [2708]
+            postalCodes: ['2708']
         },
         Bantay: {
             subDistrict: [
@@ -18381,7 +18381,7 @@ module.exports = {
                 'Taleb',
                 'Tay-ac'
             ],
-            postalCodes: [2727]
+            postalCodes: ['2727']
         },
         Burgos: {
             subDistrict: [
@@ -18412,7 +18412,7 @@ module.exports = {
                 'Subadi Sur',
                 'Taliao'
             ],
-            postalCodes: [2918]
+            postalCodes: ['2918']
         },
         Cabugao: {
             subDistrict: [
@@ -18450,7 +18450,7 @@ module.exports = {
                 'Turod',
                 'Turod-Patac'
             ],
-            postalCodes: [2732]
+            postalCodes: ['2732']
         },
         Candon: {
             subDistrict: [
@@ -18497,7 +18497,7 @@ module.exports = {
                 'Tamurong Segundo',
                 'Villarica'
             ],
-            postalCodes: [2710]
+            postalCodes: ['2710']
         },
         Caoayan: {
             subDistrict: [
@@ -18519,7 +18519,7 @@ module.exports = {
                 'Puro',
                 'Villamar'
             ],
-            postalCodes: [2702]
+            postalCodes: ['2702']
         },
         Cervantes: {
             subDistrict: [
@@ -18537,7 +18537,7 @@ module.exports = {
                 'San Juan',
                 'San Luis'
             ],
-            postalCodes: [2718]
+            postalCodes: ['2718']
         },
         Galimuyod: {
             subDistrict: [
@@ -18566,7 +18566,7 @@ module.exports = {
                 'San Vicente',
                 'Sapang'
             ],
-            postalCodes: [2709]
+            postalCodes: ['2709']
         },
         'Gregorio Del Pilar': {
             subDistrict: [
@@ -18578,7 +18578,7 @@ module.exports = {
                 'Poblacion Norte',
                 'Poblacion Sur'
             ],
-            postalCodes: [2720]
+            postalCodes: ['2720']
         },
         Lidlidda: {
             subDistrict: [
@@ -18594,7 +18594,7 @@ module.exports = {
                 'Suysuyan',
                 'Tay-ac'
             ],
-            postalCodes: [2723]
+            postalCodes: ['2723']
         },
         Magsingal: {
             subDistrict: [
@@ -18629,7 +18629,7 @@ module.exports = {
                 'Santa Monica',
                 'Sarsaracat'
             ],
-            postalCodes: [2730]
+            postalCodes: ['2730']
         },
         Nagbukel: {
             subDistrict: [
@@ -18646,7 +18646,7 @@ module.exports = {
                 'Poblacion West',
                 'Taleb'
             ],
-            postalCodes: [2725]
+            postalCodes: ['2725']
         },
         Narvacan: {
             subDistrict: [
@@ -18685,7 +18685,7 @@ module.exports = {
                 'Sulvec',
                 'Turod'
             ],
-            postalCodes: [2704]
+            postalCodes: ['2704']
         },
         Quirino: {
             subDistrict: [
@@ -18699,7 +18699,7 @@ module.exports = {
                 'Patungcaleo',
                 'Suagayan'
             ],
-            postalCodes: [2721]
+            postalCodes: ['2721']
         },
         Salcedo: {
             subDistrict: [
@@ -18725,7 +18725,7 @@ module.exports = {
                 'Sorioan',
                 'Ubbog'
             ],
-            postalCodes: [6807]
+            postalCodes: ['6807']
         },
         'San Emilio': {
             subDistrict: [
@@ -18738,7 +18738,7 @@ module.exports = {
                 'Sibsibbu',
                 'Tiagan'
             ],
-            postalCodes: [2722]
+            postalCodes: ['2722']
         },
         'San Esteban': {
             subDistrict: [
@@ -18753,7 +18753,7 @@ module.exports = {
                 'San Rafael',
                 'Villa Quirino'
             ],
-            postalCodes: [2706]
+            postalCodes: ['2706']
         },
         'San Ildefonso': {
             subDistrict: [
@@ -18773,7 +18773,7 @@ module.exports = {
                 'Sagneb',
                 'Sagsagat'
             ],
-            postalCodes: [3010]
+            postalCodes: ['3010']
         },
         'San Juan': {
             subDistrict: [
@@ -18810,7 +18810,7 @@ module.exports = {
                 'Sunggiam',
                 'Surngit'
             ],
-            postalCodes: [2823]
+            postalCodes: ['2823']
         },
         'San Vicente': {
             subDistrict: [
@@ -18822,7 +18822,7 @@ module.exports = {
                 'Pudoc',
                 'San Sebastian'
             ],
-            postalCodes: [1101]
+            postalCodes: ['1101']
         },
         Santa: {
             subDistrict: [
@@ -18853,7 +18853,7 @@ module.exports = {
                 'Sacuyya Sur',
                 'Tabucolan'
             ],
-            postalCodes: [2703]
+            postalCodes: ['2703']
         },
         'Santa Catalina': {
             subDistrict: [
@@ -18867,7 +18867,7 @@ module.exports = {
                 'Subec',
                 'Tamorong'
             ],
-            postalCodes: [2701]
+            postalCodes: ['2701']
         },
         'Santa Cruz': {
             subDistrict: [
@@ -18921,7 +18921,7 @@ module.exports = {
                 'Villa Hermosa',
                 'Villa Laurencia'
             ],
-            postalCodes: [1104]
+            postalCodes: ['1104']
         },
         'Santa Lucia': {
             subDistrict: [
@@ -18962,7 +18962,7 @@ module.exports = {
                 'Suagayan',
                 'Vical'
             ],
-            postalCodes: [1117]
+            postalCodes: ['1117']
         },
         'Santa Maria': {
             subDistrict: [
@@ -19000,7 +19000,7 @@ module.exports = {
                 'Tangaoan',
                 'Tinaan'
             ],
-            postalCodes: [3022]
+            postalCodes: ['3022']
         },
         Santiago: {
             subDistrict: [
@@ -19029,7 +19029,7 @@ module.exports = {
                 'San Roque',
                 'Ubbog'
             ],
-            postalCodes: [2707]
+            postalCodes: ['2707']
         },
         'Santo Domingo': {
             subDistrict: [
@@ -19070,7 +19070,7 @@ module.exports = {
                 'Suksukit',
                 'Vacunero'
             ],
-            postalCodes: [2729]
+            postalCodes: ['2729']
         },
         Sigay: {
             subDistrict: [
@@ -19082,7 +19082,7 @@ module.exports = {
                 'San Ramon',
                 'Santo Rosario'
             ],
-            postalCodes: [2719]
+            postalCodes: ['2719']
         },
         Sinait: {
             subDistrict: [
@@ -19131,7 +19131,7 @@ module.exports = {
                 'Ubbog',
                 'Zapat'
             ],
-            postalCodes: [2733]
+            postalCodes: ['2733']
         },
         Sugpon: {
             subDistrict: [
@@ -19142,7 +19142,7 @@ module.exports = {
                 'Licungan',
                 'Pangotan'
             ],
-            postalCodes: [2717]
+            postalCodes: ['2717']
         },
         Suyo: {
             subDistrict: [
@@ -19155,7 +19155,7 @@ module.exports = {
                 'Urzadan',
                 'Uso'
             ],
-            postalCodes: [2715]
+            postalCodes: ['2715']
         },
         Tagudin: {
             subDistrict: [
@@ -19203,7 +19203,7 @@ module.exports = {
                 'Tampugo',
                 'Tarangotong'
             ],
-            postalCodes: [2714]
+            postalCodes: ['2714']
         },
         Vigan: {
             subDistrict: [
@@ -19247,7 +19247,7 @@ module.exports = {
                 'San Pedro',
                 'Tamag'
             ],
-            postalCodes: [2700]
+            postalCodes: ['2700']
         }
     },
     Iloilo: {
@@ -19288,7 +19288,7 @@ module.exports = {
                 'Tipacla',
                 'Tubogan'
             ],
-            postalCodes: [5012]
+            postalCodes: ['5012']
         },
         Alimodian: {
             subDistrict: [
@@ -19344,7 +19344,7 @@ module.exports = {
                 'Ulay-Hinablan',
                 'Umingan'
             ],
-            postalCodes: [5028]
+            postalCodes: ['5028']
         },
         Anilao: {
             subDistrict: [
@@ -19370,7 +19370,7 @@ module.exports = {
                 'Serallo',
                 'Vista Alegre'
             ],
-            postalCodes: [5009]
+            postalCodes: ['5009']
         },
         Badiangan: {
             subDistrict: [
@@ -19406,7 +19406,7 @@ module.exports = {
                 'Teneclan',
                 'Tina'
             ],
-            postalCodes: [5033]
+            postalCodes: ['5033']
         },
         Balasan: {
             subDistrict: [
@@ -19434,7 +19434,7 @@ module.exports = {
                 'Tingui-an',
                 'Zaragosa'
             ],
-            postalCodes: [5018]
+            postalCodes: ['5018']
         },
         Banate: {
             subDistrict: [
@@ -19457,7 +19457,7 @@ module.exports = {
                 'Talokgangan',
                 'Zona Sur'
             ],
-            postalCodes: [5010]
+            postalCodes: ['5010']
         },
         'Barotac Nuevo': {
             subDistrict: [
@@ -19491,7 +19491,7 @@ module.exports = {
                 'Tiwi',
                 'Tubungan'
             ],
-            postalCodes: [5007]
+            postalCodes: ['5007']
         },
         'Barotac Viejo': {
             subDistrict: [
@@ -19522,7 +19522,7 @@ module.exports = {
                 'Ugasan',
                 'Vista Alegre'
             ],
-            postalCodes: [5011]
+            postalCodes: ['5011']
         },
         Batad: {
             subDistrict: [
@@ -19551,7 +19551,7 @@ module.exports = {
                 'Tanao',
                 'Tapi-an'
             ],
-            postalCodes: [5016]
+            postalCodes: ['5016']
         },
         Bingawan: {
             subDistrict: [
@@ -19570,7 +19570,7 @@ module.exports = {
                 'Tapacon',
                 'Tubod'
             ],
-            postalCodes: [5041]
+            postalCodes: ['5041']
         },
         Cabatuan: {
             subDistrict: [
@@ -19643,7 +19643,7 @@ module.exports = {
                 'Zone X Pob.',
                 'Zone XI Pob.'
             ],
-            postalCodes: [3315]
+            postalCodes: ['3315']
         },
         Calinog: {
             subDistrict: [
@@ -19707,7 +19707,7 @@ module.exports = {
                 'Toyungan',
                 'Ulayan'
             ],
-            postalCodes: [5040]
+            postalCodes: ['5040']
         },
         Carles: {
             subDistrict: [
@@ -19745,7 +19745,7 @@ module.exports = {
                 'Tinigban',
                 'Tupaz'
             ],
-            postalCodes: [5019]
+            postalCodes: ['5019']
         },
         Concepcion: {
             subDistrict: [
@@ -19775,7 +19775,7 @@ module.exports = {
                 'Tambaliza',
                 'Tamis-ac'
             ],
-            postalCodes: [7213]
+            postalCodes: ['7213']
         },
         Dingle: {
             subDistrict: [
@@ -19813,7 +19813,7 @@ module.exports = {
                 'Tinocuan',
                 'Tulatula-an'
             ],
-            postalCodes: [5035]
+            postalCodes: ['5035']
         },
         Dueñas: {
             subDistrict: [
@@ -19865,7 +19865,7 @@ module.exports = {
                 'Tinocuan',
                 'Tipolo'
             ],
-            postalCodes: [5038]
+            postalCodes: ['5038']
         },
         Dumangas: {
             subDistrict: [
@@ -19915,7 +19915,7 @@ module.exports = {
                 'Tamboilan',
                 'Victorias'
             ],
-            postalCodes: [5006]
+            postalCodes: ['5006']
         },
         Estancia: {
             subDistrict: [
@@ -19945,7 +19945,7 @@ module.exports = {
                 'Tanza',
                 'Villa Pani-an'
             ],
-            postalCodes: [5017]
+            postalCodes: ['5017']
         },
         Guimbal: {
             subDistrict: [
@@ -19983,7 +19983,7 @@ module.exports = {
                 'Sipitan-Badiang',
                 'Torreblanca-Blumentritt (Pob.)'
             ],
-            postalCodes: [5022]
+            postalCodes: ['5022']
         },
         Igbaras: {
             subDistrict: [
@@ -20034,7 +20034,7 @@ module.exports = {
                 'Taytay',
                 'Tigbanaba'
             ],
-            postalCodes: [5029]
+            postalCodes: ['5029']
         },
         'Iloilo City': {
             subDistrict: [
@@ -20219,7 +20219,7 @@ module.exports = {
                 'Yulo-Arroyo',
                 'Zamora-Melliza'
             ],
-            postalCodes: [5000]
+            postalCodes: ['5000']
         },
         Janiuay: {
             subDistrict: [
@@ -20284,7 +20284,7 @@ module.exports = {
                 'Ubian',
                 'Yabon'
             ],
-            postalCodes: [5034]
+            postalCodes: ['5034']
         },
         Lambunao: {
             subDistrict: [
@@ -20362,7 +20362,7 @@ module.exports = {
                 'Tuburan',
                 'Walang'
             ],
-            postalCodes: [5042]
+            postalCodes: ['5042']
         },
         Leganes: {
             subDistrict: [
@@ -20385,7 +20385,7 @@ module.exports = {
                 'Poblacion',
                 'San Vicente'
             ],
-            postalCodes: [5003]
+            postalCodes: ['5003']
         },
         Lemery: {
             subDistrict: [
@@ -20421,7 +20421,7 @@ module.exports = {
                 'Velasco',
                 'Yawyawan'
             ],
-            postalCodes: [4209]
+            postalCodes: ['4209']
         },
         Leon: {
             subDistrict: [
@@ -20511,7 +20511,7 @@ module.exports = {
                 'Tu-og',
                 'Tunguan'
             ],
-            postalCodes: [5026]
+            postalCodes: ['5026']
         },
         Maasin: {
             subDistrict: [
@@ -20566,7 +20566,7 @@ module.exports = {
                 'Tuy-an West',
                 'Ubian'
             ],
-            postalCodes: [5030]
+            postalCodes: ['5030']
         },
         Miagao: {
             subDistrict: [
@@ -20690,7 +20690,7 @@ module.exports = {
                 'Valencia',
                 'Wayang'
             ],
-            postalCodes: [5023]
+            postalCodes: ['5023']
         },
         Mina: {
             subDistrict: [
@@ -20717,7 +20717,7 @@ module.exports = {
                 'Tumay',
                 'Yugot'
             ],
-            postalCodes: [5032]
+            postalCodes: ['5032']
         },
         'New Lucena': {
             subDistrict: [
@@ -20743,7 +20743,7 @@ module.exports = {
                 'Poblacion',
                 'Wari-wari'
             ],
-            postalCodes: [5005]
+            postalCodes: ['5005']
         },
         Oton: {
             subDistrict: [
@@ -20785,7 +20785,7 @@ module.exports = {
                 'Tuburan',
                 'Turog-Turog'
             ],
-            postalCodes: [5020]
+            postalCodes: ['5020']
         },
         Passi: {
             subDistrict: [
@@ -20841,7 +20841,7 @@ module.exports = {
                 'Tubod',
                 'Tuburan'
             ],
-            postalCodes: [5037]
+            postalCodes: ['5037']
         },
         Pavia: {
             subDistrict: [
@@ -20864,7 +20864,7 @@ module.exports = {
                 'Ungka I',
                 'Ungka II'
             ],
-            postalCodes: [5001]
+            postalCodes: ['5001']
         },
         Pototan: {
             subDistrict: [
@@ -20919,7 +20919,7 @@ module.exports = {
                 'Ubang',
                 'Zarrague'
             ],
-            postalCodes: [5008]
+            postalCodes: ['5008']
         },
         'San Dionisio': {
             subDistrict: [
@@ -20953,7 +20953,7 @@ module.exports = {
                 'Tiabas',
                 'Tuble'
             ],
-            postalCodes: [5015]
+            postalCodes: ['5015']
         },
         'San Enrique': {
             subDistrict: [
@@ -20986,7 +20986,7 @@ module.exports = {
                 'San Antonio',
                 'Tambunac'
             ],
-            postalCodes: [5036]
+            postalCodes: ['5036']
         },
         'San Joaquin': {
             subDistrict: [
@@ -21076,7 +21076,7 @@ module.exports = {
                 'Torocadan',
                 'Ulay'
             ],
-            postalCodes: [1601]
+            postalCodes: ['1601']
         },
         'San Miguel': {
             subDistrict: [
@@ -21105,7 +21105,7 @@ module.exports = {
                 'Santo Angel',
                 'Santo Niño'
             ],
-            postalCodes: [1005]
+            postalCodes: ['1005']
         },
         'San Rafael': {
             subDistrict: [
@@ -21119,7 +21119,7 @@ module.exports = {
                 'San Dionisio',
                 'San Florentino'
             ],
-            postalCodes: [1302]
+            postalCodes: ['1302']
         },
         'Santa Barbara': {
             subDistrict: [
@@ -21184,7 +21184,7 @@ module.exports = {
                 'Tugas',
                 'Tungay'
             ],
-            postalCodes: [2419]
+            postalCodes: ['2419']
         },
         Sara: {
             subDistrict: [
@@ -21231,7 +21231,7 @@ module.exports = {
                 'Villahermosa',
                 'Zerrudo'
             ],
-            postalCodes: [5014]
+            postalCodes: ['5014']
         },
         Tigbauan: {
             subDistrict: [
@@ -21288,7 +21288,7 @@ module.exports = {
                 'Tan Pael',
                 'Taro'
             ],
-            postalCodes: [5021]
+            postalCodes: ['5021']
         },
         Tubungan: {
             subDistrict: [
@@ -21341,7 +21341,7 @@ module.exports = {
                 'Zone II (Pob.)',
                 'Zone III (Pob.)'
             ],
-            postalCodes: [5027]
+            postalCodes: ['5027']
         },
         Zarraga: {
             subDistrict: [
@@ -21370,7 +21370,7 @@ module.exports = {
                 'Tuburan',
                 'Tuburan Sulbod'
             ],
-            postalCodes: [5004]
+            postalCodes: ['5004']
         }
     },
     Isabela: {
@@ -21411,7 +21411,7 @@ module.exports = {
                 'Victoria',
                 'Zamora'
             ],
-            postalCodes: [1105]
+            postalCodes: ['1105']
         },
         Angadanan: {
             subDistrict: [
@@ -21475,7 +21475,7 @@ module.exports = {
                 'Viga',
                 'Villa Domingo'
             ],
-            postalCodes: [3307]
+            postalCodes: ['3307']
         },
         Aurora: {
             subDistrict: [
@@ -21513,7 +21513,7 @@ module.exports = {
                 'Villa Fugu',
                 'Villa Nuesa'
             ],
-            postalCodes: [3316]
+            postalCodes: ['3316']
         },
         'Benito Soliven': {
             subDistrict: [
@@ -21547,7 +21547,7 @@ module.exports = {
                 'Yeban Norte',
                 'Yeban Sur'
             ],
-            postalCodes: [3331]
+            postalCodes: ['3331']
         },
         Burgos: {
             subDistrict: [
@@ -21566,7 +21566,7 @@ module.exports = {
                 'San Miguel',
                 'San Roque'
             ],
-            postalCodes: [2918]
+            postalCodes: ['2918']
         },
         Cabagan: {
             subDistrict: [
@@ -21597,7 +21597,7 @@ module.exports = {
                 'Ugad',
                 'Union'
             ],
-            postalCodes: [3328]
+            postalCodes: ['3328']
         },
         Cabatuan: {
             subDistrict: [
@@ -21624,7 +21624,7 @@ module.exports = {
                 'Saranay',
                 'Tandul'
             ],
-            postalCodes: [3315]
+            postalCodes: ['3315']
         },
         'City of Cauayan': {
             subDistrict: [
@@ -21694,7 +21694,7 @@ module.exports = {
                 'Villa Luna',
                 'Villaflor'
             ],
-            postalCodes: [3305]
+            postalCodes: ['3305']
         },
         'City of Ilagan': {
             subDistrict: [
@@ -21790,7 +21790,7 @@ module.exports = {
                 'Tangcul',
                 'Villa Imelda'
             ],
-            postalCodes: [3300]
+            postalCodes: ['3300']
         },
         Cordon: {
             subDistrict: [
@@ -21821,7 +21821,7 @@ module.exports = {
                 'Villamiemban',
                 'Wigan'
             ],
-            postalCodes: [3312]
+            postalCodes: ['3312']
         },
         'Delfin Albano': {
             subDistrict: [
@@ -21855,7 +21855,7 @@ module.exports = {
                 'Villa Pereda',
                 'Visitacion'
             ],
-            postalCodes: [3326]
+            postalCodes: ['3326']
         },
         Dinapigue: {
             subDistrict: [
@@ -21866,7 +21866,7 @@ module.exports = {
                 'Digumased (Pob.)',
                 'Dimaluade'
             ],
-            postalCodes: [3336]
+            postalCodes: ['3336']
         },
         Divilacan: {
             subDistrict: [
@@ -21883,7 +21883,7 @@ module.exports = {
                 'Ditarum',
                 'Sapinit'
             ],
-            postalCodes: [3335]
+            postalCodes: ['3335']
         },
         Echague: {
             subDistrict: [
@@ -21952,7 +21952,7 @@ module.exports = {
                 'Villa Rey',
                 'Villa Victoria'
             ],
-            postalCodes: [3309]
+            postalCodes: ['3309']
         },
         Gamu: {
             subDistrict: [
@@ -21973,7 +21973,7 @@ module.exports = {
                 'Union',
                 'Upi'
             ],
-            postalCodes: [3301]
+            postalCodes: ['3301']
         },
         Jones: {
             subDistrict: [
@@ -22020,7 +22020,7 @@ module.exports = {
                 'Usol',
                 'Villa Bello'
             ],
-            postalCodes: [3313]
+            postalCodes: ['3313']
         },
         Luna: {
             subDistrict: [
@@ -22044,7 +22044,7 @@ module.exports = {
                 'Santo Domingo',
                 'Union Kalinga'
             ],
-            postalCodes: [3304]
+            postalCodes: ['3304']
         },
         Maconacon: {
             subDistrict: [
@@ -22059,7 +22059,7 @@ module.exports = {
                 'Reina Mercedes',
                 'Santa Marina'
             ],
-            postalCodes: [3333]
+            postalCodes: ['3333']
         },
         Mallig: {
             subDistrict: [
@@ -22082,7 +22082,7 @@ module.exports = {
                 'Trinidad',
                 'Victoria'
             ],
-            postalCodes: [3323]
+            postalCodes: ['3323']
         },
         Naguilian: {
             subDistrict: [
@@ -22112,7 +22112,7 @@ module.exports = {
                 'Tomines',
                 'Villa Paz'
             ],
-            postalCodes: [3302]
+            postalCodes: ['3302']
         },
         Palanan: {
             subDistrict: [
@@ -22134,7 +22134,7 @@ module.exports = {
                 'Santa Jacinta',
                 'Villa Robles'
             ],
-            postalCodes: [1235]
+            postalCodes: ['1235']
         },
         Quezon: {
             subDistrict: [
@@ -22154,7 +22154,7 @@ module.exports = {
                 'Santos (Pob.)',
                 'Turod'
             ],
-            postalCodes: [3324]
+            postalCodes: ['3324']
         },
         Quirino: {
             subDistrict: [
@@ -22180,7 +22180,7 @@ module.exports = {
                 'Villa Miguel',
                 'Vintar'
             ],
-            postalCodes: [2721]
+            postalCodes: ['2721']
         },
         Ramon: {
             subDistrict: [
@@ -22204,7 +22204,7 @@ module.exports = {
                 'Villa Carmen',
                 'Villa Marcos'
             ],
-            postalCodes: [3319]
+            postalCodes: ['3319']
         },
         'Reina Mercedes': {
             subDistrict: [
@@ -22229,7 +22229,7 @@ module.exports = {
                 'Turod',
                 'Villador'
             ],
-            postalCodes: [3303]
+            postalCodes: ['3303']
         },
         Roxas: {
             subDistrict: [
@@ -22260,7 +22260,7 @@ module.exports = {
                 'Villa Concepcion',
                 'Vira (Pob.)'
             ],
-            postalCodes: [3320]
+            postalCodes: ['3320']
         },
         'San Agustin': {
             subDistrict: [
@@ -22288,7 +22288,7 @@ module.exports = {
                 'Sinaoangan Sur',
                 'Virgoneza'
             ],
-            postalCodes: [1117]
+            postalCodes: ['1117']
         },
         'San Guillermo': {
             subDistrict: [
@@ -22319,7 +22319,7 @@ module.exports = {
                 'Villa Sanchez',
                 'Villa Teresita'
             ],
-            postalCodes: [3308]
+            postalCodes: ['3308']
         },
         'San Isidro': {
             subDistrict: [
@@ -22337,7 +22337,7 @@ module.exports = {
                 'Victoria',
                 'Villaflor'
             ],
-            postalCodes: [1234]
+            postalCodes: ['1234']
         },
         'San Manuel': {
             subDistrict: [
@@ -22361,7 +22361,7 @@ module.exports = {
                 'Santa Cruz',
                 'Villanueva'
             ],
-            postalCodes: [2438]
+            postalCodes: ['2438']
         },
         'San Mariano': {
             subDistrict: [
@@ -22402,7 +22402,7 @@ module.exports = {
                 'Zone II (Pob.)',
                 'Zone III (Pob.)'
             ],
-            postalCodes: [3332]
+            postalCodes: ['3332']
         },
         'San Mateo': {
             subDistrict: [
@@ -22440,7 +22440,7 @@ module.exports = {
                 'Villa Magat',
                 'Villafuerte'
             ],
-            postalCodes: [3318]
+            postalCodes: ['3318']
         },
         'San Pablo': {
             subDistrict: [
@@ -22462,7 +22462,7 @@ module.exports = {
                 'Simanu Sur',
                 'Tupa'
             ],
-            postalCodes: [3329]
+            postalCodes: ['3329']
         },
         'Santa Maria': {
             subDistrict: [
@@ -22487,7 +22487,7 @@ module.exports = {
                 'San Rafael West',
                 'Villabuena'
             ],
-            postalCodes: [3022]
+            postalCodes: ['3022']
         },
         'Santiago City': {
             subDistrict: [
@@ -22529,7 +22529,7 @@ module.exports = {
                 'Villa Gonzaga',
                 'Villasis'
             ],
-            postalCodes: [3311]
+            postalCodes: ['3311']
         },
         'Santo Tomas': {
             subDistrict: [
@@ -22561,7 +22561,7 @@ module.exports = {
                 'Uauang-Galicia',
                 'Uauang-Tuliao'
             ],
-            postalCodes: [4234]
+            postalCodes: ['4234']
         },
         Tumauini: {
             subDistrict: [
@@ -22612,7 +22612,7 @@ module.exports = {
                 'Tunggui',
                 'Ugad'
             ],
-            postalCodes: [3325]
+            postalCodes: ['3325']
         }
     },
     Kalinga: {
@@ -22633,7 +22633,7 @@ module.exports = {
                 'Talalang',
                 'Tawang'
             ],
-            postalCodes: [3801]
+            postalCodes: ['3801']
         },
         Lubuagan: {
             subDistrict: [
@@ -22647,7 +22647,7 @@ module.exports = {
                 'Uma Del Norte',
                 'Upper Uma'
             ],
-            postalCodes: [3802]
+            postalCodes: ['3802']
         },
         Pasil: {
             subDistrict: [
@@ -22666,7 +22666,7 @@ module.exports = {
                 'Malucsad',
                 'Pugong'
             ],
-            postalCodes: [3803]
+            postalCodes: ['3803']
         },
         Pinukpuk: {
             subDistrict: [
@@ -22694,7 +22694,7 @@ module.exports = {
                 'Taggay',
                 'Wagud'
             ],
-            postalCodes: [3806]
+            postalCodes: ['3806']
         },
         Rizal: {
             subDistrict: [
@@ -22713,7 +22713,7 @@ module.exports = {
                 'San Quintin',
                 'Santor'
             ],
-            postalCodes: [3526]
+            postalCodes: ['3526']
         },
         'Tabuk City': {
             subDistrict: [
@@ -22761,7 +22761,7 @@ module.exports = {
                 'Suyang',
                 'Tuga'
             ],
-            postalCodes: [3800]
+            postalCodes: ['3800']
         },
         Tanudan: {
             subDistrict: [
@@ -22782,7 +22782,7 @@ module.exports = {
                 'Upper Lubo',
                 'Upper Taloctoc'
             ],
-            postalCodes: [3805]
+            postalCodes: ['3805']
         },
         Tinglayan: {
             subDistrict: [
@@ -22807,7 +22807,7 @@ module.exports = {
                 'Tulgao West',
                 'Upper Bangad'
             ],
-            postalCodes: [3804]
+            postalCodes: ['3804']
         }
     },
     'La Union': {
@@ -22863,7 +22863,7 @@ module.exports = {
                 'Santa Rita Sur',
                 'Santa Rita West'
             ],
-            postalCodes: [2504]
+            postalCodes: ['2504']
         },
         Aringay: {
             subDistrict: [
@@ -22892,7 +22892,7 @@ module.exports = {
                 'Santo Rosario East',
                 'Santo Rosario West'
             ],
-            postalCodes: [2503]
+            postalCodes: ['2503']
         },
         Bacnotan: {
             subDistrict: [
@@ -22944,7 +22944,7 @@ module.exports = {
                 'Ubbog',
                 'Zaragosa'
             ],
-            postalCodes: [2515]
+            postalCodes: ['2515']
         },
         Bagulin: {
             subDistrict: [
@@ -22959,7 +22959,7 @@ module.exports = {
                 'Tio-angan',
                 'Wallayan'
             ],
-            postalCodes: [2512]
+            postalCodes: ['2512']
         },
         Balaoan: {
             subDistrict: [
@@ -23000,7 +23000,7 @@ module.exports = {
                 'Sinapangan Sur',
                 'Tallipugo'
             ],
-            postalCodes: [2517]
+            postalCodes: ['2517']
         },
         Bangar: {
             subDistrict: [
@@ -23038,7 +23038,7 @@ module.exports = {
                 'Sinapangan Sur',
                 'Ubbog'
             ],
-            postalCodes: [2519]
+            postalCodes: ['2519']
         },
         Bauang: {
             subDistrict: [
@@ -23082,7 +23082,7 @@ module.exports = {
                 'Upper San Agustin',
                 'Urayong'
             ],
-            postalCodes: [2501]
+            postalCodes: ['2501']
         },
         Burgos: {
             subDistrict: [
@@ -23099,7 +23099,7 @@ module.exports = {
                 'Old Poblacion',
                 'Upper Tumapoc'
             ],
-            postalCodes: [2918]
+            postalCodes: ['2918']
         },
         Caba: {
             subDistrict: [
@@ -23121,7 +23121,7 @@ module.exports = {
                 'Urayong',
                 'Wenceslao'
             ],
-            postalCodes: [2502]
+            postalCodes: ['2502']
         },
         Luna: {
             subDistrict: [
@@ -23166,7 +23166,7 @@ module.exports = {
                 'Tallaoen',
                 'Victoria (Pob.)'
             ],
-            postalCodes: [3304]
+            postalCodes: ['3304']
         },
         Naguilian: {
             subDistrict: [
@@ -23208,7 +23208,7 @@ module.exports = {
                 'Suguidan Sur',
                 'Tuddingan'
             ],
-            postalCodes: [2700, 2511]
+            postalCodes: [2700, '2511']
         },
         Pugo: {
             subDistrict: [
@@ -23227,7 +23227,7 @@ module.exports = {
                 'Tavora East',
                 'Tavora Proper'
             ],
-            postalCodes: [2508]
+            postalCodes: ['2508']
         },
         Rosario: {
             subDistrict: [
@@ -23265,7 +23265,7 @@ module.exports = {
                 'Udiao',
                 'Vila'
             ],
-            postalCodes: [1609]
+            postalCodes: ['1609']
         },
         'San Fernando City': {
             subDistrict: [
@@ -23329,7 +23329,7 @@ module.exports = {
                 'Tanqui',
                 'Tanquigan'
             ],
-            postalCodes: [2500]
+            postalCodes: ['2500']
         },
         'San Gabriel': {
             subDistrict: [
@@ -23349,7 +23349,7 @@ module.exports = {
                 'Poblacion',
                 'Polipol'
             ],
-            postalCodes: [2513]
+            postalCodes: ['2513']
         },
         'San Juan': {
             subDistrict: [
@@ -23395,7 +23395,7 @@ module.exports = {
                 'Talogtog',
                 'Urbiztondo'
             ],
-            postalCodes: [2823]
+            postalCodes: ['2823']
         },
         'Santo Tomas': {
             subDistrict: [
@@ -23424,7 +23424,7 @@ module.exports = {
                 'Tubod',
                 'Ubagan'
             ],
-            postalCodes: [4234]
+            postalCodes: ['4234']
         },
         Santol: {
             subDistrict: [
@@ -23440,7 +23440,7 @@ module.exports = {
                 'Sasaba',
                 'Tubaday'
             ],
-            postalCodes: [1113]
+            postalCodes: ['1113']
         },
         Sudipen: {
             subDistrict: [
@@ -23462,7 +23462,7 @@ module.exports = {
                 'Turod',
                 'Up-uplas'
             ],
-            postalCodes: [2520]
+            postalCodes: ['2520']
         },
         Tubao: {
             subDistrict: [
@@ -23485,7 +23485,7 @@ module.exports = {
                 'Rizal',
                 'Santa Teresa'
             ],
-            postalCodes: [2509]
+            postalCodes: ['2509']
         }
     },
     Laguna: {
@@ -23507,7 +23507,7 @@ module.exports = {
                 'San Roque',
                 'Santa Rosa'
             ],
-            postalCodes: [4001]
+            postalCodes: ['4001']
         },
         Bay: {
             subDistrict: [
@@ -23527,7 +23527,7 @@ module.exports = {
                 'Tagumpay',
                 'Tranca'
             ],
-            postalCodes: [4033]
+            postalCodes: ['4033']
         },
         Biñan: {
             subDistrict: [
@@ -23556,7 +23556,7 @@ module.exports = {
                 'Tubigan',
                 'Zapote'
             ],
-            postalCodes: [4024]
+            postalCodes: ['4024']
         },
         Cabuyao: {
             subDistrict: [
@@ -23579,7 +23579,7 @@ module.exports = {
                 'Sala',
                 'San Isidro'
             ],
-            postalCodes: [4025]
+            postalCodes: ['4025']
         },
         Calamba: {
             subDistrict: [
@@ -23638,7 +23638,7 @@ module.exports = {
                 'Ulango',
                 'Uwisan'
             ],
-            postalCodes: [4027]
+            postalCodes: ['4027']
         },
         Calauan: {
             subDistrict: [
@@ -23660,7 +23660,7 @@ module.exports = {
                 'Santo Tomas',
                 'Silangan (Pob.)'
             ],
-            postalCodes: [4012]
+            postalCodes: ['4012']
         },
         Cavinti: {
             subDistrict: [
@@ -23684,7 +23684,7 @@ module.exports = {
                 'Tibatib',
                 'Udia'
             ],
-            postalCodes: [4013]
+            postalCodes: ['4013']
         },
         Famy: {
             subDistrict: [
@@ -23709,11 +23709,11 @@ module.exports = {
                 'Salangbato',
                 'Tunhac'
             ],
-            postalCodes: [4021]
+            postalCodes: ['4021']
         },
         Kalayaan: {
             subDistrict: ['Longos', 'San Antonio', 'San Juan (Pob.)'],
-            postalCodes: [4015]
+            postalCodes: ['4015']
         },
         Liliw: {
             subDistrict: [
@@ -23751,7 +23751,7 @@ module.exports = {
                 'Silangang Bukal',
                 'Tuy-Baanan'
             ],
-            postalCodes: [4004]
+            postalCodes: ['4004']
         },
         'Los Baños': {
             subDistrict: [
@@ -23770,7 +23770,7 @@ module.exports = {
                 'Tadlak',
                 'Timugan (Pob.)'
             ],
-            postalCodes: [4030]
+            postalCodes: ['4030']
         },
         Luisiana: {
             subDistrict: [
@@ -23798,7 +23798,7 @@ module.exports = {
                 'Santo Domingo',
                 'Santo Tomas'
             ],
-            postalCodes: [4032]
+            postalCodes: ['4032']
         },
         Lumban: {
             subDistrict: [
@@ -23819,7 +23819,7 @@ module.exports = {
                 'Segunda Pulo (Pob.)',
                 'Wawa'
             ],
-            postalCodes: [4014]
+            postalCodes: ['4014']
         },
         Mabitac: {
             subDistrict: [
@@ -23839,7 +23839,7 @@ module.exports = {
                 'San Miguel',
                 'Sinagtala (Pob.)'
             ],
-            postalCodes: [4020]
+            postalCodes: ['4020']
         },
         Magdalena: {
             subDistrict: [
@@ -23868,7 +23868,7 @@ module.exports = {
                 'Tanawan',
                 'Tipunan'
             ],
-            postalCodes: [4007]
+            postalCodes: ['4007']
         },
         Majayjay: {
             subDistrict: [
@@ -23913,7 +23913,7 @@ module.exports = {
                 'Taytay',
                 'Villa Nogales'
             ],
-            postalCodes: [4005]
+            postalCodes: ['4005']
         },
         Nagcarlan: {
             subDistrict: [
@@ -23970,7 +23970,7 @@ module.exports = {
                 'Wakat',
                 'Yukos'
             ],
-            postalCodes: [4002]
+            postalCodes: ['4002']
         },
         Paete: {
             subDistrict: [
@@ -23984,7 +23984,7 @@ module.exports = {
                 'Maytoong (Pob.)',
                 'Quinale (Pob.)'
             ],
-            postalCodes: [4016]
+            postalCodes: ['4016']
         },
         Pagsanjan: {
             subDistrict: [
@@ -24005,7 +24005,7 @@ module.exports = {
                 'Sampaloc',
                 'San Isidro'
             ],
-            postalCodes: [4008]
+            postalCodes: ['4008']
         },
         Pakil: {
             subDistrict: [
@@ -24023,7 +24023,7 @@ module.exports = {
                 'Taft (Pob.)',
                 'Tavera (Pob.)'
             ],
-            postalCodes: [4017]
+            postalCodes: ['4017']
         },
         Pangil: {
             subDistrict: [
@@ -24036,7 +24036,7 @@ module.exports = {
                 'San Jose (Pob.)',
                 'Sulib'
             ],
-            postalCodes: [4018]
+            postalCodes: ['4018']
         },
         Pila: {
             subDistrict: [
@@ -24058,7 +24058,7 @@ module.exports = {
                 'Santa Clara Sur (Pob.)',
                 'Tubuan'
             ],
-            postalCodes: [4010]
+            postalCodes: ['4010']
         },
         Rizal: {
             subDistrict: [
@@ -24074,7 +24074,7 @@ module.exports = {
                 'Tuy',
                 'West Poblacion'
             ],
-            postalCodes: [3526]
+            postalCodes: ['3526']
         },
         'San Pablo City': {
             subDistrict: [
@@ -24159,7 +24159,7 @@ module.exports = {
                 'Santo Niño',
                 'Soledad'
             ],
-            postalCodes: [4000]
+            postalCodes: ['4000']
         },
         'San Pedro': {
             subDistrict: [
@@ -24191,7 +24191,7 @@ module.exports = {
                 'United Bayanihan',
                 'United Better Living'
             ],
-            postalCodes: [4023]
+            postalCodes: ['4023']
         },
         'Santa Cruz': {
             subDistrict: [
@@ -24222,7 +24222,7 @@ module.exports = {
                 'Santo Angel Norte',
                 'Santo Angel Sur'
             ],
-            postalCodes: [4009]
+            postalCodes: ['4009']
         },
         'Santa Maria': {
             subDistrict: [
@@ -24252,7 +24252,7 @@ module.exports = {
                 'Talangka',
                 'Tungkod'
             ],
-            postalCodes: [3022]
+            postalCodes: ['3022']
         },
         'Santa Rosa': {
             subDistrict: [
@@ -24275,7 +24275,7 @@ module.exports = {
                 'Sinalhan',
                 'Tagapo'
             ],
-            postalCodes: [4026]
+            postalCodes: ['4026']
         },
         Siniloan: {
             subDistrict: [
@@ -24300,7 +24300,7 @@ module.exports = {
                 'Salubungan',
                 'Wawa'
             ],
-            postalCodes: [4019]
+            postalCodes: ['4019']
         },
         Victoria: {
             subDistrict: [
@@ -24314,7 +24314,7 @@ module.exports = {
                 'San Francisco',
                 'San Roque (Pob.)'
             ],
-            postalCodes: [4011]
+            postalCodes: ['4011']
         }
     },
     'Lanao Del Norte': {
@@ -24337,7 +24337,7 @@ module.exports = {
                 'Punod',
                 'Rupagan'
             ],
-            postalCodes: [9205]
+            postalCodes: ['9205']
         },
         Baloi: {
             subDistrict: [
@@ -24363,7 +24363,7 @@ module.exports = {
                 'Sarip-Alawi',
                 'Sigayan'
             ],
-            postalCodes: [9217]
+            postalCodes: ['9217']
         },
         Baroy: {
             subDistrict: [
@@ -24391,7 +24391,7 @@ module.exports = {
                 'Tinubdan',
                 'Village'
             ],
-            postalCodes: [9210]
+            postalCodes: ['9210']
         },
         'Iligan City': {
             subDistrict: [
@@ -24440,7 +24440,7 @@ module.exports = {
                 'Upper Hinaplanon',
                 'Villa Verde'
             ],
-            postalCodes: [9200]
+            postalCodes: ['9200']
         },
         Kapatagan: {
             subDistrict: [
@@ -24478,7 +24478,7 @@ module.exports = {
                 'Tulatulahan',
                 'Waterfalls'
             ],
-            postalCodes: [9214]
+            postalCodes: ['9214']
         },
         Kauswagan: {
             subDistrict: [
@@ -24496,7 +24496,7 @@ module.exports = {
                 'Tingintingin',
                 'Tugar'
             ],
-            postalCodes: [9202]
+            postalCodes: ['9202']
         },
         Kolambugan: {
             subDistrict: [
@@ -24527,7 +24527,7 @@ module.exports = {
                 'Tabigue',
                 'Titunod'
             ],
-            postalCodes: [9207]
+            postalCodes: ['9207']
         },
         Lala: {
             subDistrict: [
@@ -24559,7 +24559,7 @@ module.exports = {
                 'Tenazas',
                 'Tuna-an'
             ],
-            postalCodes: [9211]
+            postalCodes: ['9211']
         },
         Linamon: {
             subDistrict: [
@@ -24572,7 +24572,7 @@ module.exports = {
                 'Robocon',
                 'Samburon'
             ],
-            postalCodes: [9201]
+            postalCodes: ['9201']
         },
         Magsaysay: {
             subDistrict: [
@@ -24601,7 +24601,7 @@ module.exports = {
                 'Tombador',
                 'Upper Caningag'
             ],
-            postalCodes: [5101]
+            postalCodes: ['5101']
         },
         Maigo: {
             subDistrict: [
@@ -24619,7 +24619,7 @@ module.exports = {
                 'Santa Cruz',
                 'Segapod'
             ],
-            postalCodes: [9206]
+            postalCodes: ['9206']
         },
         Matungao: {
             subDistrict: [
@@ -24636,7 +24636,7 @@ module.exports = {
                 'Santa Cruz',
                 'Somiorang'
             ],
-            postalCodes: [9203]
+            postalCodes: ['9203']
         },
         Munai: {
             subDistrict: [
@@ -24667,7 +24667,7 @@ module.exports = {
                 'Tamparan',
                 'Taporog'
             ],
-            postalCodes: [9219]
+            postalCodes: ['9219']
         },
         Nunungan: {
             subDistrict: [
@@ -24697,7 +24697,7 @@ module.exports = {
                 'Songgod',
                 'Taraka'
             ],
-            postalCodes: [9216]
+            postalCodes: ['9216']
         },
         'Pantao Ragat': {
             subDistrict: [
@@ -24722,7 +24722,7 @@ module.exports = {
                 'Tangcal',
                 'Tongcopan'
             ],
-            postalCodes: [9208]
+            postalCodes: ['9208']
         },
         Pantar: {
             subDistrict: [
@@ -24748,7 +24748,7 @@ module.exports = {
                 'Tawanan',
                 'West Pantar'
             ],
-            postalCodes: [9218]
+            postalCodes: ['9218']
         },
         'Poona Piagapo': {
             subDistrict: [
@@ -24779,7 +24779,7 @@ module.exports = {
                 'Tangclao',
                 'Timbangalan'
             ],
-            postalCodes: [9204]
+            postalCodes: ['9204']
         },
         Salvador: {
             subDistrict: [
@@ -24809,7 +24809,7 @@ module.exports = {
                 'Saumay',
                 'Sudlon'
             ],
-            postalCodes: [9212]
+            postalCodes: ['9212']
         },
         Sapad: {
             subDistrict: [
@@ -24831,7 +24831,7 @@ module.exports = {
                 'Pili',
                 'Sapad'
             ],
-            postalCodes: [9213]
+            postalCodes: ['9213']
         },
         'Sultan Naga Dimaporo': {
             subDistrict: [
@@ -24873,7 +24873,7 @@ module.exports = {
                 'Tantaon',
                 'Topocon'
             ],
-            postalCodes: [9215]
+            postalCodes: ['9215']
         },
         Tagoloan: {
             subDistrict: [
@@ -24885,7 +24885,7 @@ module.exports = {
                 'Malimbato',
                 'Panalawan'
             ],
-            postalCodes: [9222]
+            postalCodes: ['9222']
         },
         Tangcal: {
             subDistrict: [
@@ -24908,7 +24908,7 @@ module.exports = {
                 'Somiorang',
                 'Tangcal Proper'
             ],
-            postalCodes: [9220]
+            postalCodes: ['9220']
         },
         Tubod: {
             subDistrict: [
@@ -24937,7 +24937,7 @@ module.exports = {
                 'Tangueguiron',
                 'Tubaran'
             ],
-            postalCodes: [9209]
+            postalCodes: ['9209']
         }
     },
     'Lanao Del Sur': {
@@ -24961,7 +24961,7 @@ module.exports = {
                 'Salam',
                 'Sumugot'
             ],
-            postalCodes: [9320]
+            postalCodes: ['9320']
         },
         'Bacolod-Kalawi': {
             subDistrict: [
@@ -24992,7 +24992,7 @@ module.exports = {
                 'Tuka I',
                 'Tuka II'
             ],
-            postalCodes: [9316]
+            postalCodes: ['9316']
         },
         Balabagan: {
             subDistrict: [
@@ -25024,7 +25024,7 @@ module.exports = {
                 'Tataya',
                 'Upper Itil'
             ],
-            postalCodes: [9302]
+            postalCodes: ['9302']
         },
         Balindong: {
             subDistrict: [
@@ -25067,7 +25067,7 @@ module.exports = {
                 'Tomarompong',
                 'Tuka Bubong'
             ],
-            postalCodes: [9318]
+            postalCodes: ['9318']
         },
         Bayang: {
             subDistrict: [
@@ -25121,7 +25121,7 @@ module.exports = {
                 'Torogan',
                 'Tuca (Pob.)'
             ],
-            postalCodes: [9309]
+            postalCodes: ['9309']
         },
         Binidayan: {
             subDistrict: [
@@ -25152,7 +25152,7 @@ module.exports = {
                 'Timbangan',
                 'Tuca'
             ],
-            postalCodes: [9310]
+            postalCodes: ['9310']
         },
         'Buadiposo-Buntong': {
             subDistrict: [
@@ -25190,7 +25190,7 @@ module.exports = {
                 'Tarik',
                 'Tuka'
             ],
-            postalCodes: [9714]
+            postalCodes: ['9714']
         },
         Bubong: {
             subDistrict: [
@@ -25231,7 +25231,7 @@ module.exports = {
                 'Sunggod',
                 'Taboro'
             ],
-            postalCodes: [9708]
+            postalCodes: ['9708']
         },
         Butig: {
             subDistrict: [
@@ -25252,7 +25252,7 @@ module.exports = {
                 'Timbab',
                 'Tiowi'
             ],
-            postalCodes: [9305]
+            postalCodes: ['9305']
         },
         Calanogas: {
             subDistrict: [
@@ -25274,7 +25274,7 @@ module.exports = {
                 'Taliboboka',
                 'Tambac'
             ],
-            postalCodes: [9319]
+            postalCodes: ['9319']
         },
         'Ditsaan-Ramain': {
             subDistrict: [
@@ -25314,7 +25314,7 @@ module.exports = {
                 'Talub',
                 'Upper Pugaan'
             ],
-            postalCodes: [9713]
+            postalCodes: ['9713']
         },
         Ganassi: {
             subDistrict: [
@@ -25351,7 +25351,7 @@ module.exports = {
                 'Taganonok',
                 'Taliogon'
             ],
-            postalCodes: [9311]
+            postalCodes: ['9311']
         },
         Kapai: {
             subDistrict: [
@@ -25376,7 +25376,7 @@ module.exports = {
                 'Pindolonan',
                 'Poblacion'
             ],
-            postalCodes: [9709]
+            postalCodes: ['9709']
         },
         Kapatagan: {
             subDistrict: [
@@ -25396,7 +25396,7 @@ module.exports = {
                 'Tabuan',
                 'Upper Igabay'
             ],
-            postalCodes: [9214]
+            postalCodes: ['9214']
         },
         'Lumba-Bayabao': {
             subDistrict: [
@@ -25439,7 +25439,7 @@ module.exports = {
                 'Tongcopan',
                 'Turogan'
             ],
-            postalCodes: [9703]
+            postalCodes: ['9703']
         },
         'Lumbaca-Unayan': {
             subDistrict: [
@@ -25453,7 +25453,7 @@ module.exports = {
                 'Oriental Beta',
                 'Tringun'
             ],
-            postalCodes: [9308]
+            postalCodes: ['9308']
         },
         Lumbatan: {
             subDistrict: [
@@ -25479,7 +25479,7 @@ module.exports = {
                 'Poblacion',
                 'Tambac'
             ],
-            postalCodes: [9307]
+            postalCodes: ['9307']
         },
         Lumbayanague: {
             subDistrict: [
@@ -25506,7 +25506,7 @@ module.exports = {
                 'Singcara',
                 'Wago'
             ],
-            postalCodes: [9306]
+            postalCodes: ['9306']
         },
         Madalum: {
             subDistrict: [
@@ -25548,7 +25548,7 @@ module.exports = {
                 'Tongantongan',
                 'Udangun'
             ],
-            postalCodes: [9315]
+            postalCodes: ['9315']
         },
         Madamba: {
             subDistrict: [
@@ -25577,7 +25577,7 @@ module.exports = {
                 'Tulay',
                 'Uyaan Proper (Pob.)'
             ],
-            postalCodes: [9314]
+            postalCodes: ['9314']
         },
         Maguing: {
             subDistrict: [
@@ -25616,7 +25616,7 @@ module.exports = {
                 'Ragayan',
                 'Sabala Dilausan'
             ],
-            postalCodes: [9715]
+            postalCodes: ['9715']
         },
         Malabang: {
             subDistrict: [
@@ -25658,7 +25658,7 @@ module.exports = {
                 'Tiongcop',
                 'Tuboc'
             ],
-            postalCodes: [9300]
+            postalCodes: ['9300']
         },
         Marantao: {
             subDistrict: [
@@ -25697,7 +25697,7 @@ module.exports = {
                 'Tacub',
                 'Tuca Kialdan'
             ],
-            postalCodes: [9711]
+            postalCodes: ['9711']
         },
         Marawi: {
             subDistrict: [
@@ -25798,7 +25798,7 @@ module.exports = {
                 'Wawalayan Calocan',
                 'Wawalayan Marinaut'
             ],
-            postalCodes: [9700]
+            postalCodes: ['9700']
         },
         Marogong: {
             subDistrict: [
@@ -25827,7 +25827,7 @@ module.exports = {
                 'Romagondong',
                 'Sarang'
             ],
-            postalCodes: [9303]
+            postalCodes: ['9303']
         },
         Masiu: {
             subDistrict: [
@@ -25867,7 +25867,7 @@ module.exports = {
                 'Towanao Arangga',
                 'Unda Dayawan'
             ],
-            postalCodes: [9706]
+            postalCodes: ['9706']
         },
         Mulondo: {
             subDistrict: [
@@ -25898,7 +25898,7 @@ module.exports = {
                 'Salipongan',
                 'Sugan'
             ],
-            postalCodes: [9702]
+            postalCodes: ['9702']
         },
         Pagayawan: {
             subDistrict: [
@@ -25921,7 +25921,7 @@ module.exports = {
                 'Rangiran',
                 'Rubokun'
             ],
-            postalCodes: [9312]
+            postalCodes: ['9312']
         },
         Piagapo: {
             subDistrict: [
@@ -25963,7 +25963,7 @@ module.exports = {
                 'Tawaan',
                 'Udalo'
             ],
-            postalCodes: [9710]
+            postalCodes: ['9710']
         },
         Picong: {
             subDistrict: [
@@ -25987,7 +25987,7 @@ module.exports = {
                 'Tuca',
                 'Ubanoban'
             ],
-            postalCodes: [9301]
+            postalCodes: ['9301']
         },
         'Poona Bayabao': {
             subDistrict: [
@@ -26017,7 +26017,7 @@ module.exports = {
                 'Talaguian',
                 'Taporog'
             ],
-            postalCodes: [9705]
+            postalCodes: ['9705']
         },
         Pualas: {
             subDistrict: [
@@ -26045,7 +26045,7 @@ module.exports = {
                 'Tuka',
                 'Yaran'
             ],
-            postalCodes: [9313]
+            postalCodes: ['9313']
         },
         Saguiaran: {
             subDistrict: [
@@ -26080,7 +26080,7 @@ module.exports = {
                 'Salocad',
                 'Sungcod'
             ],
-            postalCodes: [9701]
+            postalCodes: ['9701']
         },
         'Sultan Dumalondong': {
             subDistrict: [
@@ -26092,7 +26092,7 @@ module.exports = {
                 'Pagalongan',
                 'Tagoranao'
             ],
-            postalCodes: [9300]
+            postalCodes: ['9300']
         },
         'Tagoloan Ii': {
             subDistrict: [
@@ -26116,7 +26116,7 @@ module.exports = {
                 'Sigayan',
                 'Tagoloan Poblacion'
             ],
-            postalCodes: [9321]
+            postalCodes: ['9321']
         },
         Tamparan: {
             subDistrict: [
@@ -26165,7 +26165,7 @@ module.exports = {
                 'Tatayawan South',
                 'Tubok'
             ],
-            postalCodes: [9704]
+            postalCodes: ['9704']
         },
         Taraka: {
             subDistrict: [
@@ -26213,7 +26213,7 @@ module.exports = {
                 'Supangan',
                 'Tupa-an Buadiatupa'
             ],
-            postalCodes: [9712]
+            postalCodes: ['9712']
         },
         Tubaran: {
             subDistrict: [
@@ -26239,7 +26239,7 @@ module.exports = {
                 'Tubaran Proper',
                 'Wago'
             ],
-            postalCodes: [9304]
+            postalCodes: ['9304']
         },
         Tugaya: {
             subDistrict: [
@@ -26267,7 +26267,7 @@ module.exports = {
                 'Sumbaga Rogong',
                 'Tangcal'
             ],
-            postalCodes: [9317]
+            postalCodes: ['9317']
         },
         Wao: {
             subDistrict: [
@@ -26298,7 +26298,7 @@ module.exports = {
                 'Serran Village',
                 'Western Wao (Pob.)'
             ],
-            postalCodes: [9716]
+            postalCodes: ['9716']
         }
     },
     Leyte: {
@@ -26368,7 +26368,7 @@ module.exports = {
                 'Tuy-a',
                 'Victory (Pob.)'
             ],
-            postalCodes: [6510]
+            postalCodes: ['6510']
         },
         Alangalang: {
             subDistrict: [
@@ -26427,7 +26427,7 @@ module.exports = {
                 'Tombo',
                 'Veteranos'
             ],
-            postalCodes: [6517]
+            postalCodes: ['6517']
         },
         Albuera: {
             subDistrict: [
@@ -26448,7 +26448,7 @@ module.exports = {
                 'Talisayan',
                 'Tinag-an'
             ],
-            postalCodes: [6542]
+            postalCodes: ['6542']
         },
         Babatngon: {
             subDistrict: [
@@ -26478,7 +26478,7 @@ module.exports = {
                 'Victory',
                 'Villa Magsaysay'
             ],
-            postalCodes: [6520]
+            postalCodes: ['6520']
         },
         Barugo: {
             subDistrict: [
@@ -26520,7 +26520,7 @@ module.exports = {
                 'Santarin',
                 'Tutug-an'
             ],
-            postalCodes: [6519]
+            postalCodes: ['6519']
         },
         Bato: {
             subDistrict: [
@@ -26557,7 +26557,7 @@ module.exports = {
                 'Tinago District (Pob.)',
                 'Tugas'
             ],
-            postalCodes: [4435]
+            postalCodes: ['4435']
         },
         Baybay: {
             subDistrict: [
@@ -26654,7 +26654,7 @@ module.exports = {
                 'Villa Solidaridad',
                 'Zacarito'
             ],
-            postalCodes: [6521]
+            postalCodes: ['6521']
         },
         Burauen: {
             subDistrict: [
@@ -26736,7 +26736,7 @@ module.exports = {
                 'Villa Patria',
                 'Villa Rosas'
             ],
-            postalCodes: [6516]
+            postalCodes: ['6516']
         },
         Calubian: {
             subDistrict: [
@@ -26794,7 +26794,7 @@ module.exports = {
                 'Villalon',
                 'Villanueva'
             ],
-            postalCodes: [6534]
+            postalCodes: ['6534']
         },
         Capoocan: {
             subDistrict: [
@@ -26820,7 +26820,7 @@ module.exports = {
                 'Tolibao',
                 'Visares'
             ],
-            postalCodes: [6530]
+            postalCodes: ['6530']
         },
         Carigara: {
             subDistrict: [
@@ -26874,7 +26874,7 @@ module.exports = {
                 'Uyawan',
                 'West Visoria'
             ],
-            postalCodes: [6529]
+            postalCodes: ['6529']
         },
         Dagami: {
             subDistrict: [
@@ -26944,7 +26944,7 @@ module.exports = {
                 'Tuya',
                 'Victoria'
             ],
-            postalCodes: [6515]
+            postalCodes: ['6515']
         },
         Dulag: {
             subDistrict: [
@@ -26994,7 +26994,7 @@ module.exports = {
                 'Tigbao',
                 'Victory'
             ],
-            postalCodes: [6505]
+            postalCodes: ['6505']
         },
         Hilongos: {
             subDistrict: [
@@ -27050,7 +27050,7 @@ module.exports = {
                 'Utanan',
                 'Western Barangay (Pob.)'
             ],
-            postalCodes: [6524]
+            postalCodes: ['6524']
         },
         Hindang: {
             subDistrict: [
@@ -27075,7 +27075,7 @@ module.exports = {
                 'Tabok',
                 'Tagbibi'
             ],
-            postalCodes: [6523]
+            postalCodes: ['6523']
         },
         Inopacan: {
             subDistrict: [
@@ -27100,7 +27100,7 @@ module.exports = {
                 'Taotaon',
                 'Tinago'
             ],
-            postalCodes: [6522]
+            postalCodes: ['6522']
         },
         Isabel: {
             subDistrict: [
@@ -27129,7 +27129,7 @@ module.exports = {
                 'Tolingon',
                 'Tubod'
             ],
-            postalCodes: [6539]
+            postalCodes: ['6539']
         },
         Jaro: {
             subDistrict: [
@@ -27180,7 +27180,7 @@ module.exports = {
                 'Villa Paz',
                 'Villagonzoilo'
             ],
-            postalCodes: [6527]
+            postalCodes: ['6527']
         },
         Javier: {
             subDistrict: [
@@ -27213,7 +27213,7 @@ module.exports = {
                 'Talisayan',
                 'Ulhay'
             ],
-            postalCodes: [6511]
+            postalCodes: ['6511']
         },
         Julita: {
             subDistrict: [
@@ -27244,7 +27244,7 @@ module.exports = {
                 'Tolosahay',
                 'Villa Hermosa'
             ],
-            postalCodes: [6506]
+            postalCodes: ['6506']
         },
         Kananga: {
             subDistrict: [
@@ -27272,7 +27272,7 @@ module.exports = {
                 'Tongonan',
                 'Tugbong'
             ],
-            postalCodes: [6531]
+            postalCodes: ['6531']
         },
         'La Paz': {
             subDistrict: [
@@ -27312,7 +27312,7 @@ module.exports = {
                 'Tabang',
                 'Tarugan'
             ],
-            postalCodes: [2826]
+            postalCodes: ['2826']
         },
         Leyte: {
             subDistrict: [
@@ -27347,7 +27347,7 @@ module.exports = {
                 'Ugbon',
                 'Wague'
             ],
-            postalCodes: [6533]
+            postalCodes: ['6533']
         },
         Macarthur: {
             subDistrict: [
@@ -27383,7 +27383,7 @@ module.exports = {
                 'Tuyo',
                 'Villa Imelda'
             ],
-            postalCodes: [6509]
+            postalCodes: ['6509']
         },
         Mahaplag: {
             subDistrict: [
@@ -27416,7 +27416,7 @@ module.exports = {
                 'Union',
                 'Upper Mahaplag'
             ],
-            postalCodes: [6512]
+            postalCodes: ['6512']
         },
         'Matag-Ob': {
             subDistrict: [
@@ -27442,7 +27442,7 @@ module.exports = {
                 'Santo Rosario',
                 'Talisay (Pob.)'
             ],
-            postalCodes: [6532]
+            postalCodes: ['6532']
         },
         Matalom: {
             subDistrict: [
@@ -27477,7 +27477,7 @@ module.exports = {
                 'Waterloo',
                 'Zaragoza'
             ],
-            postalCodes: [6526]
+            postalCodes: ['6526']
         },
         Mayorga: {
             subDistrict: [
@@ -27498,7 +27498,7 @@ module.exports = {
                 'Union',
                 'Wilson'
             ],
-            postalCodes: [6507]
+            postalCodes: ['6507']
         },
         Merida: {
             subDistrict: [
@@ -27525,7 +27525,7 @@ module.exports = {
                 'San Jose',
                 'Tubod'
             ],
-            postalCodes: [6540]
+            postalCodes: ['6540']
         },
         'Ormoc City': {
             subDistrict: [
@@ -27640,7 +27640,7 @@ module.exports = {
                 'Tongonan',
                 'Valencia'
             ],
-            postalCodes: [6541]
+            postalCodes: ['6541']
         },
         Palo: {
             subDistrict: [
@@ -27678,7 +27678,7 @@ module.exports = {
                 'Tacuranga',
                 'Teraza'
             ],
-            postalCodes: [6501]
+            postalCodes: ['6501']
         },
         Palompon: {
             subDistrict: [
@@ -27733,7 +27733,7 @@ module.exports = {
                 'Tinago',
                 'Tinubdan'
             ],
-            postalCodes: [6538]
+            postalCodes: ['6538']
         },
         Pastrana: {
             subDistrict: [
@@ -27767,7 +27767,7 @@ module.exports = {
                 'Tingib',
                 'Yapad'
             ],
-            postalCodes: [6514]
+            postalCodes: ['6514']
         },
         'San Isidro': {
             subDistrict: [
@@ -27791,7 +27791,7 @@ module.exports = {
                 'Taglawigan',
                 'Tinago'
             ],
-            postalCodes: [1234]
+            postalCodes: ['1234']
         },
         'San Miguel': {
             subDistrict: [
@@ -27817,7 +27817,7 @@ module.exports = {
                 'Santa Cruz',
                 'Santol'
             ],
-            postalCodes: [1005]
+            postalCodes: ['1005']
         },
         'Santa Fe': {
             subDistrict: [
@@ -27842,7 +27842,7 @@ module.exports = {
                 'Zone 3 (Pob.)',
                 'Zone 4 Pob.'
             ],
-            postalCodes: [6047]
+            postalCodes: ['6047']
         },
         Tabango: {
             subDistrict: [
@@ -27860,7 +27860,7 @@ module.exports = {
                 'Tabing',
                 'Tugas'
             ],
-            postalCodes: [6536]
+            postalCodes: ['6536']
         },
         Tabontabon: {
             subDistrict: [
@@ -27881,7 +27881,7 @@ module.exports = {
                 'Mohon',
                 'San Pablo'
             ],
-            postalCodes: [6504]
+            postalCodes: ['6504']
         },
         'Tacloban City': {
             subDistrict: [
@@ -28024,7 +28024,7 @@ module.exports = {
                 'Libertad',
                 'Nula-tula'
             ],
-            postalCodes: [6500]
+            postalCodes: ['6500']
         },
         Tanauan: {
             subDistrict: [
@@ -28083,7 +28083,7 @@ module.exports = {
                 'Talolora',
                 'Tugop'
             ],
-            postalCodes: [4232]
+            postalCodes: ['4232']
         },
         Tolosa: {
             subDistrict: [
@@ -28103,7 +28103,7 @@ module.exports = {
                 'Tanghas',
                 'Telegrafo'
             ],
-            postalCodes: [6503]
+            postalCodes: ['6503']
         },
         Tunga: {
             subDistrict: [
@@ -28116,7 +28116,7 @@ module.exports = {
                 'San Vicente (Pob.)',
                 'Santo Niño (Pob.)'
             ],
-            postalCodes: [6528]
+            postalCodes: ['6528']
         },
         Villaba: {
             subDistrict: [
@@ -28156,7 +28156,7 @@ module.exports = {
                 'Tagbubunga',
                 'Tinghub'
             ],
-            postalCodes: [6537]
+            postalCodes: ['6537']
         }
     },
     Maguindanao: {
@@ -28174,7 +28174,7 @@ module.exports = {
                 'Tomicor',
                 'Tubak'
             ],
-            postalCodes: [9609]
+            postalCodes: ['9609']
         },
         Barira: {
             subDistrict: [
@@ -28193,7 +28193,7 @@ module.exports = {
                 'Rominimbang',
                 'Togaig'
             ],
-            postalCodes: [9614]
+            postalCodes: ['9614']
         },
         Buldon: {
             subDistrict: [
@@ -28213,7 +28213,7 @@ module.exports = {
                 'Piers',
                 'Rumidas'
             ],
-            postalCodes: [9615]
+            postalCodes: ['9615']
         },
         Buluan: {
             subDistrict: [
@@ -28225,7 +28225,7 @@ module.exports = {
                 'Talitay',
                 'Upper Siling'
             ],
-            postalCodes: [9616]
+            postalCodes: ['9616']
         },
         'Datu Abdullah Sangki': {
             subDistrict: [
@@ -28240,7 +28240,7 @@ module.exports = {
                 'Talisawa',
                 'Tukanolocong'
             ],
-            postalCodes: [9621]
+            postalCodes: ['9621']
         },
         'Datu Anggal Midtimbang': {
             subDistrict: [
@@ -28252,7 +28252,7 @@ module.exports = {
                 'Tugal',
                 'Tulunan'
             ],
-            postalCodes: [9622]
+            postalCodes: ['9622']
         },
         'Datu Blah T. Sinsuat': {
             subDistrict: [
@@ -28270,7 +28270,7 @@ module.exports = {
                 'Tambak',
                 'Tubuan'
             ],
-            postalCodes: [9623]
+            postalCodes: ['9623']
         },
         'Datu Hoffer Ampatuan': {
             subDistrict: [
@@ -28286,7 +28286,7 @@ module.exports = {
                 'Tuayan I',
                 'Tuntungan'
             ],
-            postalCodes: [9624]
+            postalCodes: ['9624']
         },
         'Datu Odin Sinsuat': {
             subDistrict: [
@@ -28325,7 +28325,7 @@ module.exports = {
                 'Taviran',
                 'Tenonggos'
             ],
-            postalCodes: [9601]
+            postalCodes: ['9601']
         },
         'Datu Paglas': {
             subDistrict: [
@@ -28353,7 +28353,7 @@ module.exports = {
                 'Salendab',
                 'Sepaka'
             ],
-            postalCodes: [9617]
+            postalCodes: ['9617']
         },
         'Datu Piang': {
             subDistrict: [
@@ -28374,7 +28374,7 @@ module.exports = {
                 'Poblacion',
                 'Reina Regente'
             ],
-            postalCodes: [9607]
+            postalCodes: ['9607']
         },
         'Datu Salibo': {
             subDistrict: [
@@ -28396,7 +28396,7 @@ module.exports = {
                 'Sambulawan',
                 'Tee'
             ],
-            postalCodes: [9625]
+            postalCodes: ['9625']
         },
         'Datu Saudi-Ampatuan': {
             subDistrict: [
@@ -28409,7 +28409,7 @@ module.exports = {
                 'Madia',
                 'Salbu'
             ],
-            postalCodes: [9626]
+            postalCodes: ['9626']
         },
         'Datu Unsay': {
             subDistrict: [
@@ -28422,7 +28422,7 @@ module.exports = {
                 'Panangeti',
                 'Tuntungan'
             ],
-            postalCodes: [9627]
+            postalCodes: ['9627']
         },
         'Gen. S.K. Pendatun': {
             subDistrict: [
@@ -28446,7 +28446,7 @@ module.exports = {
                 'Tonggol',
                 'Upper Lasangan'
             ],
-            postalCodes: [9618]
+            postalCodes: ['9618']
         },
         Guindulungan: {
             subDistrict: [
@@ -28462,7 +28462,7 @@ module.exports = {
                 'Sampao',
                 'Tambunan II'
             ],
-            postalCodes: [9628]
+            postalCodes: ['9628']
         },
         Kabuntalan: {
             subDistrict: [
@@ -28484,7 +28484,7 @@ module.exports = {
                 'Poblacion',
                 'Upper Taviran'
             ],
-            postalCodes: [9606, 9618]
+            postalCodes: [9606, '9618']
         },
         Mamasapano: {
             subDistrict: [
@@ -28503,7 +28503,7 @@ module.exports = {
                 'Tuka',
                 'Tukanalipao'
             ],
-            postalCodes: [9629]
+            postalCodes: ['9629']
         },
         Mangudadatu: {
             subDistrict: [
@@ -28516,7 +28516,7 @@ module.exports = {
                 'Tinambulan',
                 'Tumbao'
             ],
-            postalCodes: [9620]
+            postalCodes: ['9620']
         },
         Matanog: {
             subDistrict: [
@@ -28529,7 +28529,7 @@ module.exports = {
                 'Langkong',
                 'Sapad'
             ],
-            postalCodes: [9613]
+            postalCodes: ['9613']
         },
         'Northern Kabuntalan': {
             subDistrict: [
@@ -28545,7 +28545,7 @@ module.exports = {
                 'Sabaken',
                 'Tumaguinting'
             ],
-            postalCodes: [9630]
+            postalCodes: ['9630']
         },
         Pagagawan: {
             subDistrict: [
@@ -28561,7 +28561,7 @@ module.exports = {
                 'Talitay',
                 'Tunggol'
             ],
-            postalCodes: [9631]
+            postalCodes: ['9631']
         },
         Pagalungan: {
             subDistrict: [
@@ -28578,7 +28578,7 @@ module.exports = {
                 'Linandangan',
                 'Poblacion'
             ],
-            postalCodes: [9610]
+            postalCodes: ['9610']
         },
         Paglat: {
             subDistrict: [
@@ -28591,7 +28591,7 @@ module.exports = {
                 'Tual',
                 'Upper Idtig'
             ],
-            postalCodes: [9632]
+            postalCodes: ['9632']
         },
         Pandag: {
             subDistrict: [
@@ -28604,7 +28604,7 @@ module.exports = {
                 'Pandag',
                 'Upper Dilag'
             ],
-            postalCodes: [9633]
+            postalCodes: ['9633']
         },
         Parang: {
             subDistrict: [
@@ -28634,7 +28634,7 @@ module.exports = {
                 'Tagudtongan',
                 'Tuca-Maror'
             ],
-            postalCodes: [1809]
+            postalCodes: ['1809']
         },
         'Rajah Buayan': {
             subDistrict: [
@@ -28650,7 +28650,7 @@ module.exports = {
                 'Sapakan (Pob.)',
                 'Tabungao'
             ],
-            postalCodes: [9634]
+            postalCodes: ['9634']
         },
         'Shariff Aguak': {
             subDistrict: [
@@ -28668,7 +28668,7 @@ module.exports = {
                 'Timbangan',
                 'Tina'
             ],
-            postalCodes: [9608]
+            postalCodes: ['9608']
         },
         'Shariff Saydona Mustapha': {
             subDistrict: [
@@ -28689,7 +28689,7 @@ module.exports = {
                 'Pikeg',
                 'Pusao'
             ],
-            postalCodes: [9635]
+            postalCodes: ['9635']
         },
         'South Upi': {
             subDistrict: [
@@ -28705,7 +28705,7 @@ module.exports = {
                 'Romangaob (Pob.)',
                 'San Jose'
             ],
-            postalCodes: [9603]
+            postalCodes: ['9603']
         },
         'Sultan Kudarat': {
             subDistrict: [
@@ -28749,7 +28749,7 @@ module.exports = {
                 'Senditan',
                 'Ungap'
             ],
-            postalCodes: [9605]
+            postalCodes: ['9605']
         },
         'Sultan Mastura': {
             subDistrict: [
@@ -28767,7 +28767,7 @@ module.exports = {
                 'Tariken',
                 'Tuka'
             ],
-            postalCodes: [9636]
+            postalCodes: ['9636']
         },
         'Sultan Sa Barongis': {
             subDistrict: [
@@ -28784,7 +28784,7 @@ module.exports = {
                 'Tugal',
                 'Tukanakuden'
             ],
-            postalCodes: [9611]
+            postalCodes: ['9611']
         },
         Talayan: {
             subDistrict: [
@@ -28804,7 +28804,7 @@ module.exports = {
                 'Tambunan I',
                 'Timbaluan'
             ],
-            postalCodes: [1104]
+            postalCodes: ['1104']
         },
         Talitay: {
             subDistrict: [
@@ -28818,7 +28818,7 @@ module.exports = {
                 'Pageda',
                 'Talitay'
             ],
-            postalCodes: [9637]
+            postalCodes: ['9637']
         },
         Upi: {
             subDistrict: [
@@ -28846,7 +28846,7 @@ module.exports = {
                 'Sefegefen',
                 'Tinungkaan'
             ],
-            postalCodes: [9602]
+            postalCodes: ['9602']
         }
     },
     Marinduque: {
@@ -28914,7 +28914,7 @@ module.exports = {
                 'Tumagabok',
                 'Tumapon'
             ],
-            postalCodes: [4900]
+            postalCodes: ['4900']
         },
         Buenavista: {
             subDistrict: [
@@ -28934,7 +28934,7 @@ module.exports = {
                 'Tungib-Lipata',
                 'Yook'
             ],
-            postalCodes: [4904]
+            postalCodes: ['4904']
         },
         Gasan: {
             subDistrict: [
@@ -28964,7 +28964,7 @@ module.exports = {
                 'Tapuyan',
                 'Tiguion'
             ],
-            postalCodes: [4905]
+            postalCodes: ['4905']
         },
         Mogpog: {
             subDistrict: [
@@ -29006,7 +29006,7 @@ module.exports = {
                 'Tarug',
                 'Villa Mendez (Pob.)'
             ],
-            postalCodes: [4901]
+            postalCodes: ['4901']
         },
         'Santa Cruz': {
             subDistrict: [
@@ -29066,7 +29066,7 @@ module.exports = {
                 'Tawiran',
                 'Taytay'
             ],
-            postalCodes: [1104]
+            postalCodes: ['1104']
         },
         Torrijos: {
             subDistrict: [
@@ -29096,7 +29096,7 @@ module.exports = {
                 'Talawan',
                 'Tigwi'
             ],
-            postalCodes: [4903]
+            postalCodes: ['4903']
         }
     },
     Masbate: {
@@ -29144,7 +29144,7 @@ module.exports = {
                 'Tinago',
                 'Tinigban'
             ],
-            postalCodes: [5414]
+            postalCodes: ['5414']
         },
         Baleno: {
             subDistrict: [
@@ -29173,7 +29173,7 @@ module.exports = {
                 'Sog-Ong',
                 'Tinapian'
             ],
-            postalCodes: [5413]
+            postalCodes: ['5413']
         },
         Balud: {
             subDistrict: [
@@ -29210,7 +29210,7 @@ module.exports = {
                 'Victory',
                 'Villa Alvarez'
             ],
-            postalCodes: [5412]
+            postalCodes: ['5412']
         },
         Batuan: {
             subDistrict: [
@@ -29229,7 +29229,7 @@ module.exports = {
                 'Royroy',
                 'Sawang'
             ],
-            postalCodes: [6318]
+            postalCodes: ['6318']
         },
         Cataingan: {
             subDistrict: [
@@ -29270,7 +29270,7 @@ module.exports = {
                 'Tuybo',
                 'Villa Pogado'
             ],
-            postalCodes: [5405]
+            postalCodes: ['5405']
         },
         Cawayan: {
             subDistrict: [
@@ -29312,7 +29312,7 @@ module.exports = {
                 'Tuburan',
                 'Villahermosa'
             ],
-            postalCodes: [5405]
+            postalCodes: ['5405']
         },
         Claveria: {
             subDistrict: [
@@ -29339,7 +29339,7 @@ module.exports = {
                 'San Vicente',
                 'Taguilid'
             ],
-            postalCodes: [3519]
+            postalCodes: ['3519']
         },
         Dimasalang: {
             subDistrict: [
@@ -29364,7 +29364,7 @@ module.exports = {
                 'Suba',
                 'T.R. Yangco'
             ],
-            postalCodes: [5403]
+            postalCodes: ['5403']
         },
         Esperanza: {
             subDistrict: [
@@ -29389,7 +29389,7 @@ module.exports = {
                 'Tunga',
                 'Villa'
             ],
-            postalCodes: [5407]
+            postalCodes: ['5407']
         },
         Mandaon: {
             subDistrict: [
@@ -29420,7 +29420,7 @@ module.exports = {
                 'Tagpu',
                 'Tumalaytay'
             ],
-            postalCodes: [5411]
+            postalCodes: ['5411']
         },
         Masbate: {
             subDistrict: [
@@ -29455,7 +29455,7 @@ module.exports = {
                 'Ubongan Dacu',
                 'Usab'
             ],
-            postalCodes: [5400]
+            postalCodes: ['5400']
         },
         Milagros: {
             subDistrict: [
@@ -29487,7 +29487,7 @@ module.exports = {
                 'Tigbao',
                 'Tinaclipan'
             ],
-            postalCodes: [5410]
+            postalCodes: ['5410']
         },
         Mobo: {
             subDistrict: [
@@ -29521,7 +29521,7 @@ module.exports = {
                 'Umabay Exterior',
                 'Umabay Interior'
             ],
-            postalCodes: [5401]
+            postalCodes: ['5401']
         },
         Monreal: {
             subDistrict: [
@@ -29537,7 +29537,7 @@ module.exports = {
                 'Santo Niño',
                 'Togoron'
             ],
-            postalCodes: [5418]
+            postalCodes: ['5418']
         },
         Palanas: {
             subDistrict: [
@@ -29566,7 +29566,7 @@ module.exports = {
                 'San Isidro',
                 'Santa Cruz'
             ],
-            postalCodes: [5404]
+            postalCodes: ['5404']
         },
         'Pio V. Corpuz': {
             subDistrict: [
@@ -29588,7 +29588,7 @@ module.exports = {
                 'Tanque',
                 'Tubigan'
             ],
-            postalCodes: [5406]
+            postalCodes: ['5406']
         },
         Placer: {
             subDistrict: [
@@ -29629,7 +29629,7 @@ module.exports = {
                 'Tubog',
                 'Villa Inocencio'
             ],
-            postalCodes: [5408]
+            postalCodes: ['5408']
         },
         'San Fernando': {
             subDistrict: [
@@ -29660,7 +29660,7 @@ module.exports = {
                 'Talisay',
                 'Valparaiso'
             ],
-            postalCodes: [4415]
+            postalCodes: ['4415']
         },
         'San Jacinto': {
             subDistrict: [
@@ -29686,7 +29686,7 @@ module.exports = {
                 'Santa Rosa',
                 'Washington'
             ],
-            postalCodes: [2431]
+            postalCodes: ['2431']
         },
         'San Pascual': {
             subDistrict: [
@@ -29713,7 +29713,7 @@ module.exports = {
                 'Santa Cruz',
                 'Terraplin (Pob.)'
             ],
-            postalCodes: [4204]
+            postalCodes: ['4204']
         },
         Uson: {
             subDistrict: [
@@ -29753,7 +29753,7 @@ module.exports = {
                 'Sawang',
                 'Simawa'
             ],
-            postalCodes: [5402]
+            postalCodes: ['5402']
         }
     },
     'Metro Manila': {
@@ -29770,7 +29770,7 @@ module.exports = {
                 'Tala Leprosarium',
                 'Victory Heights'
             ],
-            postalCodes: [1425, 1428, 1421, 1426, 1424, 1420, 1423, 1422, 1427]
+            postalCodes: [1425, 1428, 1421, 1426, 1424, 1420, 1423, 1422, '1427']
         },
         'Caloocan City (South)': {
             subDistrict: [
@@ -29789,7 +29789,7 @@ module.exports = {
                 'Sta. Quiteria',
                 'University Hills'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1405, 1401, 1411, 1403, 1406, 1412, 1400, 1409, 1413, 1410,
                 1404, 1408, 1402, 1407
             ]
@@ -29833,7 +29833,7 @@ module.exports = {
                 'Western Police District',
                 'World Map ,Manila'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 917, 912, 926, 925, 922, 970, 910, 923, 902, 918, 905, 915, 960,
                 900, 903, 913, 906, 950, 904, 911, 908, 928, 940, 921, 927, 990,
                 914, 901, 916, 907, 909, 920, 930, 919, 924
@@ -29856,7 +29856,7 @@ module.exports = {
                 'Verdant Acres Subd.',
                 'Zapote'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1750, 1749, 1743, 1745, 1740, 1748, 1744, 1742, 1741, 1752,
                 1751, 1747, 1746
             ]
@@ -29900,7 +29900,7 @@ module.exports = {
                 'Urdaneta Village',
                 'Valenzuela, Santiago, Rizal'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1226, 1233, 1209, 1214, 1217, 1221, 1222, 1219, 1220, 1201,
                 1202, 1228, 1212, 1211, 1206, 1204, 1229, 1232, 1224, 1200,
                 1216, 1207, 1235, 1218, 1213, 1230, 1210, 1215, 1227, 1203,
@@ -29922,7 +29922,7 @@ module.exports = {
                 'Santolan',
                 'Tonsuya'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1474, 1476, 1480, 1471, 1409, 1472, 1470, 1477, 1479, 1475,
                 1478, 1473
             ]
@@ -29937,7 +29937,7 @@ module.exports = {
                 'Vergara',
                 'Wack Wack Golf Club'
             ],
-            postalCodes: [1554, 1556, 1550, 1553, 1552, 1551, 1555]
+            postalCodes: [1554, 1556, 1550, 1553, 1552, 1551, '1555']
         },
         Manila: {
             subDistrict: [
@@ -29961,7 +29961,7 @@ module.exports = {
                 'Tondo North',
                 'Tondo South'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1006, 1000, 1002, 1004, 1007, 1011, 1018, 1001, 1008, 1015,
                 1017, 1005, 1010, 1009, 1014, 1003, 1016, 1013, 1012
             ]
@@ -29973,7 +29973,7 @@ module.exports = {
                 'Sta Cruz P.O. Boxes',
                 'Sta. Mesa P.O. Boxes'
             ],
-            postalCodes: [1045, 1000, 1040, 1035]
+            postalCodes: [1045, 1000, 1040, '1035']
         },
         'Markina City': {
             subDistrict: [
@@ -29999,7 +29999,7 @@ module.exports = {
                 'Sto. Niño',
                 'Tañong'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1820, 1803, 1807, 1811, 1802, 1804, 1805, 1800, 1810, 1808,
                 1806, 1809, 1801
             ]
@@ -30018,13 +30018,13 @@ module.exports = {
                 'Susana Heights',
                 'Tunasan'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1799, 1780, 1772, 1771, 1781, 1770, 1775, 1777, 1776, 1774, 1773
             ]
         },
         'Navotas City': {
             subDistrict: ['Kaunlaran Village', 'Navotas', 'Tangos', 'Tanza'],
-            postalCodes: [1409, 1485, 1489, 1490]
+            postalCodes: [1409, 1485, 1489, '1490']
         },
         'Paranaque City': {
             subDistrict: [
@@ -30053,7 +30053,7 @@ module.exports = {
                 'Tambo',
                 'United Paranaque Subd.'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1714, 1702, 1711, 1720, 1718, 1710, 1719, 1717, 1703, 1716,
                 1709, 1712, 1708, 1705, 1706, 1715, 1707, 1704, 1701, 1713
             ]
@@ -30072,7 +30072,7 @@ module.exports = {
                 'Sta. Clara',
                 'Villamor Airbase'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1301, 1300, 1308, 1307, 1306, 1305, 1302, 1303, 1304, 1309
             ]
         },
@@ -30091,14 +30091,14 @@ module.exports = {
                 'Sta. Lucia',
                 'Ugong'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1606, 1612, 1603, 1611, 1607, 1605, 1602, 1609, 1601, 1610,
                 1608, 1604
             ]
         },
         Pateros: {
             subDistrict: ['Aguho', 'Sta. Ana'],
-            postalCodes: [1620, 1621]
+            postalCodes: [1620, '1621']
         },
         'Quezon City': {
             subDistrict: [
@@ -30250,7 +30250,7 @@ module.exports = {
                 'West Triangle',
                 'White Plains'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1105, 1102, 1106, 1116, 1110, 1109, 1111, 1119, 1115, 1126,
                 1120, 1101, 1117, 1100, 1121, 1128, 1104, 1112, 1123, 1113,
                 1125, 1118, 1122, 1114, 1127, 1124, 1103, 1108, 1107
@@ -30267,7 +30267,7 @@ module.exports = {
                 'Radio Bible Class',
                 'San Juan CPO'
             ],
-            postalCodes: [401, 420, 1504, 1503, 1502, 400, 410, 1500]
+            postalCodes: [401, 420, 1504, 1503, 1502, 400, 410, '1500']
         },
         'Taguig City': {
             subDistrict: [
@@ -30285,7 +30285,7 @@ module.exports = {
                 'Ususan',
                 'Western Bicutan'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1636, 1631, 1632, 1633, 1630, 1635, 1638, 1634, 1637, 1639
             ]
         },
@@ -30312,7 +30312,7 @@ module.exports = {
                 'Valenzuela CPO, Malinta',
                 'Valenzuela P.O. Boxes'
             ],
-            postalCodes: [
+            postalCod'es: '[
                 1444, 1445, 1443, 1447, 560, 550, 1442, 1441, 1446, 1440, 1448,
                 1496
             ]
@@ -30360,7 +30360,7 @@ module.exports = {
                 'Tugaya',
                 'Zamora'
             ],
-            postalCodes: [7206]
+            postalCodes: ['7206']
         },
         Baliangao: {
             subDistrict: [
@@ -30380,7 +30380,7 @@ module.exports = {
                 'Southern Poblacion',
                 'Tugas'
             ],
-            postalCodes: [7211]
+            postalCodes: ['7211']
         },
         Bonifacio: {
             subDistrict: [
@@ -30413,7 +30413,7 @@ module.exports = {
                 'Tusik',
                 'Upper Usogan'
             ],
-            postalCodes: [7215]
+            postalCodes: ['7215']
         },
         Calamba: {
             subDistrict: [
@@ -30437,7 +30437,7 @@ module.exports = {
                 'Southwestern Poblacion',
                 'Sulipat'
             ],
-            postalCodes: [4027]
+            postalCodes: ['4027']
         },
         Clarin: {
             subDistrict: [
@@ -30471,7 +30471,7 @@ module.exports = {
                 'Segatic Diot',
                 'Tinacla-an'
             ],
-            postalCodes: [6330]
+            postalCodes: ['6330']
         },
         Concepcion: {
             subDistrict: [
@@ -30494,7 +30494,7 @@ module.exports = {
                 'Upper Salimpono',
                 'Virayan'
             ],
-            postalCodes: [7213]
+            postalCodes: ['7213']
         },
         'Don Victoriano Chiongbian': {
             subDistrict: [
@@ -30510,7 +30510,7 @@ module.exports = {
                 'Petianan',
                 'Tuno'
             ],
-            postalCodes: [7216]
+            postalCodes: ['7216']
         },
         Jimenez: {
             subDistrict: [
@@ -30539,7 +30539,7 @@ module.exports = {
                 'Tabo-o',
                 'Taraka (Pob.)'
             ],
-            postalCodes: [7204]
+            postalCodes: ['7204']
         },
         'Lopez Jaena': {
             subDistrict: [
@@ -30572,7 +30572,7 @@ module.exports = {
                 'Sibula',
                 'Western Poblacion'
             ],
-            postalCodes: [7208]
+            postalCodes: ['7208']
         },
         Oroquieta: {
             subDistrict: [
@@ -30624,7 +30624,7 @@ module.exports = {
                 'Victoria',
                 'Villaflor'
             ],
-            postalCodes: [7207]
+            postalCodes: ['7207']
         },
         'Ozamis City': {
             subDistrict: [
@@ -30680,7 +30680,7 @@ module.exports = {
                 'Tinago',
                 'Trigos'
             ],
-            postalCodes: [7200]
+            postalCodes: ['7200']
         },
         Panaon: {
             subDistrict: [
@@ -30701,7 +30701,7 @@ module.exports = {
                 'Sumasap',
                 'Villalin'
             ],
-            postalCodes: [7205]
+            postalCodes: ['7205']
         },
         Plaridel: {
             subDistrict: [
@@ -30739,7 +30739,7 @@ module.exports = {
                 'Unidos',
                 'Usocan'
             ],
-            postalCodes: [3004]
+            postalCodes: ['3004']
         },
         'Sapang Dalaga': {
             subDistrict: [
@@ -30772,7 +30772,7 @@ module.exports = {
                 'Upper Bautista',
                 'Ventura'
             ],
-            postalCodes: [7212]
+            postalCodes: ['7212']
         },
         Sinacaban: {
             subDistrict: [
@@ -30794,7 +30794,7 @@ module.exports = {
                 'Sinonoc',
                 'Tipan'
             ],
-            postalCodes: [7203]
+            postalCodes: ['7203']
         },
         'Tangub City': {
             subDistrict: [
@@ -30854,7 +30854,7 @@ module.exports = {
                 'Tugas',
                 'Villaba'
             ],
-            postalCodes: [7214]
+            postalCodes: ['7214']
         },
         Tudela: {
             subDistrict: [
@@ -30892,7 +30892,7 @@ module.exports = {
                 'Tigdok',
                 'Yahong'
             ],
-            postalCodes: [7202]
+            postalCodes: ['7202']
         }
     },
     'Misamis Oriental': {
@@ -30915,7 +30915,7 @@ module.exports = {
                 'Tugasnon',
                 'Tula'
             ],
-            postalCodes: [9018]
+            postalCodes: ['9018']
         },
         Balingasag: {
             subDistrict: [
@@ -30950,7 +30950,7 @@ module.exports = {
                 'Talusan',
                 'Waterfall'
             ],
-            postalCodes: [9005]
+            postalCodes: ['9005']
         },
         Balingoan: {
             subDistrict: [
@@ -30964,7 +30964,7 @@ module.exports = {
                 'Mapua',
                 'San Alonzo'
             ],
-            postalCodes: [9011]
+            postalCodes: ['9011']
         },
         Binuangan: {
             subDistrict: [
@@ -30977,7 +30977,7 @@ module.exports = {
                 'Poblacion',
                 'Valdeconcha'
             ],
-            postalCodes: [9008]
+            postalCodes: ['9008']
         },
         'Cagayan de Oro City': {
             subDistrict: [
@@ -31062,7 +31062,7 @@ module.exports = {
                 'Tuburan',
                 'Tumpagon'
             ],
-            postalCodes: [9000]
+            postalCodes: ['9000']
         },
         Claveria: {
             subDistrict: [
@@ -31091,7 +31091,7 @@ module.exports = {
                 'Tamboboan',
                 'Tipolohon'
             ],
-            postalCodes: [3519]
+            postalCodes: ['3519']
         },
         'El Salvador': {
             subDistrict: [
@@ -31111,7 +31111,7 @@ module.exports = {
                 'Taytay',
                 'Ulaliman'
             ],
-            postalCodes: [9017]
+            postalCodes: ['9017']
         },
         'Gingoog City': {
             subDistrict: [
@@ -31195,7 +31195,7 @@ module.exports = {
                 'Tinabalan',
                 'Tinulongan'
             ],
-            postalCodes: [9014]
+            postalCodes: ['9014']
         },
         Gitagum: {
             subDistrict: [
@@ -31211,7 +31211,7 @@ module.exports = {
                 'Tala-o',
                 'Ulab'
             ],
-            postalCodes: [9020]
+            postalCodes: ['9020']
         },
         Initao: {
             subDistrict: [
@@ -31232,7 +31232,7 @@ module.exports = {
                 'Tawantawan',
                 'Tubigan'
             ],
-            postalCodes: [9022]
+            postalCodes: ['9022']
         },
         Jasaan: {
             subDistrict: [
@@ -31252,7 +31252,7 @@ module.exports = {
                 'Solana',
                 'Upper Jasaan (Pob.)'
             ],
-            postalCodes: [9003]
+            postalCodes: ['9003']
         },
         Kinoguitan: {
             subDistrict: [
@@ -31272,7 +31272,7 @@ module.exports = {
                 'Suarez',
                 'Sumalag'
             ],
-            postalCodes: [9010]
+            postalCodes: ['9010']
         },
         Lagonglong: {
             subDistrict: [
@@ -31287,7 +31287,7 @@ module.exports = {
                 'Tabok',
                 'Umagos'
             ],
-            postalCodes: [9006]
+            postalCodes: ['9006']
         },
         Laguindingan: {
             subDistrict: [
@@ -31303,7 +31303,7 @@ module.exports = {
                 'Sinai',
                 'Tubajon'
             ],
-            postalCodes: [9019]
+            postalCodes: ['9019']
         },
         Libertad: {
             subDistrict: [
@@ -31317,7 +31317,7 @@ module.exports = {
                 'Tangcub',
                 'Taytayan'
             ],
-            postalCodes: [5710]
+            postalCodes: ['5710']
         },
         Lugait: {
             subDistrict: [
@@ -31330,7 +31330,7 @@ module.exports = {
                 'Poblacion',
                 'Upper Talacogon'
             ],
-            postalCodes: [9025]
+            postalCodes: ['9025']
         },
         Magsaysay: {
             subDistrict: [
@@ -31360,7 +31360,7 @@ module.exports = {
                 'Tulang',
                 'Villa Felipa'
             ],
-            postalCodes: [5101]
+            postalCodes: ['5101']
         },
         Manticao: {
             subDistrict: [
@@ -31378,7 +31378,7 @@ module.exports = {
                 'Tuod',
                 'Upper Malubog'
             ],
-            postalCodes: [9024]
+            postalCodes: ['9024']
         },
         Medina: {
             subDistrict: [
@@ -31402,7 +31402,7 @@ module.exports = {
                 'Tambagan',
                 'Tup-on'
             ],
-            postalCodes: [9013]
+            postalCodes: ['9013']
         },
         Naawan: {
             subDistrict: [
@@ -31417,7 +31417,7 @@ module.exports = {
                 'Tagbalogo',
                 'Tuboran'
             ],
-            postalCodes: [9023]
+            postalCodes: ['9023']
         },
         Opol: {
             subDistrict: [
@@ -31436,7 +31436,7 @@ module.exports = {
                 'Taboc',
                 'Tingalan'
             ],
-            postalCodes: [9016]
+            postalCodes: ['9016']
         },
         Salay: {
             subDistrict: [
@@ -31459,7 +31459,7 @@ module.exports = {
                 'Tinagaan',
                 'Yungod'
             ],
-            postalCodes: [9007]
+            postalCodes: ['9007']
         },
         Sugbongcogon: {
             subDistrict: [
@@ -31474,7 +31474,7 @@ module.exports = {
                 'Santa Cruz',
                 'Silad'
             ],
-            postalCodes: [9009]
+            postalCodes: ['9009']
         },
         Tagoloan: {
             subDistrict: [
@@ -31489,7 +31489,7 @@ module.exports = {
                 'Santa Cruz',
                 'Sugbongcogon'
             ],
-            postalCodes: [9222]
+            postalCodes: ['9222']
         },
         Talisayan: {
             subDistrict: [
@@ -31512,7 +31512,7 @@ module.exports = {
                 'Sindangan',
                 'Tagbocboc'
             ],
-            postalCodes: [9012]
+            postalCodes: ['9012']
         },
         Villanueva: {
             subDistrict: [
@@ -31528,7 +31528,7 @@ module.exports = {
                 'San Martin',
                 'Tambobong'
             ],
-            postalCodes: [9002]
+            postalCodes: ['9002']
         }
     },
     'Mountain Province': {
@@ -31546,7 +31546,7 @@ module.exports = {
                 'Macalana',
                 'Ogoog'
             ],
-            postalCodes: [2623]
+            postalCodes: ['2623']
         },
         Bauko: {
             subDistrict: [
@@ -31573,7 +31573,7 @@ module.exports = {
                 'Sinto',
                 'Tapapan'
             ],
-            postalCodes: [2621]
+            postalCodes: ['2621']
         },
         Besao: {
             subDistrict: [
@@ -31592,7 +31592,7 @@ module.exports = {
                 'Suquib',
                 'Tamboan'
             ],
-            postalCodes: [2618]
+            postalCodes: ['2618']
         },
         Bontoc: {
             subDistrict: [
@@ -31613,7 +31613,7 @@ module.exports = {
                 'Talubin',
                 'Tocucan'
             ],
-            postalCodes: [2616]
+            postalCodes: ['2616']
         },
         Natonin: {
             subDistrict: [
@@ -31629,7 +31629,7 @@ module.exports = {
                 'Santa Isabel',
                 'Tonglayan'
             ],
-            postalCodes: [2624]
+            postalCodes: ['2624']
         },
         Paracelis: {
             subDistrict: [
@@ -31643,7 +31643,7 @@ module.exports = {
                 'Palitod',
                 'Poblacion'
             ],
-            postalCodes: [2625]
+            postalCodes: ['2625']
         },
         Sabangan: {
             subDistrict: [
@@ -31663,7 +31663,7 @@ module.exports = {
                 'Supang',
                 'Tambingan'
             ],
-            postalCodes: [2622]
+            postalCodes: ['2622']
         },
         Sadanga: {
             subDistrict: [
@@ -31676,7 +31676,7 @@ module.exports = {
                 'Sacasacan',
                 'Saclit'
             ],
-            postalCodes: [2617]
+            postalCodes: ['2617']
         },
         Sagada: {
             subDistrict: [
@@ -31700,7 +31700,7 @@ module.exports = {
                 'Tetepan Norte',
                 'Tetepan Sur'
             ],
-            postalCodes: [2619]
+            postalCodes: ['2619']
         },
         Tadian: {
             subDistrict: [
@@ -31724,7 +31724,7 @@ module.exports = {
                 'Sumadel',
                 'Tue'
             ],
-            postalCodes: [2620]
+            postalCodes: ['2620']
         }
     },
     'Negros Occidental': {
@@ -31792,7 +31792,7 @@ module.exports = {
                 'Villamonte',
                 'Vista Alegre'
             ],
-            postalCodes: [6100]
+            postalCodes: ['6100']
         },
         'Bago City': {
             subDistrict: [
@@ -31821,7 +31821,7 @@ module.exports = {
                 'Tabunan',
                 'Taloc'
             ],
-            postalCodes: [6101]
+            postalCodes: ['6101']
         },
         Binalbagan: {
             subDistrict: [
@@ -31842,7 +31842,7 @@ module.exports = {
                 'Santo Rosario (Pob.)',
                 'Santol'
             ],
-            postalCodes: [6107]
+            postalCodes: ['6107']
         },
         'Cadiz City': {
             subDistrict: [
@@ -31869,7 +31869,7 @@ module.exports = {
                 'Tinampa-an',
                 'V. F. Gustilo'
             ],
-            postalCodes: [6121]
+            postalCodes: ['6121']
         },
         Calatrava: {
             subDistrict: [
@@ -31914,7 +31914,7 @@ module.exports = {
                 'Tigbon',
                 'Winaswasan'
             ],
-            postalCodes: [6126]
+            postalCodes: ['6126']
         },
         Candoni: {
             subDistrict: [
@@ -31928,7 +31928,7 @@ module.exports = {
                 'Poblacion East',
                 'Poblacion West'
             ],
-            postalCodes: [6110]
+            postalCodes: ['6110']
         },
         Cauayan: {
             subDistrict: [
@@ -31958,7 +31958,7 @@ module.exports = {
                 'Tuyom',
                 'Yao-yao'
             ],
-            postalCodes: [3305]
+            postalCodes: ['3305']
         },
         'Enrique B. Magalona': {
             subDistrict: [
@@ -31986,7 +31986,7 @@ module.exports = {
                 'Tomongtong',
                 'Tuburan'
             ],
-            postalCodes: [6118]
+            postalCodes: ['6118']
         },
         Escalante: {
             subDistrict: [
@@ -32012,7 +32012,7 @@ module.exports = {
                 'Udtongan',
                 'Washington'
             ],
-            postalCodes: [6124]
+            postalCodes: ['6124']
         },
         Himamaylan: {
             subDistrict: [
@@ -32036,7 +32036,7 @@ module.exports = {
                 'Talaban',
                 'To-oy'
             ],
-            postalCodes: [6108]
+            postalCodes: ['6108']
         },
         Hinigaran: {
             subDistrict: [
@@ -32065,7 +32065,7 @@ module.exports = {
                 'Tagda',
                 'Tuguis'
             ],
-            postalCodes: [6106]
+            postalCodes: ['6106']
         },
         'Hinoba-an': {
             subDistrict: [
@@ -32083,7 +32083,7 @@ module.exports = {
                 'Sangke',
                 'Talacagay'
             ],
-            postalCodes: [6114]
+            postalCodes: ['6114']
         },
         Ilog: {
             subDistrict: [
@@ -32103,7 +32103,7 @@ module.exports = {
                 'Tabu',
                 'Vista Alegre'
             ],
-            postalCodes: [6109]
+            postalCodes: ['6109']
         },
         Isabela: {
             subDistrict: [
@@ -32138,7 +32138,7 @@ module.exports = {
                 'Sikatuna',
                 'Tinongan'
             ],
-            postalCodes: [6128]
+            postalCodes: ['6128']
         },
         Kabankalan: {
             subDistrict: [
@@ -32175,7 +32175,7 @@ module.exports = {
                 'Tan-Awan',
                 'Tapi'
             ],
-            postalCodes: [6111]
+            postalCodes: ['6111']
         },
         'La Carlota': {
             subDistrict: [
@@ -32194,7 +32194,7 @@ module.exports = {
                 'San Miguel',
                 'Yubo'
             ],
-            postalCodes: [6130]
+            postalCodes: ['6130']
         },
         'La Castellana': {
             subDistrict: [
@@ -32212,7 +32212,7 @@ module.exports = {
                 'Sag-Ang',
                 'Talaptap'
             ],
-            postalCodes: [6131]
+            postalCodes: ['6131']
         },
         Manapla: {
             subDistrict: [
@@ -32229,7 +32229,7 @@ module.exports = {
                 'Santa Teresa',
                 'Tortosa'
             ],
-            postalCodes: [6120]
+            postalCodes: ['6120']
         },
         'Moises Padilla': {
             subDistrict: [
@@ -32249,7 +32249,7 @@ module.exports = {
                 'Odiong',
                 'Quintin Remo'
             ],
-            postalCodes: [6132]
+            postalCodes: ['6132']
         },
         Murcia: {
             subDistrict: [
@@ -32277,7 +32277,7 @@ module.exports = {
                 'Zone IV (Pob.)',
                 'Zone V (Pob.)'
             ],
-            postalCodes: [6129]
+            postalCodes: ['6129']
         },
         Pontevedra: {
             subDistrict: [
@@ -32302,7 +32302,7 @@ module.exports = {
                 'San Juan',
                 'Zamora'
             ],
-            postalCodes: [6105]
+            postalCodes: ['6105']
         },
         Pulupandan: {
             subDistrict: [
@@ -32327,7 +32327,7 @@ module.exports = {
                 'Ubay',
                 'Utod'
             ],
-            postalCodes: [6102]
+            postalCodes: ['6102']
         },
         Sagay: {
             subDistrict: [
@@ -32357,7 +32357,7 @@ module.exports = {
                 'Tadlong',
                 'Vito'
             ],
-            postalCodes: [6122]
+            postalCodes: ['6122']
         },
         'Salvador Benedicto': {
             subDistrict: [
@@ -32369,7 +32369,7 @@ module.exports = {
                 'Pandanon',
                 'Pinowayan'
             ],
-            postalCodes: [6117]
+            postalCodes: ['6117']
         },
         'San Carlos': {
             subDistrict: [
@@ -32392,7 +32392,7 @@ module.exports = {
                 'Rizal',
                 'San Juan'
             ],
-            postalCodes: [6127]
+            postalCodes: ['6127']
         },
         'San Enrique': {
             subDistrict: [
@@ -32407,7 +32407,7 @@ module.exports = {
                 'Tabao Rizal',
                 'Tibsoc'
             ],
-            postalCodes: [5036]
+            postalCodes: ['5036']
         },
         Silay: {
             subDistrict: [
@@ -32428,7 +32428,7 @@ module.exports = {
                 'Patag',
                 'Rizal'
             ],
-            postalCodes: [6116]
+            postalCodes: ['6116']
         },
         Sipalay: {
             subDistrict: [
@@ -32450,7 +32450,7 @@ module.exports = {
                 'Nauhang',
                 'San Jose'
             ],
-            postalCodes: [6113]
+            postalCodes: ['6113']
         },
         Talisay: {
             subDistrict: [
@@ -32482,7 +32482,7 @@ module.exports = {
                 'Zone 8 (Pob.)',
                 'Zone 9 (Pob.)'
             ],
-            postalCodes: [6115]
+            postalCodes: ['6115']
         },
         Toboso: {
             subDistrict: [
@@ -32496,7 +32496,7 @@ module.exports = {
                 'San Jose',
                 'Tabun-ac'
             ],
-            postalCodes: [6125]
+            postalCodes: ['6125']
         },
         Valladolid: {
             subDistrict: [
@@ -32517,7 +32517,7 @@ module.exports = {
                 'Sagua Banua',
                 'Tabao Proper'
             ],
-            postalCodes: [6103]
+            postalCodes: ['6103']
         },
         Victorias: {
             subDistrict: [
@@ -32548,7 +32548,7 @@ module.exports = {
                 'Barangay XX',
                 'Barangay XXI'
             ],
-            postalCodes: [6119]
+            postalCodes: ['6119']
         }
     },
     'Negros Oriental': {
@@ -32563,7 +32563,7 @@ module.exports = {
                 'Tambojangin',
                 'Tandayag'
             ],
-            postalCodes: [6203]
+            postalCodes: ['6203']
         },
         Ayungon: {
             subDistrict: [
@@ -32592,7 +32592,7 @@ module.exports = {
                 'Tibyawan',
                 'Tiguib'
             ],
-            postalCodes: [6210]
+            postalCodes: ['6210']
         },
         Bacong: {
             subDistrict: [
@@ -32619,7 +32619,7 @@ module.exports = {
                 'Tubod',
                 'West Poblacion'
             ],
-            postalCodes: [6216]
+            postalCodes: ['6216']
         },
         'Bais City': {
             subDistrict: [
@@ -32659,7 +32659,7 @@ module.exports = {
                 'Tangculogan',
                 'Valencia'
             ],
-            postalCodes: [6206]
+            postalCodes: ['6206']
         },
         Basay: {
             subDistrict: [
@@ -32674,7 +32674,7 @@ module.exports = {
                 'Olandao',
                 'Poblacion'
             ],
-            postalCodes: [6222]
+            postalCodes: ['6222']
         },
         Bayawan: {
             subDistrict: [
@@ -32707,7 +32707,7 @@ module.exports = {
                 'Villareal',
                 'Villasol'
             ],
-            postalCodes: [6221]
+            postalCodes: ['6221']
         },
         Bindoy: {
             subDistrict: [
@@ -32734,7 +32734,7 @@ module.exports = {
                 'Tinaogan',
                 'Tubod'
             ],
-            postalCodes: [6209]
+            postalCodes: ['6209']
         },
         'Canlaon City': {
             subDistrict: [
@@ -32751,7 +32751,7 @@ module.exports = {
                 'Panubigan',
                 'Pula'
             ],
-            postalCodes: [6223]
+            postalCodes: ['6223']
         },
         Dauin: {
             subDistrict: [
@@ -32779,7 +32779,7 @@ module.exports = {
                 'Tugawe',
                 'Tunga-tunga'
             ],
-            postalCodes: [6217]
+            postalCodes: ['6217']
         },
         'Dumaguete City': {
             subDistrict: [
@@ -32814,7 +32814,7 @@ module.exports = {
                 'Taclobo',
                 'Talay'
             ],
-            postalCodes: [6200]
+            postalCodes: ['6200']
         },
         Guihulngan: {
             subDistrict: [
@@ -32852,7 +32852,7 @@ module.exports = {
                 'Trinidad',
                 'Villegas'
             ],
-            postalCodes: [6214]
+            postalCodes: ['6214']
         },
         Jimalalud: {
             subDistrict: [
@@ -32885,7 +32885,7 @@ module.exports = {
                 'Talamban',
                 'Tamao'
             ],
-            postalCodes: [6212]
+            postalCodes: ['6212']
         },
         'La Libertad': {
             subDistrict: [
@@ -32919,7 +32919,7 @@ module.exports = {
                 'Tala-on',
                 'Talayong'
             ],
-            postalCodes: [6213]
+            postalCodes: ['6213']
         },
         Mabinay: {
             subDistrict: [
@@ -32956,7 +32956,7 @@ module.exports = {
                 'Tadlong',
                 'Tara'
             ],
-            postalCodes: [6208]
+            postalCodes: ['6208']
         },
         Manjuyod: {
             subDistrict: [
@@ -32988,7 +32988,7 @@ module.exports = {
                 'Tubod',
                 'Tupas'
             ],
-            postalCodes: [6208]
+            postalCodes: ['6208']
         },
         Pamplona: {
             subDistrict: [
@@ -33009,7 +33009,7 @@ module.exports = {
                 'Simborio',
                 'Yupisan'
             ],
-            postalCodes: [3522]
+            postalCodes: ['3522']
         },
         'San Jose': {
             subDistrict: [
@@ -33028,7 +33028,7 @@ module.exports = {
                 'Tampi',
                 'Tapon Norte'
             ],
-            postalCodes: [1404]
+            postalCodes: ['1404']
         },
         'Santa Catalina': {
             subDistrict: [
@@ -33055,7 +33055,7 @@ module.exports = {
                 'Santo Rosario',
                 'Talalak'
             ],
-            postalCodes: [2701]
+            postalCodes: ['2701']
         },
         Siaton: {
             subDistrict: [
@@ -33086,7 +33086,7 @@ module.exports = {
                 'Sumaliring',
                 'Tayak'
             ],
-            postalCodes: [6219]
+            postalCodes: ['6219']
         },
         Sibulan: {
             subDistrict: [
@@ -33106,7 +33106,7 @@ module.exports = {
                 'Tubigon',
                 'Tubtubon'
             ],
-            postalCodes: [6201]
+            postalCodes: ['6201']
         },
         Tanjay: {
             subDistrict: [
@@ -33135,7 +33135,7 @@ module.exports = {
                 'Santo Niño',
                 'Tugas'
             ],
-            postalCodes: [6204]
+            postalCodes: ['6204']
         },
         Tayasan: {
             subDistrict: [
@@ -33168,7 +33168,7 @@ module.exports = {
                 'Tambulan',
                 'Tanlad'
             ],
-            postalCodes: [6211]
+            postalCodes: ['6211']
         },
         Valencia: {
             subDistrict: [
@@ -33197,7 +33197,7 @@ module.exports = {
                 'Sagbang',
                 'South Poblacion'
             ],
-            postalCodes: [1112]
+            postalCodes: ['1112']
         },
         Vallehermoso: {
             subDistrict: [
@@ -33217,7 +33217,7 @@ module.exports = {
                 'Tagbino',
                 'Ulay'
             ],
-            postalCodes: [6224]
+            postalCodes: ['6224']
         },
         Zamboanguita: {
             subDistrict: [
@@ -33232,7 +33232,7 @@ module.exports = {
                 'Nasig-id',
                 'Poblacion'
             ],
-            postalCodes: [6218]
+            postalCodes: ['6218']
         }
     },
     'Northern Samar': {
@@ -33259,7 +33259,7 @@ module.exports = {
                 'Tasvilla',
                 'Victoria'
             ],
-            postalCodes: [6405]
+            postalCodes: ['6405']
         },
         Biri: {
             subDistrict: [
@@ -33272,7 +33272,7 @@ module.exports = {
                 'San Pedro',
                 'Santo Niño'
             ],
-            postalCodes: [6410]
+            postalCodes: ['6410']
         },
         Bobon: {
             subDistrict: [
@@ -33295,7 +33295,7 @@ module.exports = {
                 'Somoroy',
                 'Trojello'
             ],
-            postalCodes: [6401]
+            postalCodes: ['6401']
         },
         Capul: {
             subDistrict: [
@@ -33312,7 +33312,7 @@ module.exports = {
                 'San Luis',
                 'Sawang'
             ],
-            postalCodes: [6408]
+            postalCodes: ['6408']
         },
         Catarman: {
             subDistrict: [
@@ -33372,7 +33372,7 @@ module.exports = {
                 'Washington',
                 'Yakal (Pob.)'
             ],
-            postalCodes: [6400]
+            postalCodes: ['6400']
         },
         Catubig: {
             subDistrict: [
@@ -33424,7 +33424,7 @@ module.exports = {
                 'Tungodnon',
                 'Vienna Maria'
             ],
-            postalCodes: [6418]
+            postalCodes: ['6418']
         },
         Gamay: {
             subDistrict: [
@@ -33455,7 +33455,7 @@ module.exports = {
                 'Rizal',
                 'San Antonio'
             ],
-            postalCodes: [6422]
+            postalCodes: ['6422']
         },
         Laoang: {
             subDistrict: [
@@ -33516,7 +33516,7 @@ module.exports = {
                 'Yabyaban',
                 'Yapas'
             ],
-            postalCodes: [6411]
+            postalCodes: ['6411']
         },
         Lapinig: {
             subDistrict: [
@@ -33536,7 +33536,7 @@ module.exports = {
                 'Potong',
                 'Potong Del Sur'
             ],
-            postalCodes: [6423]
+            postalCodes: ['6423']
         },
         'Las Navas': {
             subDistrict: [
@@ -33594,7 +33594,7 @@ module.exports = {
                 'Taylor',
                 'Victory'
             ],
-            postalCodes: [6420]
+            postalCodes: ['6420']
         },
         Lavezares: {
             subDistrict: [
@@ -33625,7 +33625,7 @@ module.exports = {
                 'Villa',
                 'Villahermosa'
             ],
-            postalCodes: [6404]
+            postalCodes: ['6404']
         },
         'Lope De Vega': {
             subDistrict: [
@@ -33652,7 +33652,7 @@ module.exports = {
                 'Somoroy',
                 'Upper Caynaga'
             ],
-            postalCodes: [6403]
+            postalCodes: ['6403']
         },
         Mapanas: {
             subDistrict: [
@@ -33670,7 +33670,7 @@ module.exports = {
                 'Santa Potenciana (Pob.)',
                 'Siljagon'
             ],
-            postalCodes: [6412]
+            postalCodes: ['6412']
         },
         Mondragon: {
             subDistrict: [
@@ -33699,7 +33699,7 @@ module.exports = {
                 'Santa Catalina',
                 'Talolora'
             ],
-            postalCodes: [6417]
+            postalCodes: ['6417']
         },
         Palapag: {
             subDistrict: [
@@ -33736,7 +33736,7 @@ module.exports = {
                 'Tambangan (Pob.)',
                 'Tinampo (Pob.)'
             ],
-            postalCodes: [6421]
+            postalCodes: ['6421']
         },
         Pambujan: {
             subDistrict: [
@@ -33767,7 +33767,7 @@ module.exports = {
                 'Tula',
                 'Ynaguingayan'
             ],
-            postalCodes: [6413]
+            postalCodes: ['6413']
         },
         Rosario: {
             subDistrict: [
@@ -33783,7 +33783,7 @@ module.exports = {
                 'Salhag',
                 'San Lorenzo'
             ],
-            postalCodes: [1609]
+            postalCodes: ['1609']
         },
         'San Antonio': {
             subDistrict: [
@@ -33798,7 +33798,7 @@ module.exports = {
                 'Ward II (Pob.)',
                 'Ward III (Pob.)'
             ],
-            postalCodes: [1105]
+            postalCodes: ['1105']
         },
         'San Isidro': {
             subDistrict: [
@@ -33817,7 +33817,7 @@ module.exports = {
                 'Seven Hills',
                 'Veriato'
             ],
-            postalCodes: [1234]
+            postalCodes: ['1234']
         },
         'San Jose': {
             subDistrict: [
@@ -33838,7 +33838,7 @@ module.exports = {
                 'San Lorenzo',
                 'Tubigdanao'
             ],
-            postalCodes: [1404]
+            postalCodes: ['1404']
         },
         'San Roque': {
             subDistrict: [
@@ -33859,7 +33859,7 @@ module.exports = {
                 'Zone 5 (Pob.)',
                 'Zone 6 (Pob.)'
             ],
-            postalCodes: [1303]
+            postalCodes: ['1303']
         },
         'San Vicente': {
             subDistrict: [
@@ -33871,7 +33871,7 @@ module.exports = {
                 'Sila',
                 'Tarnate'
             ],
-            postalCodes: [1101]
+            postalCodes: ['1101']
         },
         'Silvino Lobos': {
             subDistrict: [
@@ -33902,7 +33902,7 @@ module.exports = {
                 'Tobgon',
                 'Victory'
             ],
-            postalCodes: [6414]
+            postalCodes: ['6414']
         },
         Victoria: {
             subDistrict: [
@@ -33923,7 +33923,7 @@ module.exports = {
                 'Zone II (Pob.)',
                 'Zone III (Pob.)'
             ],
-            postalCodes: [4011]
+            postalCodes: ['4011']
         }
     },
     'Nueva Ecija': {
@@ -33956,7 +33956,7 @@ module.exports = {
                 'Sunson',
                 'Umangan'
             ],
-            postalCodes: [3111]
+            postalCodes: ['3111']
         },
         Bongabon: {
             subDistrict: [
@@ -33989,7 +33989,7 @@ module.exports = {
                 'Tulay na Bato (Pob.)',
                 'Vega'
             ],
-            postalCodes: [5211]
+            postalCodes: ['5211']
         },
         'Cabanatuan City': {
             subDistrict: [
@@ -34083,7 +34083,7 @@ module.exports = {
                 'Villa Ofelia-Caridad',
                 'Zulueta District (Pob.)'
             ],
-            postalCodes: [3100]
+            postalCodes: ['3100']
         },
         Cabiao: {
             subDistrict: [
@@ -34111,7 +34111,7 @@ module.exports = {
                 'Santa Rita',
                 'Sinipit'
             ],
-            postalCodes: [3107]
+            postalCodes: ['3107']
         },
         Carranglan: {
             subDistrict: [
@@ -34133,7 +34133,7 @@ module.exports = {
                 'San Agustin',
                 'T. L. Padilla Pob.'
             ],
-            postalCodes: [3123]
+            postalCodes: ['3123']
         },
         Cuyapo: {
             subDistrict: [
@@ -34189,7 +34189,7 @@ module.exports = {
                 'Ungab',
                 'Villaflores'
             ],
-            postalCodes: [3117]
+            postalCodes: ['3117']
         },
         Gabaldon: {
             subDistrict: [
@@ -34210,7 +34210,7 @@ module.exports = {
                 'South Poblacion',
                 'Tagumpay'
             ],
-            postalCodes: [3131]
+            postalCodes: ['3131']
         },
         'Gapan City': {
             subDistrict: [
@@ -34238,7 +34238,7 @@ module.exports = {
                 'Santo Cristo Sur',
                 'Santo Niño'
             ],
-            postalCodes: [3105]
+            postalCodes: ['3105']
         },
         'General Mamerto Natividad': {
             subDistrict: [
@@ -34263,7 +34263,7 @@ module.exports = {
                 'Talabutab Norte',
                 'Talabutab Sur'
             ],
-            postalCodes: [3125]
+            postalCodes: ['3125']
         },
         'General Tinio': {
             subDistrict: [
@@ -34281,7 +34281,7 @@ module.exports = {
                 'Sampaguita',
                 'San Pedro (Pob.)'
             ],
-            postalCodes: [3104]
+            postalCodes: ['3104']
         },
         Guimba: {
             subDistrict: [
@@ -34350,7 +34350,7 @@ module.exports = {
                 'Triala',
                 'Yuson'
             ],
-            postalCodes: [3115]
+            postalCodes: ['3115']
         },
         Jaen: {
             subDistrict: [
@@ -34382,7 +34382,7 @@ module.exports = {
                 'Sapang',
                 'Ulanin-Pitak'
             ],
-            postalCodes: [3109]
+            postalCodes: ['3109']
         },
         Laur: {
             subDistrict: [
@@ -34404,7 +34404,7 @@ module.exports = {
                 'San Vicente',
                 'Siclong'
             ],
-            postalCodes: [3129]
+            postalCodes: ['3129']
         },
         Licab: {
             subDistrict: [
@@ -34420,7 +34420,7 @@ module.exports = {
                 'Tabing Ilog',
                 'Villarosa'
             ],
-            postalCodes: [3112]
+            postalCodes: ['3112']
         },
         Llanera: {
             subDistrict: [
@@ -34447,7 +34447,7 @@ module.exports = {
                 'Victoria',
                 'Villa Viniegas'
             ],
-            postalCodes: [3126]
+            postalCodes: ['3126']
         },
         Lupao: {
             subDistrict: [
@@ -34476,7 +34476,7 @@ module.exports = {
                 'San Roque',
                 'Santo Domingo'
             ],
-            postalCodes: [3122]
+            postalCodes: ['3122']
         },
         Muñoz: {
             subDistrict: [
@@ -34518,7 +34518,7 @@ module.exports = {
                 'Villa Nati',
                 'Villa Santos'
             ],
-            postalCodes: [3119]
+            postalCodes: ['3119']
         },
         Nampicuan: {
             subDistrict: [
@@ -34544,7 +34544,7 @@ module.exports = {
                 'West Central Poblacion',
                 'West Poblacion'
             ],
-            postalCodes: [3116]
+            postalCodes: ['3116']
         },
         'Palayan City': {
             subDistrict: [
@@ -34568,7 +34568,7 @@ module.exports = {
                 'Sapang Buho',
                 'Singalat'
             ],
-            postalCodes: [3132]
+            postalCodes: ['3132']
         },
         Pantabangan: {
             subDistrict: [
@@ -34587,7 +34587,7 @@ module.exports = {
                 'San Juan',
                 'Villarica'
             ],
-            postalCodes: [3124]
+            postalCodes: ['3124']
         },
         Peñaranda: {
             subDistrict: [
@@ -34602,7 +34602,7 @@ module.exports = {
                 'Santo Tomas',
                 'Sinasajan'
             ],
-            postalCodes: [3103]
+            postalCodes: ['3103']
         },
         Quezon: {
             subDistrict: [
@@ -34623,7 +34623,7 @@ module.exports = {
                 'Santo Cristo',
                 'Santo Tomas Feria'
             ],
-            postalCodes: [3324]
+            postalCodes: ['3324']
         },
         Rizal: {
             subDistrict: [
@@ -34654,7 +34654,7 @@ module.exports = {
                 'Villa Labrador',
                 'Villa Paraiso'
             ],
-            postalCodes: [3526]
+            postalCodes: ['3526']
         },
         'San Antonio': {
             subDistrict: [
@@ -34675,7 +34675,7 @@ module.exports = {
                 'Santo Cristo',
                 'Tikiw'
             ],
-            postalCodes: [1105]
+            postalCodes: ['1105']
         },
         'San Isidro': {
             subDistrict: [
@@ -34689,7 +34689,7 @@ module.exports = {
                 'Santo Cristo',
                 'Tabon'
             ],
-            postalCodes: [1234]
+            postalCodes: ['1234']
         },
         'San Jose City': {
             subDistrict: [
@@ -34732,7 +34732,7 @@ module.exports = {
                 'Villa Joson',
                 'Villa Marina'
             ],
-            postalCodes: [3121]
+            postalCodes: ['3121']
         },
         'San Leonardo': {
             subDistrict: [
@@ -34752,7 +34752,7 @@ module.exports = {
                 'Tagumpay',
                 'Tambo Adorable'
             ],
-            postalCodes: [3102]
+            postalCodes: ['3102']
         },
         'Santa Rosa': {
             subDistrict: [
@@ -34790,7 +34790,7 @@ module.exports = {
                 'Valenzuela (Pob.)',
                 'Zamora (Pob.)'
             ],
-            postalCodes: [4026]
+            postalCodes: ['4026']
         },
         'Santo Domingo': {
             subDistrict: [
@@ -34819,7 +34819,7 @@ module.exports = {
                 'Santa Rita',
                 'Santo Rosario'
             ],
-            postalCodes: [2729]
+            postalCodes: ['2729']
         },
         Talavera: {
             subDistrict: [
@@ -34877,7 +34877,7 @@ module.exports = {
                 'Tagaytay',
                 'Valle'
             ],
-            postalCodes: [3114]
+            postalCodes: ['3114']
         },
         Talugtog: {
             subDistrict: [
@@ -34910,7 +34910,7 @@ module.exports = {
                 'Villa Boado',
                 'Villa Rosario'
             ],
-            postalCodes: [3118]
+            postalCodes: ['3118']
         },
         Zaragoza: {
             subDistrict: [
@@ -34934,7 +34934,7 @@ module.exports = {
                 'Santo Rosario Young',
                 'Valeriana'
             ],
-            postalCodes: [3110]
+            postalCodes: ['3110']
         }
     },
     'Nueva Vizcaya': {
@@ -34947,7 +34947,7 @@ module.exports = {
                 'Lublub (Pob.)',
                 'Pelaway'
             ],
-            postalCodes: [3714]
+            postalCodes: ['3714']
         },
         Ambaguio: {
             subDistrict: [
@@ -34960,7 +34960,7 @@ module.exports = {
                 'Salingsingan',
                 'Tiblac'
             ],
-            postalCodes: [3701]
+            postalCodes: ['3701']
         },
         Aritao: {
             subDistrict: [
@@ -34987,7 +34987,7 @@ module.exports = {
                 'Tucanon',
                 'Yaway'
             ],
-            postalCodes: [3704]
+            postalCodes: ['3704']
         },
         Bagabag: {
             subDistrict: [
@@ -35009,7 +35009,7 @@ module.exports = {
                 'Villa Coloma (Pob.)',
                 'Villaros'
             ],
-            postalCodes: [3711]
+            postalCodes: ['3711']
         },
         Bambang: {
             subDistrict: [
@@ -35039,7 +35039,7 @@ module.exports = {
                 'Santo Domingo',
                 'Santo Domingo West'
             ],
-            postalCodes: [3702]
+            postalCodes: ['3702']
         },
         'Bayombong (Capital)': {
             subDistrict: [
@@ -35069,7 +35069,7 @@ module.exports = {
                 'Santa Rosa',
                 'Vista Alegre'
             ],
-            postalCodes: [3700]
+            postalCodes: ['3700']
         },
         Diadi: {
             subDistrict: [
@@ -35093,7 +35093,7 @@ module.exports = {
                 'Villa Aurora',
                 'Villa Florentino'
             ],
-            postalCodes: [3712]
+            postalCodes: ['3712']
         },
         'Dupax Del Norte': {
             subDistrict: [
@@ -35113,7 +35113,7 @@ module.exports = {
                 'Parai',
                 'Yabbi'
             ],
-            postalCodes: [3706]
+            postalCodes: ['3706']
         },
         'Dupax Del Sur': {
             subDistrict: [
@@ -35137,7 +35137,7 @@ module.exports = {
                 'Santa Maria',
                 'Talbek'
             ],
-            postalCodes: [3707]
+            postalCodes: ['3707']
         },
         Kasibu: {
             subDistrict: [
@@ -35172,7 +35172,7 @@ module.exports = {
                 'Wangal',
                 'Watwat'
             ],
-            postalCodes: [3703]
+            postalCodes: ['3703']
         },
         Kayapa: {
             subDistrict: [
@@ -35207,7 +35207,7 @@ module.exports = {
                 'Tidang Village',
                 'Tubongan'
             ],
-            postalCodes: [3708]
+            postalCodes: ['3708']
         },
         Quezon: {
             subDistrict: [
@@ -35224,7 +35224,7 @@ module.exports = {
                 'Nalubbunan',
                 'Runruno'
             ],
-            postalCodes: [3324]
+            postalCodes: ['3324']
         },
         'Santa Fe': {
             subDistrict: [
@@ -35245,7 +35245,7 @@ module.exports = {
                 'Unib',
                 'Villa Flores'
             ],
-            postalCodes: [6047]
+            postalCodes: ['6047']
         },
         Solano: {
             subDistrict: [
@@ -35272,7 +35272,7 @@ module.exports = {
                 'Uddiawan',
                 'Wacal'
             ],
-            postalCodes: [3709]
+            postalCodes: ['3709']
         },
         Villaverde: {
             subDistrict: [
@@ -35286,7 +35286,7 @@ module.exports = {
                 'Poblacion',
                 'Sawmill'
             ],
-            postalCodes: [3710]
+            postalCodes: ['3710']
         }
     },
     'Occidental Mindoro': {
@@ -35303,7 +35303,7 @@ module.exports = {
                 'Udalo',
                 'Wawa'
             ],
-            postalCodes: [5108]
+            postalCodes: ['5108']
         },
         Calintaan: {
             subDistrict: [
@@ -35315,7 +35315,7 @@ module.exports = {
                 'Poypoy',
                 'Tanyag'
             ],
-            postalCodes: [5102]
+            postalCodes: ['5102']
         },
         Looc: {
             subDistrict: [
@@ -35329,7 +35329,7 @@ module.exports = {
                 'Kanluran (Pob.)',
                 'Talaotao'
             ],
-            postalCodes: [5111]
+            postalCodes: ['5111']
         },
         Lubang: {
             subDistrict: [
@@ -35350,7 +35350,7 @@ module.exports = {
                 'Tilik',
                 'Vigo'
             ],
-            postalCodes: [5109]
+            postalCodes: ['5109']
         },
         Magsaysay: {
             subDistrict: [
@@ -35367,7 +35367,7 @@ module.exports = {
                 'Santa Teresa',
                 'Sibalat'
             ],
-            postalCodes: [5101]
+            postalCodes: ['5101']
         },
         Mamburao: {
             subDistrict: [
@@ -35387,7 +35387,7 @@ module.exports = {
                 'Tangkalan',
                 'Tayamaan'
             ],
-            postalCodes: [5106]
+            postalCodes: ['5106']
         },
         Paluan: {
             subDistrict: [
@@ -35404,7 +35404,7 @@ module.exports = {
                 'Silahis Ng Pag-Asa Pob.',
                 'Tubili'
             ],
-            postalCodes: [5107]
+            postalCodes: ['5107']
         },
         Rizal: {
             subDistrict: [
@@ -35420,7 +35420,7 @@ module.exports = {
                 'San Pedro',
                 'Santo Niño'
             ],
-            postalCodes: [3526]
+            postalCodes: ['3526']
         },
         Sablayan: {
             subDistrict: [
@@ -35447,7 +35447,7 @@ module.exports = {
                 'Tuban',
                 'Victoria'
             ],
-            postalCodes: [5104]
+            postalCodes: ['5104']
         },
         'San Jose': {
             subDistrict: [
@@ -35491,7 +35491,7 @@ module.exports = {
                 'San Isidro',
                 'San Roque'
             ],
-            postalCodes: [1404]
+            postalCodes: ['1404']
         },
         'Santa Cruz': {
             subDistrict: [
@@ -35507,7 +35507,7 @@ module.exports = {
                 'Poblacion II',
                 'San Vicente'
             ],
-            postalCodes: [1104]
+            postalCodes: ['1104']
         }
     },
     'Oriental Mindoro': {
@@ -35541,7 +35541,7 @@ module.exports = {
                 'Tagumpay',
                 'Water'
             ],
-            postalCodes: [5201]
+            postalCodes: ['5201']
         },
         Bansud: {
             subDistrict: [
@@ -35559,7 +35559,7 @@ module.exports = {
                 'Sumagui',
                 'Villa Pag-Asa'
             ],
-            postalCodes: [5210]
+            postalCodes: ['5210']
         },
         Bongabong: {
             subDistrict: [
@@ -35600,7 +35600,7 @@ module.exports = {
                 'Sigange',
                 'Tawas'
             ],
-            postalCodes: [5211]
+            postalCodes: ['5211']
         },
         Bulalacao: {
             subDistrict: [
@@ -35620,7 +35620,7 @@ module.exports = {
                 'San Juan',
                 'San Roque'
             ],
-            postalCodes: [5214]
+            postalCodes: ['5214']
         },
         Calapan: {
             subDistrict: [
@@ -35687,7 +35687,7 @@ module.exports = {
                 'Tibag',
                 'Wawa'
             ],
-            postalCodes: [5200]
+            postalCodes: ['5200']
         },
         Gloria: {
             subDistrict: [
@@ -35719,7 +35719,7 @@ module.exports = {
                 'Santa Theresa',
                 'Tambong'
             ],
-            postalCodes: [5209]
+            postalCodes: ['5209']
         },
         Mansalay: {
             subDistrict: [
@@ -35741,7 +35741,7 @@ module.exports = {
                 'Wasig',
                 'Waygan'
             ],
-            postalCodes: [5208]
+            postalCodes: ['5208']
         },
         Naujan: {
             subDistrict: [
@@ -35816,7 +35816,7 @@ module.exports = {
                 'Tagumpay',
                 'Tigkan'
             ],
-            postalCodes: [5204]
+            postalCodes: ['5204']
         },
         Pinamalayan: {
             subDistrict: [
@@ -35858,7 +35858,7 @@ module.exports = {
                 'Zone III (Pob.)',
                 'Zone IV (Pob.)'
             ],
-            postalCodes: [5208]
+            postalCodes: ['5208']
         },
         Pola: {
             subDistrict: [
@@ -35886,7 +35886,7 @@ module.exports = {
                 'Zone I (Pob.)',
                 'Zone II (Pob.)'
             ],
-            postalCodes: [5206]
+            postalCodes: ['5206']
         },
         'Puerto Galera': {
             subDistrict: [
@@ -35904,7 +35904,7 @@ module.exports = {
                 'Tabinay',
                 'Villaflor'
             ],
-            postalCodes: [5203]
+            postalCodes: ['5203']
         },
         Roxas: {
             subDistrict: [
@@ -35929,7 +35929,7 @@ module.exports = {
                 'Uyao',
                 'Victoria'
             ],
-            postalCodes: [3320]
+            postalCodes: ['3320']
         },
         'San Teodoro': {
             subDistrict: [
@@ -35942,7 +35942,7 @@ module.exports = {
                 'Poblacion',
                 'Tacligan'
             ],
-            postalCodes: [5202]
+            postalCodes: ['5202']
         },
         Socorro: {
             subDistrict: [
@@ -35973,7 +35973,7 @@ module.exports = {
                 'Zone III (Pob.)',
                 'Zone IV (Pob.)'
             ],
-            postalCodes: [1109]
+            postalCodes: ['1109']
         },
         Victoria: {
             subDistrict: [
@@ -36010,7 +36010,7 @@ module.exports = {
                 'Urdaneta',
                 'Villa Cerveza'
             ],
-            postalCodes: [4011]
+            postalCodes: ['4011']
         }
     },
     Palawan: {
@@ -36036,7 +36036,7 @@ module.exports = {
                 'Tagpait',
                 'Tigman'
             ],
-            postalCodes: [5302]
+            postalCodes: ['5302']
         },
         Agutaya: {
             subDistrict: [
@@ -36051,7 +36051,7 @@ module.exports = {
                 'Villafria',
                 'Villasol'
             ],
-            postalCodes: [5320]
+            postalCodes: ['5320']
         },
         Araceli: {
             subDistrict: [
@@ -36069,7 +36069,7 @@ module.exports = {
                 'Tinintinan',
                 'Tudela'
             ],
-            postalCodes: [5311]
+            postalCodes: ['5311']
         },
         Balabac: {
             subDistrict: [
@@ -36094,7 +36094,7 @@ module.exports = {
                 'Salang',
                 'Sebaring'
             ],
-            postalCodes: [5307]
+            postalCodes: ['5307']
         },
         Bataraza: {
             subDistrict: [
@@ -36121,7 +36121,7 @@ module.exports = {
                 'Taratak',
                 'Tarusan'
             ],
-            postalCodes: [5306]
+            postalCodes: ['5306']
         },
         'Brooke\'S Point': {
             subDistrict: [
@@ -36144,7 +36144,7 @@ module.exports = {
                 'Saraza',
                 'Tubtub'
             ],
-            postalCodes: [5305]
+            postalCodes: ['5305']
         },
         Busuanga: {
             subDistrict: [
@@ -36163,7 +36163,7 @@ module.exports = {
                 'San Rafael',
                 'Santo Niño'
             ],
-            postalCodes: [5317]
+            postalCodes: ['5317']
         },
         Cagayancillo: {
             subDistrict: [
@@ -36180,7 +36180,7 @@ module.exports = {
                 'Talaga',
                 'Wahig (Pob.)'
             ],
-            postalCodes: [5321]
+            postalCodes: ['5321']
         },
         Coron: {
             subDistrict: [
@@ -36208,7 +36208,7 @@ module.exports = {
                 'Tara',
                 'Turda'
             ],
-            postalCodes: [5316]
+            postalCodes: ['5316']
         },
         Culion: {
             subDistrict: [
@@ -36227,7 +36227,7 @@ module.exports = {
                 'Osmeña',
                 'Tiza'
             ],
-            postalCodes: [5315]
+            postalCodes: ['5315']
         },
         Cuyo: {
             subDistrict: [
@@ -36249,7 +36249,7 @@ module.exports = {
                 'Tenga-tenga (Pob.)',
                 'Tocadan (Pob.)'
             ],
-            postalCodes: [5318]
+            postalCodes: ['5318']
         },
         Dumaran: {
             subDistrict: [
@@ -36270,7 +36270,7 @@ module.exports = {
                 'Santo Tomas',
                 'Tanatanaon'
             ],
-            postalCodes: [5310]
+            postalCodes: ['5310']
         },
         'El Nido (Baquit)': {
             subDistrict: [
@@ -36293,11 +36293,11 @@ module.exports = {
                 'Villa Libertad',
                 'Villa Paz'
             ],
-            postalCodes: [5313]
+            postalCodes: ['5313']
         },
         Kalayaan: {
             subDistrict: ['Pag-Asa (Pob.)'],
-            postalCodes: [4015]
+            postalCodes: ['4015']
         },
         Linapacan: {
             subDistrict: [
@@ -36312,7 +36312,7 @@ module.exports = {
                 'San Miguel (Pob.)',
                 'San Nicolas'
             ],
-            postalCodes: [5314]
+            postalCodes: ['5314']
         },
         Magsaysay: {
             subDistrict: [
@@ -36328,7 +36328,7 @@ module.exports = {
                 'Lucbuan',
                 'Rizal'
             ],
-            postalCodes: [5101]
+            postalCodes: ['5101']
         },
         'Narra (Panacan)': {
             subDistrict: [
@@ -36356,7 +36356,7 @@ module.exports = {
                 'Teresa',
                 'Tinagong Dagat'
             ],
-            postalCodes: [5303]
+            postalCodes: ['5303']
         },
         'Puerto Princesa City': {
             subDistrict: [
@@ -36427,7 +36427,7 @@ module.exports = {
                 'Tanglaw (Pob.)',
                 'Tiniguiban'
             ],
-            postalCodes: [5300]
+            postalCodes: ['5300']
         },
         Quezon: {
             subDistrict: [
@@ -36446,7 +36446,7 @@ module.exports = {
                 'Tabon',
                 'Tagusao'
             ],
-            postalCodes: [3324]
+            postalCodes: ['3324']
         },
         Rizal: {
             subDistrict: [
@@ -36462,7 +36462,7 @@ module.exports = {
                 'Ransang',
                 'Taburi'
             ],
-            postalCodes: [3526]
+            postalCodes: ['3526']
         },
         Roxas: {
             subDistrict: [
@@ -36498,7 +36498,7 @@ module.exports = {
                 'Tinitian',
                 'Tumarbong'
             ],
-            postalCodes: [3320]
+            postalCodes: ['3320']
         },
         'San Vicente': {
             subDistrict: [
@@ -36513,7 +36513,7 @@ module.exports = {
                 'San Isidro',
                 'Santo Niño'
             ],
-            postalCodes: [1101]
+            postalCodes: ['1101']
         },
         'Sofronio Española': {
             subDistrict: [
@@ -36527,7 +36527,7 @@ module.exports = {
                 'Pulot Shore',
                 'Punang'
             ],
-            postalCodes: [5324]
+            postalCodes: ['5324']
         },
         Taytay: {
             subDistrict: [
@@ -36563,7 +36563,7 @@ module.exports = {
                 'Talog',
                 'Tumbod'
             ],
-            postalCodes: [5312]
+            postalCodes: ['5312']
         }
     },
     Pampanga: {
@@ -36603,7 +36603,7 @@ module.exports = {
                 'Tabun',
                 'Virgen Delos Remedios'
             ],
-            postalCodes: [2009]
+            postalCodes: ['2009']
         },
         Apalit: {
             subDistrict: [
@@ -36620,7 +36620,7 @@ module.exports = {
                 'Sulipan',
                 'Tabuyuc'
             ],
-            postalCodes: [2016]
+            postalCodes: ['2016']
         },
         Arayat: {
             subDistrict: [
@@ -36655,7 +36655,7 @@ module.exports = {
                 'Suclayin',
                 'Telapayong'
             ],
-            postalCodes: [2012]
+            postalCodes: ['2012']
         },
         Bacolor: {
             subDistrict: [
@@ -36681,7 +36681,7 @@ module.exports = {
                 'Talba',
                 'Tinajero'
             ],
-            postalCodes: [2001]
+            postalCodes: ['2001']
         },
         Candaba: {
             subDistrict: [
@@ -36719,7 +36719,7 @@ module.exports = {
                 'Vizal Santo Cristo',
                 'Vizal Santo Niño'
             ],
-            postalCodes: [2013]
+            postalCodes: ['2013']
         },
         Floridablanca: {
             subDistrict: [
@@ -36757,7 +36757,7 @@ module.exports = {
                 'Solib',
                 'Valdez'
             ],
-            postalCodes: [2006]
+            postalCodes: ['2006']
         },
         Guagua: {
             subDistrict: [
@@ -36793,7 +36793,7 @@ module.exports = {
                 'Santo Cristo',
                 'Santo Niño (Pob.)'
             ],
-            postalCodes: [2003]
+            postalCodes: ['2003']
         },
         Lubao: {
             subDistrict: [
@@ -36842,7 +36842,7 @@ module.exports = {
                 'Santo Niño',
                 'Santo Tomas (Pob.)'
             ],
-            postalCodes: [2005]
+            postalCodes: ['2005']
         },
         'Mabalacat City': {
             subDistrict: [
@@ -36874,7 +36874,7 @@ module.exports = {
                 'Sapang Biabas',
                 'Tabun'
             ],
-            postalCodes: [2010]
+            postalCodes: ['2010']
         },
         Macabebe: {
             subDistrict: [
@@ -36904,7 +36904,7 @@ module.exports = {
                 'Tacasan',
                 'Telacsan'
             ],
-            postalCodes: [2018]
+            postalCodes: ['2018']
         },
         Magalang: {
             subDistrict: [
@@ -36936,7 +36936,7 @@ module.exports = {
                 'Santo Rosario',
                 'Turu'
             ],
-            postalCodes: [2011]
+            postalCodes: ['2011']
         },
         Masantol: {
             subDistrict: [
@@ -36967,7 +36967,7 @@ module.exports = {
                 'Sapang Kawayan',
                 'Sua'
             ],
-            postalCodes: [2017]
+            postalCodes: ['2017']
         },
         Mexico: {
             subDistrict: [
@@ -37015,7 +37015,7 @@ module.exports = {
                 'Suclaban',
                 'Tangle'
             ],
-            postalCodes: [2021]
+            postalCodes: ['2021']
         },
         Minalin: {
             subDistrict: [
@@ -37035,7 +37035,7 @@ module.exports = {
                 'Santo Rosario (Pob.)',
                 'Saplad'
             ],
-            postalCodes: [2019]
+            postalCodes: ['2019']
         },
         Porac: {
             subDistrict: [
@@ -37069,7 +37069,7 @@ module.exports = {
                 'Sinura',
                 'Villa Maria'
             ],
-            postalCodes: [2008]
+            postalCodes: ['2008']
         },
         'San Fernando': {
             subDistrict: [
@@ -37109,7 +37109,7 @@ module.exports = {
                 'Sindalan',
                 'Telabastagan'
             ],
-            postalCodes: [2000]
+            postalCodes: ['2000']
         },
         'San Luis': {
             subDistrict: [
@@ -37131,7 +37131,7 @@ module.exports = {
                 'Santo Rosario',
                 'Santo Tomas'
             ],
-            postalCodes: [3201]
+            postalCodes: ['3201']
         },
         'San Simon': {
             subDistrict: [
@@ -37150,7 +37150,7 @@ module.exports = {
                 'Santa Monica',
                 'Santo Niño'
             ],
-            postalCodes: [2015]
+            postalCodes: ['2015']
         },
         'Santa Ana': {
             subDistrict: [
@@ -37169,7 +37169,7 @@ module.exports = {
                 'Santiago',
                 'Santo Rosario'
             ],
-            postalCodes: [3514]
+            postalCodes: ['3514']
         },
         'Santa Rita': {
             subDistrict: [
@@ -37184,7 +37184,7 @@ module.exports = {
                 'San Vicente',
                 'Santa Monica'
             ],
-            postalCodes: [2002]
+            postalCodes: ['2002']
         },
         'Santo Tomas': {
             subDistrict: [
@@ -37196,7 +37196,7 @@ module.exports = {
                 'Santo Rosario',
                 'Sapa'
             ],
-            postalCodes: [4234]
+            postalCodes: ['4234']
         },
         Sasmuan: {
             subDistrict: [
@@ -37213,7 +37213,7 @@ module.exports = {
                 'Santa Monica',
                 'Santo Tomas'
             ],
-            postalCodes: [2004]
+            postalCodes: ['2004']
         }
     },
     Pangasinan: {
@@ -37237,7 +37237,7 @@ module.exports = {
                 'Tupa',
                 'Viga'
             ],
-            postalCodes: [2408]
+            postalCodes: ['2408']
         },
         Aguilar: {
             subDistrict: [
@@ -37258,7 +37258,7 @@ module.exports = {
                 'San Jose',
                 'Tampac'
             ],
-            postalCodes: [2415]
+            postalCodes: ['2415']
         },
         Alaminos: {
             subDistrict: [
@@ -37302,7 +37302,7 @@ module.exports = {
                 'Telbang',
                 'Victoria'
             ],
-            postalCodes: [2404]
+            postalCodes: ['2404']
         },
         Alcala: {
             subDistrict: [
@@ -37328,7 +37328,7 @@ module.exports = {
                 'San Vicente',
                 'Vacante'
             ],
-            postalCodes: [3506]
+            postalCodes: ['3506']
         },
         Anda: {
             subDistrict: [
@@ -37351,7 +37351,7 @@ module.exports = {
                 'Tondol',
                 'Toritori'
             ],
-            postalCodes: [2405]
+            postalCodes: ['2405']
         },
         Asingan: {
             subDistrict: [
@@ -37377,7 +37377,7 @@ module.exports = {
                 'Sobol',
                 'Toboy'
             ],
-            postalCodes: [2439]
+            postalCodes: ['2439']
         },
         Balungao: {
             subDistrict: [
@@ -37402,7 +37402,7 @@ module.exports = {
                 'San Miguel',
                 'San Raymundo'
             ],
-            postalCodes: [2442]
+            postalCodes: ['2442']
         },
         Bani: {
             subDistrict: [
@@ -37434,7 +37434,7 @@ module.exports = {
                 'Tugui Grande',
                 'Tugui Norte'
             ],
-            postalCodes: [2407]
+            postalCodes: ['2407']
         },
         Basista: {
             subDistrict: [
@@ -37452,7 +37452,7 @@ module.exports = {
                 'Patacbo',
                 'Poblacion'
             ],
-            postalCodes: [2422]
+            postalCodes: ['2422']
         },
         Bautista: {
             subDistrict: [
@@ -37475,7 +37475,7 @@ module.exports = {
                 'Vacante',
                 'Villanueva'
             ],
-            postalCodes: [2424]
+            postalCodes: ['2424']
         },
         Bayambang: {
             subDistrict: [
@@ -37557,7 +37557,7 @@ module.exports = {
                 'Zone VI (Pob.)',
                 'Zone VII (Pob.)'
             ],
-            postalCodes: [2423]
+            postalCodes: ['2423']
         },
         Binalonan: {
             subDistrict: [
@@ -37586,7 +37586,7 @@ module.exports = {
                 'Tabuyoc',
                 'Vacante'
             ],
-            postalCodes: [2436]
+            postalCodes: ['2436']
         },
         Binmaley: {
             subDistrict: [
@@ -37624,7 +37624,7 @@ module.exports = {
                 'Santa Rosa',
                 'Tombor'
             ],
-            postalCodes: [2417]
+            postalCodes: ['2417']
         },
         Bolinao: {
             subDistrict: [
@@ -37659,7 +37659,7 @@ module.exports = {
                 'Victory',
                 'Zaragoza'
             ],
-            postalCodes: [2406]
+            postalCodes: ['2406']
         },
         Bugallon: {
             subDistrict: [
@@ -37688,7 +37688,7 @@ module.exports = {
                 'San Francisco',
                 'Umanday'
             ],
-            postalCodes: [2416]
+            postalCodes: ['2416']
         },
         Burgos: {
             subDistrict: [
@@ -37707,7 +37707,7 @@ module.exports = {
                 'Sapa Pequeña',
                 'Tambacan'
             ],
-            postalCodes: [2918]
+            postalCodes: ['2918']
         },
         Calasiao: {
             subDistrict: [
@@ -37736,7 +37736,7 @@ module.exports = {
                 'Songkoy',
                 'Talibaew'
             ],
-            postalCodes: [2418]
+            postalCodes: ['2418']
         },
         Dagupan: {
             subDistrict: [
@@ -37772,7 +37772,7 @@ module.exports = {
                 'Tapuac',
                 'Tebeng'
             ],
-            postalCodes: [2400]
+            postalCodes: ['2400']
         },
         Dasol: {
             subDistrict: [
@@ -37795,7 +37795,7 @@ module.exports = {
                 'Uli',
                 'Viga'
             ],
-            postalCodes: [2411]
+            postalCodes: ['2411']
         },
         Infanta: {
             subDistrict: [
@@ -37813,7 +37813,7 @@ module.exports = {
                 'Poblacion',
                 'Potol'
             ],
-            postalCodes: [2412]
+            postalCodes: ['2412']
         },
         Labrador: {
             subDistrict: [
@@ -37828,7 +37828,7 @@ module.exports = {
                 'Tobuan',
                 'Uyong'
             ],
-            postalCodes: [2402]
+            postalCodes: ['2402']
         },
         Laoac: {
             subDistrict: [
@@ -37855,7 +37855,7 @@ module.exports = {
                 'Turko',
                 'Yatyat'
             ],
-            postalCodes: [2437]
+            postalCodes: ['2437']
         },
         'Lingayen (Capital)': {
             subDistrict: [
@@ -37892,7 +37892,7 @@ module.exports = {
                 'Tumbar',
                 'Wawa'
             ],
-            postalCodes: [2401]
+            postalCodes: ['2401']
         },
         Mabini: {
             subDistrict: [
@@ -37913,7 +37913,7 @@ module.exports = {
                 'Tagudin',
                 'Villacorta'
             ],
-            postalCodes: [4202]
+            postalCodes: ['4202']
         },
         Malasiqui: {
             subDistrict: [
@@ -37991,7 +37991,7 @@ module.exports = {
                 'Waig',
                 'Warey'
             ],
-            postalCodes: [2421]
+            postalCodes: ['2421']
         },
         Manaoag: {
             subDistrict: [
@@ -38022,7 +38022,7 @@ module.exports = {
                 'Sapang',
                 'Tebuel'
             ],
-            postalCodes: [2430]
+            postalCodes: ['2430']
         },
         Mangaldan: {
             subDistrict: [
@@ -38057,7 +38057,7 @@ module.exports = {
                 'Talogtog',
                 'Tebag'
             ],
-            postalCodes: [2432]
+            postalCodes: ['2432']
         },
         Mangatarem: {
             subDistrict: [
@@ -38144,7 +38144,7 @@ module.exports = {
                 'Umangan',
                 'Zamora (Pob.)'
             ],
-            postalCodes: [2413]
+            postalCodes: ['2413']
         },
         Mapandan: {
             subDistrict: [
@@ -38164,7 +38164,7 @@ module.exports = {
                 'Santa Maria',
                 'Torres'
             ],
-            postalCodes: [2429]
+            postalCodes: ['2429']
         },
         Natividad: {
             subDistrict: [
@@ -38187,7 +38187,7 @@ module.exports = {
                 'San Miguel',
                 'Silag'
             ],
-            postalCodes: [2446]
+            postalCodes: ['2446']
         },
         Pozorrubio: {
             subDistrict: [
@@ -38226,7 +38226,7 @@ module.exports = {
                 'Tulnac',
                 'Villegas'
             ],
-            postalCodes: [2435]
+            postalCodes: ['2435']
         },
         Rosales: {
             subDistrict: [
@@ -38268,7 +38268,7 @@ module.exports = {
                 'Zone IV (Pob.)',
                 'Zone V (Pob.)'
             ],
-            postalCodes: [2441]
+            postalCodes: ['2441']
         },
         'San Carlos': {
             subDistrict: [
@@ -38359,7 +38359,7 @@ module.exports = {
                 'Tebag',
                 'Turac'
             ],
-            postalCodes: [2420]
+            postalCodes: ['2420']
         },
         'San Fabian': {
             subDistrict: [
@@ -38398,7 +38398,7 @@ module.exports = {
                 'Tiblong',
                 'Tocok'
             ],
-            postalCodes: [2433]
+            postalCodes: ['2433']
         },
         'San Jacinto': {
             subDistrict: [
@@ -38422,7 +38422,7 @@ module.exports = {
                 'Santa Maria',
                 'Santo Tomas'
             ],
-            postalCodes: [2431]
+            postalCodes: ['2431']
         },
         'San Manuel': {
             subDistrict: [
@@ -38441,7 +38441,7 @@ module.exports = {
                 'San Vicente',
                 'Santo Domingo'
             ],
-            postalCodes: [2438]
+            postalCodes: ['2438']
         },
         'San Nicolas': {
             subDistrict: [
@@ -38479,7 +38479,7 @@ module.exports = {
                 'Siblot',
                 'Sobol'
             ],
-            postalCodes: [1010]
+            postalCodes: ['1010']
         },
         'San Quintin': {
             subDistrict: [
@@ -38505,7 +38505,7 @@ module.exports = {
                 'San Pedro',
                 'Ungib'
             ],
-            postalCodes: [2808]
+            postalCodes: ['2808']
         },
         'Santa Barbara': {
             subDistrict: [
@@ -38539,7 +38539,7 @@ module.exports = {
                 'Tuliao',
                 'Ventinilla'
             ],
-            postalCodes: [2419]
+            postalCodes: ['2419']
         },
         'Santa Maria': {
             subDistrict: [
@@ -38567,7 +38567,7 @@ module.exports = {
                 'Santa Cruz',
                 'Santa Rosa'
             ],
-            postalCodes: [3022]
+            postalCodes: ['3022']
         },
         'Santo Tomas': {
             subDistrict: [
@@ -38582,7 +38582,7 @@ module.exports = {
                 'Santo Domingo',
                 'Santo Niño'
             ],
-            postalCodes: [4234]
+            postalCodes: ['4234']
         },
         Sison: {
             subDistrict: [
@@ -38615,7 +38615,7 @@ module.exports = {
                 'Sagunto',
                 'Tara-tara'
             ],
-            postalCodes: [2434]
+            postalCodes: ['2434']
         },
         Sual: {
             subDistrict: [
@@ -38639,7 +38639,7 @@ module.exports = {
                 'Sioasio West',
                 'Victoria'
             ],
-            postalCodes: [2403]
+            postalCodes: ['2403']
         },
         Tayug: {
             subDistrict: [
@@ -38665,7 +38665,7 @@ module.exports = {
                 'Trenchera',
                 'Zamora'
             ],
-            postalCodes: [2445]
+            postalCodes: ['2445']
         },
         Umingan: {
             subDistrict: [
@@ -38728,7 +38728,7 @@ module.exports = {
                 'Sinabaan',
                 'Tanggal Sawang'
             ],
-            postalCodes: [2443]
+            postalCodes: ['2443']
         },
         Urbiztondo: {
             subDistrict: [
@@ -38754,7 +38754,7 @@ module.exports = {
                 'Salavante',
                 'Sawat'
             ],
-            postalCodes: [2414]
+            postalCodes: ['2414']
         },
         Urdaneta: {
             subDistrict: [
@@ -38793,7 +38793,7 @@ module.exports = {
                 'Tipuso',
                 'Tulong'
             ],
-            postalCodes: [2428]
+            postalCodes: ['2428']
         },
         Villasis: {
             subDistrict: [
@@ -38819,7 +38819,7 @@ module.exports = {
                 'Zone IV (Pob.)',
                 'Zone V (Pob.)'
             ],
-            postalCodes: [2427]
+            postalCodes: ['2427']
         }
     },
     Quezon: {
@@ -38838,7 +38838,7 @@ module.exports = {
                 'Silangang Maligaya',
                 'Sildora'
             ],
-            postalCodes: [4304]
+            postalCodes: ['4304']
         },
         Alabat: {
             subDistrict: [
@@ -38862,7 +38862,7 @@ module.exports = {
                 'Villa Norte',
                 'Villa Victoria'
             ],
-            postalCodes: [4333]
+            postalCodes: ['4333']
         },
         Atimonan: {
             subDistrict: [
@@ -38909,7 +38909,7 @@ module.exports = {
                 'Villa Ibaba',
                 'Villa Ilaya'
             ],
-            postalCodes: [4331]
+            postalCodes: ['4331']
         },
         Buenavista: {
             subDistrict: [
@@ -38951,7 +38951,7 @@ module.exports = {
                 'Villa Magsaysay',
                 'Villa Veronica'
             ],
-            postalCodes: [4904]
+            postalCodes: ['4904']
         },
         Burdeos: {
             subDistrict: [
@@ -38969,7 +38969,7 @@ module.exports = {
                 'Poblacion',
                 'San Rafael'
             ],
-            postalCodes: [4340]
+            postalCodes: ['4340']
         },
         Calauag: {
             subDistrict: [
@@ -39055,7 +39055,7 @@ module.exports = {
                 'Viñas',
                 'Yaganak'
             ],
-            postalCodes: [4318]
+            postalCodes: ['4318']
         },
         Candelaria: {
             subDistrict: [
@@ -39085,7 +39085,7 @@ module.exports = {
                 'Santa Catalina Norte',
                 'Santa Catalina Sur'
             ],
-            postalCodes: [4323]
+            postalCodes: ['4323']
         },
         Catanauan: {
             subDistrict: [
@@ -39136,7 +39136,7 @@ module.exports = {
                 'Tagbacan Silangan',
                 'Tuhian'
             ],
-            postalCodes: [4311]
+            postalCodes: ['4311']
         },
         Dolores: {
             subDistrict: [
@@ -39157,7 +39157,7 @@ module.exports = {
                 'Santa Lucia',
                 'Silanganan (Pob.)'
             ],
-            postalCodes: [2801]
+            postalCodes: ['2801']
         },
         'General Luna': {
             subDistrict: [
@@ -39189,7 +39189,7 @@ module.exports = {
                 'Sumilang',
                 'Villarica'
             ],
-            postalCodes: [4310]
+            postalCodes: ['4310']
         },
         'General Nakar': {
             subDistrict: [
@@ -39213,7 +39213,7 @@ module.exports = {
                 'San Marcelino',
                 'Umiray'
             ],
-            postalCodes: [4338]
+            postalCodes: ['4338']
         },
         Guinayangan: {
             subDistrict: [
@@ -39272,7 +39272,7 @@ module.exports = {
                 'Triumpo',
                 'Villa Hiwasayan'
             ],
-            postalCodes: [4319]
+            postalCodes: ['4319']
         },
         Gumaca: {
             subDistrict: [
@@ -39336,7 +39336,7 @@ module.exports = {
                 'Villa Tañada',
                 'Villa Victoria'
             ],
-            postalCodes: [4306]
+            postalCodes: ['4306']
         },
         Infanta: {
             subDistrict: [
@@ -39377,7 +39377,7 @@ module.exports = {
                 'Tongohin',
                 'Tudturan'
             ],
-            postalCodes: [2412]
+            postalCodes: ['2412']
         },
         Jomalig: {
             subDistrict: [
@@ -39387,7 +39387,7 @@ module.exports = {
                 'Gango',
                 'Talisoy (Pob.)'
             ],
-            postalCodes: [4342]
+            postalCodes: ['4342']
         },
         Lopez: {
             subDistrict: [
@@ -39487,7 +39487,7 @@ module.exports = {
                 'Villamonte',
                 'Villanacaob'
             ],
-            postalCodes: [4316]
+            postalCodes: ['4316']
         },
         Lucban: {
             subDistrict: [
@@ -39524,7 +39524,7 @@ module.exports = {
                 'Tiawe',
                 'Tinamnan'
             ],
-            postalCodes: [4328]
+            postalCodes: ['4328']
         },
         'Lucena City': {
             subDistrict: [
@@ -39562,7 +39562,7 @@ module.exports = {
                 'Salinas',
                 'Talao-talao'
             ],
-            postalCodes: [4301]
+            postalCodes: ['4301']
         },
         Macalelon: {
             subDistrict: [
@@ -39597,7 +39597,7 @@ module.exports = {
                 'Tubigan Ilaya',
                 'Vista Hermosa'
             ],
-            postalCodes: [4309]
+            postalCodes: ['4309']
         },
         Mauban: {
             subDistrict: [
@@ -39642,7 +39642,7 @@ module.exports = {
                 'Soledad',
                 'Tapucan'
             ],
-            postalCodes: [4330]
+            postalCodes: ['4330']
         },
         Mulanay: {
             subDistrict: [
@@ -39675,7 +39675,7 @@ module.exports = {
                 'San Pedro',
                 'Santa Rosa'
             ],
-            postalCodes: [4312]
+            postalCodes: ['4312']
         },
         'Padre Burgos': {
             subDistrict: [
@@ -39702,7 +39702,7 @@ module.exports = {
                 'Walay',
                 'Yawe'
             ],
-            postalCodes: [4303]
+            postalCodes: ['4303']
         },
         Pagbilao: {
             subDistrict: [
@@ -39734,7 +39734,7 @@ module.exports = {
                 'Talipan',
                 'Tukalan'
             ],
-            postalCodes: [4302]
+            postalCodes: ['4302']
         },
         Panukulan: {
             subDistrict: [
@@ -39752,7 +39752,7 @@ module.exports = {
                 'Rizal',
                 'San Juan (Pob.)'
             ],
-            postalCodes: [4337]
+            postalCodes: ['4337']
         },
         Patnanungan: {
             subDistrict: [
@@ -39763,7 +39763,7 @@ module.exports = {
                 'Patnanungan Norte',
                 'Patnanungan Sur (Pob.)'
             ],
-            postalCodes: [4341]
+            postalCodes: ['4341']
         },
         Perez: {
             subDistrict: [
@@ -39782,7 +39782,7 @@ module.exports = {
                 'Villamanzano Norte',
                 'Villamanzano Sur'
             ],
-            postalCodes: [4334]
+            postalCodes: ['4334']
         },
         Pitogo: {
             subDistrict: [
@@ -39826,7 +39826,7 @@ module.exports = {
                 'Sumag Norte',
                 'Sumag Weste'
             ],
-            postalCodes: [4308]
+            postalCodes: ['4308']
         },
         Plaridel: {
             subDistrict: [
@@ -39840,7 +39840,7 @@ module.exports = {
                 'Pampaaralan (Pob.)',
                 'Tanauan'
             ],
-            postalCodes: [3004]
+            postalCodes: ['3004']
         },
         Polilio: {
             subDistrict: [
@@ -39865,7 +39865,7 @@ module.exports = {
                 'Taluong',
                 'Tamulaya-Anitong'
             ],
-            postalCodes: [4339]
+            postalCodes: ['4339']
         },
         Quezon: {
             subDistrict: [
@@ -39894,7 +39894,7 @@ module.exports = {
                 'Villa Gomez',
                 'Villa Mercedes'
             ],
-            postalCodes: [3324]
+            postalCodes: ['3324']
         },
         Real: {
             subDistrict: [
@@ -39916,7 +39916,7 @@ module.exports = {
                 'Tignoan',
                 'Ungos'
             ],
-            postalCodes: [4335]
+            postalCodes: ['4335']
         },
         Sampaloc: {
             subDistrict: [
@@ -39935,7 +39935,7 @@ module.exports = {
                 'San Roque (Pob.)',
                 'Taquico'
             ],
-            postalCodes: [4329]
+            postalCodes: ['4329']
         },
         'San Andres': {
             subDistrict: [
@@ -39947,7 +39947,7 @@ module.exports = {
                 'Tala',
                 'Talisay'
             ],
-            postalCodes: [4810]
+            postalCodes: ['4810']
         },
         'San Antonio': {
             subDistrict: [
@@ -39972,7 +39972,7 @@ module.exports = {
                 'San Jose',
                 'Sinturisan'
             ],
-            postalCodes: [1105]
+            postalCodes: ['1105']
         },
         'San Francisco': {
             subDistrict: [
@@ -39993,7 +39993,7 @@ module.exports = {
                 'Santo Niño',
                 'Silongin'
             ],
-            postalCodes: [4315]
+            postalCodes: ['4315']
         },
         'San Narciso': {
             subDistrict: [
@@ -40022,7 +40022,7 @@ module.exports = {
                 'Villa Reyes',
                 'White Cliff'
             ],
-            postalCodes: [4313]
+            postalCodes: ['4313']
         },
         Sariaya: {
             subDistrict: [
@@ -40070,7 +40070,7 @@ module.exports = {
                 'Tumbaga 1',
                 'Tumbaga 2'
             ],
-            postalCodes: [4322]
+            postalCodes: ['4322']
         },
         Tagkawayan: {
             subDistrict: [
@@ -40120,7 +40120,7 @@ module.exports = {
                 'Tunton',
                 'Victoria'
             ],
-            postalCodes: [4321]
+            postalCodes: ['4321']
         },
         Tayabas: {
             subDistrict: [
@@ -40191,7 +40191,7 @@ module.exports = {
                 'Valencia',
                 'Wakas'
             ],
-            postalCodes: [4327]
+            postalCodes: ['4327']
         },
         Tiaong: {
             subDistrict: [
@@ -40227,7 +40227,7 @@ module.exports = {
                 'Talisay',
                 'Tamisian'
             ],
-            postalCodes: [4325]
+            postalCodes: ['4325']
         },
         Unisan: {
             subDistrict: [
@@ -40268,7 +40268,7 @@ module.exports = {
                 'Tubas',
                 'Tubigan'
             ],
-            postalCodes: [4305]
+            postalCodes: ['4305']
         }
     },
     Quirino: {
@@ -40300,7 +40300,7 @@ module.exports = {
                 'Villa Santiago',
                 'Villa Ventura'
             ],
-            postalCodes: [3403]
+            postalCodes: ['3403']
         },
         'Cabarroguis (Capital)': {
             subDistrict: [
@@ -40322,7 +40322,7 @@ module.exports = {
                 'Villarose',
                 'Zamora'
             ],
-            postalCodes: [3400]
+            postalCodes: ['3400']
         },
         Diffun: {
             subDistrict: [
@@ -40360,7 +40360,7 @@ module.exports = {
                 'San Pascual',
                 'Villa Pascua'
             ],
-            postalCodes: [3401]
+            postalCodes: ['3401']
         },
         Maddela: {
             subDistrict: [
@@ -40397,7 +40397,7 @@ module.exports = {
                 'Villa Jose V Ylanan',
                 'Ysmael'
             ],
-            postalCodes: [3404]
+            postalCodes: ['3404']
         },
         Nagtipunan: {
             subDistrict: [
@@ -40418,7 +40418,7 @@ module.exports = {
                 'Sangbay',
                 'Wasid'
             ],
-            postalCodes: [3405]
+            postalCodes: ['3405']
         },
         Saguday: {
             subDistrict: [
@@ -40432,7 +40432,7 @@ module.exports = {
                 'Santo Tomas',
                 'Tres Reyes'
             ],
-            postalCodes: [3402]
+            postalCodes: ['3402']
         }
     },
     Rizal: {
@@ -40449,7 +40449,7 @@ module.exports = {
                 'San Vicente',
                 'Santo Niño'
             ],
-            postalCodes: [1930]
+            postalCodes: ['1930']
         },
         Antipolo: {
             subDistrict: [
@@ -40470,7 +40470,7 @@ module.exports = {
                 'San Roque (Pob.)',
                 'Santa Cruz'
             ],
-            postalCodes: [1870]
+            postalCodes: ['1870']
         },
         Baras: {
             subDistrict: [
@@ -40485,7 +40485,7 @@ module.exports = {
                 'San Salvador',
                 'Santiago'
             ],
-            postalCodes: [4803]
+            postalCodes: ['4803']
         },
         Binangonan: {
             subDistrict: [
@@ -40530,7 +40530,7 @@ module.exports = {
                 'Tatala',
                 'Tayuman'
             ],
-            postalCodes: [1940]
+            postalCodes: ['1940']
         },
         Cainta: {
             subDistrict: [
@@ -40542,7 +40542,7 @@ module.exports = {
                 'Santo Domingo',
                 'Santo Niño'
             ],
-            postalCodes: [1900]
+            postalCodes: ['1900']
         },
         Cardona: {
             subDistrict: [
@@ -40565,7 +40565,7 @@ module.exports = {
                 'Ticulio',
                 'Tuna'
             ],
-            postalCodes: [1950]
+            postalCodes: ['1950']
         },
         'Jala-Jala': {
             subDistrict: [
@@ -40581,7 +40581,7 @@ module.exports = {
                 'Special District (Pob.)',
                 'Third District (Pob.)'
             ],
-            postalCodes: [1990]
+            postalCodes: ['1990']
         },
         Morong: {
             subDistrict: [
@@ -40594,7 +40594,7 @@ module.exports = {
                 'San Juan (Pob.)',
                 'San Pedro (Pob.)'
             ],
-            postalCodes: [2108]
+            postalCodes: ['2108']
         },
         Pililla: {
             subDistrict: [
@@ -40608,7 +40608,7 @@ module.exports = {
                 'Takungan (Pob.)',
                 'Wawa (Pob.)'
             ],
-            postalCodes: [1910]
+            postalCodes: ['1910']
         },
         'Rodriguez (Montalban)': {
             subDistrict: [
@@ -40624,7 +40624,7 @@ module.exports = {
                 'San Jose',
                 'San Rafael'
             ],
-            postalCodes: [1860]
+            postalCodes: ['1860']
         },
         'San Mateo': {
             subDistrict: [
@@ -40644,7 +40644,7 @@ module.exports = {
                 'Santo Niño',
                 'Silangan'
             ],
-            postalCodes: [3318]
+            postalCodes: ['3318']
         },
         Tanay: {
             subDistrict: [
@@ -40669,7 +40669,7 @@ module.exports = {
                 'Tinucan',
                 'Wawa (Pob.)'
             ],
-            postalCodes: [1980]
+            postalCodes: ['1980']
         },
         Taytay: {
             subDistrict: [
@@ -40679,7 +40679,7 @@ module.exports = {
                 'San Juan',
                 'Santa Ana'
             ],
-            postalCodes: [5312]
+            postalCodes: ['5312']
         },
         Teresa: {
             subDistrict: [
@@ -40693,7 +40693,7 @@ module.exports = {
                 'San Gabriel',
                 'San Roque'
             ],
-            postalCodes: [1880]
+            postalCodes: ['1880']
         }
     },
     Romblon: {
@@ -40712,7 +40712,7 @@ module.exports = {
                 'San Roque',
                 'Tugdan'
             ],
-            postalCodes: [6033]
+            postalCodes: ['6033']
         },
         'Banton (Jones)': {
             subDistrict: [
@@ -40734,7 +40734,7 @@ module.exports = {
                 'Tungonan',
                 'Yabawon'
             ],
-            postalCodes: [5515]
+            postalCodes: ['5515']
         },
         Cajidiocan: {
             subDistrict: [
@@ -40753,7 +40753,7 @@ module.exports = {
                 'Sugod',
                 'Taguilos'
             ],
-            postalCodes: [5512]
+            postalCodes: ['5512']
         },
         Calatrava: {
             subDistrict: [
@@ -40765,7 +40765,7 @@ module.exports = {
                 'San Roque',
                 'Talisay'
             ],
-            postalCodes: [6126]
+            postalCodes: ['6126']
         },
         Concepcion: {
             subDistrict: [
@@ -40779,7 +40779,7 @@ module.exports = {
                 'San Pedro',
                 'San Vicente'
             ],
-            postalCodes: [7213]
+            postalCodes: ['7213']
         },
         Corcuera: {
             subDistrict: [
@@ -40799,7 +40799,7 @@ module.exports = {
                 'San Vicente',
                 'Tacasan'
             ],
-            postalCodes: [5514]
+            postalCodes: ['5514']
         },
         Ferrol: {
             subDistrict: [
@@ -40810,7 +40810,7 @@ module.exports = {
                 'Poblacion',
                 'Tubigon'
             ],
-            postalCodes: [5506]
+            postalCodes: ['5506']
         },
         Looc: {
             subDistrict: [
@@ -40827,7 +40827,7 @@ module.exports = {
                 'Punta',
                 'Tuguis'
             ],
-            postalCodes: [5111]
+            postalCodes: ['5111']
         },
         Magdiwang: {
             subDistrict: [
@@ -40841,7 +40841,7 @@ module.exports = {
                 'Silum',
                 'Tampayan'
             ],
-            postalCodes: [5511]
+            postalCodes: ['5511']
         },
         Odiongan: {
             subDistrict: [
@@ -40871,7 +40871,7 @@ module.exports = {
                 'Tulay',
                 'Tumingad'
             ],
-            postalCodes: [5505]
+            postalCodes: ['5505']
         },
         Romblon: {
             subDistrict: [
@@ -40907,7 +40907,7 @@ module.exports = {
                 'Sawang',
                 'Tambac'
             ],
-            postalCodes: [5500]
+            postalCodes: ['5500']
         },
         'San Agustin': {
             subDistrict: [
@@ -40927,7 +40927,7 @@ module.exports = {
                 'Poblacion',
                 'Sugod'
             ],
-            postalCodes: [1117]
+            postalCodes: ['1117']
         },
         'San Andres': {
             subDistrict: [
@@ -40945,7 +40945,7 @@ module.exports = {
                 'Tan-Agan',
                 'Victoria'
             ],
-            postalCodes: [4810]
+            postalCodes: ['4810']
         },
         'San Fernando': {
             subDistrict: [
@@ -40962,7 +40962,7 @@ module.exports = {
                 'Poblacion',
                 'Taclobo'
             ],
-            postalCodes: [4415]
+            postalCodes: ['4415']
         },
         'San Jose': {
             subDistrict: [
@@ -40972,7 +40972,7 @@ module.exports = {
                 'Pinamihagan',
                 'Poblacion'
             ],
-            postalCodes: [1404]
+            postalCodes: ['1404']
         },
         'Santa Fe': {
             subDistrict: [
@@ -40988,7 +40988,7 @@ module.exports = {
                 'Poblacion',
                 'Tabugon'
             ],
-            postalCodes: [6047]
+            postalCodes: ['6047']
         },
         'Santa Maria': {
             subDistrict: [
@@ -40999,7 +40999,7 @@ module.exports = {
                 'San Isidro',
                 'Santo Niño'
             ],
-            postalCodes: [3022]
+            postalCodes: ['3022']
         }
     },
     Samar: {
@@ -41029,7 +41029,7 @@ module.exports = {
                 'Tonga-tonga',
                 'Veloso'
             ],
-            postalCodes: [6724]
+            postalCodes: ['6724']
         },
         Basey: {
             subDistrict: [
@@ -41085,7 +41085,7 @@ module.exports = {
                 'Tingib',
                 'Villa Aurora'
             ],
-            postalCodes: [6720]
+            postalCodes: ['6720']
         },
         'Calbayog City': {
             subDistrict: [
@@ -41247,7 +41247,7 @@ module.exports = {
                 'Victory',
                 'Villahermosa'
             ],
-            postalCodes: [6710]
+            postalCodes: ['6710']
         },
         Calbiga: {
             subDistrict: [
@@ -41293,7 +41293,7 @@ module.exports = {
                 'Timbangan',
                 'Tinago'
             ],
-            postalCodes: [6715]
+            postalCodes: ['6715']
         },
         Catbalogan: {
             subDistrict: [
@@ -41355,7 +41355,7 @@ module.exports = {
                 'Socorro',
                 'Totoringon'
             ],
-            postalCodes: [6700]
+            postalCodes: ['6700']
         },
         Daram: {
             subDistrict: [
@@ -41418,7 +41418,7 @@ module.exports = {
                 'Valles-Bello',
                 'Yangta'
             ],
-            postalCodes: [6722]
+            postalCodes: ['6722']
         },
         Gandara: {
             subDistrict: [
@@ -41492,7 +41492,7 @@ module.exports = {
                 'Tawiran',
                 'Tigbawon'
             ],
-            postalCodes: [6706]
+            postalCodes: ['6706']
         },
         Hinabangan: {
             subDistrict: [
@@ -41518,7 +41518,7 @@ module.exports = {
                 'Tabay',
                 'Yabon'
             ],
-            postalCodes: [6713]
+            postalCodes: ['6713']
         },
         Jiabong: {
             subDistrict: [
@@ -41557,7 +41557,7 @@ module.exports = {
                 'Tagbayaon',
                 'Victory'
             ],
-            postalCodes: [6701]
+            postalCodes: ['6701']
         },
         Marabut: {
             subDistrict: [
@@ -41586,7 +41586,7 @@ module.exports = {
                 'Tinabanan',
                 'Veloso'
             ],
-            postalCodes: [6721]
+            postalCodes: ['6721']
         },
         Matuguinao: {
             subDistrict: [
@@ -41611,7 +41611,7 @@ module.exports = {
                 'San Roque',
                 'Santa Cruz'
             ],
-            postalCodes: [6708]
+            postalCodes: ['6708']
         },
         Motiong: {
             subDistrict: [
@@ -41646,7 +41646,7 @@ module.exports = {
                 'Santo Niño',
                 'Sarao'
             ],
-            postalCodes: [6702]
+            postalCodes: ['6702']
         },
         Pagsanghan: {
             subDistrict: [
@@ -41664,7 +41664,7 @@ module.exports = {
                 'Villahermosa Occidental',
                 'Villahermosa Oriental'
             ],
-            postalCodes: [6705]
+            postalCodes: ['6705']
         },
         Paranas: {
             subDistrict: [
@@ -41713,7 +41713,7 @@ module.exports = {
                 'Tula',
                 'Tutubigan'
             ],
-            postalCodes: [6703]
+            postalCodes: ['6703']
         },
         Pinabacdao: {
             subDistrict: [
@@ -41742,7 +41742,7 @@ module.exports = {
                 'Pelaon',
                 'San Isidro'
             ],
-            postalCodes: [6716]
+            postalCodes: ['6716']
         },
         'San Jorge': {
             subDistrict: [
@@ -41788,7 +41788,7 @@ module.exports = {
                 'Sinit-an',
                 'Tomogbong'
             ],
-            postalCodes: [6707]
+            postalCodes: ['6707']
         },
         'San Jose De Buan': {
             subDistrict: [
@@ -41807,7 +41807,7 @@ module.exports = {
                 'Hilumot',
                 'San Nicolas'
             ],
-            postalCodes: [6723]
+            postalCodes: ['6723']
         },
         'San Sebastian': {
             subDistrict: [
@@ -41826,7 +41826,7 @@ module.exports = {
                 'Poblacion Barangay 3',
                 'Poblacion Barangay 4'
             ],
-            postalCodes: [6714]
+            postalCodes: ['6714']
         },
         'Santa Margarita': {
             subDistrict: [
@@ -41867,7 +41867,7 @@ module.exports = {
                 'Solsogon',
                 'Sundara'
             ],
-            postalCodes: [6709]
+            postalCodes: ['6709']
         },
         'Santa Rita': {
             subDistrict: [
@@ -41910,7 +41910,7 @@ module.exports = {
                 'Tulay',
                 'Union'
             ],
-            postalCodes: [2002]
+            postalCodes: ['2002']
         },
         'Santo Niño': {
             subDistrict: [
@@ -41928,7 +41928,7 @@ module.exports = {
                 'Takut',
                 'Villahermosa'
             ],
-            postalCodes: [1704]
+            postalCodes: ['1704']
         },
         'Tagapul-An': {
             subDistrict: [
@@ -41947,7 +41947,7 @@ module.exports = {
                 'Sugod (Pob.)',
                 'Trinidad'
             ],
-            postalCodes: [6712]
+            postalCodes: ['6712']
         },
         Talalora: {
             subDistrict: [
@@ -41963,7 +41963,7 @@ module.exports = {
                 'Tatabunan',
                 'Victory'
             ],
-            postalCodes: [6719]
+            postalCodes: ['6719']
         },
         Tarangnan: {
             subDistrict: [
@@ -42009,7 +42009,7 @@ module.exports = {
                 'Tigdaranao',
                 'Tizon'
             ],
-            postalCodes: [6704]
+            postalCodes: ['6704']
         },
         Villareal: {
             subDistrict: [
@@ -42052,7 +42052,7 @@ module.exports = {
                 'Ulayan',
                 'Villarosa Pob.'
             ],
-            postalCodes: [6717]
+            postalCodes: ['6717']
         },
         Zumarraga: {
             subDistrict: [
@@ -42082,7 +42082,7 @@ module.exports = {
                 'Tinaugan',
                 'Tubigan'
             ],
-            postalCodes: [6725]
+            postalCodes: ['6725']
         }
     },
     Sarangani: {
@@ -42102,7 +42102,7 @@ module.exports = {
                 'Spring',
                 'Tokawal'
             ],
-            postalCodes: [9501]
+            postalCodes: ['9501']
         },
         'Cotabato City': {
             subDistrict: [
@@ -42144,7 +42144,7 @@ module.exports = {
                 'Tamontaka IV',
                 'Tamontaka V'
             ],
-            postalCodes: [9600]
+            postalCodes: ['9600']
         },
         Glan: {
             subDistrict: [
@@ -42180,7 +42180,7 @@ module.exports = {
                 'Tango',
                 'Tapon'
             ],
-            postalCodes: [9517]
+            postalCodes: ['9517']
         },
         Kiamba: {
             subDistrict: [
@@ -42204,7 +42204,7 @@ module.exports = {
                 'Tamadang',
                 'Tambilil'
             ],
-            postalCodes: [9514]
+            postalCodes: ['9514']
         },
         Maasim: {
             subDistrict: [
@@ -42225,7 +42225,7 @@ module.exports = {
                 'Seven Hills',
                 'Tinoto'
             ],
-            postalCodes: [9502]
+            postalCodes: ['9502']
         },
         Maitum: {
             subDistrict: [
@@ -42249,7 +42249,7 @@ module.exports = {
                 'Wali',
                 'Zion'
             ],
-            postalCodes: [9515]
+            postalCodes: ['9515']
         },
         Malapatan: {
             subDistrict: [
@@ -42266,7 +42266,7 @@ module.exports = {
                 'Tuyan',
                 'Upper Suyan'
             ],
-            postalCodes: [9516]
+            postalCodes: ['9516']
         },
         Malungon: {
             subDistrict: [
@@ -42302,7 +42302,7 @@ module.exports = {
                 'Upper Lumabat',
                 'Upper Mainit'
             ],
-            postalCodes: [9503]
+            postalCodes: ['9503']
         }
     },
     Siquijor: {
@@ -42323,7 +42323,7 @@ module.exports = {
                 'Poblacion',
                 'Tulapos'
             ],
-            postalCodes: [6230]
+            postalCodes: ['6230']
         },
         Larena: {
             subDistrict: [
@@ -42351,7 +42351,7 @@ module.exports = {
                 'South Poblacion',
                 'Taculing'
             ],
-            postalCodes: [6226]
+            postalCodes: ['6226']
         },
         Lazi: {
             subDistrict: [
@@ -42374,7 +42374,7 @@ module.exports = {
                 'Upper Cabangcalan',
                 'Ytaya'
             ],
-            postalCodes: [6228]
+            postalCodes: ['6228']
         },
         Maria: {
             subDistrict: [
@@ -42401,7 +42401,7 @@ module.exports = {
                 'Saguing',
                 'Sawang'
             ],
-            postalCodes: [6229]
+            postalCodes: ['6229']
         },
         'San Juan': {
             subDistrict: [
@@ -42421,7 +42421,7 @@ module.exports = {
                 'Timbaon',
                 'Tubod'
             ],
-            postalCodes: [2823]
+            postalCodes: ['2823']
         },
         Siquijor: {
             subDistrict: [
@@ -42468,7 +42468,7 @@ module.exports = {
                 'Tinago',
                 'Tongo'
             ],
-            postalCodes: [6225]
+            postalCodes: ['6225']
         }
     },
     Sorsogon: {
@@ -42500,7 +42500,7 @@ module.exports = {
                 'Santa Lourdes',
                 'Tagdon'
             ],
-            postalCodes: [4712]
+            postalCodes: ['4712']
         },
         Bulan: {
             subDistrict: [
@@ -42568,7 +42568,7 @@ module.exports = {
                 'Zone VII Pob.',
                 'Zone VIII Pob.'
             ],
-            postalCodes: [4706]
+            postalCodes: ['4706']
         },
         Bulusan: {
             subDistrict: [
@@ -42597,7 +42597,7 @@ module.exports = {
                 'Sapngan (Pob.)',
                 'Tinampo'
             ],
-            postalCodes: [4704]
+            postalCodes: ['4704']
         },
         Casiguran: {
             subDistrict: [
@@ -42627,7 +42627,7 @@ module.exports = {
                 'Trece Martirez',
                 'Tulay'
             ],
-            postalCodes: [3204]
+            postalCodes: ['3204']
         },
         Castilla: {
             subDistrict: [
@@ -42666,7 +42666,7 @@ module.exports = {
                 'Sogoy',
                 'Tomalaytay'
             ],
-            postalCodes: [4713]
+            postalCodes: ['4713']
         },
         Donsol: {
             subDistrict: [
@@ -42722,7 +42722,7 @@ module.exports = {
                 'Tupas',
                 'Vinisitahan'
             ],
-            postalCodes: [4715]
+            postalCodes: ['4715']
         },
         Gubat: {
             subDistrict: [
@@ -42769,7 +42769,7 @@ module.exports = {
                 'Union',
                 'Villareal'
             ],
-            postalCodes: [4710]
+            postalCodes: ['4710']
         },
         Irosin: {
             subDistrict: [
@@ -42802,7 +42802,7 @@ module.exports = {
                 'Tinampo',
                 'Tongdol'
             ],
-            postalCodes: [4707]
+            postalCodes: ['4707']
         },
         Juban: {
             subDistrict: [
@@ -42832,7 +42832,7 @@ module.exports = {
                 'Tinago',
                 'Tughan'
             ],
-            postalCodes: [4703]
+            postalCodes: ['4703']
         },
         Magallanes: {
             subDistrict: [
@@ -42871,7 +42871,7 @@ module.exports = {
                 'Tulatula Norte',
                 'Tulatula Sur'
             ],
-            postalCodes: [4113]
+            postalCodes: ['4113']
         },
         Matnog: {
             subDistrict: [
@@ -42916,7 +42916,7 @@ module.exports = {
                 'Tabunan (Pob.)',
                 'Tugas'
             ],
-            postalCodes: [4708]
+            postalCodes: ['4708']
         },
         Pilar: {
             subDistrict: [
@@ -42970,7 +42970,7 @@ module.exports = {
                 'San Rafael',
                 'Santa Fe'
             ],
-            postalCodes: [2812]
+            postalCodes: ['2812']
         },
         'Prieto Diaz': {
             subDistrict: [
@@ -42998,7 +42998,7 @@ module.exports = {
                 'Tupaz',
                 'Ulag'
             ],
-            postalCodes: [4711]
+            postalCodes: ['4711']
         },
         Sorsogon: {
             subDistrict: [
@@ -43067,7 +43067,7 @@ module.exports = {
                 'Ticol',
                 'Tugos'
             ],
-            postalCodes: [4700]
+            postalCodes: ['4700']
         },
         'Sta. Magdalena': {
             subDistrict: [
@@ -43086,7 +43086,7 @@ module.exports = {
                 'San Roque',
                 'San Sebastian'
             ],
-            postalCodes: [4709]
+            postalCodes: ['4709']
         }
     },
     'South Cotabato': {
@@ -43115,7 +43115,7 @@ module.exports = {
                 'San Vicente',
                 'Yangco Poblacion'
             ],
-            postalCodes: [5601]
+            postalCodes: ['5601']
         },
         'Gen. Santos City': {
             subDistrict: [
@@ -43146,7 +43146,7 @@ module.exports = {
                 'Tinagacan',
                 'Upper Labay'
             ],
-            postalCodes: [9500]
+            postalCodes: ['9500']
         },
         Koronadal: {
             subDistrict: [
@@ -43178,7 +43178,7 @@ module.exports = {
                 'Zone IV (Pob.)',
                 'Zulueta'
             ],
-            postalCodes: [9506]
+            postalCodes: ['9506']
         },
         'Lake Sebu': {
             subDistrict: [
@@ -43202,7 +43202,7 @@ module.exports = {
                 'Tasiman',
                 'Upper Maculan'
             ],
-            postalCodes: [9518]
+            postalCodes: ['9518']
         },
         Norala: {
             subDistrict: [
@@ -43221,7 +43221,7 @@ module.exports = {
                 'Simsiman',
                 'Tinago'
             ],
-            postalCodes: [9508]
+            postalCodes: ['9508']
         },
         Polomolok: {
             subDistrict: [
@@ -43249,7 +43249,7 @@ module.exports = {
                 'Sumbakil',
                 'Upper Klinan'
             ],
-            postalCodes: [9504]
+            postalCodes: ['9504']
         },
         'Santo Niño': {
             subDistrict: [
@@ -43264,7 +43264,7 @@ module.exports = {
                 'San Vicente',
                 'Teresita'
             ],
-            postalCodes: [1704]
+            postalCodes: ['1704']
         },
         Surallah: {
             subDistrict: [
@@ -43286,7 +43286,7 @@ module.exports = {
                 'Upper Sepaka',
                 'Veterans'
             ],
-            postalCodes: [9512]
+            postalCodes: ['9512']
         },
         'T\'Boli': {
             subDistrict: [
@@ -43316,7 +43316,7 @@ module.exports = {
                 'Talufo',
                 'Tudok'
             ],
-            postalCodes: [9513]
+            postalCodes: ['9513']
         },
         Tampakan: {
             subDistrict: [
@@ -43335,7 +43335,7 @@ module.exports = {
                 'Santa Cruz',
                 'Tablu'
             ],
-            postalCodes: [9507]
+            postalCodes: ['9507']
         },
         Tantangan: {
             subDistrict: [
@@ -43353,7 +43353,7 @@ module.exports = {
                 'San Felipe',
                 'Tinongcop'
             ],
-            postalCodes: [9510]
+            postalCodes: ['9510']
         },
         Tupi: {
             subDistrict: [
@@ -43373,7 +43373,7 @@ module.exports = {
                 'Simbo',
                 'Tubeng'
             ],
-            postalCodes: [9505]
+            postalCodes: ['9505']
         }
     },
     'Southern Leyte': {
@@ -43394,7 +43394,7 @@ module.exports = {
                 'San Vicente',
                 'Tagup-on'
             ],
-            postalCodes: [6610]
+            postalCodes: ['6610']
         },
         Bontoc: {
             subDistrict: [
@@ -43439,7 +43439,7 @@ module.exports = {
                 'Tuburan',
                 'Union'
             ],
-            postalCodes: [2616]
+            postalCodes: ['2616']
         },
         Hinunangan: {
             subDistrict: [
@@ -43484,7 +43484,7 @@ module.exports = {
                 'Union',
                 'Upper Bantawon'
             ],
-            postalCodes: [6608]
+            postalCodes: ['6608']
         },
         Hinundayan: {
             subDistrict: [
@@ -43506,7 +43506,7 @@ module.exports = {
                 'Sabang',
                 'Sagbok'
             ],
-            postalCodes: [6609]
+            postalCodes: ['6609']
         },
         Libagon: {
             subDistrict: [
@@ -43525,7 +43525,7 @@ module.exports = {
                 'Talisay (Pob.)',
                 'Tigbao'
             ],
-            postalCodes: [6615]
+            postalCodes: ['6615']
         },
         Liloan: {
             subDistrict: [
@@ -43554,7 +43554,7 @@ module.exports = {
                 'San Roque',
                 'Tabugon'
             ],
-            postalCodes: [6002]
+            postalCodes: ['6002']
         },
         Limasawa: {
             subDistrict: [
@@ -43565,7 +43565,7 @@ module.exports = {
                 'San Bernardo',
                 'Triana'
             ],
-            postalCodes: [6605]
+            postalCodes: ['6605']
         },
         Maasin: {
             subDistrict: [
@@ -43640,7 +43640,7 @@ module.exports = {
                 'Tomoy-tomoy',
                 'Tunga-tunga (Pob.)'
             ],
-            postalCodes: [6600]
+            postalCodes: ['6600']
         },
         Macrohon: {
             subDistrict: [
@@ -43675,7 +43675,7 @@ module.exports = {
                 'Upper Ichon',
                 'Upper Villa Jacinta'
             ],
-            postalCodes: [6601]
+            postalCodes: ['6601']
         },
         Malitbog: {
             subDistrict: [
@@ -43717,7 +43717,7 @@ module.exports = {
                 'Tigbawan II',
                 'Timba'
             ],
-            postalCodes: [6603]
+            postalCodes: ['6603']
         },
         'Padre Burgos': {
             subDistrict: [
@@ -43733,7 +43733,7 @@ module.exports = {
                 'Santo Rosario',
                 'Tangkaan'
             ],
-            postalCodes: [4303]
+            postalCodes: ['4303']
         },
         Pintuyan: {
             subDistrict: [
@@ -43761,7 +43761,7 @@ module.exports = {
                 'Son-ok II',
                 'Tautag'
             ],
-            postalCodes: [6614]
+            postalCodes: ['6614']
         },
         'Saint Bernard': {
             subDistrict: [
@@ -43796,7 +43796,7 @@ module.exports = {
                 'Tambis I',
                 'Tambis II'
             ],
-            postalCodes: [6616]
+            postalCodes: ['6616']
         },
         'San Francisco': {
             subDistrict: [
@@ -43823,7 +43823,7 @@ module.exports = {
                 'Tuno',
                 'Ubos (Pob.)'
             ],
-            postalCodes: [4315]
+            postalCodes: ['4315']
         },
         'San Juan': {
             subDistrict: [
@@ -43846,7 +43846,7 @@ module.exports = {
                 'Sua',
                 'Timba'
             ],
-            postalCodes: [2823]
+            postalCodes: ['2823']
         },
         'San Ricardo': {
             subDistrict: [
@@ -43866,7 +43866,7 @@ module.exports = {
                 'Saub',
                 'Timba'
             ],
-            postalCodes: [6617]
+            postalCodes: ['6617']
         },
         Silago: {
             subDistrict: [
@@ -43886,7 +43886,7 @@ module.exports = {
                 'Tuba-on',
                 'Tubod'
             ],
-            postalCodes: [6607]
+            postalCodes: ['6607']
         },
         Sogod: {
             subDistrict: [
@@ -43936,7 +43936,7 @@ module.exports = {
                 'Zone IV (Pob.)',
                 'Zone V (Pob.)'
             ],
-            postalCodes: [6007]
+            postalCodes: ['6007']
         },
         'Tomas Oppus': {
             subDistrict: [
@@ -43970,7 +43970,7 @@ module.exports = {
                 'San Roque',
                 'Tinago'
             ],
-            postalCodes: [6605]
+            postalCodes: ['6605']
         }
     },
     'Sultan Kudarat': {
@@ -43996,7 +43996,7 @@ module.exports = {
                 'Titulok',
                 'Tuka'
             ],
-            postalCodes: [9810]
+            postalCodes: ['9810']
         },
         Columbio: {
             subDistrict: [
@@ -44017,7 +44017,7 @@ module.exports = {
                 'Sucob',
                 'Telafas'
             ],
-            postalCodes: [9801]
+            postalCodes: ['9801']
         },
         Esperanza: {
             subDistrict: [
@@ -44041,7 +44041,7 @@ module.exports = {
                 'Salumping',
                 'Villamor'
             ],
-            postalCodes: [5407]
+            postalCodes: ['5407']
         },
         Isulan: {
             subDistrict: [
@@ -44063,7 +44063,7 @@ module.exports = {
                 'Sampao',
                 'Tayugo'
             ],
-            postalCodes: [9805]
+            postalCodes: ['9805']
         },
         Kalamansig: {
             subDistrict: [
@@ -44083,7 +44083,7 @@ module.exports = {
                 'Sangay',
                 'Santa Maria'
             ],
-            postalCodes: [9808]
+            postalCodes: ['9808']
         },
         Lambayong: {
             subDistrict: [
@@ -44114,7 +44114,7 @@ module.exports = {
                 'Tumiao',
                 'Udtong'
             ],
-            postalCodes: [9802]
+            postalCodes: ['9802']
         },
         Lebak: {
             subDistrict: [
@@ -44146,7 +44146,7 @@ module.exports = {
                 'Tran',
                 'Villamonte'
             ],
-            postalCodes: [9807]
+            postalCodes: ['9807']
         },
         Lutayan: {
             subDistrict: [
@@ -44162,7 +44162,7 @@ module.exports = {
                 'Sisiman',
                 'Tamnag (Pob.)'
             ],
-            postalCodes: [9803]
+            postalCodes: ['9803']
         },
         Palimbang: {
             subDistrict: [
@@ -44207,7 +44207,7 @@ module.exports = {
                 'Wal',
                 'Wasag'
             ],
-            postalCodes: [9809]
+            postalCodes: ['9809']
         },
         'President Quirino': {
             subDistrict: [
@@ -44231,7 +44231,7 @@ module.exports = {
                 'Tinaungan',
                 'Tual'
             ],
-            postalCodes: [9804]
+            postalCodes: ['9804']
         },
         'Sen. Ninoy Aquino': {
             subDistrict: [
@@ -44256,7 +44256,7 @@ module.exports = {
                 'Tacupis',
                 'Tinalon'
             ],
-            postalCodes: [9811]
+            postalCodes: ['9811']
         },
         Tacurong: {
             subDistrict: [
@@ -44281,7 +44281,7 @@ module.exports = {
                 'Upper Katungal',
                 'Virginia Griño'
             ],
-            postalCodes: [9800]
+            postalCodes: ['9800']
         }
     },
     Sulu: {
@@ -44293,7 +44293,7 @@ module.exports = {
                 'Pag-asinan',
                 'Teomabal'
             ],
-            postalCodes: [7413]
+            postalCodes: ['7413']
         },
         Indanan: {
             subDistrict: [
@@ -44332,7 +44332,7 @@ module.exports = {
                 'Tubig Parang',
                 'Tumantangis'
             ],
-            postalCodes: [7407]
+            postalCodes: ['7407']
         },
         Jolo: {
             subDistrict: [
@@ -44345,7 +44345,7 @@ module.exports = {
                 'Tulay',
                 'Walled City (Pob.)'
             ],
-            postalCodes: [7400]
+            postalCodes: ['7400']
         },
         'Kalingalan Caluang': {
             subDistrict: [
@@ -44359,7 +44359,7 @@ module.exports = {
                 'Pitogo',
                 'Tunggol'
             ],
-            postalCodes: [7416]
+            postalCodes: ['7416']
         },
         Lugus: {
             subDistrict: [
@@ -44381,7 +44381,7 @@ module.exports = {
                 'Sibul',
                 'Tingkangan'
             ],
-            postalCodes: [7411]
+            postalCodes: ['7411']
         },
         Luuk: {
             subDistrict: [
@@ -44398,7 +44398,7 @@ module.exports = {
                 'Tubig-Puti (Pob.)',
                 'Tulayan Island'
             ],
-            postalCodes: [7404]
+            postalCodes: ['7404']
         },
         Maimbung: {
             subDistrict: [
@@ -44430,7 +44430,7 @@ module.exports = {
                 'Tubig-Samin',
                 'Upper Tambaking'
             ],
-            postalCodes: [7409]
+            postalCodes: ['7409']
         },
         'Old Panamao': {
             subDistrict: [
@@ -44466,7 +44466,7 @@ module.exports = {
                 'Tubig Jati',
                 'Upper Patibulan'
             ],
-            postalCodes: [7402]
+            postalCodes: ['7402']
         },
         Omar: {
             subDistrict: [
@@ -44479,7 +44479,7 @@ module.exports = {
                 'Sucuban',
                 'Tangkuan'
             ],
-            postalCodes: [7404]
+            postalCodes: ['7404']
         },
         Pandami: {
             subDistrict: [
@@ -44500,7 +44500,7 @@ module.exports = {
                 'Suba-suba',
                 'Tenga Manubul'
             ],
-            postalCodes: [7400]
+            postalCodes: ['7400']
         },
         'Panglima Estino': {
             subDistrict: [
@@ -44517,7 +44517,7 @@ module.exports = {
                 'Punay (Pob.)',
                 'Tiptipon'
             ],
-            postalCodes: [7415]
+            postalCodes: ['7415']
         },
         Pangutaran: {
             subDistrict: [
@@ -44538,7 +44538,7 @@ module.exports = {
                 'Tubig Nonok',
                 'Tubig Sallang'
             ],
-            postalCodes: [7414]
+            postalCodes: ['7414']
         },
         Parang: {
             subDistrict: [
@@ -44583,7 +44583,7 @@ module.exports = {
                 'Tumangas',
                 'Wanni Piyanjihan'
             ],
-            postalCodes: [1809]
+            postalCodes: ['1809']
         },
         Pata: {
             subDistrict: [
@@ -44602,7 +44602,7 @@ module.exports = {
                 'Sangkap',
                 'Timuddas'
             ],
-            postalCodes: [7405]
+            postalCodes: ['7405']
         },
         Patikul: {
             subDistrict: [
@@ -44637,7 +44637,7 @@ module.exports = {
                 'Tugas',
                 'Umangay'
             ],
-            postalCodes: [7401]
+            postalCodes: ['7401']
         },
         Siasi: {
             subDistrict: [
@@ -44692,7 +44692,7 @@ module.exports = {
                 'Tubig Kutah',
                 'Tulling'
             ],
-            postalCodes: [7412]
+            postalCodes: ['7412']
         },
         Talipao: {
             subDistrict: [
@@ -44749,7 +44749,7 @@ module.exports = {
                 'Upper Sinumaan',
                 'Upper Talipao'
             ],
-            postalCodes: [7403]
+            postalCodes: ['7403']
         },
         Tapul: {
             subDistrict: [
@@ -44769,7 +44769,7 @@ module.exports = {
                 'Tangkapaan',
                 'Tulakan'
             ],
-            postalCodes: [7410]
+            postalCodes: ['7410']
         },
         Tongkil: {
             subDistrict: [
@@ -44788,7 +44788,7 @@ module.exports = {
                 'Tattalan',
                 'Tinutungan'
             ],
-            postalCodes: [7406]
+            postalCodes: ['7406']
         }
     },
     'Surigao Del Norte': {
@@ -44807,7 +44807,7 @@ module.exports = {
                 'San Juan',
                 'San Pedro'
             ],
-            postalCodes: [6030]
+            postalCodes: ['6030']
         },
         Bacuag: {
             subDistrict: [
@@ -44821,7 +44821,7 @@ module.exports = {
                 'Pungtod',
                 'Santo Rosario'
             ],
-            postalCodes: [8408]
+            postalCodes: ['8408']
         },
         Burgos: {
             subDistrict: [
@@ -44832,7 +44832,7 @@ module.exports = {
                 'Poblacion 2',
                 'San Mateo'
             ],
-            postalCodes: [2918]
+            postalCodes: ['2918']
         },
         Claver: {
             subDistrict: [
@@ -44851,7 +44851,7 @@ module.exports = {
                 'Urbiztondo',
                 'Wangke'
             ],
-            postalCodes: [8410]
+            postalCodes: ['8410']
         },
         Dapa: {
             subDistrict: [
@@ -44885,7 +44885,7 @@ module.exports = {
                 'Santa Felomina',
                 'Union'
             ],
-            postalCodes: [8417]
+            postalCodes: ['8417']
         },
         'Del Carmen': {
             subDistrict: [
@@ -44910,7 +44910,7 @@ module.exports = {
                 'Sayak',
                 'Tuboran'
             ],
-            postalCodes: [8418]
+            postalCodes: ['8418']
         },
         'General Luna': {
             subDistrict: [
@@ -44934,7 +44934,7 @@ module.exports = {
                 'Suyangan',
                 'Tawin-tawin'
             ],
-            postalCodes: [8419]
+            postalCodes: ['8419']
         },
         Gigaquit: {
             subDistrict: [
@@ -44952,7 +44952,7 @@ module.exports = {
                 'Villaflor',
                 'Villafranca'
             ],
-            postalCodes: [8409]
+            postalCodes: ['8409']
         },
         Mainit: {
             subDistrict: [
@@ -44978,7 +44978,7 @@ module.exports = {
                 'Tapi-an',
                 'Tolingon'
             ],
-            postalCodes: [8407]
+            postalCodes: ['8407']
         },
         Malimono: {
             subDistrict: [
@@ -44997,7 +44997,7 @@ module.exports = {
                 'Tinago',
                 'Villariza'
             ],
-            postalCodes: [8402]
+            postalCodes: ['8402']
         },
         Pilar: {
             subDistrict: [
@@ -45017,7 +45017,7 @@ module.exports = {
                 'Salvacion',
                 'San Roque'
             ],
-            postalCodes: [2812]
+            postalCodes: ['2812']
         },
         Placer: {
             subDistrict: [
@@ -45042,7 +45042,7 @@ module.exports = {
                 'Suyoc',
                 'Tagbongabong'
             ],
-            postalCodes: [5408]
+            postalCodes: ['5408']
         },
         'San Benito': {
             subDistrict: [
@@ -45053,7 +45053,7 @@ module.exports = {
                 'Santa Cruz (Pob.)',
                 'Talisay (Pob.)'
             ],
-            postalCodes: [8423]
+            postalCodes: ['8423']
         },
         'San Francisco': {
             subDistrict: [
@@ -45069,7 +45069,7 @@ module.exports = {
                 'Oslao',
                 'Poblacion'
             ],
-            postalCodes: [4315]
+            postalCodes: ['4315']
         },
         'San Isidro': {
             subDistrict: [
@@ -45086,7 +45086,7 @@ module.exports = {
                 'Tambacan',
                 'Tigasao'
             ],
-            postalCodes: [1234]
+            postalCodes: ['1234']
         },
         'Santa Monica': {
             subDistrict: [
@@ -45102,7 +45102,7 @@ module.exports = {
                 'T. Arlan (Pob.)',
                 'Tangbo'
             ],
-            postalCodes: [1117]
+            postalCodes: ['1117']
         },
         Sison: {
             subDistrict: [
@@ -45119,7 +45119,7 @@ module.exports = {
                 'Tinogpahan',
                 'Upper Patag'
             ],
-            postalCodes: [2434]
+            postalCodes: ['2434']
         },
         Socorro: {
             subDistrict: [
@@ -45138,7 +45138,7 @@ module.exports = {
                 'Songkoy',
                 'Sudlon'
             ],
-            postalCodes: [1109]
+            postalCodes: ['1109']
         },
         'Surigao City': {
             subDistrict: [
@@ -45197,7 +45197,7 @@ module.exports = {
                 'Washington (Pob.)',
                 'Zaragoza'
             ],
-            postalCodes: [8400]
+            postalCodes: ['8400']
         },
         'Tagana-An': {
             subDistrict: [
@@ -45216,7 +45216,7 @@ module.exports = {
                 'Union',
                 'Upper Libas'
             ],
-            postalCodes: [8403]
+            postalCodes: ['8403']
         },
         Tubod: {
             subDistrict: [
@@ -45230,7 +45230,7 @@ module.exports = {
                 'San Pablo',
                 'Timamana'
             ],
-            postalCodes: [9209]
+            postalCodes: ['9209']
         }
     },
     'Surigao Del Sur': {
@@ -45258,7 +45258,7 @@ module.exports = {
                 'Unidad',
                 'Wakat'
             ],
-            postalCodes: [8309]
+            postalCodes: ['8309']
         },
         Bayabas: {
             subDistrict: [
@@ -45270,7 +45270,7 @@ module.exports = {
                 'Magobawok',
                 'Panaosawon'
             ],
-            postalCodes: [8303]
+            postalCodes: ['8303']
         },
         Bislig: {
             subDistrict: [
@@ -45299,7 +45299,7 @@ module.exports = {
                 'Tabon',
                 'Tumanan'
             ],
-            postalCodes: [8311]
+            postalCodes: ['8311']
         },
         Cagwait: {
             subDistrict: [
@@ -45315,7 +45315,7 @@ module.exports = {
                 'Tubo-tubo',
                 'Unidad'
             ],
-            postalCodes: [8311]
+            postalCodes: ['8311']
         },
         Cantilan: {
             subDistrict: [
@@ -45337,7 +45337,7 @@ module.exports = {
                 'Tapi',
                 'Tigabong'
             ],
-            postalCodes: [8317]
+            postalCodes: ['8317']
         },
         Carmen: {
             subDistrict: [
@@ -45350,7 +45350,7 @@ module.exports = {
                 'San Vicente',
                 'Santa Cruz'
             ],
-            postalCodes: [6319]
+            postalCodes: ['6319']
         },
         Carrascal: {
             subDistrict: [
@@ -45369,7 +45369,7 @@ module.exports = {
                 'Saca (Pob.)',
                 'Tag-Anito'
             ],
-            postalCodes: [8318]
+            postalCodes: ['8318']
         },
         Cortes: {
             subDistrict: [
@@ -45386,7 +45386,7 @@ module.exports = {
                 'Tuboran',
                 'Uba'
             ],
-            postalCodes: [8313]
+            postalCodes: ['8313']
         },
         Hinatuan: {
             subDistrict: [
@@ -45415,7 +45415,7 @@ module.exports = {
                 'Zone II (Pob.)',
                 'Zone III Maharlika (Pob.)'
             ],
-            postalCodes: [8310]
+            postalCodes: ['8310']
         },
         Lanuza: {
             subDistrict: [
@@ -45433,7 +45433,7 @@ module.exports = {
                 'Zone III (Pob.)',
                 'Zone IV (Pob.)'
             ],
-            postalCodes: [8314]
+            postalCodes: ['8314']
         },
         Lianga: {
             subDistrict: [
@@ -45451,7 +45451,7 @@ module.exports = {
                 'San Isidro',
                 'San Pedro'
             ],
-            postalCodes: [8307]
+            postalCodes: ['8307']
         },
         Lingig: {
             subDistrict: [
@@ -45474,7 +45474,7 @@ module.exports = {
                 'Union',
                 'Valencia'
             ],
-            postalCodes: [8312]
+            postalCodes: ['8312']
         },
         Madrid: {
             subDistrict: [
@@ -45493,7 +45493,7 @@ module.exports = {
                 'Songkit',
                 'Union'
             ],
-            postalCodes: [8316]
+            postalCodes: ['8316']
         },
         Marihatag: {
             subDistrict: [
@@ -45510,7 +45510,7 @@ module.exports = {
                 'San Pedro',
                 'Santa Cruz'
             ],
-            postalCodes: [8306]
+            postalCodes: ['8306']
         },
         'San Agustin': {
             subDistrict: [
@@ -45528,7 +45528,7 @@ module.exports = {
                 'Salvacion',
                 'Santo Niño'
             ],
-            postalCodes: [1117]
+            postalCodes: ['1117']
         },
         'San Miguel': {
             subDistrict: [
@@ -45551,7 +45551,7 @@ module.exports = {
                 'Tina',
                 'Umalag'
             ],
-            postalCodes: [1005]
+            postalCodes: ['1005']
         },
         Tagbina: {
             subDistrict: [
@@ -45581,7 +45581,7 @@ module.exports = {
                 'Ugoban',
                 'Villaverde'
             ],
-            postalCodes: [8308]
+            postalCodes: ['8308']
         },
         Tago: {
             subDistrict: [
@@ -45610,7 +45610,7 @@ module.exports = {
                 'Unidos',
                 'Victoria'
             ],
-            postalCodes: [8302]
+            postalCodes: ['8302']
         },
         Tandag: {
             subDistrict: [
@@ -45636,7 +45636,7 @@ module.exports = {
                 'San Jose',
                 'Telaje'
             ],
-            postalCodes: [8300]
+            postalCodes: ['8300']
         }
     },
     Tarlac: {
@@ -45661,7 +45661,7 @@ module.exports = {
                 'Sinense',
                 'Suaverdez'
             ],
-            postalCodes: [2310]
+            postalCodes: ['2310']
         },
         Bamban: {
             subDistrict: [
@@ -45681,7 +45681,7 @@ module.exports = {
                 'Santo Niño',
                 'Virgen de los Remedios'
             ],
-            postalCodes: [2317]
+            postalCodes: ['2317']
         },
         Camiling: {
             subDistrict: [
@@ -45747,7 +45747,7 @@ module.exports = {
                 'Telbang',
                 'Tuec'
             ],
-            postalCodes: [2306]
+            postalCodes: ['2306']
         },
         Capas: {
             subDistrict: [
@@ -45772,7 +45772,7 @@ module.exports = {
                 'Santo Rosario',
                 'Talaga'
             ],
-            postalCodes: [2315]
+            postalCodes: ['2315']
         },
         Concepcion: {
             subDistrict: [
@@ -45822,7 +45822,7 @@ module.exports = {
                 'Telabanca',
                 'Tinang'
             ],
-            postalCodes: [7213]
+            postalCodes: ['7213']
         },
         Gerona: {
             subDistrict: [
@@ -45871,7 +45871,7 @@ module.exports = {
                 'Tangcaran',
                 'Villa Paz'
             ],
-            postalCodes: [2302]
+            postalCodes: ['2302']
         },
         'La Paz': {
             subDistrict: [
@@ -45897,7 +45897,7 @@ module.exports = {
                 'San Roque (Pob.)',
                 'Sierra'
             ],
-            postalCodes: [2826]
+            postalCodes: ['2826']
         },
         Mayantoc: {
             subDistrict: [
@@ -45926,7 +45926,7 @@ module.exports = {
                 'Taldiapan',
                 'Tangcarang'
             ],
-            postalCodes: [2304]
+            postalCodes: ['2304']
         },
         Moncada: {
             subDistrict: [
@@ -45968,7 +45968,7 @@ module.exports = {
                 'Tubectubang',
                 'Villa'
             ],
-            postalCodes: [2308]
+            postalCodes: ['2308']
         },
         Paniqui: {
             subDistrict: [
@@ -46008,7 +46008,7 @@ module.exports = {
                 'Tablang',
                 'Ventenilla'
             ],
-            postalCodes: [2307]
+            postalCodes: ['2307']
         },
         Pura: {
             subDistrict: [
@@ -46029,7 +46029,7 @@ module.exports = {
                 'Poroc',
                 'Singat'
             ],
-            postalCodes: [2312]
+            postalCodes: ['2312']
         },
         Ramos: {
             subDistrict: [
@@ -46043,7 +46043,7 @@ module.exports = {
                 'San Raymundo',
                 'Toledo'
             ],
-            postalCodes: [2311]
+            postalCodes: ['2311']
         },
         'San Clemente': {
             subDistrict: [
@@ -46060,7 +46060,7 @@ module.exports = {
                 'Poblacion Norte',
                 'Poblacion Sur'
             ],
-            postalCodes: [2305]
+            postalCodes: ['2305']
         },
         'San Jose': {
             subDistrict: [
@@ -46078,7 +46078,7 @@ module.exports = {
                 'Sula',
                 'Villa Aglipay'
             ],
-            postalCodes: [1404]
+            postalCodes: ['1404']
         },
         'San Manuel': {
             subDistrict: [
@@ -46098,7 +46098,7 @@ module.exports = {
                 'San Vicente',
                 'Santa Maria'
             ],
-            postalCodes: [2438]
+            postalCodes: ['2438']
         },
         'Sta. Ignacia': {
             subDistrict: [
@@ -46127,7 +46127,7 @@ module.exports = {
                 'Timmaguab',
                 'Vargas'
             ],
-            postalCodes: [2303]
+            postalCodes: ['2303']
         },
         Tarlac: {
             subDistrict: [
@@ -46208,7 +46208,7 @@ module.exports = {
                 'Ungot',
                 'Villa Bacolor'
             ],
-            postalCodes: [2300]
+            postalCodes: ['2300']
         },
         Victoria: {
             subDistrict: [
@@ -46239,7 +46239,7 @@ module.exports = {
                 'Santa Barbara',
                 'Santa Lucia (Pob.)'
             ],
-            postalCodes: [4011]
+            postalCodes: ['4011']
         }
     },
     'Tawi-Tawi': {
@@ -46281,7 +46281,7 @@ module.exports = {
                 'Tubig-Mampallam',
                 'Ungus-ungus'
             ],
-            postalCodes: [7500]
+            postalCodes: ['7500']
         },
         Languyan: {
             subDistrict: [
@@ -46306,7 +46306,7 @@ module.exports = {
                 'Tumahubong',
                 'Tumbagaan'
             ],
-            postalCodes: [7509]
+            postalCodes: ['7509']
         },
         Mapun: {
             subDistrict: [
@@ -46326,7 +46326,7 @@ module.exports = {
                 'Tanduan',
                 'Umus Mataha'
             ],
-            postalCodes: [7508]
+            postalCodes: ['7508']
         },
         'Panglima Sugala': {
             subDistrict: [
@@ -46348,7 +46348,7 @@ module.exports = {
                 'Tundon',
                 'Tungbangkaw'
             ],
-            postalCodes: [7501]
+            postalCodes: ['7501']
         },
         'Sapa-Sapa': {
             subDistrict: [
@@ -46376,7 +46376,7 @@ module.exports = {
                 'Tonggusong Banaran',
                 'Tup-tup Banaran'
             ],
-            postalCodes: [7503]
+            postalCodes: ['7503']
         },
         Sibutu: {
             subDistrict: [
@@ -46397,7 +46397,7 @@ module.exports = {
                 'Tongsibalo',
                 'Ungus-ungus'
             ],
-            postalCodes: [7510]
+            postalCodes: ['7510']
         },
         Simunul: {
             subDistrict: [
@@ -46417,7 +46417,7 @@ module.exports = {
                 'Tubig Indangan',
                 'Ubol'
             ],
-            postalCodes: [7505]
+            postalCodes: ['7505']
         },
         Sitangkai: {
             subDistrict: [
@@ -46431,7 +46431,7 @@ module.exports = {
                 'Tongmageng',
                 'Tongusong'
             ],
-            postalCodes: [7506]
+            postalCodes: ['7506']
         },
         'South Ubian': {
             subDistrict: [
@@ -46467,7 +46467,7 @@ module.exports = {
                 'Tukkai',
                 'Unas-unas'
             ],
-            postalCodes: [7504]
+            postalCodes: ['7504']
         },
         Tandubas: {
             subDistrict: [
@@ -46492,11 +46492,11 @@ module.exports = {
                 'Taruk',
                 'Tongbangkaw'
             ],
-            postalCodes: [7502]
+            postalCodes: ['7502']
         },
         'Turtle Islands': {
             subDistrict: ['Likud Bakkao', 'Taganak Poblacion'],
-            postalCodes: [7507]
+            postalCodes: ['7507']
         }
     },
     Zambales: {
@@ -46534,7 +46534,7 @@ module.exports = {
                 'Taugtog',
                 'Villar'
             ],
-            postalCodes: [2202]
+            postalCodes: ['2202']
         },
         Cabangan: {
             subDistrict: [
@@ -46561,7 +46561,7 @@ module.exports = {
                 'Santo Niño',
                 'Tondo'
             ],
-            postalCodes: [2203]
+            postalCodes: ['2203']
         },
         Candelaria: {
             subDistrict: [
@@ -46582,7 +46582,7 @@ module.exports = {
                 'Uacon',
                 'Yamot'
             ],
-            postalCodes: [4323]
+            postalCodes: ['4323']
         },
         Castillejos: {
             subDistrict: [
@@ -46601,7 +46601,7 @@ module.exports = {
                 'San Roque',
                 'Santa Maria'
             ],
-            postalCodes: [2208]
+            postalCodes: ['2208']
         },
         Iba: {
             subDistrict: [
@@ -46620,7 +46620,7 @@ module.exports = {
                 'Zone 5 Pob.',
                 'Zone 6 Pob.'
             ],
-            postalCodes: [2201]
+            postalCodes: ['2201']
         },
         Masinloc: {
             subDistrict: [
@@ -46638,7 +46638,7 @@ module.exports = {
                 'Taltal',
                 'Tapuac'
             ],
-            postalCodes: [2211]
+            postalCodes: ['2211']
         },
         'Olongapo City': {
             subDistrict: [
@@ -46660,7 +46660,7 @@ module.exports = {
                 'West Bajac-bajac',
                 'West Tapinac'
             ],
-            postalCodes: [2200]
+            postalCodes: ['2200']
         },
         Palauig: {
             subDistrict: [
@@ -46684,7 +46684,7 @@ module.exports = {
                 'Tition',
                 'West Poblacion'
             ],
-            postalCodes: [2210]
+            postalCodes: ['2210']
         },
         'San Antonio': {
             subDistrict: [
@@ -46703,7 +46703,7 @@ module.exports = {
                 'Santiago',
                 'West Dirita'
             ],
-            postalCodes: [1105]
+            postalCodes: ['1105']
         },
         'San Felipe': {
             subDistrict: [
@@ -46719,7 +46719,7 @@ module.exports = {
                 'Santo Niño',
                 'Sindol'
             ],
-            postalCodes: [2204]
+            postalCodes: ['2204']
         },
         'San Marcelino': {
             subDistrict: [
@@ -46742,7 +46742,7 @@ module.exports = {
                 'San Rafael',
                 'Santa Fe'
             ],
-            postalCodes: [2207]
+            postalCodes: ['2207']
         },
         'San Narciso': {
             subDistrict: [
@@ -46764,7 +46764,7 @@ module.exports = {
                 'San Rafael (Pob.)',
                 'Siminublan'
             ],
-            postalCodes: [4313]
+            postalCodes: ['4313']
         },
         'Santa Cruz': {
             subDistrict: [
@@ -46794,7 +46794,7 @@ module.exports = {
                 'Tubotubo North',
                 'Tubotubo South'
             ],
-            postalCodes: [1104]
+            postalCodes: ['1104']
         },
         Subic: {
             subDistrict: [
@@ -46815,7 +46815,7 @@ module.exports = {
                 'Santo Tomas',
                 'Wawandue (Pob.)'
             ],
-            postalCodes: [2209]
+            postalCodes: ['2209']
         }
     },
     'Zamboanga Del Norte': {
@@ -46840,7 +46840,7 @@ module.exports = {
                 'Tiogan',
                 'Titik'
             ],
-            postalCodes: [7112, 7125]
+            postalCodes: [7112, '7125']
         },
         Baliguian: {
             subDistrict: [
@@ -46862,7 +46862,7 @@ module.exports = {
                 'Tamao',
                 'Tan-awan'
             ],
-            postalCodes: [7123]
+            postalCodes: ['7123']
         },
         Dapitan: {
             subDistrict: [
@@ -46917,7 +46917,7 @@ module.exports = {
                 'Taguilon',
                 'Tamion'
             ],
-            postalCodes: [7101]
+            postalCodes: ['7101']
         },
         Dipolog: {
             subDistrict: [
@@ -46943,7 +46943,7 @@ module.exports = {
                 'Sinaman',
                 'Turno'
             ],
-            postalCodes: [7100]
+            postalCodes: ['7100']
         },
         Godod: {
             subDistrict: [
@@ -46965,7 +46965,7 @@ module.exports = {
                 'Sianan',
                 'Sioran'
             ],
-            postalCodes: [7126]
+            postalCodes: ['7126']
         },
         Gutalac: {
             subDistrict: [
@@ -47003,7 +47003,7 @@ module.exports = {
                 'Tipan',
                 'Upper Gutalac'
             ],
-            postalCodes: [7108]
+            postalCodes: ['7108']
         },
         'Jose Dalman': {
             subDistrict: [
@@ -47026,7 +47026,7 @@ module.exports = {
                 'Tamarok',
                 'Tamil'
             ],
-            postalCodes: [7111]
+            postalCodes: ['7111']
         },
         Kalawit: {
             subDistrict: [
@@ -47045,7 +47045,7 @@ module.exports = {
                 'San Jose',
                 'Tugop*'
             ],
-            postalCodes: [7124]
+            postalCodes: ['7124']
         },
         Katipunan: {
             subDistrict: [
@@ -47080,7 +47080,7 @@ module.exports = {
                 'Sitog',
                 'Tuburan'
             ],
-            postalCodes: [1105]
+            postalCodes: ['1105']
         },
         'La Libertad': {
             subDistrict: [
@@ -47098,7 +47098,7 @@ module.exports = {
                 'Santa Cruz',
                 'Singaran'
             ],
-            postalCodes: [6213]
+            postalCodes: ['6213']
         },
         Labason: {
             subDistrict: [
@@ -47123,7 +47123,7 @@ module.exports = {
                 'San Isidro',
                 'Ubay'
             ],
-            postalCodes: [7117]
+            postalCodes: ['7117']
         },
         Liloy: {
             subDistrict: [
@@ -47165,7 +47165,7 @@ module.exports = {
                 'Villa Calixto Sudiacal',
                 'Villa M. Tejero'
             ],
-            postalCodes: [7115]
+            postalCodes: ['7115']
         },
         Manukan: {
             subDistrict: [
@@ -47192,7 +47192,7 @@ module.exports = {
                 'Upper Disakan',
                 'Villaramos'
             ],
-            postalCodes: [7110]
+            postalCodes: ['7110']
         },
         Mutia: {
             subDistrict: [
@@ -47213,7 +47213,7 @@ module.exports = {
                 'Tubac',
                 'Unidos'
             ],
-            postalCodes: [7107]
+            postalCodes: ['7107']
         },
         Piñan: {
             subDistrict: [
@@ -47240,7 +47240,7 @@ module.exports = {
                 'Upper Gumay',
                 'Villarico'
             ],
-            postalCodes: [7105]
+            postalCodes: ['7105']
         },
         Polanco: {
             subDistrict: [
@@ -47275,7 +47275,7 @@ module.exports = {
                 'Silawe',
                 'Villahermosa'
             ],
-            postalCodes: [7106]
+            postalCodes: ['7106']
         },
         'Pres. Manuel A. Roxas': {
             subDistrict: [
@@ -47311,7 +47311,7 @@ module.exports = {
                 'Upper Minang',
                 'Villahermoso'
             ],
-            postalCodes: [7102]
+            postalCodes: ['7102']
         },
         Rizal: {
             subDistrict: [
@@ -47338,7 +47338,7 @@ module.exports = {
                 'Tolon',
                 'West Poblacion'
             ],
-            postalCodes: [3526]
+            postalCodes: ['3526']
         },
         Salug: {
             subDistrict: [
@@ -47366,7 +47366,7 @@ module.exports = {
                 'Tambalang',
                 'Tapalan'
             ],
-            postalCodes: [7114]
+            postalCodes: ['7114']
         },
         'Sergio Osmeña Sr.': {
             subDistrict: [
@@ -47410,7 +47410,7 @@ module.exports = {
                 'Venus',
                 'Wilben'
             ],
-            postalCodes: [7108]
+            postalCodes: ['7108']
         },
         Siayan: {
             subDistrict: [
@@ -47437,7 +47437,7 @@ module.exports = {
                 'Siayan Proper (Pob.)',
                 'Suguilon'
             ],
-            postalCodes: [7113]
+            postalCodes: ['7113']
         },
         Sibuco: {
             subDistrict: [
@@ -47470,7 +47470,7 @@ module.exports = {
                 'Santo Niño',
                 'Tangarak'
             ],
-            postalCodes: [7122]
+            postalCodes: ['7122']
         },
         Sibutad: {
             subDistrict: [
@@ -47491,7 +47491,7 @@ module.exports = {
                 'Sinipay',
                 'Sipaloc'
             ],
-            postalCodes: [7103]
+            postalCodes: ['7103']
         },
         Sindangan: {
             subDistrict: [
@@ -47548,7 +47548,7 @@ module.exports = {
                 'Upper Inuman',
                 'Upper Nipaan'
             ],
-            postalCodes: [7112]
+            postalCodes: ['7112']
         },
         Siocon: {
             subDistrict: [
@@ -47579,7 +47579,7 @@ module.exports = {
                 'Tagaytay',
                 'Tibangao'
             ],
-            postalCodes: [7120]
+            postalCodes: ['7120']
         },
         Sirawai: {
             subDistrict: [
@@ -47618,7 +47618,7 @@ module.exports = {
                 'Talabiga',
                 'Tapanayan'
             ],
-            postalCodes: [7121]
+            postalCodes: ['7121']
         },
         Tampilisan: {
             subDistrict: [
@@ -47643,7 +47643,7 @@ module.exports = {
                 'Tubod',
                 'Znac'
             ],
-            postalCodes: [7116]
+            postalCodes: ['7116']
         }
     },
     'Zamboanga Del Sur': {
@@ -47694,7 +47694,7 @@ module.exports = {
                 'Tagulalo',
                 'Waterfall'
             ],
-            postalCodes: [3316]
+            postalCodes: ['3316']
         },
         Bayog: {
             subDistrict: [
@@ -47727,7 +47727,7 @@ module.exports = {
                 'Sigacad',
                 'Supon'
             ],
-            postalCodes: [7011]
+            postalCodes: ['7011']
         },
         Dimataling: {
             subDistrict: [
@@ -47756,7 +47756,7 @@ module.exports = {
                 'Tipangi',
                 'Upper Ludiong'
             ],
-            postalCodes: [7032]
+            postalCodes: ['7032']
         },
         Dinas: {
             subDistrict: [
@@ -47791,7 +47791,7 @@ module.exports = {
                 'Upper Sibul',
                 'West Migpulao'
             ],
-            postalCodes: [7030]
+            postalCodes: ['7030']
         },
         Dumalinao: {
             subDistrict: [
@@ -47826,7 +47826,7 @@ module.exports = {
                 'Tubo-Pait',
                 'Upper Dumalinao'
             ],
-            postalCodes: [7015]
+            postalCodes: ['7015']
         },
         Dumingag: {
             subDistrict: [
@@ -47875,7 +47875,7 @@ module.exports = {
                 'Upper Landing',
                 'Upper Timonan'
             ],
-            postalCodes: [7028]
+            postalCodes: ['7028']
         },
         Guipos: {
             subDistrict: [
@@ -47897,7 +47897,7 @@ module.exports = {
                 'Sikatuna',
                 'Singclot'
             ],
-            postalCodes: [7042]
+            postalCodes: ['7042']
         },
         Josefina: {
             subDistrict: [
@@ -47916,7 +47916,7 @@ module.exports = {
                 'Tagaytay Hill',
                 'Upper Bagong Tudela (Pob.)'
             ],
-            postalCodes: [7027]
+            postalCodes: ['7027']
         },
         Kumalarang: {
             subDistrict: [
@@ -47939,7 +47939,7 @@ module.exports = {
                 'Secade',
                 'Suminalum'
             ],
-            postalCodes: [7013]
+            postalCodes: ['7013']
         },
         Labangan: {
             subDistrict: [
@@ -47969,7 +47969,7 @@ module.exports = {
                 'Upper Pulacan',
                 'Upper Sang-an'
             ],
-            postalCodes: [7017]
+            postalCodes: ['7017']
         },
         Lakewood: {
             subDistrict: [
@@ -47988,7 +47988,7 @@ module.exports = {
                 'Tiwales',
                 'Tubod'
             ],
-            postalCodes: [7014]
+            postalCodes: ['7014']
         },
         Lapuyan: {
             subDistrict: [
@@ -48019,7 +48019,7 @@ module.exports = {
                 'Tipasan',
                 'Tugaya'
             ],
-            postalCodes: [7037]
+            postalCodes: ['7037']
         },
         Mahayag: {
             subDistrict: [
@@ -48053,7 +48053,7 @@ module.exports = {
                 'Upper Salug Daku',
                 'Upper Santo Niño'
             ],
-            postalCodes: [7026]
+            postalCodes: ['7026']
         },
         Margosatubig: {
             subDistrict: [
@@ -48075,7 +48075,7 @@ module.exports = {
                 'Tiguian',
                 'Tulapoc'
             ],
-            postalCodes: [7035]
+            postalCodes: ['7035']
         },
         Midsalip: {
             subDistrict: [
@@ -48113,7 +48113,7 @@ module.exports = {
                 'Tulbong',
                 'Tuluan'
             ],
-            postalCodes: [7021]
+            postalCodes: ['7021']
         },
         Molave: {
             subDistrict: [
@@ -48143,7 +48143,7 @@ module.exports = {
                 'Sudlon',
                 'Upper Dimorok'
             ],
-            postalCodes: [7023]
+            postalCodes: ['7023']
         },
         'Pagadian City': {
             subDistrict: [
@@ -48202,7 +48202,7 @@ module.exports = {
                 'Upper Sibatang',
                 'White Beach'
             ],
-            postalCodes: [7016]
+            postalCodes: ['7016']
         },
         Pitogo: {
             subDistrict: [
@@ -48222,7 +48222,7 @@ module.exports = {
                 'Tongao',
                 'Upper Paniki-an'
             ],
-            postalCodes: [4308]
+            postalCodes: ['4308']
         },
         'Ramon Magsaysay': {
             subDistrict: [
@@ -48254,7 +48254,7 @@ module.exports = {
                 'Upper Laperian',
                 'Wakat'
             ],
-            postalCodes: [1105]
+            postalCodes: ['1105']
         },
         'San Miguel': {
             subDistrict: [
@@ -48277,7 +48277,7 @@ module.exports = {
                 'Sayog',
                 'Tapian'
             ],
-            postalCodes: [1005]
+            postalCodes: ['1005']
         },
         'San Pablo': {
             subDistrict: [
@@ -48310,7 +48310,7 @@ module.exports = {
                 'Tubo-pait',
                 'Villakapa'
             ],
-            postalCodes: [3329]
+            postalCodes: ['3329']
         },
         Sominot: {
             subDistrict: [
@@ -48333,7 +48333,7 @@ module.exports = {
                 'Tungawan',
                 'Upper Sicpao'
             ],
-            postalCodes: [7022]
+            postalCodes: ['7022']
         },
         Tabina: {
             subDistrict: [
@@ -48353,7 +48353,7 @@ module.exports = {
                 'San Francisco',
                 'Tultolan'
             ],
-            postalCodes: [7034]
+            postalCodes: ['7034']
         },
         Tambulig: {
             subDistrict: [
@@ -48389,7 +48389,7 @@ module.exports = {
                 'Upper Lodiong',
                 'Upper Tiparak'
             ],
-            postalCodes: [7025]
+            postalCodes: ['7025']
         },
         Tigbao: {
             subDistrict: [
@@ -48412,7 +48412,7 @@ module.exports = {
                 'Timolan',
                 'Upper Nilo'
             ],
-            postalCodes: [7043]
+            postalCodes: ['7043']
         },
         Tukuran: {
             subDistrict: [
@@ -48442,7 +48442,7 @@ module.exports = {
                 'Tinotungan',
                 'Upper Bayao'
             ],
-            postalCodes: [7019]
+            postalCodes: ['7019']
         },
         'Vincenzo A. Sagun': {
             subDistrict: [
@@ -48461,7 +48461,7 @@ module.exports = {
                 'Sagucan',
                 'Waling-waling'
             ],
-            postalCodes: [7036]
+            postalCodes: ['7036']
         },
         'Zamboanga City': {
             subDistrict: [
@@ -48564,7 +48564,7 @@ module.exports = {
                 'Vitali',
                 'Zambowood'
             ],
-            postalCodes: [7000]
+            postalCodes: ['7000']
         }
     },
     'Zamboanga Sibugay': {
@@ -48598,7 +48598,7 @@ module.exports = {
                 'Tandiong Muslim',
                 'Timbang-timbang'
             ],
-            postalCodes: [1105]
+            postalCodes: ['1105']
         },
         Buug: {
             subDistrict: [
@@ -48630,7 +48630,7 @@ module.exports = {
                 'Talamimi',
                 'Villacastor'
             ],
-            postalCodes: [7009]
+            postalCodes: ['7009']
         },
         Diplahan: {
             subDistrict: [
@@ -48657,7 +48657,7 @@ module.exports = {
                 'Tinongtongan',
                 'Tuno'
             ],
-            postalCodes: [7039]
+            postalCodes: ['7039']
         },
         Imelda: {
             subDistrict: [
@@ -48680,7 +48680,7 @@ module.exports = {
                 'Santa Barbara',
                 'Upper Baluran'
             ],
-            postalCodes: [4610]
+            postalCodes: ['4610']
         },
         Ipil: {
             subDistrict: [
@@ -48713,7 +48713,7 @@ module.exports = {
                 'Upper Pangi',
                 'Veteran\'s Village'
             ],
-            postalCodes: [7001]
+            postalCodes: ['7001']
         },
         'Isabela City': {
             subDistrict: [
@@ -48762,7 +48762,7 @@ module.exports = {
                 'Tabuk (Pob.)',
                 'Timpul'
             ],
-            postalCodes: [7300]
+            postalCodes: ['7300']
         },
         Kabasalan: {
             subDistrict: [
@@ -48796,7 +48796,7 @@ module.exports = {
                 'Tigbangagan',
                 'Timuay Danda'
             ],
-            postalCodes: [7005]
+            postalCodes: ['7005']
         },
         Mabuhay: {
             subDistrict: [
@@ -48819,7 +48819,7 @@ module.exports = {
                 'Taguisian',
                 'Tandu-Comot'
             ],
-            postalCodes: [7010]
+            postalCodes: ['7010']
         },
         Malangas: {
             subDistrict: [
@@ -48849,7 +48849,7 @@ module.exports = {
                 'Tackling',
                 'Tigabon'
             ],
-            postalCodes: [7038]
+            postalCodes: ['7038']
         },
         Naga: {
             subDistrict: [
@@ -48877,7 +48877,7 @@ module.exports = {
                 'Tipan',
                 'Upper Sulitan'
             ],
-            postalCodes: [6037]
+            postalCodes: ['6037']
         },
         Olutanga: {
             subDistrict: [
@@ -48901,7 +48901,7 @@ module.exports = {
                 'Villacorte',
                 'Villagonzalo'
             ],
-            postalCodes: [7041]
+            postalCodes: ['7041']
         },
         Payao: {
             subDistrict: [
@@ -48935,7 +48935,7 @@ module.exports = {
                 'Talaptap',
                 'Upper Sumilong'
             ],
-            postalCodes: [7008]
+            postalCodes: ['7008']
         },
         'Roseller Lim': {
             subDistrict: [
@@ -48966,7 +48966,7 @@ module.exports = {
                 'Tilasan',
                 'Tupilac'
             ],
-            postalCodes: [7002]
+            postalCodes: ['7002']
         },
         Siay: {
             subDistrict: [
@@ -49000,7 +49000,7 @@ module.exports = {
                 'Siloh',
                 'Villagracia'
             ],
-            postalCodes: [7006]
+            postalCodes: ['7006']
         },
         Talusan: {
             subDistrict: [
@@ -49019,7 +49019,7 @@ module.exports = {
                 'Samonte',
                 'Tuburan'
             ],
-            postalCodes: [7012]
+            postalCodes: ['7012']
         },
         Titay: {
             subDistrict: [
@@ -49054,7 +49054,7 @@ module.exports = {
                 'Tugop',
                 'Tugop Muslim'
             ],
-            postalCodes: [7003]
+            postalCodes: ['7003']
         },
         Tungawan: {
             subDistrict: [
@@ -49084,7 +49084,7 @@ module.exports = {
                 'Timbabauan',
                 'Upper Tungawan'
             ],
-            postalCodes: [7018]
+            postalCodes: ['7018']
         }
     }
 };
