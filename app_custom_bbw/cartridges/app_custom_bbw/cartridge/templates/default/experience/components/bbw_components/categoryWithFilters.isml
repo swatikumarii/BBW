@@ -1,0 +1,14 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    var afterpayEnabled = dw.system.Site.getCurrent().getCustomPreferenceValue("enableAfterpay")
+    assets.addJs('/js/search.js');
+    assets.addJs('/js/fragranceName.js');
+    assets.addCss('/css/search.css');
+    assets.addCss('/css/notifyMe.css');
+    if(afterpayEnabled) {
+        assets.addJs('/js/afterpay.js');
+        assets.addCss('/css/afterpaystyle.css');
+    }
+</isscript>
+<isinclude template="search/searchResultsNoDecorator" sf-toolkit="on" />
+
