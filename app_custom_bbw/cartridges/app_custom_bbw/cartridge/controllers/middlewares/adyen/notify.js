@@ -40,7 +40,7 @@ function notify(req, res, next) {
     Transaction.begin();
     var notificationResult;
     try {
-        notificationResult = handleNotify.notify(JSON.parse(req.form).notificationItems[0].NotificationRequestItem);
+        notificationResult = handleNotify.notify(JSON.parse(req.body).notificationItems[0].NotificationRequestItem);
     } catch (error) {
         notificationResult = handleNotify.notify(req.form);
     }
