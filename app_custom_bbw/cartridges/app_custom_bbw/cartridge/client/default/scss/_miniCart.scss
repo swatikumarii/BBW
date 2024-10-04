@@ -474,6 +474,13 @@
         transform: translateY(-50%);
         font-size: 20px;
     }
+
+    .minicart-top-text {
+        .text-center.w-100 {
+            text-align: left !important;
+            padding-left: 45px;
+        }
+    }
 }
 
 .order-approaching-discounts {
