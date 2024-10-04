@@ -55,7 +55,7 @@ var gaMeasurementProtocolApi = require("*/cartridge/scripts/service/gaMeasuremen
        return next();
      }
      if ('online_cc' in paymentStatus.response) {
-       paymentChannel = 'online_cc';
+       paymentChannel = "2c2p: online_cc";
      } else if ('offline' in paymentStatus.response) {
        paymentChannel = 'offline';
      } else if ('ipp' in paymentStatus.response) {
@@ -66,20 +66,6 @@ var gaMeasurementProtocolApi = require("*/cartridge/scripts/service/gaMeasuremen
        paymentChannel = '2c2p';
      }
      if (order.status.value === Order.ORDER_STATUS_CREATED) {
-       if (Site.getCurrent().ID.includes('rituals')) {
-         var paymentType = '';
-         if (order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0) {
-           paymentType = 'Giftcard and ';
-         }
-         if (paymentChannel === 'online_cc') {
-           paymentType += 'Credit Card';
-         } else {
-           paymentType += paymentChannel;
-         }
-         Transaction.wrap(function () {
-           order.custom.paymentType = paymentType;
-         });
-       }
        if (paymentStatus.response.payment.channel_response_code === '00' || paymentStatus.response.payment.channel_response_code === '000') {
          gaMeasurementProtocolApi.gaMpAPICall(order.orderNo, "Success");
          _2c2pHelper.placeOrder(order, true, paymentStatus, paymentChannel, server, req, res, next);
@@ -119,7 +105,7 @@ var gaMeasurementProtocolApi = require("*/cartridge/scripts/service/gaMeasuremen
      return next();
    }
    if ('online_cc' in paymentStatus.response) {
-     paymentChannel = 'online_cc';
+     paymentChannel = '2c2p: online_cc';
    } else if ('offline' in paymentStatus.response) {
      paymentChannel = 'offline';
    } else if ('ipp' in paymentStatus.response) {
