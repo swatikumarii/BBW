@@ -271,8 +271,12 @@ $(document).ready(function () {
         var selectedState = $('body')
             .find('.shippingState')
             .attr('data-selected');
+            $('.tax-calculated-state').addClass('d-none');
+            $('.tax-not-calculated-state').removeClass('d-none');
         if (selectedState !== 'null') {
             var stateShipExists = false;
+            $('.tax-calculated-state').removeClass('d-none');
+            $('.tax-not-calculated-state').addClass('d-none');
             $('.shippingState option').each(function () {
                 // eslint-disable-line
                 if ($(this).val() === selectedState) {
@@ -628,7 +632,8 @@ $('.shippingState').change(function () {
     var suburbDropdown = $('.shippingAddressCity');
     var zipDropdown = $('.shippingZipCode');
     suburbDropdown.empty(); // clear existing options
-
+    $('.tax-calculated-state').removeClass('d-none');
+    $('.tax-not-calculated-state').addClass('d-none');
     if (addressData[selectedState]) {
         suburbDropdown.prepend(
             $('<option>', {

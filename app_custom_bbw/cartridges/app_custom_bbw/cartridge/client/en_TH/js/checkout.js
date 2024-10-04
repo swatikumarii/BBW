@@ -279,9 +279,13 @@ $(document).ready(function () {
 
     if (checkoutStage === 'shipping') {
         selectedState = shippingState.attr('data-selected');
+        $('.tax-calculated-state').addClass('d-none');
+        $('.tax-not-calculated-state').removeClass('d-none');
         if (selectedState !== 'null') {
             var stateShipExists = false;
             $('.shippingState option').each(function () {
+                $('.tax-calculated-state').removeClass('d-none');
+                $('.tax-not-calculated-state').addClass('d-none');
                 if ($(this).val() === selectedState) {
                     $('.shippingState option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
@@ -539,6 +543,8 @@ $('.shippingState').change(function () {
     var stateDropdown = $(this);
     var cityMappingObj;
     suburbDropdown.empty(); // clear existing options
+    $('.tax-calculated-state').removeClass('d-none');
+    $('.tax-not-calculated-state').addClass('d-none');
     if (addressDataEN[selectedState]) {
         $(this).empty();
         stateDropdown.prepend(

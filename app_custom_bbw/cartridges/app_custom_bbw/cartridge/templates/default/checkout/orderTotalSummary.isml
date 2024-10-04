@@ -55,7 +55,9 @@
     <isif condition="${shippingExclusiveTax}">
         <div class="row">
             <div class="col-7">
-                <p class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 b-text-letter-space-01">${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</p>
+                <p class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 b-text-letter-space-01 tax-calculated-state d-none">${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</p>
+                <p class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 tax-not-calculated-state b-text-letter-space-01">
+                    ${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</p>
             </div>
             <div class="col-5">
                 <isif condition="${!pdict.order.hasFreeShipping}">
