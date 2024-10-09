@@ -237,7 +237,7 @@ function getDiscountsHtml(discounts) {
 function totals(lineItemContainer) {
     base.call(this, lineItemContainer);
     if (lineItemContainer) {
-        this.shippingTotalTax = getTotals(lineItemContainer.shippingTotalTax);
+        this.shippingTotalTax = lineItemContainer &&  lineItemContainer.allShippingPriceAdjustments && lineItemContainer.allShippingPriceAdjustments.length >0 && lineItemContainer.allShippingPriceAdjustments[0].appliedDiscount && lineItemContainer.allShippingPriceAdjustments[0].appliedDiscount.type === 'FREE' ? dw.util.StringUtils.formatMoney(new dw.value.Money(0, session.currency.getCurrencyCode())) : getTotals(lineItemContainer.shippingTotalTax);
         this.shippingTotalExclTax = getTotals(
             lineItemContainer.adjustedShippingTotalNetPrice
         );

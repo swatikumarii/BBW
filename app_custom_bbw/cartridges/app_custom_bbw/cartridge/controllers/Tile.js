@@ -21,8 +21,8 @@ server.append(
         var isPlp = req.querystring.plp === 'true';
         if (req.querystring.cgid) {
             if (!viewData.product.isEgiftCard) {
-                // viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id, 'cat', req.querystring.cgid);
-                viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id);
+                viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id, 'cat', req.querystring.cgid);
+                // viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id);
             }
         }
         var qtyAlreadyInCartPID = 0;
