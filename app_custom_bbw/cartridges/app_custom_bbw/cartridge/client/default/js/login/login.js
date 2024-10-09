@@ -100,7 +100,28 @@ function register() {
         return false;
     });
 }
+/**
+ *  To Scroll to alert
+ */
+function scrollToAlert() {
+    const $alert = $('.alert-danger');
+    const $modalBody = $('.login-modal-body');
 
+    if ($alert.length) {
+        const desiredScrollTop = Math.max(
+            0,
+            Math.min(
+                $alert.position().top +
+                    $modalBody.scrollTop() -
+                    $modalBody.height() / 2 +
+                    $alert.outerHeight() / 2,
+                $modalBody[0].scrollHeight - $modalBody.height()
+            )
+        );
+
+        $modalBody.animate({ scrollTop: desiredScrollTop }, 200);
+    }
+}
 /**
  *  To login user
  */
@@ -134,10 +155,11 @@ function login() {
                         formValidation(form, data);
                         form.trigger('login:error', data);
                     }
-                    $('.login-modal-body').animate(
-                        { scrollTop: $('.alert-danger').offset().top },
-                        200
-                    );
+                    /**
+                     *
+                     */
+                    scrollToAlert();
+
                 } else {
                     localStorage.setItem('isLoggedIn', true);
                     form.trigger('login:success', data);
