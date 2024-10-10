@@ -891,6 +891,8 @@ module.exports = $.extend({}, base, {
                                 $('#video-preview').attr('src', '');
                                 $('.gift-card-video video').addClass('d-none');
                                 $('.gift-card-video .remove-video').addClass('d-none');
+                                $('.schedule-egift-date').addClass('d-none');
+                                $('.schedule-egift-months').addClass('d-none');
                                 $('.egift-video-label').removeClass('d-none');
                                 $('#progress').empty();
                             }
@@ -1011,6 +1013,8 @@ module.exports = $.extend({}, base, {
                                 $('#video-preview').attr('src', '');
                                 $('.gift-card-video video').addClass('d-none');
                                 $('.gift-card-video .remove-video').addClass('d-none');
+                                $('.schedule-egift-date').addClass('d-none');
+                                $('.schedule-egift-months').addClass('d-none');
                                 $('.egift-video-label').removeClass('d-none');
                                 $('#progress').empty();
                             }
