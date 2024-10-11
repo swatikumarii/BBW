@@ -198,9 +198,9 @@ function updateShippingMethods(shipping) {
                     }
                     // set shipping cost
                     if (shippingMethod.isShippingDiscountPrice) {
-                       $('.shipping-cost-discount', tmpl).css('display',"block");
-                       $('.shipping-cost', tmpl).addClass('discountPrice');
-                       $('.shipping-cost-discount', tmpl).text(shippingMethod.isShippingDiscountPrice);
+                        $('.shipping-cost-discount', tmpl).css('display','block');
+                        $('.shipping-cost', tmpl).addClass('discountPrice');
+                        $('.shipping-cost-discount', tmpl).text(shippingMethod.isShippingDiscountPrice);
                     } 
                     $shippingMethodList.append(tmpl.html());
                 });
@@ -887,7 +887,7 @@ module.exports = {
                 }
             }
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode','district','subdistrict'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     $('[name$=' + element + ']', form).val(attrs[attr]);
                     // validate an hide/show errors
