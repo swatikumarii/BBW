@@ -558,10 +558,10 @@ $('.shippingState').change(function () {
     var stateDropdown = $(this);
     var cityMappingObj;
     suburbDropdown.empty(); // clear existing options
-    $('.tax-calculated-state').removeClass('d-none');
-    $('.tax-not-calculated-state').addClass('d-none');
     if (addressDataEN[selectedState]) {
         $(this).empty();
+        $('.tax-calculated-state').removeClass('d-none');
+        $('.tax-not-calculated-state').addClass('d-none');
         stateDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -613,6 +613,8 @@ $('.shippingState').change(function () {
         });
     } else if (addressDataNativeLocale[selectedState]) {
         $(this).empty();
+        $('.tax-calculated-state').removeClass('d-none');
+        $('.tax-not-calculated-state').addClass('d-none');
         stateDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -663,6 +665,8 @@ $('.shippingState').change(function () {
             }
         });
     } else {
+        $('.tax-calculated-state').addClass('d-none');
+        $('.tax-not-calculated-state').removeClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',

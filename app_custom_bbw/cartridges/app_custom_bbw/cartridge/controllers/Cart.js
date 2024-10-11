@@ -752,6 +752,7 @@ server.append(
         var viewData = res.getViewData();
         var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
         var isGiftProductAvailable = false;
+        var isEstimatedShipping = false;
         var currentBasket = BasketMgr.getCurrentBasket();
         var isDangerousGoodsInBasket = false;
         if (currentBasket) {
@@ -772,6 +773,14 @@ server.append(
                 }
             }
         }
+        if (currentBasket && currentBasket.defaultShipment) {
+            var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+            
+            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+                isEstimatedShipping = true;
+            }
+        } 
+        viewData.isEstimatedShipping = isEstimatedShipping; 
         viewData.showDangerousGoodsMsg = showDangerousGoodsMsg && isDangerousGoodsInBasket;
         var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
             type: 10

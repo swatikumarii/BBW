@@ -457,9 +457,9 @@ $('.shippingState').change(function () {
     var zipDropdown = $('.shippingZipCode');
     console.log('default');
     suburbDropdown.empty(); // clear existing options
-    $('.tax-calculated-state').removeClass('d-none');
-    $('.tax-not-calculated-state').addClass('d-none');
     if (addressData[selectedState]) {
+        $('.tax-calculated-state').removeClass('d-none');
+        $('.tax-not-calculated-state').addClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -483,6 +483,8 @@ $('.shippingState').change(function () {
         suburbDropdown.trigger('change');
         zipDropdown.trigger('change');
     } else {
+        $('.tax-calculated-state').addClass('d-none');
+        $('.tax-not-calculated-state').removeClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
