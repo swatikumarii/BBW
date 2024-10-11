@@ -11,6 +11,7 @@ server.append('Begin', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(currentBasket);
     var viewData = res.getViewData();
+    var isEstimatedShipping = false;
     viewData.isGiftProductAvailable = isGiftProductAvailable;
     if (viewData.currentStage === 'customer') {
         viewData.currentStage = 'shipping';
@@ -89,6 +90,15 @@ server.append('Begin', function (req, res, next) {
                 preferredAddress.raw.custom.subDistrict;
         }
     }
+
+    if (currentBasket && currentBasket.defaultShipment) {
+            var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+            
+            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+                isEstimatedShipping = true;
+            }
+        } 
+        viewData.isEstimatedShipping = isEstimatedShipping;
 
     viewData.isDangerousGoodsInBasket = isDangerousGoodsInBasket;
     res.setViewData(viewData);
