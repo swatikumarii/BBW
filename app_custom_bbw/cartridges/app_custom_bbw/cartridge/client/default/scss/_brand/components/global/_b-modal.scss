@@ -657,7 +657,6 @@
                 height: 50px;
                 width: 50px;
                 position: relative;
-                top: 5px;
                 opacity: 1;
 
                 &:focus-visible{
@@ -706,5 +705,13 @@
 .pwp-price {
     .strike-through {
         text-decoration: line-through;
+    }
+}
+
+#removeBonusModal {
+    .modal-header {
+        .close {
+            right: 20px;
+        }
     }
 }

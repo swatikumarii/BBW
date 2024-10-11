@@ -390,7 +390,7 @@ function getModalHtmlElement() {
         '    </button>' +
         '</div>' +
         '<div class="modal-body"></div>' +
-        '<div class="modal-footer"></div>' +
+        '<div class="modal-footer pb-0 pt-3"></div>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -520,9 +520,8 @@ function chooseBonusProducts(data) {
         '<!-- Modal content-->' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '    <span class="">' +
+        '    <span class="w-100 text-center d-block">' +
         data.labels.selectprods +
-        data.labels.selectedprods +
         '</span>' +
         '    <button type="button" class="close pull-right" data-dismiss="modal">' +
         '        <span aria-hidden="true">&times;</span>' +
@@ -530,7 +529,7 @@ function chooseBonusProducts(data) {
         '    </button>' +
         '</div>' +
         '<div class="modal-body"></div>' +
-        '<div class="modal-footer"></div>' +
+        '<div class="modal-footer pb-0 pt-3"></div>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -621,6 +620,27 @@ module.exports = function () {
             pid: productID,
             uuid: uuid
         };
+        var cartHasBonus = $('input[name="cart-has-bonus"]').val() === 'true';
+        var checkLoosingBonusURL = appendToUrl($('input[name="cart-check-loosing-bonus-url"]').val(), urlParams);
+        if (cartHasBonus && $(this).parents('#removeBonusModal').length === 0) {
+            var stopExecution = false;
+            $.ajax({
+                type: 'GET',
+                url: checkLoosingBonusURL,
+                async: false,
+                success: function (response) {
+                    if (response.loosingBonus && response.bonusUUID) {
+                        stopExecution = true;
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal').modal('show');
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('uuid', uuid);
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('pid', productID);
+                    }
+                }
+            });
+            if (stopExecution) {
+                return false;
+            }
+        }
         var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
         var isPopupMinicart = $('body').find('.minicart').hasClass('popup');
         if (isPopupMinicart && $('.product-summary').children().length === 1) {
@@ -852,7 +872,13 @@ module.exports = function () {
         }
     });
 
-    $('body').on('change', '.quantity-form > .quantity', function () {
+    $(document).on('click', '.loosing-bonus-quantity-update', function () {
+        var uuid = $(this).data('uuid');
+        var quantity = Number($(this).data('quantity'));
+        $('.uuid-'+uuid).find('.quantity').val(quantity).trigger('change', ['modal']);
+    });
+
+    $('body').on('change', '.quantity-form > .quantity', function (e, triggeringElement) {
         clearErrorNotification();
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = Number($(this).val());
@@ -871,6 +897,31 @@ module.exports = function () {
             isMiniCartTrigger: isMiniCartTrigger,
             isCartPageTrigger: isCartPageTrigger
         };
+
+        var cartHasBonus = $('input[name="cart-has-bonus"]').val() === 'true';
+        var checkLoosingBonusURL = appendToUrl($('input[name="cart-check-loosing-bonus-url"]').val(), urlParams);
+        if (cartHasBonus && (!triggeringElement || triggeringElement !== 'modal')) {
+            var stopExecution = false;
+            $.ajax({
+                type: 'GET',
+                url: checkLoosingBonusURL,
+                async: false,
+                success: function (response) {
+                    if (response.loosingBonus && response.bonusUUID) {
+                        stopExecution = true;
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal').modal('show');
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('uuid', uuid);
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('pid', productID);
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('quantity', quantity);
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').addClass('loosing-bonus-quantity-update');
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').removeClass('cart-delete-confirmation-btn');
+                    }
+                }
+            });
+            if (stopExecution) {
+                return false;
+            }
+        }
         url = appendToUrl(url, urlParams);
 
         $(this).parents('.card').spinner().start();
@@ -1249,6 +1300,12 @@ module.exports = function () {
                 $.spinner().stop();
             }
         });
+    });
+
+    $(document).on('click', '.available-bonus-product-button', function () {
+        $.spinner().start();
+        $(this).addClass('launched-modal');
+        chooseBonusProducts($(this).data('availablediscountobject'));
     });
 
     $('body').on('hidden.bs.modal', '#chooseBonusProductModal', function () {

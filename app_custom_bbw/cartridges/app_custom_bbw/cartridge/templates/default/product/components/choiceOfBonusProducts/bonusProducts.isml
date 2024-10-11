@@ -1,6 +1,7 @@
 <isset name="renderedQuantity" value="${false}" scope="page" />
 <isloop items="${pdict.products}" var="product" status="productLoopStatus">
-    <div class="col-12 bonus-product-item ready-to-order choice-of-bonus-product border my-4" data-pid="${product.id}"
+    <div class="col-12 bonus-product-item ready-to-order choice-of-bonus-product border my-4 mx-1 ${pdict.selectedBonusProducts && !(pdict.selectedBonusProducts.length < 0) && pdict.selectedBonusProducts[0].pid ===
+                    product.id ? 'selected' : ''}" data-pid="${product.id}"
         data-ready-to-order="${product.readyToOrder}" data-optionID="">
         <div class="product-quickview product-${product.productType} col product-wrapper product-detail"
             data-pid="${product.id}">
@@ -54,10 +55,14 @@
                         name="Quantity" id="Quantity" value="1" />
                 </div>
 
-                <input type="checkbox" class="btn btn-block btn-outline-primary select-bonus-product"
-                    data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}
-                    ${pdict.selectedBonusProducts && !(pdict.selectedBonusProducts.length < 0) && pdict.selectedBonusProducts[0].pid ===
-                    product.id ? 'checked' : ''}>
+                <div class="form-group custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="btn btn-block custom-control-input select-bonus-product" id="select-bonus-product-${product.id}"
+                        data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}
+                        ${pdict.selectedBonusProducts && !(pdict.selectedBonusProducts.length < 0) && pdict.selectedBonusProducts[0].pid ===
+                        product.id ? 'checked' : ''}>
+                    <label class="custom-control-label h-clr--black-1 h-font-size--16" for="select-bonus-product-${product.id}">
+                    </label>
+                </div>
 
             </div>
         </div>
@@ -93,10 +98,10 @@
             </isloop>
         </div>
         <div class="d-flex justify-content-center pwp-button-align m-0 w-100">
-            <button class="btn btn-primary add-bonus-products h-minheight--30 mr-3" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+            <button class="btn btn-primary add-bonus-products h-minheight--45 mr-3 ml-4 text-uppercase w-50 h-font-size--14 h-fw--semibold" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
                 ${Resource.msg('button.addtocart', 'common', null)}
             </button>
-            <button class="btn btn-secondary h-minheight--30" data-dismiss="modal">
+            <button class="btn btn-secondary h-minheight--44 w-50 text-uppercase h-font-size--14 h-fw--semibold ml-3 mr-4" data-dismiss="modal">
                 ${Resource.msg('button.cancel', 'cart', null)}
             </button>
         </div>

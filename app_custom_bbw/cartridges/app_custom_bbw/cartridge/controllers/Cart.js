@@ -19,6 +19,8 @@ var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpe
 var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
 var giftWrapCartHelpers = require('*/cartridge/scripts/helpers/cart/giftWrap');
 var Site = require('dw/system/Site');
+var collections = require('*/cartridge/scripts/util/collections');
+
 
 /**
  * Cart-AddCoupon : The Cart-AddCoupon endpoint is responsible for adding a coupon to a basket
@@ -899,6 +901,47 @@ server.get('CheckMotivator', function (req, res, next) {
     var motivator = {};
     decorators.promotions(motivator, promotions);
     res.json({motivator: motivator});
+    next();
+});
+
+server.get('CheckLoosingBonus', function (req, res, next) {
+    var Transaction = require('dw/system/Transaction');
+    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var loosingBonus = false;
+    var bonusUUID;
+    var quantity = req.querystring.quantity ? req.querystring.quantity - 0 : null;
+    if (req.querystring.pid && req.querystring.uuid) {
+        Transaction.begin();
+        var previousBonusDiscountLineItems = currentBasket.getBonusDiscountLineItems();
+        var productLineItem = currentBasket.getAllProductLineItems(req.querystring.pid);
+        if (quantity) {
+            bonusUUID = previousBonusDiscountLineItems[0].bonusProductLineItems[0].UUID;
+            productLineItem[0].setQuantityValue(quantity);
+            basketCalculationHelpers.calculateTotals(currentBasket);
+        } else {
+            currentBasket.removeProductLineItem(productLineItem[0]);
+        }
+        var newBonusDiscountLineItems = currentBasket.getBonusDiscountLineItems();
+        if (previousBonusDiscountLineItems && newBonusDiscountLineItems.length !== previousBonusDiscountLineItems.length) {
+            loosingBonus = true;
+        } else {
+            collections.forEach(newBonusDiscountLineItems, function (newBonusDiscountLineItem) {
+                var promotion = newBonusDiscountLineItem.promotion;
+                var limit = promotion.custom && 'Buy' in promotion.custom && promotion.custom.Buy ? promotion.custom.Buy[0] : 0;
+                if (currentBasket.adjustedMerchandizeTotalGrossPrice.value - newBonusDiscountLineItem.bonusProductLineItems[0].adjustedGrossPrice.value < limit) {
+                    loosingBonus = true;
+                    bonusUUID = newBonusDiscountLineItem.bonusProductLineItems[0].UUID;
+                }
+            });
+        }
+        Transaction.rollback();
+    }
+    res.json({
+        loosingBonus: loosingBonus,
+        bonusUUID: bonusUUID,
+        quantity: quantity
+    });
     next();
 });
 

@@ -94,9 +94,8 @@ function chooseBonusProducts(data) {
         '<!-- Modal content-->' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '    <span class="">' +
+        '    <span class="w-100 text-center d-block">' +
         data.labels.selectprods +
-        data.labels.selectedprods +
         '</span>' +
         '    <button type="button" class="close pull-right" data-dismiss="modal">' +
         '        <span aria-hidden="true">&times;</span>' +
@@ -104,7 +103,7 @@ function chooseBonusProducts(data) {
         '    </button>' +
         '</div>' +
         '<div class="modal-body"></div>' +
-        '<div class="modal-footer"></div>' +
+        '<div class="modal-footer pb-0 pt-3"></div>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -1033,13 +1032,16 @@ module.exports = $.extend({}, base, {
         });
     },
     selectBonusProduct: function () {
-        $(document).on('click', '.select-bonus-product', function () {
+        $(document).on('click', '.select-bonus-product', function (e) {
+            e.stopImmediatePropagation();
             var $choiceOfBonusProduct = $(this).parents('.choice-of-bonus-product');
             if ($(this).is(':checked')) {
                 var pid = $(this).data('pid');
+                $(this).parents('.choice-of-bonus-product ').addClass('selected');
                 $choiceOfBonusProduct.parent().find('.select-bonus-product').each(function () {
                     if ($(this).data('pid') !== pid) {
                         $(this).prop('checked', false);
+                        $(this).parents('.choice-of-bonus-product ').removeClass('selected');
                     }
                 });
                 var maxPids = $('.choose-bonus-product-dialog').data('total-qty');
