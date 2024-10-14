@@ -95,7 +95,7 @@
                                         <isloop iterator="${fragranceGroup.value}" alias="fragrance" status="loopstate">
                                             <li class="level-2 text-start mt-3 mb-3">
                                                 <a class="h-clr--gray"
-                                                    hreflang="${pdict.hrefLang}" href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragrance.name)}"
+                                                    hreflang="${pdict.hrefLang}" href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragrance.name.split('(')[0])}"
                                                     data-fragrancename="${fragrance.name}">
                                                     ${fragrance.name}</a>
                                                 <isif condition="${fragrance.topFragrance}">

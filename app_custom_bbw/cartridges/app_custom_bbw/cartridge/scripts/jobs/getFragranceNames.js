@@ -78,20 +78,13 @@ function getFragranceNames() {
                     if (product.custom.fragranceName) {
                         allFragrances = product.custom.fragranceName.split(',');
                         for (var position = 0; position < allFragrances.length; position++) {
-                            // get fragrance names from all products
+                            var fragrance = allFragrances[position].trim();
                             if (countFragranceEnabled) {
-                                var fragrance = allFragrances[position].trim();
                                 // Increment the count for each fragrance
-                                if (fragranceCountMap[fragrance]) {
-                                    fragranceCountMap[fragrance]++;
-                                } else {
-                                    fragranceCountMap[fragrance] = 1;
-                                }
-                            }
-                            else {
-                                if (!fragranceNamesArray.includes(allFragrances[position].trim())) {
-                                    fragranceNamesArray.push(allFragrances[position].trim());
-                                }
+                                fragranceCountMap[fragrance] = (fragranceCountMap[fragrance] || 0) + 1;
+                            } else if (!fragranceNamesArray.includes(fragrance)) {
+                                // Add fragrance to the array if it doesn't exist
+                                fragranceNamesArray.push(fragrance);
                             }
                         }
                     }
@@ -109,21 +102,16 @@ function getFragranceNames() {
                 }
             }
         }
-        if(countFragranceEnabled) {
-             // Save fragrance counts if there are any fragrances found
-            if (fragranceNamesArray.length > 0) {
+        // Save fragrance counts if there are any fragrances found
+        if (fragranceNamesArray.length > 0) {
+            if(countFragranceEnabled) {
                 saveFragranceCounts(fragranceCountMap);
             }
             else {
-                Site.current.setCustomPreferenceValue('fragranceNames', '');
-            }
-        }
-        else {
-            if (fragranceNamesArray.length > 0) {
                 saveFragranceNames(fragranceNamesArray);
-            } else {
-                Site.current.setCustomPreferenceValue('fragranceNames', '');
             }
+        } else {
+            Site.current.setCustomPreferenceValue('fragranceNames', '');
         }
 
     } catch (err) {
