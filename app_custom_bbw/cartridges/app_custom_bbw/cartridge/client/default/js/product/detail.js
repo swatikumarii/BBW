@@ -323,6 +323,8 @@ module.exports = $.extend({}, detail, {
                                 $('.gift-card-video video').addClass('d-none');
                                 $('.gift-card-video .remove-video').addClass('d-none');
                                 $('.egift-video-label').removeClass('d-none');
+                                $('.schedule-egift-date').addClass('d-none');
+                                $('.schedule-egift-months').addClass('d-none');
                                 $('#progress').empty();
                             }
                             $('button.add-to-cart').prop('disabled', false);
