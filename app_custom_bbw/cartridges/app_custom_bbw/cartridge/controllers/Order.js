@@ -120,57 +120,62 @@ server.append(
  */
 server.get('InvoiceDownload', function (req, res, next) {
     var OrderMgr = require('dw/order/OrderMgr');
+    var Logger = require('dw/system/Logger');
     var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
     var TaxMgr = require('dw/order/TaxMgr');
     var orderID = encryptionHelper.decryptPin(
         decodeURIComponent(req.querystring.token)
     );
-    var order = OrderMgr.getOrder(orderID);
-    var taxClassId = TaxMgr.getDefaultTaxClassID();
-    var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
-    var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
-    var taxRate = getTaxRate * 100;
+    try {
+        var order = OrderMgr.getOrder(orderID);
+        var taxClassId = TaxMgr.getDefaultTaxClassID();
+        var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
+        var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
+        var taxRate = getTaxRate * 100;
 
-    if (order) {
-        var isEgiftCard = false;
-        var orderModel = orderHelpers.getOrderDetailsByID(
-            orderID,
-            req.locale.id
-        );
-        if (
-            orderModel &&
-            orderModel.shipping &&
-            orderModel.shipping.length > 0
-        ) {
+        if (order) {
+            var isEgiftCard = false;
+            var orderModel = orderHelpers.getOrderDetailsByID(
+                orderID,
+                req.locale.id
+            );
             if (
-                orderModel.shipping[0].productLineItems &&
-                orderModel.shipping[0].productLineItems.items
+                orderModel &&
+                orderModel.shipping &&
+                orderModel.shipping.length > 0
             ) {
-                var products = orderModel.shipping[0].productLineItems.items;
-                for (var index = 0; index < products.length; index++) {
-                    if (products[index].isEgiftCard) {
-                        isEgiftCard = products[index].isEgiftCard;
-                        break;
+                if (
+                    orderModel.shipping[0].productLineItems &&
+                    orderModel.shipping[0].productLineItems.items
+                ) {
+                    var products = orderModel.shipping[0].productLineItems.items;
+                    for (var index = 0; index < products.length; index++) {
+                        if (products[index].isEgiftCard) {
+                            isEgiftCard = products[index].isEgiftCard;
+                            break;
+                        }
                     }
                 }
             }
-        }
 
-        var eInvoiceJson = {};
-        if('eInvoiceQrCode' in order.custom)
-        {
-            eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
-        }
+            var eInvoiceJson = {};
+            if('eInvoiceQrCode' in order.custom)
+            {
+                eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
+            }
 
-        res.render('order/invoiceDownload', {
-            order: orderModel,
-            taxRate: taxRate,
-            isEgiftCard: isEgiftCard,
-            eInvoiceQrCodeLink: eInvoiceJson.url || '',
-            eInvoiceQrCode: eInvoiceJson.qrcode || false
-        });
-    } else {
-        res.redirect(URLUtils.url('Order-History'));
+            res.render('order/invoiceDownload', {
+                order: orderModel,
+                taxRate: taxRate,
+                isEgiftCard: isEgiftCard,
+                eInvoiceQrCodeLink: eInvoiceJson.url || '',
+                eInvoiceQrCode: eInvoiceJson.qrcode || false
+            });
+        } else {
+            res.redirect(URLUtils.url('Order-History'));
+        }
+    } catch (error) {
+        Logger.error('Einvoice Error : ' + error.message);
     }
     next();
 });

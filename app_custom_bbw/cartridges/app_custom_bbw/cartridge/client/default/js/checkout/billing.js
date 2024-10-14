@@ -384,7 +384,7 @@ module.exports = {
             }
 
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode','district','subdistrict'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     if (element === 'cardNumber') {
                         $('.cardNumber').data('cleave').setRawValue(attrs[attr]);

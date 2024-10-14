@@ -158,7 +158,7 @@ $(document).ready(function () {
                             .empty()
                             .append(data.noPendingAmount).addClass('mt-4 p-2');
                         $('.add-giftcard-section').removeClass('show');
-                        $('.add-giftcard-header').hide();
+                        $('.add-giftcard-header').removeClass('d-flex').hide();
                         $('.payment-options-heading').hide();
                         $(document).off('ajaxComplete');
                     }

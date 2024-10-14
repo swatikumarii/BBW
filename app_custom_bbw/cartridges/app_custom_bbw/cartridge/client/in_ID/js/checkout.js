@@ -271,8 +271,12 @@ $(document).ready(function () {
         var selectedState = $('body')
             .find('.shippingState')
             .attr('data-selected');
+            $('.tax-calculated-state').addClass('d-none');
+            $('.tax-not-calculated-state').removeClass('d-none');
         if (selectedState !== 'null') {
             var stateShipExists = false;
+            $('.tax-calculated-state').removeClass('d-none');
+            $('.tax-not-calculated-state').addClass('d-none');
             $('.shippingState option').each(function () {
                 // eslint-disable-line
                 if ($(this).val() === selectedState) {
@@ -627,9 +631,10 @@ $('.shippingState').change(function () {
     var selectedState = $(this).val();
     var suburbDropdown = $('.shippingAddressCity');
     var zipDropdown = $('.shippingZipCode');
-    suburbDropdown.empty(); // clear existing options
-
+    suburbDropdown.empty(); // clear existing options   
     if (addressData[selectedState]) {
+        $('.tax-calculated-state').removeClass('d-none');
+        $('.tax-not-calculated-state').addClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -653,6 +658,8 @@ $('.shippingState').change(function () {
         suburbDropdown.trigger('change');
         zipDropdown.trigger('change');
     } else {
+        $('.tax-calculated-state').addClass('d-none');
+        $('.tax-not-calculated-state').removeClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
