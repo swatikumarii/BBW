@@ -560,6 +560,7 @@ server.append(
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
             var order = OrderMgr.getOrder(viewData.order.orderNumber);
+            var isEstimatedShipping = true;
 
             // save address
             if (session.privacy.addressBook && session.privacy.saveAddress) {
@@ -602,6 +603,13 @@ server.append(
             //     });
             //     COHelpers.sendConfirmationEmail(order, req.locale.id);
             // }
+            if (order && order.defaultShipment) {
+                var shippingAddress = order.defaultShipment.shippingAddress;                
+                if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+                    isEstimatedShipping = false;
+                }
+            }
+            viewData.isEstimatedShipping = isEstimatedShipping;
             res.setViewData(viewData);
             if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
                 res.redirect(URLUtils.url('Order-Failed'));
