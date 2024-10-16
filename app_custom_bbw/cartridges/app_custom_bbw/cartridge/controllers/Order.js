@@ -560,7 +560,7 @@ server.append(
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
             var order = OrderMgr.getOrder(viewData.order.orderNumber);
-            var isEstimatedShipping = false;
+            var isEstimatedShipping = true;
 
             // save address
             if (session.privacy.addressBook && session.privacy.saveAddress) {
@@ -606,7 +606,7 @@ server.append(
             if (order && order.defaultShipment) {
                 var shippingAddress = order.defaultShipment.shippingAddress;                
                 if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
-                    isEstimatedShipping = true;
+                    isEstimatedShipping = false;
                 }
             }
             viewData.isEstimatedShipping = isEstimatedShipping;

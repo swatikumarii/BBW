@@ -665,7 +665,7 @@ $('.shippingState').change(function () {
         );
     }
     suburbDropdown.trigger('change');
-    var shippingExtimate = $('.estimeted-shipping-text').attr("data-estimated-shipping-text");
+    var shippingEstimatedText = $('.estimeted-shipping-text').attr("data-estimated-shipping-text");
     var shippingText = $('.estimeted-shipping-text').attr("data-shipping-text");
     var updateShippingMethodsURL = $('input[name="update-shipping-method-url"]').val() + '?stateCode=' + selectedState;
     $.ajax({
@@ -679,10 +679,10 @@ $('.shippingState').change(function () {
             } else {
                 $('.cart-dangerous-goods').removeClass('d-none');
             }
-            if(data.isEstimatedShipping || data.order.hasFreeShipping){
+            if(!data.isEstimatedShipping || data.order.hasFreeShipping){
                 $('.tax-calculated-state').text(shippingText);
             }else{
-                $('.tax-calculated-state').text(shippingExtimate);
+                $('.tax-calculated-state').text(shippingEstimatedText);
             }
         }
     });

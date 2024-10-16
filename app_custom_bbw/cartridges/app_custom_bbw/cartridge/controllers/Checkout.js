@@ -11,7 +11,7 @@ server.append('Begin', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(currentBasket);
     var viewData = res.getViewData();
-    var isEstimatedShipping = false;
+    var isEstimatedShipping = true;
     viewData.isGiftProductAvailable = isGiftProductAvailable;
     if (viewData.currentStage === 'customer') {
         viewData.currentStage = 'shipping';
@@ -95,7 +95,7 @@ server.append('Begin', function (req, res, next) {
             var shippingAddress = currentBasket.defaultShipment.shippingAddress;
             
             if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
-                isEstimatedShipping = true;
+                isEstimatedShipping = false;
             }
         } 
         viewData.isEstimatedShipping = isEstimatedShipping;
@@ -147,7 +147,7 @@ server.post('UpdateShippingMethods', function (req, res, next) {
     var stateCode = req.querystring.stateCode;
     var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
     var isOrderShippable = false;
-    var isEstimatedShipping = false;
+    var isEstimatedShipping = true;
     Transaction.wrap(function () {
         var shippingAddress = shipment.shippingAddress;
 
@@ -187,7 +187,7 @@ server.post('UpdateShippingMethods', function (req, res, next) {
             var shippingAddress = currentBasket.defaultShipment.shippingAddress;
             
             if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
-                isEstimatedShipping = true;
+                isEstimatedShipping = false;
             }
         } 
 

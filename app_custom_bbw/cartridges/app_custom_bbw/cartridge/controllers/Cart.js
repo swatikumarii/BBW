@@ -435,6 +435,7 @@ server.append('RemoveProductLineItem', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var changes = cartHelper.createFreeLineItem(currentBasket, 0);
     var viewData = res.getViewData();
+    var isEstimatedShipping = true;
     var basketModel = new CartModel(currentBasket);
     if (changes) {
         viewData.refreshItems = true;
@@ -463,7 +464,15 @@ server.append('RemoveProductLineItem', function (req, res, next) {
             req.currentCustomer.raw.profile
         );
     }
+    if (currentBasket && currentBasket.defaultShipment) {
+        var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+        
+        if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+            isEstimatedShipping = false;
+        }
+    }
     // free item count
+    viewData.basket.isEstimatedShipping = isEstimatedShipping;
     viewData.basket.freeItemCount = basketModel.freeItemCount;
     viewData.basket.freeItemToastMessage = basketModel.freeItemToastMessage;
     res.setViewData(viewData);
@@ -752,7 +761,7 @@ server.append(
         var viewData = res.getViewData();
         var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
         var isGiftProductAvailable = false;
-        var isEstimatedShipping = false;
+        var isEstimatedShipping = true;
         var currentBasket = BasketMgr.getCurrentBasket();
         var isDangerousGoodsInBasket = false;
         if (currentBasket) {
@@ -777,7 +786,7 @@ server.append(
             var shippingAddress = currentBasket.defaultShipment.shippingAddress;
             
             if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
-                isEstimatedShipping = true;
+                isEstimatedShipping = false;
             }
         } 
         viewData.isEstimatedShipping = isEstimatedShipping; 
