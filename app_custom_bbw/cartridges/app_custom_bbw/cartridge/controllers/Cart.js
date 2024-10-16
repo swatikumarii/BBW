@@ -749,7 +749,10 @@ server.append(
     function (req, res, next) {
         var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
         var showDangerousGoodsMsg = req.querystring.error === 'dangerous-goods';
+        var Locale = require('dw/util/Locale');
+        var country = Locale.getLocale(req.locale.id).getDisplayCountry();
         var viewData = res.getViewData();
+        viewData.country = country;
         var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
         var isGiftProductAvailable = false;
         var isEstimatedShipping = false;
@@ -776,7 +779,7 @@ server.append(
         if (currentBasket && currentBasket.defaultShipment) {
             var shippingAddress = currentBasket.defaultShipment.shippingAddress;
             
-            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != '') {
                 isEstimatedShipping = true;
             }
         } 
