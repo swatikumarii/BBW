@@ -7,23 +7,32 @@ var CatalogMgr = require('dw/catalog/CatalogMgr');
 
 // Define the job to sync scheduled inventory
 function execute() {
-    // Set up a calendar to compare dates and times
-    var currentDate = new Date();
-
     var scheduledInventoryProducts = ProductMgr.queryProductsInCatalog(CatalogMgr.getCatalog('future-reserve'));
 
     while (scheduledInventoryProducts.hasNext()) {
         var product = scheduledInventoryProducts.next();
-        // Retrieve scheduled inventory date for this SKU
-        var scheduledInventoryDate = new Date(product.custom.futureReserveDate);
+
+        // Retrieve the scheduled inventory date and future reserve quantity for this SKU
+        var scheduledInventoryDate = product.custom.futureReserveDate;
         var futureReserve = product.custom.futureReserve;
-        // If the current date is greater than or equal to the scheduled date/time, update reserve quantity
-        if (currentDate >= scheduledInventoryDate) {
-            Transaction.wrap(function () {
-                product.custom.reserveQty = futureReserve;
-                product.custom.futureReserveDate = null;
-                product.custom.futureReserve = null;
-            });
+
+        // Check if futureReserveDate is defined and valid
+        if (scheduledInventoryDate !== null && futureReserve !== null) {
+            // Convert futureReserveDate to a JavaScript Date object
+            scheduledInventoryDate = new Date(scheduledInventoryDate);
+
+            // Retrieve current date
+            var currentDate = new Date();
+
+            // If the current date is greater than or equal to the scheduled inventory date/time, update reserve quantity
+            if (currentDate >= scheduledInventoryDate) {
+                // Update product reserve quantity and clear the custom attributes
+                Transaction.wrap(function () {
+                    product.custom.reserveQty = futureReserve;  // Set future reserve quantity to reserveQty
+                    product.custom.futureReserveDate = null;   // Clear the futureReserveDate
+                    product.custom.futureReserve = null;       // Clear the futureReserve
+                });
+            }
         }
     }
 }
@@ -31,4 +40,3 @@ function execute() {
 module.exports = {
     execute: execute
 };
-
