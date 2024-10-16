@@ -147,6 +147,7 @@ server.post('UpdateShippingMethods', function (req, res, next) {
     var stateCode = req.querystring.stateCode;
     var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
     var isOrderShippable = false;
+    var isEstimatedShipping = false;
     Transaction.wrap(function () {
         var shippingAddress = shipment.shippingAddress;
 
@@ -182,9 +183,18 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         { usingMultiShipping: false, countryCode: currentLocale.country, containerView: 'basket' }
     );
 
+    if (currentBasket && currentBasket.defaultShipment) {
+            var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+            
+            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+                isEstimatedShipping = true;
+            }
+        } 
+
     res.json({
         customer: new AccountModel(req.currentCustomer),
         order: basketModel,
+        isEstimatedShipping : isEstimatedShipping,
         isOrderShippable: isOrderShippable,
         shippingForm: server.forms.getForm('shipping')
     });

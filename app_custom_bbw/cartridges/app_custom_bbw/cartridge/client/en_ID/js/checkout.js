@@ -266,13 +266,9 @@ $(document).ready(function () {
     if (checkoutStage === 'shipping') {
         var selectedState = $('body')
             .find('.shippingState')
-            .attr('data-selected');
-            $('.tax-calculated-state').addClass('d-none');
-            $('.tax-not-calculated-state').removeClass('d-none');
+            .attr('data-selected');            
         if (selectedState !== 'null') {
             var stateShipExists = false;
-            $('.tax-calculated-state').removeClass('d-none');
-            $('.tax-not-calculated-state').addClass('d-none');
             $('.shippingState option').each(function () { // eslint-disable-line
                 if ($(this).val() === selectedState) {
                     $('.shippingState option').removeAttr('selected');
@@ -614,8 +610,6 @@ $('.shippingState').change(function () {
     var zipDropdown = $('.shippingZipCode');
     suburbDropdown.empty(); // clear existing options   
     if (addressData[selectedState]) {
-        $('.tax-calculated-state').removeClass('d-none');
-        $('.tax-not-calculated-state').addClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -639,8 +633,6 @@ $('.shippingState').change(function () {
         suburbDropdown.trigger('change');
         zipDropdown.trigger('change');
     } else {
-        $('.tax-calculated-state').addClass('d-none');
-        $('.tax-not-calculated-state').removeClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -650,6 +642,8 @@ $('.shippingState').change(function () {
         suburbDropdown.trigger('change');
         zipDropdown.trigger('change');
     }
+    var shippingExtimate = $('.estimeted-shipping-text').attr("data-estimated-shipping-text");
+    var shippingText = $('.estimeted-shipping-text').attr("data-shipping-text");
     var updateShippingMethodsURL = $('input[name="update-shipping-method-url"]').val() + '?stateCode=' + selectedState;
     $.ajax({
         type: 'POST',
@@ -661,6 +655,11 @@ $('.shippingState').change(function () {
                 $('.cart-dangerous-goods').addClass('d-none');
             } else {
                 $('.cart-dangerous-goods').removeClass('d-none');
+            }
+            if(data.isEstimatedShipping || data.order.hasFreeShipping){
+                $('.tax-calculated-state').text(shippingText);
+            }else{
+                $('.tax-calculated-state').text(shippingExtimate);
             }
         }
     });

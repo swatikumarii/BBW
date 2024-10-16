@@ -275,8 +275,8 @@
                         <isif condition="${shippingExclusiveTax}">
                             <div class="row leading-lines shipping-item">
                                 <div class="col-6 start-lines">
-                                    <p class="order-receipt-label">
-                                        <span>${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</span>
+                                    <p class="order-receipt-label 8888">
+                                        <span>${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</span>
                                     </p>
                                 </div>
                                 <div class="col-6 end-lines">

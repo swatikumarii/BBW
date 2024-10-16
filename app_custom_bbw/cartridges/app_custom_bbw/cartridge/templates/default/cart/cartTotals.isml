@@ -51,7 +51,7 @@
     <isif condition="${shippingExclusiveTax}">
         <div class="row">
             <div class="col-8">
-            <isif condition="${pdict.isEstimatedShipping}">
+            <isif condition="${pdict.isEstimatedShipping || pdict.hasFreeShipping}">
                 <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</p>
             <iselse/>
                 <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)} </p>

@@ -53,22 +53,12 @@
 <iscomment> Shipping Charge </iscomment>
 <isif condition="${!pdict.isGiftProductAvailable}">
     <isif condition="${shippingExclusiveTax}">
-        <div class="row">
+        <div class="row estimeted-shipping-text" data-estimated-shipping-text="${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}" data-shipping-text="${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}">
             <div class="col-7">
-            <isif condition="${pdict.isEstimatedShipping}">
-                <p
-                    class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 b-text-letter-space-01 tax-calculated-state">
-                    ${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</p>
-                    <p
-                        class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 tax-not-calculated-state b-text-letter-space-01  d-none">
-                        ${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</p>
+            <isif condition="${pdict.isEstimatedShipping || pdict.order.hasFreeShipping}">
+                <p class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 b-text-letter-space-01 tax-calculated-state">${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</p>
             <iselse/>
-            <p
-                class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 b-text-letter-space-01 tax-calculated-state d-none">
-                ${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</p>
-            <p
-                class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 tax-not-calculated-state b-text-letter-space-01">
-                ${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</p>
+            <p class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 tax-calculated-state b-text-letter-space-01 777"> ${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</p>
             </isif>
             </div>
             <div class="col-5">
