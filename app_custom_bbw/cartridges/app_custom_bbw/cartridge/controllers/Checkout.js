@@ -92,13 +92,13 @@ server.append('Begin', function (req, res, next) {
     }
 
     if (currentBasket && currentBasket.defaultShipment) {
-            var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+        var shippingAddress = currentBasket.defaultShipment.shippingAddress;
             
-            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
-                isEstimatedShipping = true;
-            }
-        } 
-        viewData.isEstimatedShipping = isEstimatedShipping;
+        if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode !== '') {
+            isEstimatedShipping = true;
+        }
+    } 
+    viewData.isEstimatedShipping = isEstimatedShipping;
 
     viewData.isDangerousGoodsInBasket = isDangerousGoodsInBasket;
     res.setViewData(viewData);
@@ -189,6 +189,32 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         shippingForm: server.forms.getForm('shipping')
     });
     next();
+});
+
+server.post('LogAddress', function (req, res, next) {
+    var BasketMgr = require('dw/order/BasketMgr');
+    var Transaction = require('dw/system/Transaction');
+    try {
+        var currentBasket = BasketMgr.getCurrentBasket();
+        var shippingAddressOne = req.httpParameterMap.shippingAddressOne.value;
+        var shippingAddressTwo = req.httpParameterMap.shippingAddressTwo.value;
+        var shippingAddressAutoComplete = req.httpParameterMap.shippingAddressAutoComplete.value;
+        var platform = req.httpHeaders['sec-ch-ua-platform'];
+        var browser = req.httpHeaders['sec-ch-ua'];
+        Transaction.wrap(function () {
+            currentBasket.custom.addressLog = JSON.stringify({
+                shippingAddressOne: shippingAddressOne,
+                shippingAddressTwo: shippingAddressTwo,
+                shippingAddressAutoComplete: shippingAddressAutoComplete,
+                platform: platform,
+                browser: browser
+            });
+        });
+        res.json({success: true});
+    } catch (error) {
+        res.json({success: false});
+    }
+    return next();
 });
 
 module.exports = server.exports();

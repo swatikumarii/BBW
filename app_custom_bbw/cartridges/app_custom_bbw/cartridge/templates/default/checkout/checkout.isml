@@ -25,6 +25,7 @@
             <input type="hidden" name="overrideAfterpay" value="${false}">
             <input type="hidden" name="billing-url" value="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
             <input type="hidden" name="review-url" value="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
+            <input type="hidden" id="addressLog-url" value="${URLUtils.url('Checkout-LogAddress')}">
             <isif condition="${pdict.isGiftProductAvailable}">
                 <div class="checkout-steps d-flex justify-content-between">
                     <div class="step-1 d-flex align-items-center flex-column h-width-perc-md--100 step-connect shipping-step">

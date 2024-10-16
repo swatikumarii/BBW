@@ -387,6 +387,7 @@ function createOrder(currentBasket) {
         order = Transaction.wrap(function () {
             order = OrderMgr.createOrder(currentBasket);
             order.custom.emailRecommendationPids = 'custom' in currentBasket && 'emailRecommendationPids' in currentBasket.custom && currentBasket.custom.emailRecommendationPids ? currentBasket.custom.emailRecommendationPids : null;
+            order.custom.addressLog = 'custom' in currentBasket && 'addressLog' in currentBasket.custom && currentBasket.custom.addressLog ? currentBasket.custom.addressLog : null;
             return order;
         });
     } catch (error) {
