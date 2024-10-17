@@ -675,10 +675,10 @@ $('.shippingState').change(function () {
             $('.grand-total-wrap .grand-total')
                 .empty()
                 .text(data.order.priceTotal);
-            if (data.isOrderShippable) {
-                $('.cart-dangerous-goods').addClass('d-none');
-            } else {
+            if (data.showDangerousGoodsMessage) {
                 $('.cart-dangerous-goods').removeClass('d-none');
+            } else {
+                $('.cart-dangerous-goods').addClass('d-none');
             }
             if(!data.isEstimatedShipping || data.order.hasFreeShipping){
                 $('.tax-calculated-state').text(shippingText);

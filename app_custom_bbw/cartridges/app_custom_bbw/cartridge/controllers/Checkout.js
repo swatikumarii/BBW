@@ -146,6 +146,15 @@ server.post('UpdateShippingMethods', function (req, res, next) {
     var stateCode = req.querystring.stateCode;
     var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
     var isOrderShippable = false;
+    var isDangerousGoodsInBasket = false;
+    var CartModel = require('*/cartridge/models/cart');
+    var cartModel = new CartModel(currentBasket);
+    for (var i = 0; i < cartModel.items.length; i++) {
+        if (cartModel.items[i].dangerousGoods) {
+            isDangerousGoodsInBasket = true;
+            break;
+        }
+    }
     var isEstimatedShipping = true;
     Transaction.wrap(function () {
         var shippingAddress = shipment.shippingAddress;
@@ -195,6 +204,7 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         order: basketModel,
         isEstimatedShipping : isEstimatedShipping,
         isOrderShippable: isOrderShippable,
+        showDangerousGoodsMessage: isDangerousGoodsInBasket && !isOrderShippable,
         shippingForm: server.forms.getForm('shipping')
     });
     next();
@@ -208,6 +218,7 @@ server.post('LogAddress', function (req, res, next) {
         var shippingAddressOne = req.httpParameterMap.shippingAddressOne.value;
         var shippingAddressTwo = req.httpParameterMap.shippingAddressTwo.value;
         var shippingAddressAutoComplete = req.httpParameterMap.shippingAddressAutoComplete.value;
+        var userAgent = req.httpHeaders['user-agent'];
         var platform = req.httpHeaders['sec-ch-ua-platform'];
         var browser = req.httpHeaders['sec-ch-ua'];
         Transaction.wrap(function () {
@@ -216,7 +227,8 @@ server.post('LogAddress', function (req, res, next) {
                 shippingAddressTwo: shippingAddressTwo,
                 shippingAddressAutoComplete: shippingAddressAutoComplete,
                 platform: platform,
-                browser: browser
+                browser: browser,
+                userAgent: userAgent
             });
         });
         res.json({success: true});

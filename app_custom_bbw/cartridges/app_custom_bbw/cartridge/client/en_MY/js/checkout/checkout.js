@@ -236,10 +236,7 @@ $(document).on('blur', '#email', function () {
                             shippingAddressTwo: shippingAddressTwoVal,
                             shippingAddressAutoComplete: shippingAddressAutoCompleteVal
                         },
-                        url: AddressLogUrl,
-                        success: function (response) {
-                            console.log(JSON.stringify(response));
-                        }
+                        url: AddressLogUrl
                     });
 
                     //

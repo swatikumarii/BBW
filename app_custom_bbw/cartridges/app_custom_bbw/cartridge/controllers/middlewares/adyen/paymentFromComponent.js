@@ -162,8 +162,15 @@ function canSkipSummaryPage(reqDataObj) {
 function paymentFromComponent(req, res, next) {
     var _currentBasket$custom2;
     var reqDataObj = JSON.parse(req.form.data);
-    if (reqDataObj.customer.addressBook.preferredAddress.countryCode.value === 'HK') {
-        reqDataObj.customer.addressBook.preferredAddress.stateCode = reqDataObj.customer.addressBook.preferredAddress.postalCode;
+    if (
+        reqDataObj.customer &&
+        reqDataObj.customer.addressBook &&
+        reqDataObj.customer.addressBook.preferredAddress &&
+        reqDataObj.customer.addressBook.preferredAddress.countryCode.value ===
+            'HK'
+    ) {
+        reqDataObj.customer.addressBook.preferredAddress.stateCode =
+            reqDataObj.customer.addressBook.preferredAddress.postalCode;
         reqDataObj.customer.addressBook.preferredAddress.postalCode = '999077';
     }
     if (reqDataObj.cancelTransaction) {

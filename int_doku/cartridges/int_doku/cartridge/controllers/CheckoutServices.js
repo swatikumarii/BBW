@@ -100,6 +100,7 @@ function createOrder(req, res, paymentMethod, ovoID) {
 
   // Creates a new order.
   var order = COHelpers.createOrder(currentBasket);
+  order.custom.addressLog = 'custom' in currentBasket && 'addressLog' in currentBasket.custom && currentBasket.custom.addressLog ? currentBasket.custom.addressLog : null;
 
   if (!order) {
     res.json({
