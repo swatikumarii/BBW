@@ -226,8 +226,6 @@ $(document).ready(function () {
         var selectedState = $('body')
             .find('.shippingState')
             .attr('data-selected');
-        $('.tax-calculated-state').addClass('d-none');
-        $('.tax-not-calculated-state').removeClass('d-none');
         if (selectedState !== 'null') {
             $('.shippingState option').each(function () {
                 if ($(this).val() === selectedState) {
