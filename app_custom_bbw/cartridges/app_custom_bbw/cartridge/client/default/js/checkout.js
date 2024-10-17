@@ -229,8 +229,6 @@ $(document).ready(function () {
         $('.tax-calculated-state').addClass('d-none');
         $('.tax-not-calculated-state').removeClass('d-none');
         if (selectedState !== 'null') {
-            $('.tax-calculated-state').removeClass('d-none');
-            $('.tax-not-calculated-state').addClass('d-none');
             $('.shippingState option').each(function () {
                 if ($(this).val() === selectedState) {
                     $('.shippingState option').removeAttr('selected');
@@ -458,8 +456,6 @@ $('.shippingState').change(function () {
     console.log('default');
     suburbDropdown.empty(); // clear existing options
     if (addressData[selectedState]) {
-        $('.tax-calculated-state').removeClass('d-none');
-        $('.tax-not-calculated-state').addClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -483,8 +479,6 @@ $('.shippingState').change(function () {
         suburbDropdown.trigger('change');
         zipDropdown.trigger('change');
     } else {
-        $('.tax-calculated-state').addClass('d-none');
-        $('.tax-not-calculated-state').removeClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -494,6 +488,8 @@ $('.shippingState').change(function () {
         suburbDropdown.trigger('change');
         zipDropdown.trigger('change');
     }
+    var shippingEstimatedText = $('.estimeted-shipping-text').attr('data-estimated-shipping-text');
+    var shippingText = $('.estimeted-shipping-text').attr('data-shipping-text');
     var updateShippingMethodsURL = $('input[name="update-shipping-method-url"]').val() + '?stateCode=' + selectedState;
     $.ajax({
         type: 'POST',
@@ -505,6 +501,11 @@ $('.shippingState').change(function () {
                 $('.cart-dangerous-goods').removeClass('d-none');
             } else {
                 $('.cart-dangerous-goods').addClass('d-none');
+            }
+            if(!data.isEstimatedShipping || data.order.hasFreeShipping){
+                $('.tax-calculated-state').text(shippingText);
+            }else{
+                $('.tax-calculated-state').text(shippingEstimatedText);
             }
         }
     });

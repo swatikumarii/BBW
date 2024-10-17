@@ -162,7 +162,7 @@ function canSkipSummaryPage(reqDataObj) {
 function paymentFromComponent(req, res, next) {
     var _currentBasket$custom2;
     var reqDataObj = JSON.parse(req.form.data);
-    if (reqDataObj.customer.addressBook.preferredAddress.countryCode.value === 'HK') {
+    if (reqDataObj.customer && reqDataObj.customer.preferredAddress && reqDataObj.customer.preferredAddress.countryCode.value === 'HK') {
         reqDataObj.customer.addressBook.preferredAddress.stateCode = reqDataObj.customer.addressBook.preferredAddress.postalCode;
         reqDataObj.customer.addressBook.preferredAddress.postalCode = '999077';
     }

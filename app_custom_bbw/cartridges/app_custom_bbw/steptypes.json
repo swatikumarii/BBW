@@ -400,7 +400,37 @@
                 }
               ]
             }
+          },
+          {
+            "@type-id": "custom.scheduledInventorySync",
+            "@supports-parallel-execution": "false",
+            "@supports-site-context": "true",
+            "@supports-organization-context": "true",
+            "description": "update reserve quantity",
+            "module": "app_custom_bbw/cartridge/scripts/jobs/scheduledInventorySync.js",
+            "function": "execute",
+            "transactional": "true",
+            "timeout-in-seconds": "900",
+            "parameters": {
+              "parameter": []
+            },
+            "status-codes": {
+              "status": [
+                {
+                  "@code": "ERROR",
+                  "description": "Used when the step failed with an error."
+                },
+                {
+                  "@code": "FINISHED",
+                  "description": "Used when the step finished successfully."
+                },
+                {
+                  "@code": "FINISHED_WITH_WARNINGS",
+                  "description": "Used when the step finished with warnings."
+                }
+              ]
+            }
           }
-      ]
+     ]
     }
   }

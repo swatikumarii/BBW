@@ -11,7 +11,7 @@ server.append('Begin', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(currentBasket);
     var viewData = res.getViewData();
-    var isEstimatedShipping = false;
+    var isEstimatedShipping = true;
     viewData.isGiftProductAvailable = isGiftProductAvailable;
     if (viewData.currentStage === 'customer') {
         viewData.currentStage = 'shipping';
@@ -90,12 +90,11 @@ server.append('Begin', function (req, res, next) {
                 preferredAddress.raw.custom.subDistrict;
         }
     }
-
     if (currentBasket && currentBasket.defaultShipment) {
         var shippingAddress = currentBasket.defaultShipment.shippingAddress;
-            
-        if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode !== '') {
-            isEstimatedShipping = true;
+        
+        if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+            isEstimatedShipping = false;
         }
     } 
     viewData.isEstimatedShipping = isEstimatedShipping;
@@ -156,6 +155,7 @@ server.post('UpdateShippingMethods', function (req, res, next) {
             break;
         }
     }
+    var isEstimatedShipping = true;
     Transaction.wrap(function () {
         var shippingAddress = shipment.shippingAddress;
 
@@ -191,9 +191,18 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         { usingMultiShipping: false, countryCode: currentLocale.country, containerView: 'basket' }
     );
 
+    if (currentBasket && currentBasket.defaultShipment) {
+            var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+            
+            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+                isEstimatedShipping = false;
+            }
+        } 
+
     res.json({
         customer: new AccountModel(req.currentCustomer),
         order: basketModel,
+        isEstimatedShipping : isEstimatedShipping,
         isOrderShippable: isOrderShippable,
         showDangerousGoodsMessage: isDangerousGoodsInBasket && !isOrderShippable,
         shippingForm: server.forms.getForm('shipping')

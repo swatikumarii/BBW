@@ -236,12 +236,8 @@ $(document).ready(function () {
         selectedState = $('body')
             .find('.shippingState')
             .attr('data-selected');
-            $('.tax-calculated-state').addClass('d-none');
-            $('.tax-not-calculated-state').removeClass('d-none');
         if (selectedState !== 'null') {
             var stateShipExists = false;
-            $('.tax-calculated-state').removeClass('d-none');
-            $('.tax-not-calculated-state').addClass('d-none');
             $('.shippingState option').each(function () {
                 if ($(this).val() === selectedState) {
                     $('.shippingState option').removeAttr('selected');
@@ -560,8 +556,6 @@ $('.shippingState').change(function () {
     suburbDropdown.empty(); // clear existing options
     if (addressDataEN[selectedState]) {
         $(this).empty();
-        $('.tax-calculated-state').removeClass('d-none');
-        $('.tax-not-calculated-state').addClass('d-none');
         stateDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -613,8 +607,6 @@ $('.shippingState').change(function () {
         });
     } else if (addressDataNativeLocale[selectedState]) {
         $(this).empty();
-        $('.tax-calculated-state').removeClass('d-none');
-        $('.tax-not-calculated-state').addClass('d-none');
         stateDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -665,8 +657,6 @@ $('.shippingState').change(function () {
             }
         });
     } else {
-        $('.tax-calculated-state').addClass('d-none');
-        $('.tax-not-calculated-state').removeClass('d-none');
         suburbDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -675,6 +665,8 @@ $('.shippingState').change(function () {
         );
     }
     suburbDropdown.trigger('change');
+    var shippingEstimatedText = $('.estimeted-shipping-text').attr("data-estimated-shipping-text");
+    var shippingText = $('.estimeted-shipping-text').attr("data-shipping-text");
     var updateShippingMethodsURL = $('input[name="update-shipping-method-url"]').val() + '?stateCode=' + selectedState;
     $.ajax({
         type: 'POST',
@@ -686,6 +678,11 @@ $('.shippingState').change(function () {
                 $('.cart-dangerous-goods').removeClass('d-none');
             } else {
                 $('.cart-dangerous-goods').addClass('d-none');
+            }
+            if(!data.isEstimatedShipping || data.order.hasFreeShipping){
+                $('.tax-calculated-state').text(shippingText);
+            }else{
+                $('.tax-calculated-state').text(shippingEstimatedText);
             }
         }
     });
