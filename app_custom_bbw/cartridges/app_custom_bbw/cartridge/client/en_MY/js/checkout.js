@@ -627,10 +627,10 @@ $('.shippingAddressCity').change(function () {
         success: function (data) {
             shippingHelpers.methods.updateShippingMethods(data.order.shipping);
             $('.grand-total-wrap .grand-total').empty().text(data.order.priceTotal);
-            if (data.isOrderShippable) {
-                $('.cart-dangerous-goods').addClass('d-none');
-            } else {
+            if (data.showDangerousGoodsMessage) {
                 $('.cart-dangerous-goods').removeClass('d-none');
+            } else {
+                $('.cart-dangerous-goods').addClass('d-none');
             }
         }
     });

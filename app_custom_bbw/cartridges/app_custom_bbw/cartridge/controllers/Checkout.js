@@ -147,6 +147,15 @@ server.post('UpdateShippingMethods', function (req, res, next) {
     var stateCode = req.querystring.stateCode;
     var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
     var isOrderShippable = false;
+    var isDangerousGoodsInBasket = false;
+    var CartModel = require('*/cartridge/models/cart');
+    var cartModel = new CartModel(currentBasket);
+    for (var i = 0; i < cartModel.items.length; i++) {
+        if (cartModel.items[i].dangerousGoods) {
+            isDangerousGoodsInBasket = true;
+            break;
+        }
+    }
     Transaction.wrap(function () {
         var shippingAddress = shipment.shippingAddress;
 
@@ -186,6 +195,7 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         customer: new AccountModel(req.currentCustomer),
         order: basketModel,
         isOrderShippable: isOrderShippable,
+        showDangerousGoodsMessage: isDangerousGoodsInBasket && !isOrderShippable,
         shippingForm: server.forms.getForm('shipping')
     });
     next();
