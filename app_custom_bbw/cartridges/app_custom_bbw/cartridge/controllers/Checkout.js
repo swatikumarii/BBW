@@ -209,6 +209,7 @@ server.post('LogAddress', function (req, res, next) {
         var shippingAddressOne = req.httpParameterMap.shippingAddressOne.value;
         var shippingAddressTwo = req.httpParameterMap.shippingAddressTwo.value;
         var shippingAddressAutoComplete = req.httpParameterMap.shippingAddressAutoComplete.value;
+        var userAgent = req.httpHeaders['user-agent'];
         var platform = req.httpHeaders['sec-ch-ua-platform'];
         var browser = req.httpHeaders['sec-ch-ua'];
         Transaction.wrap(function () {
@@ -217,7 +218,8 @@ server.post('LogAddress', function (req, res, next) {
                 shippingAddressTwo: shippingAddressTwo,
                 shippingAddressAutoComplete: shippingAddressAutoComplete,
                 platform: platform,
-                browser: browser
+                browser: browser,
+                userAgent: userAgent
             });
         });
         res.json({success: true});

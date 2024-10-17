@@ -225,6 +225,19 @@ $(document).on('blur', '#email', function () {
                     //
                     formHelpers.clearPreviousErrors('.shipping-form');
 
+                    var shippingAddressOneVal = $('.shippingAddressOne').val();
+                    var shippingAddressTwoVal = $('.shippingAddressTwo').val();
+                    var shippingAddressAutoCompleteVal = $('#shippingAddressAutoComplete').val();
+                    var AddressLogUrl = $('#addressLog-url').val();
+                    $.ajax({
+                        type: 'POST',
+                        data: {
+                            shippingAddressOne: shippingAddressOneVal,
+                            shippingAddressTwo: shippingAddressTwoVal,
+                            shippingAddressAutoComplete: shippingAddressAutoCompleteVal
+                        },
+                        url: AddressLogUrl
+                    });
                     //
                     // Submit the Shipping Address Form
                     //

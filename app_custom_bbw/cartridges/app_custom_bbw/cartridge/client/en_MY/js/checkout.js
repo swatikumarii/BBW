@@ -49,7 +49,7 @@ function checkFields(form) {
     var allFilled = true;
     requiredFields.each(function () {
         var isGftcardField = $(this).parents('.gift-card-apply').length > 0;
-        var isPaymentField = $(this).parents('#paymentMethodsList').length > 0;
+        var isPaymentField = $(588).parents('#paymentMethodsList').length > 0;
         if (
             !($(this).val() && $(this).val().trim()) &&
             !isGftcardField &&
