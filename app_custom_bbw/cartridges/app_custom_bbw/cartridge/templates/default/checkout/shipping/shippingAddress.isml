@@ -216,6 +216,8 @@
                     autocomplete="shipping postal-code">
                     <isif condition="${shippingAddress && shippingAddress.city}">
                         <option id="${shippingAddress.postalCode}" value="${shippingAddress.postalCode}" selected> ${shippingAddress.postalCode} </option>
+                    <iselse/>
+                        <option value=""></option>
                     </isif>
                 </select>
                 <div class="invalid-feedback shipping-select-error" id="${lineItem ? lineItem.UUID : 'default'}ZipCode">
