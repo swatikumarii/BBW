@@ -1168,6 +1168,13 @@
                 <field-length>0</field-length>
                 <default-value>12345</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="countFragranceEnabled">
+                <display-name xml:lang="x-default">Fragrance Count</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
 
             <attribute-definition attribute-id="ApplePayExpress_Enabled">
                 <display-name xml:lang="x-default">Enable Apple Pay express checkout</display-name>
@@ -2205,6 +2212,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="topFragrances"/>
                 <attribute attribute-id="productIngredients"/>
                 <attribute attribute-id="essentialFragrances"/>
+                <attribute attribute-id="countFragranceEnabled"/>
             </attribute-group>
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>

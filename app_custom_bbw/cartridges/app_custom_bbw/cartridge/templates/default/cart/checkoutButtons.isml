@@ -165,3 +165,16 @@
     </div>
 </isif>
 <iscomment>End of Afterpay</iscomment>
+<div class="modal" tabindex="-1" id="applePayAdress" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img class="h-mb--15 h-mt--15" src="${URLUtils.staticURL('/images/apple-pay/BBW_Delivery Error.svg')}"
+                    alt="${Resource.msg('global.storename', 'common', null)}" />
+                <h5 class="modal-title h-font-size--18 h-fw--semibold h-mb--15">${Resource.msg('heading.order.not.placed', 'cart', null)}</h5>
+                <p class="h-font-size--16"><isprint value="${Resource.msgf('message.apple.pay.address.error', 'cart', null, pdict.country)}" encoding="off" /></p>
+                <button type="button" class="btn btn-primary apple-pay-popup h-text-transform--uppercase h-mb--15 h-fw--semibold" data-dismiss="modal">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>

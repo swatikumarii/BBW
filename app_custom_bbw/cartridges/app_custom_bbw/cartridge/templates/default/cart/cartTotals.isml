@@ -50,11 +50,11 @@
 <isif condition="${!pdict.isGiftProductAvailable}">
     <isif condition="${shippingExclusiveTax}">
         <div class="row">
-            <div class="col-8">
-            <isif condition="${pdict.isEstimatedShipping}">
-                <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</p>
+            <div class="col-8 estimated-shipping-text-cart" data-estimated-shipping-text="${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}" data-shipping-text="${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}">
+            <isif condition="${!pdict.isEstimatedShipping || pdict.hasFreeShipping}">
+                <p class="h-font-size--16 h-clr--black-1 tax-calculated-state-cart">${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</p>
             <iselse/>
-                <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)} </p>
+                <p class="h-font-size--16 h-clr--black-1 tax-calculated-state-cart">${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)} </p>
             </isif>
             </div>
             <div class="col-4">
