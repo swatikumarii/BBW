@@ -19,7 +19,7 @@ function execute() {
         // Check if futureReserveDate is defined and valid
         if (scheduledInventoryDate !== null && futureReserve !== null) {
             // Convert futureReserveDate to a JavaScript Date object
-            scheduledInventoryDate = new Date(scheduledInventoryDate);
+            scheduledInventoryDate = new Date(new Date(scheduledInventoryDate).getTime() - 899828);
 
             // Retrieve current date
             var currentDate = new Date();
