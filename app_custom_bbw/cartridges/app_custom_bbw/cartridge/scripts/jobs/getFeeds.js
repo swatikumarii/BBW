@@ -93,9 +93,9 @@ function getGoogleFeeds() {
                                 categories += breadcrumbs[index1].htmlValue;
                             }
                         }
-                        xmlStreamWriter.writeStartElement('item_group_id');
-                        xmlStreamWriter.writeCData('');
-                        xmlStreamWriter.writeEndElement();
+                        // xmlStreamWriter.writeStartElement('item_group_id');
+                        // xmlStreamWriter.writeCData('');
+                        // xmlStreamWriter.writeEndElement();
         
                         xmlStreamWriter.writeStartElement('g:title');
                         xmlStreamWriter.writeCData(
@@ -136,17 +136,13 @@ function getGoogleFeeds() {
                         xmlStreamWriter.writeStartElement('g:condition');
                         xmlStreamWriter.writeCharacters(' New ');
                         xmlStreamWriter.writeEndElement();
-        
-                        xmlStreamWriter.writeStartElement('g:size_type');
-                        xmlStreamWriter.writeCData('');
-                        xmlStreamWriter.writeEndElement();
-        
+                        
                         xmlStreamWriter.writeStartElement('g:brand');
                         xmlStreamWriter.writeCData(
                             product.brand ? ' ' + product.brand + ' ' : ' '
                         );
                         xmlStreamWriter.writeEndElement();
-        
+
                         xmlStreamWriter.writeStartElement('g:image_link');
                         xmlStreamWriter.writeCData(
                             images.mediumLarge.length > 0
@@ -154,7 +150,7 @@ function getGoogleFeeds() {
                                 : ' '
                         );
                         xmlStreamWriter.writeEndElement();
-        
+
                         xmlStreamWriter.writeStartElement('g:product_type');
                         xmlStreamWriter.writeCData(' ' + categories + ' ');
                         xmlStreamWriter.writeEndElement();
@@ -162,23 +158,26 @@ function getGoogleFeeds() {
                         xmlStreamWriter.writeStartElement('g:gtin');
                         xmlStreamWriter.writeCharacters(product.UPC ? product.UPC : '');
                         xmlStreamWriter.writeEndElement();
-        
+
                         xmlStreamWriter.writeStartElement('g:shipping_weight');
                         xmlStreamWriter.writeCharacters('0');
                         xmlStreamWriter.writeEndElement();
-        
-                        xmlStreamWriter.writeStartElement('g:availability');
-                        xmlStreamWriter.writeCData(' in stock ');
-                        xmlStreamWriter.writeEndElement();
-        
-                        xmlStreamWriter.writeStartElement('g:id');
-                        xmlStreamWriter.writeCData(' ' + product.ID + ' ');
+
+                        xmlStreamWriter.writeStartElement('g:mpn');
                         xmlStreamWriter.writeEndElement();
         
                         xmlStreamWriter.writeStartElement('g:quantity');
                         xmlStreamWriter.writeCData(productObj.availableToSell.toString());
                         xmlStreamWriter.writeEndElement();
-        
+
+                        xmlStreamWriter.writeStartElement('g:availability');
+                        xmlStreamWriter.writeCData(' in stock ');
+                        xmlStreamWriter.writeEndElement();
+
+                        xmlStreamWriter.writeStartElement('g:id');
+                        xmlStreamWriter.writeCData(' ' + product.ID + ' ');
+                        xmlStreamWriter.writeEndElement();
+
                         xmlStreamWriter.writeStartElement('g:price');
                         xmlStreamWriter.writeCharacters(
                             product.priceModel.price.value.toString()
@@ -196,7 +195,7 @@ function getGoogleFeeds() {
                             );
                         }
                         xmlStreamWriter.writeEndElement();
-        
+
                         xmlStreamWriter.writeStartElement('g:google_product_category');
                         xmlStreamWriter.writeCData(
                             ' Health & Beauty > Personal Care > Cosmetics > Bath & Body > ' +
@@ -204,6 +203,7 @@ function getGoogleFeeds() {
                                 ' '
                         );
                         xmlStreamWriter.writeEndElement();
+
                         // item end
                         xmlStreamWriter.writeEndElement();
                     }
