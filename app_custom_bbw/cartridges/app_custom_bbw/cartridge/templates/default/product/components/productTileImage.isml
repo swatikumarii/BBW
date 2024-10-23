@@ -33,7 +33,7 @@
         <div id="plpCarousel-${product.id}" class="carousel slide b-product-tile__carousel js-product-carousel"
             data-interval="0" data-prev="${Resource.msg('button.previous', 'common', null)}"
             data-next="${Resource.msg('button.next', 'common', null)}">
-            <div class="carousel-inner" role="listbox">
+            <div class="carousel-inner">
                 <a class="d-block"
                     hreflang="${pdict.hrefLang}" href="${pdict.urls.product}">
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
