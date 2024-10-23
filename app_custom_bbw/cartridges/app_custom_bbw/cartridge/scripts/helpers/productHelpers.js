@@ -62,8 +62,8 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
                 htmlValue: category.displayName,
                 url: category.custom.alternativeUrl
             });
-        } else {
-            breadcrumbs.push({
+        } else if(category.ID !== 'root') {
+                breadcrumbs.push({
                 htmlValue: category.displayName,
                 url: URLUtils.url('Search-Show', 'cgid', category.ID)
             });
