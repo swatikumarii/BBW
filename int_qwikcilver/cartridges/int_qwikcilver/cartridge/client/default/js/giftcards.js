@@ -160,6 +160,9 @@ $(document).ready(function () {
                         $('.add-giftcard-section').removeClass('show');
                         $('.add-giftcard-header').removeClass('d-flex').hide();
                         $('.payment-options-heading').hide();
+                        $('button.submit-payment').each(function () {
+                            $(this).removeAttr('disabled');
+                        });
                         $(document).off('ajaxComplete');
                     }
                     if (data.success) {

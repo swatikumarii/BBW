@@ -16,6 +16,7 @@ module.exports = {
             types: ['address']
         };
         var autocomplete = new google.maps.places.Autocomplete(input, options);
+        $(input).removeAttr('disabled');
         autocomplete.addListener('place_changed', function () {
             var place = autocomplete.getPlace();
             var components = place.address_components;
@@ -164,6 +165,7 @@ module.exports = {
             types: ['address']
         };
         var autocomplete = new google.maps.places.Autocomplete(input, options);
+        $(input).removeAttr('disabled');
         autocomplete.addListener('place_changed', function () {
             var place = autocomplete.getPlace();
             var components = place.address_components;
@@ -322,6 +324,7 @@ module.exports = {
             types: ['address']
         };
         var autocomplete = new google.maps.places.Autocomplete(input, options);
+        $(input).removeAttr('disabled');
         autocomplete.addListener('place_changed', function () {
             var place = autocomplete.getPlace();
             var components = place.address_components;
