@@ -70,6 +70,16 @@ function getGoogleFeeds() {
                         categories = '';
                         if (product.categories.length) {
                             category = product.categories[0].displayName;
+                            if (
+                                [
+                                    'Shop By Ingredient',
+                                    'Shop By Fragrance',
+                                    'Top Offers',
+                                    'All Products'
+                                ].indexOf(category) > -1
+                            ) {
+                                category = product.categories[1].displayName;
+                            }
                             breadcrumbs = productHelper.getAllBreadcrumbs(
                                 product.categories[0].ID,
                                 null,
