@@ -332,6 +332,10 @@ $(document).ready(function () {
                             $('.afterpay-checkout-widget').find('square-placement').attr('data-amount', data.basketModel.totals.pendingTotal.pendingAmountValue);
                         }
                     }
+                    $('label#lb_scheme').siblings('input').click();
+                }
+                if ($('.giftcard-partial-redemption > span').text().length) {
+                    $('label#lb_scheme').siblings('input').click();
                 }
                 $('.add-giftcard-header').show();
                 if (data.basketModel && data.basketModel.totals) {
