@@ -103,9 +103,10 @@ function getGoogleFeeds() {
                                 categories += breadcrumbs[index1].htmlValue;
                             }
                         }
-                        // xmlStreamWriter.writeStartElement('item_group_id');
-                        // xmlStreamWriter.writeCData('');
-                        // xmlStreamWriter.writeEndElement();
+
+                        xmlStreamWriter.writeStartElement('item_group_id');
+                        xmlStreamWriter.writeCData(' ' + product.ID + ' ');
+                        xmlStreamWriter.writeEndElement();
         
                         xmlStreamWriter.writeStartElement('g:title');
                         xmlStreamWriter.writeCData(
@@ -146,6 +147,10 @@ function getGoogleFeeds() {
                         xmlStreamWriter.writeStartElement('g:condition');
                         xmlStreamWriter.writeCharacters(' New ');
                         xmlStreamWriter.writeEndElement();
+
+                        xmlStreamWriter.writeStartElement('size_type');
+                        xmlStreamWriter.writeCData(' ');
+                        xmlStreamWriter.writeEndElement();  
                         
                         xmlStreamWriter.writeStartElement('g:brand');
                         xmlStreamWriter.writeCData(
@@ -190,18 +195,24 @@ function getGoogleFeeds() {
 
                         xmlStreamWriter.writeStartElement('g:price');
                         xmlStreamWriter.writeCharacters(
-                            product.priceModel.price.value.toString()
+                            product.priceModel.price.value.toString() +
+                                ' ' +
+                                product.priceModel.price.currencyCode
                         );
                         xmlStreamWriter.writeEndElement();
         
                         xmlStreamWriter.writeStartElement('g:sale_price');
                         if (productObj.promoPrice) {
                             xmlStreamWriter.writeCharacters(
-                                productObj.promoPrice.toString()
+                                productObj.promoPrice.toString() +
+                                    ' ' +
+                                    product.priceModel.price.currencyCode
                             );
                         } else {
                             xmlStreamWriter.writeCharacters(
-                                product.priceModel.price.value.toString()
+                                product.priceModel.price.value.toString() +
+                                    ' ' +
+                                    product.priceModel.price.currencyCode
                             );
                         }
                         xmlStreamWriter.writeEndElement();
