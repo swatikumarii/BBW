@@ -715,3 +715,34 @@
         }
     }
 }
+
+.gated-popup-backdrop {
+    background: black;
+    opacity: 0.9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+}
+
+.gated-popup {
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 400px;
+    height: 250px;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.select-bonus-product {
+    &input[type="checkbox"] {
+        opacity: 0 !important;
+    }
+}

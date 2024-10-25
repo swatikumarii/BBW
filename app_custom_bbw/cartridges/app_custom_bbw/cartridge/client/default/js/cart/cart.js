@@ -554,6 +554,18 @@ function chooseBonusProducts(data) {
                 });
             } else {
                 var parsedHtml = parseBonusHtml(response.renderedTemplate);
+                var selectedProducts = 0;
+                if (response.initialAddBonusProduct && $('.selected-bonus-products .selected-pid').length > 0) {
+                    $('.selected-bonus-products .selected-pid').each(function () {
+                        var pid = $(this).data('pid');
+                        $('.bonus-product-item.ready-to-order[data-pid="'+ pid +'"]').addClass('selected');
+                        selectedProducts++;
+                    });
+                }
+                if (selectedProducts >= data.maxBonusItems) {
+                    $('.bonus-product-item.ready-to-order').addClass('disabled');
+                    $('.bonus-product-item.ready-to-order.selected').removeClass('disabled');
+                }
                 $('#chooseBonusProductModal .modal-body').empty();
                 $('#chooseBonusProductModal .enter-message').text(
                     response.enterDialogMessage
@@ -622,7 +634,7 @@ module.exports = function () {
         };
         var cartHasBonus = $('input[name="cart-has-bonus"]').val() === 'true';
         var checkLoosingBonusURL = appendToUrl($('input[name="cart-check-loosing-bonus-url"]').val(), urlParams);
-        if (cartHasBonus && $(this).parents('#removeBonusModal').length === 0) {
+        if (cartHasBonus && $(this).parents('[id^=removeBonusModal-]').length === 0) {
             var stopExecution = false;
             $.ajax({
                 type: 'GET',
@@ -631,9 +643,9 @@ module.exports = function () {
                 success: function (response) {
                     if (response.loosingBonus && response.bonusUUID) {
                         stopExecution = true;
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal').modal('show');
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('uuid', uuid);
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('pid', productID);
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal-' +response.bonusUUID).modal('show');
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal-' + response.bonusUUID + ' .cart-delete-confirmation-btn').data('uuid', uuid);
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal-' + response.bonusUUID + ' .cart-delete-confirmation-btn').data('pid', productID);
                     }
                 }
             });

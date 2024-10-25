@@ -1,0 +1,19 @@
+{
+    "name": "CMP: Gated Page",
+    "description": "Makes the page password protected",
+    "group": "bbw_components",
+    "attribute_definition_groups": [
+        {
+            "id": "customObject",
+            "attribute_definitions": [
+                {
+                    "id": "customObjectID",
+                    "name": "ID of custom objectfor password",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}
