@@ -83,6 +83,7 @@
         "vanilla-lazyload": "^12.2.0",
         "video.js": "^7.10.2",
         "videojs-vimeo": "^2.0.2",
-        "videojs-youtube": "^2.6.1"
+        "videojs-youtube": "^2.6.1",
+        "mobx": "^6.13.3"
     }
 }

@@ -668,7 +668,8 @@ module.exports = function () {
         $.spinner().start();
 
         $('body').trigger('cart:beforeUpdate');
-
+        var shippingEstimatedText = $('.estimated-shipping-text-cart').attr("data-estimated-shipping-text");
+        var shippingText = $('.estimated-shipping-text-cart').attr("data-shipping-text");
         $.ajax({
             url: url,
             type: 'get',
@@ -832,7 +833,11 @@ module.exports = function () {
                     });
                 }
                 $('body').trigger('cart:update', data);
-
+                if(!data.basket.isEstimatedShipping || data.basket.hasFreeShipping){
+                    $('.tax-calculated-state-cart').text(shippingText);
+                }else{
+                    $('.tax-calculated-state-cart').text(shippingEstimatedText);
+                }
                 $.spinner().stop();
             },
             error: function (err) {

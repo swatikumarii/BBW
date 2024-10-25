@@ -437,6 +437,7 @@ server.append('RemoveProductLineItem', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var changes = cartHelper.createFreeLineItem(currentBasket, 0);
     var viewData = res.getViewData();
+    var isEstimatedShipping = true;
     var basketModel = new CartModel(currentBasket);
     if (changes) {
         viewData.refreshItems = true;
@@ -465,7 +466,15 @@ server.append('RemoveProductLineItem', function (req, res, next) {
             req.currentCustomer.raw.profile
         );
     }
+    if (currentBasket && currentBasket.defaultShipment) {
+        var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+        
+        if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+            isEstimatedShipping = false;
+        }
+    }
     // free item count
+    viewData.basket.isEstimatedShipping = isEstimatedShipping;
     viewData.basket.freeItemCount = basketModel.freeItemCount;
     viewData.basket.freeItemToastMessage = basketModel.freeItemToastMessage;
     res.setViewData(viewData);
@@ -751,9 +760,13 @@ server.append(
     function (req, res, next) {
         var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
         var showDangerousGoodsMsg = req.querystring.error === 'dangerous-goods';
+        var Locale = require('dw/util/Locale');
+        var country = Locale.getLocale(req.locale.id).getDisplayCountry();
         var viewData = res.getViewData();
+        viewData.country = country;
         var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
         var isGiftProductAvailable = false;
+        var isEstimatedShipping = true;
         var currentBasket = BasketMgr.getCurrentBasket();
         var isDangerousGoodsInBasket = false;
         if (currentBasket) {
@@ -774,6 +787,14 @@ server.append(
                 }
             }
         }
+        if (currentBasket && currentBasket.defaultShipment) {
+            var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+            
+            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+                isEstimatedShipping = false;
+            }
+        } 
+        viewData.isEstimatedShipping = isEstimatedShipping; 
         viewData.showDangerousGoodsMsg = showDangerousGoodsMsg && isDangerousGoodsInBasket;
         var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
             type: 10

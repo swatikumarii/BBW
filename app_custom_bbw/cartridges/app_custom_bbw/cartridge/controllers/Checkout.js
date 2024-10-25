@@ -11,6 +11,7 @@ server.append('Begin', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(currentBasket);
     var viewData = res.getViewData();
+    var isEstimatedShipping = true;
     viewData.isGiftProductAvailable = isGiftProductAvailable;
     if (viewData.currentStage === 'customer') {
         viewData.currentStage = 'shipping';
@@ -89,6 +90,14 @@ server.append('Begin', function (req, res, next) {
                 preferredAddress.raw.custom.subDistrict;
         }
     }
+    if (currentBasket && currentBasket.defaultShipment) {
+        var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+        
+        if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+            isEstimatedShipping = false;
+        }
+    } 
+    viewData.isEstimatedShipping = isEstimatedShipping;
 
     viewData.isDangerousGoodsInBasket = isDangerousGoodsInBasket;
     res.setViewData(viewData);
@@ -137,6 +146,16 @@ server.post('UpdateShippingMethods', function (req, res, next) {
     var stateCode = req.querystring.stateCode;
     var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
     var isOrderShippable = false;
+    var isDangerousGoodsInBasket = false;
+    var CartModel = require('*/cartridge/models/cart');
+    var cartModel = new CartModel(currentBasket);
+    for (var i = 0; i < cartModel.items.length; i++) {
+        if (cartModel.items[i].dangerousGoods) {
+            isDangerousGoodsInBasket = true;
+            break;
+        }
+    }
+    var isEstimatedShipping = true;
     Transaction.wrap(function () {
         var shippingAddress = shipment.shippingAddress;
 
@@ -172,13 +191,51 @@ server.post('UpdateShippingMethods', function (req, res, next) {
         { usingMultiShipping: false, countryCode: currentLocale.country, containerView: 'basket' }
     );
 
+    if (currentBasket && currentBasket.defaultShipment) {
+            var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+            
+            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+                isEstimatedShipping = false;
+            }
+        } 
+
     res.json({
         customer: new AccountModel(req.currentCustomer),
         order: basketModel,
+        isEstimatedShipping : isEstimatedShipping,
         isOrderShippable: isOrderShippable,
+        showDangerousGoodsMessage: isDangerousGoodsInBasket && !isOrderShippable,
         shippingForm: server.forms.getForm('shipping')
     });
     next();
+});
+
+server.post('LogAddress', function (req, res, next) {
+    var BasketMgr = require('dw/order/BasketMgr');
+    var Transaction = require('dw/system/Transaction');
+    try {
+        var currentBasket = BasketMgr.getCurrentBasket();
+        var shippingAddressOne = req.httpParameterMap.shippingAddressOne.value;
+        var shippingAddressTwo = req.httpParameterMap.shippingAddressTwo.value;
+        var shippingAddressAutoComplete = req.httpParameterMap.shippingAddressAutoComplete.value;
+        var userAgent = req.httpHeaders['user-agent'];
+        var platform = req.httpHeaders['sec-ch-ua-platform'];
+        var browser = req.httpHeaders['sec-ch-ua'];
+        Transaction.wrap(function () {
+            currentBasket.custom.addressLog = JSON.stringify({
+                shippingAddressOne: shippingAddressOne,
+                shippingAddressTwo: shippingAddressTwo,
+                shippingAddressAutoComplete: shippingAddressAutoComplete,
+                platform: platform,
+                browser: browser,
+                userAgent: userAgent
+            });
+        });
+        res.json({success: true});
+    } catch (error) {
+        res.json({success: false});
+    }
+    return next();
 });
 
 module.exports = server.exports();

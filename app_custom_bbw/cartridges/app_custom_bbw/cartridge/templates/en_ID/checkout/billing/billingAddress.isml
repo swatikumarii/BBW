@@ -40,7 +40,7 @@
             <label class="form-control-label h-font-size--16 h-fw--semibold" for="billingAddressAutoComplete">
                 ${Resource.msg('field.address.auto', 'address', null)}
             </label>
-            <input id="billingAddressAutoComplete" type="text" size="50">
+            <input id="billingAddressAutoComplete" type="text" size="50" disabled='disabled'>
         </div>
     </div>
 </div>

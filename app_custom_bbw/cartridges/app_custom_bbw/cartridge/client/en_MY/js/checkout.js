@@ -49,7 +49,7 @@ function checkFields(form) {
     var allFilled = true;
     requiredFields.each(function () {
         var isGftcardField = $(this).parents('.gift-card-apply').length > 0;
-        var isPaymentField = $(this).parents('#paymentMethodsList').length > 0;
+        var isPaymentField = $(588).parents('#paymentMethodsList').length > 0;
         if (
             !($(this).val() && $(this).val().trim()) &&
             !isGftcardField &&
@@ -541,7 +541,6 @@ $('.shippingState').change(function () {
     var suburbDropdown = $('.shippingAddressCity');
     var zipDropdown = $('.shippingZipCode');
     suburbDropdown.empty(); // clear existing options
-
     if (addressData[selectedState]) {
         suburbDropdown.prepend(
             $('<option>', {
@@ -613,6 +612,8 @@ $('.shippingAddressCity').change(function () {
         );
         zipDropdown.trigger('change');
     }
+    var shippingEstimatedText = $('.estimeted-shipping-text').attr("data-estimated-shipping-text");
+    var shippingText = $('.estimeted-shipping-text').attr("data-shipping-text");
     var updateShippingMethodsURL = $('input[name="update-shipping-method-url"]').val() + '?stateCode=' + selectedState;
     $.ajax({
         type: 'POST',
@@ -620,10 +621,15 @@ $('.shippingAddressCity').change(function () {
         success: function (data) {
             shippingHelpers.methods.updateShippingMethods(data.order.shipping);
             $('.grand-total-wrap .grand-total').empty().text(data.order.priceTotal);
-            if (data.isOrderShippable) {
-                $('.cart-dangerous-goods').addClass('d-none');
-            } else {
+            if (data.showDangerousGoodsMessage) {
                 $('.cart-dangerous-goods').removeClass('d-none');
+            } else {
+                $('.cart-dangerous-goods').addClass('d-none');
+            }
+            if(!data.isEstimatedShipping || data.order.hasFreeShipping){
+                $('.tax-calculated-state').text(shippingText);
+            }else{
+                $('.tax-calculated-state').text(shippingEstimatedText);
             }
         }
     });

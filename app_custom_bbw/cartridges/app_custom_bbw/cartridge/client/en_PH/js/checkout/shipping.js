@@ -198,9 +198,9 @@ function updateShippingMethods(shipping) {
                     }
                     // set shipping cost
                     if (shippingMethod.isShippingDiscountPrice) {
-                       $('.shipping-cost-discount', tmpl).css('display',"block");
-                       $('.shipping-cost', tmpl).addClass('discountPrice');
-                       $('.shipping-cost-discount', tmpl).text(shippingMethod.isShippingDiscountPrice);
+                        $('.shipping-cost-discount', tmpl).css('display','block');
+                        $('.shipping-cost', tmpl).addClass('discountPrice');
+                        $('.shipping-cost-discount', tmpl).text(shippingMethod.isShippingDiscountPrice);
                     }
                     $shippingMethodList.append(tmpl.html());
                 });
@@ -1011,14 +1011,17 @@ module.exports = {
 
     updateShippingList: function () {
         var baseObj = this;
-        $('select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_postalCode"], select[name$="dwfrm_shipping_shippingAddress_addressFields_subDistrict"]')
-            .on('change', function (e) {
-                if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
-                    baseObj.methods.updateShippingMethodList($(e.currentTarget.form));
-                } else {
-                    updateShippingMethodList($(e.currentTarget.form));
-                }
-            });
+        $(
+            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_postalCode"], select[name$="dwfrm_shipping_shippingAddress_addressFields_subDistrict"], input[name$="shippingAddress_addressFields_address1"]'
+        ).on('change', function (e) {
+            if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
+                baseObj.methods.updateShippingMethodList(
+                    $(e.currentTarget.form)
+                );
+            } else {
+                updateShippingMethodList($(e.currentTarget.form));
+            }
+        });
     },
 
     updateDataAddressMode: function () {
