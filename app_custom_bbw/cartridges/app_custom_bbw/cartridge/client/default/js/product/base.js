@@ -1049,31 +1049,29 @@ module.exports = $.extend({}, base, {
             });
             var checkbox = $(this).find('.select-bonus-product');
             var $choiceOfBonusProduct = $(this);
-            if (maxBonusItems <= selectedQty) {
-                if (checkbox.is(':checked')) {
-                    var pidToRemove = $(this).data('pid');
-                    checkbox.prop('checked', false);
-                    $(this).removeClass('selected');
-                    $('.ready-to-order.choice-of-bonus-product').removeClass('disabled');
-                    var reduceQty = parseInt($('.pre-cart-products').html(), 10);
-                    var removeQty = parseInt($choiceOfBonusProduct.find('.bonus-quantity-select').val(), 10);
-                    reduceQty -= removeQty;
-                    var quantityString = $('input[name="pre-cart-products-string"]').val();
-                    if (reduceQty <= 0) {
-                        var noSelectBonusProductHtml = ''+
+            if (selectedQty > 1 && checkbox.is(':checked')) {
+                var pidToRemove = $(this).data('pid');
+                checkbox.prop('checked', false);
+                $(this).removeClass('selected');
+                $('.ready-to-order.choice-of-bonus-product').removeClass('disabled');
+                var reduceQty = parseInt($('.pre-cart-products').html(), 10);
+                var removeQty = parseInt($choiceOfBonusProduct.find('.bonus-quantity-select').val(), 10);
+                reduceQty -= removeQty;
+                var quantityString = $('input[name="pre-cart-products-string"]').val();
+                if (reduceQty <= 0) {
+                    var noSelectBonusProductHtml = ''+
                             '<div class="bonus-summary row">'+
                             '<div class="col-12">'+
                             '<span class="pre-cart-products">0</span>'+
                                 quantityString +
                             '</div>'+
                             '</div>';
-                        $('#chooseBonusProductModal .selected-bonus-products').empty().append(noSelectBonusProductHtml);
-                        $('.add-bonus-products').attr('disabled', true);
-                    } else {
-                        $('.selected-pid[data-pid="'+pidToRemove+'"]').remove();
-                    }
-                    $('.pre-cart-products').html(reduceQty);
+                    $('#chooseBonusProductModal .selected-bonus-products').empty().append(noSelectBonusProductHtml);
+                    $('.add-bonus-products').attr('disabled', true);
+                } else {
+                    $('.selected-pid[data-pid="'+pidToRemove+'"]').remove();
                 }
+                $('.pre-cart-products').html(reduceQty);
             } else if (!checkbox.is(':checked')) {
                 checkbox.prop('checked', true);
                 var pid = checkbox.data('pid');
