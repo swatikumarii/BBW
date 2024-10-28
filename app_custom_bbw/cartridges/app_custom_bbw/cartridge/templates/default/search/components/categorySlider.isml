@@ -1,10 +1,10 @@
 <nav class="plp-category-swiper ds-smooth-scroll d-flex flex-nowrap row h-mb--30" data-cgid="${pdict.productSearch.category.id}">
-    <isloop items="${pdict.productSearch.levelOneCategory.onlineSubCategories}" var="levelTwoCategory">
-        <isloop items="${levelTwoCategory.onlineSubCategories}" var="levelThreeCategory">
-            <isif condition="${levelThreeCategory && levelThreeCategory.custom && levelThreeCategory.custom.showInMenu && levelThreeCategory.products.empty==false && levelThreeCategory.onlineProducts.empty==false && (levelThreeCategory.custom.showCategoryInSlider == null || levelThreeCategory.custom.showCategoryInSlider)}">
+    <isloop items="${pdict.productSearch.levelOneCategory.levelTwoCategories}" var="levelTwoCategory">
+        <isloop items="${levelTwoCategory.levelThreeCategories}" var="levelThreeCategory">
+            <isif condition="${levelThreeCategory.isShowCategoryInSlider}">
                 <a class="plp-category-swiper__link rounded b-text-h2 h-fw--medium text-center d-flex flex-column js-category-swiper ${pdict.productSearch.category.id === levelThreeCategory.ID ? 'active' : ''}" hreflang="${pdict.hrefLang}" href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}"
                     data-cgid="${levelThreeCategory.ID}">
-                    <img class="plp-category-swiper__image card-img-top mx-auto border-0 lazy" width="100%" height="156.67" data-src="${levelThreeCategory.thumbnail.absURL}" alt="${levelThreeCategory.name}" />
+                    <img class="plp-category-swiper__image card-img-top mx-auto border-0 lazy" width="100%" height="156.67" data-src="${levelThreeCategory.absURL}" alt="${levelThreeCategory.displayName}" />
                     <div class="navigation-label plp-category-swiper__name h-fw--semibold h-font-size--16 d-flex justify-content-center align-items-center h-100">
                         ${levelThreeCategory.displayName}
                     </div>
