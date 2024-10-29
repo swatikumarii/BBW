@@ -176,7 +176,7 @@
         }
 
         &.slick-next {
-            right: 20px;
+            right: -20px;
 
             @include media-up(sm) {
                 right: -53px;
