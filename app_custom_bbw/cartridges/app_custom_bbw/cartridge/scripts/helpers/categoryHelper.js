@@ -86,11 +86,11 @@ function appendCategoryBreadcrum(req, res, next) {
             []
         );
     }
-    if (!viewData.productSearch.isCategorySearch && viewData.productSearch.searchKeywords) {
-        breadcrumbs.push({
-            htmlValue: Resource.msgf('search.result.breadcrumb', 'search', null, viewData.productSearch.searchKeywords)
-        });
-    }
+    // if (!viewData.productSearch.isCategorySearch && viewData.productSearch.searchKeywords) {
+    //     breadcrumbs.push({
+    //         htmlValue: Resource.msgf('search.result.breadcrumb', 'search', null, viewData.productSearch.searchKeywords)
+    //     });
+    // }
 
     breadcrumbs = breadcrumbs.reverse();
 

@@ -23,6 +23,8 @@
         ${Resource.msg('link.continue.shopping', 'cart', null)}
     </a>
     <div class="cartContainer">
+        <input type="hidden" name="cart-has-bonus" value="${pdict.hasBonusProducts}">
+        <input type="hidden" name="cart-check-loosing-bonus-url" value="${pdict.CheckLoosingBonusURL}">
         <div class="container text-center <isif condition="${pdict.items.length !== 0}">d-none</isif>">
             <div class="empty-recommendation-container cart-page-add-to-bag">
                 <div class="empty-cart-recommendations">
@@ -44,6 +46,7 @@
             </div>
         </div>
         <isset name="showBonusTitle" value="${true}" scope="page" />
+        <isset name="isAvailableBonus" value="${false}" scope="page" />
         <isif condition="${pdict.items.length !== 0}">
             <div class="container cart cart-page">
                 <h1 class="shoppingBagTitle h-clr--black-1 h-fw--bold h-font-size--24">
@@ -103,7 +106,7 @@
                 <div class="cart-lineitems">
                     <isloop items="${pdict.items}" var="lineItem">
                         <isif condition="${showBonusTitle && lineItem.isBonusProductLineItem}">
-                            <span class="bonus-product-title h-font-size--20 h-clr--black-1 ml-3">Your Free Gifts/Discounted Products</span>
+                            <span class="bonus-product-title h-font-size--20 h-clr--black-1 ml-3">${Resource.msg('msg.your.bonus.product', 'cart', null)}</span>
                             <isset name="showBonusTitle" value="${false}" scope="page" />
                         </isif>
                         <isif condition="${lineItem.isGiftWrapCategory}">
@@ -122,6 +125,14 @@
                             </isif>
                         </isif>
                     </isloop>
+                    <isif condition="${pdict.availableBonusProducts.length > 0}">
+                            <isset name="isAvailableBonus" value="${true}" scope="page" />
+                            <span class="bonus-product-title h-font-size--20 h-clr--black-1 ml-3">${Resource.msg('msg.available.bonus.product', 'cart', null)}</span>
+                            <isloop items="${pdict.availableBonusProducts}" var="availableBonusProduct" status="loopstatus">
+                                <isset name="lineItem" value="${availableBonusProduct.product}" scope="page" />
+                                <isinclude template="cart/productCard/cartProductCard" />
+                            </isloop>
+                    </isif>
                     <isinclude template="cart/productCard/cartGreetingCard" />
                     <div class="gift-wrap-card-div">
                         <isinclude template="cart/productCard/cartGiftWrapProductCard" />

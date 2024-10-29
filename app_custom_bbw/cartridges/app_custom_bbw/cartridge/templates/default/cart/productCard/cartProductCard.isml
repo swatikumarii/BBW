@@ -1,3 +1,4 @@
+
 <isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
 <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
 <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
@@ -92,9 +93,44 @@
                     <isinclude template="wishlist/components/addToWishListButtonCart" sf-toolkit="on" />
                 </isif>
                 <isif condition="${lineItem.isBonusProductLineItem}">
-                   <span class="change-bonus-product mt-3 text-decoration-underline" data-uuid="${lineItem.bonusProductLineItemUUID}">Choose a different gift/product</span>
-                    <iscomment> TODO: Implement remove </iscomment>
-                   <iscomment> <span class="change-bonus-product mt-2 text-decoration-underline" data-uuid="${lineItem.bonusProductLineItemUUID}">Remove Gift</span> </iscomment>
+                    <isif condition="${!isAvailableBonus}">
+                        <span class="change-bonus-product mt-3 text-decoration-underline" data-uuid="${lineItem.bonusProductLineItemUUID}">${Resource.msg('msg.choose.different.gwp.pwp', 'cart', null)}</span>
+                        <span class="change-bonus-product mt-2 text-decoration-underline" data-toggle="modal" data-target="${'#removeBonusModal-'+lineItem.UUID}">${Resource.msg('btn.remove.gwp', 'cart', null)}</span>
+                        <div class="modal fade" id="removeBonusModal-${lineItem.UUID}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header ">
+                                        <div class="text-center w-100 pt-4">
+                                            <h5 class="h-font-size--34 h-clr--black-1 h-fw--semibold h-line-height--30" id="removeBonusModalLabel">${Resource.msg('demotivator.title.1', 'cart', null)}</h5>
+                                            <p class="h-font-size--16 h-clr--gray-10">${Resource.msg('demotivator.title.2', 'cart', null)}</p>
+                                        </div>
+                                        <button type="button" class="close position-absolute" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">
+                                                <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="d-flex align-items-center">
+                                            <img class="product-image mr-2" src="${lineItem.images.small[0].url}"
+                                                srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
+                                                alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}" height="125px" />
+                                            <isinclude template="cart/productCard/cartProductCardHeader" />
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer justify-content-center py-4">
+                                        <button type="button" class="btn btn-primary text-uppercase cart-delete-confirmation-btn w-25 h-fw--semibold" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
+                                            data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}" data-dismiss="modal">${Resource.msg('remove.label', 'common', null)}</button>
+                                        <button type="button" class="btn btn-secondary text-uppercase w-25 h-fw--semibold" data-dismiss="modal">${Resource.msg('cancel.label', 'common', null)}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <iselse/>
+                            <span class="available-bonus-product-button mt-3 text-decoration-underline" data-toggle="modal" role="button"
+                        data-target="#chooseBonusProductModal" data-availablediscountobject="${JSON.stringify(lineItem.availableDiscountObject)}" data-duuid="${lineItem.discountLineItem.uuid}" data-pliuuid="${lineItem.discountLineItem.pliuuid}" data-maxpids="${lineItem.discountLineItem.maxpids}" data-pageStart="0" data-pageSize="0" data-url="${lineItem.discountLineItem.url}">${Resource.msg('msg.choose.gwp.pwp', 'cart', null)}</span>
+                    </isif>
                 </isif>
             </div>
             <div class="row">
@@ -108,8 +144,8 @@
         <isif condition="${!lineItem.isBonusProductLineItem || lineItem.isPWP}">
             <isinclude template="cart/productCard/cartProductCardProductPrice" />
             <div class="line-item-remove">
-                <span class="cart-delete-confirmation-btn" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
-                    data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}">
+                <span class="${lineItem.isPWP ? '' : 'cart-delete-confirmation-btn'}" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
+                    data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}" ${lineItem.isPWP ? 'data-toggle=modal data-target=#removeBonusModal' : ''}>
                     <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
                 </span>
             </div>
