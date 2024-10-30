@@ -83,9 +83,9 @@
                             class="${!pdict.productSearch.isCategorySearch ? 'col-12 search-results h-px--0 h-px-md--15' : (pdict.productSearch.category.id === 's-fragrance' ?
                             'col-12 fragrance-search-results' : (pdict.productSearch.category.id === 'shop-by-ingredient' ?
                             'col-12 ingredient-search-results mt-5' : 'col-12 col-lg-10 col-md-9'))}">
-                            <isslot id="categoryBanner" context="global" description="Category Top Banner Slot" context-object="${pdict.productSearch.category}" />
                             <isinclude template="search/components/categoryBannerTop" />
                             <isinclude template="search/components/categorySlider" />
+                            <isslot id="categoryBanner" context="category" description="Category Top Banner Slot" context-object="${pdict.category}" />
 
                             <!--- Product Grid --->
                             <isinclude template="search/productGrid" />

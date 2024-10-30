@@ -33,6 +33,15 @@ function getHreflang(
         };
     }
     var link = base.getLink(urlParameters, currentSite.ID, locale);
+    var hreflang;
+    if (
+        currentSite.allowedLocales.length > 2 &&
+        locale === currentSite.defaultLocale
+    ) {
+        hrefLang = locale.split('_')[1].toLowerCase();
+    } else {
+        hrefLang = locale.split('_').join('-').toLowerCase();
+    }
     return {
         url:
             link +
@@ -46,7 +55,7 @@ function getHreflang(
             ),
         hreflang: isDefault
             ? 'x-default'
-            : locale.split('_').join('-').toLowerCase()
+            : hrefLang
     };
 }
 

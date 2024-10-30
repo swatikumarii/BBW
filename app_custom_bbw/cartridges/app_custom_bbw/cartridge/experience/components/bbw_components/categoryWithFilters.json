@@ -1,0 +1,19 @@
+{
+    "name": "CMP: Category with filters",
+    "description": "Create Category Page Layout",
+    "group": "bbw_components",
+    "attribute_definition_groups": [
+        {
+            "id": "Category",
+            "attribute_definitions": [
+                {
+                    "id": "categoryID",
+                    "name": "ID for Category to show",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

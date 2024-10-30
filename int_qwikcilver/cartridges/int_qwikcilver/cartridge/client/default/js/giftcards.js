@@ -160,6 +160,9 @@ $(document).ready(function () {
                         $('.add-giftcard-section').removeClass('show');
                         $('.add-giftcard-header').removeClass('d-flex').hide();
                         $('.payment-options-heading').hide();
+                        $('button.submit-payment').each(function () {
+                            $(this).removeAttr('disabled');
+                        });
                         $(document).off('ajaxComplete');
                     }
                     if (data.success) {
@@ -329,6 +332,10 @@ $(document).ready(function () {
                             $('.afterpay-checkout-widget').find('square-placement').attr('data-amount', data.basketModel.totals.pendingTotal.pendingAmountValue);
                         }
                     }
+                    $('label#lb_scheme').siblings('input').click();
+                }
+                if ($('.giftcard-partial-redemption > span').text().length) {
+                    $('label#lb_scheme').siblings('input').click();
                 }
                 $('.add-giftcard-header').show();
                 if (data.basketModel && data.basketModel.totals) {

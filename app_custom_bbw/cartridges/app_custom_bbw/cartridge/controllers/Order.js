@@ -175,7 +175,7 @@ server.get('InvoiceDownload', function (req, res, next) {
             res.redirect(URLUtils.url('Order-History'));
         }
     } catch (error) {
-        Logger.error('Einvoice Error : ' + error.message);
+        Logger.error('Einvoice Error : ' + JSON.stringify(error));
     }
     next();
 });
@@ -605,7 +605,7 @@ server.append(
             // }
             if (order && order.defaultShipment) {
                 var shippingAddress = order.defaultShipment.shippingAddress;                
-                if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+                if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != '') {
                     isEstimatedShipping = false;
                 }
             }

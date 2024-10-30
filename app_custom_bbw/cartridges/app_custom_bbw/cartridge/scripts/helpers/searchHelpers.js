@@ -223,9 +223,9 @@ function search(req, res) {
         apiProductSearch: apiProductSearch
     };
 
+    result.category = apiProductSearch.category;
     if (productSearch.isCategorySearch && !productSearch.isRefinedCategorySearch && categoryTemplate && apiProductSearch.category.parent.ID === 'root') {
         pageMetaHelper.setPageMetaData(req.pageMetaData, productSearch.category);
-        result.category = apiProductSearch.category;
         result.categoryTemplate = categoryTemplate;
     }
 
