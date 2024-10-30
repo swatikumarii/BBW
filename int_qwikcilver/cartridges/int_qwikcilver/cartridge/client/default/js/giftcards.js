@@ -23,6 +23,9 @@ function updateGiftPendingTotals(totals) {
         $('.grand-total-sum').empty().append(totals.grandTotal);
     }
     $('.giftcard-total').empty().text(totals.pendingTotal.giftTotal);
+    $('.giftcard-redemption').removeClass('d-none');
+    $('.giftcard-redemption .giftcard-total').empty().append('-' + totals.pendingTotal.giftTotal);
+    $('.grand-total-wrap .grand-total').empty().append(totals.pendingTotal.pendingAmount ? totals.pendingTotal.pendingAmount : totals.grandTotal)
     // update order total
     if (totals.orderTotal) {
         $('.order-total-sum').empty().append(totals.orderTotal);
@@ -241,6 +244,7 @@ $(document).ready(function () {
     $(document).on('click', '.remove-giftcard-btn', function () {
         var url = $('input[name="remove-giftcard-url"]').val();
         var cardNumber = $(this).data('cardno');
+        var hideGCTotals = false;
         $.ajax({
             type: 'POST',
             url: url,
@@ -303,6 +307,7 @@ $(document).ready(function () {
                         }
                     }
                 } else {
+                    hideGCTotals = true;
                     $('.added-cards').empty();
                     $('.giftcard-partial-redemption').empty().removeClass('mt-4 p-2');
                     $('.add-giftcard-button').empty().text(data.messages.addAGiftcard);
@@ -340,6 +345,9 @@ $(document).ready(function () {
                 $('.add-giftcard-header').show();
                 if (data.basketModel && data.basketModel.totals) {
                     updateGiftPendingTotals(data.basketModel.totals);
+                }
+                if (hideGCTotals) {
+                    $('.giftcard-redemption').addClass('d-none');
                 }
             },
             error: function () {
