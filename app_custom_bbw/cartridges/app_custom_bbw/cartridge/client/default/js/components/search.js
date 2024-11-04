@@ -342,9 +342,8 @@ function chooseBonusProducts(data) {
         '<!-- Modal content-->' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '    <span class="">' +
+        '    <span class="w-100 text-center d-block">' +
         data.labels.selectprods +
-        data.labels.selectedprods +
         '</span>' +
         '    <button type="button" class="close pull-right" data-dismiss="modal">' +
         '        <span aria-hidden="true">&times;</span>' +
@@ -352,7 +351,7 @@ function chooseBonusProducts(data) {
         '    </button>' +
         '</div>' +
         '<div class="modal-body"></div>' +
-        '<div class="modal-footer"></div>' +
+        '<div class="modal-footer pb-0 pt-3"></div>' +
         '</div>' +
         '</div>' +
         '</div>';

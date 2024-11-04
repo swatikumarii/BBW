@@ -212,4 +212,42 @@ server.replace('SetLocale', function (req, res, next) {
     }
     next();
 });
+
+server.post('GatedEntry', function (req,res,next) {
+    var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+    var URLUtils = require('dw/web/URLUtils');
+    var CouponMgr = require('dw/campaign/CouponMgr');
+    var Transaction = require('dw/system/Transaction');
+    var BasketMgr = require('dw/order/BasketMgr');
+    var currentBasket = BasketMgr.getCurrentOrNewBasket();
+    var password = req.httpParameterMap.gatedPassword.value;
+    var customObjectID = req.httpParameterMap.customObject.value;
+    var success = false;
+    var customObject = CustomObjectMgr.getCustomObject('GatedEntry', customObjectID);
+    if (customObject && customObject.custom.password && customObject.custom.password === password) {
+        success = true;
+        session.custom.gatedAllowed = customObjectID;
+        var coupon = CouponMgr.getCouponByCode(password);
+        if (coupon) {
+            var couponPromos = coupon.getPromotions();
+            if (couponPromos.length > 0) {
+                Transaction.wrap(function () {
+                    try {
+                        currentBasket.createCouponLineItem(
+                            password,
+                            true
+                        );
+                    } catch (error) {
+                        var couponError = true;
+                    }
+                });
+            }
+        }
+    }
+    res.json({
+        success: success,
+        redirectUrl: URLUtils.url('Home-Show').toString()
+    });
+    next();
+});
 module.exports = server.exports();

@@ -35,6 +35,18 @@
     <isinclude template="checkout/orderDiscountsHtml" sf-toolkit="on" />
 </div>
 
+<div class="row giftcard-redemption d-none">
+    <div class="col-7">
+        <p class="h-font-size--16 h-clr--black-1 h-line-height--20 merchandise-total b-text-letter-space-01">
+            ${Resource.msg('label.giftcard.amount', 'cart', null)}</p>
+    </div>
+    <div class="col-5">
+        <p
+            class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold giftcard-total h-line-height--20 b-text-letter-space-01">
+            </p>
+    </div>
+</div>
+
 <iscomment> Adjusted Merchandise Total </iscomment>
 <isif condition="${showAdjustedMerchandizeSubtotal}">
     <div class="row">

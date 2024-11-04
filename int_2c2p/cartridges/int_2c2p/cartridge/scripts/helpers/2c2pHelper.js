@@ -336,9 +336,9 @@ function failOrder(order, is2c2pCallback, _2c2pRes, paymentChannel, server, req,
     if (failOrderStatus === Status.ERROR) {
       throw new Error();
     }
-    // order.custom.2c2pPaymentMethod = paymentChannel;
+    order.custom['2c2pPaymentMethod'] = paymentChannel;
     var check2c2pPendingStatus = co.getCustomObject('2c2pPendingStatus', _2c2pRes.response.transaction.txnRef);
-    // paymentTransaction.paymentInstrument.custom.2c2pLog = JSON.stringify(queryParam);
+    paymentTransaction.paymentInstrument.custom['2c2pLog'] = JSON.stringify(queryParam);
     if (check2c2pPendingStatus) {
       co.remove(check2c2pPendingStatus);
     }

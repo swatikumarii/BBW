@@ -37,3 +37,4 @@ require('./thirdParty/bootstrap');
 require('./components/spinner');
 require('./thirdParty/jqueryTicker');
 require('./profileCompletionPopup');
+require('./thirdParty/swiper-bundle.min.js');
