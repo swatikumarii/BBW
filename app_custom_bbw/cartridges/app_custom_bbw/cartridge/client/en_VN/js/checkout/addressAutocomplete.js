@@ -5,7 +5,7 @@ module.exports = {
         var input = document.getElementById('shippingAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'AU' },
+            componentRestrictions: { country: 'VN' },
             fields: [
                 'formatted_address',
                 'geometry',
@@ -41,25 +41,22 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'locality':
+                    case 'administrative_area_level_2':
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
-                        addressObject.state = element.short_name;
+                        addressObject.state = element.long_name;
                         break;
-                    case 'postal_code':
-                        addressObject.zipcode = element.long_name;
+                    case 'administrative_area_level_3':
+                        addressObject.shippingAddressDistrict =
+                            element.long_name;
                         break;
+                    case 'administrative_area_level_4':
+                        addressObject.shippingAddressSubdistrict =
+                            element.long_name;
+                        break;;
                     default:
                         break;
-                }
-                var fullAddress = addressObject.address1;
-                if (addressObject.address2) {
-                    fullAddress += ' ' + addressObject.address2;
-                }
-                if (fullAddress.length > 30) {
-                    addressObject.address1  = fullAddress.substring(0, 30).trim();
-                    addressObject.address2  = fullAddress.substring(31, 60).trim();
                 }
             }
             var form = $('.shipping-form');
@@ -75,16 +72,76 @@ module.exports = {
             form.find('#shippingAddressCitydefault')
                 .val(addressObject.city)
                 .trigger('change');
-            form.find('#shippingZipCodedefault')
-                .val(addressObject.zipcode)
+            form.find('#shippingAddressDistrictdefault')
+                .val(addressObject.shippingAddressDistrict)
                 .trigger('change');
+            form.find('#shippingAddressSubdistrictdefault')
+                .val(addressObject.shippingAddressSubdistrict)
+                .trigger('change');
+            if (
+                addressObject.address1 &&
+                addressObject.state &&
+                addressObject.shippingAddressDistrict &&
+                addressObject.shippingAddressSubdistrict 
+            ) {
+                if (
+                    form.find('#shippingAddressCitydefault').val() === '' ||
+                    form.find('#shippingAddressCitydefault').val() === null
+                ) {
+                    // setting city as per place API response
+                    var suburbDropdown = $('.shippingAddressCity');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.city,
+                            text: addressObject.city
+                        }).attr('selected', 'selected')
+                    );
+                    var cityError = $('#defaultCity');
+                    cityError.empty();
+                    $('.shippingAddressCity').removeClass('is-invalid');
+
+                    // setting district as per place API response
+                    var shippingAddressDistrictDropdown = $(
+                        '.shippingAddressDistrict'
+                    );
+                    shippingAddressDistrictDropdown.empty();
+                    shippingAddressDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.shippingAddressDistrict,
+                            text: addressObject.shippingAddressDistrict
+                        }).attr('selected', 'selected')
+                    );
+                    var shippingAddressDistrictError = $('#defaultDistrict');
+                    shippingAddressDistrictError.empty();
+                    $('.shippingAddressDistrict').removeClass('is-invalid');
+
+                    // setting subdistrict as per place API response
+                    var shippingAddressSubDistrictDropdown = $(
+                        '.shippingAddressSubdistrict'
+                    );
+                    shippingAddressSubDistrictDropdown.empty();
+                    shippingAddressSubDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.shippingAddressSubdistrict,
+                            text: addressObject.shippingAddressSubdistrict
+                        }).attr('selected', 'selected')
+                    );
+                    var shippingAddressSubDistrictError = $(
+                        '#defaultSubdistrict'
+                    );
+                    shippingAddressSubDistrictError.empty();
+                    $('.shippingAddressSubdistrict').removeClass('is-invalid');
+
+                }
+            }
         });
     },
     initializeBilling: function () {
         var input = document.getElementById('billingAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'AU' },
+            componentRestrictions: { country: 'VN' },
             fields: [
                 'formatted_address',
                 'geometry',
@@ -120,25 +177,20 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'locality':
+                    case 'administrative_area_level_2':
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
-                        addressObject.state = element.short_name;
+                        addressObject.state = element.long_name;
                         break;
-                    case 'postal_code':
-                        addressObject.zipcode = element.long_name;
+                    case 'administrative_area_level_3':
+                        addressObject.addressDistrict = element.long_name;
+                        break;
+                    case 'administrative_area_level_4':
+                        addressObject.addressSubdistrict = element.long_name;
                         break;
                     default:
                         break;
-                }
-                var fullAddress = addressObject.address1;
-                if (addressObject.address2) {
-                    fullAddress += ' ' + addressObject.address2;
-                }
-                if (fullAddress.length > 30) {
-                    addressObject.address1  = fullAddress.substring(0, 30).trim();
-                    addressObject.address2  = fullAddress.substring(31, 60).trim();
                 }
             }
             var form = $('.billing-form');
@@ -154,16 +206,67 @@ module.exports = {
             form.find('#billingAddressCity')
                 .val(addressObject.city)
                 .trigger('change');
-            form.find('#billingZipCode')
-                .val(addressObject.zipcode)
+            form.find('#billingAddressDistrict')
+                .val(addressObject.addressDistrict)
                 .trigger('change');
+            form.find('#billingAddressSubdistrict')
+                .val(addressObject.addressSubdistrict)
+                .trigger('change');
+            if (
+                addressObject.address1 &&
+                addressObject.state &&
+                addressObject.addressDistrict &&
+                addressObject.addressSubdistrict
+            ) {
+                if (
+                    form.find('#billingAddressCity').val() === '' ||
+                    form.find('#billingAddressCity').val() === null
+                ) {
+                    // setting city as per place API response
+                    var suburbDropdown = $('.billingAddressCity');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.city,
+                            text: addressObject.city
+                        }).attr('selected', 'selected')
+                    );
+                    $('.billingAddressCity').removeClass('is-invalid');
+
+                    // setting district as per place API response
+                    var billingAddressDistrictDropdown = $(
+                        '.billingAddressDistrict'
+                    );
+                    billingAddressDistrictDropdown.empty();
+                    billingAddressDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.addressDistrict,
+                            text: addressObject.addressDistrict
+                        }).attr('selected', 'selected')
+                    );
+                    $('.billingAddressDistrict').removeClass('is-invalid');
+
+                    // setting subdistrict as per place API response
+                    var billingAddressSubDistrictDropdown = $(
+                        '.billingAddressSubdistrict'
+                    );
+                    billingAddressSubDistrictDropdown.empty();
+                    billingAddressSubDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.addressSubdistrict,
+                            text: addressObject.addressSubdistrict
+                        }).attr('selected', 'selected')
+                    );
+                    $('.billingAddressSubdistrict').removeClass('is-invalid');
+                }
+            }
         });
     },
     initializeAccount: function () {
         var input = document.getElementById('accountAddressAutoComplete');
         var options = {
             placeholder: ' ',
-            componentRestrictions: { country: 'AU' },
+            componentRestrictions: { country: 'VN' },
             fields: [
                 'formatted_address',
                 'geometry',
@@ -199,25 +302,20 @@ module.exports = {
                             addressObject.address1 += element.long_name;
                         }
                         break;
-                    case 'locality':
+                    case 'administrative_area_level_2':
                         addressObject.city = element.long_name;
                         break;
                     case 'administrative_area_level_1':
-                        addressObject.state = element.short_name;
+                        addressObject.state = element.long_name;
                         break;
-                    case 'postal_code':
-                        addressObject.zipcode = element.long_name;
+                    case 'administrative_area_level_3':
+                        addressObject.addressDistrict = element.long_name;
+                        break;
+                    case 'administrative_area_level_4':
+                        addressObject.addressSubdistrict = element.long_name;
                         break;
                     default:
                         break;
-                }
-                var fullAddress = addressObject.address1;
-                if (addressObject.address2) {
-                    fullAddress += ' ' + addressObject.address2;
-                }
-                if (fullAddress.length > 30) {
-                    addressObject.address1  = fullAddress.substring(0, 30).trim();
-                    addressObject.address2  = fullAddress.substring(31, 60).trim();
                 }
             }
             var form = $('.address-form');
@@ -229,7 +327,60 @@ module.exports = {
                 .trigger('change');
             form.find('#state').val(addressObject.state).trigger('change');
             form.find('#city').val(addressObject.city).trigger('change');
-            form.find('#zipCode').val(addressObject.zipcode).trigger('change');
+            form.find('#shippingAddressDistrict')
+                .val(addressObject.addressDistrict)
+                .trigger('change');
+            form.find('#shippingAddressSubdistrict')
+                .val(addressObject.addressSubdistrict)
+                .trigger('change');
+            if (
+                addressObject.address1 &&
+                addressObject.state &&
+                addressObject.addressDistrict &&
+                addressObject.addressSubdistrict
+            ) {
+                if (
+                    form.find('#city').val() === '' ||
+                    form.find('#city').val() === null
+                ) {
+                    // setting city as per place API response
+                    var suburbDropdown = $('.address-city-input');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.city,
+                            text: addressObject.city
+                        }).attr('selected', 'selected')
+                    );
+                    $('.address-city-input').removeClass('is-invalid');
+
+                    // setting district as per place API response
+                    var billingAddressDistrictDropdown = $(
+                        '.address-district-input'
+                    );
+                    billingAddressDistrictDropdown.empty();
+                    billingAddressDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.addressDistrict,
+                            text: addressObject.addressDistrict
+                        }).attr('selected', 'selected')
+                    );
+                    $('.address-district-input').removeClass('is-invalid');
+
+                    // setting subdistrict as per place API response
+                    var billingAddressSubDistrictDropdown = $(
+                        '.address-subdistrict-input'
+                    );
+                    billingAddressSubDistrictDropdown.empty();
+                    billingAddressSubDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.addressSubdistrict,
+                            text: addressObject.addressSubdistrict
+                        }).attr('selected', 'selected')
+                    );
+                    $('.address-subdistrict-input').removeClass('is-invalid');
+                }
+            }
         });
     }
 };

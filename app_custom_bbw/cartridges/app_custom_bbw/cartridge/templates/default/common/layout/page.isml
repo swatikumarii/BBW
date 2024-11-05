@@ -21,6 +21,7 @@
         <div class="page ${pdict.hrefLang}" data-action="${pdict.action}" data-querystring="${pdict.queryString}" >
             <isinclude template="/components/header/pageHeader" />
             <div role="main" id="maincontent">
+            <input type="hidden" name="cart-check-loosing-bonus-url" value="${URLUtils.url('Cart-CheckLoosingBonus')}">
                 <isreplace/>
             </div>
             <isinclude template="/components/footer/pageFooter" />

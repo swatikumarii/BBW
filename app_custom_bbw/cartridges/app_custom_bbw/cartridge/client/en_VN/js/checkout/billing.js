@@ -354,7 +354,6 @@ module.exports = {
             var city = attrs.city.trim();
             var district = attrs.district.trim();
             var subDistrict = attrs.subdistrict.trim();
-            var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
                 var stateCodeExistsInBill = false;
@@ -387,11 +386,6 @@ module.exports = {
                         .attr('value', '')
                         .attr('selected', 'selected')
                 );
-                $('.billingZipCode').prepend(
-                    $('<option></option>')
-                        .attr('value', '')
-                        .attr('selected', 'selected')
-                );
                 $('.billingAddressCity option').each(function () {
                     if ($(this).val() === city) {
                         $('.billingAddressCity option').removeAttr('selected');
@@ -401,7 +395,6 @@ module.exports = {
                         cityExistsInBill = true;
                         return false;
                     }
-                    $('.billingZipCode option').slice(1).remove();
                 });
                 if (!cityExistsInBill) {
                     var billingAddressCity = $('.billingAddressCity');
@@ -471,29 +464,6 @@ module.exports = {
                         }).attr('selected', 'selected')
                     );
                     $('.billingAddressSubdistrict').removeClass('is-invalid');
-                }
-            }
-            if (postalCode) {
-                var zipCodeExistsInBill = false;
-                $('.billingZipCode option').each(function () {
-                    if ($(this).val() === postalCode) {
-                        $('.billingZipCode option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.billingZipCode').trigger('change');
-                        zipCodeExistsInBill = true;
-                        return false;
-                    }
-                });
-                if (!zipCodeExistsInBill) {
-                    var zipCodeDropdown = $('.billingZipCode');
-                    zipCodeDropdown.empty();
-                    zipCodeDropdown.prepend(
-                        $('<option>', {
-                            value: postalCode,
-                            text: postalCode
-                        }).attr('selected', 'selected')
-                    );
-                    $('.billingZipCode').removeClass('is-invalid');
                 }
             }
             if (dialCodeCountry) {
@@ -618,10 +588,6 @@ module.exports = {
                 .text()
                 .trim()
                 .replace(',', '');
-            var postalCode = billingAddrSummary
-                .find('.postalCode')
-                .text()
-                .trim();
             if (stateCode !== 'null') {
                 var exists = false;
                 $('.billingState option').each(function () {
@@ -730,33 +696,6 @@ module.exports = {
                         .attr('selected', 'selected');
                     $('.billingAddressSubdistrict').removeClass('is-invalid');
                 }
-            }
-            if (postalCode !== 'null') {
-                var zipCodeExists = false;
-                $('.billingZipCode option').each(function () {
-                    if ($(this).val() === postalCode) {
-                        $('.billingZipCode option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.billingZipCode').trigger('change');
-                        zipCodeExists = true;
-                        return false;
-                    }
-                });
-                if (!zipCodeExists) {
-                    var billingZipCode = $('.billingZipCode');
-                    billingZipCode.empty();
-                    billingZipCode
-                        .prepend(
-                            $('<option>', {
-                                value: postalCode,
-                                text: postalCode
-                            })
-                        )
-                        .attr('selected', 'selected');
-                    $('.billingZipCode').removeClass('is-invalid');
-                }
-                var zipcodeError = $('.shipping-select-error');
-                zipcodeError.empty();
             }
         });
     }
