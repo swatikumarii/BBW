@@ -923,7 +923,7 @@ module.exports = {
     updateShippingList: function () {
         var baseObj = this;
         $(
-            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_postalCode"], input[name$="shippingAddress_addressFields_address1"]'
+            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_city"], select[name$="shippingAddress_addressFields_district"],select[name$="shippingAddress_addressFields_subDistric"] , input[name$="shippingAddress_addressFields_address1"]'
         ).on('change', function (e) {
             if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
                 baseObj.methods.updateShippingMethodList(

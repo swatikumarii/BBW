@@ -95,10 +95,7 @@ server.replace(
                 address1: form.shippingAddress.addressFields.address1.value,
                 address2: form.shippingAddress.addressFields.address2.value,
                 city: form.shippingAddress.addressFields.city.value,
-                postalCode:
-                    'postalCode' in
-                    form.shippingAddress.addressFields && 
-                    form.shippingAddress.addressFields.postalCode.value ? form.shippingAddress.addressFields : '',
+                postalCode: form.shippingAddress.addressFields.postalCode.value,
                 countryCode: form.shippingAddress.addressFields.country.value,
                 phone: phoneNumber,
                 dialCode: form.shippingAddress.addressFields.dialCode.value,
