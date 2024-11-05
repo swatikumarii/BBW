@@ -236,11 +236,50 @@ function search(req, res) {
     return result;
 }
 
+/**
+ * Get proudct is in stock by category name
+ * @param {object} res - Provided HTTP query parameters
+ * @returns {object} - an object with relevant search information
+ */
+function getOnlineProductsByCategory(categoryName, res) {
+    var CatalogMgr = require('dw/catalog/CatalogMgr');
+    var ProductSearchModel = require('dw/catalog/ProductSearchModel');
+    var ProductSearch = require('*/cartridge/models/search/productSearch');
+
+    var apiProductSearch = new ProductSearchModel();
+    var categoryTemplate = '';
+    var maxSlots = 4;
+    var productSearch;
+    var reportingURLs;
+
+    var queryString = {'cgid': categoryName};
+
+    apiProductSearch = base.setupSearch(apiProductSearch, queryString, null);
+    apiProductSearch.search();
+
+    if (!apiProductSearch.personalizedSort) {
+        base.applyCache(res);
+    }
+    if (apiProductSearch.getPromotionIDs()) {
+        apiProductSearch.getPromotionIDs().remove('oos-products');
+    }
+    productSearch = new ProductSearch(
+        apiProductSearch,
+        queryString,
+        '',
+        CatalogMgr.getSortingOptions(),
+        CatalogMgr.getSiteCatalog().getRoot()
+    );
+
+    return productSearch.productIds;
+}
+
 module.exports = {
     setupFaqContentSearch: setupFaqContentSearch,
     getPageDesignerCategoryPage: getPageDesignerCategoryPage,
     getContentSearch: getContentSearch,
-    search: search
+    search: search,
+    getOnlineProductsByCategory: getOnlineProductsByCategory
 };
 
 Object.keys(base).forEach(function (prop) {

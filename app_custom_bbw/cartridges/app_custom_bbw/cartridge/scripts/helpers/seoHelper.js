@@ -38,9 +38,9 @@ function getHreflang(
         currentSite.allowedLocales.length > 2 &&
         locale === currentSite.defaultLocale
     ) {
-        hrefLang = locale.split('_')[1].toLowerCase();
+        hreflang = locale.split('_')[1].toLowerCase();
     } else {
-        hrefLang = locale.split('_').join('-').toLowerCase();
+        hreflang = locale.split('_').join('-').toLowerCase();
     }
     return {
         url:

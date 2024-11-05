@@ -68,6 +68,7 @@ function getGoogleFeeds() {
                         var images = new ImageModel(apiProduct, config);
                         breadcrumbs = '';
                         categories = '';
+                        var categoryIndex = 0;
                         if (product.categories.length) {
                             category = product.categories[0].displayName;
                             if (
@@ -78,10 +79,13 @@ function getGoogleFeeds() {
                                     'All Products'
                                 ].indexOf(category) > -1
                             ) {
-                                category = product.categories[1].displayName;
+                                if (product.categories.length >= 2) {
+                                    category = product.categories[1].displayName;
+                                    categoryIndex = 1;
+                                }
                             }
                             breadcrumbs = productHelper.getAllBreadcrumbs(
-                                product.categories[0].ID,
+                                product.categories[categoryIndex].ID,
                                 null,
                                 []
                             );
@@ -195,24 +199,33 @@ function getGoogleFeeds() {
 
                         xmlStreamWriter.writeStartElement('g:price');
                         xmlStreamWriter.writeCharacters(
-                            product.priceModel.price.value.toString() +
-                                ' ' +
-                                product.priceModel.price.currencyCode
+                            product.priceModel.price.value.toString().indexOf('.') > -1 ? product.priceModel.price.value.toString() + ' ' + product.priceModel.price.currencyCode : product.priceModel.price.value.toString() + '.00 ' + product.priceModel.price.currencyCode
                         );
                         xmlStreamWriter.writeEndElement();
         
                         xmlStreamWriter.writeStartElement('g:sale_price');
                         if (productObj.promoPrice) {
                             xmlStreamWriter.writeCharacters(
-                                productObj.promoPrice.toString() +
-                                    ' ' +
-                                    product.priceModel.price.currencyCode
+                                productObj.promoPrice.toString().indexOf('.') >
+                                    -1
+                                    ? productObj.promoPrice.toString() +
+                                          ' ' +
+                                          product.priceModel.price.currencyCode
+                                    : productObj.promoPrice.toString() +
+                                          '.00 ' +
+                                          product.priceModel.price.currencyCode
                             );
                         } else {
                             xmlStreamWriter.writeCharacters(
-                                product.priceModel.price.value.toString() +
-                                    ' ' +
-                                    product.priceModel.price.currencyCode
+                                product.priceModel.price.value
+                                    .toString()
+                                    .indexOf('.') > -1
+                                    ? product.priceModel.price.value.toString() +
+                                          ' ' +
+                                          product.priceModel.price.currencyCode
+                                    : product.priceModel.price.value.toString() +
+                                          '.00 ' +
+                                          product.priceModel.price.currencyCode
                             );
                         }
                         xmlStreamWriter.writeEndElement();
@@ -220,8 +233,7 @@ function getGoogleFeeds() {
                         xmlStreamWriter.writeStartElement('g:google_product_category');
                         xmlStreamWriter.writeCData(
                             ' Health & Beauty > Personal Care > Cosmetics > Bath & Body > ' +
-                                category +
-                                ' '
+                                category
                         );
                         xmlStreamWriter.writeEndElement();
 
@@ -241,7 +253,7 @@ function getGoogleFeeds() {
         }
     } catch (err) {
         Logger.getLogger('SocialFeeds', 'SocialFeeds').error(
-            'Error when creating Google Feeds' + err
+            'Error when creating Google Feeds' + JSON.stringify(err)
         );
         productsIterator.close();
         xmlStreamWriter.close();
