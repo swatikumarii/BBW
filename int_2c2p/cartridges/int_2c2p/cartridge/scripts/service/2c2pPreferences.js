@@ -28,6 +28,9 @@ function getPreferences() {
   prefs.TransactionExpired = 'EXPIRED';
   prefs.TransactionTimeout = 'TIMEOUT';
   prefs.TransactionVoided = 'VOIDED';
+  prefs.TransactionPaid = 'PAID';
+  prefs.TransactionCaptured = 'CAPTURED';
+  prefs.TransactionSettled = 'SETTLED';
 
   return prefs;
 }
