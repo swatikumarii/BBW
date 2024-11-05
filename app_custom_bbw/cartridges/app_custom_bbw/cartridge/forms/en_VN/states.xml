@@ -4,14 +4,14 @@
 		<options>
 			<option optionid="" 	label="resource.select.state" 		value=""/>
 			<!-- regular VN states -->
-			<option label="Red River Delta" value="Red River Delta"/>
+			<option label="Central Highlands" value="Central Highlands"/>
+			<option label="Mekong River Delta" value="Mekong River Delta"/>
+			<option label="North Central Coast" value="North Central Coast"/>
 			<option label="Northeast" value="Northeast"/>
 			<option label="Northwest" value="Northwest"/>
-			<option label="North Central Coast" value="North Central Coast"/>
+			<option label="Red River Delta" value="Red River Delta"/>
 			<option label="South Central Coast" value="South Central Coast"/>
-			<option label="Central Highlands" value="Central Highlands"/>
 			<option label="Southeast" value="Southeast"/>
-			<option label="Mekong River Delta" value="Mekong River Delta"/>
 		</options>
 	</field>
 </form>

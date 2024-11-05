@@ -1,4058 +1,6529 @@
 'use strict';
 
 module.exports = {
-    'Red River Delta': {
-        'Ha Noi': {
-            'Ba Dinh': {
+    'Central Highlands': {
+        'Dak Lak': {
+            'Buon Don': {
                 subDistrict: [
-                    'Phuc Xa Ward',
-                    'Truc Bach Ward',
-                    'Vinh Phuc Ward',
-                    'Cong Vi Ward',
-                    'Lieu Giai Ward',
-                    'Nguyen Trung Truc Ward',
-                    'Quan Thanh Ward',
-                    'Ngoc Ha Ward',
-                    'Dien Bien Ward',
-                    'Doi Can Ward',
-                    'Ngoc Khanh Ward',
-                    'Kim Ma Ward',
-                    'Giang Vo Ward',
-                    'Thanh Cong Ward'
+                    'Cuor KNia Commune',
+                    'Ea Bar Commune',
+                    'Ea Huar Commune',
+                    'Ea Nuol Commune',
+                    'Ea Wer Commune',
+                    'Krong Na Commune',
+                    'Tan Hoa Commune'
                 ]
             },
-            'Hoan Kiem': {
+            'Buon Ho': {
                 subDistrict: [
-                    'Phuc Tan Ward',
-                    'Dong Xuan Ward',
-                    'Hang Ma Ward',
-                    'Hang Buom Ward',
-                    'Hang Dao Ward',
-                    'Hang Bo Ward',
-                    'Cua Dong Ward',
-                    'Ly Thai To Ward',
-                    'Hang Bac Ward',
-                    'Hang Gai Ward',
-                    'Chuong Duong Ward',
-                    'Hang Trong Ward',
-                    'Cua Nam Ward',
-                    'Hang Bong Ward',
-                    'Trang Tien Ward',
-                    'Tran Hung Dao Ward',
-                    'Phan Chu Trinh Ward',
-                    'Hang Bai Ward'
+                    'An Binh Ward',
+                    'An Lac Ward',
+                    'Binh Tan Ward',
+                    'Binh Thuan Commune',
+                    'Cu Bao Commune',
+                    'Dat Hieu Ward',
+                    'Doan Ket Ward',
+                    'Ea Blang Commune',
+                    'Ea Drong Commune',
+                    'Ea Sien Commune',
+                    'Thien An Ward',
+                    'Thong Nhat Ward'
                 ]
             },
-            'Tay Ho': {
+            'Buon Ma Thuot': {
                 subDistrict: [
-                    'Phu Thuong Ward',
-                    'Nhat Tan Ward',
-                    'Tu Lien Ward',
-                    'Quang An Ward',
-                    'Xuan La Ward',
-                    'Yen Phu Ward',
-                    'Buoi Ward',
-                    'Thuy Khue Ward'
+                    'Cu EBur Commune',
+                    'Ea Kao Commune',
+                    'Ea Tam Ward',
+                    'Ea Tu Commune',
+                    'Hoa Khanh Commune',
+                    'Hoa Phu Commune',
+                    'Hoa Thang Commune',
+                    'Hoa Thuan Commune',
+                    'Hoa Xuan Commune',
+                    'Khanh Xuan Ward',
+                    'Tan An Ward',
+                    'Tan Hoa Ward',
+                    'Tan Lap Ward',
+                    'Tan Loi Ward',
+                    'Tan Thanh Ward',
+                    'Tan Tien Ward',
+                    'Thang Loi Ward',
+                    'Thanh Cong Ward',
+                    'Thanh Nhat Ward',
+                    'Thong Nhat Ward',
+                    'Tu An Ward'
                 ]
             },
-            'Long Bien': {
+            'Cu Kuin': {
                 subDistrict: [
-                    'Thuong Thanh Ward',
-                    'Ngoc Thuy Ward',
-                    'Giang Bien Ward',
-                    'Duc Giang Ward',
-                    'Viet Hung Ward',
-                    'Gia Thuy Ward',
-                    'Ngoc Lam Ward',
-                    'Phuc Loi Ward',
-                    'Bo De Ward',
-                    'Sai Dong Ward',
-                    'Long Bien Ward',
-                    'Thach Ban Ward',
-                    'Phuc Dong Ward',
-                    'Cu Khoi Ward'
+                    'Cu E Wi Commune',
+                    'Dray Bhang Commune',
+                    'Ea BHok Commune',
+                    'Ea Hu Commune',
+                    'Ea Ktur Commune',
+                    'Ea Ning Commune',
+                    'Ea Tieu Commune',
+                    'Hoa Hiep Commune'
                 ]
             },
-            'Cau Giay': {
+            'Cu M\'gar': {
                 subDistrict: [
-                    'Nghia Do Ward',
+                    'Cu Dlie M\'nong Commune',
+                    'Cu M\'gar Commune',
+                    'Cu Sue Commune',
+                    'Cuor Dang Commune',
+                    'Ea D\'Rong Commune',
+                    'Ea H\'dinh Commune',
+                    'Ea Kiet Commune',
+                    'Ea KPam Commune',
+                    'Ea Kueh Commune',
+                    'Ea M\'DRoh Commune',
+                    'Ea M\'nang Commune',
+                    'Ea Pok Township',
+                    'Ea Tar Commune',
+                    'Ea Tul Commune',
+                    'Quang Hiep Commune',
+                    'Quang Phu Township',
+                    'Quang Tien Commune'
+                ]
+            },
+            'Ea H\'leo': {
+                subDistrict: [
+                    'Cu A Mung Commune',
+                    'Cu Mot Commune',
+                    'Dlie Yang Commune',
+                    'Ea Drang Township',
+                    'Ea Hiao Commune',
+                    'Ea H\'leo Commune',
+                    'Ea Khal Commune',
+                    'Ea Nam Commune',
+                    'Ea Ral Commune',
+                    'Ea Sol Commune',
+                    'Ea Tir Commune',
+                    'Ea Wy Commune'
+                ]
+            },
+            'Ea Kar': {
+                subDistrict: [
+                    'Cu Bong Commune',
+                    'Cu ELang Commune',
+                    'Cu Hue Commune',
+                    'Cu Jang Commune',
+                    'Cu Ni Commune',
+                    'Cu Prong Commune',
+                    'Ea Dar Commune',
+                    'Ea Kar Township',
+                    'Ea Kmut Commune',
+                    'Ea Knop Township',
+                    'Ea O Commune',
+                    'Ea Pal Commune',
+                    'Ea Sar Commune',
+                    'Ea So Commune',
+                    'Ea Tih Commune',
+                    'Xuan Phu Commune'
+                ]
+            },
+            'Ea Sup': {
+                subDistrict: [
+                    'Cu KBang Commune',
+                    'Cu M\'Lan Commune',
+                    'Ea Bung Commune',
+                    'Ea Le Commune',
+                    'Ea Rok Commune',
+                    'Ea Sup Township',
+                    'Ia JLoi Commune',
+                    'Ia Lop Commune',
+                    'Ia RVe Commune',
+                    'Ya To Mot Commune'
+                ]
+            },
+            'Krong A Na': {
+                subDistrict: [
+                    'Bang A Drenh Commune',
+                    'Binh Hoa Commune',
+                    'Buon Trap Township',
+                    'Dray Sap Commune',
+                    'Dur KMal Commune',
+                    'Ea Bong Commune',
+                    'Ea Na Commune',
+                    'Quang Dien Commune'
+                ]
+            },
+            'Krong Bong': {
+                subDistrict: [
+                    'Cu Dram Commune',
+                    'Cu KTy Commune',
+                    'Cu Pui Commune',
+                    'Dang Kang Commune',
+                    'Ea Trul Commune',
+                    'Hoa Le Commune',
+                    'Hoa Phong Commune',
+                    'Hoa Son Commune',
+                    'Hoa Tan Commune',
+                    'Hoa Thanh Commune',
+                    'Khue Ngoc Dien Commune',
+                    'Krong Kmar Township',
+                    'Yang Mao Commune',
+                    'Yang Reh Commune'
+                ]
+            },
+            'Krong Buk': {
+                subDistrict: [
+                    'Chu KBo Commune',
+                    'Cu Ne Commune',
+                    'Cu Pong Commune',
+                    'Ea Ngai Commune',
+                    'Ea Sin Commune',
+                    'Pong Drang Township',
+                    'Tan Lap Commune'
+                ]
+            },
+            'Krong Nang': {
+                subDistrict: [
+                    'Cu Klong Commune',
+                    'DLie Ya Commune',
+                    'Ea Dah Commune',
+                    'Ea Ho Commune',
+                    'Ea Puk Commune',
+                    'Ea Tam Commune',
+                    'Ea Tan Commune',
+                    'Ea Toh Commune',
+                    'Krong Nang Township',
+                    'Phu Loc Commune',
+                    'Phu Xuan Commune',
+                    'Tam Giang Commune'
+                ]
+            },
+            'Krong Pac': {
+                subDistrict: [
+                    'Ea Hiu Commune',
+                    'Ea Kenh Commune',
+                    'Ea Kly Commune',
+                    'Ea KNuec Commune',
+                    'Ea Kuang Commune',
+                    'Ea Phe Commune',
+                    'Ea Uy Commune',
+                    'Ea Yieng Commune',
+                    'Ea Yong Commune',
+                    'Hoa An Commune',
+                    'Hoa Dong Commune',
+                    'Hoa Tien Commune',
+                    'KRong Buk Commune',
+                    'Phuoc An Township',
+                    'Tan Tien Commune',
+                    'Vu Bon Commune'
+                ]
+            },
+            Lak: {
+                subDistrict: [
+                    'Bong Krang Commune',
+                    'Buon Tria Commune',
+                    'Buon Triet Commune',
+                    'Dak Lieng Commune',
+                    'Dak Nue Commune',
+                    'Dak Phoi Commune',
+                    'Ea R\'Bin Commune',
+                    'Krong No Commune',
+                    'Lien Son Township',
+                    'Nam Ka Commune',
+                    'Yang Tao Commune'
+                ]
+            },
+            'M\'Drak': {
+                subDistrict: [
+                    'Cu K Roa Commune',
+                    'Cu M\'ta Commune',
+                    'Cu Prao Commune',
+                    'Cu San Commune',
+                    'Ea H\'MLay Commune',
+                    'Ea Lai Commune',
+                    'Ea M\' Doal Commune',
+                    'Ea Pil Commune',
+                    'Ea Rieng Commune',
+                    'Ea Trang Commune',
+                    'Krong A Commune',
+                    'Krong Jing Commune',
+                    'M\'Drak Township'
+                ]
+            }
+        },
+        'Dak Nong': {
+            'Cu Jut': {
+                subDistrict: [
+                    'Cu Knia Commune',
+                    'Dak DRong Commune',
+                    'Dak Wil Commune',
+                    'Ea Po Commune',
+                    'Ea T\'Ling Township',
+                    'Nam Dong Commune',
+                    'Tam Thang Commune',
+                    'Truc Son Commune'
+                ]
+            },
+            'Dak Glong': {
+                subDistrict: [
+                    'Dak Ha Commune',
+                    'Dak Plao Commune',
+                    'Dak R\'Mang Commune',
+                    'Dak Som Commune',
+                    'Quang Hoa Commune',
+                    'Quang Khe Commune',
+                    'Quang Son Commune'
+                ]
+            },
+            'Dak Mil': {
+                subDistrict: [
+                    'Dak Gan Commune',
+                    'Dak Lao Commune',
+                    'Dak Mil Township',
+                    'Dak N\'Drot Commune',
+                    'Dak R\'La Commune',
+                    'Dak Sak Commune',
+                    'Duc Manh Commune',
+                    'Duc Minh Commune',
+                    'Long Son Commune',
+                    'Thuan An Commune'
+                ]
+            },
+            'Dak R\'Lap': {
+                subDistrict: [
+                    'Dak Ru Commune',
+                    'Dak Sin Commune',
+                    'Dak Wer Commune',
+                    'Dao Nghia Commune',
+                    'Hung Binh Commune',
+                    'Kien Duc Township',
+                    'Kien Thanh Commune',
+                    'Nghia Thang Commune',
+                    'Nhan Co Commune',
+                    'Nhan Dao Commune',
+                    'Quang Tin Commune'
+                ]
+            },
+            'Dak Song': {
+                subDistrict: [
+                    'Dak Hoa Commune',
+                    'Dak Mol Commune',
+                    'Dak N\'Dung Commune',
+                    'Duc An Township',
+                    'Nam Binh Commune',
+                    'Nam N\'Jang Commune',
+                    'Thuan Ha Commune',
+                    'Thuan Hanh Commune',
+                    'Truong Xuan Commune'
+                ]
+            },
+            'Gia Nghia': {
+                subDistrict: [
+                    'Dak Nia Commune',
+                    'Dak R\'Moan Commune',
+                    'Nghia Duc Ward',
+                    'Nghia Phu Ward',
                     'Nghia Tan Ward',
-                    'Mai Dich Ward',
-                    'Dich Vong Ward',
-                    'Dich Vong Hau Ward',
-                    'Quan Hoa Ward',
-                    'Yen Hoa Ward',
-                    'Trung Hoa Ward'
+                    'Nghia Thanh Ward',
+                    'Nghia Trung Ward',
+                    'Quang Thanh Ward'
                 ]
             },
-            'Dong Da': {
+            'Krong No': {
                 subDistrict: [
-                    'Cat Linh Ward',
-                    'Van Mieu Ward',
-                    'Quoc Tu Giam Ward',
-                    'Lang Thuong Ward',
-                    'O Cho Dua Ward',
-                    'Van Chuong Ward',
-                    'Hang Bot Ward',
-                    'Lang Ha Ward',
-                    'Kham Thien Ward',
-                    'Tho Quan Ward',
-                    'Nam Dong Ward',
-                    'Trung Phung Ward',
+                    'Buon Choah Commune',
+                    'Dak Dro Commune',
+                    'Dak Mam Township',
+                    'Dak Nang Commune',
+                    'Dak Sor Commune',
+                    'Duc Xuyen Commune',
+                    'Nam Da Commune',
+                    'Nam N\'Dir Commune',
+                    'Nam Nung Commune',
+                    'Nam Xuan Commune',
+                    'Quang Phu Commune',
+                    'Tan Thanh Commune'
+                ]
+            },
+            'Tuy Duc': {
+                subDistrict: [
+                    'Dak Buk So Commune',
+                    'Dak Ngo Commune',
+                    'Dak R\'Tih Commune',
+                    'Quang Tam Commune',
+                    'Quang Tan Commune',
+                    'Quang Truc Commune'
+                ]
+            }
+        },
+        'Gia Lai': {
+            'An Khe': {
+                subDistrict: [
+                    'An Binh Ward',
+                    'An Phu Ward',
+                    'An Phuoc Ward',
+                    'An Tan Ward',
+                    'Cuu An Commune',
+                    'Ngo May Ward',
+                    'Song An Commune',
+                    'Tay Son Ward',
+                    'Thanh An Commune',
+                    'Tu An Commune',
+                    'Xuan An Commune'
+                ]
+            },
+            'Ayun Pa': {
+                subDistrict: [
+                    'Cheo Reo Ward',
+                    'Chu Bah Commune',
+                    'Doan Ket Ward',
+                    'Hoa Binh Ward',
+                    'Ia RBol Commune',
+                    'Ia RTo Commune',
+                    'Ia Sao Commune',
+                    'Song Bo Ward'
+                ]
+            },
+            'Chu Pah': {
+                subDistrict: [
+                    'Chu Dang Ya Commune',
+                    'Dak To Ver Commune',
+                    'Ha Tay Commune',
+                    'Hoa Phu Commune',
+                    'Ia Ka Commune',
+                    'Ia Khuol Commune',
+                    'Ia Kreng Commune',
+                    'Ia Ly Township',
+                    'Ia Mo Nong Commune',
+                    'Ia Nhin Commune',
+                    'Ia Phi Commune',
+                    'Nghia Hoa Commune',
+                    'Nghia Hung Commune',
+                    'Phu Hoa Township'
+                ]
+            },
+            'Chu Prong': {
+                subDistrict: [
+                    'Bau Can Commune',
+                    'Binh Giao Commune',
+                    'Chu Prong Township',
+                    'Ia Bang Commune',
+                    'Ia Boong Commune',
+                    'Ia Drang Commune',
+                    'Ia Ga Commune',
+                    'Ia Kly Commune',
+                    'Ia Lau Commune',
+                    'Ia Me Commune',
+                    'Ia Mo Commune',
+                    'Ia O Commune',
+                    'Ia Phin Commune',
+                    'Ia Pia Commune',
+                    'Ia Pior Commune',
+                    'Ia Puch Commune',
+                    'Ia Tor Commune',
+                    'Ia Ve Commune',
+                    'Thang Hung Commune'
+                ]
+            },
+            'Chu Puh': {
+                subDistrict: [
+                    'Chu Don Commune',
+                    'Ia BLu Commune',
+                    'Ia Dreng Commune',
+                    'Ia Hla Commune',
+                    'Ia Hru Commune',
+                    'Ia Le Commune',
+                    'Ia Phang Commune',
+                    'Ia Rong Commune',
+                    'Nhon Hoa Township'
+                ]
+            },
+            'Chu Se': {
+                subDistrict: [
+                    'AL Ba Commune',
+                    'AYun Commune',
+                    'Bar Maih Commune',
+                    'Bo Ngoong Commune',
+                    'Chu Pong Commune',
+                    'Chu Se Township',
+                    'Dun Commune',
+                    'H Bong Commune',
+                    'Ia Blang Commune',
+                    'Ia Glai Commune',
+                    'Ia HLop Commune',
+                    'Ia Ko Commune',
+                    'Ia Pal Commune',
+                    'Ia Tiem Commune',
+                    'Kong HTok Commune'
+                ]
+            },
+            'Dak Doa': {
+                subDistrict: [
+                    'A Dok Commune',
+                    'Dak Doa Township',
+                    'Dak Krong Commune',
+                    'Dak Somei Commune',
+                    'Glar Commune',
+                    'H\' Neng Commune',
+                    'Ha Bau Commune',
+                    'Ha Dong Commune',
+                    'Hai Yang Commune',
+                    'HNol Commune',
+                    'Ia Bang Commune',
+                    'Ia Pet Commune',
+                    'K\' Dang Commune',
+                    'Kon Gang Commune',
+                    'Nam Yang Commune',
+                    'Tan Binh Commune',
+                    'Trang Commune'
+                ]
+            },
+            'Dak Po': {
+                subDistrict: [
+                    'An Thanh Commune',
+                    'Cu An Commune',
+                    'Dak Po Township',
+                    'Ha Tam Commune',
+                    'Phu An Commune',
+                    'Tan An Commune',
+                    'Ya Hoi Commune',
+                    'Yang Bac Commune'
+                ]
+            },
+            'Duc Co': {
+                subDistrict: [
+                    'Chu Ty Township',
+                    'Ia Din Commune',
+                    'Ia Dok Commune',
+                    'Ia Dom Commune',
+                    'Ia Kla Commune',
+                    'Ia Krel Commune',
+                    'Ia Krieng Commune',
+                    'Ia Lang Commune',
+                    'Ia Nan Commune',
+                    'Ia Pnon Commune'
+                ]
+            },
+            'Ia Grai': {
+                subDistrict: [
+                    'Ia Ba Commune',
+                    'Ia Chia Commune',
+                    'Ia Der Commune',
+                    'Ia Grang Commune',
+                    'Ia Hrung Commune',
+                    'Ia Kha Township',
+                    'Ia Khai Commune',
+                    'Ia KRai Commune',
+                    'Ia O Commune',
+                    'Ia Pech Commune',
+                    'Ia Sao Commune',
+                    'Ia To Commune',
+                    'Ia Yok Commune'
+                ]
+            },
+            'Ia Pa': {
+                subDistrict: [
+                    'Chu Mo Commune',
+                    'Chu Rang Commune',
+                    'Ia Broai Commune',
+                    'Ia KDam Commune',
+                    'Ia Ma Ron Commune',
+                    'Ia Trok Commune',
+                    'Ia Tul Commune',
+                    'Kim Tan Commune',
+                    'Po To Commune'
+                ]
+            },
+            KBang: {
+                subDistrict: [
+                    'Dak HLo Commune',
+                    'Dak Roong Commune',
+                    'Dak SMar Commune',
+                    'Dong Commune',
+                    'KBang Township',
+                    'Kon Pne Commune',
+                    'Kong Long Khong Commune',
+                    'Kong Pla Commune',
+                    'KRong Commune',
+                    'Lo Ku Commune',
+                    'Nghia An Commune',
+                    'So Pai Commune',
+                    'Son Lang Commune',
+                    'To Tung Commune'
+                ]
+            },
+            'Kong Chro': {
+                subDistrict: [
+                    'An Trung Commune',
+                    'Cho Long Commune',
+                    'Chu Krey Commune',
+                    'Dak Ko Ning Commune',
+                    'Dak Pling Commune',
+                    'Dak Po Pho Commune',
+                    'Dak Song Commune',
+                    'Dak To Pang Commune',
+                    'Kong Chro Township',
+                    'Kong Yang Commune',
+                    'SRo Commune',
+                    'Ya Ma Commune',
+                    'Yang Nam Commune',
+                    'Yang Trung Commune'
+                ]
+            },
+            'Krong Pa': {
+                subDistrict: [
+                    'Chu Drang Commune',
+                    'Chu Gu Commune',
+                    'Chu Ngoc Commune',
+                    'Chu Rcam Commune',
+                    'Dat Bang Commune',
+                    'Ia HDreh Commune',
+                    'Ia Mlah Commune',
+                    'Ia RMok Commune',
+                    'Ia RSai Commune',
+                    'Ia RSuom Commune',
+                    'Krong Nang Commune',
+                    'Phu Can Commune',
+                    'Phu Tuc Township',
+                    'Uar Commune'
+                ]
+            },
+            'Mang Yang': {
+                subDistrict: [
+                    'Ayun Commune',
+                    'Dak Djrang Commune',
+                    'Dak Jo Ta Commune',
+                    'Dak Ta Ley Commune',
+                    'Dak Troi Commune',
+                    'Dak Ya Commune',
+                    'De Ar Commune',
+                    'Hra Commune',
+                    'Kon Chieng Commune',
+                    'Kon Dong Township',
+                    'Kon Thup Commune',
+                    'Lo Pang Commune'
+                ]
+            },
+            'Phu Thien': {
+                subDistrict: [
+                    'Ayun Ha Commune',
+                    'Chroh Ponan Commune',
+                    'Chu A Thai Commune',
+                    'Ia Ake Commune',
+                    'Ia Hiao Commune',
+                    'Ia Peng Commune',
+                    'Ia Piar Commune',
+                    'Ia Sol Commune',
+                    'Ia Yeng Commune',
+                    'Phu Thien Township'
+                ]
+            },
+            Pleiku: {
+                subDistrict: [
+                    'An Phu Commune',
+                    'Bien Ho Commune',
+                    'Chi Lang Ward',
+                    'Chu A Commune',
+                    'Dien Hong Ward',
+                    'Dien Phu Commune',
+                    'Dong Da Ward',
+                    'Gao Commune',
+                    'Hoa Lu Ward',
+                    'Hoi Phu Ward',
+                    'Hoi Thuong Ward',
+                    'Ia Kenh Commune',
+                    'Ia Kring Ward',
+                    'Phu Dong Ward',
+                    'Tan Son Commune',
+                    'Tay Son Ward',
+                    'Thang Loi Ward',
+                    'Thong Nhat Ward',
+                    'Tra Ba Ward',
+                    'Tra Da Commune',
+                    'Yen Do Ward',
+                    'Yen The Ward'
+                ]
+            }
+        },
+        'Kon Tum': {
+            'Dak Glei': {
+                subDistrict: [
+                    'Dak Blo Commune',
+                    'Dak Choong Commune',
+                    'Dak Glei Township',
+                    'Dak KRoong Commune',
+                    'Dak Long Commune',
+                    'Dak Man Commune',
+                    'Dak Mon Commune',
+                    'Dak Nhoong Commune',
+                    'Dak Pek Commune',
+                    'Muong Hoong Commune',
+                    'Ngoc Linh Commune',
+                    'Xop Commune'
+                ]
+            },
+            'Dak Ha': {
+                subDistrict: [
+                    'Dak Ha Township',
+                    'Dak HRing Commune',
+                    'Dak La Commune',
+                    'Dak Long Commune',
+                    'Dak Mar Commune',
+                    'Dak Ngok Commune',
+                    'Dak PXi Commune',
+                    'Dak Ui Commune',
+                    'Ha Mon Commune',
+                    'Ngok Reo Commune',
+                    'Ngok Wang Commune'
+                ]
+            },
+            'Dak To': {
+                subDistrict: [
+                    'Dak Ro Nga Commune',
+                    'Dak To Township',
+                    'Dak Tram Commune',
+                    'Dien Binh Commune',
+                    'Kon Dao Commune',
+                    'Ngok Tu Commune',
+                    'Po Ko Commune',
+                    'Tan Canh Commune',
+                    'Van Lem Commune'
+                ]
+            },
+            'Ia H\' Drai': {
+                subDistrict: [
+                    'Ia Dal Commune',
+                    'Ia Dom Commune',
+                    'Ia Toi Commune'
+                ]
+            },
+            'Kon Plong': {
+                subDistrict: [
+                    'Dak Nen Commune',
+                    'Dak Ring Commune',
+                    'Dak Tang Commune',
+                    'Hieu Commune',
+                    'Mang Buk Commune',
+                    'Mang Canh Commune',
+                    'Mang Den Township',
+                    'Ngok Tem Commune',
+                    'Po E Commune'
+                ]
+            },
+            'Kon Ray': {
+                subDistrict: [
+                    'Dak Koi Commune',
+                    'Dak Pne Commune',
+                    'Dak Ruong Commune',
+                    'Dak Rve Township',
+                    'Dak To Lung Commune',
+                    'Dak To Re Commune',
+                    'Tan Lap Commune'
+                ]
+            },
+            'Kon Tum': {
+                subDistrict: [
+                    'Chu Hreng Commune',
+                    'Dak Bla Commune',
+                    'Dak Cam Commune',
+                    'Dak Nang Commune',
+                    'Dak Ro Wa Commune',
+                    'Doan Ket Commune',
+                    'Duy Tan Ward',
+                    'Hoa Binh Commune',
+                    'Ia Chim Commune',
+                    'Kroong Commune',
+                    'Le Loi Ward',
+                    'Ngo May Ward',
+                    'Ngok Bay Commune',
+                    'Nguyen Trai Ward',
                     'Quang Trung Ward',
-                    'Trung Liet Ward',
-                    'Phuong Lien Ward',
-                    'Thinh Quang Ward',
-                    'Trung Tu Ward',
-                    'Kim Lien Ward',
-                    'Phuong Mai Ward',
-                    'Nga Tu So Ward',
-                    'Khuong Thuong Ward'
+                    'Quyet Thang Ward',
+                    'Thang Loi Ward',
+                    'Thong Nhat Ward',
+                    'Tran Hung Dao Ward',
+                    'Truong Chinh Ward',
+                    'Vinh Quang Commune'
                 ]
             },
-            'Hai Ba Trung': {
+            'Ngoc Hoi': {
                 subDistrict: [
-                    'Nguyen Du Ward',
-                    'Bach Dang Ward',
-                    'Pham Dinh Ho Ward',
-                    'Le Dai Hanh Ward',
-                    'Dong Nhan Ward',
-                    'Pho Hue Ward',
-                    'Dong Mac Ward',
-                    'Thanh Luong Ward',
-                    'Thanh Nhan Ward',
-                    'Cau Den Ward',
-                    'Bach Khoa Ward',
-                    'Dong Tam Ward',
-                    'Vinh Tuy Ward',
-                    'Bach Mai Ward',
-                    'Quynh Mai Ward',
-                    'Quynh Loi Ward',
-                    'Minh Khai Ward',
-                    'Truong Dinh Ward'
+                    'Bo Y Commune',
+                    'Dak Ang Commune',
+                    'Dak Duc Commune',
+                    'Dak Kan Commune',
+                    'Dak Nong Commune',
+                    'Dak Xu Commune',
+                    'Plei Kan Township',
+                    'Sa Loong Commune'
                 ]
             },
-            'Hoang Mai': {
+            'Sa Thay': {
                 subDistrict: [
-                    'Thanh Tri Ward',
-                    'Vinh Hung Ward',
-                    'Dinh Cong Ward',
-                    'Mai Dong Ward',
-                    'Tuong Mai Ward',
-                    'Dai Kim Ward',
-                    'Tan Mai Ward',
-                    'Hoang Van Thu Ward',
-                    'Giap Bat Ward',
-                    'Linh Nam Ward',
-                    'Thinh Liet Ward',
-                    'Tran Phu Ward',
-                    'Hoang Liet Ward',
-                    'Yen So Ward'
+                    'Ho Moong Commune',
+                    'Mo Rai Commune',
+                    'Ro Koi Commune',
+                    'Sa Binh Commune',
+                    'Sa Nghia Commune',
+                    'Sa Nhon Commune',
+                    'Sa Son Commune',
+                    'Sa Thay Township',
+                    'Ya ly Commune',
+                    'Ya Tang Commune',
+                    'Ya Xier Commune'
                 ]
             },
-            'Thanh Xuan': {
+            'Tu Mo Rong': {
                 subDistrict: [
-                    'Nhan Chinh Ward',
-                    'Thuong Dinh Ward',
-                    'Khuong Trung Ward',
-                    'Khuong Mai Ward',
-                    'Thanh Xuan Trung Ward',
-                    'Phuong Liet Ward',
-                    'Ha Dinh Ward',
-                    'Khuong Dinh Ward',
-                    'Thanh Xuan Bac Ward',
-                    'Thanh Xuan Nam Ward',
-                    'Kim Giang Ward'
+                    'Dak Ha Commune',
+                    'Dak Na Commune',
+                    'Dak Ro Ong Commune',
+                    'Dak Sao Commune',
+                    'Dak To Kan Commune',
+                    'Mang Ri Commune',
+                    'Ngoc Lay Commune',
+                    'Ngoc Yeu Commune',
+                    'Te Xang Commune',
+                    'Tu Mo Rong Commune',
+                    'Van Xuoi Commune'
+                ]
+            }
+        },
+        'Lam Dong': {
+            'Bao Lam': {
+                subDistrict: [
+                    'B\' La Commune',
+                    'Loc An Commune',
+                    'Loc Bac Commune',
+                    'Loc Bao Commune',
+                    'Loc Duc Commune',
+                    'Loc Lam Commune',
+                    'Loc Nam Commune',
+                    'Loc Ngai Commune',
+                    'Loc Phu Commune',
+                    'Loc Quang Commune',
+                    'Loc Tan Commune',
+                    'Loc Thang Township',
+                    'Loc Thanh Commune',
+                    'Tan Lac Commune'
                 ]
             },
-            'Soc Son': {
+            'Bao Loc': {
                 subDistrict: [
-                    'Soc Son Township',
-                    'Bac Son Commune',
-                    'Minh Tri Commune',
-                    'Hong Ky Commune',
-                    'Nam Son Commune',
-                    'Trung Gia Commune',
-                    'Tan Hung Commune',
-                    'Minh Phu Commune',
-                    'Phu Linh Commune',
-                    'Bac Phu Commune',
-                    'Tan Minh Commune',
-                    'Quang Tien Commune',
-                    'Hien Ninh Commune',
-                    'Tan Dan Commune',
-                    'Tien Duoc Commune',
-                    'Viet Long Commune',
-                    'Xuan Giang Commune',
-                    'Mai Dinh Commune',
-                    'Duc Hoa Commune',
-                    'Thanh Xuan Commune',
-                    'Dong Xuan Commune',
-                    'Kim Lu Commune',
-                    'Phu Cuong Commune',
-                    'Phu Minh Commune',
-                    'Phu Lo Commune',
-                    'Xuan Thu Commune'
+                    'B\'lao Ward',
+                    'Dai Lao Commune',
+                    'Dam Bri Commune',
+                    'Loc Chau Commune',
+                    'Loc Nga Commune',
+                    'Loc Phat Ward',
+                    'Loc Son Ward',
+                    'Loc Thanh Commune',
+                    'Loc Tien Ward',
+                    'Ward 1',
+                    'Ward 2'
                 ]
             },
-            'Dong Anh': {
+            'Cat Tien': {
                 subDistrict: [
-                    'Dong Anh Township',
-                    'Xuan Non Commune',
-                    'Thuy Lam Commune',
-                    'Bac Hong Commune',
-                    'Nguyen Khe Commune',
-                    'Nam Hong Commune',
-                    'Tien Duong Commune',
-                    'Van Ha Commune',
-                    'Uy No Commune',
-                    'Van Noi Commune',
-                    'Lien Ha Commune',
-                    'Viet Hung Commune',
-                    'Kim No Commune',
-                    'Kim Chung Commune',
-                    'Duc Tu Commune',
-                    'Dai Mach Commune',
-                    'Vinh Ngoc Commune',
-                    'Co Loa Commune',
-                    'Hai Boi Commune',
-                    'Xuan Canh Commune',
-                    'Vong La Commune',
-                    'Tam Xa Commune',
-                    'Mai Lam Commune',
-                    'Dong Hoi Commune'
+                    'Cat Tien Township',
+                    'Commune Phuoc Cat 2',
+                    'Dong Nai Thuong Commune',
+                    'Duc Pho Commune',
+                    'Gia Vien Commune',
+                    'Nam Ninh Commune',
+                    'Phuoc Cat Township',
+                    'Quang Ngai Commune',
+                    'Tien Hoang Commune'
                 ]
             },
-            'Gia Lam': {
+            'Da Huoai': {
                 subDistrict: [
-                    'Yen Vien Township',
-                    'Yen Thuong Commune',
-                    'Yen Vien Commune',
-                    'Ninh Hiep Commune',
-                    'Dinh Xuyen Commune',
-                    'Duong Ha Commune',
-                    'Phu Dong Commune',
-                    'Trung Mau Commune',
-                    'Le Chi Commune',
-                    'Co Bi Commune',
-                    'Dang Xa Commune',
-                    'Phu Thi Commune',
-                    'Kim Son Commune',
-                    'Trau Quy Township',
-                    'Duong Quang Commune',
-                    'Duong Xa Commune',
-                    'Dong Du Commune',
+                    'Da M\'ri Township',
+                    'Da Oai Commune',
+                    'Da Ploa Commune',
                     'Da Ton Commune',
-                    'Kieu Ky Commune',
-                    'Bat Trang Commune',
-                    'Kim Lan Commune',
-                    'Van Duc Commune'
+                    'Doan Ket Commune',
+                    'Ha Lam Commune',
+                    'Ma Da Guoi Commune',
+                    'Ma Da Guoi Township',
+                    'Phuoc Loc Commune'
                 ]
             },
-            'Nam Tu Liem': {
+            'Da Lat': {
                 subDistrict: [
-                    'Cau Dien Ward',
-                    'Xuan Phuong Ward',
-                    'Phuong Canh Ward',
-                    'Ward My Dinh 1',
-                    'Ward My Dinh 2',
-                    'Tay Mo Ward',
-                    'Me Tri Ward',
-                    'Phu Do Ward',
-                    'Dai Mo Ward',
-                    'Trung Van Ward'
+                    'Ta Nung Commune',
+                    'Tram Hanh Commune',
+                    'Ward 1',
+                    'Ward 10',
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 6',
+                    'Ward 7',
+                    'Ward 8',
+                    'Ward 9',
+                    'Xuan Tho Commune',
+                    'Xuan Truong Commune'
                 ]
             },
-            'Bac Tu Liem': {
+            'Da Teh': {
                 subDistrict: [
-                    'Thuong Cat Ward',
-                    'Lien Mac Ward',
-                    'Dong Ngac Ward',
-                    'Duc Thang Ward',
-                    'Thuy Phuong Ward',
-                    'Tay Tuu Ward',
-                    'Xuan Dinh Ward',
-                    'Xuan Tao Ward',
-                    'Minh Khai Ward',
-                    'Ward Co Nhue 1',
-                    'Ward Co Nhue 2',
-                    'Phu Dien Ward',
-                    'Phuc Dien Ward'
+                    'An Nhon Commune',
+                    'Da Kho Commune',
+                    'Da Lay Commune',
+                    'Da Pal Commune',
+                    'Da Teh Township',
+                    'My Duc Commune',
+                    'Quang Tri Commune',
+                    'Quoc Oai Commune',
+                    'Trieu Hai Commune'
+                ]
+            },
+            'Dam Rong': {
+                subDistrict: [
+                    'Da K\' Nang Commune',
+                    'Da Long Commune',
+                    'Da M\' Rong Commune',
+                    'Da Rsal Commune',
+                    'Da Tong Commune',
+                    'Lieng Sronh Commune',
+                    'Phi Lieng Commune',
+                    'Ro Men Commune'
+                ]
+            },
+            'Di Linh': {
+                subDistrict: [
+                    'Bao Thuan Commune',
+                    'Di Linh Township',
+                    'Dinh Lac Commune',
+                    'Dinh Trang Hoa Commune',
+                    'Dinh Trang Thuong Commune',
+                    'Gia Bac Commune',
+                    'Gia Hiep Commune',
+                    'Gung Re Commune',
+                    'Hoa Bac Commune',
+                    'Hoa Nam Commune',
+                    'Hoa Ninh Commune',
+                    'Hoa Trung Commune',
+                    'Lien Dam Commune',
+                    'Son Dien Commune',
+                    'Tam Bo Commune',
+                    'Tan Chau Commune',
+                    'Tan Lam Commune',
+                    'Tan Nghia Commune',
+                    'Tan Thuong Commune'
+                ]
+            },
+            'Don Duong': {
+                subDistrict: [
+                    'Da Ron Commune',
+                    'D\'Ran Township',
+                    'Ka Do Commune',
+                    'Ka Don Commune',
+                    'Lac Lam Commune',
+                    'Lac Xuan Commune',
+                    'Pro Commune',
+                    'Quang Lap Commune',
+                    'Thanh My Township',
+                    'Tu Tra Commune'
+                ]
+            },
+            'Duc Trong': {
+                subDistrict: [
+                    'Binh Thanh Commune',
+                    'Da Loan Commune',
+                    'Da Quyn Commune',
+                    'Hiep An Commune',
+                    'Hiep Thanh Commune',
+                    'Lien Hiep Commune',
+                    'Lien Nghia Township',
+                    'Ninh Gia Commune',
+                    'Ninh Loan Commune',
+                    'N\'Thol Ha Commune',
+                    'Phu Hoi Commune',
+                    'Ta Hine Commune',
+                    'Ta Nang Commune',
+                    'Tan Hoi Commune',
+                    'Tan Thanh Commune'
+                ]
+            },
+            'Lac Duong': {
+                subDistrict: [
+                    'Da Chais Commune',
+                    'Da Nhim Commune',
+                    'Da Sar Commune',
+                    'Dung KNo Commune',
+                    'Lac Duong Township',
+                    'Lat Commune'
+                ]
+            },
+            'Lam Ha': {
+                subDistrict: [
+                    'Da Don Commune',
+                    'Dan Phuong Commune',
+                    'Dinh Van Township',
+                    'Dong Thanh Commune',
+                    'Gia Lam Commune',
+                    'Hoai Duc Commune',
+                    'Lien Ha Commune',
+                    'Me Linh Commune',
+                    'Nam Ban Township',
+                    'Nam Ha Commune',
+                    'Phi To Commune',
+                    'Phu Son Commune',
+                    'Phuc Tho Commune',
+                    'Tan Ha Commune',
+                    'Tan Thanh Commune',
+                    'Tan Van Commune'
+                ]
+            }
+        }
+    },
+    'Mekong River Delta': {
+        'An Giang': {
+            'An Phu': {
+                subDistrict: [
+                    'An Phu Township',
+                    'Da Phuoc Township',
+                    'Khanh An Commune',
+                    'Khanh Binh Commune',
+                    'Long Binh Township',
+                    'Nhon Hoi Commune',
+                    'Phu Hoi Commune',
+                    'Phu Huu Commune',
+                    'Phuoc Hung Commune',
+                    'Quoc Thai Commune',
+                    'Vinh Hau Commune',
+                    'Vinh Hoi Dong Commune',
+                    'Vinh Loc Commune',
+                    'Vinh Truong Commune'
+                ]
+            },
+            'Chau Doc': {
+                subDistrict: [
+                    'Chau Phu A Ward',
+                    'Chau Phu B Ward',
+                    'Nui Sam Ward',
+                    'Vinh Chau Commune',
+                    'Vinh My Ward',
+                    'Vinh Nguon Ward',
+                    'Vinh Te Commune'
+                ]
+            },
+            'Chau Phu': {
+                subDistrict: [
+                    'Binh Chanh Commune',
+                    'Binh Long Commune',
+                    'Binh My Commune',
+                    'Binh Phu Commune',
+                    'Binh Thuy Commune',
+                    'Cai Dau Township',
+                    'Dao Huu Canh Commune',
+                    'Khanh Hoa Commune',
+                    'My Duc Commune',
+                    'My Phu Commune',
+                    'O Long Vy Commune',
+                    'Thanh My Tay Commune',
+                    'Vinh Thanh Trung Township'
+                ]
+            },
+            'Chau Thanh': {
+                subDistrict: [
+                    'An Chau Township',
+                    'An Hoa Commune',
+                    'Binh Hoa Commune',
+                    'Binh Thanh Commune',
+                    'Can Dang Commune',
+                    'Hoa Binh Thanh Commune',
+                    'Tan Phu Commune',
+                    'Vinh An Commune',
+                    'Vinh Binh Township',
+                    'Vinh Hanh Commune',
+                    'Vinh Loi Commune',
+                    'Vinh Nhuan Commune',
+                    'Vinh Thanh Commune'
+                ]
+            },
+            'Cho Moi': {
+                subDistrict: [
+                    'An Thanh Trung Commune',
+                    'Binh Phuoc Xuan Commune',
+                    'Cho Moi Township',
+                    'Hoa An Commune',
+                    'Hoa Binh Commune',
+                    'Hoi An Township',
+                    'Kien An Commune',
+                    'Kien Thanh Commune',
+                    'Long Dien A Commune',
+                    'Long Dien B Commune',
+                    'Long Giang Commune',
+                    'Long Kien Commune',
+                    'My An Commune',
+                    'My Hiep Commune',
+                    'My Hoi Dong Commune',
+                    'My Luong Township',
+                    'Nhon My Commune',
+                    'Tan My Commune'
+                ]
+            },
+            'Long Xuyen': {
+                subDistrict: [
+                    'Binh Duc Ward',
+                    'Binh Khanh Ward',
+                    'Dong Xuyen Ward',
+                    'My Binh Ward',
+                    'My Hoa Hung Commune',
+                    'My Hoa Ward',
+                    'My Khanh Commune',
+                    'My Long Ward',
+                    'My Phuoc Ward',
+                    'My Quy Ward',
+                    'My Thanh Ward',
+                    'My Thoi Ward',
+                    'My Xuyen Ward'
+                ]
+            },
+            'Phu Tan': {
+                subDistrict: [
+                    'Binh Thanh Dong Commune',
+                    'Cho Vam Township',
+                    'Hiep Xuong Commune',
+                    'Hoa Lac Commune',
+                    'Long Hoa Commune',
+                    'Phu An Commune',
+                    'Phu Binh Commune',
+                    'Phu Hiep Commune',
+                    'Phu Hung Commune',
+                    'Phu Lam Commune',
+                    'Phu Long Commune',
+                    'Phu My Township',
+                    'Phu Thanh Commune',
+                    'Phu Tho Commune',
+                    'Phu Xuan Commune',
+                    'Tan Hoa Commune',
+                    'Tan Trung Commune'
+                ]
+            },
+            'Tan Chau': {
+                subDistrict: [
+                    'Chau Phong Commune',
+                    'Le Chanh Commune',
+                    'Long An Commune',
+                    'Long Chau Ward',
+                    'Long Hung Ward',
+                    'Long Phu Ward',
+                    'Long Son Ward',
+                    'Long Thanh Ward',
+                    'Phu Loc Commune',
+                    'Phu Vinh Commune',
+                    'Tan An Commune',
+                    'Tan Thanh Commune',
+                    'Vinh Hoa Commune',
+                    'Vinh Xuong Commune'
+                ]
+            },
+            'Thoai Son': {
+                subDistrict: [
+                    'An Binh Commune',
+                    'Binh Thanh Commune',
+                    'Dinh My Commune',
+                    'Dinh Thanh Commune',
+                    'My Phu Dong Commune',
+                    'Nui Sap Township',
+                    'Oc Eo Township',
+                    'Phu Hoa Township',
+                    'Phu Thuan Commune',
+                    'Tay Phu Commune',
+                    'Thoai Giang Commune',
+                    'Vinh Chanh Commune',
+                    'Vinh Khanh Commune',
+                    'Vinh Phu Commune',
+                    'Vinh Trach Commune',
+                    'Vong Dong Commune',
+                    'Vong The Commune'
+                ]
+            },
+            'Tinh Bien': {
+                subDistrict: [
+                    'An Cu Commune',
+                    'An Hao Commune',
+                    'An Nong Commune',
+                    'An Phu Ward',
+                    'Chi Lang Ward',
+                    'Nha Bang Ward',
+                    'Nhon Hung Ward',
+                    'Nui Voi Ward',
+                    'Tan Lap Commune',
+                    'Tan Loi Commune',
+                    'Thoi Son Ward',
+                    'Tinh Bien Ward',
+                    'Van Giao Commune',
+                    'Vinh Trung Commune'
+                ]
+            },
+            'Tri Ton': {
+                subDistrict: [
+                    'An Tuc Commune',
+                    'Ba Chuc Township',
+                    'Chau Lang Commune',
+                    'Co To Township',
+                    'Lac Quoi Commune',
+                    'Le Tri Commune',
+                    'Luong An Tra Commune',
+                    'Luong Phi Commune',
+                    'Nui To Commune',
+                    'O Lam Commune',
+                    'Ta Danh Commune',
+                    'Tan Tuyen Commune',
+                    'Tri Ton Township',
+                    'Vinh Gia Commune',
+                    'Vinh Phuoc Commune'
+                ]
+            }
+        },
+        'Bac Lieu': {
+            'Bac Lieu': {
+                subDistrict: [
+                    'Hiep Thanh Commune',
+                    'Nha Mat Ward',
+                    'Vinh Trach Commune',
+                    'Vinh Trach Dong Commune',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 5',
+                    'Ward 7',
+                    'Ward 8'
+                ]
+            },
+            'Dong Hai': {
+                subDistrict: [
+                    'An Phuc Commune',
+                    'An Trach A Commune',
+                    'An Trach Commune',
+                    'Dien Hai Commune',
+                    'Dinh Thanh A Commune',
+                    'Dinh Thanh Commune',
+                    'Ganh Hao Township',
+                    'Long Dien Commune',
+                    'Long Dien Dong A Commune',
+                    'Long Dien Dong Commune',
+                    'Long Dien Tay Commune'
+                ]
+            },
+            'Gia Rai': {
+                subDistrict: [
+                    'Ho Phong Ward',
+                    'Lang Tron Ward',
+                    'Phong Tan Commune',
+                    'Phong Thanh A Commune',
+                    'Phong Thanh Commune',
+                    'Phong Thanh Dong Commune',
+                    'Phong Thanh Tay Commune',
+                    'Tan Phong Commune',
+                    'Tan Thanh Commune',
+                    'Ward 1'
+                ]
+            },
+            'Hoa Binh': {
+                subDistrict: [
+                    'Hoa Binh Township',
+                    'Minh Dieu Commune',
+                    'Vinh Binh Commune',
+                    'Vinh Hau A Commune',
+                    'Vinh Hau Commune',
+                    'Vinh My A Commune',
+                    'Vinh My B Commune',
+                    'Vinh Thinh Commune'
+                ]
+            },
+            'Hong Dan': {
+                subDistrict: [
+                    'Loc Ninh Commune',
+                    'Ngan Dua Township',
+                    'Ninh Hoa Commune',
+                    'Ninh Quoi A Commune',
+                    'Ninh Quoi Commune',
+                    'Ninh Thanh Loi A Commune',
+                    'Ninh Thanh Loi Commune',
+                    'Vinh Loc A Commune',
+                    'Vinh Loc Commune'
+                ]
+            },
+            'Phuoc Long': {
+                subDistrict: [
+                    'Hung Phu Commune',
+                    'Phong Thanh Tay A Commune',
+                    'Phong Thanh Tay B Commune',
+                    'Phuoc Long Commune',
+                    'Phuoc Long Township',
+                    'Vinh Phu Dong Commune',
+                    'Vinh Phu Tay Commune',
+                    'Vinh Thanh Commune'
+                ]
+            },
+            'Vinh Loi': {
+                subDistrict: [
+                    'Chau Hung A Commune',
+                    'Chau Hung Township',
+                    'Chau Thoi Commune',
+                    'Hung Hoi Commune',
+                    'Hung Thanh Commune',
+                    'Long Thanh Commune',
+                    'Vinh Hung A Commune',
+                    'Vinh Hung Commune'
+                ]
+            }
+        },
+        'Ben Tre': {
+            'Ba Tri': {
+                subDistrict: [
+                    'An Binh Tay Commune',
+                    'An Duc Commune',
+                    'An Hiep Commune',
+                    'An Hoa Tay Commune',
+                    'An Ngai Tay Commune',
+                    'An Ngai Trung Commune',
+                    'An Phu Trung Commune',
+                    'Ba Tri Township',
+                    'Bao Thanh Commune',
+                    'Bao Thuan Commune',
+                    'My Chanh Commune',
+                    'My Hoa Commune',
+                    'My Nhon Commune',
+                    'My Thanh Commune',
+                    'Phu Le Commune',
+                    'Phuoc Ngai Commune',
+                    'Tan Hung Commune',
+                    'Tan My Commune',
+                    'Tan Thuy Commune',
+                    'Tan Xuan Commune',
+                    'Tiem Tom Township',
+                    'Vinh An Commune',
+                    'Vinh Hoa Commune'
+                ]
+            },
+            'Ben Tre': {
+                subDistrict: [
+                    'An Hoi Ward',
+                    'Binh Phu Commune',
+                    'My Thanh An Commune',
+                    'Nhon Thanh Commune',
+                    'Phu Hung Commune',
+                    'Phu Khuong Ward',
+                    'Phu Nhuan Commune',
+                    'Phu Tan Ward',
+                    'Son Dong Commune',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 6',
+                    'Ward 7',
+                    'Ward 8'
+                ]
+            },
+            'Binh Dai': {
+                subDistrict: [
+                    'Binh Dai Township',
+                    'Binh Thang Commune',
+                    'Binh Thoi Commune',
+                    'Chau Hung Commune',
+                    'Dai Hoa Loc Commune',
+                    'Dinh Trung Commune',
+                    'Loc Thuan Commune',
+                    'Long Dinh Commune',
+                    'Long Hoa Commune',
+                    'Phu Long Commune',
+                    'Phu Thuan Commune',
+                    'Phu Vang Commune',
+                    'Tam Hiep Commune',
+                    'Thanh Phuoc Commune',
+                    'Thanh Tri Commune',
+                    'Thoi Lai Commune',
+                    'Thoi Thuan Commune',
+                    'Thua Duc Commune',
+                    'Vang Quoi Dong Commune',
+                    'Vang Quoi Tay Commune'
+                ]
+            },
+            'Chau Thanh': {
+                subDistrict: [
+                    'An Hiep Commune',
+                    'An Hoa Commune',
+                    'An Khanh Commune',
+                    'An Phuoc Commune',
+                    'Chau Thanh Township',
+                    'Giao Long Commune',
+                    'Huu Dinh Commune',
+                    'Phu An Hoa Commune',
+                    'Phu Duc Commune',
+                    'Phu Tuc Commune',
+                    'Phuoc Thanh Commune',
+                    'Quoi Son Commune',
+                    'Quoi Thanh Commune',
+                    'Son Hoa Commune',
+                    'Tam Phuoc Commune',
+                    'Tan Phu Commune',
+                    'Tan Thach Commune',
+                    'Thanh Trieu Commune',
+                    'Tien Long Commune',
+                    'Tien Thuy Township',
+                    'Tuong Da Commune'
+                ]
+            },
+            'Cho Lach': {
+                subDistrict: [
+                    'Cho Lach Township',
+                    'Hoa Nghia Commune',
+                    'Hung Khanh Trung B Commune',
+                    'Long Thoi Commune',
+                    'Phu Phung Commune',
+                    'Phu Son Commune',
+                    'Son Dinh Commune',
+                    'Tan Thieng Commune',
+                    'Vinh Binh Commune',
+                    'Vinh Hoa Commune',
+                    'Vinh Thanh Commune'
+                ]
+            },
+            'Giong Trom': {
+                subDistrict: [
+                    'Binh Hoa Commune',
+                    'Binh Thanh Commune',
+                    'Chau Binh Commune',
+                    'Chau Hoa Commune',
+                    'Giong Trom Township',
+                    'Hung Le Commune',
+                    'Hung Nhuong Commune',
+                    'Hung Phong Commune',
+                    'Long My Commune',
+                    'Luong Hoa Commune',
+                    'Luong Phu Commune',
+                    'Luong Quoi Commune',
+                    'My Thanh Commune',
+                    'Phong Nam Commune',
+                    'Phuoc Long Commune',
+                    'Son Phu Commune',
+                    'Tan Hao Commune',
+                    'Tan Loi Thanh Commune',
+                    'Tan Thanh Commune',
+                    'Thanh Phu Dong Commune',
+                    'Thuan Dien Commune'
+                ]
+            },
+            'Mo Cay Bac': {
+                subDistrict: [
+                    'Hoa Loc Commune',
+                    'Hung Khanh Trung A Commune',
+                    'Khanh Thanh Tan Commune',
+                    'Nhuan Phu Tan Commune',
+                    'Phu My Commune',
+                    'Phuoc My Trung Township',
+                    'Tan Binh Commune',
+                    'Tan Phu Tay Commune',
+                    'Tan Thanh Binh Commune',
+                    'Tan Thanh Tay Commune',
+                    'Thanh An Commune',
+                    'Thanh Ngai Commune',
+                    'Thanh Tan Commune'
+                ]
+            },
+            'Mo Cay Nam': {
+                subDistrict: [
+                    'An Dinh Commune',
+                    'An Thanh Commune',
+                    'An Thoi Commune',
+                    'Binh Khanh Commune',
+                    'Cam Son Commune',
+                    'Da Phuoc Hoi Commune',
+                    'Dinh Thuy Commune',
+                    'Huong My Commune',
+                    'Minh Duc Commune',
+                    'Mo Cay Township',
+                    'Ngai Dang Commune',
+                    'Phuoc Hiep Commune',
+                    'Tan Hoi Commune',
+                    'Tan Trung Commune',
+                    'Thanh Thoi A Commune',
+                    'Thanh Thoi B Commune'
+                ]
+            },
+            'Thanh Phu': {
+                subDistrict: [
+                    'An Dien Commune',
+                    'An Nhon Commune',
+                    'An Quy Commune',
+                    'An Thanh Commune',
+                    'An Thuan Commune',
+                    'Binh Thanh Commune',
+                    'Dai Dien Commune',
+                    'Giao Thanh Commune',
+                    'Hoa Loi Commune',
+                    'My An Commune',
+                    'My Hung Commune',
+                    'Phu Khanh Commune',
+                    'Quoi Dien Commune',
+                    'Tan Phong Commune',
+                    'Thanh Hai Commune',
+                    'Thanh Phong Commune',
+                    'Thanh Phu Township',
+                    'Thoi Thanh Commune'
+                ]
+            }
+        },
+        'Ca Mau': {
+            'Ca Mau': {
+                subDistrict: [
+                    'An Xuyen Commune',
+                    'Dinh Binh Commune',
+                    'Hoa Tan Commune',
+                    'Hoa Thanh Commune',
+                    'Ly Van Lam Commune',
+                    'Tac Van Commune',
+                    'Tan Thanh Commune',
+                    'Tan Thanh Ward',
+                    'Tan Xuyen Ward',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 6',
+                    'Ward 7',
+                    'Ward 8',
+                    'Ward 9'
+                ]
+            },
+            'Cai Nuoc': {
+                subDistrict: [
+                    'Cai Nuoc Township',
+                    'Dong Hung Commune',
+                    'Dong Thoi Commune',
+                    'Hoa My Commune',
+                    'Hung My Commune',
+                    'Luong The Tran Commune',
+                    'Phu Hung Commune',
+                    'Tan Hung Commune',
+                    'Tan Hung Dong Commune',
+                    'Thanh Phu Commune',
+                    'Tran Thoi Commune'
+                ]
+            },
+            'Dam Doi': {
+                subDistrict: [
+                    'Dam Doi Township',
+                    'Ngoc Chanh Commune',
+                    'Nguyen Huan Commune',
+                    'Quach Pham Bac Commune',
+                    'Quach Pham Commune',
+                    'Ta An Khuong Commune',
+                    'Ta An Khuong Dong Commune',
+                    'Ta An Khuong Nam Commune',
+                    'Tan Dan Commune',
+                    'Tan Duc Commune',
+                    'Tan Duyet Commune',
+                    'Tan Thuan Commune',
+                    'Tan Tien Commune',
+                    'Tan Trung Commune',
+                    'Thanh Tung Commune',
+                    'Tran Phan Commune'
+                ]
+            },
+            'Nam Can': {
+                subDistrict: [
+                    'Dat Moi Commune',
+                    'Ham Rong Commune',
+                    'Hang Vinh Commune',
+                    'Hiep Tung Commune',
+                    'Lam Hai Commune',
+                    'Nam Can Township',
+                    'Tam Giang Commune',
+                    'Tam Giang Dong Commune'
+                ]
+            },
+            'Ngoc Hien': {
+                subDistrict: [
+                    'Dat Mui Commune',
+                    'Rach Goc Township',
+                    'Tam Giang Tay Commune',
+                    'Tan An Commune',
+                    'Tan An Tay Commune',
+                    'Vien An Commune',
+                    'Vien An Dong Commune'
+                ]
+            },
+            'Phu Tan': {
+                subDistrict: [
+                    'Cai Doi Vam Township',
+                    'Nguyen Viet Khai Commune',
+                    'Phu My Commune',
+                    'Phu Tan Commune',
+                    'Phu Thuan Commune',
+                    'Rach Cheo Commune',
+                    'Tan Hai Commune',
+                    'Tan Hung Tay Commune',
+                    'Viet Thang Commune'
+                ]
+            },
+            'Thoi Binh': {
+                subDistrict: [
+                    'Bien Bach Commune',
+                    'Bien Bach Dong Commune',
+                    'Ho Thi Ky Commune',
+                    'Tan Bang Commune',
+                    'Tan Loc Bac Commune',
+                    'Tan Loc Commune',
+                    'Tan Loc Dong Commune',
+                    'Tan Phu Commune',
+                    'Thoi Binh Commune',
+                    'Thoi Binh Township',
+                    'Tri Luc Commune',
+                    'Tri Phai Commune'
+                ]
+            },
+            'Tran Van Thoi': {
+                subDistrict: [
+                    'Khanh Binh Commune',
+                    'Khanh Binh Dong Commune',
+                    'Khanh Binh Tay Bac Commune',
+                    'Khanh Binh Tay Commune',
+                    'Khanh Hai Commune',
+                    'Khanh Hung Commune',
+                    'Khanh Loc Commune',
+                    'Loi An Commune',
+                    'Phong Dien Commune',
+                    'Phong Lac Commune',
+                    'Song Doc Township',
+                    'Tran Hoi Commune',
+                    'Tran Van Thoi Township'
+                ]
+            },
+            'U Minh': {
+                subDistrict: [
+                    'Khanh An Commune',
+                    'Khanh Hoa Commune',
+                    'Khanh Hoi Commune',
+                    'Khanh Lam Commune',
+                    'Khanh Thuan Commune',
+                    'Khanh Tien Commune',
+                    'Nguyen Phich Commune',
+                    'U Minh Township'
+                ]
+            }
+        },
+        'Can Tho': {
+            'Binh Thuy': {
+                subDistrict: [
+                    'An Thoi Ward',
+                    'Binh Thuy Ward',
+                    'Bui Huu Nghia Ward',
+                    'Long Hoa Ward',
+                    'Long Tuyen Ward',
+                    'Thoi An Dong Ward',
+                    'Tra An Ward',
+                    'Tra Noc Ward'
+                ]
+            },
+            'Cai Rang': {
+                subDistrict: [
+                    'Ba Lang Ward',
+                    'Hung Phu Ward',
+                    'Hung Thanh Ward',
+                    'Le Binh Ward',
+                    'Phu Thu Ward',
+                    'Tan Phu Ward',
+                    'Thuong Thanh Ward'
+                ]
+            },
+            'Co Do': {
+                subDistrict: [
+                    'Co Do Township',
+                    'Dong Hiep Commune',
+                    'Dong Thang Commune',
+                    'Thanh Phu Commune',
+                    'Thoi Dong Commune',
+                    'Thoi Hung Commune',
+                    'Thoi Xuan Commune',
+                    'Trung An Commune',
+                    'Trung Hung Commune',
+                    'Trung Thanh Commune'
+                ]
+            },
+            'Ninh Kieu': {
+                subDistrict: [
+                    'An Binh Ward',
+                    'An Cu Ward',
+                    'An Hoa Ward',
+                    'An Khanh Ward',
+                    'An Nghiep Ward',
+                    'An Phu Ward',
+                    'Cai Khe Ward',
+                    'Hung Loi Ward',
+                    'Tan An Ward',
+                    'Thoi Binh Ward',
+                    'Xuan Khanh Ward'
+                ]
+            },
+            'O Mon': {
+                subDistrict: [
+                    'Chau Van Liem Ward',
+                    'Long Hung Ward',
+                    'Phuoc Thoi Ward',
+                    'Thoi An Ward',
+                    'Thoi Hoa Ward',
+                    'Thoi Long Ward',
+                    'Truong Lac Ward'
+                ]
+            },
+            'Phong Dien': {
+                subDistrict: [
+                    'Giai Xuan Commune',
+                    'My Khanh Commune',
+                    'Nhon Ai Commune',
+                    'Nhon Nghia Commune',
+                    'Phong Dien Township',
+                    'Tan Thoi Commune',
+                    'Truong Long Commune'
+                ]
+            },
+            'Thoi Lai': {
+                subDistrict: [
+                    'Dinh Mon Commune',
+                    'Dong Binh Commune',
+                    'Dong Thuan Commune',
+                    'Tan Thanh Commune',
+                    'Thoi Lai Township',
+                    'Thoi Tan Commune',
+                    'Thoi Thanh Commune',
+                    'Truong Thang Commune',
+                    'Truong Thanh Commune',
+                    'Truong Xuan A Commune',
+                    'Truong Xuan B Commune',
+                    'Truong Xuan Commune',
+                    'Xuan Thang Commune'
+                ]
+            },
+            'Thot Not': {
+                subDistrict: [
+                    'Tan Hung Ward',
+                    'Tan Loc Ward',
+                    'Thanh Hoa Ward',
+                    'Thoi Thuan Ward',
+                    'Thot Not Ward',
+                    'Thuan An Ward',
+                    'Thuan Hung Ward',
+                    'Trung Kien Ward',
+                    'Trung Nhut Ward'
+                ]
+            },
+            'Vinh Thanh': {
+                subDistrict: [
+                    'Thanh An Commune',
+                    'Thanh An Township',
+                    'Thanh Loc Commune',
+                    'Thanh Loi Commune',
+                    'Thanh My Commune',
+                    'Thanh Quoi Commune',
+                    'Thanh Thang Commune',
+                    'Thanh Tien Commune',
+                    'Vinh Binh Commune',
+                    'Vinh Thanh Township',
+                    'Vinh Trinh Commune'
+                ]
+            }
+        },
+        'Dong Thap': {
+            'Cao Lanh': {
+                subDistrict: [
+                    'An Binh Commune',
+                    'Ba Sao Commune',
+                    'Binh Hang Tay Commune',
+                    'Binh Hang Trung Commune',
+                    'Binh Thanh Commune',
+                    'Gao Giong Commune',
+                    'Hoa An Commune',
+                    'Hoa Thuan Ward',
+                    'My Hiep Commune',
+                    'My Hoi Commune',
+                    'My Long Commune',
+                    'My Ngai Commune',
+                    'My Phu Ward',
+                    'My Tan Commune',
+                    'My Tho Commune',
+                    'My Tho Township',
+                    'My Tra Commune',
+                    'My Xuong Commune',
+                    'Nhi My Commune',
+                    'Phong My Commune',
+                    'Phuong Thinh Commune',
+                    'Phuong Tra Commune',
+                    'Tan Hoi Trung Commune',
+                    'Tan Nghia Commune',
+                    'Tan Thuan Dong Commune',
+                    'Tan Thuan Tay Commune',
+                    'Tinh Thoi Commune',
+                    'Ward 1',
+                    'Ward 11',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 6'
+                ]
+            },
+            'Chau Thanh': {
+                subDistrict: [
+                    'An Hiep Commune',
+                    'An Khanh Commune',
+                    'An Nhon Commune',
+                    'An Phu Thuan Commune',
+                    'Cai Tau Ha Township',
+                    'Hoa Tan Commune',
+                    'Phu Huu Commune',
+                    'Phu Long Commune',
+                    'Tan Binh Commune',
+                    'Tan Nhuan Dong Commune',
+                    'Tan Phu Commune',
+                    'Tan Phu Trung Commune'
+                ]
+            },
+            'Hong Ngu': {
+                subDistrict: [
+                    'An Binh A Ward',
+                    'An Binh B Ward',
+                    'An Lac Ward',
+                    'An Loc Ward',
+                    'An Thanh Ward',
+                    'Binh Thanh Commune',
+                    'Commune Thuong Phuoc 1',
+                    'Commune Thuong Phuoc 2',
+                    'Long Khanh A Commune',
+                    'Long Khanh B Commune',
+                    'Long Thuan Commune',
+                    'Phu Thuan A Commune',
+                    'Phu Thuan B Commune',
+                    'Tan Hoi Commune',
+                    'Thuong Lac Commune',
+                    'Thuong Thoi Hau A Commune',
+                    'Thuong Thoi Tien Township'
+                ]
+            },
+            'Lai Vung': {
+                subDistrict: [
+                    'Dinh Hoa Commune',
+                    'Hoa Long Commune',
+                    'Hoa Thanh Commune',
+                    'Lai Vung Township',
+                    'Long Hau Commune',
+                    'Long Thang Commune',
+                    'Phong Hoa Commune',
+                    'Tan Duong Commune',
+                    'Tan Hoa Commune',
+                    'Tan Phuoc Commune',
+                    'Tan Thanh Commune',
+                    'Vinh Thoi Commune'
+                ]
+            },
+            'Lap Vo': {
+                subDistrict: [
+                    'Binh Thanh Commune',
+                    'Binh Thanh Trung Commune',
+                    'Dinh An Commune',
+                    'Dinh Yen Commune',
+                    'Hoi An Dong Commune',
+                    'Lap Vo Township',
+                    'Long Hung A Commune',
+                    'Long Hung B Commune',
+                    'My An Hung A Commune',
+                    'My An Hung B Commune',
+                    'Tan Khanh Trung Commune',
+                    'Tan My Commune',
+                    'Vinh Thanh Commune'
+                ]
+            },
+            'Sa Dec': {
+                subDistrict: [
+                    'An Hoa Ward',
+                    'Tan Khanh Dong Commune',
+                    'Tan Phu Dong Commune',
+                    'Tan Quy Dong Ward',
+                    'Tan Quy Tay Commune',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4'
+                ]
+            },
+            'Tam Nong': {
+                subDistrict: [
+                    'An Hoa Commune',
+                    'An Long Commune',
+                    'Hoa Binh Commune',
+                    'Phu Cuong Commune',
+                    'Phu Duc Commune',
+                    'Phu Hiep Commune',
+                    'Phu Ninh Commune',
+                    'Phu Thanh A Commune',
+                    'Phu Thanh B Commune',
+                    'Phu Tho Commune',
+                    'Tan Cong Sinh Commune',
+                    'Tram Chim Township'
+                ]
+            },
+            'Tan Hong': {
+                subDistrict: [
+                    'An Phuoc Commune',
+                    'Binh Phu Commune',
+                    'Sa Rai Township',
+                    'Tan Cong Chi Commune',
+                    'Tan Ho Co Commune',
+                    'Tan Phuoc Commune',
+                    'Tan Thanh A Commune',
+                    'Tan Thanh B Commune',
+                    'Thong Binh Commune'
+                ]
+            },
+            'Thanh Binh': {
+                subDistrict: [
+                    'An Phong Commune',
+                    'Binh Tan Commune',
+                    'Binh Thanh Commune',
+                    'Phu Loi Commune',
+                    'Tan Binh Commune',
+                    'Tan Hoa Commune',
+                    'Tan Hue Commune',
+                    'Tan Long Commune',
+                    'Tan My Commune',
+                    'Tan Phu Commune',
+                    'Tan Quoi Commune',
+                    'Tan Thanh Commune',
+                    'Thanh Binh Township'
+                ]
+            },
+            'Thap Muoi': {
+                subDistrict: [
+                    'Doc Binh Kieu Commune',
+                    'Hung Thanh Commune',
+                    'Lang Bien Commune',
+                    'My An Commune',
+                    'My An Township',
+                    'My Dong Commune',
+                    'My Hoa Commune',
+                    'My Quy Commune',
+                    'Phu Dien Commune',
+                    'Tan Kieu Commune',
+                    'Thanh Loi Commune',
+                    'Thanh My Commune',
+                    'Truong Xuan Commune'
+                ]
+            }
+        },
+        'Hau Giang': {
+            'Chau Thanh': {
+                subDistrict: [
+                    'Dong Phu Commune',
+                    'Dong Phuoc A Commune',
+                    'Dong Phuoc Commune',
+                    'Dong Thanh Commune',
+                    'Mai Dam Township',
+                    'Nga Sau Township',
+                    'Phu Huu Commune',
+                    'Phu Tan Commune'
+                ]
+            },
+            'Chau Thanh A': {
+                subDistrict: [
+                    'Bay Ngan Township',
+                    'Cai Tac Township',
+                    'Mot Ngan Township',
+                    'Nhon Nghia A Commune',
+                    'Rach Goi Township',
+                    'Tan Hoa Commune',
+                    'Tan Phu Thanh Commune',
+                    'Thanh Xuan Commune',
+                    'Truong Long A Commune',
+                    'Truong Long Tay Commune'
+                ]
+            },
+            'Long My': {
+                subDistrict: [
+                    'Binh Thanh Ward',
+                    'Long Binh Commune',
+                    'Long Phu Commune',
+                    'Long Tri A Commune',
+                    'Long Tri Commune',
+                    'Luong Nghia Commune',
+                    'Luong Tam Commune',
+                    'Tan Phu Commune',
+                    'Thuan An Ward',
+                    'Thuan Hoa Commune',
+                    'Thuan Hung Commune',
+                    'Tra Long Ward',
+                    'Vinh Thuan Dong Commune',
+                    'Vinh Tuong Ward',
+                    'Vinh Vien A Commune',
+                    'Vinh Vien Township',
+                    'Xa Phien Commune'
+                ]
+            },
+            'Nga Bay': {
+                subDistrict: [
+                    'Dai Thanh Commune',
+                    'Hiep Loi Ward',
+                    'Hiep Thanh Ward',
+                    'Lai Hieu Ward',
+                    'Nga Bay Ward',
+                    'Tan Thanh Commune'
+                ]
+            },
+            'Phung Hiep': {
+                subDistrict: [
+                    'Binh Thanh Commune',
+                    'Bung Tau Township',
+                    'Cay Duong Township',
+                    'Hiep Hung Commune',
+                    'Hoa An Commune',
+                    'Hoa My Commune',
+                    'Kinh Cung Township',
+                    'Long Thanh Commune',
+                    'Phung Hiep Commune',
+                    'Phuong Binh Commune',
+                    'Phuong Phu Commune',
+                    'Tan Binh Commune',
+                    'Tan Long Commune',
+                    'Tan Phuoc Hung Commune',
+                    'Thanh Hoa Commune'
+                ]
+            },
+            'Vi Thanh': {
+                subDistrict: [
+                    'Hoa Luu Commune',
+                    'Hoa Tien Commune',
+                    'I Ward',
+                    'III Ward',
+                    'IV Ward',
+                    'Tan Tien Commune',
+                    'V Ward',
+                    'Vi Tan Commune',
+                    'VII Ward'
+                ]
+            },
+            'Vi Thuy': {
+                subDistrict: [
+                    'Nang Mau Township',
+                    'Vi Binh Commune',
+                    'Vi Dong Commune',
+                    'Vi Thang Commune',
+                    'Vi Thanh Commune',
+                    'Vi Thuy Commune',
+                    'Vi Trung Commune',
+                    'Vinh Thuan Tay Commune',
+                    'Vinh Trung Commune',
+                    'Vinh Tuong Commune'
+                ]
+            }
+        },
+        'Kien Giang': {
+            'An Bien': {
+                subDistrict: [
+                    'Dong Thai Commune',
+                    'Dong Yen Commune',
+                    'Hung Yen Commune',
+                    'Nam Thai A Commune',
+                    'Nam Thai Commune',
+                    'Nam Yen Commune',
+                    'Tay Yen A Commune',
+                    'Tay Yen Commune',
+                    'Thu Ba Township'
+                ]
+            },
+            'An Minh': {
+                subDistrict: [
+                    'Dong Hoa Commune',
+                    'Dong Hung A Commune',
+                    'Dong Hung B Commune',
+                    'Dong Hung Commune',
+                    'Dong Thanh Commune',
+                    'Tan Thanh Commune',
+                    'Thu Muoi Mot Township',
+                    'Thuan Hoa Commune',
+                    'Van Khanh Commune',
+                    'Van Khanh Dong Commune',
+                    'Van Khanh Tay Commune'
+                ]
+            },
+            'Chau Thanh': {
+                subDistrict: [
+                    'Binh An Commune',
+                    'Giuc Tuong Commune',
+                    'Minh Hoa Commune',
+                    'Minh Luong Township',
+                    'Mong Tho A Commune',
+                    'Mong Tho B Commune',
+                    'Mong Tho Commune',
+                    'Thanh Loc Commune',
+                    'Vinh Hoa Hiep Commune',
+                    'Vinh Hoa Phu Commune'
+                ]
+            },
+            'Giang Thanh': {
+                subDistrict: [
+                    'Phu Loi Commune',
+                    'Phu My Commune',
+                    'Tan Khanh Hoa Commune',
+                    'Vinh Dieu Commune',
+                    'Vinh Phu Commune'
+                ]
+            },
+            'Giong Rieng': {
+                subDistrict: [
+                    'Ban Tan Dinh Commune',
+                    'Ban Thach Commune',
+                    'Giong Rieng Township',
+                    'Hoa An Commune',
+                    'Hoa Hung Commune',
+                    'Hoa Loi Commune',
+                    'Hoa Thuan Commune',
+                    'Long Thanh Commune',
+                    'Ngoc Chuc Commune',
+                    'Ngoc Hoa Commune',
+                    'Ngoc Thanh Commune',
+                    'Ngoc Thuan Commune',
+                    'Thanh Binh Commune',
+                    'Thanh Hoa Commune',
+                    'Thanh Hung Commune',
+                    'Thanh Loc Commune',
+                    'Thanh Phuoc Commune',
+                    'Vinh Phu Commune',
+                    'Vinh Thanh Commune'
+                ]
+            },
+            'Go Quao': {
+                subDistrict: [
+                    'Dinh An Commune',
+                    'Dinh Hoa Commune',
+                    'Go Quao Township',
+                    'Thoi Quan Commune',
+                    'Thuy Lieu Commune',
+                    'Vinh Hoa Hung Bac Commune',
+                    'Vinh Hoa Hung Nam Commune',
+                    'Vinh Phuoc A Commune',
+                    'Vinh Phuoc B Commune',
+                    'Vinh Thang Commune',
+                    'Vinh Tuy Commune'
+                ]
+            },
+            'Ha Tien': {
+                subDistrict: [
+                    'Binh San Ward',
+                    'Dong Ho Ward',
+                    'My Duc Ward',
+                    'Phao Dai Ward',
+                    'Thuan Yen Commune',
+                    'Tien Hai Commune',
+                    'To Chau Ward'
+                ]
+            },
+            'Hon Dat': {
+                subDistrict: [
+                    'Binh Giang Commune',
+                    'Binh Son Commune',
+                    'Hon Dat Township',
+                    'Linh Huynh Commune',
+                    'My Hiep Son Commune',
+                    'My Lam Commune',
+                    'My Phuoc Commune',
+                    'My Thai Commune',
+                    'My Thuan Commune',
+                    'Nam Thai Son Commune',
+                    'Soc Son Township',
+                    'Son Binh Commune',
+                    'Son Kien Commune',
+                    'Tho Son Commune'
+                ]
+            },
+            'Kien Hai': {
+                subDistrict: [
+                    'An Son Commune',
+                    'Hon Tre Commune',
+                    'Lai Son Commune',
+                    'Nam Du Commune'
+                ]
+            },
+            'Kien Luong': {
+                subDistrict: [
+                    'Binh An Commune',
+                    'Binh Tri Commune',
+                    'Duong Hoa Commune',
+                    'Hoa Dien Commune',
+                    'Hon Nghe Commune',
+                    'Kien Binh Commune',
+                    'Kien Luong Township',
+                    'Son Hai Commune'
+                ]
+            },
+            'Phu Quoc': {
+                subDistrict: [
+                    'An Thoi Ward',
+                    'Bai Thom Commune',
+                    'Cua Can Commune',
+                    'Cua Duong Commune',
+                    'Duong Dong Ward',
+                    'Duong To Commune',
+                    'Ganh Dau Commune',
+                    'Ham Ninh Commune',
+                    'Tho Chau Commune'
+                ]
+            },
+            'Rach Gia': {
+                subDistrict: [
+                    'An Binh Ward',
+                    'An Hoa Ward',
+                    'Phi Thong Commune',
+                    'Rach Soi Ward',
+                    'Vinh Bao Ward',
+                    'Vinh Hiep Ward',
+                    'Vinh Lac Ward',
+                    'Vinh Loi Ward',
+                    'Vinh Quang Ward',
+                    'Vinh Thanh Van Ward',
+                    'Vinh Thanh Ward',
+                    'Vinh Thong Ward'
+                ]
+            },
+            'Tan Hiep': {
+                subDistrict: [
+                    'Tan An Commune',
+                    'Tan Hiep A Commune',
+                    'Tan Hiep B Commune',
+                    'Tan Hiep Township',
+                    'Tan Hoa Commune',
+                    'Tan Hoi Commune',
+                    'Tan Thanh Commune',
+                    'Thanh Dong A Commune',
+                    'Thanh Dong B Commune',
+                    'Thanh Dong Commune',
+                    'Thanh Tri Commune'
+                ]
+            },
+            'U Minh Thuong': {
+                subDistrict: [
+                    'An Minh Bac Commune',
+                    'Hoa Chanh Commune',
+                    'Minh Thuan Commune',
+                    'Thanh Yen A Commune',
+                    'Thanh Yen Commune',
+                    'Vinh Hoa Commune'
+                ]
+            },
+            'Vinh Thuan': {
+                subDistrict: [
+                    'Binh Minh Commune',
+                    'Phong Dong Commune',
+                    'Tan Thuan Commune',
+                    'Vinh Binh Bac Commune',
+                    'Vinh Binh Nam Commune',
+                    'Vinh Phong Commune',
+                    'Vinh Thuan Commune',
+                    'Vinh Thuan Township'
+                ]
+            }
+        },
+        'Long An': {
+            'Ben Luc': {
+                subDistrict: [
+                    'An Thanh Commune',
+                    'Ben Luc Township',
+                    'Binh Duc Commune',
+                    'Long Hiep Commune',
+                    'Luong Binh Commune',
+                    'Luong Hoa Commune',
+                    'My Yen Commune',
+                    'Nhut Chanh Commune',
+                    'Phuoc Loi Commune',
+                    'Tan Buu Commune',
+                    'Tan Hoa Commune',
+                    'Thanh Duc Commune',
+                    'Thanh Hoa Commune',
+                    'Thanh Loi Commune',
+                    'Thanh Phu Commune'
+                ]
+            },
+            'Can Duoc': {
+                subDistrict: [
+                    'Can Duoc Township',
+                    'Long Cang Commune',
+                    'Long Dinh Commune',
+                    'Long Hoa Commune',
+                    'Long Huu Dong Commune',
+                    'Long Huu Tay Commune',
+                    'Long Khe Commune',
+                    'Long Son Commune',
+                    'Long Trach Commune',
+                    'My Le Commune',
+                    'Phuoc Dong Commune',
+                    'Phuoc Tuy Commune',
+                    'Phuoc Van Commune',
+                    'Tan An Commune',
+                    'Tan Chanh Commune',
+                    'Tan Lan Commune',
+                    'Tan Trach Commune'
+                ]
+            },
+            'Can Giuoc': {
+                subDistrict: [
+                    'Can Giuoc Township',
+                    'Dong Thanh Commune',
+                    'Long An Commune',
+                    'Long Hau Commune',
+                    'Long Phung Commune',
+                    'Long Thuong Commune',
+                    'My Loc Commune',
+                    'Phuoc Hau Commune',
+                    'Phuoc Lai Commune',
+                    'Phuoc Lam Commune',
+                    'Phuoc Ly Commune',
+                    'Phuoc Vinh Dong Commune',
+                    'Phuoc Vinh Tay Commune',
+                    'Tan Tap Commune',
+                    'Thuan Thanh Commune'
+                ]
+            },
+            'Chau Thanh': {
+                subDistrict: [
+                    'An Luc Long Commune',
+                    'Binh Quoi Commune',
+                    'Duong Xuan Hoi Commune',
+                    'Hiep Thanh Commune',
+                    'Hoa Phu Commune',
+                    'Long Tri Commune',
+                    'Phu Ngai Tri Commune',
+                    'Phuoc Tan Hung Commune',
+                    'Tam Vu Township',
+                    'Thanh Phu Long Commune',
+                    'Thanh Vinh Dong Commune',
+                    'Thuan My Commune',
+                    'Vinh Cong Commune'
+                ]
+            },
+            'Duc Hoa': {
+                subDistrict: [
+                    'An Ninh Dong Commune',
+                    'An Ninh Tay Commune',
+                    'Duc Hoa Dong Commune',
+                    'Duc Hoa Ha Commune',
+                    'Duc Hoa Thuong Commune',
+                    'Duc Hoa Township',
+                    'Duc Lap Ha Commune',
+                    'Duc Lap Thuong Commune',
+                    'Hau Nghia Township',
+                    'Hiep Hoa Commune',
+                    'Hiep Hoa Township',
+                    'Hoa Khanh Dong Commune',
+                    'Hoa Khanh Nam Commune',
+                    'Hoa Khanh Tay Commune',
+                    'Huu Thanh Commune',
+                    'Loc Giang Commune',
+                    'My Hanh Bac Commune',
+                    'My Hanh Nam Commune',
+                    'Tan My Commune',
+                    'Tan Phu Commune'
+                ]
+            },
+            'Duc Hue': {
+                subDistrict: [
+                    'Binh Hoa Bac Commune',
+                    'Binh Hoa Hung Commune',
+                    'Binh Hoa Nam Commune',
+                    'Binh Thanh Commune',
+                    'Dong Thanh Township',
+                    'My Binh Commune',
+                    'My Quy Dong Commune',
+                    'My Quy Tay Commune',
+                    'My Thanh Bac Commune',
+                    'My Thanh Dong Commune',
+                    'My Thanh Tay Commune'
+                ]
+            },
+            'Kien Tuong': {
+                subDistrict: [
+                    'Binh Hiep Commune',
+                    'Binh Tan Commune',
+                    'Thanh Hung Commune',
+                    'Thanh Tri Commune',
+                    'Tuyen Thanh Commune',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3'
+                ]
+            },
+            'Moc Hoa': {
+                subDistrict: [
+                    'Binh Hoa Dong Commune',
+                    'Binh Hoa Tay Commune',
+                    'Binh Hoa Trung Commune',
+                    'Binh Phong Thanh Township',
+                    'Binh Thanh Commune',
+                    'Tan Lap Commune',
+                    'Tan Thanh Commune'
+                ]
+            },
+            'Tan An': {
+                subDistrict: [
+                    'An Vinh Ngai Commune',
+                    'Binh Tam Commune',
+                    'Huong Tho Phu Commune',
+                    'Khanh Hau Ward',
+                    'Loi Binh Nhon Commune',
+                    'Nhon Thanh Trung Commune',
+                    'Tan Khanh Ward',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 6',
+                    'Ward 7'
+                ]
+            },
+            'Tan Hung': {
+                subDistrict: [
+                    'Hung Dien B Commune',
+                    'Hung Dien Commune',
+                    'Hung Ha Commune',
+                    'Hung Thanh Commune',
+                    'Tan Hung Township',
+                    'Thanh Hung Commune',
+                    'Vinh Buu Commune',
+                    'Vinh Chau A Commune',
+                    'Vinh Chau B Commune',
+                    'Vinh Dai Commune',
+                    'Vinh Loi Commune',
+                    'Vinh Thanh Commune'
+                ]
+            },
+            'Tan Thanh': {
+                subDistrict: [
+                    'Bac Hoa Commune',
+                    'Hau Thanh Dong Commune',
+                    'Hau Thanh Tay Commune',
+                    'Kien Binh Commune',
+                    'Nhon Hoa Commune',
+                    'Nhon Hoa Lap Commune',
+                    'Nhon Ninh Commune',
+                    'Tan Binh Commune',
+                    'Tan Hoa Commune',
+                    'Tan Lap Commune',
+                    'Tan Ninh Commune',
+                    'Tan Thanh Commune',
+                    'Tan Thanh Township'
+                ]
+            },
+            'Tan Tru': {
+                subDistrict: [
+                    'Binh Lang Commune',
+                    'Binh Tinh Commune',
+                    'Binh Trinh Dong Commune',
+                    'Duc Tan Commune',
+                    'Lac Tan Commune',
+                    'Nhut Ninh Commune',
+                    'Que My Thanh Commune',
+                    'Tan Binh Commune',
+                    'Tan Phuoc Tay Commune',
+                    'Tan Tru Township'
+                ]
+            },
+            'Thanh Hoa': {
+                subDistrict: [
+                    'Tan Dong Commune',
+                    'Tan Hiep Commune',
+                    'Tan Tay Commune',
+                    'Thanh An Commune',
+                    'Thanh Hoa Township',
+                    'Thanh Phu Commune',
+                    'Thanh Phuoc Commune',
+                    'Thuan Binh Commune',
+                    'Thuan Nghia Hoa Commune',
+                    'Thuy Dong Commune',
+                    'Thuy Tay Commune'
+                ]
+            },
+            'Thu Thua': {
+                subDistrict: [
+                    'Binh An Commune',
+                    'Binh Thanh Commune',
+                    'Long Thanh Commune',
+                    'Long Thuan Commune',
+                    'My An Commune',
+                    'My Lac Commune',
+                    'My Phu Commune',
+                    'My Thanh Commune',
+                    'Nhi Thanh Commune',
+                    'Tan Long Commune',
+                    'Tan Thanh Commune',
+                    'Thu Thua Township'
+                ]
+            },
+            'Vinh Hung': {
+                subDistrict: [
+                    'Hung Dien A Commune',
+                    'Khanh Hung Commune',
+                    'Thai Binh Trung Commune',
+                    'Thai Tri Commune',
+                    'Tuyen Binh Commune',
+                    'Tuyen Binh Tay Commune',
+                    'Vinh Binh Commune',
+                    'Vinh Hung Township',
+                    'Vinh Thuan Commune',
+                    'Vinh Tri Commune'
+                ]
+            }
+        },
+        'Soc Trang': {
+            'Chau Thanh': {
+                subDistrict: [
+                    'An Hiep Commune',
+                    'An Ninh Commune',
+                    'Chau Thanh Township',
+                    'Ho Dac Kien Commune',
+                    'Phu Tam Commune',
+                    'Phu Tan Commune',
+                    'Thien My Commune',
+                    'Thuan Hoa Commune'
+                ]
+            },
+            'Cu Lao Dung': {
+                subDistrict: [
+                    'An Thanh Dong Commune',
+                    'An Thanh Nam Commune',
+                    'An Thanh Tay Commune',
+                    'Commune An Thanh 1',
+                    'Commune An Thanh 2',
+                    'Commune An Thanh 3',
+                    'Commune Dai An 1',
+                    'Cu Lao Dung Township'
+                ]
+            },
+            'Ke Sach': {
+                subDistrict: [
+                    'An Lac Tay Commune',
+                    'An Lac Thon Township',
+                    'An My Commune',
+                    'Ba Trinh Commune',
+                    'Dai Hai Commune',
+                    'Ke An Commune',
+                    'Ke Sach Township',
+                    'Ke Thanh Commune',
+                    'Nhon My Commune',
+                    'Phong Nam Commune',
+                    'Thoi An Hoi Commune',
+                    'Trinh Phu Commune',
+                    'Xuan Hoa Commune'
+                ]
+            },
+            'Long Phu': {
+                subDistrict: [
+                    'Chau Khanh Commune',
+                    'Dai Ngai Township',
+                    'Hau Thanh Commune',
+                    'Long Duc Commune',
+                    'Long Phu Commune',
+                    'Long Phu Township',
+                    'Phu Huu Commune',
+                    'Song Phung Commune',
+                    'Tan Hung Commune',
+                    'Tan Thanh Commune',
+                    'Truong Khanh Commune'
+                ]
+            },
+            'My Tu': {
+                subDistrict: [
+                    'Hung Phu Commune',
+                    'Huynh Huu Nghia Township',
+                    'Long Hung Commune',
+                    'My Huong Commune',
+                    'My Phuoc Commune',
+                    'My Thuan Commune',
+                    'My Tu Commune',
+                    'Phu My Commune',
+                    'Thuan Hung Commune'
+                ]
+            },
+            'My Xuyen': {
+                subDistrict: [
+                    'Commune Gia Hoa 1',
+                    'Commune Gia Hoa 2',
+                    'Commune Hoa Tu 1',
+                    'Dai Tam Commune',
+                    'Hoa Tu II Commune',
+                    'My Xuyen Township',
+                    'Ngoc Dong Commune',
+                    'Ngoc To Commune',
+                    'Tham Don Commune',
+                    'Thanh Phu Commune',
+                    'Thanh Quoi Commune'
+                ]
+            },
+            'Nga Nam': {
+                subDistrict: [
+                    'Long Binh Commune',
+                    'My Binh Commune',
+                    'My Quoi Commune',
+                    'Tan Long Commune',
+                    'Vinh Quoi Commune',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3'
+                ]
+            },
+            'Soc Trang': {
+                subDistrict: [
+                    'Ward 1',
+                    'Ward 10',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 6',
+                    'Ward 7',
+                    'Ward 8'
                 ]
             },
             'Thanh Tri': {
                 subDistrict: [
-                    'Van Dien Township',
-                    'Tan Trieu Commune',
-                    'Thanh Liet Commune',
-                    'Ta Thanh Oai Commune',
-                    'Huu Hoa Commune',
-                    'Tam Hiep Commune',
-                    'Tu Hiep Commune',
-                    'Yen My Commune',
-                    'Vinh Quynh Commune',
+                    'Chau Hung Commune',
+                    'Hung Loi Township',
+                    'Lam Kiet Commune',
+                    'Lam Tan Commune',
+                    'Phu Loc Township',
+                    'Thanh Tan Commune',
+                    'Thanh Tri Commune',
+                    'Tuan Tuc Commune',
+                    'Vinh Loi Commune',
+                    'Vinh Thanh Commune'
+                ]
+            },
+            'Tran De': {
+                subDistrict: [
+                    'Commune Dai An 2',
+                    'Lich Hoi Thuong Commune',
+                    'Lich Hoi Thuong Township',
+                    'Lieu Tu Commune',
+                    'Tai Van Commune',
+                    'Thanh Thoi An Commune',
+                    'Thanh Thoi Thuan Commune',
+                    'Tran De Township',
+                    'Trung Binh Commune',
+                    'Vien An Commune',
+                    'Vien Binh Commune'
+                ]
+            },
+            'Vinh Chau': {
+                subDistrict: [
+                    'Hoa Dong Commune',
+                    'Khanh Hoa Ward',
+                    'Lac Hoa Commune',
+                    'Lai Hoa Commune',
+                    'Vinh Hai Commune',
+                    'Vinh Hiep Commune',
+                    'Vinh Phuoc Ward',
+                    'Vinh Tan Commune',
+                    'Ward 1',
+                    'Ward 2'
+                ]
+            }
+        },
+        'Tien Giang': {
+            'Cai Be': {
+                subDistrict: [
+                    'An Cu Commune',
+                    'An Huu Commune',
+                    'An Thai Dong Commune',
+                    'An Thai Trung Commune',
+                    'Cai Be Township',
+                    'Dong Hoa Hiep Commune',
+                    'Hau My Bac A Commune',
+                    'Hau My Bac B Commune',
+                    'Hau My Phu Commune',
+                    'Hau My Trinh Commune',
+                    'Hau Thanh Commune',
+                    'Hoa Hung Commune',
+                    'Hoa Khanh Commune',
+                    'My Duc Dong Commune',
+                    'My Duc Tay Commune',
+                    'My Hoi Commune',
+                    'My Loi A Commune',
+                    'My Loi B Commune',
+                    'My Luong Commune',
+                    'My Tan Commune',
+                    'My Trung Commune',
+                    'Tan Hung Commune',
+                    'Tan Thanh Commune',
+                    'Thien Tri Commune',
+                    'Thien Trung Commune'
+                ]
+            },
+            'Cai Lay': {
+                subDistrict: [
+                    'Binh Phu Township',
+                    'Cam Son Commune',
+                    'Hiep Duc Commune',
+                    'Hoi Xuan Commune',
+                    'Long Khanh Commune',
+                    'Long Tien Commune',
+                    'Long Trung Commune',
+                    'My Hanh Dong Commune',
+                    'My Hanh Trung Commune',
+                    'My Long Commune',
+                    'My Phuoc Tay Commune',
+                    'My Thanh Bac Commune',
+                    'My Thanh Nam Commune',
                     'Ngu Hiep Commune',
-                    'Duyen Ha Commune',
-                    'Ngoc Hoi Commune',
-                    'Van Phuc Commune',
-                    'Dai ang Commune',
-                    'Lien Ninh Commune',
-                    'Dong My Commune'
-                ]
-            },
-            'Thach That': {
-                subDistrict: [
-                    'Yen Trung Commune',
-                    'Yen Binh Commune',
-                    'Tien Xuan Commune',
-                    'Lien Quan Township',
-                    'Dai Dong Commune',
-                    'Cam Yen Commune',
-                    'Lai Thuong Commune',
-                    'Phu Kim Commune',
-                    'Huong Ngai Commune',
-                    'Canh Nau Commune',
-                    'Kim Quan Commune',
-                    'Di Nau Commune',
-                    'Binh Yen Commune',
-                    'Chang Son Commune',
-                    'Thach Hoa Commune',
-                    'Can Kiem Commune',
-                    'Huu Bang Commune',
-                    'Phung Xa Commune',
-                    'Tan Xa Commune',
-                    'Thach Xa Commune',
-                    'Binh Phu Commune',
-                    'Ha Bang Commune',
-                    'Dong Truc Commune'
-                ]
-            },
-            'Quoc Oai': {
-                subDistrict: [
-                    'Dong Xuan Commune',
-                    'Quoc Oai Township',
-                    'Sai Son Commune',
-                    'Phuong Cach Commune',
-                    'Yen Son Commune',
-                    'Ngoc Liep Commune',
-                    'Ngoc My Commune',
-                    'Liep Tuyet Commune',
-                    'Thach Than Commune',
-                    'Dong Quang Commune',
-                    'Phu Cat Commune',
-                    'Tuyet Nghia Commune',
-                    'Nghia Huong Commune',
-                    'Cong Hoa Commune',
-                    'Tan Phu Commune',
-                    'Dai Thanh Commune',
-                    'Phu Man Commune',
-                    'Can Huu Commune',
-                    'Tan Hoa Commune',
-                    'Hoa Thach Commune',
-                    'Dong Yen Commune'
-                ]
-            },
-            'Me Linh': {
-                subDistrict: [
-                    'Chi Dong Township',
-                    'Dai Thinh Commune',
-                    'Kim Hoa Commune',
-                    'Thach Da Commune',
-                    'Tien Thang Commune',
-                    'Tu Lap Commune',
-                    'Quang Minh Township',
-                    'Thanh Lam Commune',
-                    'Tam Dong Commune',
-                    'Lien Mac Commune',
-                    'Van Yen Commune',
-                    'Chu Phan Commune',
-                    'Tien Thinh Commune',
-                    'Me Linh Commune',
-                    'Van Khe Commune',
-                    'Hoang Kim Commune',
-                    'Tien Phong Commune',
-                    'Trang Viet Commune'
-                ]
-            },
-            'Ha Dong': {
-                subDistrict: [
-                    'Nguyen Trai Ward',
-                    'Mo Lao Ward',
-                    'Van Quan Ward',
-                    'Van Phuc Ward',
-                    'Yet Kieu Ward',
-                    'Quang Trung Ward',
-                    'La Khe Ward',
-                    'Phu La Ward',
-                    'Phuc La Ward',
-                    'Ha Cau Ward',
-                    'Yen Nghia Ward',
-                    'Kien Hung Ward',
-                    'Phu Lam Ward',
-                    'Phu Luong Ward',
-                    'Duong Noi Ward',
-                    'Dong Mai Ward',
-                    'Bien Giang Ward'
-                ]
-            },
-            'Son Tay': {
-                subDistrict: [
-                    'Le Loi Ward',
-                    'Phu Thinh Ward',
-                    'Ngo Quyen Ward',
-                    'Quang Trung Ward',
-                    'Son Loc Ward',
-                    'Xuan Khanh Ward',
-                    'Duong Lam Commune',
-                    'Vien Son Ward',
-                    'Xuan Son Commune',
-                    'Trung Hung Ward',
-                    'Thanh My Commune',
-                    'Trung Son Tram Ward',
-                    'Kim Son Commune',
-                    'Son Dong Commune',
-                    'Co Dong Commune'
-                ]
-            },
-            'Ba Vi': {
-                subDistrict: [
-                    'Tay Dang Township',
+                    'Nhi My Ward',
+                    'Nhi Quy Commune',
+                    'Phu An Commune',
                     'Phu Cuong Commune',
-                    'Co Do Commune',
-                    'Tan Hong Commune',
-                    'Van Thang Commune',
-                    'Chau Son Commune',
-                    'Phong Van Commune',
-                    'Phu Dong Commune',
-                    'Phu Phuong Commune',
-                    'Phu Chau Commune',
-                    'Thai Hoa Commune',
-                    'Dong Thai Commune',
-                    'Phu Son Commune',
-                    'Minh Chau Commune',
-                    'Vat Lai Commune',
-                    'Chu Minh Commune',
-                    'Tong Bat Commune',
-                    'Cam Linh Commune',
-                    'Son Da Commune',
-                    'Dong Quang Commune',
-                    'Tien Phong Commune',
-                    'Thuy An Commune',
-                    'Cam Thuong Commune',
-                    'Thuan My Commune',
-                    'Tan Linh Commune',
-                    'Ba Trai Commune',
-                    'Minh Quang Commune',
-                    'Ba Vi Commune',
-                    'Van Hoa Commune',
-                    'Yen Bai Commune',
-                    'Khanh Thuong Commune'
-                ]
-            },
-            'Phuc Tho': {
-                subDistrict: [
-                    'Phuc Tho Township',
-                    'Van Ha Commune',
-                    'Van Phuc Commune',
-                    'Van Nam Commune',
-                    'Xuan Dinh Commune',
-                    'Sen Phuong Commune',
-                    'Vong Xuyen Commune',
-                    'Tho Loc Commune',
-                    'Long Xuyen Commune',
-                    'Thuong Coc Commune',
-                    'Hat Mon Commune',
-                    'Tich Giang Commune',
-                    'Thanh Da Commune',
-                    'Trach My Loc Commune',
-                    'Phuc Hoa Commune',
-                    'Ngoc Tao Commune',
-                    'Phung Thuong Commune',
-                    'Tam Thuan Commune',
-                    'Tam Hiep Commune',
-                    'Hiep Thuan Commune',
-                    'Lien Hiep Commune'
-                ]
-            },
-            'Dan Phuong': {
-                subDistrict: [
-                    'Phung Township',
-                    'Trung Chau Commune',
-                    'Tho An Commune',
-                    'Tho Xuan Commune',
-                    'Hong Ha Commune',
-                    'Lien Hong Commune',
-                    'Lien Ha Commune',
-                    'Ha Mo Commune',
-                    'Lien Trung Commune',
-                    'Phuong Dinh Commune',
-                    'Thuong Mo Commune',
+                    'Phu Nhuan Commune',
+                    'Phu Quy Commune',
+                    'Tam Binh Commune',
+                    'Tan Binh Commune',
                     'Tan Hoi Commune',
-                    'Tan Lap Commune',
-                    'Dan Phuong Commune',
-                    'Dong Thap Commune',
-                    'Song Phuong Commune'
+                    'Tan Phong Commune',
+                    'Tan Phu Commune',
+                    'Thanh Hoa Commune',
+                    'Thanh Loc Commune',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5'
                 ]
             },
-            'Hoai Duc': {
+            'Chau Thanh': {
                 subDistrict: [
-                    'Tram Troi Township',
-                    'Duc Thuong Commune',
-                    'Minh Khai Commune',
-                    'Duong Lieu Commune',
-                    'Di Trach Commune',
-                    'Duc Giang Commune',
-                    'Cat Que Commune',
-                    'Kim Chung Commune',
-                    'Yen So Commune',
-                    'Son Dong Commune',
-                    'Van Canh Commune',
-                    'Dac So Commune',
-                    'Lai Yen Commune',
-                    'Tien Yen Commune',
-                    'Song Phuong Commune',
-                    'An Khanh Commune',
-                    'An Thuong Commune',
-                    'Van Con Commune',
-                    'La Phu Commune',
-                    'Dong La Commune'
+                    'Ban Long Commune',
+                    'Binh Duc Commune',
+                    'Binh Trung Commune',
+                    'Diem Hy Commune',
+                    'Dong Hoa Commune',
+                    'Duong Diem Commune',
+                    'Huu Dao Commune',
+                    'Kim Son Commune',
+                    'Long An Commune',
+                    'Long Dinh Commune',
+                    'Long Hung Commune',
+                    'Nhi Binh Commune',
+                    'Phu Phong Commune',
+                    'Song Thuan Commune',
+                    'Tam Hiep Commune',
+                    'Tan Hiep Township',
+                    'Tan Hoi Dong Commune',
+                    'Tan Huong Commune',
+                    'Tan Ly Dong Commune',
+                    'Tan Ly Tay Commune',
+                    'Than Cuu Nghia Commune',
+                    'Thanh Phu Commune',
+                    'Vinh Kim Commune'
                 ]
             },
-            'Chuong My': {
+            'Cho Gao': {
                 subDistrict: [
-                    'Chuc Son Township',
-                    'Xuan Mai Township',
-                    'Phung Chau Commune',
-                    'Tien Phuong Commune',
-                    'Dong Son Commune',
-                    'Dong Phuong Yen Commune',
-                    'Phu Nghia Commune',
-                    'Truong Yen Commune',
-                    'Ngoc Hoa Commune',
-                    'Thuy Xuan Tien Commune',
+                    'An Thanh Thuy Commune',
+                    'Binh Ninh Commune',
+                    'Binh Phan Commune',
+                    'Binh Phuc Nhut Commune',
+                    'Cho Gao Township',
+                    'Dang Hung Phuoc Commune',
+                    'Hoa Dinh Commune',
+                    'Hoa Tinh Commune',
+                    'Long Binh Dien Commune',
+                    'Luong Hoa Lac Commune',
+                    'My Tinh An Commune',
+                    'Phu Kiet Commune',
+                    'Quon Long Commune',
+                    'Song Binh Commune',
+                    'Tan Binh Thanh Commune',
+                    'Tan Thuan Binh Commune',
                     'Thanh Binh Commune',
                     'Trung Hoa Commune',
-                    'Dai Yen Commune',
-                    'Thuy Huong Commune',
-                    'Tot Dong Commune',
-                    'Lam Dien Commune',
-                    'Tan Tien Commune',
-                    'Nam Phuong Tien Commune',
-                    'Hop Dong Commune',
-                    'Hoang Van Thu Commune',
-                    'Hoang Dieu Commune',
-                    'Huu Van Commune',
-                    'Quang Bi Commune',
-                    'My Luong Commune',
-                    'Thuong Vuc Commune',
-                    'Hong Phong Commune',
-                    'Dong Phu Commune',
-                    'Tran Phu Commune',
-                    'Van Vo Commune',
-                    'Dong Lac Commune',
-                    'Hoa Chinh Commune',
-                    'Phu Nam An Commune'
+                    'Xuan Dong Commune'
                 ]
             },
-            'Thanh Oai': {
+            'Go Cong': {
                 subDistrict: [
-                    'Kim Bai Township',
-                    'Cu Khe Commune',
-                    'Bich Hoa Commune',
-                    'My Hung Commune',
-                    'Cao Vien Commune',
-                    'Binh Minh Commune',
-                    'Tam Hung Commune',
-                    'Thanh Cao Commune',
-                    'Thanh Thuy Commune',
-                    'Thanh Mai Commune',
-                    'Thanh Van Commune',
-                    'Do Dong Commune',
-                    'Kim An Commune',
-                    'Kim Thu Commune',
-                    'Phuong Trung Commune',
-                    'Tan Uoc Commune',
-                    'Dan Hoa Commune',
-                    'Lien Chau Commune',
-                    'Cao Duong Commune',
-                    'Xuan Duong Commune',
-                    'Hong Duong Commune'
+                    'Binh Dong Commune',
+                    'Binh Xuan Commune',
+                    'Long Chanh Ward',
+                    'Long Hoa Ward',
+                    'Long Hung Ward',
+                    'Long Thuan Ward',
+                    'Tan Trung Commune',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 5'
                 ]
             },
-            'Thuong Tin': {
+            'Go Cong Dong': {
                 subDistrict: [
-                    'Thuong Tin Township',
-                    'Ninh So Commune',
-                    'Nhi Khe Commune',
-                    'Duyen Thai Commune',
-                    'Khanh Ha Commune',
-                    'Hoa Binh Commune',
-                    'Van Binh Commune',
-                    'Hien Giang Commune',
-                    'Hong Van Commune',
-                    'Van Tao Commune',
-                    'Lien Phuong Commune',
-                    'Van Phu Commune',
-                    'Tu Nhien Commune',
-                    'Tien Phong Commune',
-                    'Ha Hoi Commune',
-                    'Thu Phu Commune',
-                    'Nguyen Trai Commune',
-                    'Quat Dong Commune',
-                    'Chuong Duong Commune',
-                    'Tan Minh Commune',
-                    'Le Loi Commune',
-                    'Thang Loi Commune',
-                    'Dung Tien Commune',
-                    'Thong Nhat Commune',
-                    'Nghiem Xuyen Commune',
-                    'To Hieu Commune',
-                    'Van Tu Commune',
-                    'Van Diem Commune',
-                    'Minh Cuong Commune'
+                    'Binh An Commune',
+                    'Binh Nghi Commune',
+                    'Gia Thuan Commune',
+                    'Kieng Phuoc Commune',
+                    'Phuoc Trung Commune',
+                    'Tan Dien Commune',
+                    'Tan Dong Commune',
+                    'Tan Hoa Township',
+                    'Tan Phuoc Commune',
+                    'Tan Tay Commune',
+                    'Tan Thanh Commune',
+                    'Tang Hoa Commune',
+                    'Vam Lang Township'
                 ]
             },
-            'Phu Xuyen': {
+            'Go Cong Tay': {
                 subDistrict: [
-                    'Phu Minh Township',
-                    'Phu Xuyen Township',
-                    'Hong Minh Commune',
-                    'Phuong Duc Commune',
-                    'Nam Tien Commune',
-                    'Tri Trung Commune',
-                    'Dai Thang Commune',
-                    'Phu Tuc Commune',
-                    'Van Hoang Commune',
-                    'Hong Thai Commune',
-                    'Hoang Long Commune',
-                    'Quang Trung Commune',
-                    'Nam Phong Commune',
-                    'Nam Trieu Commune',
-                    'Tan Dan Commune',
-                    'Son Ha Commune',
-                    'Chuyen My Commune',
-                    'Khai Thai Commune',
-                    'Phuc Tien Commune',
-                    'Van Tu Commune',
-                    'Tri Thuy Commune',
-                    'Dai Xuyen Commune',
-                    'Phu Yen Commune',
-                    'Bach Ha Commune',
-                    'Quang Lang Commune',
-                    'Chau Can Commune',
-                    'Minh Tan Commune'
-                ]
-            },
-            'Ung Hoa': {
-                subDistrict: [
-                    'Van Dinh Township',
-                    'Vien An Commune',
-                    'Vien Noi Commune',
-                    'Hoa Son Commune',
-                    'Quang Phu Cau Commune',
-                    'Truong Thinh Commune',
-                    'Cao Thanh Commune',
-                    'Lien Bat Commune',
-                    'Son Cong Commune',
-                    'Dong Tien Commune',
-                    'Phuong Tu Commune',
-                    'Trung Tu Commune',
-                    'Dong Tan Commune',
-                    'Tao Duong Van Commune',
-                    'Van Thai Commune',
-                    'Minh Duc Commune',
-                    'Hoa Lam Commune',
-                    'Hoa Xa Commune',
-                    'Tram Long Commune',
-                    'Kim Duong Commune',
-                    'Hoa Nam Commune',
-                    'Hoa Phu Commune',
-                    'Doi Binh Commune',
-                    'Dai Hung Commune',
-                    'Dong Lo Commune',
-                    'Phu Luu Commune',
-                    'Dai Cuong Commune',
-                    'Luu Hoang Commune',
-                    'Hong Quang Commune'
-                ]
-            },
-            'My Duc': {
-                subDistrict: [
-                    'Dai Nghia Township',
-                    'Dong Tam Commune',
-                    'Thuong Lam Commune',
-                    'Tuy Lai Commune',
-                    'Phuc Lam Commune',
-                    'My Thanh Commune',
-                    'Bot Xuyen Commune',
-                    'An My Commune',
-                    'Hong Son Commune',
-                    'Le Thanh Commune',
-                    'Xuy Xa Commune',
-                    'Phung Xa Commune',
-                    'Phu Luu Te Commune',
-                    'Dai Hung Commune',
-                    'Van Kim Commune',
-                    'Doc Tin Commune',
-                    'Huong Son Commune',
-                    'Hung Tien Commune',
-                    'An Tien Commune',
-                    'Hop Tien Commune',
-                    'Hop Thanh Commune',
-                    'An Phu Commune'
-                ]
-            }
-        },
-        'Vinh Phuc': {
-            'Vinh Yen': {
-                subDistrict: [
-                    'Tich Son Ward',
-                    'Lien Bao Ward',
-                    'Hoi Hop Ward',
-                    'Dong Da Ward',
-                    'Ngo Quyen Ward',
-                    'Dong Tam Ward',
-                    'Dinh Trung Ward',
-                    'Khai Quang Ward',
-                    'Thanh Tru Commune'
-                ]
-            },
-            'Phuc Yen': {
-                subDistrict: [
-                    'Trung Trac Ward',
-                    'Hung Vuong Ward',
-                    'Trung Nhi Ward',
-                    'Phuc Thang Ward',
-                    'Xuan Hoa Ward',
-                    'Dong Xuan Ward',
-                    'Ngoc Thanh Commune',
-                    'Cao Minh Commune',
-                    'Nam Viem Ward',
-                    'Tien Chau Ward'
-                ]
-            },
-            'Lap Thach': {
-                subDistrict: [
-                    'Lap Thach Township',
-                    'Quang Son Commune',
-                    'Ngoc My Commune',
-                    'Hop Ly Commune',
-                    'Bac Binh Commune',
-                    'Thai Hoa Commune',
-                    'Hoa Son Township',
-                    'Lien Son Commune',
-                    'Xuan Hoa Commune',
-                    'Van Truc Commune',
-                    'Lien Hoa Commune',
-                    'Tu Du Commune',
-                    'Ban Gian Commune',
-                    'Xuan Loi Commune',
-                    'Dong Ich Commune',
-                    'Tien Lu Commune',
-                    'Van Quan Commune',
-                    'Dinh Chu Commune',
-                    'Trieu De Commune',
-                    'Son Dong Commune'
-                ]
-            },
-            'Song Lo': {
-                subDistrict: [
-                    'Lang Cong Commune',
-                    'Quang Yen Commune',
-                    'Bach Luu Commune',
-                    'Hai Luu Commune',
-                    'Dong Que Commune',
-                    'Nhan Dao Commune',
-                    'Don Nhan Commune',
-                    'Phuong Khoan Commune',
-                    'Tan Lap Commune',
-                    'Nhao Son Commune',
-                    'Tam Son Township',
-                    'Nhu Thuy Commune',
-                    'Yen Thach Commune',
-                    'Dong Thinh Commune',
-                    'Tu Yen Commune',
-                    'Duc Bac Commune',
-                    'Cao Phong Commune'
-                ]
-            },
-            'Tam Duong': {
-                subDistrict: [
-                    'Hop Hoa Township',
-                    'Hoang Hoa Commune',
-                    'Dong Tinh Commune',
-                    'Kim Long Township',
-                    'Huong Dao Commune',
-                    'Dao Tu Commune',
-                    'An Hoa Commune',
-                    'Thanh Van Commune',
-                    'Duy Phien Commune',
-                    'Hoang Dan Commune',
-                    'Hoang Lau Commune',
-                    'Van Hoi Commune',
-                    'Hop Thinh Commune'
-                ]
-            },
-            'Tam Dao': {
-                subDistrict: [
-                    'Tam Dao Township',
-                    'Hop Chau Township',
-                    'Dao Tru Commune',
-                    'Yen Duong Commune',
-                    'Bo Ly Commune',
-                    'Dai Dinh Township',
-                    'Tam Quan Commune',
-                    'Ho Son Commune',
-                    'Minh Quang Commune'
-                ]
-            },
-            'Binh Xuyen': {
-                subDistrict: [
-                    'Huong Canh Township',
-                    'Gia Khanh Township',
-                    'Trung My Commune',
-                    'Ba Hien Township',
-                    'Thien Ke Commune',
-                    'Huong Son Commune',
-                    'Tam Hop Commune',
-                    'Quat Luu Commune',
-                    'Son Loi Commune',
-                    'Dao Duc Township',
-                    'Tan Phong Commune',
-                    'Thanh Lang Township',
-                    'Phu Xuan Commune'
-                ]
-            },
-            'Yen Lac': {
-                subDistrict: [
-                    'Yen Lac Township',
-                    'Dong Cuong Commune',
-                    'Dong Van Commune',
-                    'Binh Dinh Commune',
-                    'Trung Nguyen Commune',
-                    'Te Lo Commune',
-                    'Tam Hong Township',
-                    'Yen Dong Commune',
-                    'Van Tien Commune',
-                    'Nguyet Duc Commune',
-                    'Yen Phuong Commune',
-                    'Hong Phuong Commune',
-                    'Trung Kien Commune',
-                    'Lien Chau Commune',
-                    'Dai Tu Commune',
-                    'Hong Chau Commune',
-                    'Trung Ha Commune'
-                ]
-            },
-            'Vinh Tuong': {
-                subDistrict: [
-                    'Vinh Tuong Township',
-                    'Kim Xa Commune',
-                    'Yen Binh Commune',
-                    'Chan Hung Commune',
-                    'Nghia Hung Commune',
-                    'Yen Lap Commune',
-                    'Viet Xuan Commune',
-                    'Bo Sao Commune',
-                    'Dai Dong Commune',
-                    'Tan Tien Commune',
-                    'Lung Hoa Commune',
-                    'Cao Dai Commune',
-                    'Tho Tang Township',
-                    'Vinh Son Commune',
-                    'Binh Duong Commune',
-                    'Tan Phu Commune',
-                    'Thuong Trung Commune',
-                    'Vu Di Commune',
-                    'Ly Nhan Commune',
-                    'Tuan Chinh Commune',
-                    'Van Xuan Commune',
-                    'Tam Phuc Commune',
-                    'Tu Trung Township',
-                    'Ngu Kien Commune',
-                    'An Tuong Commune',
-                    'Vinh Thinh Commune',
-                    'Phu Da Commune',
-                    'Vinh Ninh Commune'
-                ]
-            }
-        },
-        'Bac Ninh': {
-            'Bac Ninh': {
-                subDistrict: [
-                    'Vu Ninh Ward',
-                    'Dap Cau Ward',
-                    'Thi Cau Ward',
-                    'Kinh Bac Ward',
-                    'Ve An Ward',
-                    'Tien An Ward',
-                    'Dai Phuc Ward',
-                    'Ninh Xa Ward',
-                    'Suoi Hoa Ward',
-                    'Vo Cuong Ward',
-                    'Hoa Long Ward',
-                    'Van An Ward',
-                    'Khuc Xuyen Ward',
-                    'Phong Khe Ward',
-                    'Kim Chan Ward',
-                    'Van Duong Ward',
-                    'Nam Son Ward',
-                    'Khac Niem Ward',
-                    'Hap Linh Ward'
-                ]
-            },
-            'Yen Phong': {
-                subDistrict: [
-                    'Cho Township',
-                    'Dung Liet Commune',
-                    'Tam Da Commune',
-                    'Tam Giang Commune',
-                    'Yen Trung Commune',
-                    'Thuy Hoa Commune',
-                    'Hoa Tien Commune',
-                    'Dong Tien Commune',
-                    'Yen Phu Commune',
-                    'Trung Nghia Commune',
-                    'Dong Phong Commune',
-                    'Long Chau Commune',
-                    'Van Mon Commune',
-                    'Dong Tho Commune'
-                ]
-            },
-            'Que Vo': {
-                subDistrict: [
-                    'Pho Moi Ward',
-                    'Viet Thong Commune',
-                    'Dai Xuan Ward',
-                    'Nhan Hoa Ward',
-                    'Bang An Ward',
-                    'Phuong Lieu Ward',
-                    'Que Tan Ward',
-                    'Phu Luong Ward',
-                    'Phu Lang Commune',
-                    'Phuong Mao Ward',
-                    'Viet Hung Ward',
-                    'Ngoc Xa Commune',
-                    'Chau Phong Commune',
-                    'Bong Lai Ward',
-                    'Cach Bi Ward',
-                    'Dao Vien Commune',
-                    'Yen Gia Commune',
-                    'Mo Dao Commune',
-                    'Duc Long Commune',
-                    'Chi Lang Commune',
-                    'Han Quang Commune'
-                ]
-            },
-            'Tien Du': {
-                subDistrict: [
-                    'Lim Township',
-                    'Phu Lam Commune',
-                    'Noi Due Commune',
-                    'Lien Bao Commune',
-                    'Hien Van Commune',
-                    'Hoan Son Commune',
-                    'Lac Ve Commune',
-                    'Viet Doan Commune',
-                    'Phat Tich Commune',
-                    'Tan Chi Commune',
-                    'Dai Dong Commune',
-                    'Tri Phuong Commune',
-                    'Minh Dao Commune',
-                    'Canh Hung Commune'
-                ]
-            },
-            'Tu Son': {
-                subDistrict: [
-                    'Dong Ngan Ward',
-                    'Tam Son Ward',
-                    'Huong Mac Ward',
-                    'Tuong Giang Ward',
-                    'Phu Khe Ward',
-                    'Dong Ky Ward',
-                    'Trang Ha Ward',
-                    'Dong Nguyen Ward',
-                    'Chau Khe Ward',
-                    'Tan Hong Ward',
-                    'Dinh Bang Ward',
-                    'Phu Chan Ward'
-                ]
-            },
-            'Thuan Thanh': {
-                subDistrict: [
-                    'Ho Ward',
-                    'Hoai Thuong Commune',
-                    'Dai Dong Thanh Commune',
-                    'Mao Dien Commune',
-                    'Song Ho Ward',
-                    'Dinh To Commune',
-                    'An Binh Ward',
-                    'Tri Qua Ward',
-                    'Gia Dong Ward',
-                    'Thanh Khuong Ward',
-                    'Tram Lo Ward',
-                    'Xuan Lam Ward',
-                    'Ha Man Ward',
-                    'Ngu Thai Commune',
-                    'Nguyet Duc Commune',
-                    'Ninh Xa Ward',
-                    'Nghia Dao Commune',
-                    'Song Lieu Commune'
-                ]
-            },
-            'Gia Binh': {
-                subDistrict: [
-                    'Gia Binh Township',
-                    'Van Ninh Commune',
-                    'Thai Bao Commune',
-                    'Giang Son Commune',
-                    'Cao Duc Commune',
-                    'Dai Lai Commune',
-                    'Song Giang Commune',
-                    'Binh Duong Commune',
-                    'Lang Ngam Commune',
-                    'Nhan Thang Commune',
-                    'Xuan Lai Commune',
-                    'Dong Cuu Commune',
-                    'Dai Bai Commune',
-                    'Quynh Phu Commune'
-                ]
-            },
-            'Luong Tai': {
-                subDistrict: [
-                    'Thua Township',
-                    'An Thinh Commune',
-                    'Trung Kenh Commune',
-                    'Phu Hoa Commune',
-                    'My Huong Commune',
-                    'Tan Lang Commune',
-                    'Quang Phu Commune',
-                    'Trung Xa Commune',
-                    'Lai Ha Commune',
-                    'Trung Chinh Commune',
-                    'Minh Tan Commune',
-                    'Binh Dinh Commune',
-                    'Phu Luong Commune',
-                    'Lam Thao Commune'
-                ]
-            }
-        },
-        'Hai Duong': {
-            'Hai Duong': {
-                subDistrict: [
-                    'Cam Thuong Ward',
-                    'Binh Han Ward',
-                    'Ngoc Chau Ward',
-                    'Nhi Chau Ward',
-                    'Quang Trung Ward',
-                    'Nguyen Trai Ward',
-                    'Pham Ngu Lao Ward',
-                    'Tran Hung Dao Ward',
-                    'Tran Phu Ward',
-                    'Thanh Binh Ward',
-                    'Tan Binh Ward',
-                    'Le Thanh Nghi Ward',
-                    'Hai Tan Ward',
-                    'Tu Minh Ward',
-                    'Viet Hoa Ward',
-                    'Ai Quoc Ward',
-                    'An Thuong Commune',
-                    'Nam Dong Ward',
-                    'Quyet Thang Commune',
-                    'Tien Tien Commune',
-                    'Thach Khoi Ward',
-                    'Lien Hong Commune',
-                    'Tan Hung Ward',
-                    'Gia Xuyen Commune',
-                    'Ngoc Son Commune'
-                ]
-            },
-            'Chi Linh': {
-                subDistrict: [
-                    'Pha Lai Ward',
-                    'Sao Do Ward',
-                    'Ben Tam Ward',
-                    'Hoang Hoa Tham Commune',
-                    'Bac An Commune',
-                    'Hung Dao Commune',
-                    'Le Loi Commune',
-                    'Hoang Tien Ward',
-                    'Cong Hoa Ward',
-                    'Hoang Tan Ward',
-                    'Co Thanh Ward',
-                    'Van An Ward',
-                    'Chi Minh Ward',
-                    'Van Duc Ward',
-                    'Thai Hoc Ward',
-                    'Nhan Hue Commune',
-                    'An Lac Ward',
-                    'Dong Lac Ward',
-                    'Tan Dan Ward'
-                ]
-            },
-            'Nam Sach': {
-                subDistrict: [
-                    'Nam Sach Township',
-                    'Nam Hung Commune',
-                    'Nam Tan Commune',
-                    'Hop Tien Commune',
-                    'Hiep Cat Commune',
-                    'Thanh Quang Commune',
-                    'Quoc Tuan Commune',
-                    'Nam Chinh Commune',
-                    'An Binh Commune',
-                    'Nam Trung Commune',
-                    'An Son Commune',
-                    'Cong Hoa Commune',
-                    'Thai Tan Commune',
-                    'An Lam Commune',
-                    'Phu Dien Commune',
-                    'Nam Hong Commune',
-                    'Hong Phong Commune',
-                    'Dong Lac Commune',
-                    'Minh Tan Commune'
-                ]
-            },
-            'Kinh Mon': {
-                subDistrict: [
-                    'An Luu Ward',
-                    'Bach Dang Commune',
-                    'That Hung Ward',
-                    'Le Ninh Commune',
-                    'Hoanh Son Commune',
-                    'Pham Thai Ward',
-                    'Duy Tan Ward',
-                    'Tan Dan Ward',
-                    'Minh Tan Ward',
-                    'Quang Thanh Commune',
-                    'Hiep Hoa Commune',
-                    'Phu Thu Ward',
-                    'Thang Long Commune',
-                    'Lac Long Commune',
-                    'An Sinh Ward',
-                    'Hiep Son Ward',
-                    'Thuong Quan Commune',
-                    'An Phu Ward',
-                    'Hiep An Ward',
-                    'Long Xuyen Ward',
-                    'Thai Thinh Ward',
-                    'Hien Thanh Ward',
-                    'Minh Hoa Commune'
-                ]
-            },
-            'Kim Thanh': {
-                subDistrict: [
-                    'Phu Thai Township',
-                    'Lai Vu Commune',
-                    'Cong Hoa Commune',
-                    'Thuong Vu Commune',
-                    'Co Dung Commune',
-                    'Tuan Viet Commune',
-                    'Kim Xuyen Commune',
-                    'Phuc Thanh A Commune',
-                    'Ngu Phuc Commune',
-                    'Kim Anh Commune',
-                    'Kim Lien Commune',
-                    'Kim Tan Commune',
-                    'Kim Dinh Commune',
-                    'Binh Dan Commune',
-                    'Tam Ky Commune',
-                    'Dong Cam Commune',
-                    'Lien Hoa Commune',
-                    'Dai Duc Commune'
-                ]
-            },
-            'Thanh Ha': {
-                subDistrict: [
-                    'Thanh Ha Township',
-                    'Hong Lac Commune',
-                    'Viet Hong Commune',
-                    'Tan Viet Commune',
-                    'Cam Che Commune',
-                    'Thanh An Commune',
-                    'Thanh Lang Commune',
-                    'Tan An Commune',
-                    'Lien Mac Commune',
-                    'Thanh Hai Commune',
-                    'Thanh Khe Commune',
-                    'Thanh Xa Commune',
-                    'Thanh Xuan Commune',
-                    'Thanh Thuy Commune',
-                    'An Phuong Commune',
-                    'Thanh Son Commune',
-                    'Thanh Quang Commune',
-                    'Thanh Hong Commune',
-                    'Thanh Cuong Commune',
-                    'Vinh Lap Commune'
-                ]
-            },
-            'Cam Giang': {
-                subDistrict: [
-                    'Cam Giang Township',
-                    'Lai Cach Township',
-                    'Cam Hung Commune',
-                    'Cam Hoang Commune',
-                    'Cam Van Commune',
-                    'Ngoc Lien Commune',
-                    'Thach Loi Commune',
-                    'Cam Vu Commune',
-                    'Duc Chinh Commune',
-                    'Dinh Son Commune',
-                    'Luong Dien Commune',
-                    'Cao An Commune',
-                    'Tan Truong Commune',
-                    'Cam Phuc Commune',
-                    'Cam Dien Commune',
-                    'Cam Dong Commune',
-                    'Cam Doai Commune'
-                ]
-            },
-            'Binh Giang': {
-                subDistrict: [
-                    'Ke Sat Township',
-                    'Vinh Hung Commune',
-                    'Hung Thang Commune',
-                    'Vinh Hong Commune',
-                    'Long Xuyen Commune',
-                    'Tan Viet Commune',
-                    'Thuc Khang Commune',
-                    'Tan Hong Commune',
-                    'Binh Minh Commune',
-                    'Hong Khe Commune',
-                    'Thai Hoc Commune',
-                    'Co Bi Commune',
-                    'Nhan Quyen Commune',
-                    'Thai Duong Commune',
-                    'Thai Hoa Commune',
-                    'Binh Xuyen Commune'
-                ]
-            },
-            'Gia Loc': {
-                subDistrict: [
-                    'Gia Loc Township',
-                    'Thong Nhat Commune',
-                    'Yet Kieu Commune',
-                    'Gia Tan Commune',
-                    'Tan Tien Commune',
-                    'Gia Khanh Commune',
-                    'Gia Luong Commune',
-                    'Le Loi Commune',
-                    'Toan Thang Commune',
-                    'Hoang Dieu Commune',
-                    'Hong Hung Commune',
-                    'Pham Tran Commune',
-                    'Doan Thuong Commune',
-                    'Thong Kenh Commune',
-                    'Quang Minh Commune',
-                    'Dong Quang Commune',
-                    'Nhat Tan Commune',
-                    'Duc Xuong Commune'
-                ]
-            },
-            'Tu Ky': {
-                subDistrict: [
-                    'Tu Ky Township',
-                    'Dai Son Commune',
-                    'Hung Dao Commune',
-                    'Ngoc Ky Commune',
-                    'Binh Lang Commune',
-                    'Chi Minh Commune',
-                    'Tai Son Commune',
-                    'Quang Phuc Commune',
-                    'Dan Chu Commune',
-                    'Tan Ky Commune',
-                    'Quang Khai Commune',
-                    'Dai Hop Commune',
-                    'Quang Nghiep Commune',
-                    'An Thanh Commune',
-                    'Minh Duc Commune',
-                    'Van To Commune',
-                    'Quang Trung Commune',
-                    'Phuong Ky Commune',
-                    'Cong Lac Commune',
-                    'Tien Dong Commune',
-                    'Nguyen Giap Commune',
-                    'Ha Ky Commune',
-                    'Ha Thanh Commune'
-                ]
-            },
-            'Ninh Giang': {
-                subDistrict: [
-                    'Ninh Giang Township',
-                    'Ung Hoe Commune',
-                    'Nghia An Commune',
-                    'Hong Duc Commune',
-                    'An Duc Commune',
-                    'Van Phuc Commune',
-                    'Tan Huong Commune',
-                    'Vinh Hoa Commune',
-                    'Dong Xuyen Commune',
-                    'Tan Phong Commune',
-                    'Ninh Hai Commune',
-                    'Dong Tam Commune',
-                    'Tan Quang Commune',
-                    'Kien Quoc Commune',
-                    'Hong Du Commune',
-                    'Van Hoi Commune',
-                    'Hong Phong Commune',
-                    'Hiep Luc Commune',
-                    'Hong Phuc Commune',
-                    'Hung Long Commune'
-                ]
-            },
-            'Thanh Mien': {
-                subDistrict: [
-                    'Thanh Mien Township',
-                    'Thanh Tung Commune',
-                    'Pham Kha Commune',
-                    'Ngo Quyen Commune',
-                    'Doan Tung Commune',
-                    'Hong Quang Commune',
-                    'Tan Trao Commune',
-                    'Lam Son Commune',
-                    'Doan Ket Commune',
-                    'Le Hong Commune',
-                    'Tu Cuong Commune',
-                    'Ngu Hung Commune',
-                    'Cao Thang Commune',
-                    'Chi Lang Bac Commune',
-                    'Chi Lang Nam Commune',
-                    'Thanh Giang Commune',
-                    'Hong Phong Commune'
-                ]
-            }
-        },
-        'Hai Phong': {
-            'Hong Bang': {
-                subDistrict: [
-                    'Quan Toan Ward',
-                    'Hung Vuong Ward',
-                    'So Dau Ward',
-                    'Thuong Ly Ward',
-                    'Ha Ly Ward',
-                    'Minh Khai Ward',
-                    'Trai Chuoi Ward',
-                    'Hoang Van Thu Ward',
-                    'Phan Boi Chau Ward'
-                ]
-            },
-            'Ngo Quyen': {
-                subDistrict: [
-                    'May Chai Ward',
-                    'May To Ward',
-                    'Van My Ward',
-                    'Cau Tre Ward',
-                    'Lac Vien Ward',
-                    'Cau Dat Ward',
-                    'Gia Vien Ward',
-                    'Dong Khe Ward',
-                    'Le Loi Ward',
-                    'Dang Giang Ward',
-                    'Lach Tray Ward',
-                    'Dong Quoc Binh Ward'
-                ]
-            },
-            'Le Chan': {
-                subDistrict: [
-                    'Cat Dai Ward',
-                    'An Bien Ward',
-                    'Lam Son Ward',
-                    'An Duong Ward',
-                    'Tran Nguyen Han Ward',
-                    'Ho Nam Ward',
-                    'Trai Cau Ward',
-                    'Du Hang Ward',
-                    'Hang Kenh Ward',
-                    'Dong Hai Ward',
-                    'Niem Nghia Ward',
-                    'Nghia Xa Ward',
-                    'Du Hang Kenh Ward',
-                    'Kenh Duong Ward',
-                    'Vinh Niem Ward'
-                ]
-            },
-            'Hai An': {
-                subDistrict: [
-                    'Ward Dong Hai 1',
-                    'Ward Dong Hai 2',
-                    'Dang Lam Ward',
-                    'Thanh To Ward',
-                    'Dang Hai Ward',
-                    'Nam Hai Ward',
-                    'Cat Bi Ward',
-                    'Trang Cat Ward'
-                ]
-            },
-            'Kien An': {
-                subDistrict: [
-                    'Quan Tru Ward',
-                    'Lam Ha Ward',
-                    'Dong Hoa Ward',
-                    'Bac Son Ward',
-                    'Nam Son Ward',
-                    'Ngoc Son Ward',
-                    'Tran Thanh Ngo Ward',
-                    'Van Dau Ward',
-                    'Phu Lien Ward',
-                    'Trang Minh Ward'
-                ]
-            },
-            'Do Son': {
-                subDistrict: [
-                    'Ngoc Xuyen Ward',
-                    'Hai Son Ward',
-                    'Van Huong Ward',
-                    'Minh Duc Ward',
-                    'Bang La Ward',
-                    'Hop Duc Ward'
-                ]
-            },
-            'Thuy Nguyen': {
-                subDistrict: [
-                    'Nui Deo Township',
-                    'Minh Duc Township',
-                    'Lai Xuan Commune',
-                    'An Son Commune',
-                    'Ky Son Commune',
-                    'Lien Khe Commune',
-                    'Luu Kiem Commune',
-                    'Luu Ky Commune',
-                    'Gia Minh Commune',
-                    'Gia Duc Commune',
-                    'Minh Tan Commune',
-                    'Phu Ninh Commune',
-                    'Quang Thanh Commune',
-                    'Chinh My Commune',
-                    'Kenh Giang Commune',
-                    'Hop Thanh Commune',
-                    'Cao Nhan Commune',
-                    'My Dong Commune',
+                    'Binh Nhi Commune',
+                    'Binh Phu Commune',
+                    'Binh Tan Commune',
                     'Dong Son Commune',
-                    'Hoa Binh Commune',
-                    'Trung Ha Commune',
-                    'An Lu Commune',
-                    'Thuy Trieu Commune',
-                    'Ngu Lao Commune',
-                    'Phuc Le Commune',
-                    'Tam Hung Commune',
-                    'Pha Le Commune',
-                    'Lap Le Commune',
-                    'Kien Bai Commune',
-                    'Thien Huong Commune',
-                    'Thuy Son Commune',
-                    'Thuy Duong Commune',
-                    'Hoang Dong Commune',
-                    'Lam Dong Commune',
-                    'Hoa Dong Commune',
-                    'Tan Duong Commune',
-                    'Duong Quan Commune'
-                ]
-            },
-            'An Duong': {
-                subDistrict: [
-                    'An Duong Township',
-                    'Le Thien Commune',
-                    'Dai Ban Commune',
-                    'An Hoa Commune',
-                    'Hong Phong Commune',
-                    'Tan Tien Commune',
-                    'An Hung Commune',
-                    'An Hong Commune',
-                    'Bac Son Commune',
-                    'Nam Son Commune',
-                    'Le Loi Commune',
-                    'Dang Cuong Commune',
-                    'Dong Thai Commune',
-                    'Quoc Tuan Commune',
-                    'An Dong Commune',
-                    'Hong Thai Commune'
-                ]
-            },
-            'An Lao': {
-                subDistrict: [
-                    'An Lao Township',
-                    'Bat Trang Commune',
-                    'Truong Tho Commune',
-                    'Truong Thanh Commune',
-                    'An Tien Commune',
-                    'Quang Hung Commune',
-                    'Quang Trung Commune',
-                    'Quoc Tuan Commune',
-                    'An Thang Commune',
-                    'Truong Son Township',
-                    'Tan Dan Commune',
-                    'Thai Son Commune',
-                    'Tan Vien Commune',
-                    'My Duc Commune',
-                    'Chien Thang Commune',
-                    'An Tho Commune',
-                    'An Thai Commune'
-                ]
-            },
-            'Kien Thuy': {
-                subDistrict: [
-                    'Nui Doi Township',
-                    'Dong Phuong Commune',
-                    'Thuan Thien Commune',
-                    'Huu Bang Commune',
-                    'Dai Dong Commune',
-                    'Ngu Phuc Commune',
-                    'Kien Quoc Commune',
-                    'Du Le Commune',
-                    'Thuy Huong Commune',
-                    'Thanh Son Commune',
-                    'Minh Tan Commune',
-                    'Dai Ha Commune',
-                    'Ngu Doan Commune',
-                    'Tan Phong Commune',
-                    'Tan Trao Commune',
-                    'Doan Xa Commune',
-                    'Tu Son Commune',
-                    'Dai Hop Commune'
-                ]
-            },
-            'Duong Kinh': {
-                subDistrict: [
-                    'Da Phuc Ward',
-                    'Hung Dao Ward',
-                    'Anh Dung Ward',
-                    'Hai Thanh Ward',
-                    'Hoa Nghia Ward',
-                    'Tan Thanh Ward'
-                ]
-            },
-            'Tien Lang': {
-                subDistrict: [
-                    'Tien Lang Township',
-                    'Dai Thang Commune',
-                    'Tien Cuong Commune',
-                    'Tu Cuong Commune',
-                    'Quyet Tien Commune',
-                    'Khoi Nghia Commune',
-                    'Tien Thanh Commune',
-                    'Cap Tien Commune',
-                    'Kien Thiet Commune',
-                    'Doan Lap Commune',
-                    'Bach Dang Commune',
-                    'Quang Phuc Commune',
-                    'Toan Thang Commune',
-                    'Tien Thang Commune',
-                    'Tien Minh Commune',
-                    'Bac Hung Commune',
-                    'Nam Hung Commune',
-                    'Hung Thang Commune',
-                    'Tay Hung Commune',
-                    'Dong Hung Commune',
-                    'Vinh Quang Commune'
-                ]
-            },
-            'Vinh Bao': {
-                subDistrict: [
-                    'Vinh Bao Township',
-                    'Dung Tien Commune',
-                    'Giang Bien Commune',
-                    'Thang Thuy Commune',
-                    'Trung Lap Commune',
-                    'Viet Tien Commune',
-                    'Vinh An Commune',
-                    'Vinh Long Commune',
-                    'Hiep Hoa Commune',
-                    'Hung Tien Commune',
-                    'An Hoa Commune',
-                    'Tan Hung Commune',
-                    'Tan Lien Commune',
-                    'Nhan Hoa Commune',
-                    'Tam Da Commune',
-                    'Hung Nhan Commune',
-                    'Vinh Quang Commune',
-                    'Dong Minh Commune',
-                    'Thanh Luong Commune',
-                    'Lien Am Commune',
-                    'Ly Hoc Commune',
-                    'Tam Cuong Commune',
-                    'Hoa Binh Commune',
-                    'Tien Phong Commune',
-                    'Vinh Phong Commune',
-                    'Cong Hien Commune',
-                    'Cao Minh Commune',
-                    'Co Am Commune',
-                    'Vinh Tien Commune',
-                    'Tran Duong Commune'
-                ]
-            },
-            'Cat Hai': {
-                subDistrict: [
-                    'Cat Ba Township',
-                    'Cat Hai Township',
-                    'Nghia Lo Commune',
-                    'Dong Bai Commune',
-                    'Hoang Chau Commune',
-                    'Van Phong Commune',
-                    'Phu Long Commune',
-                    'Gia Luan Commune',
-                    'Hien Hao Commune',
-                    'Tran Chau Commune',
-                    'Viet Hai Commune',
-                    'Xuan Dam Commune'
-                ]
-            }
-        },
-        'Hung Yen': {
-            'Hung Yen': {
-                subDistrict: [
-                    'Lam Son Ward',
-                    'Hien Nam Ward',
-                    'An Tao Ward',
-                    'Le Loi Ward',
-                    'Minh Khai Ward',
-                    'Quang Trung Ward',
-                    'Hong Chau Ward',
-                    'Trung Nghia Commune',
-                    'Lien Phuong Commune',
-                    'Hong Nam Commune',
-                    'Quang Chau Commune',
-                    'Bao Khe Commune',
-                    'Phu Cuong Commune',
-                    'Hung Cuong Commune',
-                    'Phuong Chieu Commune',
-                    'Tan Hung Commune',
-                    'Hoang Hanh Commune'
-                ]
-            },
-            'Van Lam': {
-                subDistrict: [
-                    'Nhu Quynh Township',
-                    'Lac Dao Commune',
-                    'Chi Dao Commune',
-                    'Dai Dong Commune',
-                    'Viet Hung Commune',
-                    'Tan Quang Commune',
-                    'Dinh Du Commune',
-                    'Minh Hai Commune',
-                    'Luong Tai Commune',
-                    'Trung Trac Commune',
-                    'Lac Hong Commune'
-                ]
-            },
-            'Van Giang': {
-                subDistrict: [
-                    'Van Giang Township',
-                    'Xuan Quan Commune',
-                    'Cuu Cao Commune',
-                    'Phung Cong Commune',
-                    'Nghia Tru Commune',
-                    'Long Hung Commune',
-                    'Vinh Khuc Commune',
-                    'Lien Nghia Commune',
-                    'Tan Tien Commune',
-                    'Thang Loi Commune',
-                    'Me So Commune'
-                ]
-            },
-            'Yen My': {
-                subDistrict: [
-                    'Yen My Township',
-                    'Giai Pham Commune',
-                    'Nghia Hiep Commune',
-                    'Dong Than Commune',
-                    'Ngoc Long Commune',
-                    'Lieu Xa Commune',
-                    'Hoan Long Commune',
-                    'Tan Lap Commune',
-                    'Thanh Long Commune',
-                    'Yen Phu Commune',
-                    'Viet Cuong Commune',
-                    'Trung Hoa Commune',
-                    'Yen Hoa Commune',
-                    'Minh Chau Commune',
-                    'Trung Hung Commune',
-                    'Ly Thuong Kiet Commune',
-                    'Tan Viet Commune'
-                ]
-            },
-            'My Hao': {
-                subDistrict: [
-                    'Ban Yen Nhan Ward',
-                    'Phan Dinh Phung Ward',
-                    'Cam Xa Commune',
-                    'Duong Quang Commune',
-                    'Hoa Phong Commune',
-                    'Nhan Hoa Ward',
-                    'Di Su Ward',
-                    'Bach Sam Ward',
-                    'Minh Duc Ward',
-                    'Phung Chi Kien Ward',
-                    'Xuan Duc Commune',
-                    'Ngoc Lam Commune',
-                    'Hung Long Commune'
-                ]
-            },
-            'An Thi': {
-                subDistrict: [
-                    'An Thi Township',
-                    'Phu Ung Commune',
-                    'Bac Son Commune',
-                    'Bai Say Commune',
-                    'Dao Duong Commune',
-                    'Tan Phuc Commune',
-                    'Van Du Commune',
-                    'Quang Vinh Commune',
-                    'Xuan Truc Commune',
-                    'Hoang Hoa Tham Commune',
-                    'Quang Lang Commune',
-                    'Van Nhue Commune',
-                    'Dang Le Commune',
-                    'Cam Ninh Commune',
-                    'Nguyen Trai Commune',
-                    'Da Loc Commune',
-                    'Ho Tung Mau Commune',
-                    'Tien Phong Commune',
-                    'Hong Van Commune',
-                    'Hong Quang Commune',
-                    'Ha Le Commune'
-                ]
-            },
-            'Khoai Chau': {
-                subDistrict: [
-                    'Khoai Chau Township',
-                    'Dong Tao Commune',
-                    'Binh Minh Commune',
-                    'Da Trach Commune',
-                    'Ham Tu Commune',
-                    'Ong Dinh Commune',
-                    'Tan Dan Commune',
-                    'Tu Dan Commune',
-                    'An Vi Commune',
-                    'Dong Ket Commune',
-                    'Binh Kieu Commune',
-                    'Dan Tien Commune',
-                    'Dong Tien Commune',
-                    'Hong Tien Commune',
-                    'Tan Chau Commune',
-                    'Lien Khe Commune',
-                    'Phung Hung Commune',
-                    'Viet Hoa Commune',
-                    'Dong Ninh Commune',
-                    'Dai Tap Commune',
-                    'Chi Tan Commune',
-                    'Dai Hung Commune',
-                    'Thuan Hung Commune',
-                    'Thanh Cong Commune',
-                    'Nhue Duong Commune'
-                ]
-            },
-            'Kim Dong': {
-                subDistrict: [
-                    'Luong Bang Township',
-                    'Nghia Dan Commune',
-                    'Toan Thang Commune',
-                    'Vinh Xa Commune',
-                    'Pham Ngu Lao Commune',
-                    'Tho Vinh Commune',
                     'Dong Thanh Commune',
-                    'Song Mai Commune',
-                    'Chinh Nghia Commune',
-                    'Nhan La Commune',
-                    'Phu Thinh Commune',
-                    'Mai Dong Commune',
-                    'Duc Hop Commune',
-                    'Hung An Commune',
-                    'Ngoc Thanh Commune',
-                    'Vu Xa Commune',
-                    'Hiep Cuong Commune'
+                    'Long Binh Commune',
+                    'Long Vinh Commune',
+                    'Thanh Cong Commune',
+                    'Thanh Nhut Commune',
+                    'Thanh Tri Commune',
+                    'Vinh Binh Township',
+                    'Vinh Huu Commune',
+                    'Yen Luong Commune'
                 ]
             },
-            'Tien Lu': {
+            'My Tho': {
                 subDistrict: [
-                    'Vuong Township',
-                    'Hung Dao Commune',
-                    'Ngo Quyen Commune',
-                    'Nhat Tan Commune',
-                    'Di Che Commune',
-                    'Le Xa Commune',
-                    'An Vien Commune',
-                    'Duc Thang Commune',
-                    'Trung Dung Commune',
-                    'Hai Trieu Commune',
-                    'Thu Sy Commune',
-                    'Thien Phien Commune',
-                    'Thuy Loi Commune',
-                    'Cuong Chinh Commune',
-                    'Minh Phuong Commune'
+                    'Dao Thanh Commune',
+                    'My Phong Commune',
+                    'Phuoc Thanh Commune',
+                    'Tan Long Ward',
+                    'Tan My Chanh Commune',
+                    'Thoi Son Commune',
+                    'Trung An Commune',
+                    'Ward 1',
+                    'Ward 10',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 6',
+                    'Ward 7',
+                    'Ward 8',
+                    'Ward 9'
                 ]
             },
-            'Phu Cu': {
+            'Tan Phu Dong': {
                 subDistrict: [
-                    'Tran Cao Township',
-                    'Minh Tan Commune',
-                    'Phan Sao Nam Commune',
-                    'Quang Hung Commune',
-                    'Minh Hoang Commune',
-                    'Doan Dao Commune',
-                    'Tong Phan Commune',
-                    'Dinh Cao Commune',
-                    'Nhat Quang Commune',
-                    'Tien Tien Commune',
-                    'Tam Da Commune',
-                    'Minh Tien Commune',
-                    'Nguyen Hoa Commune',
-                    'Tong Tran Commune'
+                    'Phu Dong Commune',
+                    'Phu Tan Commune',
+                    'Phu Thanh Commune',
+                    'Tan Phu Commune',
+                    'Tan Thanh Commune',
+                    'Tan Thoi Commune'
+                ]
+            },
+            'Tan Phuoc': {
+                subDistrict: [
+                    'Commune Tan Lap 1',
+                    'Commune Tan Lap 2',
+                    'Hung Thanh Commune',
+                    'My Phuoc Township',
+                    'Phu My Commune',
+                    'Phuoc Lap Commune',
+                    'Tan Hoa Dong Commune',
+                    'Tan Hoa Tay Commune',
+                    'Tan Hoa Thanh Commune',
+                    'Thanh Hoa Commune',
+                    'Thanh My Commune',
+                    'Thanh Tan Commune'
                 ]
             }
         },
-        'Thai Binh': {
-            'Thai Binh': {
+        'Tra Vinh': {
+            'Cang Long': {
                 subDistrict: [
-                    'Le Hong Phong Ward',
-                    'Bo Xuyen Ward',
-                    'De Tham Ward',
-                    'Ky Ba Ward',
-                    'Quang Trung Ward',
-                    'Phu Khanh Ward',
-                    'Tien Phong Ward',
-                    'Tran Hung Dao Ward',
-                    'Tran Lam Ward',
-                    'Dong Hoa Commune',
-                    'Hoang Dieu Ward',
-                    'Phu Xuan Commune',
-                    'Vu Phuc Commune',
-                    'Vu Chinh Commune',
-                    'Dong My Commune',
-                    'Dong Tho Commune',
-                    'Vu Dong Commune',
-                    'Vu Lac Commune',
+                    'An Truong A Commune',
+                    'An Truong Commune',
+                    'Binh Phu Commune',
+                    'Cang Long Township',
+                    'Dai Phuc Commune',
+                    'Dai Phuoc Commune',
+                    'Duc My Commune',
+                    'Huyen Hoi Commune',
+                    'My Cam Commune',
+                    'Nhi Long Commune',
+                    'Nhi Long Phu Commune',
+                    'Phuong Thanh Commune',
+                    'Tan An Commune',
                     'Tan Binh Commune'
                 ]
             },
-            'Quynh Phu': {
+            'Cau Ke': {
                 subDistrict: [
-                    'Quynh Coi Township',
-                    'An Khe Commune',
-                    'An Dong Commune',
-                    'Quynh Hoa Commune',
-                    'Quynh Lam Commune',
-                    'Quynh Tho Commune',
-                    'An Hiep Commune',
-                    'Quynh Hoang Commune',
-                    'Quynh Giao Commune',
-                    'An Thai Commune',
-                    'An Cau Commune',
-                    'Quynh Hong Commune',
-                    'Quynh Khe Commune',
-                    'Quynh Minh Commune',
-                    'An Ninh Commune',
-                    'Quynh Ngoc Commune',
-                    'Quynh Hai Commune',
-                    'An Bai Township',
-                    'An Ap Commune',
-                    'Quynh Hoi Commune',
-                    'Chau Son Commune',
-                    'Quynh My Commune',
-                    'An Qui Commune',
-                    'An Thanh Commune',
-                    'An Vu Commune',
-                    'An Le Commune',
-                    'Quynh Hung Commune',
-                    'Quynh Bao Commune',
-                    'An My Commune',
-                    'Quynh Nguyen Commune',
-                    'An Vinh Commune',
-                    'Quynh Xa Commune',
-                    'An Duc Commune',
-                    'Dong Hai Commune',
-                    'Quynh Trang Commune',
-                    'An Trang Commune',
-                    'Dong Tien Commune'
-                ]
-            },
-            'Hung Ha': {
-                subDistrict: [
-                    'Hung Ha Township',
-                    'Diep Nong Commune',
-                    'Tan Le Commune',
-                    'Cong Hoa Commune',
-                    'Dan Chu Commune',
-                    'Canh Tan Commune',
-                    'Hoa Tien Commune',
-                    'Hung Dung Commune',
-                    'Tan Tien Commune',
-                    'Hung Nhan Township',
-                    'Doan Hung Commune',
-                    'Duyen Hai Commune',
-                    'Tan Hoa Commune',
-                    'Van Cam Commune',
-                    'Bac Son Commune',
-                    'Dong Do Commune',
-                    'Phuc Khanh Commune',
-                    'Lien Hiep Commune',
-                    'Tay Do Commune',
-                    'Thong Nhat Commune',
-                    'Tien Duc Commune',
-                    'Thai Hung Commune',
-                    'Thai Phuong Commune',
-                    'Hoa Binh Commune',
-                    'Chi Lang Commune',
-                    'Minh Khai Commune',
-                    'Hong An Commune',
-                    'Kim Chung Commune',
-                    'Hong Linh Commune',
-                    'Minh Tan Commune',
-                    'Van Lang Commune',
-                    'Doc Lap Commune',
-                    'Chi Hoa Commune',
-                    'Minh Hoa Commune',
-                    'Hong Minh Commune'
-                ]
-            },
-            'Dong Hung': {
-                subDistrict: [
-                    'Dong Hung Township',
-                    'Do Luong Commune',
-                    'Dong Phuong Commune',
-                    'Lien Giang Commune',
-                    'An Chau Commune',
-                    'Dong Son Commune',
-                    'Dong Cuong Commune',
-                    'Phu Luong Commune',
-                    'Me Linh Commune',
-                    'Lo Giang Commune',
-                    'Dong La Commune',
-                    'Minh Tan Commune',
-                    'Dong Xa Commune',
-                    'Chuong Duong Commune',
-                    'Nguyen Xa Commune',
-                    'Phong Chau Commune',
-                    'Hop Tien Commune',
-                    'Hong Viet Commune',
-                    'Ha Giang Commune',
-                    'Dong Kinh Commune',
-                    'Dong Hop Commune',
-                    'Thang Long Commune',
-                    'Dong Cac Commune',
-                    'Phu Chau Commune',
-                    'Lien Hoa Commune',
-                    'Dong Tan Commune',
-                    'Dong Vinh Commune',
-                    'Dong Dong Commune',
-                    'Hong Bach Commune',
-                    'Trong Quan Commune',
-                    'Hong Giang Commune',
-                    'Dong Quan Commune',
-                    'Dong Quang Commune',
-                    'Dong Xuan Commune',
-                    'Dong A Commune',
-                    'Dong Hoang Commune',
-                    'Dong Duong Commune',
-                    'Minh Phu Commune'
-                ]
-            },
-            'Thai Thuy': {
-                subDistrict: [
-                    'Diem Dien Township',
-                    'Thuy Truong Commune',
-                    'Hong Dung Commune',
-                    'Thuy Quynh Commune',
-                    'An Tan Commune',
-                    'Thuy Ninh Commune',
-                    'Thuy Hung Commune',
-                    'Thuy Viet Commune',
-                    'Thuy Van Commune',
-                    'Thuy Xuan Commune',
-                    'Duong Phuc Commune',
-                    'Thuy Trinh Commune',
-                    'Thuy Binh Commune',
-                    'Thuy Chinh Commune',
-                    'Thuy Dan Commune',
-                    'Thuy Hai Commune',
-                    'Thuy Lien Commune',
-                    'Thuy Duyen Commune',
-                    'Thuy Thanh Commune',
-                    'Thuy Son Commune',
-                    'Thuy Phong Commune',
-                    'Thai Thuong Commune',
-                    'Thai Nguyen Commune',
-                    'Duong Hong Thuy Commune',
-                    'Thai Giang Commune',
+                    'An Phu Tan Commune',
+                    'Cau Ke Township',
+                    'Chau Dien Commune',
                     'Hoa An Commune',
-                    'Son Ha Commune',
-                    'Thai Phuc Commune',
-                    'Thai Hung Commune',
-                    'Thai Do Commune',
-                    'Thai Xuyen Commune',
-                    'My Loc Commune',
-                    'Tan Hoc Commune',
-                    'Thai Thinh Commune',
-                    'Thuan Thanh Commune',
-                    'Thai Tho Commune'
+                    'Hoa Tan Commune',
+                    'Ninh Thoi Commune',
+                    'Phong Phu Commune',
+                    'Phong Thanh Commune',
+                    'Tam Ngai Commune',
+                    'Thanh Phu Commune',
+                    'Thong Hoa Commune'
                 ]
             },
-            'Tien Hai': {
+            'Cau Ngang': {
                 subDistrict: [
-                    'Tien Hai Township',
-                    'Dong Tra Commune',
-                    'Dong Long Commune',
-                    'Dong Qui Commune',
-                    'Vu Lang Commune',
-                    'Dong Xuyen Commune',
-                    'Tay Luong Commune',
-                    'Tay Ninh Commune',
-                    'Dong Trung Commune',
-                    'Dong Hoang Commune',
-                    'Dong Minh Commune',
-                    'Dong Phong Commune',
-                    'An Ninh Commune',
-                    'Dong Co Commune',
-                    'Tay Giang Commune',
-                    'Dong Lam Commune',
-                    'Phuong Cong Commune',
-                    'Tay Phong Commune',
-                    'Tay Tien Commune',
-                    'Nam Cuong Commune',
-                    'Van Truong Commune',
-                    'Nam Thang Commune',
-                    'Nam Chinh Commune',
-                    'Bac Hai Commune',
-                    'Nam Thinh Commune',
-                    'Nam Ha Commune',
-                    'Nam Thanh Commune',
-                    'Nam Trung Commune',
-                    'Nam Hong Commune',
-                    'Nam Hung Commune',
-                    'Nam Hai Commune',
-                    'Nam Phu Commune'
-                ]
-            },
-            'Kien Xuong': {
-                subDistrict: [
-                    'Kien Xuong Township',
-                    'Tra Giang Commune',
-                    'Quoc Tuan Commune',
-                    'An Binh Commune',
-                    'Tay Son Commune',
-                    'Hong Thai Commune',
-                    'Binh Nguyen Commune',
-                    'Le Loi Commune',
-                    'Vu Le Commune',
-                    'Thanh Tan Commune',
-                    'Thuong Hien Commune',
-                    'Nam Cao Commune',
-                    'Dinh Phung Commune',
-                    'Vu Ninh Commune',
-                    'Vu An Commune',
-                    'Quang Lich Commune',
-                    'Hoa Binh Commune',
-                    'Binh Minh Commune',
-                    'Vu Qui Commune',
-                    'Quang Binh Commune',
-                    'Vu Trung Commune',
-                    'Vu Thang Commune',
-                    'Vu Cong Commune',
-                    'Vu Hoa Commune',
-                    'Quang Minh Commune',
-                    'Quang Trung Commune',
-                    'Minh Quang Commune',
-                    'Vu Binh Commune',
-                    'Minh Tan Commune',
-                    'Nam Binh Commune',
-                    'Binh Thanh Commune',
-                    'Binh Dinh Commune',
-                    'Hong Tien Commune'
-                ]
-            },
-            'Vu Thu': {
-                subDistrict: [
-                    'Vu Thu Township',
-                    'Hong Ly Commune',
-                    'Dong Thanh Commune',
-                    'Xuan Hoa Commune',
+                    'Cau Ngang Township',
                     'Hiep Hoa Commune',
-                    'Phuc Thanh Commune',
-                    'Tan Phong Commune',
-                    'Song Lang Commune',
+                    'Hiep My Dong Commune',
+                    'Hiep My Tay Commune',
+                    'Kim Hoa Commune',
+                    'Long Son Commune',
+                    'My Hoa Commune',
+                    'My Long Bac Commune',
+                    'My Long Nam Commune',
+                    'My Long Township',
+                    'Nhi Truong Commune',
+                    'Thanh Hoa Son Commune',
+                    'Thuan Hoa Commune',
+                    'Truong Tho Commune',
+                    'Vinh Kim Commune'
+                ]
+            },
+            'Chau Thanh': {
+                subDistrict: [
+                    'Chau Thanh Township',
+                    'Da Loc Commune',
+                    'Hoa Loi Commune',
+                    'Hoa Minh Commune',
+                    'Hoa Thuan Commune',
+                    'Hung My Commune',
+                    'Long Hoa Commune',
+                    'Luong Hoa A Commune',
+                    'Luong Hoa Commune',
+                    'My Chanh Commune',
+                    'Nguyet Hoa Commune',
+                    'Phuoc Hao Commune',
+                    'Song Loc Commune',
+                    'Thanh My Commune'
+                ]
+            },
+            'Duyen Hai': {
+                subDistrict: [
+                    'Dan Thanh Commune',
+                    'Don Chau Commune',
+                    'Don Xuan Commune',
+                    'Dong Hai Commune',
+                    'Hiep Thanh Commune',
+                    'Long Huu Commune',
+                    'Long Khanh Commune',
+                    'Long Thanh Township',
+                    'Long Toan Commune',
+                    'Long Vinh Commune',
+                    'Ngu Lac Commune',
+                    'Truong Long Hoa Commune',
+                    'Ward 1',
+                    'Ward 2'
+                ]
+            },
+            'Tieu Can': {
+                subDistrict: [
+                    'Cau Quan Township',
+                    'Hieu Trung Commune',
+                    'Hieu Tu Commune',
+                    'Hung Hoa Commune',
+                    'Long Thoi Commune',
+                    'Ngai Hung Commune',
+                    'Phu Can Commune',
                     'Tan Hoa Commune',
-                    'Viet Hung Commune',
-                    'Minh Lang Commune',
-                    'Minh Khai Commune',
-                    'Dung Nghia Commune',
-                    'Minh Quang Commune',
-                    'Tam Quang Commune',
-                    'Tan Lap Commune',
-                    'Bach Thuan Commune',
-                    'Tu Tan Commune',
-                    'Song An Commune',
-                    'Trung An Commune',
-                    'Vu Hoi Commune',
-                    'Hoa Binh Commune',
-                    'Nguyen Xa Commune',
-                    'Viet Thuan Commune',
-                    'Vu Vinh Commune',
-                    'Vu Doai Commune',
-                    'Vu Tien Commune',
-                    'Vu Van Commune',
-                    'Duy Nhat Commune',
-                    'Hong Phong Commune'
-                ]
-            }
-        },
-        'Ha Nam': {
-            'Phu Ly': {
-                subDistrict: [
-                    'Quang Trung Ward',
-                    'Luong Khanh Thien Ward',
-                    'Le Hong Phong Ward',
-                    'Minh Khai Ward',
-                    'Hai Ba Trung Ward',
-                    'Tran Hung Dao Ward',
-                    'Lam Ha Ward',
-                    'Phu Van Commune',
-                    'Liem Chinh Ward',
-                    'Liem Chung Commune',
-                    'Thanh Chau Ward',
-                    'Chau Son Ward',
-                    'Tien Tan Commune',
-                    'Tien Hiep Commune',
-                    'Tien Hai Commune',
-                    'Kim Binh Commune',
-                    'Liem Tuyen Commune',
-                    'Liem Tiet Commune',
-                    'Thanh Tuyen Ward',
-                    'Dinh Xa Commune',
-                    'Trinh Xa Commune'
+                    'Tan Hung Commune',
+                    'Tap Ngai Commune',
+                    'Tieu Can Township'
                 ]
             },
-            'Duy Tien': {
+            'Tra Cu': {
                 subDistrict: [
-                    'Dong Van Ward',
-                    'Hoa Mac Ward',
-                    'Moc Bac Commune',
-                    'Chau Giang Ward',
-                    'Bach Thuong Ward',
-                    'Duy Minh Ward',
-                    'Moc Nam Commune',
-                    'Duy Hai Ward',
-                    'Chuyen Ngoai Commune',
-                    'Yen Bac Ward',
-                    'Trac Van Commune',
-                    'Tien Noi Ward',
-                    'Hoang Dong Ward',
-                    'Yen Nam Commune',
-                    'Tien Ngoai Commune',
-                    'Tien Son Commune'
-                ]
-            },
-            'Kim Bang': {
-                subDistrict: [
-                    'Que Township',
-                    'Nguyen Uy Commune',
-                    'Dai Cuong Commune',
-                    'Le Ho Commune',
-                    'Tuong Linh Commune',
-                    'Nhat Tuu Commune',
-                    'Nhat Tan Commune',
-                    'Dong Hoa Commune',
-                    'Hoang Tay Commune',
-                    'Tan Son Commune',
-                    'Thuy Loi Commune',
-                    'Van Xa Commune',
-                    'Kha Phong Commune',
-                    'Ngoc Son Commune',
-                    'Ba Sao Township',
-                    'Lien Son Commune',
-                    'Thi Son Commune',
-                    'Thanh Son Commune'
-                ]
-            },
-            'Thanh Liem': {
-                subDistrict: [
-                    'Kien Khe Township',
-                    'Liem Phong Commune',
-                    'Thanh Ha Commune',
-                    'Liem Can Commune',
-                    'Liem Thuan Commune',
-                    'Thanh Thuy Commune',
-                    'Thanh Phong Commune',
-                    'Tan Thanh Township',
-                    'Thanh Tan Commune',
-                    'Liem Tuc Commune',
-                    'Liem Son Commune',
-                    'Thanh Huong Commune',
-                    'Thanh Nghi Commune',
-                    'Thanh Tam Commune',
-                    'Thanh Nguyen Commune',
-                    'Thanh Hai Commune'
-                ]
-            },
-            'Binh Luc': {
-                subDistrict: [
-                    'Binh My Township',
-                    'Binh Nghia Commune',
-                    'Trang An Commune',
-                    'Dong Du Commune',
-                    'Ngoc Lu Commune',
-                    'Hung Cong Commune',
-                    'Don Xa Commune',
-                    'An Ninh Commune',
-                    'Bo De Commune',
-                    'Boi Cau Commune',
-                    'An Noi Commune',
-                    'Vu Ban Commune',
-                    'Trung Luong Commune',
-                    'An Do Commune',
-                    'La Son Commune',
-                    'Tieu Dong Commune',
-                    'An Lao Commune'
-                ]
-            },
-            'Ly Nhan': {
-                subDistrict: [
-                    'Hop Ly Commune',
-                    'Nguyen Ly Commune',
-                    'Chinh Ly Commune',
-                    'Chan Ly Commune',
-                    'Dao Ly Commune',
-                    'Cong Ly Commune',
-                    'Van Ly Commune',
-                    'Bac Ly Commune',
-                    'Duc Ly Commune',
-                    'Tran Hung Dao Commune',
-                    'Vinh Tru Township',
-                    'Nhan Thinh Commune',
-                    'Nhan Khang Commune',
-                    'Nhan My Commune',
-                    'Nhan Nghia Commune',
-                    'Nhan Chinh Commune',
-                    'Nhan Binh Commune',
-                    'Phu Phuc Commune',
-                    'Xuan Khe Commune',
-                    'Tien Thang Commune',
-                    'Hoa Hau Commune'
-                ]
-            }
-        },
-        'Nam Dinh': {
-            'Nam Dinh': {
-                subDistrict: [
-                    'Vi Xuyen Ward',
-                    'Truong Thi Ward',
-                    'Tran Hung Dao Ward',
-                    'Cua Bac Ward',
-                    'Nang Tinh Ward',
-                    'Quang Trung Ward',
-                    'Loc Ha Ward',
-                    'Loc Vuong Ward',
-                    'Cua Nam Ward',
-                    'Loc Hoa Ward',
-                    'Nam Phong Ward',
-                    'My Xa Ward',
-                    'Nam Van Ward',
-                    'Hung Loc Ward',
-                    'My Ha Commune',
-                    'My Thang Commune',
-                    'My Trung Commune',
-                    'My Tan Commune',
-                    'My Phuc Commune',
-                    'My Thuan Commune',
-                    'My Loc Commune'
-                ]
-            },
-            'Vu Ban': {
-                subDistrict: [
-                    'Goi Township',
-                    'Hien Khanh Commune',
-                    'Minh Tan Commune',
-                    'Hop Hung Commune',
+                    'An Quang Huu Commune',
                     'Dai An Commune',
-                    'Cong Hoa Commune',
-                    'Trung Thanh Commune',
-                    'Quang Trung Commune',
-                    'Thanh Loi Commune',
-                    'Kim Thai Commune',
-                    'Lien Minh Commune',
-                    'Dai Thang Commune',
-                    'Tam Thanh Commune',
-                    'Vinh Hao Commune'
+                    'Dinh An Commune',
+                    'Dinh An Township',
+                    'Ham Giang Commune',
+                    'Ham Tan Commune',
+                    'Kim Son Commune',
+                    'Long Hiep Commune',
+                    'Luu Nghiep Anh Commune',
+                    'Ngai Xuyen Commune',
+                    'Ngoc Bien Commune',
+                    'Phuoc Hung Commune',
+                    'Tan Hiep Commune',
+                    'Tan Son Commune',
+                    'Tap Son Commune',
+                    'Thanh Son Commune',
+                    'Tra Cu Township'
                 ]
             },
-            'Y Yen': {
+            'Tra Vinh': {
                 subDistrict: [
-                    'Lam Township',
-                    'Trung Nghia Commune',
-                    'Tan Minh Commune',
-                    'Yen Tho Commune',
-                    'Phu Hung Commune',
-                    'Yen Chinh Commune',
-                    'Yen Binh Commune',
-                    'Yen My Commune',
-                    'Yen Duong Commune',
-                    'Yen Khanh Commune',
-                    'Yen Phong Commune',
-                    'Yen Ninh Commune',
-                    'Yen Luong Commune',
-                    'Yen Tien Commune',
-                    'Yen Thang Commune',
-                    'Yen Phuc Commune',
-                    'Yen Cuong Commune',
-                    'Yen Loc Commune',
-                    'Hong Quang Commune',
-                    'Yen Dong Commune',
-                    'Yen Khang Commune',
-                    'Yen Nhan Commune',
-                    'Yen Tri Commune'
-                ]
-            },
-            'Nghia Hung': {
-                subDistrict: [
-                    'Lieu De Township',
-                    'Rang Dong Township',
-                    'Dong Thinh Commune',
-                    'Nghia Thai Commune',
-                    'Hoang Nam Commune',
-                    'Nghia Chau Commune',
-                    'Nghia Trung Commune',
-                    'Nghia Son Commune',
-                    'Nghia Lac Commune',
-                    'Nghia Hong Commune',
-                    'Nghia Phong Commune',
-                    'Nghia Phu Commune',
-                    'Quy Nhat Township',
-                    'Nghia Hung Commune',
-                    'Nghia Lam Commune',
-                    'Nghia Thanh Commune',
-                    'Phuc Thang Commune',
-                    'Nghia Loi Commune',
-                    'Nghia Hai Commune',
-                    'Nam Dien Commune'
-                ]
-            },
-            'Nam Truc': {
-                subDistrict: [
-                    'Nam Giang Township',
-                    'Nam Dien Commune',
-                    'Nghia An Commune',
-                    'Nam Thang Commune',
-                    'Hong Quang Commune',
-                    'Tan Thinh Commune',
-                    'Nam Cuong Commune',
-                    'Nam Hong Commune',
-                    'Nam Hung Commune',
-                    'Nam Hoa Commune',
-                    'Nam Duong Commune',
-                    'Nam Thanh Commune',
-                    'Nam Loi Commune',
-                    'Binh Minh Commune',
-                    'Dong Son Commune',
-                    'Nam Tien Commune',
-                    'Nam Hai Commune',
-                    'Nam Thai Commune'
-                ]
-            },
-            'Truc Ninh': {
-                subDistrict: [
-                    'Co Le Township',
-                    'Phuong Dinh Commune',
-                    'Truc Chinh Commune',
-                    'Trung Dong Commune',
-                    'Liem Hai Commune',
-                    'Truc Tuan Commune',
-                    'Viet Hung Commune',
-                    'Truc Dao Commune',
-                    'Truc Hung Commune',
-                    'Truc Noi Commune',
-                    'Cat Thanh Township',
-                    'Truc Thanh Commune',
-                    'Truc Khang Commune',
-                    'Truc Thuan Commune',
-                    'Truc My Commune',
-                    'Truc Dai Commune',
-                    'Truc Cuong Commune',
-                    'Ninh Cuong Township',
-                    'Truc Thai Commune',
-                    'Truc Thang Commune'
-                ]
-            },
-            'Xuan Truong': {
-                subDistrict: [
-                    'Xuan Truong Township',
-                    'Xuan Chau Commune',
-                    'Xuan Hong Commune',
-                    'Xuan Thanh Commune',
-                    'Xuan Thuong Commune',
-                    'Xuan Giang Commune',
-                    'Xuan Tan Commune',
-                    'Xuan Ngoc Commune',
-                    'Tra Lu Commune',
-                    'Tho Nghiep Commune',
-                    'Xuan Phu Commune',
-                    'Xuan Vinh Commune',
-                    'Xuan Ninh Commune',
-                    'Xuan Phuc Commune'
-                ]
-            },
-            'Giao Thuy': {
-                subDistrict: [
-                    'Quat Lam Township',
-                    'Giao Huong Commune',
-                    'Hong Thuan Commune',
-                    'Giao Thien Commune',
-                    'Giao Thanh Commune',
-                    'Giao Thuy Township',
-                    'Binh Hoa Commune',
-                    'Giao Ha Commune',
-                    'Giao Nhan Commune',
-                    'Giao An Commune',
-                    'Giao Lac Commune',
-                    'Giao Chau Commune',
-                    'Giao Tan Commune',
-                    'Giao Yen Commune',
-                    'Giao Xuan Commune',
-                    'Giao Thinh Commune',
-                    'Giao Hai Commune',
-                    'Bach Long Commune',
-                    'Giao Long Commune',
-                    'Giao Phong Commune'
-                ]
-            },
-            'Hai Hau': {
-                subDistrict: [
-                    'Yen Dinh Township',
-                    'Con Township',
-                    'Thinh Long Township',
-                    'Hai Nam Commune',
-                    'Hai Trung Commune',
-                    'Hai Minh Commune',
-                    'Hai Anh Commune',
-                    'Hai Hung Commune',
-                    'Hai Long Commune',
-                    'Hai Duong Commune',
-                    'Hai Loc Commune',
-                    'Hai Quang Commune',
-                    'Hai Dong Commune',
-                    'Hai Son Commune',
-                    'Hai Tan Commune',
-                    'Hai Phong Commune',
-                    'Hai An Commune',
-                    'Hai Tay Commune',
-                    'Hai Phu Commune',
-                    'Hai Giang Commune',
-                    'Hai Ninh Commune',
-                    'Hai Xuan Commune',
-                    'Hai Chau Commune',
-                    'Hai Hoa Commune'
+                    'Long Duc Commune',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 6',
+                    'Ward 7',
+                    'Ward 8',
+                    'Ward 9'
                 ]
             }
         },
-        'Ninh Binh': {
-            'Ninh Binh': {
+        'Vinh Long': {
+            'Binh Minh': {
                 subDistrict: [
-                    'Dong Thanh Ward',
-                    'Tan Thanh Ward',
-                    'Thanh Binh Ward',
-                    'Van Giang Ward',
-                    'Bich Dao Ward',
-                    'Phuc Thanh Ward',
-                    'Nam Binh Ward',
-                    'Nam Thanh Ward',
-                    'Ninh Khanh Ward',
-                    'Ninh Nhat Commune',
-                    'Ninh Tien Commune',
-                    'Ninh Phuc Commune',
-                    'Ninh Son Ward',
-                    'Ninh Phong Ward'
+                    'Cai Von Ward',
+                    'Dong Binh Commune',
+                    'Dong Thanh Commune',
+                    'Dong Thuan Ward',
+                    'My Hoa Commune',
+                    'Thanh Phuoc Ward',
+                    'Thuan An Commune'
                 ]
             },
-            'Tam Diep': {
+            'Binh Tan': {
+                subDistrict: [
+                    'My Thuan Commune',
+                    'Nguyen Van Thanh Commune',
+                    'Tan An Thanh Commune',
+                    'Tan Binh Commune',
+                    'Tan Hung Commune',
+                    'Tan Luoc Commune',
+                    'Tan Quoi Township',
+                    'Tan Thanh Commune',
+                    'Thanh Loi Commune',
+                    'Thanh Trung Commune'
+                ]
+            },
+            'Long Ho': {
+                subDistrict: [
+                    'An Binh Commune',
+                    'Binh Hoa Phuoc Commune',
+                    'Dong Phu Commune',
+                    'Hoa Ninh Commune',
+                    'Hoa Phu Commune',
+                    'Loc Hoa Commune',
+                    'Long An Commune',
+                    'Long Ho Township',
+                    'Long Phuoc Commune',
+                    'Phu Duc Commune',
+                    'Phu Quoi Commune',
+                    'Phuoc Hau Commune',
+                    'Tan Hanh Commune',
+                    'Thanh Duc Commune',
+                    'Thanh Quoi Commune'
+                ]
+            },
+            'Mang Thit': {
+                subDistrict: [
+                    'An Phuoc Commune',
+                    'Binh Phuoc Commune',
+                    'Cai Nhum Township',
+                    'Chanh An Commune',
+                    'Hoa Tinh Commune',
+                    'Long My Commune',
+                    'My An Commune',
+                    'My Phuoc Commune',
+                    'Nhon Phu Commune',
+                    'Tan An Hoi Commune',
+                    'Tan Long Commune',
+                    'Tan Long Hoi Commune'
+                ]
+            },
+            'Tam Binh': {
+                subDistrict: [
+                    'Binh Ninh Commune',
+                    'Hau Loc Commune',
+                    'Hoa Hiep Commune',
+                    'Hoa Loc Commune',
+                    'Hoa Thanh Commune',
+                    'Loan My Commune',
+                    'Long Phu Commune',
+                    'My Loc Commune',
+                    'My Thanh Trung Commune',
+                    'Ngai Tu Commune',
+                    'Phu Loc Commune',
+                    'Phu Thinh Commune',
+                    'Song Phu Commune',
+                    'Tam Binh Township',
+                    'Tan Loc Commune',
+                    'Tan Phu Commune',
+                    'Tuong Loc Commune'
+                ]
+            },
+            'Tra On': {
+                subDistrict: [
+                    'Hoa Binh Commune',
+                    'Huu Thanh Commune',
+                    'Luc Sy Thanh Commune',
+                    'Nhon Binh Commune',
+                    'Phu Thanh Commune',
+                    'Tan My Commune',
+                    'Thien My Commune',
+                    'Thoi Hoa Commune',
+                    'Thuan Thoi Commune',
+                    'Tich Thien Commune',
+                    'Tra Con Commune',
+                    'Tra On Township',
+                    'Vinh Xuan Commune',
+                    'Xuan Hiep Commune'
+                ]
+            },
+            'Vinh Long': {
+                subDistrict: [
+                    'Tan Hoa Ward',
+                    'Tan Hoi Ward',
+                    'Tan Ngai Ward',
+                    'Truong An Ward',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 8',
+                    'Ward 9'
+                ]
+            },
+            'Vung Liem': {
+                subDistrict: [
+                    'Hieu Nghia Commune',
+                    'Hieu Nhon Commune',
+                    'Hieu Phung Commune',
+                    'Hieu Thanh Commune',
+                    'Hieu Thuan Commune',
+                    'Quoi An Commune',
+                    'Quoi Thien Commune',
+                    'Tan An Luong Commune',
+                    'Tan Quoi Trung Commune',
+                    'Thanh Binh Commune',
+                    'Trung An Commune',
+                    'Trung Chanh Commune',
+                    'Trung Hiep Commune',
+                    'Trung Hieu Commune',
+                    'Trung Ngai Commune',
+                    'Trung Nghia Commune',
+                    'Trung Thanh Commune',
+                    'Trung Thanh Dong Commune',
+                    'Trung Thanh Tay Commune',
+                    'Vung Liem Township'
+                ]
+            }
+        }
+    },
+    'North Central Coast': {
+        'Ha Tinh': {
+            'Cam Xuyen': {
+                subDistrict: [
+                    'Cam Binh Commune',
+                    'Cam Due Commune',
+                    'Cam Duong Commune',
+                    'Cam Ha Commune',
+                    'Cam Hung Commune',
+                    'Cam Lac Commune',
+                    'Cam Linh Commune',
+                    'Cam Loc Commune',
+                    'Cam Minh Commune',
+                    'Cam My Commune',
+                    'Cam Nhuong Commune',
+                    'Cam Quan Commune',
+                    'Cam Quang Commune',
+                    'Cam Son Commune',
+                    'Cam Thach Commune',
+                    'Cam Thanh Commune',
+                    'Cam Thinh Commune',
+                    'Cam Trung Commune',
+                    'Cam Vinh Commune',
+                    'Cam Xuyen Township',
+                    'Nam Phuc Thang Commune',
+                    'Thien Cam Township',
+                    'Yen Hoa Commune'
+                ]
+            },
+            'Can Loc': {
+                subDistrict: [
+                    'Dong Loc Township',
+                    'Gia Hanh Commune',
+                    'Khanh Vinh Yen Commune',
+                    'Kim Song Truong Commune',
+                    'My Loc Commune',
+                    'Nghen Township',
+                    'Phu Loc Commune',
+                    'Quang Loc Commune',
+                    'Son Loc Commune',
+                    'Thanh Loc Commune',
+                    'Thien Loc Commune',
+                    'Thuan Thien Commune',
+                    'Thuong Loc Commune',
+                    'Thuong Nga Commune',
+                    'Trung Loc Commune',
+                    'Tung Loc Commune',
+                    'Vuong Loc Commune',
+                    'Xuan Loc Commune'
+                ]
+            },
+            'Duc Tho': {
+                subDistrict: [
+                    'An Dung Commune',
+                    'Bui La Nhan Commune',
+                    'Duc Dong Commune',
+                    'Duc Lang Commune',
+                    'Duc Tho Township',
+                    'Hoa Lac Commune',
+                    'Lam Trung Thuy Commune',
+                    'Lien Minh Commune',
+                    'Quang Vinh Commune',
+                    'Tan Dan Commune',
+                    'Tan Huong Commune',
+                    'Thanh Binh Thinh Commune',
+                    'Truong Son Commune',
+                    'Tung Anh Commune',
+                    'Tung Chau Commune',
+                    'Yen Ho Commune'
+                ]
+            },
+            'Ha Tinh': {
+                subDistrict: [
+                    'Bac Ha Ward',
+                    'Dai Nai Ward',
+                    'Dong Mon Commune',
+                    'Ha Huy Tap Ward',
+                    'Nam Ha Ward',
+                    'Nguyen Du Ward',
+                    'Tan Giang Ward',
+                    'Thach Binh Commune',
+                    'Thach Ha Commune',
+                    'Thach Hung Commune',
+                    'Thach Linh Ward',
+                    'Thach Quy Ward',
+                    'Thach Trung Commune',
+                    'Tran Phu Ward',
+                    'Van Yen Ward'
+                ]
+            },
+            'Hong Linh': {
+                subDistrict: [
+                    'Bac Hong Ward',
+                    'Dau Lieu Ward',
+                    'Duc Thuan Ward',
+                    'Nam Hong Ward',
+                    'Thuan Loc Commune',
+                    'Trung Luong Ward'
+                ]
+            },
+            'Huong Khe': {
+                subDistrict: [
+                    'Dien My Commune',
+                    'Gia Pho Commune',
+                    'Ha Linh Commune',
+                    'Hoa Hai Commune',
+                    'Huong Binh Commune',
+                    'Huong Do Commune',
+                    'Huong Giang Commune',
+                    'Huong Khe Township',
+                    'Huong Lam Commune',
+                    'Huong Lien Commune',
+                    'Huong Long Commune',
+                    'Huong Thuy Commune',
+                    'Huong Tra Commune',
+                    'Huong Trach Commune',
+                    'Huong Vinh Commune',
+                    'Huong Xuan Commune',
+                    'Loc Yen Commune',
+                    'Phu Gia Commune',
+                    'Phu Phong Commune',
+                    'Phuc Dong Commune',
+                    'Phuc Trach Commune'
+                ]
+            },
+            'Huong Son': {
+                subDistrict: [
+                    'An Hoa Thinh Commune',
+                    'Commune Son Kim 1',
+                    'Commune Son Kim 2',
+                    'Kim Hoa Commune',
+                    'Pho Chau Township',
+                    'Quang Diem Commune',
+                    'Son Bang Commune',
+                    'Son Binh Commune',
+                    'Son Chau Commune',
+                    'Son Giang Commune',
+                    'Son Ham Commune',
+                    'Son Hong Commune',
+                    'Son Lam Commune',
+                    'Son Le Commune',
+                    'Son Linh Commune',
+                    'Son Long Commune',
+                    'Son Ninh Commune',
+                    'Son Phu Commune',
+                    'Son Tay Commune',
+                    'Son Tien Commune',
+                    'Son Tra Commune',
+                    'Son Trung Commune',
+                    'Son Truong Commune',
+                    'Tan My Ha Commune',
+                    'Tay Son Township'
+                ]
+            },
+            'Ky Anh': {
+                subDistrict: [
+                    'Hung Tri Ward',
+                    'Ky Bac Commune',
+                    'Ky Chau Commune',
+                    'Ky Dong Commune',
+                    'Ky Giang Commune',
+                    'Ky Ha Commune',
+                    'Ky Hai Commune',
+                    'Ky Hoa Commune',
+                    'Ky Khang Commune',
+                    'Ky Lac Commune',
+                    'Ky Lien Ward',
+                    'Ky Loi Commune',
+                    'Ky Long Ward',
+                    'Ky Nam Commune',
+                    'Ky Ninh Commune',
+                    'Ky Phong Commune',
+                    'Ky Phu Commune',
+                    'Ky Phuong Ward',
+                    'Ky Son Commune',
+                    'Ky Tan Commune',
+                    'Ky Tay Commune',
+                    'Ky Thinh Ward',
+                    'Ky Tho Commune',
+                    'Ky Thu Commune',
+                    'Ky Thuong Commune',
+                    'Ky Tien Commune',
+                    'Ky Trinh Ward',
+                    'Ky Trung Commune',
+                    'Ky Van Commune',
+                    'Ky Xuan Commune',
+                    'Lam Hop Commune'
+                ]
+            },
+            'Loc Ha': {
+                subDistrict: [
+                    'Binh An Commune',
+                    'Ho Do Commune',
+                    'Hong Loc Commune',
+                    'Ich Hau Commune',
+                    'Loc Ha Township',
+                    'Mai Phu Commune',
+                    'Phu Luu Commune',
+                    'Tan Loc Commune',
+                    'Thach Chau Commune',
+                    'Thach Kim Commune',
+                    'Thach My Commune',
+                    'Thinh Loc Commune'
+                ]
+            },
+            'Nghi Xuan': {
+                subDistrict: [
+                    'Co Dam Commune',
+                    'Cuong Gian Commune',
+                    'Dan Truong Commune',
+                    'Tien Dien Township',
+                    'Xuan An Township',
+                    'Xuan Giang Commune',
+                    'Xuan Hai Commune',
+                    'Xuan Hoi Commune',
+                    'Xuan Hong Commune',
+                    'Xuan Lam Commune',
+                    'Xuan Lien Commune',
+                    'Xuan Linh Commune',
+                    'Xuan My Commune',
+                    'Xuan Pho Commune',
+                    'Xuan Thanh Commune',
+                    'Xuan Vien Commune',
+                    'Xuan Yen Commune'
+                ]
+            },
+            'Thach Ha': {
+                subDistrict: [
+                    'Dinh Ban Commune',
+                    'Luu Vinh Son Commune',
+                    'Nam Dien Commune',
+                    'Ngoc Son Commune',
+                    'Tan Lam Huong Commune',
+                    'Thach Dai Commune',
+                    'Thach Ha Township',
+                    'Thach Hai Commune',
+                    'Thach Hoi Commune',
+                    'Thach Kenh Commune',
+                    'Thach Khe Commune',
+                    'Thach Lac Commune',
+                    'Thach Lien Commune',
+                    'Thach Long Commune',
+                    'Thach Ngoc Commune',
+                    'Thach Son Commune',
+                    'Thach Thang Commune',
+                    'Thach Tri Commune',
+                    'Thach Van Commune',
+                    'Thach Xuan Commune',
+                    'Tuong Son Commune',
+                    'Viet Tien Commune'
+                ]
+            },
+            'Vu Quang': {
+                subDistrict: [
+                    'An Phu Commune',
+                    'Duc Bong Commune',
+                    'Duc Giang Commune',
+                    'Duc Huong Commune',
+                    'Duc Lien Commune',
+                    'Duc Linh Commune',
+                    'Huong Minh Commune',
+                    'Quang Tho Commune',
+                    'Tho Dien Commune',
+                    'Vu Quang Township'
+                ]
+            }
+        },
+        'Nghe An': {
+            'Anh Son': {
+                subDistrict: [
+                    'Anh Son Township',
+                    'Binh Son Commune',
+                    'Cam Son Commune',
+                    'Cao Son Commune',
+                    'Dinh Son Commune',
+                    'Duc Son Commune',
+                    'Hoa Son Commune',
+                    'Hoi Son Commune',
+                    'Hung Son Commune',
+                    'Khai Son Commune',
+                    'Lang Son Commune',
+                    'Linh Son Commune',
+                    'Long Son Commune',
+                    'Phuc Son Commune',
+                    'Tam Son Commune',
+                    'Tao Son Commune',
+                    'Thach Son Commune',
+                    'Thanh Son Commune',
+                    'Tho Son Commune',
+                    'Tuong Son Commune',
+                    'Vinh Son Commune'
+                ]
+            },
+            'Con Cuong': {
+                subDistrict: [
+                    'Binh Chuan Commune',
+                    'Bong Khe Commune',
+                    'Cam Lam Commune',
+                    'Chau Khe Commune',
+                    'Chi Khe Commune',
+                    'Con Cuong Township',
+                    'Don Phuc Commune',
+                    'Lang Khe Commune',
+                    'Luc Da Commune',
+                    'Mau Duc Commune',
+                    'Mon Son Commune',
+                    'Thach Ngan Commune',
+                    'Yen Khe Commune'
+                ]
+            },
+            'Cua Lo': {
+                subDistrict: [
+                    'Nghi Hai Ward',
+                    'Nghi Hoa Ward',
+                    'Nghi Huong Ward',
+                    'Nghi Tan Ward',
+                    'Nghi Thu Ward',
+                    'Nghi Thuy Ward',
+                    'Thu Thuy Ward'
+                ]
+            },
+            'Dien Chau': {
+                subDistrict: [
+                    'Dien An Commune',
+                    'Dien Bich Commune',
+                    'Dien Cat Commune',
+                    'Dien Chau Township',
+                    'Dien Doai Commune',
+                    'Dien Dong Commune',
+                    'Dien Hai Commune',
+                    'Dien Hanh Commune',
+                    'Dien Hoa Commune',
+                    'Dien Hoang Commune',
+                    'Dien Hong Commune',
+                    'Dien Hung Commune',
+                    'Dien Kim Commune',
+                    'Dien Ky Commune',
+                    'Dien Lam Commune',
+                    'Dien Lien Commune',
+                    'Dien Loc Commune',
+                    'Dien Loi Commune',
+                    'Dien My Commune',
+                    'Dien Ngoc Commune',
+                    'Dien Nguyen Commune',
+                    'Dien Phong Commune',
+                    'Dien Phu Commune',
+                    'Dien Phuc Commune',
+                    'Dien Quang Commune',
+                    'Dien Tan Commune',
+                    'Dien Thai Commune',
+                    'Dien Thanh Commune',
+                    'Dien Thap Commune',
+                    'Dien Thinh Commune',
+                    'Dien Tho Commune',
+                    'Dien Trung Commune',
+                    'Dien Truong Commune',
+                    'Dien Van Commune',
+                    'Dien Xuan Commune',
+                    'Dien Yen Commune',
+                    'Minh Chau Commune'
+                ]
+            },
+            'Do Luong': {
+                subDistrict: [
+                    'Bac Son Commune',
+                    'Bai Son Commune',
+                    'Boi Son Commune',
+                    'Da Son Commune',
+                    'Dai Son Commune',
+                    'Dang Son Commune',
+                    'Do Luong Township',
+                    'Dong Son Commune',
+                    'Giang Son Dong Commune',
+                    'Giang Son Tay Commune',
+                    'Hien Son Commune',
+                    'Hoa Son Commune',
+                    'Hong Son Commune',
+                    'Lac Son Commune',
+                    'Lam Son Commune',
+                    'Luu Son Commune',
+                    'Minh Son Commune',
+                    'My Son Commune',
+                    'Nam Son Commune',
+                    'Ngoc Son Commune',
+                    'Nhan Son Commune',
+                    'Quang Son Commune',
+                    'Tan Son Commune',
+                    'Thai Son Commune',
+                    'Thinh Son Commune',
+                    'Thuan Son Commune',
+                    'Thuong Son Commune',
+                    'Trang Son Commune',
+                    'Tru Son Commune',
+                    'Trung Son Commune',
+                    'Van Son Commune',
+                    'Xuan Son Commune',
+                    'Yen Son Commune'
+                ]
+            },
+            'Hoang Mai': {
+                subDistrict: [
+                    'Mai Hung Ward',
+                    'Quynh Di Ward',
+                    'Quynh Lap Commune',
+                    'Quynh Lien Commune',
+                    'Quynh Loc Commune',
+                    'Quynh Phuong Ward',
+                    'Quynh Thien Ward',
+                    'Quynh Trang Commune',
+                    'Quynh Vinh Commune',
+                    'Quynh Xuan Ward'
+                ]
+            },
+            'Hung Nguyen': {
+                subDistrict: [
+                    'Chau Nhan Commune',
+                    'Hung Dao Commune',
+                    'Hung Linh Commune',
+                    'Hung Loi Commune',
+                    'Hung My Commune',
+                    'Hung Nghia Commune',
+                    'Hung Nguyen Township',
+                    'Hung Phuc Commune',
+                    'Hung Tan Commune',
+                    'Hung Tay Commune',
+                    'Hung Thanh Commune',
+                    'Hung Thinh Commune',
+                    'Hung Thong Commune',
+                    'Hung Trung Commune',
+                    'Hung Yen Bac Commune',
+                    'Hung Yen Commune',
+                    'Long Xa Commune',
+                    'Xuan Lam Commune'
+                ]
+            },
+            'Ky Son': {
+                subDistrict: [
+                    'Bac Ly Commune',
+                    'Bao Nam Commune',
+                    'Bao Thang Commune',
+                    'Chieu Luu Commune',
+                    'Dooc May Commune',
+                    'Huoi Tu Commune',
+                    'Huu Kiem Commune',
+                    'Huu Lap Commune',
+                    'Keng Du Commune',
+                    'Muong Ai Commune',
+                    'Muong Long Commune',
+                    'Muong Tip Commune',
+                    'Muong Xen Township',
+                    'My Ly Commune',
+                    'Na Loi Commune',
+                    'Na Ngoi Commune',
+                    'Nam Can Commune',
+                    'Pha Danh Commune',
+                    'Ta Ca Commune',
+                    'Tay Son Commune'
+                ]
+            },
+            'Nam Dan': {
+                subDistrict: [
+                    'Hong Long Commune',
+                    'Hung Tien Commune',
+                    'Khanh Son Commune',
+                    'Kim Lien Commune',
+                    'Nam Anh Commune',
+                    'Nam Cat Commune',
+                    'Nam Dan Township',
+                    'Nam Giang Commune',
+                    'Nam Hung Commune',
+                    'Nam Kim Commune',
+                    'Nam Linh Commune',
+                    'Nam Nghia Commune',
+                    'Nam Thai Commune',
+                    'Nam Thanh Commune',
+                    'Nam Xuan Commune',
+                    'Thuong Tan Loc Commune',
+                    'Trung Phuc Cuong Commune',
+                    'Xuan Hoa Commune',
+                    'Xuan Lam Commune'
+                ]
+            },
+            'Nghi Loc': {
+                subDistrict: [
+                    'Khanh Hop Commune',
+                    'Nghi Cong Bac Commune',
+                    'Nghi Cong Nam Commune',
+                    'Nghi Dien Commune',
+                    'Nghi Dong Commune',
+                    'Nghi Hoa Commune',
+                    'Nghi Hung Commune',
+                    'Nghi Kieu Commune',
+                    'Nghi Lam Commune',
+                    'Nghi Long Commune',
+                    'Nghi My Commune',
+                    'Nghi Phong Commune',
+                    'Nghi Phuong Commune',
+                    'Nghi Quang Commune',
+                    'Nghi Thach Commune',
+                    'Nghi Thai Commune',
+                    'Nghi Thiet Commune',
+                    'Nghi Thinh Commune',
+                    'Nghi Thuan Commune',
+                    'Nghi Tien Commune',
+                    'Nghi Trung Commune',
+                    'Nghi Truong Commune',
+                    'Nghi Van Commune',
+                    'Nghi Xa Commune',
+                    'Nghi Xuan Commune',
+                    'Nghi Yen Commune',
+                    'Phuc Tho Commune',
+                    'Quan Hanh Township'
+                ]
+            },
+            'Nghia Dan': {
+                subDistrict: [
+                    'Nghia An Commune',
+                    'Nghia Binh Commune',
+                    'Nghia Dan Township',
+                    'Nghia Duc Commune',
+                    'Nghia Hieu Commune',
+                    'Nghia Hoi Commune',
+                    'Nghia Hong Commune',
+                    'Nghia Hung Commune',
+                    'Nghia Khanh Commune',
+                    'Nghia Lac Commune',
+                    'Nghia Lam Commune',
+                    'Nghia Loc Commune',
+                    'Nghia Loi Commune',
+                    'Nghia Long Commune',
+                    'Nghia Mai Commune',
+                    'Nghia Minh Commune',
+                    'Nghia Phu Commune',
+                    'Nghia Son Commune',
+                    'Nghia Thanh Commune',
+                    'Nghia Thinh Commune',
+                    'Nghia Tho Commune',
+                    'Nghia Trung Commune',
+                    'Nghia Yen Commune'
+                ]
+            },
+            'Que Phong': {
+                subDistrict: [
+                    'Cam Muon Commune',
+                    'Chau Kim Commune',
+                    'Chau Thon Commune',
+                    'Dong Van Commune',
+                    'Hanh Dich Commune',
+                    'Kim Son Township',
+                    'Muong Noc Commune',
+                    'Nam Giai Commune',
+                    'Nam Nhoong Commune',
+                    'Quang Phong Commune',
+                    'Thong Thu Commune',
+                    'Tien Phong Commune',
+                    'Tri Le Commune'
+                ]
+            },
+            'Quy Chau': {
+                subDistrict: [
+                    'Chau Binh Commune',
+                    'Chau Hanh Commune',
+                    'Chau Hoan Commune',
+                    'Chau Hoi Commune',
+                    'Chau Nga Commune',
+                    'Chau Phong Commune',
+                    'Chau Thang Commune',
+                    'Chau Thuan Commune',
+                    'Chau Tien Commune',
+                    'Dien Lam Commune',
+                    'Tan Lac Township'
+                ]
+            },
+            'Quy Hop': {
+                subDistrict: [
+                    'Bac Son Commune',
+                    'Chau Cuong Commune',
+                    'Chau Dinh Commune',
+                    'Chau Hong Commune',
+                    'Chau Loc Commune',
+                    'Chau Ly Commune',
+                    'Chau Quang Commune',
+                    'Chau Thai Commune',
+                    'Chau Thanh Commune',
+                    'Chau Tien Commune',
+                    'Dong Hop Commune',
+                    'Ha Son Commune',
+                    'Lien Hop Commune',
+                    'Minh Hop Commune',
+                    'Nam Son Commune',
+                    'Nghia Xuan Commune',
+                    'Quy Hop Township',
+                    'Tam Hop Commune',
+                    'Tho Hop Commune',
+                    'Van Loi Commune',
+                    'Yen Hop Commune'
+                ]
+            },
+            'Quynh Luu': {
+                subDistrict: [
+                    'An Hoa Commune',
+                    'Cau Giat Township',
+                    'Ngoc Son Commune',
+                    'Quynh Ba Commune',
+                    'Quynh Bang Commune',
+                    'Quynh Chau Commune',
+                    'Quynh Dien Commune',
+                    'Quynh Doi Commune',
+                    'Quynh Giang Commune',
+                    'Quynh Hau Commune',
+                    'Quynh Hoa Commune',
+                    'Quynh Hong Commune',
+                    'Quynh Hung Commune',
+                    'Quynh Lam Commune',
+                    'Quynh Long Commune',
+                    'Quynh Luong Commune',
+                    'Quynh Minh Commune',
+                    'Quynh My Commune',
+                    'Quynh Nghia Commune',
+                    'Quynh Ngoc Commune',
+                    'Quynh Tam Commune',
+                    'Quynh Tan Commune',
+                    'Quynh Thach Commune',
+                    'Quynh Thang Commune',
+                    'Quynh Thanh Commune',
+                    'Quynh Tho Commune',
+                    'Quynh Thuan Commune',
+                    'Quynh Van Commune',
+                    'Quynh Yen Commune',
+                    'Son Hai Commune',
+                    'Tan Son Commune',
+                    'Tan Thang Commune',
+                    'Tien Thuy Commune'
+                ]
+            },
+            'Tan Ky': {
+                subDistrict: [
+                    'Dong Van Commune',
+                    'Giai Xuan Commune',
+                    'Huong Son Commune',
+                    'Ky Son Commune',
+                    'Ky Tan Commune',
+                    'Nghia Binh Commune',
+                    'Nghia Dong Commune',
+                    'Nghia Dung Commune',
+                    'Nghia Hanh Commune',
+                    'Nghia Hoan Commune',
+                    'Nghia Hop Commune',
+                    'Nghia Phuc Commune',
+                    'Nghia Thai Commune',
+                    'Phu Son Commune',
+                    'Tan An Commune',
+                    'Tan Hop Commune',
+                    'Tan Huong Commune',
+                    'Tan Ky Township',
+                    'Tan Long Commune',
+                    'Tan Phu Commune',
+                    'Tan Xuan Commune',
+                    'Tien Ky Commune'
+                ]
+            },
+            'Thai Hoa': {
+                subDistrict: [
+                    'Dong Hieu Commune',
+                    'Hoa Hieu Ward',
+                    'Long Son Ward',
+                    'Nghia My Commune',
+                    'Nghia Thuan Commune',
+                    'Nghia Tien Commune',
+                    'Quang Phong Ward',
+                    'Quang Tien Ward',
+                    'Tay Hieu Commune'
+                ]
+            },
+            'Thanh Chuong': {
+                subDistrict: [
+                    'Cat Van Commune',
+                    'Dai Dong Commune',
+                    'Dong Van Commune',
+                    'Hanh Lam Commune',
+                    'Ngoc Lam Commune',
+                    'Ngoc Son Commune',
+                    'Phong Thinh Commune',
+                    'Thanh An Commune',
+                    'Thanh Chi Commune',
+                    'Thanh Chuong Township',
+                    'Thanh Dong Commune',
+                    'Thanh Duc Commune',
+                    'Thanh Duong Commune',
+                    'Thanh Giang Commune',
+                    'Thanh Ha Commune',
+                    'Thanh Hoa Commune',
+                    'Thanh Huong Commune',
+                    'Thanh Khai Commune',
+                    'Thanh Khe Commune',
+                    'Thanh Lam Commune',
+                    'Thanh Lien Commune',
+                    'Thanh Linh Commune',
+                    'Thanh Long Commune',
+                    'Thanh Luong Commune',
+                    'Thanh Mai Commune',
+                    'Thanh My Commune',
+                    'Thanh Ngoc Commune',
+                    'Thanh Nho Commune',
+                    'Thanh Phong Commune',
+                    'Thanh Son Commune',
+                    'Thanh Thinh Commune',
+                    'Thanh Thuy Commune',
+                    'Thanh Tien Commune',
+                    'Thanh Tung Commune',
+                    'Thanh Xuan Commune',
+                    'Thanh Yen Commune',
+                    'Vo Liet Commune',
+                    'Xuan Tuong Commune'
+                ]
+            },
+            'Tuong Duong': {
+                subDistrict: [
+                    'Huu Khuong Commune',
+                    'Luong Minh Commune',
+                    'Luu Kien Commune',
+                    'Mai Son Commune',
+                    'Nga My Commune',
+                    'Nhon Mai Commune',
+                    'Tam Dinh Commune',
+                    'Tam Hop Commune',
+                    'Tam Quang Commune',
+                    'Tam Thai Commune',
+                    'Thach Giam Township',
+                    'Xa Luong Commune',
+                    'Xieng My Commune',
+                    'Yen Hoa Commune',
+                    'Yen Na Commune',
+                    'Yen Thang Commune',
+                    'Yen Tinh Commune'
+                ]
+            },
+            Vinh: {
+                subDistrict: [
+                    'Ben Thuy Ward',
+                    'Cua Nam Ward',
+                    'Doi Cung Ward',
+                    'Dong Vinh Ward',
+                    'Ha Huy Tap Ward',
+                    'Hong Son Ward',
+                    'Hung Binh Ward',
+                    'Hung Chinh Commune',
+                    'Hung Dong Commune',
+                    'Hung Dung Ward',
+                    'Hung Hoa Commune',
+                    'Hung Loc Commune',
+                    'Hung Phuc Ward',
+                    'Le Loi Ward',
+                    'Le Mao Ward',
+                    'Nghi An Commune',
+                    'Nghi Duc Commune',
+                    'Nghi Kim Commune',
+                    'Nghi Lien Commune',
+                    'Nghi Phu Commune',
+                    'Quan Bau Ward',
+                    'Quang Trung Ward',
+                    'Trung Do Ward',
+                    'Truong Thi Ward',
+                    'Vinh Tan Ward'
+                ]
+            },
+            'Yen Thanh': {
+                subDistrict: [
+                    'Bac Thanh Commune',
+                    'Bao Thanh Commune',
+                    'Cong Thanh Commune',
+                    'Dai Thanh Commune',
+                    'Do Thanh Commune',
+                    'Dong Thanh Commune',
+                    'Duc Thanh Commune',
+                    'Hau Thanh Commune',
+                    'Hoa Thanh Commune',
+                    'Hong Thanh Commune',
+                    'Hop Thanh Commune',
+                    'Hung Thanh Commune',
+                    'Khanh Thanh Commune',
+                    'Kim Thanh Commune',
+                    'Lang Thanh Commune',
+                    'Lien Thanh Commune',
+                    'Long Thanh Commune',
+                    'Ly Thanh Commune',
+                    'Ma Thanh Commune',
+                    'Minh Thanh Commune',
+                    'My Thanh Commune',
+                    'Nam Thanh Commune',
+                    'Nhan Thanh Commune',
+                    'Phu Thanh Commune',
+                    'Phuc Thanh Commune',
+                    'Quang Thanh Commune',
+                    'Son Thanh Commune',
+                    'Tan Thanh Commune',
+                    'Tang Thanh Commune',
+                    'Tay Thanh Commune',
+                    'Thinh Thanh Commune',
+                    'Tho Thanh Commune',
+                    'Tien Thanh Commune',
+                    'Trung Thanh Commune',
+                    'Van Thanh Commune',
+                    'Vien Thanh Commune',
+                    'Vinh Thanh Commune',
+                    'Xuan Thanh Commune',
+                    'Yen Thanh Township'
+                ]
+            }
+        },
+        'Quang Binh': {
+            'Ba Don': {
+                subDistrict: [
+                    'Ba Don Ward',
+                    'Quang Hai Commune',
+                    'Quang Hoa Commune',
+                    'Quang Loc Commune',
+                    'Quang Long Ward',
+                    'Quang Minh Commune',
+                    'Quang Phong Ward',
+                    'Quang Phuc Ward',
+                    'Quang Son Commune',
+                    'Quang Tan Commune',
+                    'Quang Tho Ward',
+                    'Quang Thuan Ward',
+                    'Quang Thuy Commune',
+                    'Quang Tien Commune',
+                    'Quang Trung Commune',
+                    'Quang Van Commune'
+                ]
+            },
+            'Bo Trach': {
+                subDistrict: [
+                    'Bac Trach Commune',
+                    'Cu Nam Commune',
+                    'Dai Trach Commune',
+                    'Dong Trach Commune',
+                    'Duc Trach Commune',
+                    'Ha Trach Commune',
+                    'Hai Phu Commune',
+                    'Hoa Trach Commune',
+                    'Hoan Lao Township',
+                    'Hung Trach Commune',
+                    'Lam Trach Commune',
+                    'Lien Trach Commune',
+                    'Ly Trach Commune',
+                    'My Trach Commune',
+                    'Nam Trach Commune',
+                    'Nhan Trach Commune',
+                    'NT Viet Trung Township',
+                    'Phong Nha Township',
+                    'Phu Dinh Commune',
+                    'Phuc Trach Commune',
+                    'Son Loc Commune',
+                    'Tan Trach Commune',
+                    'Tay Trach Commune',
+                    'Thanh Trach Commune',
+                    'Thuong Trach Commune',
+                    'Trung Trach Commune',
+                    'Van Trach Commune',
+                    'Xuan Trach Commune'
+                ]
+            },
+            'Dong Hoi': {
+                subDistrict: [
+                    'Bac Ly Ward',
+                    'Bac Nghia Ward',
+                    'Bao Ninh Commune',
+                    'Dong Hai Ward',
+                    'Dong Phu Ward',
+                    'Dong Son Ward',
+                    'Duc Ninh Commune',
+                    'Duc Ninh Dong Ward',
+                    'Hai Thanh Ward',
+                    'Loc Ninh Commune',
+                    'Nam Ly Ward',
+                    'Nghia Ninh Commune',
+                    'Phu Hai Ward',
+                    'Quang Phu Commune',
+                    'Thuan Duc Commune'
+                ]
+            },
+            'Le Thuy': {
+                subDistrict: [
+                    'An Thuy Commune',
+                    'Cam Thuy Commune',
+                    'Duong Thuy Commune',
+                    'Hoa Thuy Commune',
+                    'Hong Thuy Commune',
+                    'Hung Thuy Commune',
+                    'Kien Giang Township',
+                    'Kim Thuy Commune',
+                    'Lam Thuy Commune',
+                    'Lien Thuy Commune',
+                    'Loc Thuy Commune',
+                    'Mai Thuy Commune',
+                    'My Thuy Commune',
+                    'Ngan Thuy Commune',
+                    'Ngu Thuy Bac Commune',
+                    'Ngu Thuy Commune',
+                    'NT Le Ninh Township',
+                    'Phong Thuy Commune',
+                    'Phu Thuy Commune',
+                    'Sen Thuy Commune',
+                    'Son Thuy Commune',
+                    'Tan Thuy Commune',
+                    'Thai Thuy Commune',
+                    'Thanh Thuy Commune',
+                    'Truong Thuy Commune',
+                    'Xuan Thuy Commune'
+                ]
+            },
+            'Minh Hoa': {
+                subDistrict: [
+                    'Dan Hoa Commune',
+                    'Hoa Hop Commune',
+                    'Hoa Phuc Commune',
+                    'Hoa Son Commune',
+                    'Hoa Thanh Commune',
+                    'Hoa Tien Commune',
+                    'Hong Hoa Commune',
+                    'Minh Hoa Commune',
+                    'Quy Dat Township',
+                    'Tan Hoa Commune',
+                    'Thuong Hoa Commune',
+                    'Trong Hoa Commune',
+                    'Trung Hoa Commune',
+                    'Xuan Hoa Commune',
+                    'Yen Hoa Commune'
+                ]
+            },
+            'Quang Ninh': {
+                subDistrict: [
+                    'An Ninh Commune',
+                    'Duy Ninh Commune',
+                    'Gia Ninh Commune',
+                    'Hai Ninh Commune',
+                    'Ham Ninh Commune',
+                    'Hien Ninh Commune',
+                    'Luong Ninh Commune',
+                    'Quan Hau Township',
+                    'Tan Ninh Commune',
+                    'Truong Son Commune',
+                    'Truong Xuan Commune',
+                    'Van Ninh Commune',
+                    'Vinh Ninh Commune',
+                    'Vo Ninh Commune',
+                    'Xuan Ninh Commune'
+                ]
+            },
+            'Quang Trach': {
+                subDistrict: [
+                    'Canh Duong Commune',
+                    'Canh Hoa Commune',
+                    'Lien Truong Commune',
+                    'Phu Hoa Commune',
+                    'Quang Chau Commune',
+                    'Quang Dong Commune',
+                    'Quang Hop Commune',
+                    'Quang Hung Commune',
+                    'Quang Kim Commune',
+                    'Quang Luu Commune',
+                    'Quang Phu Commune',
+                    'Quang Phuong Commune',
+                    'Quang Thach Commune',
+                    'Quang Thanh Commune',
+                    'Quang Tien Commune',
+                    'Quang Tung Commune',
+                    'Quang Xuan Commune'
+                ]
+            },
+            'Tuyen Hoa': {
+                subDistrict: [
+                    'Cao Quang Commune',
+                    'Chau Hoa Commune',
+                    'Dong Hoa Commune',
+                    'Dong Le Township',
+                    'Duc Hoa Commune',
+                    'Huong Hoa Commune',
+                    'Kim Hoa Commune',
+                    'Lam Hoa Commune',
+                    'Le Hoa Commune',
+                    'Mai Hoa Commune',
+                    'Ngu Hoa Commune',
+                    'Phong Hoa Commune',
+                    'Son Hoa Commune',
+                    'Thach Hoa Commune',
+                    'Thanh Hoa Commune',
+                    'Thanh Thach Commune',
+                    'Thuan Hoa Commune',
+                    'Tien Hoa Commune',
+                    'Van Hoa Commune'
+                ]
+            }
+        },
+        'Quang Tri': {
+            'Cam Lo': {
+                subDistrict: [
+                    'Cam Chinh Commune',
+                    'Cam Hieu Commune',
+                    'Cam Lo Township',
+                    'Cam Nghia Commune',
+                    'Cam Thanh Commune',
+                    'Cam Thuy Commune',
+                    'Cam Tuyen Commune',
+                    'Thanh An Commune'
+                ]
+            },
+            'Da Krong': {
+                subDistrict: [
+                    'A Bung Commune',
+                    'A Ngo Commune',
+                    'A Vao Commune',
+                    'Ba Long Commune',
+                    'Ba Nang Commune',
+                    'Da Krong Commune',
+                    'Huc Nghi Commune',
+                    'Huong Hiep Commune',
+                    'Krong Klang Township',
+                    'Mo O Commune',
+                    'Ta Long Commune',
+                    'Ta Rut Commune',
+                    'Trieu Nguyen Commune'
+                ]
+            },
+            'Dong Ha': {
+                subDistrict: [
+                    'Dong Giang Ward',
+                    'Dong Le Ward',
+                    'Dong Luong Ward',
+                    'Dong Thanh Ward',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5'
+                ]
+            },
+            'Gio Linh': {
+                subDistrict: [
+                    'Cua Viet Township',
+                    'Gio An Commune',
+                    'Gio Chau Commune',
+                    'Gio Hai Commune',
+                    'Gio Linh Township',
+                    'Gio Mai Commune',
+                    'Gio My Commune',
+                    'Gio Quang Commune',
+                    'Gio Son Commune',
+                    'Gio Viet Commune',
+                    'Hai Thai Commune',
+                    'Linh Hai Commune',
+                    'Linh Truong Commune',
+                    'Phong Binh Commune',
+                    'Trung Giang Commune',
+                    'Trung Hai Commune',
+                    'Trung Son Commune'
+                ]
+            },
+            'Hai Lang': {
+                subDistrict: [
+                    'Dien Sanh Township',
+                    'Hai An Commune',
+                    'Hai Ba Commune',
+                    'Hai Chanh Commune',
+                    'Hai Dinh Commune',
+                    'Hai Duong Commune',
+                    'Hai Hung Commune',
+                    'Hai Khe Commune',
+                    'Hai Lam Commune',
+                    'Hai Phong Commune',
+                    'Hai Phu Commune',
+                    'Hai Que Commune',
+                    'Hai Quy Commune',
+                    'Hai Son Commune',
+                    'Hai Thuong Commune',
+                    'Hai Truong Commune'
+                ]
+            },
+            'Huong Hoa': {
+                subDistrict: [
+                    'A Doi Commune',
+                    'Ba Tang Commune',
+                    'Huc Commune',
+                    'Huong Lap Commune',
+                    'Huong Linh Commune',
+                    'Huong Loc Commune',
+                    'Huong Phung Commune',
+                    'Huong Son Commune',
+                    'Huong Tan Commune',
+                    'Huong Viet Commune',
+                    'Khe Sanh Township',
+                    'Lao Bao Township',
+                    'Lia Commune',
+                    'Tan Hop Commune',
+                    'Tan Lap Commune',
+                    'Tan Lien Commune',
+                    'Tan Long Commune',
+                    'Tan Thanh Commune',
+                    'Thanh Commune',
+                    'Thuan Commune',
+                    'Xy Commune'
+                ]
+            },
+            'Quang Tri': {
+                subDistrict: [
+                    'An Don Ward',
+                    'Hai Le Commune',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3'
+                ]
+            },
+            'Trieu Phong': {
+                subDistrict: [
+                    'Ai Tu Township',
+                    'Trieu Ai Commune',
+                    'Trieu An Commune',
+                    'Trieu Dai Commune',
+                    'Trieu Do Commune',
+                    'Trieu Giang Commune',
+                    'Trieu Hoa Commune',
+                    'Trieu Lang Commune',
+                    'Trieu Long Commune',
+                    'Trieu Phuoc Commune',
+                    'Trieu Son Commune',
+                    'Trieu Tai Commune',
+                    'Trieu Thanh Commune',
+                    'Trieu Thuan Commune',
+                    'Trieu Thuong Commune',
+                    'Trieu Trach Commune',
+                    'Trieu Trung Commune',
+                    'Trieu Van Commune'
+                ]
+            },
+            'Vinh Linh': {
+                subDistrict: [
+                    'Ben Quan Township',
+                    'Cua Tung Township',
+                    'Hien Thanh Commune',
+                    'Ho Xa Township',
+                    'Kim Thach Commune',
+                    'Trung Nam Commune',
+                    'Vinh Chap Commune',
+                    'Vinh Giang Commune',
+                    'Vinh Ha Commune',
+                    'Vinh Hoa Commune',
+                    'Vinh Khe Commune',
+                    'Vinh Lam Commune',
+                    'Vinh Long Commune',
+                    'Vinh O Commune',
+                    'Vinh Son Commune',
+                    'Vinh Thai Commune',
+                    'Vinh Thuy Commune',
+                    'Vinh Tu Commune'
+                ]
+            }
+        },
+        'Thanh Hoa': {
+            'Ba Thuoc': {
+                subDistrict: [
+                    'Ai Thuong Commune',
+                    'Ban Cong Commune',
+                    'Canh Nang Township',
+                    'Co Lung Commune',
+                    'Dien Ha Commune',
+                    'Dien Lu Commune',
+                    'Dien Quang Commune',
+                    'Dien Thuong Commune',
+                    'Dien Trung Commune',
+                    'Ha Trung Commune',
+                    'Ky Tan Commune',
+                    'Lung Cao Commune',
+                    'Lung Niem Commune',
+                    'Luong Ngoai Commune',
+                    'Luong Noi Commune',
+                    'Luong Trung Commune',
+                    'Thanh Lam Commune',
+                    'Thanh Son Commune',
+                    'Thiet Ke Commune',
+                    'Thiet Ong Commune',
+                    'Van Nho Commune'
+                ]
+            },
+            'Bim Son': {
+                subDistrict: [
+                    'Ba Dinh Ward',
+                    'Bac Son Ward',
+                    'Dong Son Ward',
+                    'Lam Son Ward',
+                    'Ngoc Trao Ward',
+                    'Phu Son Ward',
+                    'Quang Trung Commune'
+                ]
+            },
+            'Cam Thuy': {
+                subDistrict: [
+                    'Cam Binh Commune',
+                    'Cam Chau Commune',
+                    'Cam Giang Commune',
+                    'Cam Lien Commune',
+                    'Cam Long Commune',
+                    'Cam Luong Commune',
+                    'Cam Ngoc Commune',
+                    'Cam Phu Commune',
+                    'Cam Quy Commune',
+                    'Cam Tam Commune',
+                    'Cam Tan Commune',
+                    'Cam Thach Commune',
+                    'Cam Thanh Commune',
+                    'Cam Tu Commune',
+                    'Cam Van Commune',
+                    'Cam Yen Commune',
+                    'Phong Son Township'
+                ]
+            },
+            'Dong Son': {
+                subDistrict: [
+                    'Dong Hoa Commune',
+                    'Dong Hoang Commune',
+                    'Dong Khe Commune',
+                    'Dong Minh Commune',
+                    'Dong Nam Commune',
+                    'Dong Ninh Commune',
+                    'Dong Phu Commune',
+                    'Dong Quang Commune',
+                    'Dong Thanh Commune',
+                    'Dong Thinh Commune',
+                    'Dong Tien Commune',
+                    'Dong Van Commune',
+                    'Dong Yen Commune',
+                    'Rung Thong Township'
+                ]
+            },
+            'Ha Trung': {
+                subDistrict: [
+                    'Ha Bac Commune',
+                    'Ha Binh Commune',
+                    'Ha Chau Commune',
+                    'Ha Dong Commune',
+                    'Ha Giang Commune',
+                    'Ha Hai Commune',
+                    'Ha Lai Commune',
+                    'Ha Linh Commune',
+                    'Ha Long Commune',
+                    'Ha Ngoc Commune',
+                    'Ha Son Commune',
+                    'Ha Tan Commune',
+                    'Ha Thai Commune',
+                    'Ha Tien Commune',
+                    'Ha Trung Township',
+                    'Ha Vinh Commune',
+                    'Hoat Giang Commune',
+                    'Linh Toai Commune',
+                    'Yen Duong Commune',
+                    'Yen Son Commune'
+                ]
+            },
+            'Hau Loc': {
+                subDistrict: [
+                    'Cau Loc Commune',
+                    'Da Loc Commune',
+                    'Dai Loc Commune',
+                    'Dong Loc Commune',
+                    'Hai Loc Commune',
+                    'Hau Loc Township',
+                    'Hoa Loc Commune',
+                    'Hung Loc Commune',
+                    'Lien Loc Commune',
+                    'Loc Son Commune',
+                    'Minh Loc Commune',
+                    'My Loc Commune',
+                    'Ngu Loc Commune',
+                    'Phong Loc Commune',
+                    'Phu Loc Commune',
+                    'Quang Loc Commune',
+                    'Thanh Loc Commune',
+                    'Thuan Loc Commune',
+                    'Tien Loc Commune',
+                    'Trieu Loc Commune',
+                    'Tuy Loc Commune',
+                    'Xuan Loc Commune'
+                ]
+            },
+            'Hoang Hoa': {
+                subDistrict: [
+                    'But Son Township',
+                    'Hoang Cat Commune',
+                    'Hoang Chau Commune',
+                    'Hoang Dao Commune',
+                    'Hoang Dat Commune',
+                    'Hoang Dong Commune',
+                    'Hoang Duc Commune',
+                    'Hoang Giang Commune',
+                    'Hoang Ha Commune',
+                    'Hoang Hai Commune',
+                    'Hoang Hop Commune',
+                    'Hoang Kim Commune',
+                    'Hoang Loc Commune',
+                    'Hoang Luu Commune',
+                    'Hoang Ngoc Commune',
+                    'Hoang Phong Commune',
+                    'Hoang Phu Commune',
+                    'Hoang Phuong Commune',
+                    'Hoang Quy Commune',
+                    'Hoang Son Commune',
+                    'Hoang Tan Commune',
+                    'Hoang Thai Commune',
+                    'Hoang Thang Commune',
+                    'Hoang Thanh Commune',
+                    'Hoang Thinh Commune',
+                    'Hoang Tien Commune',
+                    'Hoang Trach Commune',
+                    'Hoang Trinh Commune',
+                    'Hoang Trung Commune',
+                    'Hoang Truong Commune',
+                    'Hoang Xuan Commune',
+                    'Hoang Xuyen Commune',
+                    'Hoang Yen Commune'
+                ]
+            },
+            'Lang Chanh': {
+                subDistrict: [
+                    'Dong Luong Commune',
+                    'Giao An Commune',
+                    'Giao Thien Commune',
+                    'Lam Phu Commune',
+                    'Lang Chanh Township',
+                    'Tam Van Commune',
+                    'Tan Phuc Commune',
+                    'Tri Nang Commune',
+                    'Yen Khuong Commune',
+                    'Yen Thang Commune'
+                ]
+            },
+            'Muong Lat': {
+                subDistrict: [
+                    'Muong Chanh Commune',
+                    'Muong Lat Township',
+                    'Muong Ly Commune',
+                    'Nhi Son Commune',
+                    'Pu Nhi Commune',
+                    'Quang Chieu Commune',
+                    'Tam Chung Commune',
+                    'Trung Ly Commune'
+                ]
+            },
+            'Nga Son': {
+                subDistrict: [
+                    'Ba Dinh Commune',
+                    'Nga An Commune',
+                    'Nga Bach Commune',
+                    'Nga Dien Commune',
+                    'Nga Giap Commune',
+                    'Nga Hai Commune',
+                    'Nga Lien Commune',
+                    'Nga Phu Commune',
+                    'Nga Phuong Commune',
+                    'Nga Son Township',
+                    'Nga Tan Commune',
+                    'Nga Thach Commune',
+                    'Nga Thai Commune',
+                    'Nga Thang Commune',
+                    'Nga Thanh Commune',
+                    'Nga Thien Commune',
+                    'Nga Thuy Commune',
+                    'Nga Tien Commune',
+                    'Nga Trung Commune',
+                    'Nga Truong Commune',
+                    'Nga Van Commune',
+                    'Nga Vinh Commune',
+                    'Nga Yen Commune'
+                ]
+            },
+            'Nghi Son': {
+                subDistrict: [
+                    'Anh Son Commune',
+                    'Binh Minh Ward',
+                    'Cac Son Commune',
+                    'Dinh Hai Commune',
+                    'Hai An Ward',
+                    'Hai Binh Ward',
+                    'Hai Chau Ward',
+                    'Hai Ha Commune',
+                    'Hai Hoa Ward',
+                    'Hai Linh Ward',
+                    'Hai Nhan Commune',
+                    'Hai Ninh Ward',
+                    'Hai Thanh Ward',
+                    'Hai Thuong Ward',
+                    'Hai Yen Commune',
+                    'Mai Lam Ward',
+                    'Nghi Son Commune',
+                    'Ngoc Linh Commune',
+                    'Nguyen Binh Ward',
+                    'Ninh Hai Ward',
+                    'Phu Lam Commune',
+                    'Phu Son Commune',
+                    'Tan Dan Ward',
+                    'Tan Truong Commune',
+                    'Thanh Son Commune',
+                    'Thanh Thuy Commune',
+                    'Tinh Hai Ward',
+                    'Truc Lam Ward',
+                    'Truong Lam Commune',
+                    'Tung Lam Commune',
+                    'Xuan Lam Ward'
+                ]
+            },
+            'Ngoc Lac': {
+                subDistrict: [
+                    'Cao Ngoc Commune',
+                    'Cao Thinh Commune',
+                    'Dong Thinh Commune',
+                    'Kien Tho Commune',
+                    'Lam Son Commune',
+                    'Loc Thinh Commune',
+                    'Minh Son Commune',
+                    'Minh Tien Commune',
+                    'My Tan Commune',
+                    'Ngoc Lac Township',
+                    'Ngoc Lien Commune',
+                    'Ngoc Son Commune',
+                    'Ngoc Trung Commune',
+                    'Nguyet An Commune',
+                    'Phuc Thinh Commune',
+                    'Phung Giao Commune',
+                    'Phung Minh Commune',
+                    'Quang Trung Commune',
+                    'Thach Lap Commune',
+                    'Thuy Son Commune',
+                    'Van Am Commune'
+                ]
+            },
+            'Nhu Thanh': {
+                subDistrict: [
+                    'Ben Sung Township',
+                    'Can Khe Commune',
+                    'Hai Long Commune',
+                    'Mau Lam Commune',
+                    'Phu Nhuan Commune',
+                    'Phuong Nghi Commune',
+                    'Thanh Ky Commune',
+                    'Thanh Tan Commune',
+                    'Xuan Du Commune',
+                    'Xuan Khang Commune',
+                    'Xuan Phuc Commune',
+                    'Xuan Thai Commune',
+                    'Yen Lac Commune',
+                    'Yen Tho Commune'
+                ]
+            },
+            'Nhu Xuan': {
+                subDistrict: [
+                    'Bai Tranh Commune',
+                    'Binh Luong Commune',
+                    'Cat Tan Commune',
+                    'Cat Van Commune',
+                    'Hoa Quy Commune',
+                    'Tan Binh Commune',
+                    'Thanh Hoa Commune',
+                    'Thanh Lam Commune',
+                    'Thanh Phong Commune',
+                    'Thanh Quan Commune',
+                    'Thanh Son Commune',
+                    'Thanh Xuan Commune',
+                    'Thuong Ninh Commune',
+                    'Xuan Binh Commune',
+                    'Xuan Hoa Commune',
+                    'Yen Cat Township'
+                ]
+            },
+            'Nong Cong': {
+                subDistrict: [
+                    'Cong Chinh Commune',
+                    'Cong Liem Commune',
+                    'Hoang Giang Commune',
+                    'Hoang Son Commune',
+                    'Minh Khoi Commune',
+                    'Minh Nghia Commune',
+                    'Nong Cong Township',
+                    'Tan Khang Commune',
+                    'Tan Phuc Commune',
+                    'Tan Tho Commune',
+                    'Te Loi Commune',
+                    'Te Nong Commune',
+                    'Te Thang Commune',
+                    'Thang Binh Commune',
+                    'Thang Long Commune',
+                    'Thang Tho Commune',
+                    'Trung Chinh Commune',
+                    'Trung Thanh Commune',
+                    'Truong Giang Commune',
+                    'Truong Minh Commune',
+                    'Truong Son Commune',
+                    'Truong Trung Commune',
+                    'Tuong Linh Commune',
+                    'Tuong Son Commune',
+                    'Tuong Van Commune',
+                    'Van Hoa Commune',
+                    'Van Thang Commune',
+                    'Van Thien Commune',
+                    'Yen My Commune'
+                ]
+            },
+            'Quan Hoa': {
+                subDistrict: [
+                    'Hien Chung Commune',
+                    'Hien Kiet Commune',
+                    'Hoi Xuan Township',
+                    'Nam Dong Commune',
+                    'Nam Tien Commune',
+                    'Nam Xuan Commune',
+                    'Phu Le Commune',
+                    'Phu Nghiem Commune',
+                    'Phu Son Commune',
+                    'Phu Thanh Commune',
+                    'Phu Xuan Commune',
+                    'Thanh Son Commune',
+                    'Thien Phu Commune',
+                    'Trung Son Commune',
+                    'Trung Thanh Commune'
+                ]
+            },
+            'Quan Son': {
+                subDistrict: [
+                    'Muong Min Commune',
+                    'Na Meo Commune',
+                    'Son Dien Commune',
+                    'Son Ha Commune',
+                    'Son Lu Township',
+                    'Son Thuy Commune',
+                    'Tam Lu Commune',
+                    'Tam Thanh Commune',
+                    'Trung Ha Commune',
+                    'Trung Thuong Commune',
+                    'Trung Tien Commune',
+                    'Trung Xuan Commune'
+                ]
+            },
+            'Quang Xuong': {
+                subDistrict: [
+                    'Quang Binh Commune',
+                    'Quang Chinh Commune',
+                    'Quang Dinh Commune',
+                    'Quang Duc Commune',
+                    'Quang Giao Commune',
+                    'Quang Hai Commune',
+                    'Quang Hoa Commune',
+                    'Quang Hop Commune',
+                    'Quang Khe Commune',
+                    'Quang Loc Commune',
+                    'Quang Long Commune',
+                    'Quang Luu Commune',
+                    'Quang Ngoc Commune',
+                    'Quang Nham Commune',
+                    'Quang Nhan Commune',
+                    'Quang Ninh Commune',
+                    'Quang Phuc Commune',
+                    'Quang Thach Commune',
+                    'Quang Thai Commune',
+                    'Quang Trach Commune',
+                    'Quang Trung Commune',
+                    'Quang Truong Commune',
+                    'Quang Van Commune',
+                    'Quang Yen Commune',
+                    'Tan Phong Township',
+                    'Tien Trang Commune'
+                ]
+            },
+            'Sam Son': {
                 subDistrict: [
                     'Bac Son Ward',
+                    'Quang Chau Ward',
+                    'Quang Cu Ward',
+                    'Quang Dai Commune',
+                    'Quang Hung Commune',
+                    'Quang Minh Commune',
+                    'Quang Tho Ward',
+                    'Quang Tien Ward',
+                    'Quang Vinh Ward',
                     'Trung Son Ward',
-                    'Nam Son Ward',
-                    'Tay Son Ward',
-                    'Yen Son Commune',
-                    'Yen Binh Ward',
-                    'Tan Binh Ward',
-                    'Quang Son Commune',
-                    'Dong Son Commune'
+                    'Truong Son Ward'
                 ]
             },
-            'Nho Quan': {
+            'Thach Thanh': {
                 subDistrict: [
-                    'Nho Quan Township',
-                    'Xich Tho Commune',
-                    'Gia Lam Commune',
-                    'Gia Son Commune',
+                    'Kim Tan Township',
+                    'Ngoc Trao Commune',
                     'Thach Binh Commune',
-                    'Gia Thuy Commune',
-                    'Gia Tuong Commune',
-                    'Cuc Phuong Commune',
-                    'Phu Son Commune',
-                    'Duc Long Commune',
-                    'Lac Van Commune',
-                    'Dong Phong Commune',
-                    'Yen Quang Commune',
-                    'Lang Phong Commune',
-                    'Thuong Hoa Commune',
-                    'Van Phong Commune',
-                    'Van Phuong Commune',
-                    'Thanh Lac Commune',
-                    'Son Lai Commune',
-                    'Son Thanh Commune',
-                    'Van Phu Commune',
-                    'Phu Loc Commune',
-                    'Ky Phu Commune',
-                    'Quynh Luu Commune',
-                    'Son Ha Commune',
-                    'Phu Long Commune',
-                    'Quang Lac Commune'
+                    'Thach Cam Commune',
+                    'Thach Dinh Commune',
+                    'Thach Dong Commune',
+                    'Thach Lam Commune',
+                    'Thach Long Commune',
+                    'Thach Quang Commune',
+                    'Thach Son Commune',
+                    'Thach Tuong Commune',
+                    'Thanh An Commune',
+                    'Thanh Cong Commune',
+                    'Thanh Hung Commune',
+                    'Thanh Long Commune',
+                    'Thanh Minh Commune',
+                    'Thanh My Commune',
+                    'Thanh Tam Commune',
+                    'Thanh Tan Commune',
+                    'Thanh Tho Commune',
+                    'Thanh Tien Commune',
+                    'Thanh Truc Commune',
+                    'Thanh Vinh Commune',
+                    'Thanh Yen Commune',
+                    'Van Du Township'
                 ]
             },
-            'Gia Vien': {
+            'Thanh Hoa': {
                 subDistrict: [
-                    'Me Township',
-                    'Gia Hoa Commune',
-                    'Gia Hung Commune',
-                    'Lien Son Commune',
-                    'Gia Thanh Commune',
-                    'Gia Van Commune',
-                    'Gia Phu Commune',
-                    'Gia Xuan Commune',
-                    'Gia Lap Commune',
-                    'Gia Vuong Commune',
-                    'Gia Tran Commune',
-                    'Gia Thinh Commune',
-                    'Gia Phuong Commune',
-                    'Gia Tan Commune',
-                    'Gia Thang Commune',
-                    'Gia Trung Commune',
-                    'Gia Minh Commune',
-                    'Gia Lac Commune',
-                    'Gia Tien Commune',
-                    'Gia Sinh Commune',
-                    'Gia Phong Commune'
+                    'An Hung Ward',
+                    'Ba Dinh Ward',
+                    'Dien Bien Ward',
+                    'Dong Cuong Ward',
+                    'Dong Hai Ward',
+                    'Dong Huong Ward',
+                    'Dong Linh Ward',
+                    'Dong Son Ward',
+                    'Dong Tan Ward',
+                    'Dong Tho Ward',
+                    'Dong Ve Ward',
+                    'Dong Vinh Commune',
+                    'Ham Rong Ward',
+                    'Hoang Dai Commune',
+                    'Hoang Quang Commune',
+                    'Lam Son Ward',
+                    'Long Anh Ward',
+                    'Nam Ngan Ward',
+                    'Ngoc Trao Ward',
+                    'Phu Son Ward',
+                    'Quang Cat Ward',
+                    'Quang Dong Ward',
+                    'Quang Hung Ward',
+                    'Quang Phu Ward',
+                    'Quang Tam Ward',
+                    'Quang Thang Ward',
+                    'Quang Thanh Ward',
+                    'Quang Thinh Ward',
+                    'Tan Son Ward',
+                    'Tao Xuyen Ward',
+                    'Thieu Duong Ward',
+                    'Thieu Khanh Ward',
+                    'Thieu Van Commune',
+                    'Truong Thi Ward'
                 ]
             },
-            'Hoa Lu': {
+            'Thieu Hoa': {
                 subDistrict: [
-                    'Thien Ton Township',
-                    'Ninh Giang Commune',
-                    'Truong Yen Commune',
-                    'Ninh Khang Commune',
-                    'Ninh My Commune',
-                    'Ninh Hoa Commune',
-                    'Ninh Xuan Commune',
-                    'Ninh Hai Commune',
-                    'Ninh Thang Commune',
-                    'Ninh Van Commune',
-                    'Ninh An Commune'
+                    'Hau Hien Township',
+                    'Tan Chau Commune',
+                    'Thieu Chinh Commune',
+                    'Thieu Cong Commune',
+                    'Thieu Duy Commune',
+                    'Thieu Giang Commune',
+                    'Thieu Giao Commune',
+                    'Thieu Hoa Commune',
+                    'Thieu Hoa Township',
+                    'Thieu Hop Commune',
+                    'Thieu Long Commune',
+                    'Thieu Ly Commune',
+                    'Thieu Ngoc Commune',
+                    'Thieu Nguyen Commune',
+                    'Thieu Phuc Commune',
+                    'Thieu Quang Commune',
+                    'Thieu Thanh Commune',
+                    'Thieu Thinh Commune',
+                    'Thieu Tien Commune',
+                    'Thieu Toan Commune',
+                    'Thieu Trung Commune',
+                    'Thieu Van Commune',
+                    'Thieu Vien Commune',
+                    'Thieu Vu Commune'
                 ]
             },
-            'Yen Khanh': {
+            'Tho Xuan': {
                 subDistrict: [
-                    'Yen Ninh Township',
-                    'Khanh Tien Commune',
-                    'Khanh Phu Commune',
-                    'Khanh Hoa Commune',
-                    'Khanh Loi Commune',
-                    'Khanh An Commune',
-                    'Khanh Cuong Commune',
-                    'Khanh Cu Commune',
-                    'Khanh Thien Commune',
-                    'Khanh Hai Commune',
-                    'Khanh Trung Commune',
-                    'Khanh Mau Commune',
-                    'Khanh Van Commune',
-                    'Khanh Hoi Commune',
-                    'Khanh Cong Commune',
-                    'Khanh Thanh Commune',
-                    'Khanh Nhac Commune',
-                    'Khanh Thuy Commune',
-                    'Khanh Hong Commune'
+                    'Bac Luong Commune',
+                    'Lam Son Township',
+                    'Nam Giang Commune',
+                    'Phu Xuan Commune',
+                    'Quang Phu Commune',
+                    'Sao Vang Township',
+                    'Tay Ho Commune',
+                    'Tho Dien Commune',
+                    'Tho Hai Commune',
+                    'Tho Lam Commune',
+                    'Tho Lap Commune',
+                    'Tho Loc Commune',
+                    'Tho Xuan Township',
+                    'Tho Xuong Commune',
+                    'Thuan Minh Commune',
+                    'Truong Xuan Commune',
+                    'Xuan Bai Commune',
+                    'Xuan Giang Commune',
+                    'Xuan Hoa Commune',
+                    'Xuan Hong Commune',
+                    'Xuan Hung Commune',
+                    'Xuan Lai Commune',
+                    'Xuan Lap Commune',
+                    'Xuan Minh Commune',
+                    'Xuan Phong Commune',
+                    'Xuan Phu Commune',
+                    'Xuan Sinh Commune',
+                    'Xuan Thien Commune',
+                    'Xuan Tin Commune',
+                    'Xuan Truong Commune'
                 ]
             },
-            'Kim Son': {
+            'Thuong Xuan': {
                 subDistrict: [
-                    'Phat Diem Township',
-                    'Binh Minh Township',
-                    'Hoi Ninh Commune',
-                    'Xuan Chinh Commune',
-                    'Kim Dinh Commune',
-                    'An Hoa Commune',
-                    'Hung Tien Commune',
-                    'Quang Thien Commune',
-                    'Nhu Hoa Commune',
-                    'Chat Binh Commune',
-                    'Dong Huong Commune',
-                    'Kim Chinh Commune',
-                    'Thuong Kiem Commune',
-                    'Luu Phuong Commune',
+                    'Bat Mot Commune',
+                    'Luan Khe Commune',
+                    'Luan Thanh Commune',
+                    'Luong Son Commune',
+                    'Ngoc Phung Commune',
                     'Tan Thanh Commune',
-                    'Yen Loc Commune',
-                    'Lai Thanh Commune',
-                    'Dinh Hoa Commune',
-                    'Van Hai Commune',
-                    'Kim Tan Commune',
-                    'Kim My Commune',
-                    'Con Thoi Commune',
-                    'Kim Hai Commune',
-                    'Kim Trung Commune',
-                    'Kim Dong Commune'
+                    'Tho Thanh Commune',
+                    'Thuong Xuan Township',
+                    'Van Xuan Commune',
+                    'Xuan Cao Commune',
+                    'Xuan Chinh Commune',
+                    'Xuan Duong Commune',
+                    'Xuan Le Commune',
+                    'Xuan Loc Commune',
+                    'Xuan Thang Commune',
+                    'Yen Nhan Commune'
                 ]
             },
-            'Yen Mo': {
+            'Trieu Son': {
                 subDistrict: [
-                    'Yen Thinh Township',
-                    'Khanh Thuong Commune',
-                    'Khanh Duong Commune',
-                    'Mai Son Commune',
-                    'Khanh Thinh Commune',
-                    'Yen Phong Commune',
-                    'Yen Hoa Commune',
-                    'Yen Thang Commune',
-                    'Yen Tu Commune',
+                    'An Nong Commune',
+                    'Binh Son Commune',
+                    'Dan Luc Commune',
+                    'Dan Ly Commune',
+                    'Dan Quyen Commune',
+                    'Dong Loi Commune',
+                    'Dong Thang Commune',
+                    'Dong Tien Commune',
+                    'Hop Ly Commune',
+                    'Hop Thang Commune',
+                    'Hop Thanh Commune',
+                    'Hop Tien Commune',
+                    'Khuyen Nong Commune',
+                    'Minh Son Commune',
+                    'Nong Truong Commune',
+                    'Nua Township',
+                    'Thai Hoa Commune',
+                    'Tho Binh Commune',
+                    'Tho Cuong Commune',
+                    'Tho Dan Commune',
+                    'Tho Ngoc Commune',
+                    'Tho Phu Commune',
+                    'Tho Son Commune',
+                    'Tho Tan Commune',
+                    'Tho The Commune',
+                    'Tho Tien Commune',
+                    'Tho Vuc Commune',
+                    'Tien Nong Commune',
+                    'Trieu Son Township',
+                    'Trieu Thanh Commune',
+                    'Van Son Commune',
+                    'Xuan Loc Commune',
+                    'Xuan Thinh Commune',
+                    'Xuan Tho Commune'
+                ]
+            },
+            'Vinh Loc': {
+                subDistrict: [
+                    'Minh Tan Commune',
+                    'Ninh Khang Commune',
+                    'Vinh An Commune',
+                    'Vinh Hoa Commune',
+                    'Vinh Hung Commune',
+                    'Vinh Loc Township',
+                    'Vinh Long Commune',
+                    'Vinh Phuc Commune',
+                    'Vinh Quang Commune',
+                    'Vinh Thinh Commune',
+                    'Vinh Tien Commune',
+                    'Vinh Yen Commune'
+                ]
+            },
+            'Yen Dinh': {
+                subDistrict: [
+                    'Dinh Binh Commune',
+                    'Dinh Cong Commune',
+                    'Dinh Hai Commune',
+                    'Dinh Hoa Commune',
+                    'Dinh Hung Commune',
+                    'Dinh Lien Commune',
+                    'Dinh Long Commune',
+                    'Dinh Tan Commune',
+                    'Dinh Tang Commune',
+                    'Dinh Thanh Commune',
+                    'Dinh Tien Commune',
+                    'Quan Lao Township',
+                    'Quy Loc Township',
+                    'Thong Nhat Township',
                     'Yen Hung Commune',
-                    'Yen Thanh Commune',
-                    'Yen Nhan Commune',
-                    'Yen My Commune',
-                    'Yen Mac Commune',
-                    'Yen Dong Commune',
+                    'Yen Lac Commune',
+                    'Yen Lam Township',
+                    'Yen Ninh Commune',
+                    'Yen Phong Commune',
+                    'Yen Phu Commune',
+                    'Yen Tam Commune',
                     'Yen Thai Commune',
-                    'Yen Lam Commune'
+                    'Yen Thinh Commune',
+                    'Yen Tho Commune',
+                    'Yen Trung Commune',
+                    'Yen Truong Commune'
+                ]
+            }
+        },
+        'Thua Thien Hue': {
+            'A Luoi': {
+                subDistrict: [
+                    'A Luoi Township',
+                    'A Ngo Commune',
+                    'A Roang Commune',
+                    'Dong Son Commune',
+                    'Hong Bac Commune',
+                    'Hong Ha Commune',
+                    'Hong Kim Commune',
+                    'Hong Thai Commune',
+                    'Hong Thuong Commune',
+                    'Hong Thuy Commune',
+                    'Hong Van Commune',
+                    'Huong Nguyen Commune',
+                    'Huong Phong Commune',
+                    'Lam Dot Commune',
+                    'Phu Vinh Commune',
+                    'Quang Nham Commune',
+                    'Son Thuy Commune',
+                    'Trung Son Commune'
+                ]
+            },
+            Hue: {
+                subDistrict: [
+                    'An Cuu Ward',
+                    'An Dong Ward',
+                    'An Hoa Ward',
+                    'An Tay Ward',
+                    'Dong Ba Ward',
+                    'Gia Hoi Ward',
+                    'Hai Duong Commune',
+                    'Huong An Ward',
+                    'Huong Ho Ward',
+                    'Huong Long Ward',
+                    'Huong Phong Commune',
+                    'Huong So Ward',
+                    'Huong Tho Commune',
+                    'Huong Vinh Ward',
+                    'Kim Long Ward',
+                    'Phu Duong Commune',
+                    'Phu Hau Ward',
+                    'Phu Hoi Ward',
+                    'Phu Mau Commune',
+                    'Phu Nhuan Ward',
+                    'Phu Thanh Commune',
+                    'Phu Thuong Ward',
+                    'Phuoc Vinh Ward',
+                    'Phuong Duc Ward',
+                    'Tay Loc Ward',
+                    'Thuan An Ward',
+                    'Thuan Hoa Ward',
+                    'Thuan Loc Ward',
+                    'Thuy Bang Commune',
+                    'Thuy Bieu Ward',
+                    'Thuy Van Ward',
+                    'Thuy Xuan Ward',
+                    'Truong An Ward',
+                    'Vinh Ninh Ward',
+                    'Vy Da Ward',
+                    'Xuan Phu Ward'
+                ]
+            },
+            'Huong Thuy': {
+                subDistrict: [
+                    'Duong Hoa Commune',
+                    'Phu Bai Ward',
+                    'Phu Son Commune',
+                    'Thuy Chau Ward',
+                    'Thuy Duong Ward',
+                    'Thuy Luong Ward',
+                    'Thuy Phu Commune',
+                    'Thuy Phuong Ward',
+                    'Thuy Tan Commune',
+                    'Thuy Thanh Commune'
+                ]
+            },
+            'Huong Tra': {
+                subDistrict: [
+                    'Binh Thanh Commune',
+                    'Binh Tien Commune',
+                    'Huong Binh Commune',
+                    'Huong Chu Ward',
+                    'Huong Toan Commune',
+                    'Huong Van Ward',
+                    'Huong Xuan Ward',
+                    'Tu Ha Ward'
+                ]
+            },
+            'Nam Dong': {
+                subDistrict: [
+                    'Huong Huu Commune',
+                    'Huong Loc Commune',
+                    'Huong Phu Commune',
+                    'Huong Son Commune',
+                    'Huong Xuan Commune',
+                    'Khe Tre Township',
+                    'Thuong Lo Commune',
+                    'Thuong Long Commune',
+                    'Thuong Nhat Commune',
+                    'Thuong Quang Commune'
+                ]
+            },
+            'Phong Dien': {
+                subDistrict: [
+                    'Dien Hai Commune',
+                    'Dien Hoa Commune',
+                    'Dien Huong Commune',
+                    'Dien Loc Commune',
+                    'Dien Mon Commune',
+                    'Phong An Commune',
+                    'Phong Binh Commune',
+                    'Phong Chuong Commune',
+                    'Phong Dien Township',
+                    'Phong Hai Commune',
+                    'Phong Hien Commune',
+                    'Phong Hoa Commune',
+                    'Phong My Commune',
+                    'Phong Son Commune',
+                    'Phong Thu Commune',
+                    'Phong Xuan Commune'
+                ]
+            },
+            'Phu Loc': {
+                subDistrict: [
+                    'Giang Hai Commune',
+                    'Lang Co Township',
+                    'Loc An Commune',
+                    'Loc Binh Commune',
+                    'Loc Bon Commune',
+                    'Loc Dien Commune',
+                    'Loc Hoa Commune',
+                    'Loc Son Commune',
+                    'Loc Thuy Commune',
+                    'Loc Tien Commune',
+                    'Loc Tri Commune',
+                    'Loc Vinh Commune',
+                    'Phu Loc Township',
+                    'Vinh Hien Commune',
+                    'Vinh Hung Commune',
+                    'Vinh My Commune',
+                    'Xuan Loc Commune'
+                ]
+            },
+            'Phu Vang': {
+                subDistrict: [
+                    'Phu An Commune',
+                    'Phu Da Township',
+                    'Phu Dien Commune',
+                    'Phu Gia Commune',
+                    'Phu Hai Commune',
+                    'Phu Ho Commune',
+                    'Phu Luong Commune',
+                    'Phu My Commune',
+                    'Phu Thuan Commune',
+                    'Phu Xuan Commune',
+                    'Vinh An Commune',
+                    'Vinh Ha Commune',
+                    'Vinh Thanh Commune',
+                    'Vinh Xuan Commune'
+                ]
+            },
+            'Quang Dien': {
+                subDistrict: [
+                    'Quang An Commune',
+                    'Quang Cong Commune',
+                    'Quang Loi Commune',
+                    'Quang Ngan Commune',
+                    'Quang Phu Commune',
+                    'Quang Phuoc Commune',
+                    'Quang Thai Commune',
+                    'Quang Thanh Commune',
+                    'Quang Tho Commune',
+                    'Quang Vinh Commune',
+                    'Sia Township'
                 ]
             }
         }
     },
     Northeast: {
-        'Ha Giang': {
-            'Ha Giang': {
+        'Bac Giang': {
+            'Bac Giang': {
                 subDistrict: [
-                    'Quang Trung Ward',
-                    'Tran Phu Ward',
-                    'Ngoc Ha Ward',
-                    'Nguyen Trai Ward',
-                    'Minh Khai Ward',
-                    'Ngoc Duong Commune',
-                    'Phuong Do Commune',
-                    'Phuong Thien Commune'
-                ]
-            },
-            'Vi Xuyen': {
-                subDistrict: [
-                    'Kim Thach Commune',
-                    'Phu Linh Commune',
-                    'Kim Linh Commune',
-                    'Vi Xuyen Township',
-                    'Nong Truong Viet Lam Township',
-                    'Minh Tan Commune',
-                    'Thuan Hoa Commune',
-                    'Tung Ba Commune',
-                    'Thanh Thuy Commune',
-                    'Thanh Duc Commune',
-                    'Phong Quang Commune',
-                    'Xin Chai Commune',
-                    'Phuong Tien Commune',
-                    'Lao Chai Commune',
-                    'Cao Bo Commune',
-                    'Dao Duc Commune',
-                    'Thuong Son Commune',
-                    'Linh Ho Commune',
-                    'Quang Ngan Commune',
-                    'Viet Lam Commune',
-                    'Ngoc Linh Commune',
-                    'Ngoc Minh Commune',
-                    'Bach Ngoc Commune',
-                    'Trung Thanh Commune'
-                ]
-            },
-            'Dong Van': {
-                subDistrict: [
-                    'Pho Bang Township',
-                    'Lung Cu Commune',
-                    'Ma Le Commune',
-                    'Dong Van Township',
-                    'Lung Tao Commune',
-                    'Pho La Commune',
-                    'Thai Phin Tung Commune',
-                    'Sung La Commune',
-                    'Xa Phin Commune',
-                    'Ta Phin Commune',
-                    'Ta Lung Commune',
-                    'Pho Cao Commune',
-                    'Sinh Lung Commune',
-                    'Sang Tung Commune',
-                    'Lung Thau Commune',
-                    'Ho Quang Phin Commune',
-                    'Van Chai Commune',
-                    'Lung Phin Commune',
-                    'Sung Trai Commune'
-                ]
-            },
-            'Meo Vac': {
-                subDistrict: [
-                    'Meo Vac Township',
-                    'Thuong Phung Commune',
-                    'Pai Lung Commune',
-                    'Xin Cai Commune',
-                    'Pa Vi Commune',
-                    'Giang Chu Phin Commune',
-                    'Sung Tra Commune',
-                    'Sung Mang Commune',
-                    'Son Vi Commune',
-                    'Ta Lung Commune',
-                    'Can Chu Phin Commune',
-                    'Lung Pu Commune',
-                    'Lung Chinh Commune',
-                    'Tat Nga Commune',
-                    'Nam Ban Commune',
-                    'Khau Vai Commune',
-                    'Niem Tong Commune',
-                    'Niem Son Commune'
-                ]
-            },
-            'Yen Minh': {
-                subDistrict: [
-                    'Yen Minh Township',
-                    'Thang Mo Commune',
-                    'Phu Lung Commune',
-                    'Sung Trang Commune',
-                    'Bach Dich Commune',
-                    'Na Khe Commune',
-                    'Sung Thai Commune',
-                    'Huu Vinh Commune',
-                    'Lao Va Chai Commune',
-                    'Mau Due Commune',
-                    'Dong Minh Commune',
-                    'Mau Long Commune',
-                    'Ngam La Commune',
-                    'Ngoc Long Commune',
-                    'Duong Thuong Commune',
-                    'Lung Ho Commune',
-                    'Du Tien Commune',
-                    'Du Gia Commune'
-                ]
-            },
-            'Quan Ba': {
-                subDistrict: [
-                    'Tam Son Township',
-                    'Bat Dai Son Commune',
-                    'Nghia Thuan Commune',
-                    'Can Ty Commune',
-                    'Cao Ma Po Commune',
-                    'Thanh Van Commune',
-                    'Tung Vai Commune',
-                    'Dong Ha Commune',
-                    'Quan Ba Commune',
-                    'Lung Tam Commune',
-                    'Quyet Tien Commune',
-                    'Ta Van Commune',
-                    'Thai An Commune'
-                ]
-            },
-            'Bac Me': {
-                subDistrict: [
-                    'Minh Son Commune',
-                    'Giap Trung Commune',
-                    'Yen Dinh Commune',
-                    'Yen Phu Township',
-                    'Minh Ngoc Commune',
-                    'Yen Phong Commune',
-                    'Lac Nong Commune',
-                    'Phu Nam Commune',
-                    'Yen Cuong Commune',
-                    'Thuong Tan Commune',
-                    'Duong Am Commune',
-                    'Duong Hong Commune',
-                    'Phieng Luong Commune'
-                ]
-            },
-            'Hoang Su Phi': {
-                subDistrict: [
-                    'Vinh Quang Township',
-                    'Ban May Commune',
-                    'Thang Tin Commune',
-                    'Then Chu Phin Commune',
-                    'Po Lo Commune',
-                    'Ban Phung Commune',
-                    'Tung San Commune',
-                    'Chien Pho Commune',
-                    'Dan Van Commune',
-                    'Tu Nhan Commune',
+                    'Da Mai Ward',
+                    'Dinh Ke Ward',
+                    'Dinh Tri Commune',
+                    'Dong Son Commune',
+                    'Hoang Van Thu Ward',
+                    'Le Loi Ward',
+                    'My Do Ward',
+                    'Ngo Quyen Ward',
+                    'Song Khe Commune',
+                    'Song Mai Commune',
+                    'Tan My Commune',
                     'Tan Tien Commune',
-                    'Nang Don Commune',
-                    'Po Ly Ngai Commune',
-                    'San Xa Ho Commune',
-                    'Ban Luoc Commune',
-                    'Ngam Dang Vai Commune',
-                    'Ban Nhung Commune',
-                    'Ta Su Choong Commune',
-                    'Nam Dich Commune',
-                    'Ho Thau Commune',
-                    'Nam Son Commune',
-                    'Nam Ty Commune',
-                    'Thong Nguyen Commune',
-                    'Nam Khoa Commune'
+                    'Tho Xuong Ward',
+                    'Tran Nguyen Han Ward',
+                    'Tran Phu Ward',
+                    'Xuong Giang Ward'
                 ]
             },
-            'Xin Man': {
+            'Hiep Hoa': {
                 subDistrict: [
-                    'Coc Pai Township',
-                    'Nan Xin Commune',
-                    'Ban Diu Commune',
-                    'Chi Ca Commune',
-                    'Xin Man Commune',
-                    'Then Phang Commune',
-                    'Trung Thinh Commune',
-                    'Pa Vay Su Commune',
-                    'Coc Re Commune',
-                    'Thu Ta Commune',
-                    'Nan Ma Commune',
-                    'Ta Nhiu Commune',
-                    'Ban Ngo Commune',
-                    'Che La Commune',
-                    'Nam Dan Commune',
-                    'Quang Nguyen Commune',
-                    'Na Chi Commune',
-                    'Khuon Lung Commune'
-                ]
-            },
-            'Bac Quang': {
-                subDistrict: [
-                    'Viet Quang Township',
-                    'Vinh Tuy Township',
-                    'Tan Lap Commune',
-                    'Tan Thanh Commune',
-                    'Dong Tien Commune',
-                    'Dong Tam Commune',
-                    'Tan Quang Commune',
-                    'Thuong Binh Commune',
-                    'Huu San Commune',
-                    'Kim Ngoc Commune',
-                    'Viet Vinh Commune',
-                    'Bang Hanh Commune',
+                    'Bac Ly Township',
+                    'Chau Minh Commune',
+                    'Dai Thanh Commune',
+                    'Danh Thang Commune',
+                    'Doan Bai Commune',
+                    'Dong Lo Commune',
+                    'Dong Tan Commune',
+                    'Hoa Son Commune',
+                    'Hoang An Commune',
+                    'Hoang Luong Commune',
+                    'Hoang Thanh Commune',
+                    'Hoang Van Commune',
+                    'Hop Thinh Commune',
+                    'Hung Son Commune',
+                    'Huong Lam Commune',
+                    'Luong Phong Commune',
+                    'Mai Dinh Commune',
+                    'Mai Trung Commune',
+                    'Ngoc Son Commune',
                     'Quang Minh Commune',
-                    'Lien Hiep Commune',
-                    'Vo Diem Commune',
-                    'Viet Hong Commune',
-                    'Hung An Commune',
-                    'Duc Xuan Commune',
-                    'Tien Kieu Commune',
-                    'Vinh Hao Commune',
-                    'Vinh Phuc Commune',
-                    'Dong Yen Commune',
-                    'Dong Thanh Commune'
-                ]
-            },
-            'Quang Binh': {
-                subDistrict: [
-                    'Xuan Minh Commune',
-                    'Tien Nguyen Commune',
-                    'Tan Nam Commune',
-                    'Ban Ria Commune',
-                    'Yen Thanh Commune',
-                    'Yen Binh Township',
-                    'Tan Trinh Commune',
-                    'Tan Bac Commune',
-                    'Bang Lang Commune',
-                    'Yen Ha Commune',
-                    'Huong Son Commune',
-                    'Xuan Giang Commune',
-                    'Na Khuong Commune',
-                    'Tien Yen Commune',
-                    'Vi Thuong Commune'
-                ]
-            }
-        },
-        'Cao Bang': {
-            'Cao Bang': {
-                subDistrict: [
-                    'Song Hien Ward',
-                    'Song Bang Ward',
-                    'Hop Giang Ward',
-                    'Tan Giang Ward',
-                    'Ngoc Xuan Ward',
-                    'De Tham Ward',
-                    'Hoa Chung Ward',
-                    'Duyet Trung Ward',
-                    'Vinh Quang Commune',
-                    'Hung Dao Commune',
-                    'Chu Trinh Commune'
-                ]
-            },
-            'Bao Lam': {
-                subDistrict: [
-                    'Pac Miau Township',
-                    'Duc Hanh Commune',
-                    'Ly Bon Commune',
-                    'Nam Cao Commune',
-                    'Nam Quang Commune',
-                    'Vinh Quang Commune',
-                    'Quang Lam Commune',
-                    'Thach Lam Commune',
-                    'Vinh Phong Commune',
-                    'Mong An Commune',
-                    'Thai Hoc Commune',
                     'Thai Son Commune',
-                    'Yen Tho Commune'
+                    'Thang Township',
+                    'Thanh Van Commune',
+                    'Thuong Thang Commune',
+                    'Xuan Cam Commune'
                 ]
             },
-            'Bao Lac': {
+            'Lang Giang': {
                 subDistrict: [
-                    'Bao Lac Township',
-                    'Coc Pang Commune',
-                    'Thuong Ha Commune',
-                    'Co Ba Commune',
-                    'Bao Toan Commune',
-                    'Khanh Xuan Commune',
-                    'Xuan Truong Commune',
-                    'Hong Tri Commune',
-                    'Kim Cuc Commune',
-                    'Phan Thanh Commune',
-                    'Hong An Commune',
-                    'Hung Dao Commune',
-                    'Hung Thinh Commune',
-                    'Huy Giap Commune',
-                    'Dinh Phung Commune',
-                    'Son Lap Commune',
-                    'Son Lo Commune'
+                    'An Ha Commune',
+                    'Dai Lam Commune',
+                    'Dao My Commune',
+                    'Duong Duc Commune',
+                    'Huong Lac Commune',
+                    'Huong Son Commune',
+                    'Kep Township',
+                    'My Ha Commune',
+                    'My Thai Commune',
+                    'Nghia Hoa Commune',
+                    'Nghia Hung Commune',
+                    'Quang Thinh Commune',
+                    'Tan Dinh Commune',
+                    'Tan Hung Commune',
+                    'Tan Thanh Commune',
+                    'Thai Dao Commune',
+                    'Tien Luc Commune',
+                    'Voi Township',
+                    'Xuan Huong Commune',
+                    'Xuong Lam Commune',
+                    'Yen My Commune'
                 ]
             },
-            'Ha Quang': {
+            'Luc Nam': {
                 subDistrict: [
-                    'Thong Nong Township',
-                    'Can Yen Commune',
-                    'Can Nong Commune',
-                    'Luong Thong Commune',
-                    'Da Thong Commune',
-                    'Ngoc Dong Commune',
-                    'Yen Son Commune',
-                    'Luong Can Commune',
-                    'Thanh Long Commune',
-                    'Xuan Hoa Township',
-                    'Lung Nam Commune',
-                    'Truong Ha Commune',
-                    'Cai Vien Commune',
-                    'Noi Thon Commune',
-                    'Tong Cot Commune',
-                    'Soc Ha Commune',
-                    'Thuong Thon Commune',
-                    'Hong Sy Commune',
-                    'Quy Quan Commune',
-                    'Ma Ba Commune',
-                    'Ngoc Dao Commune'
+                    'Bac Lung Commune',
+                    'Bao Dai Commune',
+                    'Bao Son Commune',
+                    'Binh Son Commune',
+                    'Cam Ly Commune',
+                    'Chu Dien Commune',
+                    'Cuong Son Commune',
+                    'Dan Hoi Commune',
+                    'Doi Ngo Township',
+                    'Dong Hung Commune',
+                    'Dong Phu Commune',
+                    'Huyen Son Commune',
+                    'Kham Lang Commune',
+                    'Lan Mau Commune',
+                    'Luc Son Commune',
+                    'Nghia Phuong Commune',
+                    'Phuong Son Township',
+                    'Tam Di Commune',
+                    'Thanh Lam Commune',
+                    'Tien Nha Commune',
+                    'Truong Giang Commune',
+                    'Truong Son Commune',
+                    'Vo Tranh Commune',
+                    'Vu Xa Commune',
+                    'Yen Son Commune'
                 ]
             },
-            'Trung Khanh': {
+            'Luc Ngan': {
                 subDistrict: [
-                    'Tra Linh Township',
-                    'Tri Phuong Commune',
-                    'Quang Han Commune',
-                    'Xuan Noi Commune',
-                    'Quang Trung Commune',
-                    'Quang Vinh Commune',
-                    'Cao Chuong Commune',
-                    'Trung Khanh Township',
-                    'Ngoc Khe Commune',
-                    'Ngoc Con Commune',
-                    'Phong Nam Commune',
-                    'Dinh Phong Commune',
-                    'Dam Thuy Commune',
-                    'Kham Thanh Commune',
-                    'Chi Vien Commune',
-                    'Lang Hieu Commune',
-                    'Phong Chau Commune',
-                    'Trung Phuc Commune',
-                    'Cao Thang Commune',
-                    'Duc Hong Commune',
-                    'Doai Duong Commune'
+                    'Bien Dong Commune',
+                    'Bien Son Commune',
+                    'Cam Son Commune',
+                    'Chu Township',
+                    'Deo Gia Commune',
+                    'Dong Coc Commune',
+                    'Giap Son Commune',
+                    'Ho Dap Commune',
+                    'Hong Giang Commune',
+                    'Kien Lao Commune',
+                    'Kien Thanh Commune',
+                    'Kim Son Commune',
+                    'My An Commune',
+                    'Nam Duong Commune',
+                    'Phi Dien Commune',
+                    'Phong Minh Commune',
+                    'Phong Van Commune',
+                    'Phu Nhuan Commune',
+                    'Phuong Son Commune',
+                    'Quy Son Commune',
+                    'Son Hai Commune',
+                    'Tan Hoa Commune',
+                    'Tan Lap Commune',
+                    'Tan Moc Commune',
+                    'Tan Quang Commune',
+                    'Tan Son Commune',
+                    'Thanh Hai Commune',
+                    'Tru Huu Commune',
+                    'Xa Ly Commune'
                 ]
             },
-            'Quang Hoa': {
+            'Son Dong': {
                 subDistrict: [
-                    'Quoc Toan Commune',
-                    'Quang Uyen Township',
-                    'Phi Hai Commune',
-                    'Quang Hung Commune',
-                    'Doc Lap Commune',
-                    'Cai Bo Commune',
-                    'Phuc Sen Commune',
-                    'Chi Thao Commune',
-                    'Tu Do Commune',
-                    'Hong Quang Commune',
-                    'Ngoc Dong Commune',
-                    'Hanh Phuc Commune',
-                    'Ta Lung Township',
-                    'Be Van Dan Commune',
-                    'Cach Linh Commune',
-                    'Dai Son Commune',
-                    'Tien Thanh Commune',
-                    'Hoa Thuan Township',
-                    'My Hung Commune'
-                ]
-            },
-            'Ha Lang': {
-                subDistrict: [
-                    'Minh Long Commune',
-                    'Ly Quoc Commune',
-                    'Thang Loi Commune',
-                    'Dong Loan Commune',
-                    'Duc Quang Commune',
-                    'Kim Loan Commune',
-                    'Quang Long Commune',
+                    'An Ba Commune',
+                    'An Chau Township',
                     'An Lac Commune',
-                    'Thanh Nhat Township',
-                    'Vinh Quy Commune',
-                    'Thong Nhat Commune',
-                    'Co Ngan Commune',
-                    'Thi Hoa Commune'
+                    'Cam Dan Commune',
+                    'Dai Son Commune',
+                    'Duong Huu Commune',
+                    'Giao Liem Commune',
+                    'Huu San Commune',
+                    'Le Vien Commune',
+                    'Long Son Commune',
+                    'Phuc Son Commune',
+                    'Tay Yen Tu Township',
+                    'Thanh Luan Commune',
+                    'Tuan Dao Commune',
+                    'Van Son Commune',
+                    'Vinh An Commune',
+                    'Yen Dinh Commune'
                 ]
             },
-            'Hoa An': {
+            'Tan Yen': {
                 subDistrict: [
-                    'Nuoc Hai Township',
-                    'Dan Chu Commune',
-                    'Nam Tuan Commune',
-                    'Dai Tien Commune',
-                    'Duc Long Commune',
-                    'Ngu Lao Commune',
-                    'Truong Luong Commune',
-                    'Hong Viet Commune',
-                    'Hoang Tung Commune',
-                    'Nguyen Hue Commune',
-                    'Quang Trung Commune',
-                    'Bach Dang Commune',
-                    'Binh Duong Commune',
-                    'Le Chung Commune',
-                    'Hong Nam Commune'
+                    'An Duong Commune',
+                    'Cao Thuong Township',
+                    'Cao Xa Commune',
+                    'Dai Hoa Commune',
+                    'Hop Duc Commune',
+                    'Lam Cot Commune',
+                    'Lan Gioi Commune',
+                    'Lien Chung Commune',
+                    'Lien Son Commune',
+                    'Ngoc Chau Commune',
+                    'Ngoc Ly Commune',
+                    'Ngoc Thien Commune',
+                    'Ngoc Van Commune',
+                    'Nha Nam Township',
+                    'Phuc Hoa Commune',
+                    'Phuc Son Commune',
+                    'Quang Tien Commune',
+                    'Que Nham Commune',
+                    'Song Van Commune',
+                    'Tan Trung Commune',
+                    'Viet Lap Commune',
+                    'Viet Ngoc Commune'
                 ]
             },
-            'Nguyen Binh': {
+            'Viet Yen': {
                 subDistrict: [
-                    'Nguyen Binh Township',
-                    'Tinh Tuc Township',
-                    'Yen Lac Commune',
-                    'Trieu Nguyen Commune',
-                    'Ca Thanh Commune',
-                    'Vu Nong Commune',
-                    'Minh Tam Commune',
-                    'The Duc Commune',
-                    'Mai Long Commune',
-                    'Vu Minh Commune',
-                    'Hoa Tham Commune',
-                    'Phan Thanh Commune',
-                    'Quang Thanh Commune',
-                    'Tam Kim Commune',
-                    'Thanh Cong Commune',
-                    'Thinh Vuong Commune',
-                    'Hung Dao Commune'
+                    'Bich Dong Ward',
+                    'Hong Thai Ward',
+                    'Huong Mai Commune',
+                    'Minh Duc Commune',
+                    'Nenh Ward',
+                    'Nghia Trung Commune',
+                    'Ninh Son Ward',
+                    'Quang Chau Ward',
+                    'Quang Minh Ward',
+                    'Tang Tien Ward',
+                    'Thuong Lan Commune',
+                    'Tien Son Commune',
+                    'Trung Son Commune',
+                    'Tu Lan Ward',
+                    'Van Ha Commune',
+                    'Van Trung Ward',
+                    'Viet Tien Commune'
                 ]
             },
-            'Thach An': {
+            'Yen Dung': {
                 subDistrict: [
-                    'Dong Khe Township',
-                    'Canh Tan Commune',
-                    'Kim Dong Commune',
-                    'Minh Khai Commune',
-                    'Duc Thong Commune',
-                    'Thai Cuong Commune',
-                    'Van Trinh Commune',
-                    'Thuy Hung Commune',
-                    'Quang Trong Commune',
-                    'Trong Con Commune',
-                    'Le Lai Commune',
-                    'Duc Long Commune',
-                    'Le Loi Commune',
-                    'Duc Xuan Commune'
+                    'Canh Thuy Commune',
+                    'Dong Phuc Commune',
+                    'Dong Viet Commune',
+                    'Duc Giang Commune',
+                    'Huong Gian Commune',
+                    'Lang Son Commune',
+                    'Lao Ho Commune',
+                    'Nham Bien Township',
+                    'Noi Hoang Commune',
+                    'Quynh Son Commune',
+                    'Tan An Township',
+                    'Tan Lieu Commune',
+                    'Tien Dung Commune',
+                    'Tien Phong Commune',
+                    'Tri Yen Commune',
+                    'Tu Mai Commune',
+                    'Xuan Phu Commune',
+                    'Yen Lu Commune'
+                ]
+            },
+            'Yen The': {
+                subDistrict: [
+                    'An Thuong Commune',
+                    'Bo Ha Township',
+                    'Canh Nau Commune',
+                    'Dong Huu Commune',
+                    'Dong Ky Commune',
+                    'Dong Lac Commune',
+                    'Dong Son Commune',
+                    'Dong Tam Commune',
+                    'Dong Tien Commune',
+                    'Dong Vuong Commune',
+                    'Hong Ky Commune',
+                    'Huong Vi Commune',
+                    'Phon Xuong Township',
+                    'Tam Hiep Commune',
+                    'Tam Tien Commune',
+                    'Tan Hiep Commune',
+                    'Tan Soi Commune',
+                    'Tien Thang Commune',
+                    'Xuan Luong Commune'
                 ]
             }
         },
         'Bac Kan': {
-            'Bac Kan': {
-                subDistrict: [
-                    'Nguyen Thi Minh Khai Ward',
-                    'Song Cau Ward',
-                    'Duc Xuan Ward',
-                    'Phung Chi Kien Ward',
-                    'Huyen Tung Ward',
-                    'Duong Quang Commune',
-                    'Nong Thuong Commune',
-                    'Xuat Hoa Ward'
-                ]
-            },
-            'Pac Nam': {
-                subDistrict: [
-                    'Bang Thanh Commune',
-                    'Nhan Mon Commune',
-                    'Boc Bo Commune',
-                    'Cong Bang Commune',
-                    'Giao Hieu Commune',
-                    'Xuan La Commune',
-                    'An Thang Commune',
-                    'Co Linh Commune',
-                    'Nghien Loan Commune',
-                    'Cao Tan Commune'
-                ]
-            },
             'Ba Be': {
                 subDistrict: [
-                    'Cho Ra Township',
                     'Banh Trach Commune',
-                    'Phuc Loc Commune',
-                    'Ha Hieu Commune',
                     'Cao Thuong Commune',
-                    'Khang Ninh Commune',
-                    'Nam Mau Commune',
-                    'Thuong Giao Commune',
-                    'Dia Linh Commune',
-                    'Yen Duong Commune',
+                    'Cho Ra Township',
                     'Chu Huong Commune',
-                    'Quang Khe Commune',
-                    'My Phuong Commune',
+                    'Dia Linh Commune',
+                    'Dong Phuc Commune',
+                    'Ha Hieu Commune',
                     'Hoang Tri Commune',
-                    'Dong Phuc Commune'
+                    'Khang Ninh Commune',
+                    'My Phuong Commune',
+                    'Nam Mau Commune',
+                    'Phuc Loc Commune',
+                    'Quang Khe Commune',
+                    'Thuong Giao Commune',
+                    'Yen Duong Commune'
                 ]
             },
-            'Ngan Son': {
+            'Bac Kan': {
                 subDistrict: [
-                    'Na Phac Township',
-                    'Thuong An Commune',
-                    'Bang Van Commune',
-                    'Coc Dan Commune',
-                    'Trung Hoa Commune',
-                    'Duc Van Commune',
-                    'Van Tung Township',
-                    'Thuong Quan Commune',
-                    'Hiep Luc Commune',
-                    'Thuan Mang Commune'
+                    'Duc Xuan Ward',
+                    'Duong Quang Commune',
+                    'Huyen Tung Ward',
+                    'Nguyen Thi Minh Khai Ward',
+                    'Nong Thuong Commune',
+                    'Phung Chi Kien Ward',
+                    'Song Cau Ward',
+                    'Xuat Hoa Ward'
                 ]
             },
             'Bach Thong': {
                 subDistrict: [
-                    'Phu Thong Township',
-                    'Vi Huong Commune',
-                    'Si Binh Commune',
-                    'Vu Muon Commune',
-                    'Don Phong Commune',
-                    'Luc Binh Commune',
-                    'Tan Tu Commune',
-                    'Nguyen Phuc Commune',
-                    'Cao Son Commune',
-                    'Quan Ha Commune',
                     'Cam Giang Commune',
-                    'My Thanh Commune',
+                    'Cao Son Commune',
+                    'Don Phong Commune',
                     'Duong Phong Commune',
-                    'Quang Thuan Commune'
+                    'Luc Binh Commune',
+                    'My Thanh Commune',
+                    'Nguyen Phuc Commune',
+                    'Phu Thong Township',
+                    'Quan Ha Commune',
+                    'Quang Thuan Commune',
+                    'Si Binh Commune',
+                    'Tan Tu Commune',
+                    'Vi Huong Commune',
+                    'Vu Muon Commune'
                 ]
             },
             'Cho Don': {
                 subDistrict: [
-                    'Bang Lung Township',
-                    'Xuan Lac Commune',
-                    'Nam Cuong Commune',
-                    'Dong Lac Commune',
-                    'Tan Lap Commune',
                     'Ban Thi Commune',
-                    'Quang Bach Commune',
+                    'Bang Lang Commune',
+                    'Bang Lung Township',
                     'Bang Phuc Commune',
-                    'Yen Thinh Commune',
-                    'Yen Thuong Commune',
-                    'Phuong Vien Commune',
-                    'Ngoc Phai Commune',
+                    'Binh Trung Commune',
+                    'Dai Sao Commune',
+                    'Dong Lac Commune',
                     'Dong Thang Commune',
                     'Luong Bang Commune',
-                    'Bang Lang Commune',
-                    'Dai Sao Commune',
+                    'Nam Cuong Commune',
                     'Nghia Ta Commune',
+                    'Ngoc Phai Commune',
+                    'Phuong Vien Commune',
+                    'Quang Bach Commune',
+                    'Tan Lap Commune',
+                    'Xuan Lac Commune',
                     'Yen My Commune',
-                    'Binh Trung Commune',
-                    'Yen Phong Commune'
+                    'Yen Phong Commune',
+                    'Yen Thinh Commune',
+                    'Yen Thuong Commune'
                 ]
             },
             'Cho Moi': {
                 subDistrict: [
-                    'Dong Tam Township',
-                    'Tan Son Commune',
-                    'Thanh Van Commune',
-                    'Mai Lap Commune',
-                    'Hoa Muc Commune',
-                    'Thanh Mai Commune',
-                    'Cao Ky Commune',
-                    'Nong Ha Commune',
-                    'Yen Cu Commune',
-                    'Thanh Thinh Commune',
-                    'Yen Han Commune',
-                    'Nhu Co Commune',
                     'Binh Van Commune',
-                    'Quang Chu Commune'
+                    'Cao Ky Commune',
+                    'Dong Tam Township',
+                    'Hoa Muc Commune',
+                    'Mai Lap Commune',
+                    'Nhu Co Commune',
+                    'Nong Ha Commune',
+                    'Quang Chu Commune',
+                    'Tan Son Commune',
+                    'Thanh Mai Commune',
+                    'Thanh Thinh Commune',
+                    'Thanh Van Commune',
+                    'Yen Cu Commune',
+                    'Yen Han Commune'
                 ]
             },
             'Na Ri': {
                 subDistrict: [
-                    'Van Vu Commune',
-                    'Van Lang Commune',
-                    'Luong Thuong Commune',
-                    'Kim Hy Commune',
-                    'Cuong Loi Commune',
-                    'Yen Lac Township',
-                    'Kim Lu Commune',
-                    'Son Thanh Commune',
-                    'Van Minh Commune',
                     'Con Minh Commune',
                     'Cu Le Commune',
-                    'Tran Phu Commune',
-                    'Quang Phong Commune',
-                    'Duong Son Commune',
-                    'Xuan Duong Commune',
+                    'Cuong Loi Commune',
                     'Dong Xa Commune',
-                    'Liem Thuy Commune'
-                ]
-            }
-        },
-        'Tuyen Quang': {
-            'Tuyen Quang': {
-                subDistrict: [
-                    'Phan Thiet Ward',
-                    'Minh Xuan Ward',
-                    'Tan Quang Ward',
-                    'Trang Da Commune',
-                    'Nong Tien Ward',
-                    'Y La Ward',
-                    'Tan Ha Ward',
-                    'Hung Thanh Ward',
-                    'Kim Phu Commune',
-                    'An Khang Commune',
-                    'My Lam Ward',
-                    'An Tuong Ward',
-                    'Luong Vuong Commune',
-                    'Thai Long Commune',
-                    'Doi Can Ward'
-                ]
-            },
-            'Na Hang': {
-                subDistrict: [
-                    'Na Hang Township',
-                    'Sinh Long Commune',
-                    'Thuong Giap Commune',
-                    'Thuong Nong Commune',
-                    'Con Lon Commune',
-                    'Yen Hoa Commune',
-                    'Hong Thai Commune',
-                    'Da Vi Commune',
-                    'Khau Tinh Commune',
-                    'Son Phu Commune',
-                    'Nang Kha Commune',
-                    'Thanh Tuong Commune'
-                ]
-            },
-            'Lam Binh': {
-                subDistrict: [
-                    'Phuc Yen Commune',
-                    'Xuan Lap Commune',
-                    'Khuon Ha Commune',
-                    'Lang Can Township',
-                    'Thuong Lam Commune',
-                    'Binh An Commune',
-                    'Hong Quang Commune',
-                    'Tho Binh Commune',
-                    'Phuc Son Commune',
-                    'Minh Quang Commune'
-                ]
-            },
-            'Chiem Hoa': {
-                subDistrict: [
-                    'Vinh Loc Township',
-                    'Trung Ha Commune',
-                    'Tan My Commune',
-                    'Ha Lang Commune',
-                    'Hung My Commune',
-                    'Yen Lap Commune',
-                    'Tan An Commune',
-                    'Binh Phu Commune',
-                    'Xuan Quang Commune',
-                    'Ngoc Hoi Commune',
-                    'Phu Binh Commune',
-                    'Hoa Phu Commune',
-                    'Phuc Thinh Commune',
-                    'Kien Dai Commune',
-                    'Tan Thinh Commune',
-                    'Trung Hoa Commune',
-                    'Kim Binh Commune',
-                    'Hoa An Commune',
-                    'Vinh Quang Commune',
-                    'Tri Phu Commune',
-                    'Nhan Ly Commune',
-                    'Yen Nguyen Commune',
-                    'Linh Phu Commune',
-                    'Binh Nhan Commune'
-                ]
-            },
-            'Ham Yen': {
-                subDistrict: [
-                    'Tan Yen Township',
-                    'Yen Thuan Commune',
-                    'Bach Xa Commune',
-                    'Minh Khuong Commune',
-                    'Yen Lam Commune',
-                    'Minh Dan Commune',
-                    'Phu Luu Commune',
-                    'Minh Huong Commune',
-                    'Yen Phu Commune',
-                    'Tan Thanh Commune',
-                    'Binh Xa Commune',
-                    'Thai Son Commune',
-                    'Nhan Muc Commune',
-                    'Thanh Long Commune',
-                    'Bang Coc Commune',
-                    'Thai Hoa Commune',
-                    'Duc Ninh Commune',
-                    'Hung Duc Commune'
-                ]
-            },
-            'Yen Son': {
-                subDistrict: [
-                    'Qui Quan Commune',
-                    'Luc Hanh Commune',
-                    'Kien Thiet Commune',
-                    'Trung Minh Commune',
-                    'Chieu Yen Commune',
-                    'Trung Truc Commune',
-                    'Xuan Van Commune',
-                    'Phuc Ninh Commune',
-                    'Hung Loi Commune',
-                    'Trung Son Commune',
-                    'Tan Tien Commune',
-                    'Tu Quan Commune',
-                    'Dao Vien Commune',
-                    'Tan Long Commune',
-                    'Yen Son Township',
-                    'Kim Quan Commune',
-                    'Lang Quan Commune',
-                    'Phu Thinh Commune',
-                    'Cong Da Commune',
-                    'Trung Mon Commune',
-                    'Chan Son Commune',
-                    'Thai Binh Commune',
-                    'Tien Bo Commune',
-                    'My Bang Commune',
-                    'Hoang Khai Commune',
-                    'Nhu Han Commune',
-                    'Nhu Khe Commune',
-                    'Doi Binh Commune'
-                ]
-            },
-            'Son Duong': {
-                subDistrict: [
-                    'Son Duong Township',
-                    'Trung Yen Commune',
-                    'Minh Thanh Commune',
-                    'Tan Trao Commune',
-                    'Vinh Loi Commune',
-                    'Thuong Am Commune',
-                    'Binh Yen Commune',
-                    'Luong Thien Commune',
-                    'Tu Thinh Commune',
-                    'Cap Tien Commune',
-                    'Hop Thanh Commune',
-                    'Phuc Ung Commune',
-                    'Dong Tho Commune',
-                    'Khang Nhat Commune',
-                    'Hop Hoa Commune',
-                    'Quyet Thang Commune',
-                    'Dong Quy Commune',
-                    'Tan Thanh Commune',
-                    'Van Phu Commune',
-                    'Chi Thiet Commune',
-                    'Dong Loi Commune',
-                    'Thien Ke Commune',
-                    'Hong Son Commune',
-                    'Phu Luong Commune',
-                    'Ninh Lai Commune',
-                    'Dai Phu Commune',
-                    'Son Nam Commune',
-                    'Hao Phu Commune',
-                    'Tam Da Commune',
-                    'Truong Sinh Commune'
-                ]
-            }
-        },
-        'Thai Nguyen': {
-            'Thai Nguyen': {
-                subDistrict: [
-                    'Quan Trieu Ward',
-                    'Quang Vinh Ward',
-                    'Tuc Duyen Ward',
-                    'Hoang Van Thu Ward',
-                    'Trung Vuong Ward',
-                    'Quang Trung Ward',
-                    'Phan Dinh Phung Ward',
-                    'Tan Thinh Ward',
-                    'Thinh Dan Ward',
-                    'Dong Quang Ward',
-                    'Gia Sang Ward',
-                    'Tan Lap Ward',
-                    'Cam Gia Ward',
-                    'Phu Xa Ward',
-                    'Huong Son Ward',
-                    'Trung Thanh Ward',
-                    'Tan Thanh Ward',
-                    'Tan Long Ward',
-                    'Phuc Ha Commune',
-                    'Phuc Xuan Commune',
-                    'Quyet Thang Commune',
-                    'Phuc Triu Commune',
-                    'Thinh Duc Commune',
-                    'Tich Luong Ward',
-                    'Tan Cuong Commune',
-                    'Son Cam Commune',
-                    'Chua Hang Ward',
-                    'Cao Ngan Commune',
-                    'Linh Son Commune',
-                    'Dong Bam Ward',
-                    'Huong Thuong Commune',
-                    'Dong Lien Commune'
-                ]
-            },
-            'Song Cong': {
-                subDistrict: [
-                    'Luong Son Ward',
-                    'Chau Son Ward',
-                    'Mo Che Ward',
-                    'Cai Dan Ward',
-                    'Thang Loi Ward',
-                    'Pho Co Ward',
-                    'Tan Quang Commune',
-                    'Bach Quang Ward',
-                    'Binh Son Commune',
-                    'Ba Xuyen Commune'
-                ]
-            },
-            'Dinh Hoa': {
-                subDistrict: [
-                    'Cho Chu Township',
-                    'Linh Thong Commune',
-                    'Lam Vy Commune',
-                    'Quy Ky Commune',
-                    'Tan Thinh Commune',
-                    'Kim Phuong Commune',
-                    'Bao Linh Commune',
-                    'Phuc Chu Commune',
-                    'Tan Duong Commune',
-                    'Phuong Tien Commune',
-                    'Bao Cuong Commune',
-                    'Dong Thinh Commune',
-                    'Dinh Bien Commune',
-                    'Thanh Dinh Commune',
-                    'Trung Hoi Commune',
-                    'Trung Luong Commune',
-                    'Binh Yen Commune',
-                    'Diem Mac Commune',
-                    'Phu Tien Commune',
-                    'Boc Nhieu Commune',
-                    'Son Phu Commune',
-                    'Phu Dinh Commune',
-                    'Binh Thanh Commune'
-                ]
-            },
-            'Phu Luong': {
-                subDistrict: [
-                    'Giang Tien Township',
-                    'Du Township',
-                    'Yen Ninh Commune',
-                    'Yen Trach Commune',
-                    'Yen Do Commune',
-                    'Yen Lac Commune',
-                    'On Luong Commune',
-                    'Dong Dat Commune',
-                    'Phu Ly Commune',
-                    'Phu Do Commune',
-                    'Hop Thanh Commune',
-                    'Tuc Tranh Commune',
-                    'Phan Me Commune',
-                    'Vo Tranh Commune',
-                    'Co Lung Commune'
-                ]
-            },
-            'Dong Hy': {
-                subDistrict: [
-                    'Song Cau Township',
-                    'Trai Cau Township',
+                    'Duong Son Commune',
+                    'Kim Hy Commune',
+                    'Kim Lu Commune',
+                    'Liem Thuy Commune',
+                    'Luong Thuong Commune',
+                    'Quang Phong Commune',
+                    'Son Thanh Commune',
+                    'Tran Phu Commune',
                     'Van Lang Commune',
-                    'Tan Long Commune',
-                    'Hoa Binh Commune',
-                    'Quang Son Commune',
-                    'Minh Lap Commune',
-                    'Van Han Commune',
-                    'Hoa Trung Commune',
-                    'Khe Mo Commune',
-                    'Cay Thi Commune',
-                    'Hoa Thuong Township',
-                    'Hop Tien Commune',
-                    'Tan Loi Commune',
-                    'Nam Hoa Commune'
+                    'Van Minh Commune',
+                    'Van Vu Commune',
+                    'Xuan Duong Commune',
+                    'Yen Lac Township'
                 ]
             },
-            'Vo Nhai': {
+            'Ngan Son': {
                 subDistrict: [
-                    'Dinh Ca Township',
-                    'Sang Moc Commune',
-                    'Nghinh Tuong Commune',
-                    'Than Xa Commune',
-                    'Vu Chan Commune',
-                    'Thuong Nung Commune',
-                    'Phu Thuong Commune',
-                    'Cuc Duong Commune',
-                    'La Hien Commune',
-                    'Lau Thuong Commune',
-                    'Trang Xa Commune',
-                    'Phuong Giao Commune',
-                    'Lien Minh Commune',
-                    'Dan Tien Commune',
-                    'Binh Long Commune'
+                    'Bang Van Commune',
+                    'Coc Dan Commune',
+                    'Duc Van Commune',
+                    'Hiep Luc Commune',
+                    'Na Phac Township',
+                    'Thuan Mang Commune',
+                    'Thuong An Commune',
+                    'Thuong Quan Commune',
+                    'Trung Hoa Commune',
+                    'Van Tung Township'
                 ]
             },
-            'Dai Tu': {
+            'Pac Nam': {
                 subDistrict: [
-                    'Hung Son Township',
-                    'Phuc Luong Commune',
-                    'Minh Tien Commune',
-                    'Yen Lang Commune',
-                    'Duc Luong Commune',
-                    'Phu Cuong Commune',
-                    'Na Mao Commune',
-                    'Phu Lac Commune',
-                    'Tan Linh Commune',
-                    'Phu Thinh Commune',
-                    'Phuc Linh Commune',
-                    'Phu Xuyen Commune',
-                    'Ban Ngoai Commune',
-                    'Tien Hoi Commune',
-                    'Cu Van Commune',
-                    'Ha Thuong Commune',
-                    'La Bang Commune',
-                    'Hoang Nong Commune',
-                    'Khoi Ky Commune',
-                    'An Khanh Commune',
-                    'Tan Thai Commune',
-                    'Binh Thuan Commune',
-                    'Luc Ba Commune',
-                    'My Yen Commune',
-                    'Van Tho Commune',
-                    'Van Yen Commune',
-                    'Ky Phu Commune',
-                    'Cat Ne Commune',
-                    'Quan Chu Township'
+                    'An Thang Commune',
+                    'Bang Thanh Commune',
+                    'Boc Bo Commune',
+                    'Cao Tan Commune',
+                    'Co Linh Commune',
+                    'Cong Bang Commune',
+                    'Giao Hieu Commune',
+                    'Nghien Loan Commune',
+                    'Nhan Mon Commune',
+                    'Xuan La Commune'
+                ]
+            }
+        },
+        'Cao Bang': {
+            'Bao Lac': {
+                subDistrict: [
+                    'Bao Lac Township',
+                    'Bao Toan Commune',
+                    'Co Ba Commune',
+                    'Coc Pang Commune',
+                    'Dinh Phung Commune',
+                    'Hong An Commune',
+                    'Hong Tri Commune',
+                    'Hung Dao Commune',
+                    'Hung Thinh Commune',
+                    'Huy Giap Commune',
+                    'Khanh Xuan Commune',
+                    'Kim Cuc Commune',
+                    'Phan Thanh Commune',
+                    'Son Lap Commune',
+                    'Son Lo Commune',
+                    'Thuong Ha Commune',
+                    'Xuan Truong Commune'
                 ]
             },
-            'Pho Yen': {
+            'Bao Lam': {
                 subDistrict: [
-                    'Bai Bong Ward',
-                    'Bac Son Ward',
-                    'Ba Hang Ward',
-                    'Phuc Tan Commune',
-                    'Phuc Thuan Commune',
-                    'Hong Tien Ward',
-                    'Minh Duc Commune',
-                    'Dac Son Ward',
-                    'Dong Tien Ward',
+                    'Duc Hanh Commune',
+                    'Ly Bon Commune',
+                    'Mong An Commune',
+                    'Nam Cao Commune',
+                    'Nam Quang Commune',
+                    'Pac Miau Township',
+                    'Quang Lam Commune',
+                    'Thach Lam Commune',
+                    'Thai Hoc Commune',
+                    'Thai Son Commune',
+                    'Vinh Phong Commune',
+                    'Vinh Quang Commune',
+                    'Yen Tho Commune'
+                ]
+            },
+            'Cao Bang': {
+                subDistrict: [
+                    'Chu Trinh Commune',
+                    'De Tham Ward',
+                    'Duyet Trung Ward',
+                    'Hoa Chung Ward',
+                    'Hop Giang Ward',
+                    'Hung Dao Commune',
+                    'Ngoc Xuan Ward',
+                    'Song Bang Ward',
+                    'Song Hien Ward',
+                    'Tan Giang Ward',
+                    'Vinh Quang Commune'
+                ]
+            },
+            'Ha Lang': {
+                subDistrict: [
+                    'An Lac Commune',
+                    'Co Ngan Commune',
+                    'Dong Loan Commune',
+                    'Duc Quang Commune',
+                    'Kim Loan Commune',
+                    'Ly Quoc Commune',
+                    'Minh Long Commune',
+                    'Quang Long Commune',
+                    'Thang Loi Commune',
+                    'Thanh Nhat Township',
+                    'Thi Hoa Commune',
+                    'Thong Nhat Commune',
+                    'Vinh Quy Commune'
+                ]
+            },
+            'Ha Quang': {
+                subDistrict: [
+                    'Cai Vien Commune',
+                    'Can Nong Commune',
+                    'Can Yen Commune',
+                    'Da Thong Commune',
+                    'Hong Sy Commune',
+                    'Lung Nam Commune',
+                    'Luong Can Commune',
+                    'Luong Thong Commune',
+                    'Ma Ba Commune',
+                    'Ngoc Dao Commune',
+                    'Ngoc Dong Commune',
+                    'Noi Thon Commune',
+                    'Quy Quan Commune',
+                    'Soc Ha Commune',
+                    'Thanh Long Commune',
+                    'Thong Nong Township',
+                    'Thuong Thon Commune',
+                    'Tong Cot Commune',
+                    'Truong Ha Commune',
+                    'Xuan Hoa Township',
+                    'Yen Son Commune'
+                ]
+            },
+            'Hoa An': {
+                subDistrict: [
+                    'Bach Dang Commune',
+                    'Binh Duong Commune',
+                    'Dai Tien Commune',
+                    'Dan Chu Commune',
+                    'Duc Long Commune',
+                    'Hoang Tung Commune',
+                    'Hong Nam Commune',
+                    'Hong Viet Commune',
+                    'Le Chung Commune',
+                    'Nam Tuan Commune',
+                    'Ngu Lao Commune',
+                    'Nguyen Hue Commune',
+                    'Nuoc Hai Township',
+                    'Quang Trung Commune',
+                    'Truong Luong Commune'
+                ]
+            },
+            'Nguyen Binh': {
+                subDistrict: [
+                    'Ca Thanh Commune',
+                    'Hoa Tham Commune',
+                    'Hung Dao Commune',
+                    'Mai Long Commune',
+                    'Minh Tam Commune',
+                    'Nguyen Binh Township',
+                    'Phan Thanh Commune',
+                    'Quang Thanh Commune',
+                    'Tam Kim Commune',
                     'Thanh Cong Commune',
-                    'Tien Phong Ward',
-                    'Van Phai Commune',
-                    'Nam Tien Ward',
-                    'Tan Huong Ward',
-                    'Dong Cao Ward',
-                    'Trung Thanh Ward',
-                    'Tan Phu Ward',
-                    'Thuan Thanh Ward'
+                    'The Duc Commune',
+                    'Thinh Vuong Commune',
+                    'Tinh Tuc Township',
+                    'Trieu Nguyen Commune',
+                    'Vu Minh Commune',
+                    'Vu Nong Commune',
+                    'Yen Lac Commune'
                 ]
             },
-            'Phu Binh': {
+            'Quang Hoa': {
                 subDistrict: [
-                    'Huong Son Township',
-                    'Ban Dat Commune',
-                    'Tan Khanh Commune',
-                    'Tan Kim Commune',
+                    'Be Van Dan Commune',
+                    'Cach Linh Commune',
+                    'Cai Bo Commune',
+                    'Chi Thao Commune',
+                    'Dai Son Commune',
+                    'Doc Lap Commune',
+                    'Hanh Phuc Commune',
+                    'Hoa Thuan Township',
+                    'Hong Quang Commune',
+                    'My Hung Commune',
+                    'Ngoc Dong Commune',
+                    'Phi Hai Commune',
+                    'Phuc Sen Commune',
+                    'Quang Hung Commune',
+                    'Quang Uyen Township',
+                    'Quoc Toan Commune',
+                    'Ta Lung Township',
+                    'Tien Thanh Commune',
+                    'Tu Do Commune'
+                ]
+            },
+            'Thach An': {
+                subDistrict: [
+                    'Canh Tan Commune',
+                    'Dong Khe Township',
+                    'Duc Long Commune',
+                    'Duc Thong Commune',
+                    'Duc Xuan Commune',
+                    'Kim Dong Commune',
+                    'Le Lai Commune',
+                    'Le Loi Commune',
+                    'Minh Khai Commune',
+                    'Quang Trong Commune',
+                    'Thai Cuong Commune',
+                    'Thuy Hung Commune',
+                    'Trong Con Commune',
+                    'Van Trinh Commune'
+                ]
+            },
+            'Trung Khanh': {
+                subDistrict: [
+                    'Cao Chuong Commune',
+                    'Cao Thang Commune',
+                    'Chi Vien Commune',
+                    'Dam Thuy Commune',
+                    'Dinh Phong Commune',
+                    'Doai Duong Commune',
+                    'Duc Hong Commune',
+                    'Kham Thanh Commune',
+                    'Lang Hieu Commune',
+                    'Ngoc Con Commune',
+                    'Ngoc Khe Commune',
+                    'Phong Chau Commune',
+                    'Phong Nam Commune',
+                    'Quang Han Commune',
+                    'Quang Trung Commune',
+                    'Quang Vinh Commune',
+                    'Tra Linh Township',
+                    'Tri Phuong Commune',
+                    'Trung Khanh Township',
+                    'Trung Phuc Commune',
+                    'Xuan Noi Commune'
+                ]
+            }
+        },
+        'Ha Giang': {
+            'Bac Me': {
+                subDistrict: [
+                    'Duong Am Commune',
+                    'Duong Hong Commune',
+                    'Giap Trung Commune',
+                    'Lac Nong Commune',
+                    'Minh Ngoc Commune',
+                    'Minh Son Commune',
+                    'Phieng Luong Commune',
+                    'Phu Nam Commune',
+                    'Thuong Tan Commune',
+                    'Yen Cuong Commune',
+                    'Yen Dinh Commune',
+                    'Yen Phong Commune',
+                    'Yen Phu Township'
+                ]
+            },
+            'Bac Quang': {
+                subDistrict: [
+                    'Bang Hanh Commune',
+                    'Dong Tam Commune',
+                    'Dong Thanh Commune',
+                    'Dong Tien Commune',
+                    'Dong Yen Commune',
+                    'Duc Xuan Commune',
+                    'Hung An Commune',
+                    'Huu San Commune',
+                    'Kim Ngoc Commune',
+                    'Lien Hiep Commune',
+                    'Quang Minh Commune',
+                    'Tan Lap Commune',
+                    'Tan Quang Commune',
                     'Tan Thanh Commune',
-                    'Dao Xa Commune',
-                    'Bao Ly Commune',
-                    'Thuong Dinh Commune',
-                    'Tan Hoa Commune',
-                    'Nha Long Commune',
-                    'Diem Thuy Commune',
-                    'Xuan Phuong Commune',
-                    'Tan Duc Commune',
-                    'Uc Ky Commune',
-                    'Luong Phu Commune',
-                    'Nga My Commune',
-                    'Kha Son Commune',
-                    'Thanh Ninh Commune',
-                    'Duong Thanh Commune',
-                    'Ha Chau Commune'
+                    'Thuong Binh Commune',
+                    'Tien Kieu Commune',
+                    'Viet Hong Commune',
+                    'Viet Quang Township',
+                    'Viet Vinh Commune',
+                    'Vinh Hao Commune',
+                    'Vinh Phuc Commune',
+                    'Vinh Tuy Township',
+                    'Vo Diem Commune'
+                ]
+            },
+            'Dong Van': {
+                subDistrict: [
+                    'Dong Van Township',
+                    'Ho Quang Phin Commune',
+                    'Lung Cu Commune',
+                    'Lung Phin Commune',
+                    'Lung Tao Commune',
+                    'Lung Thau Commune',
+                    'Ma Le Commune',
+                    'Pho Bang Township',
+                    'Pho Cao Commune',
+                    'Pho La Commune',
+                    'Sang Tung Commune',
+                    'Sinh Lung Commune',
+                    'Sung La Commune',
+                    'Sung Trai Commune',
+                    'Ta Lung Commune',
+                    'Ta Phin Commune',
+                    'Thai Phin Tung Commune',
+                    'Van Chai Commune',
+                    'Xa Phin Commune'
+                ]
+            },
+            'Ha Giang': {
+                subDistrict: [
+                    'Minh Khai Ward',
+                    'Ngoc Duong Commune',
+                    'Ngoc Ha Ward',
+                    'Nguyen Trai Ward',
+                    'Phuong Do Commune',
+                    'Phuong Thien Commune',
+                    'Quang Trung Ward',
+                    'Tran Phu Ward'
+                ]
+            },
+            'Hoang Su Phi': {
+                subDistrict: [
+                    'Ban Luoc Commune',
+                    'Ban May Commune',
+                    'Ban Nhung Commune',
+                    'Ban Phung Commune',
+                    'Chien Pho Commune',
+                    'Dan Van Commune',
+                    'Ho Thau Commune',
+                    'Nam Dich Commune',
+                    'Nam Khoa Commune',
+                    'Nam Son Commune',
+                    'Nam Ty Commune',
+                    'Nang Don Commune',
+                    'Ngam Dang Vai Commune',
+                    'Po Lo Commune',
+                    'Po Ly Ngai Commune',
+                    'San Xa Ho Commune',
+                    'Ta Su Choong Commune',
+                    'Tan Tien Commune',
+                    'Thang Tin Commune',
+                    'Then Chu Phin Commune',
+                    'Thong Nguyen Commune',
+                    'Tu Nhan Commune',
+                    'Tung San Commune',
+                    'Vinh Quang Township'
+                ]
+            },
+            'Meo Vac': {
+                subDistrict: [
+                    'Can Chu Phin Commune',
+                    'Giang Chu Phin Commune',
+                    'Khau Vai Commune',
+                    'Lung Chinh Commune',
+                    'Lung Pu Commune',
+                    'Meo Vac Township',
+                    'Nam Ban Commune',
+                    'Niem Son Commune',
+                    'Niem Tong Commune',
+                    'Pa Vi Commune',
+                    'Pai Lung Commune',
+                    'Son Vi Commune',
+                    'Sung Mang Commune',
+                    'Sung Tra Commune',
+                    'Ta Lung Commune',
+                    'Tat Nga Commune',
+                    'Thuong Phung Commune',
+                    'Xin Cai Commune'
+                ]
+            },
+            'Quan Ba': {
+                subDistrict: [
+                    'Bat Dai Son Commune',
+                    'Can Ty Commune',
+                    'Cao Ma Po Commune',
+                    'Dong Ha Commune',
+                    'Lung Tam Commune',
+                    'Nghia Thuan Commune',
+                    'Quan Ba Commune',
+                    'Quyet Tien Commune',
+                    'Ta Van Commune',
+                    'Tam Son Township',
+                    'Thai An Commune',
+                    'Thanh Van Commune',
+                    'Tung Vai Commune'
+                ]
+            },
+            'Quang Binh': {
+                subDistrict: [
+                    'Ban Ria Commune',
+                    'Bang Lang Commune',
+                    'Huong Son Commune',
+                    'Na Khuong Commune',
+                    'Tan Bac Commune',
+                    'Tan Nam Commune',
+                    'Tan Trinh Commune',
+                    'Tien Nguyen Commune',
+                    'Tien Yen Commune',
+                    'Vi Thuong Commune',
+                    'Xuan Giang Commune',
+                    'Xuan Minh Commune',
+                    'Yen Binh Township',
+                    'Yen Ha Commune',
+                    'Yen Thanh Commune'
+                ]
+            },
+            'Vi Xuyen': {
+                subDistrict: [
+                    'Bach Ngoc Commune',
+                    'Cao Bo Commune',
+                    'Dao Duc Commune',
+                    'Kim Linh Commune',
+                    'Kim Thach Commune',
+                    'Lao Chai Commune',
+                    'Linh Ho Commune',
+                    'Minh Tan Commune',
+                    'Ngoc Linh Commune',
+                    'Ngoc Minh Commune',
+                    'Nong Truong Viet Lam Township',
+                    'Phong Quang Commune',
+                    'Phu Linh Commune',
+                    'Phuong Tien Commune',
+                    'Quang Ngan Commune',
+                    'Thanh Duc Commune',
+                    'Thanh Thuy Commune',
+                    'Thuan Hoa Commune',
+                    'Thuong Son Commune',
+                    'Trung Thanh Commune',
+                    'Tung Ba Commune',
+                    'Vi Xuyen Township',
+                    'Viet Lam Commune',
+                    'Xin Chai Commune'
+                ]
+            },
+            'Xin Man': {
+                subDistrict: [
+                    'Ban Diu Commune',
+                    'Ban Ngo Commune',
+                    'Che La Commune',
+                    'Chi Ca Commune',
+                    'Coc Pai Township',
+                    'Coc Re Commune',
+                    'Khuon Lung Commune',
+                    'Na Chi Commune',
+                    'Nam Dan Commune',
+                    'Nan Ma Commune',
+                    'Nan Xin Commune',
+                    'Pa Vay Su Commune',
+                    'Quang Nguyen Commune',
+                    'Ta Nhiu Commune',
+                    'Then Phang Commune',
+                    'Thu Ta Commune',
+                    'Trung Thinh Commune',
+                    'Xin Man Commune'
+                ]
+            },
+            'Yen Minh': {
+                subDistrict: [
+                    'Bach Dich Commune',
+                    'Dong Minh Commune',
+                    'Du Gia Commune',
+                    'Du Tien Commune',
+                    'Duong Thuong Commune',
+                    'Huu Vinh Commune',
+                    'Lao Va Chai Commune',
+                    'Lung Ho Commune',
+                    'Mau Due Commune',
+                    'Mau Long Commune',
+                    'Na Khe Commune',
+                    'Ngam La Commune',
+                    'Ngoc Long Commune',
+                    'Phu Lung Commune',
+                    'Sung Thai Commune',
+                    'Sung Trang Commune',
+                    'Thang Mo Commune',
+                    'Yen Minh Township'
                 ]
             }
         },
         'Lang Son': {
-            'Lang Son': {
+            'Bac Son': {
                 subDistrict: [
-                    'Hoang Van Thu Ward',
-                    'Tam Thanh Ward',
-                    'Vinh Trai Ward',
-                    'Dong Kinh Ward',
-                    'Chi Lang Ward',
-                    'Hoang Dong Commune',
-                    'Quang Lac Commune',
-                    'Mai Pha Commune'
-                ]
-            },
-            'Trang Dinh': {
-                subDistrict: [
-                    'That Khe Township',
-                    'Khanh Long Commune',
-                    'Doan Ket Commune',
-                    'Quoc Khanh Commune',
-                    'Vinh Tien Commune',
-                    'Cao Minh Commune',
-                    'Chi Minh Commune',
-                    'Tri Phuong Commune',
-                    'Tan Tien Commune',
-                    'Tan Yen Commune',
-                    'Doi Can Commune',
-                    'Tan Minh Commune',
-                    'Kim Dong Commune',
-                    'Chi Lang Commune',
-                    'Trung Thanh Commune',
-                    'Dai Dong Commune',
-                    'Dao Vien Commune',
-                    'De Tham Commune',
-                    'Khang Chien Commune',
-                    'Hung Son Commune',
-                    'Quoc Viet Commune',
-                    'Hung Viet Commune'
+                    'Bac Quynh Commune',
+                    'Bac Son Township',
+                    'Chien Thang Commune',
+                    'Chieu Vu Commune',
+                    'Dong y Commune',
+                    'Hung Vu Commune',
+                    'Long Dong Commune',
+                    'Nhat Hoa Commune',
+                    'Nhat Tien Commune',
+                    'Tan Huong Commune',
+                    'Tan Lap Commune',
+                    'Tan Thanh Commune',
+                    'Tan Tri Commune',
+                    'Tran Yen Commune',
+                    'Van Thuy Commune',
+                    'Vu Lang Commune',
+                    'Vu Le Commune',
+                    'Vu Son Commune'
                 ]
             },
             'Binh Gia': {
                 subDistrict: [
-                    'Hung Dao Commune',
-                    'Vinh Yen Commune',
-                    'Hoa Tham Commune',
-                    'Quy Hoa Commune',
-                    'Hong Phong Commune',
-                    'Yen Lo Commune',
-                    'Thien Hoa Commune',
-                    'Quang Trung Commune',
-                    'Thien Thuat Commune',
-                    'Minh Khai Commune',
-                    'Thien Long Commune',
-                    'Hoang Van Thu Commune',
-                    'Hoa Binh Commune',
-                    'Mong An Commune',
-                    'Tan Hoa Commune',
                     'Binh Gia Township',
-                    'Hong Thai Commune',
                     'Binh La Commune',
-                    'Tan Van Commune'
-                ]
-            },
-            'Van Lang': {
-                subDistrict: [
-                    'Na Sam Township',
-                    'Trung Khanh Commune',
-                    'Bac La Commune',
-                    'Thuy Hung Commune',
-                    'Bac Hung Commune',
-                    'Tan Tac Commune',
-                    'Thanh Long Commune',
-                    'Hoi Hoan Commune',
-                    'Bac Viet Commune',
-                    'Hoang Viet Commune',
-                    'Gia Mien Commune',
-                    'Thanh Hoa Commune',
-                    'Tan Thanh Commune',
-                    'Tan My Commune',
-                    'Hong Thai Commune',
+                    'Hoa Binh Commune',
+                    'Hoa Tham Commune',
                     'Hoang Van Thu Commune',
-                    'Nhac Ky Commune'
+                    'Hong Phong Commune',
+                    'Hong Thai Commune',
+                    'Hung Dao Commune',
+                    'Minh Khai Commune',
+                    'Mong An Commune',
+                    'Quang Trung Commune',
+                    'Quy Hoa Commune',
+                    'Tan Hoa Commune',
+                    'Tan Van Commune',
+                    'Thien Hoa Commune',
+                    'Thien Long Commune',
+                    'Thien Thuat Commune',
+                    'Vinh Yen Commune',
+                    'Yen Lo Commune'
                 ]
             },
             'Cao Loc': {
                 subDistrict: [
-                    'Dong Dang Township',
-                    'Cao Loc Township',
                     'Bao Lam Commune',
-                    'Thanh Loa Commune',
-                    'Cao Lau Commune',
-                    'Thach Dan Commune',
-                    'Xuat Le Commune',
-                    'Hong Phong Commune',
-                    'Thuy Hung Commune',
-                    'Loc Yen Commune',
-                    'Phu Xa Commune',
                     'Binh Trung Commune',
+                    'Cao Lau Commune',
+                    'Cao Loc Township',
+                    'Cong Son Commune',
+                    'Dong Dang Township',
+                    'Gia Cat Commune',
                     'Hai Yen Commune',
                     'Hoa Cu Commune',
+                    'Hong Phong Commune',
                     'Hop Thanh Commune',
-                    'Cong Son Commune',
-                    'Gia Cat Commune',
+                    'Loc Yen Commune',
                     'Mau Son Commune',
-                    'Xuan Long Commune',
+                    'Phu Xa Commune',
                     'Tan Lien Commune',
-                    'Yen Trach Commune',
-                    'Tan Thanh Commune'
-                ]
-            },
-            'Van Quan': {
-                subDistrict: [
-                    'Van Quan Township',
-                    'Tran Ninh Commune',
-                    'Lien Hoi Commune',
-                    'Hoa Binh Commune',
-                    'Tu Xuyen Commune',
-                    'Diem He Commune',
-                    'An Son Commune',
-                    'Khanh Khe Commune',
-                    'Luong Nang Commune',
-                    'Dong Giap Commune',
-                    'Binh Phuc Commune',
-                    'Trang Cac Commune',
-                    'Tan Doan Commune',
-                    'Tri Le Commune',
-                    'Trang Phai Commune',
-                    'Yen Phuc Commune',
-                    'Huu Le Commune'
-                ]
-            },
-            'Bac Son': {
-                subDistrict: [
-                    'Bac Son Township',
-                    'Long Dong Commune',
-                    'Van Thuy Commune',
-                    'Dong y Commune',
-                    'Tan Tri Commune',
-                    'Bac Quynh Commune',
-                    'Hung Vu Commune',
-                    'Tan Lap Commune',
-                    'Vu Son Commune',
-                    'Chieu Vu Commune',
-                    'Tan Huong Commune',
-                    'Chien Thang Commune',
-                    'Vu Lang Commune',
-                    'Tran Yen Commune',
-                    'Vu Le Commune',
-                    'Nhat Hoa Commune',
                     'Tan Thanh Commune',
-                    'Nhat Tien Commune'
-                ]
-            },
-            'Huu Lung': {
-                subDistrict: [
-                    'Huu Lung Township',
-                    'Huu Lien Commune',
-                    'Yen Binh Commune',
-                    'Quyet Thang Commune',
-                    'Hoa Binh Commune',
-                    'Yen Thinh Commune',
-                    'Yen Son Commune',
-                    'Thien Tan Commune',
-                    'Yen Vuong Commune',
-                    'Minh Tien Commune',
-                    'Nhat Tien Commune',
-                    'Thanh Son Commune',
-                    'Dong Tan Commune',
-                    'Cai Kinh Commune',
-                    'Hoa Lac Commune',
-                    'Van Nham Commune',
-                    'Dong Tien Commune',
-                    'Tan Thanh Commune',
-                    'Hoa Son Commune',
-                    'Minh Son Commune',
-                    'Ho Son Commune',
-                    'Son Ha Commune',
-                    'Minh Hoa Commune',
-                    'Hoa Thang Commune'
+                    'Thach Dan Commune',
+                    'Thanh Loa Commune',
+                    'Thuy Hung Commune',
+                    'Xuan Long Commune',
+                    'Xuat Le Commune',
+                    'Yen Trach Commune'
                 ]
             },
             'Chi Lang': {
                 subDistrict: [
-                    'Dong Mo Township',
-                    'Chi Lang Township',
-                    'Van An Commune',
-                    'Van Thuy Commune',
-                    'Gia Loc Commune',
                     'Bac Thuy Commune',
-                    'Chien Thang Commune',
-                    'Mai Sao Commune',
                     'Bang Huu Commune',
-                    'Thuong Cuong Commune',
                     'Bang Mac Commune',
-                    'Nhan Ly Commune',
-                    'Lam Son Commune',
-                    'Lien Son Commune',
-                    'Van Linh Commune',
+                    'Chi Lang Commune',
+                    'Chi Lang Township',
+                    'Chien Thang Commune',
+                    'Dong Mo Township',
+                    'Gia Loc Commune',
                     'Hoa Binh Commune',
                     'Huu Kien Commune',
+                    'Lam Son Commune',
+                    'Lien Son Commune',
+                    'Mai Sao Commune',
+                    'Nhan Ly Commune',
                     'Quan Son Commune',
-                    'Y Tich Commune',
-                    'Chi Lang Commune'
-                ]
-            },
-            'Loc Binh': {
-                subDistrict: [
-                    'Na Duong Township',
-                    'Loc Binh Township',
-                    'Mau Son Commune',
-                    'Yen Khoai Commune',
-                    'Khanh Xuan Commune',
-                    'Tu Mich Commune',
-                    'Huu Khanh Commune',
-                    'Dong Buc Commune',
-                    'Tam Gia Commune',
-                    'Tu Doan Commune',
-                    'Khuat Xa Commune',
-                    'Tinh Bac Commune',
-                    'Thong Nhat Commune',
-                    'San Vien Commune',
-                    'Dong Quan Commune',
-                    'Minh Hiep Commune',
-                    'Huu Lan Commune',
-                    'Loi Bac Commune',
-                    'Nam Quan Commune',
-                    'Xuan Duong Commune',
-                    'Ai Quoc Commune'
+                    'Thuong Cuong Commune',
+                    'Van An Commune',
+                    'Van Linh Commune',
+                    'Van Thuy Commune',
+                    'Y Tich Commune'
                 ]
             },
             'Dinh Lap': {
                 subDistrict: [
-                    'Dinh Lap Township',
-                    'NT Thai Binh Township',
+                    'Bac Lang Commune',
                     'Bac Xa Commune',
                     'Binh Xa Commune',
-                    'Kien Moc Commune',
-                    'Dinh Lap Commune',
-                    'Thai Binh Commune',
-                    'Cuong Loi Commune',
                     'Chau Son Commune',
-                    'Lam Ca Commune',
+                    'Cuong Loi Commune',
+                    'Dinh Lap Commune',
+                    'Dinh Lap Township',
                     'Dong Thang Commune',
-                    'Bac Lang Commune'
+                    'Kien Moc Commune',
+                    'Lam Ca Commune',
+                    'NT Thai Binh Township',
+                    'Thai Binh Commune'
+                ]
+            },
+            'Huu Lung': {
+                subDistrict: [
+                    'Cai Kinh Commune',
+                    'Dong Tan Commune',
+                    'Dong Tien Commune',
+                    'Ho Son Commune',
+                    'Hoa Binh Commune',
+                    'Hoa Lac Commune',
+                    'Hoa Son Commune',
+                    'Hoa Thang Commune',
+                    'Huu Lien Commune',
+                    'Huu Lung Township',
+                    'Minh Hoa Commune',
+                    'Minh Son Commune',
+                    'Minh Tien Commune',
+                    'Nhat Tien Commune',
+                    'Quyet Thang Commune',
+                    'Son Ha Commune',
+                    'Tan Thanh Commune',
+                    'Thanh Son Commune',
+                    'Thien Tan Commune',
+                    'Van Nham Commune',
+                    'Yen Binh Commune',
+                    'Yen Son Commune',
+                    'Yen Thinh Commune',
+                    'Yen Vuong Commune'
+                ]
+            },
+            'Lang Son': {
+                subDistrict: [
+                    'Chi Lang Ward',
+                    'Dong Kinh Ward',
+                    'Hoang Dong Commune',
+                    'Hoang Van Thu Ward',
+                    'Mai Pha Commune',
+                    'Quang Lac Commune',
+                    'Tam Thanh Ward',
+                    'Vinh Trai Ward'
+                ]
+            },
+            'Loc Binh': {
+                subDistrict: [
+                    'Ai Quoc Commune',
+                    'Dong Buc Commune',
+                    'Dong Quan Commune',
+                    'Huu Khanh Commune',
+                    'Huu Lan Commune',
+                    'Khanh Xuan Commune',
+                    'Khuat Xa Commune',
+                    'Loc Binh Township',
+                    'Loi Bac Commune',
+                    'Mau Son Commune',
+                    'Minh Hiep Commune',
+                    'Na Duong Township',
+                    'Nam Quan Commune',
+                    'San Vien Commune',
+                    'Tam Gia Commune',
+                    'Thong Nhat Commune',
+                    'Tinh Bac Commune',
+                    'Tu Doan Commune',
+                    'Tu Mich Commune',
+                    'Xuan Duong Commune',
+                    'Yen Khoai Commune'
+                ]
+            },
+            'Trang Dinh': {
+                subDistrict: [
+                    'Cao Minh Commune',
+                    'Chi Lang Commune',
+                    'Chi Minh Commune',
+                    'Dai Dong Commune',
+                    'Dao Vien Commune',
+                    'De Tham Commune',
+                    'Doan Ket Commune',
+                    'Doi Can Commune',
+                    'Hung Son Commune',
+                    'Hung Viet Commune',
+                    'Khang Chien Commune',
+                    'Khanh Long Commune',
+                    'Kim Dong Commune',
+                    'Quoc Khanh Commune',
+                    'Quoc Viet Commune',
+                    'Tan Minh Commune',
+                    'Tan Tien Commune',
+                    'Tan Yen Commune',
+                    'That Khe Township',
+                    'Tri Phuong Commune',
+                    'Trung Thanh Commune',
+                    'Vinh Tien Commune'
+                ]
+            },
+            'Van Lang': {
+                subDistrict: [
+                    'Bac Hung Commune',
+                    'Bac La Commune',
+                    'Bac Viet Commune',
+                    'Gia Mien Commune',
+                    'Hoang Van Thu Commune',
+                    'Hoang Viet Commune',
+                    'Hoi Hoan Commune',
+                    'Hong Thai Commune',
+                    'Na Sam Township',
+                    'Nhac Ky Commune',
+                    'Tan My Commune',
+                    'Tan Tac Commune',
+                    'Tan Thanh Commune',
+                    'Thanh Hoa Commune',
+                    'Thanh Long Commune',
+                    'Thuy Hung Commune',
+                    'Trung Khanh Commune'
+                ]
+            },
+            'Van Quan': {
+                subDistrict: [
+                    'An Son Commune',
+                    'Binh Phuc Commune',
+                    'Diem He Commune',
+                    'Dong Giap Commune',
+                    'Hoa Binh Commune',
+                    'Huu Le Commune',
+                    'Khanh Khe Commune',
+                    'Lien Hoi Commune',
+                    'Luong Nang Commune',
+                    'Tan Doan Commune',
+                    'Tran Ninh Commune',
+                    'Trang Cac Commune',
+                    'Trang Phai Commune',
+                    'Tri Le Commune',
+                    'Tu Xuyen Commune',
+                    'Van Quan Township',
+                    'Yen Phuc Commune'
+                ]
+            }
+        },
+        'Phu Tho': {
+            'Cam Khe': {
+                subDistrict: [
+                    'Cam Khe Township',
+                    'Cap Dan Commune',
+                    'Chuong Xa Commune',
+                    'Dieu Luong Commune',
+                    'Dong Luong Commune',
+                    'Hung Viet Commune',
+                    'Huong Lung Commune',
+                    'Minh Tan Commune',
+                    'Ngo Xa Commune',
+                    'Phu Khe Commune',
+                    'Phu Lac Commune',
+                    'Phuong Vi Commune',
+                    'Son Tinh Commune',
+                    'Ta Xa Commune',
+                    'Tam Son Commune',
+                    'Thuy Lieu Commune',
+                    'Tien Luong Commune',
+                    'Tung Khe Commune',
+                    'Tuy Loc Commune',
+                    'Van Ban Commune',
+                    'Van Khuc Commune',
+                    'Xuong Thinh Commune',
+                    'Yen Duong Commune',
+                    'Yen Tap Commune'
+                ]
+            },
+            'Doan Hung': {
+                subDistrict: [
+                    'Bang Doan Commune',
+                    'Bang Luan Commune',
+                    'Ca Dinh Commune',
+                    'Chan Mong Commune',
+                    'Chi Dam Commune',
+                    'Doan Hung Township',
+                    'Hop Nhat Commune',
+                    'Hung Long Commune',
+                    'Hung Xuyen Commune',
+                    'Minh Luong Commune',
+                    'Minh Phu Commune',
+                    'Minh Tien Commune',
+                    'Ngoc Quan Commune',
+                    'Phu Lam Commune',
+                    'Phuc Lai Commune',
+                    'Soc Dang Commune',
+                    'Tay Coc Commune',
+                    'Tieu Son Commune',
+                    'Van Don Commune',
+                    'Van Du Commune',
+                    'Vu Quang Commune',
+                    'Yen Kien Commune'
+                ]
+            },
+            'Ha Hoa': {
+                subDistrict: [
+                    'Am Ha Commune',
+                    'Bang Gia Commune',
+                    'Dai Pham Commune',
+                    'Dan Thuong Commune',
+                    'Gia Dien Commune',
+                    'Ha Hoa Township',
+                    'Ha Luong Commune',
+                    'Hien Luong Commune',
+                    'Huong Xa Commune',
+                    'Lang Son Commune',
+                    'Minh Coi Commune',
+                    'Minh Hac Commune',
+                    'Phuong Vien Commune',
+                    'Tu Hiep Commune',
+                    'Van Lang Commune',
+                    'Vinh Chan Commune',
+                    'Vo Tranh Commune',
+                    'Xuan Ang Commune',
+                    'Yen Ky Commune',
+                    'Yen Luat Commune'
+                ]
+            },
+            'Lam Thao': {
+                subDistrict: [
+                    'Ban Nguyen Commune',
+                    'Cao Xa Commune',
+                    'Hung Son Township',
+                    'Lam Thao Township',
+                    'Phung Nguyen Commune',
+                    'Son Vi Commune',
+                    'Thach Son Commune',
+                    'Tien Kien Commune',
+                    'Tu Xa Commune',
+                    'Vinh Lai Commune',
+                    'Xuan Huy Commune',
+                    'Xuan Lung Commune'
+                ]
+            },
+            'Phu Ninh': {
+                subDistrict: [
+                    'An Dao Commune',
+                    'Bao Thanh Commune',
+                    'Binh Phu Commune',
+                    'Gia Thanh Commune',
+                    'Ha Giap Commune',
+                    'Le My Commune',
+                    'Lien Hoa Commune',
+                    'Phong Chau Township',
+                    'Phu Loc Commune',
+                    'Phu My Commune',
+                    'Phu Nham Commune',
+                    'Phu Ninh Commune',
+                    'Tien Du Commune',
+                    'Tien Phu Commune',
+                    'Tram Than Commune',
+                    'Tri Quan Commune',
+                    'Trung Giap Commune'
+                ]
+            },
+            'Phu Tho': {
+                subDistrict: [
+                    'Au Co Ward',
+                    'Ha Loc Commune',
+                    'Ha Thach Commune',
+                    'Hung Vuong Ward',
+                    'Phong Chau Ward',
+                    'Phu Ho Commune',
+                    'Thanh Minh Commune',
+                    'Thanh Vinh Ward',
+                    'Van Lung Commune'
+                ]
+            },
+            'Tam Nong': {
+                subDistrict: [
+                    'Bac Son Commune',
+                    'Dan Quyen Commune',
+                    'Di Nau Commune',
+                    'Hien Quan Commune',
+                    'Hung Hoa Township',
+                    'Huong Non Commune',
+                    'Lam Son Commune',
+                    'Quang Huc Commune',
+                    'Te Le Commune',
+                    'Thanh Uyen Commune',
+                    'Tho Van Commune',
+                    'Van Xuan Commune'
+                ]
+            },
+            'Tan Son': {
+                subDistrict: [
+                    'Dong Son Commune',
+                    'Kiet Son Commune',
+                    'Kim Thuong Commune',
+                    'Lai Dong Commune',
+                    'Long Coc Commune',
+                    'Minh Dai Commune',
+                    'My Thuan Commune',
+                    'Tam Thanh Commune',
+                    'Tan Phu Commune',
+                    'Tan Son Commune',
+                    'Thach Kiet Commune',
+                    'Thu Cuc Commune',
+                    'Thu Ngac Commune',
+                    'Van Luong Commune',
+                    'Vinh Tien Commune',
+                    'Xuan Dai Commune',
+                    'Xuan Son Commune'
+                ]
+            },
+            'Thanh Ba': {
+                subDistrict: [
+                    'Chi Tien Commune',
+                    'Dai An Commune',
+                    'Do Son Commune',
+                    'Do Xuyen Commune',
+                    'Dong Linh Commune',
+                    'Dong Thanh Commune',
+                    'Dong Xuan Commune',
+                    'Hanh Cu Commune',
+                    'Hoang Cuong Commune',
+                    'Khai Xuan Commune',
+                    'Luong Lo Commune',
+                    'Man Lan Commune',
+                    'Ninh Dan Commune',
+                    'Quang Yen Commune',
+                    'Son Cuong Commune',
+                    'Thanh Ba Township',
+                    'Thanh Ha Commune',
+                    'Van Linh Commune',
+                    'Vo Lao Commune'
+                ]
+            },
+            'Thanh Son': {
+                subDistrict: [
+                    'Cu Dong Commune',
+                    'Cu Thang Commune',
+                    'Dich Qua Commune',
+                    'Dong Cuu Commune',
+                    'Giap Lai Commune',
+                    'Huong Can Commune',
+                    'Kha Cuu Commune',
+                    'Luong Nha Commune',
+                    'Son Hung Commune',
+                    'Tan Lap Commune',
+                    'Tan Minh Commune',
+                    'Tat Thang Commune',
+                    'Thach Khoan Commune',
+                    'Thang Son Commune',
+                    'Thanh Son Township',
+                    'Thuc Luyen Commune',
+                    'Thuong Cuu Commune',
+                    'Tinh Nhue Commune',
+                    'Van Mieu Commune',
+                    'Vo Mieu Commune',
+                    'Yen Lang Commune',
+                    'Yen Luong Commune',
+                    'Yen Son Commune'
+                ]
+            },
+            'Thanh Thuy': {
+                subDistrict: [
+                    'Bao Yen Commune',
+                    'Dao Xa Commune',
+                    'Doan Ha Commune',
+                    'Dong Trung Commune',
+                    'Hoang Xa Commune',
+                    'Son Thuy Commune',
+                    'Tan Phuong Commune',
+                    'Thach Dong Commune',
+                    'Thanh Thuy Township',
+                    'Tu Vu Commune',
+                    'Xuan Loc Commune'
+                ]
+            },
+            'Viet Tri': {
+                subDistrict: [
+                    'Bach Hac Ward',
+                    'Ben Got Ward',
+                    'Chu Hoa Commune',
+                    'Duu Lau Ward',
+                    'Gia Cam Ward',
+                    'Hung Lo Commune',
+                    'Hy Cuong Commune',
+                    'Kim Duc Commune',
+                    'Minh Nong Ward',
+                    'Minh Phuong Ward',
+                    'Nong Trang Ward',
+                    'Phuong Lau Commune',
+                    'Song Lo Commune',
+                    'Tan Dan Ward',
+                    'Thanh Dinh Commune',
+                    'Thanh Mieu Ward',
+                    'Tho Son Ward',
+                    'Thuy Van Commune',
+                    'Tien Cat Ward',
+                    'Trung Vuong Commune',
+                    'Van Co Ward',
+                    'Van Phu Ward'
+                ]
+            },
+            'Yen Lap': {
+                subDistrict: [
+                    'Dong Lac Commune',
+                    'Dong Thinh Commune',
+                    'Hung Long Commune',
+                    'Luong Son Commune',
+                    'Minh Hoa Commune',
+                    'My Lung Commune',
+                    'My Luong Commune',
+                    'Nga Hoang Commune',
+                    'Ngoc Dong Commune',
+                    'Ngoc Lap Commune',
+                    'Phuc Khanh Commune',
+                    'Thuong Long Commune',
+                    'Trung Son Commune',
+                    'Xuan An Commune',
+                    'Xuan Thuy Commune',
+                    'Xuan Vien Commune',
+                    'Yen Lap Township'
                 ]
             }
         },
         'Quang Ninh': {
-            'Ha Long': {
+            'Ba Che': {
                 subDistrict: [
-                    'Ha Khanh Ward',
-                    'Ha Phong Ward',
-                    'Ha Khau Ward',
-                    'Cao Xanh Ward',
-                    'Gieng Day Ward',
-                    'Ha Tu Ward',
-                    'Ha Trung Ward',
-                    'Ha Lam Ward',
-                    'Bai Chay Ward',
-                    'Cao Thang Ward',
-                    'Hung Thang Ward',
-                    'Yet Kieu Ward',
-                    'Tran Hung Dao Ward',
-                    'Hong Hai Ward',
-                    'Hong Gai Ward',
-                    'Bach Dang Ward',
-                    'Hong Ha Ward',
-                    'Tuan Chau Ward',
-                    'Viet Hung Ward',
-                    'Dai Yen Ward',
-                    'Hoanh Bo Ward',
-                    'Ky Thuong Commune',
-                    'Dong Son Commune',
-                    'Tan Dan Commune',
-                    'Dong Lam Commune',
-                    'Hoa Binh Commune',
-                    'Vu Oai Commune',
-                    'Dan Chu Commune',
-                    'Quang La Commune',
-                    'Bang Ca Commune',
-                    'Thong Nhat Commune',
-                    'Son Duong Commune',
-                    'Le Loi Commune'
-                ]
-            },
-            'Mong Cai': {
-                subDistrict: [
-                    'Ka Long Ward',
-                    'Tran Phu Ward',
-                    'Ninh Duong Ward',
-                    'Hoa Lac Ward',
-                    'Tra Co Ward',
-                    'Hai Son Commune',
-                    'Bac Son Commune',
-                    'Hai Dong Commune',
-                    'Hai Tien Commune',
-                    'Hai Yen Ward',
-                    'Quang Nghia Commune',
-                    'Hai Hoa Ward',
-                    'Hai Xuan Commune',
-                    'Van Ninh Commune',
-                    'Binh Ngoc Ward',
-                    'Vinh Trung Commune',
-                    'Vinh Thuc Commune'
-                ]
-            },
-            'Cam Pha': {
-                subDistrict: [
-                    'Mong Duong Ward',
-                    'Cua Ong Ward',
-                    'Cam Son Ward',
-                    'Cam Dong Ward',
-                    'Cam Phu Ward',
-                    'Cam Tay Ward',
-                    'Quang Hanh Ward',
-                    'Cam Thinh Ward',
-                    'Cam Thuy Ward',
-                    'Cam Thach Ward',
-                    'Cam Thanh Ward',
-                    'Cam Trung Ward',
-                    'Cam Binh Ward',
-                    'Cong Hoa Commune',
-                    'Cam Hai Commune',
-                    'Duong Huy Commune'
-                ]
-            },
-            'Uong Bi': {
-                subDistrict: [
-                    'Vang Danh Ward',
-                    'Thanh Son Ward',
-                    'Bac Son Ward',
-                    'Quang Trung Ward',
-                    'Trung Vuong Ward',
-                    'Nam Khe Ward',
-                    'Yen Thanh Ward',
-                    'Thuong Yen Cong Commune',
-                    'Phuong Dong Ward',
-                    'Phuong Nam Ward'
+                    'Ba Che Township',
+                    'Dap Thanh Commune',
+                    'Don Dac Commune',
+                    'Luong Mong Commune',
+                    'Minh Cam Commune',
+                    'Nam Son Commune',
+                    'Thanh Lam Commune',
+                    'Thanh Son Commune'
                 ]
             },
             'Binh Lieu': {
                 subDistrict: [
                     'Binh Lieu Township',
-                    'Hoanh Mo Commune',
                     'Dong Tam Commune',
                     'Dong Van Commune',
-                    'Vo Ngai Commune',
+                    'Hoanh Mo Commune',
+                    'Huc Dong Commune',
                     'Luc Hon Commune',
-                    'Huc Dong Commune'
+                    'Vo Ngai Commune'
                 ]
             },
-            'Tien Yen': {
+            'Cam Pha': {
                 subDistrict: [
-                    'Tien Yen Township',
-                    'Ha Lau Commune',
-                    'Dai Duc Commune',
-                    'Phong Du Commune',
-                    'Dien Xa Commune',
-                    'Dong Ngu Commune',
-                    'Yen Than Commune',
-                    'Dong Hai Commune',
-                    'Hai Lang Commune',
-                    'Tien Lang Commune',
-                    'Dong Rui Commune'
-                ]
-            },
-            'Dam Ha': {
-                subDistrict: [
-                    'Dam Ha Township',
-                    'Quang Lam Commune',
-                    'Quang An Commune',
-                    'Tan Binh Commune',
-                    'Duc Yen Commune',
-                    'Quang Tan Commune',
-                    'Dam Ha Commune',
-                    'Tan Lap Commune',
-                    'Dai Binh Commune'
-                ]
-            },
-            'Hai Ha': {
-                subDistrict: [
-                    'Quang Ha Township',
-                    'Quang Duc Commune',
-                    'Quang Son Commune',
-                    'Quang Thanh Commune',
-                    'Quang Thinh Commune',
-                    'Quang Minh Commune',
-                    'Quang Chinh Commune',
-                    'Quang Long Commune',
-                    'Duong Hoa Commune',
-                    'Quang Phong Commune',
-                    'Cai Chien Commune'
-                ]
-            },
-            'Ba Che': {
-                subDistrict: [
-                    'Ba Che Township',
-                    'Thanh Son Commune',
-                    'Thanh Lam Commune',
-                    'Dap Thanh Commune',
-                    'Nam Son Commune',
-                    'Luong Mong Commune',
-                    'Don Dac Commune',
-                    'Minh Cam Commune'
-                ]
-            },
-            'Van Don': {
-                subDistrict: [
-                    'Cai Rong Township',
-                    'Dai Xuyen Commune',
-                    'Binh Dan Commune',
-                    'Van Yen Commune',
-                    'Minh Chau Commune',
-                    'Doan Ket Commune',
-                    'Ha Long Commune',
-                    'Dong Xa Commune',
-                    'Ban Sen Commune',
-                    'Thang Loi Commune',
-                    'Quan Lan Commune',
-                    'Ngoc Vung Commune'
-                ]
-            },
-            'Dong Trieu': {
-                subDistrict: [
-                    'Mao Khe Ward',
-                    'Dong Trieu Ward',
-                    'An Sinh Commune',
-                    'Trang Luong Commune',
-                    'Binh Khe Commune',
-                    'Viet Dan Commune',
-                    'Tan Viet Commune',
-                    'Binh Duong Commune',
-                    'Duc Chinh Ward',
-                    'Trang An Ward',
-                    'Nguyen Hue Commune',
-                    'Thuy An Commune',
-                    'Xuan Son Ward',
-                    'Hong Thai Tay Commune',
-                    'Hong Thai Dong Commune',
-                    'Hoang Que Ward',
-                    'Yen Tho Ward',
-                    'Hong Phong Ward',
-                    'Kim Son Ward',
-                    'Hung Dao Ward',
-                    'Yen Duc Commune'
-                ]
-            },
-            'Quang Yen': {
-                subDistrict: [
-                    'Quang Yen Ward',
-                    'Dong Mai Ward',
-                    'Minh Thanh Ward',
-                    'Song Khoai Commune',
-                    'Hiep Hoa Commune',
-                    'Cong Hoa Ward',
-                    'Tien An Commune',
-                    'Hoang Tan Commune',
-                    'Tan An Ward',
-                    'Yen Giang Ward',
-                    'Nam Hoa Ward',
-                    'Ha An Ward',
-                    'Cam La Commune',
-                    'Phong Hai Ward',
-                    'Yen Hai Ward',
-                    'Lien Hoa Commune',
-                    'Phong Coc Ward',
-                    'Lien Vi Commune',
-                    'Tien Phong Commune'
+                    'Cam Binh Ward',
+                    'Cam Dong Ward',
+                    'Cam Hai Commune',
+                    'Cam Phu Ward',
+                    'Cam Son Ward',
+                    'Cam Tay Ward',
+                    'Cam Thach Ward',
+                    'Cam Thanh Ward',
+                    'Cam Thinh Ward',
+                    'Cam Thuy Ward',
+                    'Cam Trung Ward',
+                    'Cong Hoa Commune',
+                    'Cua Ong Ward',
+                    'Duong Huy Commune',
+                    'Mong Duong Ward',
+                    'Quang Hanh Ward'
                 ]
             },
             'Co To': {
@@ -4061,3694 +6532,4758 @@ module.exports = {
                     'Dong Tien Commune',
                     'Thanh Lan Commune'
                 ]
-            }
-        },
-        'Bac Giang': {
-            'Bac Giang': {
+            },
+            'Dam Ha': {
                 subDistrict: [
-                    'Tho Xuong Ward',
-                    'Tran Nguyen Han Ward',
-                    'Ngo Quyen Ward',
-                    'Hoang Van Thu Ward',
-                    'Tran Phu Ward',
-                    'My Do Ward',
-                    'Le Loi Ward',
-                    'Song Mai Commune',
-                    'Xuong Giang Ward',
-                    'Da Mai Ward',
-                    'Dinh Ke Ward',
-                    'Dinh Tri Commune',
-                    'Tan My Commune',
+                    'Dai Binh Commune',
+                    'Dam Ha Commune',
+                    'Dam Ha Township',
+                    'Duc Yen Commune',
+                    'Quang An Commune',
+                    'Quang Lam Commune',
+                    'Quang Tan Commune',
+                    'Tan Binh Commune',
+                    'Tan Lap Commune'
+                ]
+            },
+            'Dong Trieu': {
+                subDistrict: [
+                    'An Sinh Commune',
+                    'Binh Duong Commune',
+                    'Binh Khe Commune',
+                    'Dong Trieu Ward',
+                    'Duc Chinh Ward',
+                    'Hoang Que Ward',
+                    'Hong Phong Ward',
+                    'Hong Thai Dong Commune',
+                    'Hong Thai Tay Commune',
+                    'Hung Dao Ward',
+                    'Kim Son Ward',
+                    'Mao Khe Ward',
+                    'Nguyen Hue Commune',
+                    'Tan Viet Commune',
+                    'Thuy An Commune',
+                    'Trang An Ward',
+                    'Trang Luong Commune',
+                    'Viet Dan Commune',
+                    'Xuan Son Ward',
+                    'Yen Duc Commune',
+                    'Yen Tho Ward'
+                ]
+            },
+            'Ha Long': {
+                subDistrict: [
+                    'Bach Dang Ward',
+                    'Bai Chay Ward',
+                    'Bang Ca Commune',
+                    'Cao Thang Ward',
+                    'Cao Xanh Ward',
+                    'Dai Yen Ward',
+                    'Dan Chu Commune',
+                    'Dong Lam Commune',
                     'Dong Son Commune',
-                    'Tan Tien Commune',
-                    'Song Khe Commune'
+                    'Gieng Day Ward',
+                    'Ha Khanh Ward',
+                    'Ha Khau Ward',
+                    'Ha Lam Ward',
+                    'Ha Phong Ward',
+                    'Ha Trung Ward',
+                    'Ha Tu Ward',
+                    'Hoa Binh Commune',
+                    'Hoanh Bo Ward',
+                    'Hong Gai Ward',
+                    'Hong Ha Ward',
+                    'Hong Hai Ward',
+                    'Hung Thang Ward',
+                    'Ky Thuong Commune',
+                    'Le Loi Commune',
+                    'Quang La Commune',
+                    'Son Duong Commune',
+                    'Tan Dan Commune',
+                    'Thong Nhat Commune',
+                    'Tran Hung Dao Ward',
+                    'Tuan Chau Ward',
+                    'Viet Hung Ward',
+                    'Vu Oai Commune',
+                    'Yet Kieu Ward'
                 ]
             },
-            'Yen The': {
+            'Hai Ha': {
                 subDistrict: [
-                    'Dong Tien Commune',
-                    'Canh Nau Commune',
-                    'Xuan Luong Commune',
-                    'Tam Tien Commune',
-                    'Dong Vuong Commune',
-                    'Dong Huu Commune',
-                    'Dong Tam Commune',
-                    'Tam Hiep Commune',
-                    'Tien Thang Commune',
-                    'Hong Ky Commune',
-                    'Dong Lac Commune',
-                    'Dong Son Commune',
-                    'Tan Hiep Commune',
-                    'Huong Vi Commune',
-                    'Dong Ky Commune',
-                    'An Thuong Commune',
-                    'Phon Xuong Township',
-                    'Tan Soi Commune',
-                    'Bo Ha Township'
-                ]
-            },
-            'Tan Yen': {
-                subDistrict: [
-                    'Lan Gioi Commune',
-                    'Nha Nam Township',
-                    'Tan Trung Commune',
-                    'Dai Hoa Commune',
-                    'Quang Tien Commune',
-                    'Phuc Son Commune',
-                    'An Duong Commune',
-                    'Phuc Hoa Commune',
-                    'Lien Son Commune',
-                    'Hop Duc Commune',
-                    'Lam Cot Commune',
-                    'Cao Xa Commune',
-                    'Cao Thuong Township',
-                    'Viet Ngoc Commune',
-                    'Song Van Commune',
-                    'Ngoc Chau Commune',
-                    'Ngoc Van Commune',
-                    'Viet Lap Commune',
-                    'Lien Chung Commune',
-                    'Ngoc Thien Commune',
-                    'Ngoc Ly Commune',
-                    'Que Nham Commune'
-                ]
-            },
-            'Lang Giang': {
-                subDistrict: [
-                    'Voi Township',
-                    'Nghia Hoa Commune',
-                    'Nghia Hung Commune',
-                    'Quang Thinh Commune',
-                    'Huong Son Commune',
-                    'Dao My Commune',
-                    'Tien Luc Commune',
-                    'An Ha Commune',
-                    'Kep Township',
-                    'My Ha Commune',
-                    'Huong Lac Commune',
-                    'Duong Duc Commune',
-                    'Tan Thanh Commune',
-                    'Yen My Commune',
-                    'Tan Hung Commune',
-                    'My Thai Commune',
-                    'Xuong Lam Commune',
-                    'Xuan Huong Commune',
-                    'Tan Dinh Commune',
-                    'Dai Lam Commune',
-                    'Thai Dao Commune'
-                ]
-            },
-            'Luc Nam': {
-                subDistrict: [
-                    'Doi Ngo Township',
-                    'Dong Hung Commune',
-                    'Dong Phu Commune',
-                    'Tam Di Commune',
-                    'Bao Son Commune',
-                    'Bao Dai Commune',
-                    'Thanh Lam Commune',
-                    'Tien Nha Commune',
-                    'Truong Giang Commune',
-                    'Phuong Son Township',
-                    'Chu Dien Commune',
-                    'Cuong Son Commune',
-                    'Nghia Phuong Commune',
-                    'Vo Tranh Commune',
-                    'Binh Son Commune',
-                    'Lan Mau Commune',
-                    'Yen Son Commune',
-                    'Kham Lang Commune',
-                    'Huyen Son Commune',
-                    'Truong Son Commune',
-                    'Luc Son Commune',
-                    'Bac Lung Commune',
-                    'Vu Xa Commune',
-                    'Cam Ly Commune',
-                    'Dan Hoi Commune'
-                ]
-            },
-            'Luc Ngan': {
-                subDistrict: [
-                    'Chu Township',
-                    'Cam Son Commune',
-                    'Tan Son Commune',
-                    'Phong Minh Commune',
-                    'Phong Van Commune',
-                    'Xa Ly Commune',
-                    'Ho Dap Commune',
-                    'Son Hai Commune',
-                    'Thanh Hai Commune',
-                    'Kien Lao Commune',
-                    'Bien Son Commune',
-                    'Kien Thanh Commune',
-                    'Hong Giang Commune',
-                    'Kim Son Commune',
-                    'Tan Hoa Commune',
-                    'Giap Son Commune',
-                    'Bien Dong Commune',
-                    'Quy Son Commune',
-                    'Tru Huu Commune',
-                    'Phi Dien Commune',
-                    'Tan Quang Commune',
-                    'Dong Coc Commune',
-                    'Tan Lap Commune',
-                    'Phu Nhuan Commune',
-                    'My An Commune',
-                    'Nam Duong Commune',
-                    'Tan Moc Commune',
-                    'Deo Gia Commune',
-                    'Phuong Son Commune'
-                ]
-            },
-            'Son Dong': {
-                subDistrict: [
-                    'An Chau Township',
-                    'Tay Yen Tu Township',
-                    'Van Son Commune',
-                    'Huu San Commune',
-                    'Dai Son Commune',
-                    'Phuc Son Commune',
-                    'Giao Liem Commune',
-                    'Cam Dan Commune',
-                    'An Lac Commune',
-                    'Vinh An Commune',
-                    'Yen Dinh Commune',
-                    'Le Vien Commune',
-                    'An Ba Commune',
-                    'Tuan Dao Commune',
-                    'Duong Huu Commune',
-                    'Long Son Commune',
-                    'Thanh Luan Commune'
-                ]
-            },
-            'Yen Dung': {
-                subDistrict: [
-                    'Nham Bien Township',
-                    'Tan An Township',
-                    'Lao Ho Commune',
-                    'Huong Gian Commune',
-                    'Quynh Son Commune',
-                    'Noi Hoang Commune',
-                    'Tien Phong Commune',
-                    'Xuan Phu Commune',
-                    'Tan Lieu Commune',
-                    'Tri Yen Commune',
-                    'Lang Son Commune',
-                    'Yen Lu Commune',
-                    'Tien Dung Commune',
-                    'Duc Giang Commune',
-                    'Canh Thuy Commune',
-                    'Tu Mai Commune',
-                    'Dong Viet Commune',
-                    'Dong Phuc Commune'
-                ]
-            },
-            'Viet Yen': {
-                subDistrict: [
-                    'Thuong Lan Commune',
-                    'Viet Tien Commune',
-                    'Nghia Trung Commune',
-                    'Minh Duc Commune',
-                    'Huong Mai Commune',
-                    'Tu Lan Ward',
-                    'Bich Dong Ward',
-                    'Trung Son Commune',
-                    'Hong Thai Ward',
-                    'Tien Son Commune',
-                    'Tang Tien Ward',
-                    'Quang Minh Ward',
-                    'Nenh Ward',
-                    'Ninh Son Ward',
-                    'Van Trung Ward',
-                    'Van Ha Commune',
-                    'Quang Chau Ward'
-                ]
-            },
-            'Hiep Hoa': {
-                subDistrict: [
-                    'Dong Tan Commune',
-                    'Thanh Van Commune',
-                    'Hoang Luong Commune',
-                    'Hoang Van Commune',
-                    'Hoang Thanh Commune',
-                    'Hoang An Commune',
-                    'Ngoc Son Commune',
-                    'Thai Son Commune',
-                    'Hoa Son Commune',
-                    'Thang Township',
+                    'Cai Chien Commune',
+                    'Duong Hoa Commune',
+                    'Quang Chinh Commune',
+                    'Quang Duc Commune',
+                    'Quang Ha Township',
+                    'Quang Long Commune',
                     'Quang Minh Commune',
-                    'Luong Phong Commune',
-                    'Hung Son Commune',
-                    'Dai Thanh Commune',
-                    'Thuong Thang Commune',
-                    'Hop Thinh Commune',
-                    'Danh Thang Commune',
-                    'Mai Trung Commune',
-                    'Doan Bai Commune',
-                    'Bac Ly Township',
-                    'Xuan Cam Commune',
-                    'Huong Lam Commune',
-                    'Dong Lo Commune',
-                    'Chau Minh Commune',
-                    'Mai Dinh Commune'
+                    'Quang Phong Commune',
+                    'Quang Son Commune',
+                    'Quang Thanh Commune',
+                    'Quang Thinh Commune'
+                ]
+            },
+            'Mong Cai': {
+                subDistrict: [
+                    'Bac Son Commune',
+                    'Binh Ngoc Ward',
+                    'Hai Dong Commune',
+                    'Hai Hoa Ward',
+                    'Hai Son Commune',
+                    'Hai Tien Commune',
+                    'Hai Xuan Commune',
+                    'Hai Yen Ward',
+                    'Hoa Lac Ward',
+                    'Ka Long Ward',
+                    'Ninh Duong Ward',
+                    'Quang Nghia Commune',
+                    'Tra Co Ward',
+                    'Tran Phu Ward',
+                    'Van Ninh Commune',
+                    'Vinh Thuc Commune',
+                    'Vinh Trung Commune'
+                ]
+            },
+            'Quang Yen': {
+                subDistrict: [
+                    'Cam La Commune',
+                    'Cong Hoa Ward',
+                    'Dong Mai Ward',
+                    'Ha An Ward',
+                    'Hiep Hoa Commune',
+                    'Hoang Tan Commune',
+                    'Lien Hoa Commune',
+                    'Lien Vi Commune',
+                    'Minh Thanh Ward',
+                    'Nam Hoa Ward',
+                    'Phong Coc Ward',
+                    'Phong Hai Ward',
+                    'Quang Yen Ward',
+                    'Song Khoai Commune',
+                    'Tan An Ward',
+                    'Tien An Commune',
+                    'Tien Phong Commune',
+                    'Yen Giang Ward',
+                    'Yen Hai Ward'
+                ]
+            },
+            'Tien Yen': {
+                subDistrict: [
+                    'Dai Duc Commune',
+                    'Dien Xa Commune',
+                    'Dong Hai Commune',
+                    'Dong Ngu Commune',
+                    'Dong Rui Commune',
+                    'Ha Lau Commune',
+                    'Hai Lang Commune',
+                    'Phong Du Commune',
+                    'Tien Lang Commune',
+                    'Tien Yen Township',
+                    'Yen Than Commune'
+                ]
+            },
+            'Uong Bi': {
+                subDistrict: [
+                    'Bac Son Ward',
+                    'Nam Khe Ward',
+                    'Phuong Dong Ward',
+                    'Phuong Nam Ward',
+                    'Quang Trung Ward',
+                    'Thanh Son Ward',
+                    'Thuong Yen Cong Commune',
+                    'Trung Vuong Ward',
+                    'Vang Danh Ward',
+                    'Yen Thanh Ward'
+                ]
+            },
+            'Van Don': {
+                subDistrict: [
+                    'Ban Sen Commune',
+                    'Binh Dan Commune',
+                    'Cai Rong Township',
+                    'Dai Xuyen Commune',
+                    'Doan Ket Commune',
+                    'Dong Xa Commune',
+                    'Ha Long Commune',
+                    'Minh Chau Commune',
+                    'Ngoc Vung Commune',
+                    'Quan Lan Commune',
+                    'Thang Loi Commune',
+                    'Van Yen Commune'
                 ]
             }
         },
-        'Phu Tho': {
-            'Viet Tri': {
+        'Thai Nguyen': {
+            'Dai Tu': {
                 subDistrict: [
-                    'Duu Lau Ward',
-                    'Van Co Ward',
-                    'Nong Trang Ward',
-                    'Tan Dan Ward',
-                    'Gia Cam Ward',
-                    'Tien Cat Ward',
-                    'Tho Son Ward',
-                    'Thanh Mieu Ward',
-                    'Bach Hac Ward',
-                    'Ben Got Ward',
-                    'Van Phu Ward',
-                    'Phuong Lau Commune',
-                    'Thuy Van Commune',
-                    'Minh Phuong Ward',
-                    'Trung Vuong Commune',
-                    'Minh Nong Ward',
-                    'Song Lo Commune',
-                    'Kim Duc Commune',
-                    'Hung Lo Commune',
-                    'Hy Cuong Commune',
-                    'Chu Hoa Commune',
-                    'Thanh Dinh Commune'
-                ]
-            },
-            'Phu Tho': {
-                subDistrict: [
-                    'Hung Vuong Ward',
-                    'Phong Chau Ward',
-                    'Au Co Ward',
-                    'Ha Loc Commune',
-                    'Phu Ho Commune',
-                    'Van Lung Commune',
-                    'Thanh Minh Commune',
-                    'Ha Thach Commune',
-                    'Thanh Vinh Ward'
-                ]
-            },
-            'Doan Hung': {
-                subDistrict: [
-                    'Doan Hung Township',
-                    'Hung Xuyen Commune',
-                    'Bang Luan Commune',
-                    'Van Du Commune',
-                    'Phu Lam Commune',
-                    'Minh Luong Commune',
-                    'Bang Doan Commune',
-                    'Chi Dam Commune',
-                    'Phuc Lai Commune',
-                    'Ngoc Quan Commune',
-                    'Hop Nhat Commune',
-                    'Soc Dang Commune',
-                    'Tay Coc Commune',
-                    'Yen Kien Commune',
-                    'Hung Long Commune',
-                    'Vu Quang Commune',
-                    'Van Don Commune',
-                    'Tieu Son Commune',
-                    'Minh Tien Commune',
-                    'Minh Phu Commune',
-                    'Chan Mong Commune',
-                    'Ca Dinh Commune'
-                ]
-            },
-            'Ha Hoa': {
-                subDistrict: [
-                    'Ha Hoa Township',
-                    'Dai Pham Commune',
-                    'Dan Thuong Commune',
-                    'Ha Luong Commune',
-                    'Tu Hiep Commune',
-                    'Hien Luong Commune',
-                    'Phuong Vien Commune',
-                    'Gia Dien Commune',
-                    'Am Ha Commune',
-                    'Huong Xa Commune',
-                    'Xuan Ang Commune',
-                    'Yen Ky Commune',
-                    'Minh Hac Commune',
-                    'Lang Son Commune',
-                    'Bang Gia Commune',
-                    'Yen Luat Commune',
-                    'Vo Tranh Commune',
-                    'Van Lang Commune',
-                    'Minh Coi Commune',
-                    'Vinh Chan Commune'
-                ]
-            },
-            'Thanh Ba': {
-                subDistrict: [
-                    'Thanh Ba Township',
-                    'Van Linh Commune',
-                    'Dong Linh Commune',
-                    'Dai An Commune',
-                    'Hanh Cu Commune',
-                    'Dong Xuan Commune',
-                    'Quang Yen Commune',
-                    'Ninh Dan Commune',
-                    'Vo Lao Commune',
-                    'Khai Xuan Commune',
-                    'Man Lan Commune',
-                    'Hoang Cuong Commune',
-                    'Chi Tien Commune',
-                    'Dong Thanh Commune',
-                    'Son Cuong Commune',
-                    'Thanh Ha Commune',
-                    'Do Son Commune',
-                    'Do Xuyen Commune',
-                    'Luong Lo Commune'
-                ]
-            },
-            'Phu Ninh': {
-                subDistrict: [
-                    'Phong Chau Township',
-                    'Phu My Commune',
-                    'Le My Commune',
-                    'Lien Hoa Commune',
-                    'Tram Than Commune',
-                    'Tri Quan Commune',
-                    'Trung Giap Commune',
-                    'Tien Phu Commune',
-                    'Ha Giap Commune',
-                    'Bao Thanh Commune',
-                    'Phu Loc Commune',
-                    'Gia Thanh Commune',
-                    'Tien Du Commune',
-                    'Phu Nham Commune',
-                    'An Dao Commune',
-                    'Binh Phu Commune',
-                    'Phu Ninh Commune'
-                ]
-            },
-            'Yen Lap': {
-                subDistrict: [
-                    'Yen Lap Township',
-                    'My Lung Commune',
-                    'My Luong Commune',
-                    'Luong Son Commune',
-                    'Xuan An Commune',
-                    'Xuan Vien Commune',
-                    'Xuan Thuy Commune',
-                    'Trung Son Commune',
-                    'Hung Long Commune',
-                    'Nga Hoang Commune',
-                    'Dong Lac Commune',
-                    'Thuong Long Commune',
-                    'Dong Thinh Commune',
-                    'Phuc Khanh Commune',
-                    'Minh Hoa Commune',
-                    'Ngoc Lap Commune',
-                    'Ngoc Dong Commune'
-                ]
-            },
-            'Cam Khe': {
-                subDistrict: [
-                    'Cam Khe Township',
-                    'Tien Luong Commune',
-                    'Tuy Loc Commune',
-                    'Ngo Xa Commune',
-                    'Minh Tan Commune',
-                    'Phuong Vi Commune',
-                    'Thuy Lieu Commune',
-                    'Tung Khe Commune',
-                    'Tam Son Commune',
-                    'Van Ban Commune',
-                    'Cap Dan Commune',
-                    'Xuong Thinh Commune',
-                    'Phu Khe Commune',
-                    'Son Tinh Commune',
-                    'Yen Tap Commune',
-                    'Huong Lung Commune',
-                    'Ta Xa Commune',
-                    'Phu Lac Commune',
-                    'Chuong Xa Commune',
-                    'Hung Viet Commune',
-                    'Van Khuc Commune',
-                    'Yen Duong Commune',
-                    'Dieu Luong Commune',
-                    'Dong Luong Commune'
-                ]
-            },
-            'Tam Nong': {
-                subDistrict: [
-                    'Hung Hoa Township',
-                    'Hien Quan Commune',
-                    'Bac Son Commune',
-                    'Thanh Uyen Commune',
-                    'Lam Son Commune',
-                    'Van Xuan Commune',
-                    'Quang Huc Commune',
-                    'Huong Non Commune',
-                    'Te Le Commune',
-                    'Tho Van Commune',
-                    'Di Nau Commune',
-                    'Dan Quyen Commune'
-                ]
-            },
-            'Lam Thao': {
-                subDistrict: [
-                    'Lam Thao Township',
-                    'Tien Kien Commune',
+                    'An Khanh Commune',
+                    'Ban Ngoai Commune',
+                    'Binh Thuan Commune',
+                    'Cat Ne Commune',
+                    'Cu Van Commune',
+                    'Duc Luong Commune',
+                    'Ha Thuong Commune',
+                    'Hoang Nong Commune',
                     'Hung Son Township',
-                    'Xuan Lung Commune',
-                    'Xuan Huy Commune',
-                    'Thach Son Commune',
-                    'Son Vi Commune',
-                    'Phung Nguyen Commune',
-                    'Cao Xa Commune',
-                    'Vinh Lai Commune',
-                    'Tu Xa Commune',
-                    'Ban Nguyen Commune'
+                    'Khoi Ky Commune',
+                    'Ky Phu Commune',
+                    'La Bang Commune',
+                    'Luc Ba Commune',
+                    'Minh Tien Commune',
+                    'My Yen Commune',
+                    'Na Mao Commune',
+                    'Phu Cuong Commune',
+                    'Phu Lac Commune',
+                    'Phu Thinh Commune',
+                    'Phu Xuyen Commune',
+                    'Phuc Linh Commune',
+                    'Phuc Luong Commune',
+                    'Quan Chu Township',
+                    'Tan Linh Commune',
+                    'Tan Thai Commune',
+                    'Tien Hoi Commune',
+                    'Van Tho Commune',
+                    'Van Yen Commune',
+                    'Yen Lang Commune'
                 ]
             },
-            'Thanh Son': {
+            'Dinh Hoa': {
                 subDistrict: [
-                    'Thanh Son Township',
-                    'Son Hung Commune',
-                    'Dich Qua Commune',
-                    'Giap Lai Commune',
-                    'Thuc Luyen Commune',
-                    'Vo Mieu Commune',
-                    'Thach Khoan Commune',
-                    'Cu Thang Commune',
-                    'Tat Thang Commune',
-                    'Van Mieu Commune',
-                    'Cu Dong Commune',
-                    'Thang Son Commune',
-                    'Tan Minh Commune',
-                    'Huong Can Commune',
-                    'Kha Cuu Commune',
-                    'Dong Cuu Commune',
-                    'Tan Lap Commune',
-                    'Yen Lang Commune',
-                    'Yen Luong Commune',
-                    'Thuong Cuu Commune',
-                    'Luong Nha Commune',
-                    'Yen Son Commune',
-                    'Tinh Nhue Commune'
+                    'Bao Cuong Commune',
+                    'Bao Linh Commune',
+                    'Binh Thanh Commune',
+                    'Binh Yen Commune',
+                    'Boc Nhieu Commune',
+                    'Cho Chu Township',
+                    'Diem Mac Commune',
+                    'Dinh Bien Commune',
+                    'Dong Thinh Commune',
+                    'Kim Phuong Commune',
+                    'Lam Vy Commune',
+                    'Linh Thong Commune',
+                    'Phu Dinh Commune',
+                    'Phu Tien Commune',
+                    'Phuc Chu Commune',
+                    'Phuong Tien Commune',
+                    'Quy Ky Commune',
+                    'Son Phu Commune',
+                    'Tan Duong Commune',
+                    'Tan Thinh Commune',
+                    'Thanh Dinh Commune',
+                    'Trung Hoi Commune',
+                    'Trung Luong Commune'
                 ]
             },
-            'Tan Son': {
+            'Dong Hy': {
                 subDistrict: [
-                    'Thu Cuc Commune',
-                    'Thach Kiet Commune',
-                    'Thu Ngac Commune',
-                    'Kiet Son Commune',
-                    'Dong Son Commune',
-                    'Lai Dong Commune',
-                    'Tan Phu Commune',
-                    'My Thuan Commune',
-                    'Tan Son Commune',
-                    'Xuan Dai Commune',
-                    'Minh Dai Commune',
-                    'Van Luong Commune',
-                    'Xuan Son Commune',
-                    'Long Coc Commune',
-                    'Kim Thuong Commune',
-                    'Tam Thanh Commune',
-                    'Vinh Tien Commune'
+                    'Cay Thi Commune',
+                    'Hoa Binh Commune',
+                    'Hoa Thuong Township',
+                    'Hoa Trung Commune',
+                    'Hop Tien Commune',
+                    'Khe Mo Commune',
+                    'Minh Lap Commune',
+                    'Nam Hoa Commune',
+                    'Quang Son Commune',
+                    'Song Cau Township',
+                    'Tan Loi Commune',
+                    'Tan Long Commune',
+                    'Trai Cau Township',
+                    'Van Han Commune',
+                    'Van Lang Commune'
                 ]
             },
-            'Thanh Thuy': {
+            'Pho Yen': {
                 subDistrict: [
+                    'Ba Hang Ward',
+                    'Bac Son Ward',
+                    'Bai Bong Ward',
+                    'Dac Son Ward',
+                    'Dong Cao Ward',
+                    'Dong Tien Ward',
+                    'Hong Tien Ward',
+                    'Minh Duc Commune',
+                    'Nam Tien Ward',
+                    'Phuc Tan Commune',
+                    'Phuc Thuan Commune',
+                    'Tan Huong Ward',
+                    'Tan Phu Ward',
+                    'Thanh Cong Commune',
+                    'Thuan Thanh Ward',
+                    'Tien Phong Ward',
+                    'Trung Thanh Ward',
+                    'Van Phai Commune'
+                ]
+            },
+            'Phu Binh': {
+                subDistrict: [
+                    'Ban Dat Commune',
+                    'Bao Ly Commune',
                     'Dao Xa Commune',
-                    'Thach Dong Commune',
-                    'Xuan Loc Commune',
-                    'Tan Phuong Commune',
-                    'Thanh Thuy Township',
-                    'Son Thuy Commune',
-                    'Bao Yen Commune',
-                    'Doan Ha Commune',
-                    'Dong Trung Commune',
-                    'Hoang Xa Commune',
-                    'Tu Vu Commune'
+                    'Diem Thuy Commune',
+                    'Duong Thanh Commune',
+                    'Ha Chau Commune',
+                    'Huong Son Township',
+                    'Kha Son Commune',
+                    'Luong Phu Commune',
+                    'Nga My Commune',
+                    'Nha Long Commune',
+                    'Tan Duc Commune',
+                    'Tan Hoa Commune',
+                    'Tan Khanh Commune',
+                    'Tan Kim Commune',
+                    'Tan Thanh Commune',
+                    'Thanh Ninh Commune',
+                    'Thuong Dinh Commune',
+                    'Uc Ky Commune',
+                    'Xuan Phuong Commune'
+                ]
+            },
+            'Phu Luong': {
+                subDistrict: [
+                    'Co Lung Commune',
+                    'Dong Dat Commune',
+                    'Du Township',
+                    'Giang Tien Township',
+                    'Hop Thanh Commune',
+                    'On Luong Commune',
+                    'Phan Me Commune',
+                    'Phu Do Commune',
+                    'Phu Ly Commune',
+                    'Tuc Tranh Commune',
+                    'Vo Tranh Commune',
+                    'Yen Do Commune',
+                    'Yen Lac Commune',
+                    'Yen Ninh Commune',
+                    'Yen Trach Commune'
+                ]
+            },
+            'Song Cong': {
+                subDistrict: [
+                    'Ba Xuyen Commune',
+                    'Bach Quang Ward',
+                    'Binh Son Commune',
+                    'Cai Dan Ward',
+                    'Chau Son Ward',
+                    'Luong Son Ward',
+                    'Mo Che Ward',
+                    'Pho Co Ward',
+                    'Tan Quang Commune',
+                    'Thang Loi Ward'
+                ]
+            },
+            'Thai Nguyen': {
+                subDistrict: [
+                    'Cam Gia Ward',
+                    'Cao Ngan Commune',
+                    'Chua Hang Ward',
+                    'Dong Bam Ward',
+                    'Dong Lien Commune',
+                    'Dong Quang Ward',
+                    'Gia Sang Ward',
+                    'Hoang Van Thu Ward',
+                    'Huong Son Ward',
+                    'Huong Thuong Commune',
+                    'Linh Son Commune',
+                    'Phan Dinh Phung Ward',
+                    'Phu Xa Ward',
+                    'Phuc Ha Commune',
+                    'Phuc Triu Commune',
+                    'Phuc Xuan Commune',
+                    'Quan Trieu Ward',
+                    'Quang Trung Ward',
+                    'Quang Vinh Ward',
+                    'Quyet Thang Commune',
+                    'Son Cam Commune',
+                    'Tan Cuong Commune',
+                    'Tan Lap Ward',
+                    'Tan Long Ward',
+                    'Tan Thanh Ward',
+                    'Tan Thinh Ward',
+                    'Thinh Dan Ward',
+                    'Thinh Duc Commune',
+                    'Tich Luong Ward',
+                    'Trung Thanh Ward',
+                    'Trung Vuong Ward',
+                    'Tuc Duyen Ward'
+                ]
+            },
+            'Vo Nhai': {
+                subDistrict: [
+                    'Binh Long Commune',
+                    'Cuc Duong Commune',
+                    'Dan Tien Commune',
+                    'Dinh Ca Township',
+                    'La Hien Commune',
+                    'Lau Thuong Commune',
+                    'Lien Minh Commune',
+                    'Nghinh Tuong Commune',
+                    'Phu Thuong Commune',
+                    'Phuong Giao Commune',
+                    'Sang Moc Commune',
+                    'Than Xa Commune',
+                    'Thuong Nung Commune',
+                    'Trang Xa Commune',
+                    'Vu Chan Commune'
+                ]
+            }
+        },
+        'Tuyen Quang': {
+            'Chiem Hoa': {
+                subDistrict: [
+                    'Binh Nhan Commune',
+                    'Binh Phu Commune',
+                    'Ha Lang Commune',
+                    'Hoa An Commune',
+                    'Hoa Phu Commune',
+                    'Hung My Commune',
+                    'Kien Dai Commune',
+                    'Kim Binh Commune',
+                    'Linh Phu Commune',
+                    'Ngoc Hoi Commune',
+                    'Nhan Ly Commune',
+                    'Phu Binh Commune',
+                    'Phuc Thinh Commune',
+                    'Tan An Commune',
+                    'Tan My Commune',
+                    'Tan Thinh Commune',
+                    'Tri Phu Commune',
+                    'Trung Ha Commune',
+                    'Trung Hoa Commune',
+                    'Vinh Loc Township',
+                    'Vinh Quang Commune',
+                    'Xuan Quang Commune',
+                    'Yen Lap Commune',
+                    'Yen Nguyen Commune'
+                ]
+            },
+            'Ham Yen': {
+                subDistrict: [
+                    'Bach Xa Commune',
+                    'Bang Coc Commune',
+                    'Binh Xa Commune',
+                    'Duc Ninh Commune',
+                    'Hung Duc Commune',
+                    'Minh Dan Commune',
+                    'Minh Huong Commune',
+                    'Minh Khuong Commune',
+                    'Nhan Muc Commune',
+                    'Phu Luu Commune',
+                    'Tan Thanh Commune',
+                    'Tan Yen Township',
+                    'Thai Hoa Commune',
+                    'Thai Son Commune',
+                    'Thanh Long Commune',
+                    'Yen Lam Commune',
+                    'Yen Phu Commune',
+                    'Yen Thuan Commune'
+                ]
+            },
+            'Lam Binh': {
+                subDistrict: [
+                    'Binh An Commune',
+                    'Hong Quang Commune',
+                    'Khuon Ha Commune',
+                    'Lang Can Township',
+                    'Minh Quang Commune',
+                    'Phuc Son Commune',
+                    'Phuc Yen Commune',
+                    'Tho Binh Commune',
+                    'Thuong Lam Commune',
+                    'Xuan Lap Commune'
+                ]
+            },
+            'Na Hang': {
+                subDistrict: [
+                    'Con Lon Commune',
+                    'Da Vi Commune',
+                    'Hong Thai Commune',
+                    'Khau Tinh Commune',
+                    'Na Hang Township',
+                    'Nang Kha Commune',
+                    'Sinh Long Commune',
+                    'Son Phu Commune',
+                    'Thanh Tuong Commune',
+                    'Thuong Giap Commune',
+                    'Thuong Nong Commune',
+                    'Yen Hoa Commune'
+                ]
+            },
+            'Son Duong': {
+                subDistrict: [
+                    'Binh Yen Commune',
+                    'Cap Tien Commune',
+                    'Chi Thiet Commune',
+                    'Dai Phu Commune',
+                    'Dong Loi Commune',
+                    'Dong Quy Commune',
+                    'Dong Tho Commune',
+                    'Hao Phu Commune',
+                    'Hong Son Commune',
+                    'Hop Hoa Commune',
+                    'Hop Thanh Commune',
+                    'Khang Nhat Commune',
+                    'Luong Thien Commune',
+                    'Minh Thanh Commune',
+                    'Ninh Lai Commune',
+                    'Phu Luong Commune',
+                    'Phuc Ung Commune',
+                    'Quyet Thang Commune',
+                    'Son Duong Township',
+                    'Son Nam Commune',
+                    'Tam Da Commune',
+                    'Tan Thanh Commune',
+                    'Tan Trao Commune',
+                    'Thien Ke Commune',
+                    'Thuong Am Commune',
+                    'Trung Yen Commune',
+                    'Truong Sinh Commune',
+                    'Tu Thinh Commune',
+                    'Van Phu Commune',
+                    'Vinh Loi Commune'
+                ]
+            },
+            'Tuyen Quang': {
+                subDistrict: [
+                    'An Khang Commune',
+                    'An Tuong Ward',
+                    'Doi Can Ward',
+                    'Hung Thanh Ward',
+                    'Kim Phu Commune',
+                    'Luong Vuong Commune',
+                    'Minh Xuan Ward',
+                    'My Lam Ward',
+                    'Nong Tien Ward',
+                    'Phan Thiet Ward',
+                    'Tan Ha Ward',
+                    'Tan Quang Ward',
+                    'Thai Long Commune',
+                    'Trang Da Commune',
+                    'Y La Ward'
+                ]
+            },
+            'Yen Son': {
+                subDistrict: [
+                    'Chan Son Commune',
+                    'Chieu Yen Commune',
+                    'Cong Da Commune',
+                    'Dao Vien Commune',
+                    'Doi Binh Commune',
+                    'Hoang Khai Commune',
+                    'Hung Loi Commune',
+                    'Kien Thiet Commune',
+                    'Kim Quan Commune',
+                    'Lang Quan Commune',
+                    'Luc Hanh Commune',
+                    'My Bang Commune',
+                    'Nhu Han Commune',
+                    'Nhu Khe Commune',
+                    'Phu Thinh Commune',
+                    'Phuc Ninh Commune',
+                    'Qui Quan Commune',
+                    'Tan Long Commune',
+                    'Tan Tien Commune',
+                    'Thai Binh Commune',
+                    'Tien Bo Commune',
+                    'Trung Minh Commune',
+                    'Trung Mon Commune',
+                    'Trung Son Commune',
+                    'Trung Truc Commune',
+                    'Tu Quan Commune',
+                    'Xuan Van Commune',
+                    'Yen Son Township'
                 ]
             }
         }
     },
     Northwest: {
-        'Lao Cai': {
-            'Lao Cai': {
-                subDistrict: [
-                    'Duyen Hai Ward',
-                    'Lao Cai Ward',
-                    'Coc Leu Ward',
-                    'Kim Tan Ward',
-                    'Bac Lenh Ward',
-                    'Pom Han Ward',
-                    'Xuan Tang Ward',
-                    'Binh Minh Ward',
-                    'Thong Nhat Commune',
-                    'Dong Tuyen Commune',
-                    'Van Hoa Commune',
-                    'Bac Cuong Ward',
-                    'Nam Cuong Ward',
-                    'Cam Duong Commune',
-                    'Ta Phoi Commune',
-                    'Hop Thanh Commune',
-                    'Coc San Commune'
-                ]
-            },
-            'Bat Xat': {
-                subDistrict: [
-                    'Bat Xat Township',
-                    'A Mu Sung Commune',
-                    'Nam Chac Commune',
-                    'A Lu Commune',
-                    'Trinh Tuong Commune',
-                    'Y Ty Commune',
-                    'Coc My Commune',
-                    'Den Sang Commune',
-                    'Ban Vuoc Commune',
-                    'Sang Ma Sao Commune',
-                    'Ban Qua Commune',
-                    'Muong Vi Commune',
-                    'Den Thang Commune',
-                    'Ban Xeo Commune',
-                    'Muong Hum Commune',
-                    'Trung Leng Ho Commune',
-                    'Quang Kim Commune',
-                    'Pa Cheo Commune',
-                    'Nam Pung Commune',
-                    'Phin Ngan Commune',
-                    'Tong Sanh Commune'
-                ]
-            },
-            'Muong Khuong': {
-                subDistrict: [
-                    'Pha Long Commune',
-                    'Ta Ngai Cho Commune',
-                    'Tung Chung Pho Commune',
-                    'Muong Khuong Township',
-                    'Din Chin Commune',
-                    'Ta Gia Khau Commune',
-                    'Nam Chay Commune',
-                    'Nam Lu Commune',
-                    'Lung Khau Nhin Commune',
-                    'Thanh Binh Commune',
-                    'Cao Son Commune',
-                    'Lung Vai Commune',
-                    'Ban Lau Commune',
-                    'La Pan Tan Commune',
-                    'Ta Thang Commune',
-                    'Ban Sen Commune'
-                ]
-            },
-            'Si Ma Cai': {
-                subDistrict: [
-                    'Nan San Commune',
-                    'Thao Chu Phin Commune',
-                    'Ban Me Commune',
-                    'Si Ma Cai Township',
-                    'San Chai Commune',
-                    'Lung Than Commune',
-                    'Can Cau Commune',
-                    'Sin Cheng Commune',
-                    'Quan Ho Than Commune',
-                    'Nan Xin Commune'
-                ]
-            },
-            'Bac Ha': {
-                subDistrict: [
-                    'Bac Ha Township',
-                    'Lung Cai Commune',
-                    'Lung Phinh Commune',
-                    'Ta Van Chu Commune',
-                    'Ta Cu Ty Commune',
-                    'Thai Giang Pho Commune',
-                    'Hoang Thu Pho Commune',
-                    'Ban Pho Commune',
-                    'Ban Lien Commune',
-                    'Ta Chai Commune',
-                    'Na Hoi Commune',
-                    'Coc Ly Commune',
-                    'Nam Mon Commune',
-                    'Nam Det Commune',
-                    'Nam Khanh Commune',
-                    'Bao Nhai Commune',
-                    'Nam Luc Commune',
-                    'Coc Lau Commune',
-                    'Ban Cai Commune'
-                ]
-            },
-            'Bao Thang': {
-                subDistrict: [
-                    'N.T Phong Hai Township',
-                    'Pho Lu Township',
-                    'Tang Loong Township',
-                    'Ban Phiet Commune',
-                    'Ban Cam Commune',
-                    'Thai Nien Commune',
-                    'Phong Nien Commune',
-                    'Gia Phu Commune',
-                    'Xuan Quang Commune',
-                    'Son Hai Commune',
-                    'Xuan Giao Commune',
-                    'Tri Quang Commune',
-                    'Son Ha Commune',
-                    'Phu Nhuan Commune'
-                ]
-            },
-            'Bao Yen': {
-                subDistrict: [
-                    'Pho Rang Township',
-                    'Tan Tien Commune',
-                    'Nghia Do Commune',
-                    'Vinh Yen Commune',
-                    'Dien Quan Commune',
-                    'Xuan Hoa Commune',
-                    'Tan Duong Commune',
-                    'Thuong Ha Commune',
-                    'Kim Son Commune',
-                    'Cam Con Commune',
-                    'Minh Tan Commune',
-                    'Xuan Thuong Commune',
-                    'Viet Tien Commune',
-                    'Yen Son Commune',
-                    'Bao Ha Commune',
-                    'Luong Son Commune',
-                    'Phuc Khanh Commune'
-                ]
-            },
-            'Sa Pa': {
-                subDistrict: [
-                    'Sa Pa Ward',
-                    'O Quy Ho Ward',
-                    'Ngu Chi Son Commune',
-                    'Phan Si Pang Ward',
-                    'Trung Chai Commune',
-                    'Ta Phin Commune',
-                    'Ham Rong Ward',
-                    'Hoang Lien Commune',
-                    'Thanh Binh Commune',
-                    'Cau May Ward',
-                    'Muong Hoa Commune',
-                    'Ta Van Commune',
-                    'Muong Bo Commune',
-                    'Ban Ho Commune',
-                    'Lien Minh Commune'
-                ]
-            },
-            'Van Ban': {
-                subDistrict: [
-                    'Khanh Yen Township',
-                    'Vo Lao Commune',
-                    'Son Thuy Commune',
-                    'Nam Ma Commune',
-                    'Tan Thuong Commune',
-                    'Nam Rang Commune',
-                    'Nam Chay Commune',
-                    'Tan An Commune',
-                    'Khanh Yen Thuong Commune',
-                    'Nam Xe Commune',
-                    'Dan Thang Commune',
-                    'Chieng Ken Commune',
-                    'Lang Giang Commune',
-                    'Hoa Mac Commune',
-                    'Khanh Yen Trung Commune',
-                    'Khanh Yen Ha Commune',
-                    'Duong Quy Commune',
-                    'Nam Tha Commune',
-                    'Minh Luong Commune',
-                    'Tham Duong Commune',
-                    'Liem Phu Commune',
-                    'Nam Xay Commune'
-                ]
-            }
-        },
         'Dien Bien': {
-            'Dien Bien Phu': {
+            'Dien Bien': {
                 subDistrict: [
-                    'Noong Bua Ward',
-                    'Him Lam Ward',
-                    'Thanh Binh Ward',
-                    'Tan Thanh Ward',
-                    'Muong Thanh Ward',
-                    'Nam Thanh Ward',
-                    'Thanh Truong Ward',
-                    'Thanh Minh Commune',
-                    'Na Tau Commune',
-                    'Na Nhan Commune',
-                    'Muong Phang Commune',
-                    'Pa Khoang Commune'
-                ]
-            },
-            'Muong Lay': {
-                subDistrict: ['Song Da Ward', 'Na Lay Ward', 'Lay Nua Commune']
-            },
-            'Muong Nhe': {
-                subDistrict: [
-                    'Sin Thau Commune',
-                    'Sen Thuong Commune',
-                    'Chung Chai Commune',
-                    'Leng Su Sin Commune',
-                    'Pa My Commune',
-                    'Muong Nhe Commune',
-                    'Nam Vi Commune',
-                    'Nam Ke Commune',
-                    'Muong Toong Commune',
-                    'Quang Lam Commune',
-                    'Huoi Lenh Commune'
-                ]
-            },
-            'Nam Po': {
-                subDistrict: [
-                    'Nam Tin Commune',
-                    'Pa Tan Commune',
-                    'Cha Cang Commune',
-                    'Na Co Sa Commune',
-                    'Na Khoa Commune',
-                    'Na Hy Commune',
-                    'Na Bung Commune',
-                    'Nam Nhu Commune',
-                    'Nam Chua Commune',
-                    'Nam Khan Commune',
-                    'Cha To Commune',
-                    'Vang Dan Commune',
-                    'Cha Nua Commune',
-                    'Phin Ho Commune',
-                    'Si Pa Phin Commune'
-                ]
-            },
-            'Muong Cha': {
-                subDistrict: [
-                    'Muong Cha Township',
-                    'Xa Tong Commune',
-                    'Muong Tung Commune',
-                    'Hua Ngai Commune',
-                    'Huoi Mi Commune',
-                    'Pa Ham Commune',
-                    'Nam Nen Commune',
-                    'Huoi Leng Commune',
-                    'Sa Long Commune',
-                    'Ma Thi Ho Commune',
-                    'Na Sang Commune',
-                    'Muong Muon Commune'
+                    'He Muong Commune',
+                    'Hua Thanh Commune',
+                    'Muong Loi Commune',
+                    'Muong Nha Commune',
+                    'Muong Pon Commune',
+                    'Na Tong Commune',
+                    'Na U Commune',
+                    'Noong Het Commune',
+                    'Noong Luong Commune',
+                    'Nua Ngam Commune',
+                    'Pa Thom Commune',
+                    'Phu Luong Commune',
+                    'Pom Lot Commune',
+                    'Sam Mun Commune',
+                    'Thanh An Commune',
+                    'Thanh Chan Commune',
+                    'Thanh Hung Commune',
+                    'Thanh Luong Commune',
+                    'Thanh Nua Commune',
+                    'Thanh Xuong Commune',
+                    'Thanh Yen Commune'
                 ]
             },
             'Dien Bien Dong': {
                 subDistrict: [
-                    'Dien Bien Dong Township',
-                    'Na Son Commune',
-                    'Phi Nhu Commune',
                     'Chieng So Commune',
-                    'Muong Luan Commune',
-                    'Pu Nhi Commune',
-                    'Nong U Commune',
-                    'Xa Dung Commune',
+                    'Dien Bien Dong Township',
+                    'Hang Lia Commune',
                     'Keo Lom Commune',
                     'Luan Gioi Commune',
+                    'Muong Luan Commune',
+                    'Na Son Commune',
+                    'Nong U Commune',
+                    'Phi Nhu Commune',
                     'Phinh Giang Commune',
                     'Pu Hong Commune',
+                    'Pu Nhi Commune',
                     'Tia Dinh Commune',
-                    'Hang Lia Commune'
+                    'Xa Dung Commune'
                 ]
             },
-            'Tua Chua': {
+            'Dien Bien Phu': {
                 subDistrict: [
-                    'Tua Chua Township',
-                    'Huoi So Commune',
-                    'Xin Chai Commune',
-                    'Ta Sin Thang Commune',
-                    'Lao Xa Phinh Commune',
-                    'Ta Phin Commune',
-                    'Tua Thang Commune',
-                    'Trung Thu Commune',
-                    'Sinh Phinh Commune',
-                    'Sang Nhe Commune',
-                    'Muong Dun Commune',
-                    'Muong Bang Commune'
-                ]
-            },
-            'Tuan Giao': {
-                subDistrict: [
-                    'Tuan Giao Township',
-                    'Phinh Sang Commune',
-                    'Rang Dong Commune',
-                    'Mun Chung Commune',
-                    'Na Tong Commune',
-                    'Ta Ma Commune',
-                    'Muong Mun Commune',
-                    'Pu Xi Commune',
-                    'Pu Nhung Commune',
-                    'Quai Nua Commune',
-                    'Muong Thin Commune',
-                    'Toa Tinh Commune',
-                    'Na Say Commune',
-                    'Muong Khong Commune',
-                    'Quai Cang Commune',
-                    'Quai To Commune',
-                    'Chieng Sinh Commune',
-                    'Chieng Dong Commune',
-                    'Tenh Phong Commune'
+                    'Him Lam Ward',
+                    'Muong Phang Commune',
+                    'Muong Thanh Ward',
+                    'Na Nhan Commune',
+                    'Na Tau Commune',
+                    'Nam Thanh Ward',
+                    'Noong Bua Ward',
+                    'Pa Khoang Commune',
+                    'Tan Thanh Ward',
+                    'Thanh Binh Ward',
+                    'Thanh Minh Commune',
+                    'Thanh Truong Ward'
                 ]
             },
             'Muong Ang': {
                 subDistrict: [
-                    'Muong Ang Township',
-                    'Muong Dang Commune',
-                    'Ngoi Cay Commune',
+                    'Ang Cang Commune',
+                    'Ang Nua Commune',
                     'Ang To Commune',
                     'Bung Lao Commune',
-                    'Xuan Lao Commune',
-                    'Ang Nua Commune',
-                    'Ang Cang Commune',
+                    'Muong Ang Township',
+                    'Muong Dang Commune',
+                    'Muong Lan Commune',
                     'Nam Lich Commune',
-                    'Muong Lan Commune'
+                    'Ngoi Cay Commune',
+                    'Xuan Lao Commune'
                 ]
             },
-            'Dien Bien': {
+            'Muong Cha': {
                 subDistrict: [
-                    'Muong Pon Commune',
-                    'Thanh Nua Commune',
-                    'Hua Thanh Commune',
-                    'Thanh Luong Commune',
-                    'Thanh Hung Commune',
-                    'Thanh Xuong Commune',
-                    'Thanh Chan Commune',
-                    'Pa Thom Commune',
-                    'Thanh An Commune',
-                    'Thanh Yen Commune',
-                    'Noong Luong Commune',
-                    'Noong Het Commune',
-                    'Sam Mun Commune',
-                    'Pom Lot Commune',
-                    'Nua Ngam Commune',
-                    'He Muong Commune',
-                    'Na U Commune',
-                    'Muong Nha Commune',
+                    'Hua Ngai Commune',
+                    'Huoi Leng Commune',
+                    'Huoi Mi Commune',
+                    'Ma Thi Ho Commune',
+                    'Muong Cha Township',
+                    'Muong Muon Commune',
+                    'Muong Tung Commune',
+                    'Na Sang Commune',
+                    'Nam Nen Commune',
+                    'Pa Ham Commune',
+                    'Sa Long Commune',
+                    'Xa Tong Commune'
+                ]
+            },
+            'Muong Lay': {
+                subDistrict: ['Lay Nua Commune', 'Na Lay Ward', 'Song Da Ward']
+            },
+            'Muong Nhe': {
+                subDistrict: [
+                    'Chung Chai Commune',
+                    'Huoi Lenh Commune',
+                    'Leng Su Sin Commune',
+                    'Muong Nhe Commune',
+                    'Muong Toong Commune',
+                    'Nam Ke Commune',
+                    'Nam Vi Commune',
+                    'Pa My Commune',
+                    'Quang Lam Commune',
+                    'Sen Thuong Commune',
+                    'Sin Thau Commune'
+                ]
+            },
+            'Nam Po': {
+                subDistrict: [
+                    'Cha Cang Commune',
+                    'Cha Nua Commune',
+                    'Cha To Commune',
+                    'Na Bung Commune',
+                    'Na Co Sa Commune',
+                    'Na Hy Commune',
+                    'Na Khoa Commune',
+                    'Nam Chua Commune',
+                    'Nam Khan Commune',
+                    'Nam Nhu Commune',
+                    'Nam Tin Commune',
+                    'Pa Tan Commune',
+                    'Phin Ho Commune',
+                    'Si Pa Phin Commune',
+                    'Vang Dan Commune'
+                ]
+            },
+            'Tua Chua': {
+                subDistrict: [
+                    'Huoi So Commune',
+                    'Lao Xa Phinh Commune',
+                    'Muong Bang Commune',
+                    'Muong Dun Commune',
+                    'Sang Nhe Commune',
+                    'Sinh Phinh Commune',
+                    'Ta Phin Commune',
+                    'Ta Sin Thang Commune',
+                    'Trung Thu Commune',
+                    'Tua Chua Township',
+                    'Tua Thang Commune',
+                    'Xin Chai Commune'
+                ]
+            },
+            'Tuan Giao': {
+                subDistrict: [
+                    'Chieng Dong Commune',
+                    'Chieng Sinh Commune',
+                    'Mun Chung Commune',
+                    'Muong Khong Commune',
+                    'Muong Mun Commune',
+                    'Muong Thin Commune',
+                    'Na Say Commune',
                     'Na Tong Commune',
-                    'Muong Loi Commune',
-                    'Phu Luong Commune'
+                    'Phinh Sang Commune',
+                    'Pu Nhung Commune',
+                    'Pu Xi Commune',
+                    'Quai Cang Commune',
+                    'Quai Nua Commune',
+                    'Quai To Commune',
+                    'Rang Dong Commune',
+                    'Ta Ma Commune',
+                    'Tenh Phong Commune',
+                    'Toa Tinh Commune',
+                    'Tuan Giao Township'
+                ]
+            }
+        },
+        'Hoa Binh': {
+            'Cao Phong': {
+                subDistrict: [
+                    'Bac Phong Commune',
+                    'Binh Thanh Commune',
+                    'Cao Phong Township',
+                    'Dung Phong Commune',
+                    'Hop Phong Commune',
+                    'Nam Phong Commune',
+                    'Tay Phong Commune',
+                    'Thach Yen Commune',
+                    'Thu Phong Commune',
+                    'Thung Nai Commune'
+                ]
+            },
+            'Da Bac': {
+                subDistrict: [
+                    'Cao Son Commune',
+                    'Da Bac Township',
+                    'Doan Ket Commune',
+                    'Dong Chum Commune',
+                    'Dong Ruong Commune',
+                    'Giap Dat Commune',
+                    'Hien Luong Commune',
+                    'Muong Chieng Commune',
+                    'Nanh Nghe Commune',
+                    'Tan Minh Commune',
+                    'Tan Pheo Commune',
+                    'Tien Phong Commune',
+                    'Toan Son Commune',
+                    'Trung Thanh Commune',
+                    'Tu Ly Commune',
+                    'Vay Nua Commune',
+                    'Yen Hoa Commune'
+                ]
+            },
+            'Hoa Binh': {
+                subDistrict: [
+                    'Dan Chu Ward',
+                    'Doc Lap Commune',
+                    'Dong Tien Ward',
+                    'Hoa Binh Commune',
+                    'Hop Thanh Commune',
+                    'Huu Nghi Ward',
+                    'Ky Son Ward',
+                    'Mong Hoa Commune',
+                    'Phuong Lam Ward',
+                    'Quang Tien Commune',
+                    'Quynh Lam Ward',
+                    'Tan Hoa Ward',
+                    'Tan Thinh Ward',
+                    'Thai Binh Ward',
+                    'Thinh Lang Ward',
+                    'Thinh Minh Commune',
+                    'Thong Nhat Ward',
+                    'Trung Minh Ward',
+                    'Yen Mong Commune'
+                ]
+            },
+            'Kim Boi': {
+                subDistrict: [
+                    'Binh Son Commune',
+                    'Bo Township',
+                    'Cuoi Ha Commune',
+                    'Dong Bac Commune',
+                    'Du Sang Commune',
+                    'Hop Tien Commune',
+                    'Hung Son Commune',
+                    'Kim Boi Commune',
+                    'Kim Lap Commune',
+                    'Mi Hoa Commune',
+                    'Nam Thuong Commune',
+                    'Nuong Dam Commune',
+                    'Sao Bay Commune',
+                    'Tu Son Commune',
+                    'Vinh Dong Commune',
+                    'Vinh Tien Commune',
+                    'Xuan Thuy Commune'
+                ]
+            },
+            'Lac Son': {
+                subDistrict: [
+                    'An Nghia Commune',
+                    'Binh Hem Commune',
+                    'Chi Dao Commune',
+                    'Dinh Cu Commune',
+                    'Huong Nhuong Commune',
+                    'Mien Doi Commune',
+                    'My Thanh Commune',
+                    'Ngoc Lau Commune',
+                    'Ngoc Son Commune',
+                    'Nhan Nghia Commune',
+                    'Quy Hoa Commune',
+                    'Quyet Thang Commune',
+                    'Tan Lap Commune',
+                    'Tan My Commune',
+                    'Thuong Coc Commune',
+                    'Tu Do Commune',
+                    'Tuan Dao Commune',
+                    'Van Nghia Commune',
+                    'Van Son Commune',
+                    'Vu Ban Township',
+                    'Vu Binh Commune',
+                    'Xuat Hoa Commune',
+                    'Yen Nghiep Commune',
+                    'Yen Phu Commune'
+                ]
+            },
+            'Lac Thuy': {
+                subDistrict: [
+                    'An Binh Commune',
+                    'Ba Hang Doi Township',
+                    'Chi Ne Township',
+                    'Dong Tam Commune',
+                    'Hung Thi Commune',
+                    'Khoan Du Commune',
+                    'Phu Nghia Commune',
+                    'Phu Thanh Commune',
+                    'Thong Nhat Commune',
+                    'Yen Bong Commune'
+                ]
+            },
+            'Luong Son': {
+                subDistrict: [
+                    'Cao Duong Commune',
+                    'Cao Son Commune',
+                    'Cu Yen Commune',
+                    'Hoa Son Commune',
+                    'Lam Son Commune',
+                    'Lien Son Commune',
+                    'Luong Son Township',
+                    'Nhuan Trach Commune',
+                    'Tan Vinh Commune',
+                    'Thanh Cao Commune',
+                    'Thanh Son Commune'
+                ]
+            },
+            'Mai Chau': {
+                subDistrict: [
+                    'Bao La Commune',
+                    'Chieng Chau Commune',
+                    'Cun Pheo Commune',
+                    'Dong Tan Commune',
+                    'Hang Kia Commune',
+                    'Mai Chau Township',
+                    'Mai Ha Commune',
+                    'Mai Hich Commune',
+                    'Na Phon Commune',
+                    'Pa Co Commune',
+                    'Sam Khoe Commune',
+                    'Son Thuy Commune',
+                    'Tan Thanh Commune',
+                    'Thanh Son Commune',
+                    'Tong Dau Commune',
+                    'Van Mai Commune'
+                ]
+            },
+            'Tan Lac': {
+                subDistrict: [
+                    'Dong Lai Commune',
+                    'Gia Mo Commune',
+                    'Lo Son Commune',
+                    'Man Duc Township',
+                    'My Hoa Commune',
+                    'Ngo Luong Commune',
+                    'Ngoc My Commune',
+                    'Nhan My Commune',
+                    'Phong Phu Commune',
+                    'Phu Cuong Commune',
+                    'Phu Vinh Commune',
+                    'Quyet Chien Commune',
+                    'Suoi Hoa Commune',
+                    'Thanh Hoi Commune',
+                    'Tu Ne Commune',
+                    'Van Son Commune'
+                ]
+            },
+            'Yen Thuy': {
+                subDistrict: [
+                    'Bao Hieu Commune',
+                    'Da Phuc Commune',
+                    'Doan Ket Commune',
+                    'Hang Tram Township',
+                    'Huu Loi Commune',
+                    'Lac Luong Commune',
+                    'Lac Sy Commune',
+                    'Lac Thinh Commune',
+                    'Ngoc Luong Commune',
+                    'Phu Lai Commune',
+                    'Yen Tri Commune'
                 ]
             }
         },
         'Lai Chau': {
             'Lai Chau': {
                 subDistrict: [
-                    'Quyet Thang Ward',
-                    'Tan Phong Ward',
-                    'Quyet Tien Ward',
                     'Doan Ket Ward',
-                    'Sung Phai Commune',
                     'Dong Phong Ward',
-                    'San Thang Commune'
-                ]
-            },
-            'Tam Duong': {
-                subDistrict: [
-                    'Tam Duong Township',
-                    'Then Sin Commune',
-                    'Ta Leng Commune',
-                    'Giang Ma Commune',
-                    'Ho Thau Commune',
-                    'Binh Lu Commune',
-                    'Son Binh Commune',
-                    'Nung Nang Commune',
-                    'Ban Giang Commune',
-                    'Ban Hon Commune',
-                    'Ban Bo Commune',
-                    'Na Tam Commune',
-                    'Khun Ha Commune'
-                ]
-            },
-            'Phong Tho': {
-                subDistrict: [
-                    'La Nhi Thang Commune',
-                    'Huoi Luong Commune',
-                    'Phong Tho Township',
-                    'Si Lo Lau Commune',
-                    'Mo Si San Commune',
-                    'Pa Vay Su Commune',
-                    'Vang Ma Chai Commune',
-                    'Tong Qua Lin Commune',
-                    'Mu Sang Commune',
-                    'Dao San Commune',
-                    'Ma Ly Pho Commune',
-                    'Ban Lang Commune',
-                    'Hoang Then Commune',
-                    'Khong Lao Commune',
-                    'Nam Xe Commune',
-                    'Muong So Commune',
-                    'Sin Suoi Ho Commune'
+                    'Quyet Thang Ward',
+                    'Quyet Tien Ward',
+                    'San Thang Commune',
+                    'Sung Phai Commune',
+                    'Tan Phong Ward'
                 ]
             },
             'Muong Te': {
                 subDistrict: [
-                    'Muong Te Township',
-                    'Thu Lum Commune',
-                    'Ka Lang Commune',
-                    'Ta Ba Commune',
-                    'Pa u Commune',
-                    'Muong Te Commune',
-                    'Pa Ve Su Commune',
-                    'Mu Ca Commune',
-                    'Bum To Commune',
-                    'Nam Khao Commune',
-                    'Ta Tong Commune',
                     'Bum Nua Commune',
-                    'Vang San Commune',
-                    'Kan Ho Commune'
+                    'Bum To Commune',
+                    'Ka Lang Commune',
+                    'Kan Ho Commune',
+                    'Mu Ca Commune',
+                    'Muong Te Commune',
+                    'Muong Te Township',
+                    'Nam Khao Commune',
+                    'Pa u Commune',
+                    'Pa Ve Su Commune',
+                    'Ta Ba Commune',
+                    'Ta Tong Commune',
+                    'Thu Lum Commune',
+                    'Vang San Commune'
                 ]
             },
             'Nam Nhun': {
                 subDistrict: [
-                    'Nam Nhun Township',
                     'Hua Bun Commune',
-                    'Muong Mo Commune',
-                    'Nam Cha Commune',
-                    'Nam Manh Commune',
-                    'Nam Hang Commune',
                     'Le Loi Commune',
-                    'Pu Dao Commune',
-                    'Nam Pi Commune',
+                    'Muong Mo Commune',
                     'Nam Ban Commune',
+                    'Nam Cha Commune',
+                    'Nam Hang Commune',
+                    'Nam Manh Commune',
+                    'Nam Nhun Township',
+                    'Nam Pi Commune',
+                    'Pu Dao Commune',
                     'Trung Chai Commune'
+                ]
+            },
+            'Phong Tho': {
+                subDistrict: [
+                    'Ban Lang Commune',
+                    'Dao San Commune',
+                    'Hoang Then Commune',
+                    'Huoi Luong Commune',
+                    'Khong Lao Commune',
+                    'La Nhi Thang Commune',
+                    'Ma Ly Pho Commune',
+                    'Mo Si San Commune',
+                    'Mu Sang Commune',
+                    'Muong So Commune',
+                    'Nam Xe Commune',
+                    'Pa Vay Su Commune',
+                    'Phong Tho Township',
+                    'Si Lo Lau Commune',
+                    'Sin Suoi Ho Commune',
+                    'Tong Qua Lin Commune',
+                    'Vang Ma Chai Commune'
                 ]
             },
             'Sin Ho': {
                 subDistrict: [
-                    'Sin Ho Township',
-                    'Chan Nua Commune',
-                    'Pa Tan Commune',
-                    'Phin Ho Commune',
-                    'Hong Thu Commune',
-                    'Phang So Lin Commune',
-                    'Ma Quai Commune',
-                    'Lung Thang Commune',
-                    'Ta Phin Commune',
-                    'Sa De Phin Commune',
-                    'Nam Tam Commune',
-                    'Ta Ngao Commune',
-                    'Pu Sam Cap Commune',
-                    'Nam Cha Commune',
-                    'Pa Khoa Commune',
-                    'Lang Mo Commune',
-                    'Noong Heo Commune',
-                    'Nam Ma Commune',
                     'Can Co Commune',
-                    'Tua Sin Chai Commune',
+                    'Chan Nua Commune',
+                    'Hong Thu Commune',
+                    'Lang Mo Commune',
+                    'Lung Thang Commune',
+                    'Ma Quai Commune',
+                    'Nam Cha Commune',
                     'Nam Cuoi Commune',
-                    'Nam Han Commune'
+                    'Nam Han Commune',
+                    'Nam Ma Commune',
+                    'Nam Tam Commune',
+                    'Noong Heo Commune',
+                    'Pa Khoa Commune',
+                    'Pa Tan Commune',
+                    'Phang So Lin Commune',
+                    'Phin Ho Commune',
+                    'Pu Sam Cap Commune',
+                    'Sa De Phin Commune',
+                    'Sin Ho Township',
+                    'Ta Ngao Commune',
+                    'Ta Phin Commune',
+                    'Tua Sin Chai Commune'
                 ]
             },
-            'Than Uyen': {
+            'Tam Duong': {
                 subDistrict: [
-                    'Than Uyen Township',
-                    'Phuc Than Commune',
-                    'Muong Than Commune',
-                    'Muong Mit Commune',
-                    'Pha Mu Commune',
-                    'Muong Cang Commune',
-                    'Hua Na Commune',
-                    'Ta Hua Commune',
-                    'Muong Kim Commune',
-                    'Ta Mung Commune',
-                    'Ta Gia Commune',
-                    'Khoen On Commune'
+                    'Ban Bo Commune',
+                    'Ban Giang Commune',
+                    'Ban Hon Commune',
+                    'Binh Lu Commune',
+                    'Giang Ma Commune',
+                    'Ho Thau Commune',
+                    'Khun Ha Commune',
+                    'Na Tam Commune',
+                    'Nung Nang Commune',
+                    'Son Binh Commune',
+                    'Ta Leng Commune',
+                    'Tam Duong Township',
+                    'Then Sin Commune'
                 ]
             },
             'Tan Uyen': {
                 subDistrict: [
-                    'Tan Uyen Township',
-                    'Muong Khoa Commune',
-                    'Phuc Khoa Commune',
-                    'Than Thuoc Commune',
-                    'Trung Dong Commune',
                     'Ho Mit Commune',
+                    'Muong Khoa Commune',
                     'Nam Can Commune',
                     'Nam So Commune',
                     'Pac Ta Commune',
-                    'Ta Mit Commune'
+                    'Phuc Khoa Commune',
+                    'Ta Mit Commune',
+                    'Tan Uyen Township',
+                    'Than Thuoc Commune',
+                    'Trung Dong Commune'
+                ]
+            },
+            'Than Uyen': {
+                subDistrict: [
+                    'Hua Na Commune',
+                    'Khoen On Commune',
+                    'Muong Cang Commune',
+                    'Muong Kim Commune',
+                    'Muong Mit Commune',
+                    'Muong Than Commune',
+                    'Pha Mu Commune',
+                    'Phuc Than Commune',
+                    'Ta Gia Commune',
+                    'Ta Hua Commune',
+                    'Ta Mung Commune',
+                    'Than Uyen Township'
+                ]
+            }
+        },
+        'Lao Cai': {
+            'Bac Ha': {
+                subDistrict: [
+                    'Bac Ha Township',
+                    'Ban Cai Commune',
+                    'Ban Lien Commune',
+                    'Ban Pho Commune',
+                    'Bao Nhai Commune',
+                    'Coc Lau Commune',
+                    'Coc Ly Commune',
+                    'Hoang Thu Pho Commune',
+                    'Lung Cai Commune',
+                    'Lung Phinh Commune',
+                    'Na Hoi Commune',
+                    'Nam Det Commune',
+                    'Nam Khanh Commune',
+                    'Nam Luc Commune',
+                    'Nam Mon Commune',
+                    'Ta Chai Commune',
+                    'Ta Cu Ty Commune',
+                    'Ta Van Chu Commune',
+                    'Thai Giang Pho Commune'
+                ]
+            },
+            'Bao Thang': {
+                subDistrict: [
+                    'Ban Cam Commune',
+                    'Ban Phiet Commune',
+                    'Gia Phu Commune',
+                    'N.T Phong Hai Township',
+                    'Pho Lu Township',
+                    'Phong Nien Commune',
+                    'Phu Nhuan Commune',
+                    'Son Ha Commune',
+                    'Son Hai Commune',
+                    'Tang Loong Township',
+                    'Thai Nien Commune',
+                    'Tri Quang Commune',
+                    'Xuan Giao Commune',
+                    'Xuan Quang Commune'
+                ]
+            },
+            'Bao Yen': {
+                subDistrict: [
+                    'Bao Ha Commune',
+                    'Cam Con Commune',
+                    'Dien Quan Commune',
+                    'Kim Son Commune',
+                    'Luong Son Commune',
+                    'Minh Tan Commune',
+                    'Nghia Do Commune',
+                    'Pho Rang Township',
+                    'Phuc Khanh Commune',
+                    'Tan Duong Commune',
+                    'Tan Tien Commune',
+                    'Thuong Ha Commune',
+                    'Viet Tien Commune',
+                    'Vinh Yen Commune',
+                    'Xuan Hoa Commune',
+                    'Xuan Thuong Commune',
+                    'Yen Son Commune'
+                ]
+            },
+            'Bat Xat': {
+                subDistrict: [
+                    'A Lu Commune',
+                    'A Mu Sung Commune',
+                    'Ban Qua Commune',
+                    'Ban Vuoc Commune',
+                    'Ban Xeo Commune',
+                    'Bat Xat Township',
+                    'Coc My Commune',
+                    'Den Sang Commune',
+                    'Den Thang Commune',
+                    'Muong Hum Commune',
+                    'Muong Vi Commune',
+                    'Nam Chac Commune',
+                    'Nam Pung Commune',
+                    'Pa Cheo Commune',
+                    'Phin Ngan Commune',
+                    'Quang Kim Commune',
+                    'Sang Ma Sao Commune',
+                    'Tong Sanh Commune',
+                    'Trinh Tuong Commune',
+                    'Trung Leng Ho Commune',
+                    'Y Ty Commune'
+                ]
+            },
+            'Lao Cai': {
+                subDistrict: [
+                    'Bac Cuong Ward',
+                    'Bac Lenh Ward',
+                    'Binh Minh Ward',
+                    'Cam Duong Commune',
+                    'Coc Leu Ward',
+                    'Coc San Commune',
+                    'Dong Tuyen Commune',
+                    'Duyen Hai Ward',
+                    'Hop Thanh Commune',
+                    'Kim Tan Ward',
+                    'Lao Cai Ward',
+                    'Nam Cuong Ward',
+                    'Pom Han Ward',
+                    'Ta Phoi Commune',
+                    'Thong Nhat Commune',
+                    'Van Hoa Commune',
+                    'Xuan Tang Ward'
+                ]
+            },
+            'Muong Khuong': {
+                subDistrict: [
+                    'Ban Lau Commune',
+                    'Ban Sen Commune',
+                    'Cao Son Commune',
+                    'Din Chin Commune',
+                    'La Pan Tan Commune',
+                    'Lung Khau Nhin Commune',
+                    'Lung Vai Commune',
+                    'Muong Khuong Township',
+                    'Nam Chay Commune',
+                    'Nam Lu Commune',
+                    'Pha Long Commune',
+                    'Ta Gia Khau Commune',
+                    'Ta Ngai Cho Commune',
+                    'Ta Thang Commune',
+                    'Thanh Binh Commune',
+                    'Tung Chung Pho Commune'
+                ]
+            },
+            'Sa Pa': {
+                subDistrict: [
+                    'Ban Ho Commune',
+                    'Cau May Ward',
+                    'Ham Rong Ward',
+                    'Hoang Lien Commune',
+                    'Lien Minh Commune',
+                    'Muong Bo Commune',
+                    'Muong Hoa Commune',
+                    'Ngu Chi Son Commune',
+                    'O Quy Ho Ward',
+                    'Phan Si Pang Ward',
+                    'Sa Pa Ward',
+                    'Ta Phin Commune',
+                    'Ta Van Commune',
+                    'Thanh Binh Commune',
+                    'Trung Chai Commune'
+                ]
+            },
+            'Si Ma Cai': {
+                subDistrict: [
+                    'Ban Me Commune',
+                    'Can Cau Commune',
+                    'Lung Than Commune',
+                    'Nan San Commune',
+                    'Nan Xin Commune',
+                    'Quan Ho Than Commune',
+                    'San Chai Commune',
+                    'Si Ma Cai Township',
+                    'Sin Cheng Commune',
+                    'Thao Chu Phin Commune'
+                ]
+            },
+            'Van Ban': {
+                subDistrict: [
+                    'Chieng Ken Commune',
+                    'Dan Thang Commune',
+                    'Duong Quy Commune',
+                    'Hoa Mac Commune',
+                    'Khanh Yen Ha Commune',
+                    'Khanh Yen Thuong Commune',
+                    'Khanh Yen Township',
+                    'Khanh Yen Trung Commune',
+                    'Lang Giang Commune',
+                    'Liem Phu Commune',
+                    'Minh Luong Commune',
+                    'Nam Chay Commune',
+                    'Nam Ma Commune',
+                    'Nam Rang Commune',
+                    'Nam Tha Commune',
+                    'Nam Xay Commune',
+                    'Nam Xe Commune',
+                    'Son Thuy Commune',
+                    'Tan An Commune',
+                    'Tan Thuong Commune',
+                    'Tham Duong Commune',
+                    'Vo Lao Commune'
                 ]
             }
         },
         'Son La': {
-            'Son La': {
-                subDistrict: [
-                    'Chieng Le Ward',
-                    'To Hieu Ward',
-                    'Quyet Thang Ward',
-                    'Quyet Tam Ward',
-                    'Chieng Co Commune',
-                    'Chieng Den Commune',
-                    'Chieng Xom Commune',
-                    'Chieng An Ward',
-                    'Chieng Coi Ward',
-                    'Chieng Ngan Commune',
-                    'Hua La Commune',
-                    'Chieng Sinh Ward'
-                ]
-            },
-            'Quynh Nhai': {
-                subDistrict: [
-                    'Muong Chien Commune',
-                    'Ca Nang Commune',
-                    'Chieng Khay Commune',
-                    'Muong Gion Commune',
-                    'Pa Ma Pha Khinh Commune',
-                    'Chieng On Commune',
-                    'Muong Giang Commune',
-                    'Chieng Bang Commune',
-                    'Muong Sai Commune',
-                    'Nam et Commune',
-                    'Chieng Khoang Commune'
-                ]
-            },
-            'Thuan Chau': {
-                subDistrict: [
-                    'Thuan Chau Township',
-                    'Phong Lai Commune',
-                    'Muong e Commune',
-                    'Chieng Pha Commune',
-                    'Chieng La Commune',
-                    'Chieng Ngam Commune',
-                    'Liep Te Commune',
-                    'e Tong Commune',
-                    'Phong Lap Commune',
-                    'Phong Lang Commune',
-                    'Chieng Ly Commune',
-                    'Noong Lay Commune',
-                    'Muong Khieng Commune',
-                    'Muong Bam Commune',
-                    'Long He Commune',
-                    'Chieng Bom Commune',
-                    'Thom Mon Commune',
-                    'Tong Lanh Commune',
-                    'Tong Co Commune',
-                    'Bo Muoi Commune',
-                    'Co Ma Commune',
-                    'Pung Tra Commune',
-                    'Chieng Pac Commune',
-                    'Nam Lau Commune',
-                    'Bon Phang Commune',
-                    'Co Tong Commune',
-                    'Muoi Noi Commune',
-                    'Pa Long Commune',
-                    'Ban Lam Commune'
-                ]
-            },
-            'Muong La': {
-                subDistrict: [
-                    'It Ong Township',
-                    'Nam Gion Commune',
-                    'Chieng Lao Commune',
-                    'Hua Trai Commune',
-                    'Ngoc Chien Commune',
-                    'Muong Trai Commune',
-                    'Nam Pam Commune',
-                    'Chieng Muon Commune',
-                    'Chieng An Commune',
-                    'Pi Toong Commune',
-                    'Chieng Cong Commune',
-                    'Ta Bu Commune',
-                    'Chieng San Commune',
-                    'Muong Bu Commune',
-                    'Chieng Hoa Commune',
-                    'Muong Chum Commune'
-                ]
-            },
             'Bac Yen': {
                 subDistrict: [
                     'Bac Yen Township',
-                    'Phieng Ban Commune',
-                    'Hang Chu Commune',
-                    'Xim Vang Commune',
-                    'Ta Xua Commune',
-                    'Hang Dong Commune',
-                    'Pac Nga Commune',
-                    'Lang Cheu Commune',
+                    'Chieng Sai Commune',
                     'Chim Van Commune',
-                    'Muong Khoa Commune',
-                    'Song Pe Commune',
+                    'Hang Chu Commune',
+                    'Hang Dong Commune',
                     'Hong Ngai Commune',
-                    'Ta Khoa Commune',
                     'Hua Nhan Commune',
+                    'Lang Cheu Commune',
+                    'Muong Khoa Commune',
+                    'Pac Nga Commune',
+                    'Phieng Ban Commune',
                     'Phieng Con Commune',
-                    'Chieng Sai Commune'
-                ]
-            },
-            'Phu Yen': {
-                subDistrict: [
-                    'Phu Yen Township',
-                    'Suoi To Commune',
-                    'Muong Thai Commune',
-                    'Muong Coi Commune',
-                    'Quang Huy Commune',
-                    'Huy Bac Commune',
-                    'Huy Thuong Commune',
-                    'Tan Lang Commune',
-                    'Gia Phu Commune',
-                    'Tuong Phu Commune',
-                    'Huy Ha Commune',
-                    'Huy Tan Commune',
-                    'Muong Lang Commune',
-                    'Suoi Bau Commune',
-                    'Huy Tuong Commune',
-                    'Muong Do Commune',
-                    'Sap Xa Commune',
-                    'Tuong Thuong Commune',
-                    'Tuong Tien Commune',
-                    'Tuong Phong Commune',
-                    'Tuong Ha Commune',
-                    'Kim Bon Commune',
-                    'Muong Bang Commune',
-                    'Da Do Commune',
-                    'Tan Phong Commune',
-                    'Nam Phong Commune',
-                    'Bac Phong Commune'
-                ]
-            },
-            'Moc Chau': {
-                subDistrict: [
-                    'Moc Chau Township',
-                    'NT Moc Chau Township',
-                    'Chieng Son Commune',
-                    'Tan Hop Commune',
-                    'Qui Huong Commune',
-                    'Tan Lap Commune',
-                    'Na Muong Commune',
-                    'Ta Lai Commune',
-                    'Chieng Hac Commune',
-                    'Hua Pang Commune',
-                    'Chieng Khua Commune',
-                    'Muong Sang Commune',
-                    'Dong Sang Commune',
-                    'Phieng Luong Commune',
-                    'Long Sap Commune'
-                ]
-            },
-            'Van Ho': {
-                subDistrict: [
-                    'Suoi Bang Commune',
-                    'Song Khua Commune',
-                    'Lien Hoa Commune',
-                    'To Mua Commune',
-                    'Muong Te Commune',
-                    'Chieng Khoa Commune',
-                    'Muong Men Commune',
-                    'Quang Minh Commune',
-                    'Van Ho Commune',
-                    'Long Luong Commune',
-                    'Chieng Yen Commune',
-                    'Chieng Xuan Commune',
-                    'Xuan Nha Commune',
-                    'Tan Xuan Commune'
-                ]
-            },
-            'Yen Chau': {
-                subDistrict: [
-                    'Yen Chau Township',
-                    'Chieng Dong Commune',
-                    'Sap Vat Commune',
-                    'Chieng Sang Commune',
-                    'Chieng Pan Commune',
-                    'Vieng Lan Commune',
-                    'Chieng Hac Commune',
-                    'Muong Lum Commune',
-                    'Chieng On Commune',
-                    'Yen Son Commune',
-                    'Chieng Khoi Commune',
-                    'Tu Nang Commune',
-                    'Long Phieng Commune',
-                    'Phieng Khoai Commune',
-                    'Chieng Tuong Commune'
+                    'Song Pe Commune',
+                    'Ta Khoa Commune',
+                    'Ta Xua Commune',
+                    'Xim Vang Commune'
                 ]
             },
             'Mai Son': {
                 subDistrict: [
-                    'Hat Lot Township',
-                    'Chieng Sung Commune',
-                    'Muong Bang Commune',
-                    'Chieng Chan Commune',
-                    'Muong Chanh Commune',
                     'Chieng Ban Commune',
-                    'Chieng Mung Commune',
-                    'Muong Bon Commune',
+                    'Chieng Chan Commune',
                     'Chieng Chung Commune',
-                    'Chieng Mai Commune',
-                    'Hat Lot Commune',
-                    'Na Po Commune',
-                    'Co Noi Commune',
-                    'Chieng Noi Commune',
-                    'Phieng Cam Commune',
                     'Chieng Dong Commune',
                     'Chieng Kheo Commune',
-                    'Chieng Ve Commune',
                     'Chieng Luong Commune',
-                    'Phieng Pan Commune',
+                    'Chieng Mai Commune',
+                    'Chieng Mung Commune',
+                    'Chieng Noi Commune',
+                    'Chieng Sung Commune',
+                    'Chieng Ve Commune',
+                    'Co Noi Commune',
+                    'Hat Lot Commune',
+                    'Hat Lot Township',
+                    'Muong Bang Commune',
+                    'Muong Bon Commune',
+                    'Muong Chanh Commune',
                     'Na Ot Commune',
+                    'Na Po Commune',
+                    'Phieng Cam Commune',
+                    'Phieng Pan Commune',
                     'Ta Hoc Commune'
+                ]
+            },
+            'Moc Chau': {
+                subDistrict: [
+                    'Chieng Hac Commune',
+                    'Chieng Khua Commune',
+                    'Chieng Son Commune',
+                    'Dong Sang Commune',
+                    'Hua Pang Commune',
+                    'Long Sap Commune',
+                    'Moc Chau Township',
+                    'Muong Sang Commune',
+                    'Na Muong Commune',
+                    'NT Moc Chau Township',
+                    'Phieng Luong Commune',
+                    'Qui Huong Commune',
+                    'Ta Lai Commune',
+                    'Tan Hop Commune',
+                    'Tan Lap Commune'
+                ]
+            },
+            'Muong La': {
+                subDistrict: [
+                    'Chieng An Commune',
+                    'Chieng Cong Commune',
+                    'Chieng Hoa Commune',
+                    'Chieng Lao Commune',
+                    'Chieng Muon Commune',
+                    'Chieng San Commune',
+                    'Hua Trai Commune',
+                    'It Ong Township',
+                    'Muong Bu Commune',
+                    'Muong Chum Commune',
+                    'Muong Trai Commune',
+                    'Nam Gion Commune',
+                    'Nam Pam Commune',
+                    'Ngoc Chien Commune',
+                    'Pi Toong Commune',
+                    'Ta Bu Commune'
+                ]
+            },
+            'Phu Yen': {
+                subDistrict: [
+                    'Bac Phong Commune',
+                    'Da Do Commune',
+                    'Gia Phu Commune',
+                    'Huy Bac Commune',
+                    'Huy Ha Commune',
+                    'Huy Tan Commune',
+                    'Huy Thuong Commune',
+                    'Huy Tuong Commune',
+                    'Kim Bon Commune',
+                    'Muong Bang Commune',
+                    'Muong Coi Commune',
+                    'Muong Do Commune',
+                    'Muong Lang Commune',
+                    'Muong Thai Commune',
+                    'Nam Phong Commune',
+                    'Phu Yen Township',
+                    'Quang Huy Commune',
+                    'Sap Xa Commune',
+                    'Suoi Bau Commune',
+                    'Suoi To Commune',
+                    'Tan Lang Commune',
+                    'Tan Phong Commune',
+                    'Tuong Ha Commune',
+                    'Tuong Phong Commune',
+                    'Tuong Phu Commune',
+                    'Tuong Thuong Commune',
+                    'Tuong Tien Commune'
+                ]
+            },
+            'Quynh Nhai': {
+                subDistrict: [
+                    'Ca Nang Commune',
+                    'Chieng Bang Commune',
+                    'Chieng Khay Commune',
+                    'Chieng Khoang Commune',
+                    'Chieng On Commune',
+                    'Muong Chien Commune',
+                    'Muong Giang Commune',
+                    'Muong Gion Commune',
+                    'Muong Sai Commune',
+                    'Nam et Commune',
+                    'Pa Ma Pha Khinh Commune'
+                ]
+            },
+            'Son La': {
+                subDistrict: [
+                    'Chieng An Ward',
+                    'Chieng Co Commune',
+                    'Chieng Coi Ward',
+                    'Chieng Den Commune',
+                    'Chieng Le Ward',
+                    'Chieng Ngan Commune',
+                    'Chieng Sinh Ward',
+                    'Chieng Xom Commune',
+                    'Hua La Commune',
+                    'Quyet Tam Ward',
+                    'Quyet Thang Ward',
+                    'To Hieu Ward'
                 ]
             },
             'Song Ma': {
                 subDistrict: [
-                    'Song Ma Township',
                     'Bo Sinh Commune',
-                    'Pu Pau Commune',
-                    'Chieng Phung Commune',
-                    'Chieng En Commune',
-                    'Muong Lam Commune',
-                    'Nam Ty Commune',
-                    'Dua Mon Commune',
-                    'Yen Hung Commune',
-                    'Chieng So Commune',
-                    'Na Nghiu Commune',
-                    'Nam Man Commune',
-                    'Chieng Khoong Commune',
                     'Chieng Cang Commune',
+                    'Chieng En Commune',
+                    'Chieng Khoong Commune',
+                    'Chieng Khuong Commune',
+                    'Chieng Phung Commune',
+                    'Chieng So Commune',
+                    'Dua Mon Commune',
                     'Huoi Mot Commune',
-                    'Muong Sai Commune',
                     'Muong Cai Commune',
                     'Muong Hung Commune',
-                    'Chieng Khuong Commune'
+                    'Muong Lam Commune',
+                    'Muong Sai Commune',
+                    'Na Nghiu Commune',
+                    'Nam Man Commune',
+                    'Nam Ty Commune',
+                    'Pu Pau Commune',
+                    'Song Ma Township',
+                    'Yen Hung Commune'
                 ]
             },
             'Sop Cop': {
                 subDistrict: [
-                    'Sam Kha Commune',
-                    'Pung Banh Commune',
-                    'Sop Cop Commune',
                     'Dom Cang Commune',
-                    'Nam Lanh Commune',
+                    'Muong Lan Commune',
                     'Muong Leo Commune',
                     'Muong Va Commune',
-                    'Muong Lan Commune'
+                    'Nam Lanh Commune',
+                    'Pung Banh Commune',
+                    'Sam Kha Commune',
+                    'Sop Cop Commune'
+                ]
+            },
+            'Thuan Chau': {
+                subDistrict: [
+                    'Ban Lam Commune',
+                    'Bo Muoi Commune',
+                    'Bon Phang Commune',
+                    'Chieng Bom Commune',
+                    'Chieng La Commune',
+                    'Chieng Ly Commune',
+                    'Chieng Ngam Commune',
+                    'Chieng Pac Commune',
+                    'Chieng Pha Commune',
+                    'Co Ma Commune',
+                    'Co Tong Commune',
+                    'e Tong Commune',
+                    'Liep Te Commune',
+                    'Long He Commune',
+                    'Muoi Noi Commune',
+                    'Muong Bam Commune',
+                    'Muong e Commune',
+                    'Muong Khieng Commune',
+                    'Nam Lau Commune',
+                    'Noong Lay Commune',
+                    'Pa Long Commune',
+                    'Phong Lai Commune',
+                    'Phong Lang Commune',
+                    'Phong Lap Commune',
+                    'Pung Tra Commune',
+                    'Thom Mon Commune',
+                    'Thuan Chau Township',
+                    'Tong Co Commune',
+                    'Tong Lanh Commune'
+                ]
+            },
+            'Van Ho': {
+                subDistrict: [
+                    'Chieng Khoa Commune',
+                    'Chieng Xuan Commune',
+                    'Chieng Yen Commune',
+                    'Lien Hoa Commune',
+                    'Long Luong Commune',
+                    'Muong Men Commune',
+                    'Muong Te Commune',
+                    'Quang Minh Commune',
+                    'Song Khua Commune',
+                    'Suoi Bang Commune',
+                    'Tan Xuan Commune',
+                    'To Mua Commune',
+                    'Van Ho Commune',
+                    'Xuan Nha Commune'
+                ]
+            },
+            'Yen Chau': {
+                subDistrict: [
+                    'Chieng Dong Commune',
+                    'Chieng Hac Commune',
+                    'Chieng Khoi Commune',
+                    'Chieng On Commune',
+                    'Chieng Pan Commune',
+                    'Chieng Sang Commune',
+                    'Chieng Tuong Commune',
+                    'Long Phieng Commune',
+                    'Muong Lum Commune',
+                    'Phieng Khoai Commune',
+                    'Sap Vat Commune',
+                    'Tu Nang Commune',
+                    'Vieng Lan Commune',
+                    'Yen Chau Township',
+                    'Yen Son Commune'
                 ]
             }
         },
         'Yen Bai': {
-            'Yen Bai': {
-                subDistrict: [
-                    'Yen Thinh Ward',
-                    'Yen Ninh Ward',
-                    'Minh Tan Ward',
-                    'Nguyen Thai Hoc Ward',
-                    'Dong Tam Ward',
-                    'Nguyen Phuc Ward',
-                    'Hong Ha Ward',
-                    'Minh Bao Commune',
-                    'Nam Cuong Ward',
-                    'Tuy Loc Commune',
-                    'Tan Thinh Commune',
-                    'Au Lau Commune',
-                    'Gioi Phien Commune',
-                    'Hop Minh Ward',
-                    'Van Phu Commune'
-                ]
-            },
-            'Nghia Lo': {
-                subDistrict: [
-                    'Pu Trang Ward',
-                    'Trung Tam Ward',
-                    'Tan An Ward',
-                    'Cau Thia Ward',
-                    'Nghia Loi Commune',
-                    'Nghia Phuc Commune',
-                    'Nghia An Commune',
-                    'Nghia Lo Commune',
-                    'Son A Commune',
-                    'Phu Nham Commune',
-                    'Thanh Luong Commune',
-                    'Hanh Son Commune',
-                    'Phuc Son Commune',
-                    'Thach Luong Commune'
-                ]
-            },
             'Luc Yen': {
                 subDistrict: [
-                    'Yen The Township',
-                    'Tan Phuong Commune',
-                    'Lam Thuong Commune',
-                    'Khanh Thien Commune',
-                    'Minh Chuan Commune',
-                    'Mai Son Commune',
-                    'Khai Trung Commune',
-                    'Muong Lai Commune',
                     'An Lac Commune',
-                    'Minh Xuan Commune',
-                    'To Mau Commune',
-                    'Tan Linh Commune',
-                    'Yen Thang Commune',
-                    'Khanh Hoa Commune',
-                    'Vinh Lac Commune',
-                    'Lieu Do Commune',
-                    'Dong Quan Commune',
-                    'Tan Lap Commune',
-                    'Minh Tien Commune',
-                    'Truc Lau Commune',
-                    'Phuc Loi Commune',
-                    'Phan Thanh Commune',
                     'An Phu Commune',
-                    'Trung Tam Commune'
-                ]
-            },
-            'Van Yen': {
-                subDistrict: [
-                    'Mau A Township',
-                    'Lang Thip Commune',
-                    'Lam Giang Commune',
-                    'Chau Que Thuong Commune',
-                    'Chau Que Ha Commune',
-                    'An Binh Commune',
-                    'Quang Minh Commune',
-                    'Dong An Commune',
-                    'Dong Cuong Commune',
-                    'Phong Du Ha Commune',
-                    'Mau Dong Commune',
-                    'Ngoi A Commune',
-                    'Xuan Tam Commune',
-                    'Tan Hop Commune',
-                    'An Thinh Commune',
-                    'Yen Thai Commune',
-                    'Phong Du Thuong Commune',
-                    'Yen Hop Commune',
-                    'Dai Son Commune',
-                    'Dai Phac Commune',
-                    'Yen Phu Commune',
-                    'Xuan Ai Commune',
-                    'Vien Son Commune',
-                    'Mo Vang Commune',
-                    'Na Hau Commune'
+                    'Dong Quan Commune',
+                    'Khai Trung Commune',
+                    'Khanh Hoa Commune',
+                    'Khanh Thien Commune',
+                    'Lam Thuong Commune',
+                    'Lieu Do Commune',
+                    'Mai Son Commune',
+                    'Minh Chuan Commune',
+                    'Minh Tien Commune',
+                    'Minh Xuan Commune',
+                    'Muong Lai Commune',
+                    'Phan Thanh Commune',
+                    'Phuc Loi Commune',
+                    'Tan Lap Commune',
+                    'Tan Linh Commune',
+                    'Tan Phuong Commune',
+                    'To Mau Commune',
+                    'Truc Lau Commune',
+                    'Trung Tam Commune',
+                    'Vinh Lac Commune',
+                    'Yen Thang Commune',
+                    'Yen The Township'
                 ]
             },
             'Mu Cang Chai': {
                 subDistrict: [
-                    'Mu Cang Chai Township',
-                    'Ho Bon Commune',
-                    'Nam Co Commune',
-                    'Khao Mang Commune',
-                    'Mo De Commune',
-                    'Che Cu Nha Commune',
-                    'Lao Chai Commune',
-                    'Kim Noi Commune',
                     'Cao Pha Commune',
-                    'La Pan Tan Commune',
-                    'De Su Phinh Commune',
+                    'Che Cu Nha Commune',
                     'Che Tao Commune',
-                    'Pung Luong Commune',
-                    'Nam Khat Commune'
+                    'De Su Phinh Commune',
+                    'Ho Bon Commune',
+                    'Khao Mang Commune',
+                    'Kim Noi Commune',
+                    'La Pan Tan Commune',
+                    'Lao Chai Commune',
+                    'Mo De Commune',
+                    'Mu Cang Chai Township',
+                    'Nam Co Commune',
+                    'Nam Khat Commune',
+                    'Pung Luong Commune'
                 ]
             },
-            'Tran Yen': {
+            'Nghia Lo': {
                 subDistrict: [
-                    'Co Phuc Township',
-                    'Tan Dong Commune',
-                    'Bao Dap Commune',
-                    'Dao Thinh Commune',
-                    'Viet Thanh Commune',
-                    'Hoa Cuong Commune',
-                    'Minh Quan Commune',
-                    'Quy Mong Commune',
-                    'Cuong Thinh Commune',
-                    'Kien Thanh Commune',
-                    'Nga Quan Commune',
-                    'Y Can Commune',
-                    'Luong Thinh Commune',
-                    'Bao Hung Commune',
-                    'Viet Cuong Commune',
-                    'Hong Ca Commune',
-                    'Hung Thinh Commune',
-                    'Hung Khanh Commune',
-                    'Viet Hong Commune',
-                    'Van Hoi Commune'
+                    'Cau Thia Ward',
+                    'Hanh Son Commune',
+                    'Nghia An Commune',
+                    'Nghia Lo Commune',
+                    'Nghia Loi Commune',
+                    'Nghia Phuc Commune',
+                    'Phu Nham Commune',
+                    'Phuc Son Commune',
+                    'Pu Trang Ward',
+                    'Son A Commune',
+                    'Tan An Ward',
+                    'Thach Luong Commune',
+                    'Thanh Luong Commune',
+                    'Trung Tam Ward'
                 ]
             },
             'Tram Tau': {
                 subDistrict: [
-                    'Tram Tau Township',
-                    'Tuc Dan Commune',
-                    'Pa Lau Commune',
-                    'Xa Ho Commune',
-                    'Phinh Ho Commune',
-                    'Tram Tau Commune',
-                    'Ta Si Lang Commune',
-                    'Pa Hu Commune',
-                    'Lang Nhi Commune',
                     'Ban Cong Commune',
                     'Ban Mu Commune',
-                    'Hat Liu Commune'
+                    'Hat Liu Commune',
+                    'Lang Nhi Commune',
+                    'Pa Hu Commune',
+                    'Pa Lau Commune',
+                    'Phinh Ho Commune',
+                    'Ta Si Lang Commune',
+                    'Tram Tau Commune',
+                    'Tram Tau Township',
+                    'Tuc Dan Commune',
+                    'Xa Ho Commune'
+                ]
+            },
+            'Tran Yen': {
+                subDistrict: [
+                    'Bao Dap Commune',
+                    'Bao Hung Commune',
+                    'Co Phuc Township',
+                    'Cuong Thinh Commune',
+                    'Dao Thinh Commune',
+                    'Hoa Cuong Commune',
+                    'Hong Ca Commune',
+                    'Hung Khanh Commune',
+                    'Hung Thinh Commune',
+                    'Kien Thanh Commune',
+                    'Luong Thinh Commune',
+                    'Minh Quan Commune',
+                    'Nga Quan Commune',
+                    'Quy Mong Commune',
+                    'Tan Dong Commune',
+                    'Van Hoi Commune',
+                    'Viet Cuong Commune',
+                    'Viet Hong Commune',
+                    'Viet Thanh Commune',
+                    'Y Can Commune'
                 ]
             },
             'Van Chan': {
                 subDistrict: [
-                    'NT Lien Son Township',
-                    'NT Tran Phu Township',
-                    'Tu Le Commune',
-                    'Nam Bung Commune',
-                    'Gia Hoi Commune',
-                    'Sung Do Commune',
-                    'Nam Muoi Commune',
                     'An Luong Commune',
-                    'Nam Lanh Commune',
-                    'Son Luong Commune',
-                    'Suoi Quyen Commune',
-                    'Suoi Giang Commune',
-                    'Nghia Son Commune',
-                    'Suoi Bu Commune',
-                    'Son Thinh Township',
+                    'Binh Thuan Commune',
+                    'Cat Thinh Commune',
+                    'Chan Thinh Commune',
                     'Dai Lich Commune',
                     'Dong Khe Commune',
-                    'Cat Thinh Commune',
-                    'Tan Thinh Commune',
-                    'Chan Thinh Commune',
-                    'Binh Thuan Commune',
-                    'Thuong Bang La Commune',
+                    'Gia Hoi Commune',
                     'Minh An Commune',
-                    'Nghia Tam Commune'
+                    'Nam Bung Commune',
+                    'Nam Lanh Commune',
+                    'Nam Muoi Commune',
+                    'Nghia Son Commune',
+                    'Nghia Tam Commune',
+                    'NT Lien Son Township',
+                    'NT Tran Phu Township',
+                    'Son Luong Commune',
+                    'Son Thinh Township',
+                    'Sung Do Commune',
+                    'Suoi Bu Commune',
+                    'Suoi Giang Commune',
+                    'Suoi Quyen Commune',
+                    'Tan Thinh Commune',
+                    'Thuong Bang La Commune',
+                    'Tu Le Commune'
+                ]
+            },
+            'Van Yen': {
+                subDistrict: [
+                    'An Binh Commune',
+                    'An Thinh Commune',
+                    'Chau Que Ha Commune',
+                    'Chau Que Thuong Commune',
+                    'Dai Phac Commune',
+                    'Dai Son Commune',
+                    'Dong An Commune',
+                    'Dong Cuong Commune',
+                    'Lam Giang Commune',
+                    'Lang Thip Commune',
+                    'Mau A Township',
+                    'Mau Dong Commune',
+                    'Mo Vang Commune',
+                    'Na Hau Commune',
+                    'Ngoi A Commune',
+                    'Phong Du Ha Commune',
+                    'Phong Du Thuong Commune',
+                    'Quang Minh Commune',
+                    'Tan Hop Commune',
+                    'Vien Son Commune',
+                    'Xuan Ai Commune',
+                    'Xuan Tam Commune',
+                    'Yen Hop Commune',
+                    'Yen Phu Commune',
+                    'Yen Thai Commune'
+                ]
+            },
+            'Yen Bai': {
+                subDistrict: [
+                    'Au Lau Commune',
+                    'Dong Tam Ward',
+                    'Gioi Phien Commune',
+                    'Hong Ha Ward',
+                    'Hop Minh Ward',
+                    'Minh Bao Commune',
+                    'Minh Tan Ward',
+                    'Nam Cuong Ward',
+                    'Nguyen Phuc Ward',
+                    'Nguyen Thai Hoc Ward',
+                    'Tan Thinh Commune',
+                    'Tuy Loc Commune',
+                    'Van Phu Commune',
+                    'Yen Ninh Ward',
+                    'Yen Thinh Ward'
                 ]
             },
             'Yen Binh': {
                 subDistrict: [
-                    'Yen Binh Township',
-                    'Thac Ba Township',
-                    'Xuan Long Commune',
-                    'Cam Nhan Commune',
-                    'Ngoc Chan Commune',
-                    'Tan Nguyen Commune',
-                    'Phuc Ninh Commune',
-                    'Bao Ai Commune',
-                    'My Gia Commune',
-                    'Xuan Lai Commune',
-                    'Mong Son Commune',
-                    'Cam An Commune',
-                    'Yen Thanh Commune',
-                    'Tan Huong Commune',
-                    'Phuc An Commune',
                     'Bach Ha Commune',
-                    'Vu Linh Commune',
+                    'Bao Ai Commune',
+                    'Cam An Commune',
+                    'Cam Nhan Commune',
                     'Dai Dong Commune',
-                    'Vinh Kien Commune',
-                    'Yen Binh Commune',
-                    'Thinh Hung Commune',
+                    'Dai Minh Commune',
                     'Han Da Commune',
+                    'Mong Son Commune',
+                    'My Gia Commune',
+                    'Ngoc Chan Commune',
                     'Phu Thinh Commune',
-                    'Dai Minh Commune'
-                ]
-            }
-        },
-        'Hoa Binh': {
-            'Hoa Binh': {
-                subDistrict: [
-                    'Thai Binh Ward',
-                    'Tan Hoa Ward',
-                    'Thinh Lang Ward',
-                    'Huu Nghi Ward',
-                    'Tan Thinh Ward',
-                    'Dong Tien Ward',
-                    'Phuong Lam Ward',
-                    'Yen Mong Commune',
-                    'Quynh Lam Ward',
-                    'Dan Chu Ward',
-                    'Hoa Binh Commune',
-                    'Thong Nhat Ward',
-                    'Ky Son Ward',
-                    'Thinh Minh Commune',
-                    'Hop Thanh Commune',
-                    'Quang Tien Commune',
-                    'Mong Hoa Commune',
-                    'Trung Minh Ward',
-                    'Doc Lap Commune'
-                ]
-            },
-            'Da Bac': {
-                subDistrict: [
-                    'Da Bac Township',
-                    'Nanh Nghe Commune',
-                    'Giap Dat Commune',
-                    'Muong Chieng Commune',
-                    'Tan Pheo Commune',
-                    'Dong Chum Commune',
-                    'Tan Minh Commune',
-                    'Doan Ket Commune',
-                    'Dong Ruong Commune',
-                    'Tu Ly Commune',
-                    'Trung Thanh Commune',
-                    'Yen Hoa Commune',
-                    'Cao Son Commune',
-                    'Toan Son Commune',
-                    'Hien Luong Commune',
-                    'Tien Phong Commune',
-                    'Vay Nua Commune'
-                ]
-            },
-            'Mai Chau': {
-                subDistrict: [
-                    'Tan Thanh Commune',
-                    'Mai Chau Township',
-                    'Son Thuy Commune',
-                    'Pa Co Commune',
-                    'Hang Kia Commune',
-                    'Dong Tan Commune',
-                    'Cun Pheo Commune',
-                    'Bao La Commune',
-                    'Tong Dau Commune',
-                    'Na Phon Commune',
-                    'Sam Khoe Commune',
-                    'Chieng Chau Commune',
-                    'Mai Ha Commune',
-                    'Thanh Son Commune',
-                    'Mai Hich Commune',
-                    'Van Mai Commune'
-                ]
-            },
-            'Luong Son': {
-                subDistrict: [
-                    'Luong Son Township',
-                    'Lam Son Commune',
-                    'Hoa Son Commune',
-                    'Tan Vinh Commune',
-                    'Nhuan Trach Commune',
-                    'Cao Son Commune',
-                    'Cu Yen Commune',
-                    'Lien Son Commune',
-                    'Cao Duong Commune',
-                    'Thanh Son Commune',
-                    'Thanh Cao Commune'
-                ]
-            },
-            'Kim Boi': {
-                subDistrict: [
-                    'Bo Township',
-                    'Du Sang Commune',
-                    'Hung Son Commune',
-                    'Binh Son Commune',
-                    'Tu Son Commune',
-                    'Vinh Tien Commune',
-                    'Dong Bac Commune',
-                    'Xuan Thuy Commune',
-                    'Vinh Dong Commune',
-                    'Kim Lap Commune',
-                    'Hop Tien Commune',
-                    'Kim Boi Commune',
-                    'Nam Thuong Commune',
-                    'Cuoi Ha Commune',
-                    'Sao Bay Commune',
-                    'Mi Hoa Commune',
-                    'Nuong Dam Commune'
-                ]
-            },
-            'Lac Thuy': {
-                subDistrict: [
-                    'Ba Hang Doi Township',
-                    'Chi Ne Township',
-                    'Phu Nghia Commune',
-                    'Phu Thanh Commune',
-                    'Hung Thi Commune',
-                    'Khoan Du Commune',
-                    'Dong Tam Commune',
-                    'Yen Bong Commune',
-                    'Thong Nhat Commune',
-                    'An Binh Commune'
-                ]
-            },
-            'Cao Phong': {
-                subDistrict: [
-                    'Cao Phong Township',
-                    'Binh Thanh Commune',
-                    'Thung Nai Commune',
-                    'Bac Phong Commune',
-                    'Thu Phong Commune',
-                    'Hop Phong Commune',
-                    'Tay Phong Commune',
-                    'Dung Phong Commune',
-                    'Nam Phong Commune',
-                    'Thach Yen Commune'
-                ]
-            },
-            'Tan Lac': {
-                subDistrict: [
-                    'Man Duc Township',
-                    'Suoi Hoa Commune',
-                    'Phu Vinh Commune',
-                    'Phu Cuong Commune',
-                    'My Hoa Commune',
-                    'Quyet Chien Commune',
-                    'Phong Phu Commune',
-                    'Tu Ne Commune',
-                    'Thanh Hoi Commune',
-                    'Ngoc My Commune',
-                    'Dong Lai Commune',
-                    'Van Son Commune',
-                    'Nhan My Commune',
-                    'Lo Son Commune',
-                    'Ngo Luong Commune',
-                    'Gia Mo Commune'
-                ]
-            },
-            'Lac Son': {
-                subDistrict: [
-                    'Vu Ban Township',
-                    'Quy Hoa Commune',
-                    'Mien Doi Commune',
-                    'My Thanh Commune',
-                    'Tuan Dao Commune',
-                    'Van Nghia Commune',
-                    'Van Son Commune',
-                    'Tan Lap Commune',
-                    'Nhan Nghia Commune',
-                    'Thuong Coc Commune',
-                    'Quyet Thang Commune',
-                    'Xuat Hoa Commune',
-                    'Yen Phu Commune',
-                    'Binh Hem Commune',
-                    'Dinh Cu Commune',
-                    'Chi Dao Commune',
-                    'Ngoc Son Commune',
-                    'Huong Nhuong Commune',
-                    'Vu Binh Commune',
-                    'Tu Do Commune',
-                    'Yen Nghiep Commune',
-                    'Tan My Commune',
-                    'An Nghia Commune',
-                    'Ngoc Lau Commune'
-                ]
-            },
-            'Yen Thuy': {
-                subDistrict: [
-                    'Hang Tram Township',
-                    'Lac Sy Commune',
-                    'Lac Luong Commune',
-                    'Bao Hieu Commune',
-                    'Da Phuc Commune',
-                    'Huu Loi Commune',
-                    'Lac Thinh Commune',
-                    'Doan Ket Commune',
-                    'Phu Lai Commune',
-                    'Yen Tri Commune',
-                    'Ngoc Luong Commune'
+                    'Phuc An Commune',
+                    'Phuc Ninh Commune',
+                    'Tan Huong Commune',
+                    'Tan Nguyen Commune',
+                    'Thac Ba Township',
+                    'Thinh Hung Commune',
+                    'Vinh Kien Commune',
+                    'Vu Linh Commune',
+                    'Xuan Lai Commune',
+                    'Xuan Long Commune',
+                    'Yen Binh Commune',
+                    'Yen Binh Township',
+                    'Yen Thanh Commune'
                 ]
             }
         }
     },
-    'North Central Coast': {
-        'Thanh Hoa': {
-            'Thanh Hoa': {
+    'Red River Delta': {
+        'Bac Ninh': {
+            'Bac Ninh': {
                 subDistrict: [
-                    'Ham Rong Ward',
-                    'Dong Tho Ward',
-                    'Nam Ngan Ward',
-                    'Truong Thi Ward',
-                    'Dien Bien Ward',
-                    'Phu Son Ward',
-                    'Lam Son Ward',
-                    'Ba Dinh Ward',
-                    'Ngoc Trao Ward',
-                    'Dong Ve Ward',
-                    'Dong Son Ward',
-                    'Tan Son Ward',
-                    'Dong Cuong Ward',
-                    'Dong Huong Ward',
-                    'Dong Hai Ward',
-                    'Quang Hung Ward',
-                    'Quang Thang Ward',
-                    'Quang Thanh Ward',
-                    'Thieu Van Commune',
-                    'Thieu Khanh Ward',
-                    'Thieu Duong Ward',
-                    'Tao Xuyen Ward',
-                    'Long Anh Ward',
-                    'Hoang Quang Commune',
-                    'Hoang Dai Commune',
-                    'Dong Linh Ward',
-                    'Dong Vinh Commune',
-                    'Dong Tan Ward',
-                    'An Hung Ward',
-                    'Quang Thinh Ward',
-                    'Quang Dong Ward',
-                    'Quang Cat Ward',
-                    'Quang Phu Ward',
-                    'Quang Tam Ward'
+                    'Dai Phuc Ward',
+                    'Dap Cau Ward',
+                    'Hap Linh Ward',
+                    'Hoa Long Ward',
+                    'Khac Niem Ward',
+                    'Khuc Xuyen Ward',
+                    'Kim Chan Ward',
+                    'Kinh Bac Ward',
+                    'Nam Son Ward',
+                    'Ninh Xa Ward',
+                    'Phong Khe Ward',
+                    'Suoi Hoa Ward',
+                    'Thi Cau Ward',
+                    'Tien An Ward',
+                    'Van An Ward',
+                    'Van Duong Ward',
+                    'Ve An Ward',
+                    'Vo Cuong Ward',
+                    'Vu Ninh Ward'
                 ]
             },
-            'Bim Son': {
+            'Gia Binh': {
                 subDistrict: [
-                    'Bac Son Ward',
-                    'Ba Dinh Ward',
-                    'Lam Son Ward',
-                    'Ngoc Trao Ward',
-                    'Dong Son Ward',
-                    'Phu Son Ward',
-                    'Quang Trung Commune'
+                    'Binh Duong Commune',
+                    'Cao Duc Commune',
+                    'Dai Bai Commune',
+                    'Dai Lai Commune',
+                    'Dong Cuu Commune',
+                    'Gia Binh Township',
+                    'Giang Son Commune',
+                    'Lang Ngam Commune',
+                    'Nhan Thang Commune',
+                    'Quynh Phu Commune',
+                    'Song Giang Commune',
+                    'Thai Bao Commune',
+                    'Van Ninh Commune',
+                    'Xuan Lai Commune'
                 ]
             },
-            'Sam Son': {
+            'Luong Tai': {
                 subDistrict: [
-                    'Trung Son Ward',
-                    'Bac Son Ward',
-                    'Truong Son Ward',
-                    'Quang Cu Ward',
-                    'Quang Tien Ward',
-                    'Quang Minh Commune',
-                    'Quang Hung Commune',
-                    'Quang Tho Ward',
-                    'Quang Chau Ward',
-                    'Quang Vinh Ward',
-                    'Quang Dai Commune'
-                ]
-            },
-            'Muong Lat': {
-                subDistrict: [
-                    'Muong Lat Township',
-                    'Tam Chung Commune',
-                    'Muong Ly Commune',
-                    'Trung Ly Commune',
-                    'Quang Chieu Commune',
-                    'Pu Nhi Commune',
-                    'Nhi Son Commune',
-                    'Muong Chanh Commune'
-                ]
-            },
-            'Quan Hoa': {
-                subDistrict: [
-                    'Hoi Xuan Township',
-                    'Thanh Son Commune',
-                    'Trung Son Commune',
-                    'Phu Thanh Commune',
-                    'Trung Thanh Commune',
-                    'Phu Le Commune',
-                    'Phu Son Commune',
-                    'Phu Xuan Commune',
-                    'Hien Chung Commune',
-                    'Hien Kiet Commune',
-                    'Nam Tien Commune',
-                    'Thien Phu Commune',
-                    'Phu Nghiem Commune',
-                    'Nam Xuan Commune',
-                    'Nam Dong Commune'
-                ]
-            },
-            'Ba Thuoc': {
-                subDistrict: [
-                    'Canh Nang Township',
-                    'Dien Thuong Commune',
-                    'Dien Ha Commune',
-                    'Dien Quang Commune',
-                    'Dien Trung Commune',
-                    'Thanh Son Commune',
-                    'Luong Ngoai Commune',
-                    'Ai Thuong Commune',
-                    'Luong Noi Commune',
-                    'Dien Lu Commune',
-                    'Luong Trung Commune',
-                    'Lung Niem Commune',
-                    'Lung Cao Commune',
-                    'Ha Trung Commune',
-                    'Co Lung Commune',
-                    'Thanh Lam Commune',
-                    'Ban Cong Commune',
-                    'Ky Tan Commune',
-                    'Van Nho Commune',
-                    'Thiet Ong Commune',
-                    'Thiet Ke Commune'
-                ]
-            },
-            'Quan Son': {
-                subDistrict: [
-                    'Trung Xuan Commune',
-                    'Trung Thuong Commune',
-                    'Trung Tien Commune',
-                    'Trung Ha Commune',
-                    'Son Ha Commune',
-                    'Tam Thanh Commune',
-                    'Son Thuy Commune',
-                    'Na Meo Commune',
-                    'Son Lu Township',
-                    'Tam Lu Commune',
-                    'Son Dien Commune',
-                    'Muong Min Commune'
-                ]
-            },
-            'Lang Chanh': {
-                subDistrict: [
-                    'Yen Khuong Commune',
-                    'Yen Thang Commune',
-                    'Tri Nang Commune',
-                    'Giao An Commune',
-                    'Giao Thien Commune',
-                    'Tan Phuc Commune',
-                    'Tam Van Commune',
-                    'Lam Phu Commune',
-                    'Lang Chanh Township',
-                    'Dong Luong Commune'
-                ]
-            },
-            'Ngoc Lac': {
-                subDistrict: [
-                    'Ngoc Lac Township',
-                    'Lam Son Commune',
-                    'My Tan Commune',
-                    'Thuy Son Commune',
-                    'Thach Lap Commune',
-                    'Van Am Commune',
-                    'Cao Ngoc Commune',
-                    'Quang Trung Commune',
-                    'Dong Thinh Commune',
-                    'Ngoc Lien Commune',
-                    'Ngoc Son Commune',
-                    'Loc Thinh Commune',
-                    'Cao Thinh Commune',
-                    'Ngoc Trung Commune',
-                    'Phung Giao Commune',
-                    'Phung Minh Commune',
-                    'Phuc Thinh Commune',
-                    'Nguyet An Commune',
-                    'Kien Tho Commune',
-                    'Minh Tien Commune',
-                    'Minh Son Commune'
-                ]
-            },
-            'Cam Thuy': {
-                subDistrict: [
-                    'Phong Son Township',
-                    'Cam Thanh Commune',
-                    'Cam Quy Commune',
-                    'Cam Luong Commune',
-                    'Cam Thach Commune',
-                    'Cam Lien Commune',
-                    'Cam Giang Commune',
-                    'Cam Binh Commune',
-                    'Cam Tu Commune',
-                    'Cam Chau Commune',
-                    'Cam Tam Commune',
-                    'Cam Ngoc Commune',
-                    'Cam Long Commune',
-                    'Cam Yen Commune',
-                    'Cam Tan Commune',
-                    'Cam Phu Commune',
-                    'Cam Van Commune'
-                ]
-            },
-            'Thach Thanh': {
-                subDistrict: [
-                    'Kim Tan Township',
-                    'Van Du Township',
-                    'Thach Lam Commune',
-                    'Thach Quang Commune',
-                    'Thach Tuong Commune',
-                    'Thach Cam Commune',
-                    'Thach Son Commune',
-                    'Thach Binh Commune',
-                    'Thach Dinh Commune',
-                    'Thach Dong Commune',
-                    'Thach Long Commune',
-                    'Thanh My Commune',
-                    'Thanh Yen Commune',
-                    'Thanh Vinh Commune',
-                    'Thanh Minh Commune',
-                    'Thanh Cong Commune',
-                    'Thanh Tan Commune',
-                    'Thanh Truc Commune',
-                    'Thanh Tam Commune',
-                    'Thanh An Commune',
-                    'Thanh Tho Commune',
-                    'Thanh Tien Commune',
-                    'Thanh Long Commune',
-                    'Thanh Hung Commune',
-                    'Ngoc Trao Commune'
-                ]
-            },
-            'Ha Trung': {
-                subDistrict: [
-                    'Ha Trung Township',
-                    'Ha Long Commune',
-                    'Ha Vinh Commune',
-                    'Ha Bac Commune',
-                    'Hoat Giang Commune',
-                    'Yen Duong Commune',
-                    'Ha Giang Commune',
-                    'Linh Toai Commune',
-                    'Ha Ngoc Commune',
-                    'Yen Son Commune',
-                    'Ha Son Commune',
-                    'Ha Linh Commune',
-                    'Ha Dong Commune',
-                    'Ha Tan Commune',
-                    'Ha Tien Commune',
-                    'Ha Binh Commune',
-                    'Ha Lai Commune',
-                    'Ha Chau Commune',
-                    'Ha Thai Commune',
-                    'Ha Hai Commune'
-                ]
-            },
-            'Vinh Loc': {
-                subDistrict: [
-                    'Vinh Loc Township',
-                    'Vinh Quang Commune',
-                    'Vinh Yen Commune',
-                    'Vinh Tien Commune',
-                    'Vinh Long Commune',
-                    'Vinh Phuc Commune',
-                    'Vinh Hung Commune',
-                    'Vinh Hoa Commune',
+                    'An Thinh Commune',
+                    'Binh Dinh Commune',
+                    'Lai Ha Commune',
+                    'Lam Thao Commune',
                     'Minh Tan Commune',
-                    'Ninh Khang Commune',
-                    'Vinh Thinh Commune',
-                    'Vinh An Commune'
-                ]
-            },
-            'Yen Dinh': {
-                subDistrict: [
-                    'Thong Nhat Township',
-                    'Yen Lam Township',
-                    'Yen Tam Commune',
-                    'Yen Phu Commune',
-                    'Quy Loc Township',
-                    'Yen Tho Commune',
-                    'Yen Trung Commune',
-                    'Yen Truong Commune',
-                    'Yen Phong Commune',
-                    'Yen Thai Commune',
-                    'Yen Hung Commune',
-                    'Yen Thinh Commune',
-                    'Yen Ninh Commune',
-                    'Yen Lac Commune',
-                    'Dinh Tang Commune',
-                    'Dinh Hoa Commune',
-                    'Dinh Thanh Commune',
-                    'Dinh Cong Commune',
-                    'Dinh Tan Commune',
-                    'Dinh Tien Commune',
-                    'Dinh Long Commune',
-                    'Dinh Lien Commune',
-                    'Quan Lao Township',
-                    'Dinh Hung Commune',
-                    'Dinh Hai Commune',
-                    'Dinh Binh Commune'
-                ]
-            },
-            'Tho Xuan': {
-                subDistrict: [
-                    'Xuan Hong Commune',
-                    'Tho Xuan Township',
-                    'Bac Luong Commune',
-                    'Nam Giang Commune',
-                    'Xuan Phong Commune',
-                    'Tho Loc Commune',
-                    'Xuan Truong Commune',
-                    'Xuan Hoa Commune',
-                    'Tho Hai Commune',
-                    'Tay Ho Commune',
-                    'Xuan Giang Commune',
-                    'Xuan Sinh Commune',
-                    'Xuan Hung Commune',
-                    'Tho Dien Commune',
-                    'Tho Lam Commune',
-                    'Tho Xuong Commune',
-                    'Xuan Bai Commune',
-                    'Xuan Phu Commune',
-                    'Sao Vang Township',
-                    'Lam Son Township',
-                    'Xuan Thien Commune',
-                    'Thuan Minh Commune',
-                    'Tho Lap Commune',
+                    'My Huong Commune',
+                    'Phu Hoa Commune',
+                    'Phu Luong Commune',
                     'Quang Phu Commune',
-                    'Xuan Tin Commune',
-                    'Phu Xuan Commune',
-                    'Xuan Lai Commune',
-                    'Xuan Lap Commune',
-                    'Xuan Minh Commune',
-                    'Truong Xuan Commune'
-                ]
-            },
-            'Thuong Xuan': {
-                subDistrict: [
-                    'Bat Mot Commune',
-                    'Yen Nhan Commune',
-                    'Xuan Le Commune',
-                    'Van Xuan Commune',
-                    'Luong Son Commune',
-                    'Xuan Cao Commune',
-                    'Luan Thanh Commune',
-                    'Luan Khe Commune',
-                    'Xuan Thang Commune',
-                    'Xuan Loc Commune',
-                    'Thuong Xuan Township',
-                    'Xuan Duong Commune',
-                    'Tho Thanh Commune',
-                    'Ngoc Phung Commune',
-                    'Xuan Chinh Commune',
-                    'Tan Thanh Commune'
-                ]
-            },
-            'Trieu Son': {
-                subDistrict: [
-                    'Trieu Son Township',
-                    'Tho Son Commune',
-                    'Tho Binh Commune',
-                    'Tho Tien Commune',
-                    'Hop Ly Commune',
-                    'Hop Tien Commune',
-                    'Hop Thanh Commune',
-                    'Trieu Thanh Commune',
-                    'Hop Thang Commune',
-                    'Minh Son Commune',
-                    'Dan Luc Commune',
-                    'Dan Ly Commune',
-                    'Dan Quyen Commune',
-                    'An Nong Commune',
-                    'Van Son Commune',
-                    'Thai Hoa Commune',
-                    'Nua Township',
-                    'Dong Loi Commune',
-                    'Dong Tien Commune',
-                    'Dong Thang Commune',
-                    'Tien Nong Commune',
-                    'Khuyen Nong Commune',
-                    'Xuan Thinh Commune',
-                    'Xuan Loc Commune',
-                    'Tho Dan Commune',
-                    'Xuan Tho Commune',
-                    'Tho Tan Commune',
-                    'Tho Ngoc Commune',
-                    'Tho Cuong Commune',
-                    'Tho Phu Commune',
-                    'Tho Vuc Commune',
-                    'Tho The Commune',
-                    'Nong Truong Commune',
-                    'Binh Son Commune'
-                ]
-            },
-            'Thieu Hoa': {
-                subDistrict: [
-                    'Thieu Hoa Township',
-                    'Thieu Ngoc Commune',
-                    'Thieu Vu Commune',
-                    'Thieu Phuc Commune',
-                    'Thieu Tien Commune',
-                    'Thieu Cong Commune',
-                    'Thieu Long Commune',
-                    'Thieu Giang Commune',
-                    'Thieu Duy Commune',
-                    'Thieu Nguyen Commune',
-                    'Thieu Hop Commune',
-                    'Thieu Thinh Commune',
-                    'Thieu Quang Commune',
-                    'Thieu Thanh Commune',
-                    'Thieu Toan Commune',
-                    'Thieu Chinh Commune',
-                    'Thieu Hoa Commune',
-                    'Hau Hien Township',
-                    'Thieu Vien Commune',
-                    'Thieu Ly Commune',
-                    'Thieu Van Commune',
-                    'Thieu Trung Commune',
-                    'Tan Chau Commune',
-                    'Thieu Giao Commune'
-                ]
-            },
-            'Hoang Hoa': {
-                subDistrict: [
-                    'But Son Township',
-                    'Hoang Giang Commune',
-                    'Hoang Xuan Commune',
-                    'Hoang Phuong Commune',
-                    'Hoang Phu Commune',
-                    'Hoang Quy Commune',
-                    'Hoang Kim Commune',
-                    'Hoang Trung Commune',
-                    'Hoang Trinh Commune',
-                    'Hoang Son Commune',
-                    'Hoang Cat Commune',
-                    'Hoang Xuyen Commune',
-                    'Hoang Hop Commune',
-                    'Hoang Duc Commune',
-                    'Hoang Ha Commune',
-                    'Hoang Dat Commune',
-                    'Hoang Dao Commune',
-                    'Hoang Thang Commune',
-                    'Hoang Dong Commune',
-                    'Hoang Thai Commune',
-                    'Hoang Thinh Commune',
-                    'Hoang Thanh Commune',
-                    'Hoang Loc Commune',
-                    'Hoang Trach Commune',
-                    'Hoang Phong Commune',
-                    'Hoang Luu Commune',
-                    'Hoang Chau Commune',
-                    'Hoang Tan Commune',
-                    'Hoang Yen Commune',
-                    'Hoang Tien Commune',
-                    'Hoang Hai Commune',
-                    'Hoang Ngoc Commune',
-                    'Hoang Truong Commune'
-                ]
-            },
-            'Hau Loc': {
-                subDistrict: [
-                    'Hau Loc Township',
-                    'Dong Loc Commune',
-                    'Dai Loc Commune',
-                    'Trieu Loc Commune',
-                    'Tien Loc Commune',
-                    'Loc Son Commune',
-                    'Cau Loc Commune',
-                    'Thanh Loc Commune',
-                    'Tuy Loc Commune',
-                    'Phong Loc Commune',
-                    'My Loc Commune',
-                    'Thuan Loc Commune',
-                    'Xuan Loc Commune',
-                    'Hoa Loc Commune',
-                    'Lien Loc Commune',
-                    'Quang Loc Commune',
-                    'Phu Loc Commune',
-                    'Minh Loc Commune',
-                    'Hung Loc Commune',
-                    'Hai Loc Commune',
-                    'Da Loc Commune',
-                    'Ngu Loc Commune'
-                ]
-            },
-            'Nga Son': {
-                subDistrict: [
-                    'Nga Son Township',
-                    'Ba Dinh Commune',
-                    'Nga Vinh Commune',
-                    'Nga Van Commune',
-                    'Nga Thien Commune',
-                    'Nga Tien Commune',
-                    'Nga Phuong Commune',
-                    'Nga Trung Commune',
-                    'Nga Bach Commune',
-                    'Nga Thanh Commune',
-                    'Nga Yen Commune',
-                    'Nga Giap Commune',
-                    'Nga Hai Commune',
-                    'Nga An Commune',
-                    'Nga Phu Commune',
-                    'Nga Dien Commune',
-                    'Nga Tan Commune',
-                    'Nga Thuy Commune',
-                    'Nga Lien Commune',
-                    'Nga Thai Commune',
-                    'Nga Thach Commune',
-                    'Nga Thang Commune',
-                    'Nga Truong Commune'
-                ]
-            },
-            'Nhu Xuan': {
-                subDistrict: [
-                    'Yen Cat Township',
-                    'Bai Tranh Commune',
-                    'Xuan Hoa Commune',
-                    'Xuan Binh Commune',
-                    'Hoa Quy Commune',
-                    'Cat Van Commune',
-                    'Cat Tan Commune',
-                    'Tan Binh Commune',
-                    'Binh Luong Commune',
-                    'Thanh Quan Commune',
-                    'Thanh Xuan Commune',
-                    'Thanh Hoa Commune',
-                    'Thanh Phong Commune',
-                    'Thanh Lam Commune',
-                    'Thanh Son Commune',
-                    'Thuong Ninh Commune'
-                ]
-            },
-            'Nhu Thanh': {
-                subDistrict: [
-                    'Ben Sung Township',
-                    'Can Khe Commune',
-                    'Xuan Du Commune',
-                    'Phuong Nghi Commune',
-                    'Mau Lam Commune',
-                    'Xuan Khang Commune',
-                    'Phu Nhuan Commune',
-                    'Hai Long Commune',
-                    'Xuan Thai Commune',
-                    'Xuan Phuc Commune',
-                    'Yen Tho Commune',
-                    'Yen Lac Commune',
-                    'Thanh Tan Commune',
-                    'Thanh Ky Commune'
-                ]
-            },
-            'Nong Cong': {
-                subDistrict: [
-                    'Nong Cong Township',
-                    'Tan Phuc Commune',
-                    'Tan Tho Commune',
-                    'Hoang Son Commune',
-                    'Tan Khang Commune',
-                    'Hoang Giang Commune',
+                    'Tan Lang Commune',
+                    'Thua Township',
                     'Trung Chinh Commune',
-                    'Trung Thanh Commune',
-                    'Te Thang Commune',
-                    'Te Loi Commune',
-                    'Te Nong Commune',
-                    'Minh Nghia Commune',
-                    'Minh Khoi Commune',
-                    'Van Hoa Commune',
-                    'Truong Trung Commune',
-                    'Van Thang Commune',
-                    'Truong Giang Commune',
-                    'Van Thien Commune',
-                    'Thang Long Commune',
-                    'Truong Minh Commune',
-                    'Truong Son Commune',
-                    'Thang Binh Commune',
-                    'Cong Liem Commune',
-                    'Tuong Van Commune',
-                    'Thang Tho Commune',
-                    'Tuong Linh Commune',
-                    'Tuong Son Commune',
-                    'Cong Chinh Commune',
-                    'Yen My Commune'
+                    'Trung Kenh Commune',
+                    'Trung Xa Commune'
                 ]
             },
-            'Dong Son': {
+            'Que Vo': {
                 subDistrict: [
-                    'Rung Thong Township',
-                    'Dong Hoang Commune',
-                    'Dong Ninh Commune',
-                    'Dong Hoa Commune',
-                    'Dong Yen Commune',
-                    'Dong Minh Commune',
-                    'Dong Thanh Commune',
-                    'Dong Tien Commune',
-                    'Dong Khe Commune',
-                    'Dong Thinh Commune',
-                    'Dong Van Commune',
-                    'Dong Phu Commune',
-                    'Dong Nam Commune',
-                    'Dong Quang Commune'
+                    'Bang An Ward',
+                    'Bong Lai Ward',
+                    'Cach Bi Ward',
+                    'Chau Phong Commune',
+                    'Chi Lang Commune',
+                    'Dai Xuan Ward',
+                    'Dao Vien Commune',
+                    'Duc Long Commune',
+                    'Han Quang Commune',
+                    'Mo Dao Commune',
+                    'Ngoc Xa Commune',
+                    'Nhan Hoa Ward',
+                    'Pho Moi Ward',
+                    'Phu Lang Commune',
+                    'Phu Luong Ward',
+                    'Phuong Lieu Ward',
+                    'Phuong Mao Ward',
+                    'Que Tan Ward',
+                    'Viet Hung Ward',
+                    'Viet Thong Commune',
+                    'Yen Gia Commune'
                 ]
             },
-            'Quang Xuong': {
+            'Thuan Thanh': {
                 subDistrict: [
-                    'Tan Phong Township',
-                    'Quang Trach Commune',
-                    'Quang Duc Commune',
-                    'Quang Dinh Commune',
-                    'Quang Nhan Commune',
-                    'Quang Ninh Commune',
-                    'Quang Binh Commune',
-                    'Quang Hop Commune',
-                    'Quang Van Commune',
-                    'Quang Long Commune',
-                    'Quang Yen Commune',
-                    'Quang Hoa Commune',
-                    'Quang Khe Commune',
-                    'Quang Trung Commune',
-                    'Quang Chinh Commune',
-                    'Quang Ngoc Commune',
-                    'Quang Truong Commune',
-                    'Quang Phuc Commune',
-                    'Quang Giao Commune',
-                    'Quang Hai Commune',
-                    'Quang Luu Commune',
-                    'Quang Loc Commune',
-                    'Tien Trang Commune',
-                    'Quang Nham Commune',
-                    'Quang Thach Commune',
-                    'Quang Thai Commune'
+                    'An Binh Ward',
+                    'Dai Dong Thanh Commune',
+                    'Dinh To Commune',
+                    'Gia Dong Ward',
+                    'Ha Man Ward',
+                    'Ho Ward',
+                    'Hoai Thuong Commune',
+                    'Mao Dien Commune',
+                    'Nghia Dao Commune',
+                    'Ngu Thai Commune',
+                    'Nguyet Duc Commune',
+                    'Ninh Xa Ward',
+                    'Song Ho Ward',
+                    'Song Lieu Commune',
+                    'Thanh Khuong Ward',
+                    'Tram Lo Ward',
+                    'Tri Qua Ward',
+                    'Xuan Lam Ward'
                 ]
             },
-            'Nghi Son': {
+            'Tien Du': {
                 subDistrict: [
-                    'Hai Hoa Ward',
-                    'Hai Chau Ward',
-                    'Thanh Thuy Commune',
-                    'Thanh Son Commune',
-                    'Hai Ninh Ward',
-                    'Anh Son Commune',
-                    'Ngoc Linh Commune',
-                    'Hai An Ward',
-                    'Cac Son Commune',
-                    'Tan Dan Ward',
-                    'Hai Linh Ward',
-                    'Dinh Hai Commune',
-                    'Phu Son Commune',
-                    'Ninh Hai Ward',
-                    'Nguyen Binh Ward',
-                    'Hai Nhan Commune',
-                    'Binh Minh Ward',
-                    'Hai Thanh Ward',
+                    'Canh Hung Commune',
+                    'Dai Dong Commune',
+                    'Hien Van Commune',
+                    'Hoan Son Commune',
+                    'Lac Ve Commune',
+                    'Lien Bao Commune',
+                    'Lim Township',
+                    'Minh Dao Commune',
+                    'Noi Due Commune',
+                    'Phat Tich Commune',
                     'Phu Lam Commune',
-                    'Xuan Lam Ward',
-                    'Truc Lam Ward',
-                    'Hai Binh Ward',
-                    'Tan Truong Commune',
-                    'Tung Lam Commune',
-                    'Tinh Hai Ward',
-                    'Mai Lam Ward',
-                    'Truong Lam Commune',
-                    'Hai Yen Commune',
-                    'Hai Thuong Ward',
-                    'Nghi Son Commune',
-                    'Hai Ha Commune'
+                    'Tan Chi Commune',
+                    'Tri Phuong Commune',
+                    'Viet Doan Commune'
+                ]
+            },
+            'Tu Son': {
+                subDistrict: [
+                    'Chau Khe Ward',
+                    'Dinh Bang Ward',
+                    'Dong Ky Ward',
+                    'Dong Ngan Ward',
+                    'Dong Nguyen Ward',
+                    'Huong Mac Ward',
+                    'Phu Chan Ward',
+                    'Phu Khe Ward',
+                    'Tam Son Ward',
+                    'Tan Hong Ward',
+                    'Trang Ha Ward',
+                    'Tuong Giang Ward'
+                ]
+            },
+            'Yen Phong': {
+                subDistrict: [
+                    'Cho Township',
+                    'Dong Phong Commune',
+                    'Dong Tho Commune',
+                    'Dong Tien Commune',
+                    'Dung Liet Commune',
+                    'Hoa Tien Commune',
+                    'Long Chau Commune',
+                    'Tam Da Commune',
+                    'Tam Giang Commune',
+                    'Thuy Hoa Commune',
+                    'Trung Nghia Commune',
+                    'Van Mon Commune',
+                    'Yen Phu Commune',
+                    'Yen Trung Commune'
                 ]
             }
         },
-        'Nghe An': {
-            Vinh: {
+        'Ha Nam': {
+            'Binh Luc': {
                 subDistrict: [
-                    'Dong Vinh Ward',
-                    'Ha Huy Tap Ward',
-                    'Le Loi Ward',
-                    'Quan Bau Ward',
-                    'Hung Binh Ward',
-                    'Hung Phuc Ward',
-                    'Hung Dung Ward',
-                    'Cua Nam Ward',
-                    'Quang Trung Ward',
-                    'Doi Cung Ward',
-                    'Le Mao Ward',
-                    'Truong Thi Ward',
-                    'Ben Thuy Ward',
-                    'Hong Son Ward',
-                    'Trung Do Ward',
-                    'Nghi Phu Commune',
-                    'Hung Dong Commune',
-                    'Hung Loc Commune',
-                    'Hung Hoa Commune',
-                    'Vinh Tan Ward',
-                    'Nghi Lien Commune',
-                    'Nghi An Commune',
-                    'Nghi Kim Commune',
-                    'Nghi Duc Commune',
-                    'Hung Chinh Commune'
+                    'An Do Commune',
+                    'An Lao Commune',
+                    'An Ninh Commune',
+                    'An Noi Commune',
+                    'Binh My Township',
+                    'Binh Nghia Commune',
+                    'Bo De Commune',
+                    'Boi Cau Commune',
+                    'Don Xa Commune',
+                    'Dong Du Commune',
+                    'Hung Cong Commune',
+                    'La Son Commune',
+                    'Ngoc Lu Commune',
+                    'Tieu Dong Commune',
+                    'Trang An Commune',
+                    'Trung Luong Commune',
+                    'Vu Ban Commune'
                 ]
             },
-            'Cua Lo': {
+            'Duy Tien': {
                 subDistrict: [
-                    'Nghi Thuy Ward',
-                    'Nghi Tan Ward',
-                    'Thu Thuy Ward',
-                    'Nghi Hoa Ward',
-                    'Nghi Hai Ward',
-                    'Nghi Huong Ward',
-                    'Nghi Thu Ward'
+                    'Bach Thuong Ward',
+                    'Chau Giang Ward',
+                    'Chuyen Ngoai Commune',
+                    'Dong Van Ward',
+                    'Duy Hai Ward',
+                    'Duy Minh Ward',
+                    'Hoa Mac Ward',
+                    'Hoang Dong Ward',
+                    'Moc Bac Commune',
+                    'Moc Nam Commune',
+                    'Tien Ngoai Commune',
+                    'Tien Noi Ward',
+                    'Tien Son Commune',
+                    'Trac Van Commune',
+                    'Yen Bac Ward',
+                    'Yen Nam Commune'
                 ]
             },
-            'Que Phong': {
+            'Kim Bang': {
                 subDistrict: [
-                    'Kim Son Township',
-                    'Thong Thu Commune',
-                    'Dong Van Commune',
-                    'Hanh Dich Commune',
-                    'Tien Phong Commune',
-                    'Nam Giai Commune',
-                    'Tri Le Commune',
-                    'Chau Kim Commune',
-                    'Muong Noc Commune',
-                    'Chau Thon Commune',
-                    'Nam Nhoong Commune',
-                    'Quang Phong Commune',
-                    'Cam Muon Commune'
-                ]
-            },
-            'Quy Chau': {
-                subDistrict: [
-                    'Tan Lac Township',
-                    'Chau Binh Commune',
-                    'Chau Thuan Commune',
-                    'Chau Hoi Commune',
-                    'Chau Nga Commune',
-                    'Chau Tien Commune',
-                    'Chau Hanh Commune',
-                    'Chau Thang Commune',
-                    'Chau Phong Commune',
-                    'Chau Hoan Commune',
-                    'Dien Lam Commune'
-                ]
-            },
-            'Ky Son': {
-                subDistrict: [
-                    'Muong Xen Township',
-                    'My Ly Commune',
-                    'Bac Ly Commune',
-                    'Keng Du Commune',
-                    'Dooc May Commune',
-                    'Huoi Tu Commune',
-                    'Muong Long Commune',
-                    'Na Loi Commune',
-                    'Nam Can Commune',
-                    'Bao Nam Commune',
-                    'Pha Danh Commune',
-                    'Bao Thang Commune',
-                    'Huu Lap Commune',
-                    'Ta Ca Commune',
-                    'Chieu Luu Commune',
-                    'Muong Tip Commune',
-                    'Huu Kiem Commune',
-                    'Tay Son Commune',
-                    'Muong Ai Commune',
-                    'Na Ngoi Commune'
-                ]
-            },
-            'Tuong Duong': {
-                subDistrict: [
-                    'Thach Giam Township',
-                    'Mai Son Commune',
-                    'Nhon Mai Commune',
-                    'Huu Khuong Commune',
-                    'Yen Tinh Commune',
-                    'Nga My Commune',
-                    'Xieng My Commune',
-                    'Luong Minh Commune',
-                    'Yen Hoa Commune',
-                    'Yen Na Commune',
-                    'Luu Kien Commune',
-                    'Xa Luong Commune',
-                    'Tam Thai Commune',
-                    'Tam Dinh Commune',
-                    'Yen Thang Commune',
-                    'Tam Quang Commune',
-                    'Tam Hop Commune'
-                ]
-            },
-            'Thai Hoa': {
-                subDistrict: [
-                    'Hoa Hieu Ward',
-                    'Quang Phong Ward',
-                    'Quang Tien Ward',
-                    'Long Son Ward',
-                    'Nghia Tien Commune',
-                    'Nghia My Commune',
-                    'Tay Hieu Commune',
-                    'Nghia Thuan Commune',
-                    'Dong Hieu Commune'
-                ]
-            },
-            'Nghia Dan': {
-                subDistrict: [
-                    'Nghia Dan Township',
-                    'Nghia Mai Commune',
-                    'Nghia Yen Commune',
-                    'Nghia Lac Commune',
-                    'Nghia Lam Commune',
-                    'Nghia Son Commune',
-                    'Nghia Loi Commune',
-                    'Nghia Binh Commune',
-                    'Nghia Tho Commune',
-                    'Nghia Minh Commune',
-                    'Nghia Phu Commune',
-                    'Nghia Hung Commune',
-                    'Nghia Hong Commune',
-                    'Nghia Thinh Commune',
-                    'Nghia Trung Commune',
-                    'Nghia Hoi Commune',
-                    'Nghia Thanh Commune',
-                    'Nghia Hieu Commune',
-                    'Nghia Duc Commune',
-                    'Nghia An Commune',
-                    'Nghia Long Commune',
-                    'Nghia Loc Commune',
-                    'Nghia Khanh Commune'
-                ]
-            },
-            'Quy Hop': {
-                subDistrict: [
-                    'Quy Hop Township',
-                    'Yen Hop Commune',
-                    'Chau Tien Commune',
-                    'Chau Hong Commune',
-                    'Dong Hop Commune',
-                    'Chau Thanh Commune',
-                    'Lien Hop Commune',
-                    'Chau Loc Commune',
-                    'Tam Hop Commune',
-                    'Chau Cuong Commune',
-                    'Chau Quang Commune',
-                    'Tho Hop Commune',
-                    'Minh Hop Commune',
-                    'Nghia Xuan Commune',
-                    'Chau Thai Commune',
-                    'Chau Dinh Commune',
-                    'Van Loi Commune',
-                    'Nam Son Commune',
-                    'Chau Ly Commune',
-                    'Ha Son Commune',
-                    'Bac Son Commune'
-                ]
-            },
-            'Quynh Luu': {
-                subDistrict: [
-                    'Cau Giat Township',
-                    'Quynh Thang Commune',
-                    'Quynh Tan Commune',
-                    'Quynh Chau Commune',
-                    'Tan Son Commune',
-                    'Quynh Van Commune',
+                    'Ba Sao Township',
+                    'Dai Cuong Commune',
+                    'Dong Hoa Commune',
+                    'Hoang Tay Commune',
+                    'Kha Phong Commune',
+                    'Le Ho Commune',
+                    'Lien Son Commune',
                     'Ngoc Son Commune',
-                    'Quynh Tam Commune',
-                    'Quynh Hoa Commune',
-                    'Quynh Thach Commune',
-                    'Quynh Bang Commune',
-                    'Quynh My Commune',
-                    'Quynh Thanh Commune',
-                    'Quynh Hau Commune',
-                    'Quynh Lam Commune',
-                    'Quynh Doi Commune',
-                    'Quynh Luong Commune',
-                    'Quynh Hong Commune',
-                    'Quynh Yen Commune',
-                    'Quynh Ba Commune',
-                    'Quynh Minh Commune',
-                    'Quynh Dien Commune',
-                    'Quynh Hung Commune',
-                    'Quynh Giang Commune',
-                    'Quynh Ngoc Commune',
-                    'Quynh Nghia Commune',
-                    'An Hoa Commune',
-                    'Tien Thuy Commune',
-                    'Son Hai Commune',
-                    'Quynh Tho Commune',
-                    'Quynh Thuan Commune',
-                    'Quynh Long Commune',
-                    'Tan Thang Commune'
+                    'Nguyen Uy Commune',
+                    'Nhat Tan Commune',
+                    'Nhat Tuu Commune',
+                    'Que Township',
+                    'Tan Son Commune',
+                    'Thanh Son Commune',
+                    'Thi Son Commune',
+                    'Thuy Loi Commune',
+                    'Tuong Linh Commune',
+                    'Van Xa Commune'
+                ]
+            },
+            'Ly Nhan': {
+                subDistrict: [
+                    'Bac Ly Commune',
+                    'Chan Ly Commune',
+                    'Chinh Ly Commune',
+                    'Cong Ly Commune',
+                    'Dao Ly Commune',
+                    'Duc Ly Commune',
+                    'Hoa Hau Commune',
+                    'Hop Ly Commune',
+                    'Nguyen Ly Commune',
+                    'Nhan Binh Commune',
+                    'Nhan Chinh Commune',
+                    'Nhan Khang Commune',
+                    'Nhan My Commune',
+                    'Nhan Nghia Commune',
+                    'Nhan Thinh Commune',
+                    'Phu Phuc Commune',
+                    'Tien Thang Commune',
+                    'Tran Hung Dao Commune',
+                    'Van Ly Commune',
+                    'Vinh Tru Township',
+                    'Xuan Khe Commune'
+                ]
+            },
+            'Phu Ly': {
+                subDistrict: [
+                    'Chau Son Ward',
+                    'Dinh Xa Commune',
+                    'Hai Ba Trung Ward',
+                    'Kim Binh Commune',
+                    'Lam Ha Ward',
+                    'Le Hong Phong Ward',
+                    'Liem Chinh Ward',
+                    'Liem Chung Commune',
+                    'Liem Tiet Commune',
+                    'Liem Tuyen Commune',
+                    'Luong Khanh Thien Ward',
+                    'Minh Khai Ward',
+                    'Phu Van Commune',
+                    'Quang Trung Ward',
+                    'Thanh Chau Ward',
+                    'Thanh Tuyen Ward',
+                    'Tien Hai Commune',
+                    'Tien Hiep Commune',
+                    'Tien Tan Commune',
+                    'Tran Hung Dao Ward',
+                    'Trinh Xa Commune'
+                ]
+            },
+            'Thanh Liem': {
+                subDistrict: [
+                    'Kien Khe Township',
+                    'Liem Can Commune',
+                    'Liem Phong Commune',
+                    'Liem Son Commune',
+                    'Liem Thuan Commune',
+                    'Liem Tuc Commune',
+                    'Tan Thanh Township',
+                    'Thanh Ha Commune',
+                    'Thanh Hai Commune',
+                    'Thanh Huong Commune',
+                    'Thanh Nghi Commune',
+                    'Thanh Nguyen Commune',
+                    'Thanh Phong Commune',
+                    'Thanh Tam Commune',
+                    'Thanh Tan Commune',
+                    'Thanh Thuy Commune'
+                ]
+            }
+        },
+        'Ha Noi': {
+            'Ba Dinh': {
+                subDistrict: [
+                    'Cong Vi Ward',
+                    'Dien Bien Ward',
+                    'Doi Can Ward',
+                    'Giang Vo Ward',
+                    'Kim Ma Ward',
+                    'Lieu Giai Ward',
+                    'Ngoc Ha Ward',
+                    'Ngoc Khanh Ward',
+                    'Nguyen Trung Truc Ward',
+                    'Phuc Xa Ward',
+                    'Quan Thanh Ward',
+                    'Thanh Cong Ward',
+                    'Truc Bach Ward',
+                    'Vinh Phuc Ward'
+                ]
+            },
+            'Ba Vi': {
+                subDistrict: [
+                    'Ba Trai Commune',
+                    'Ba Vi Commune',
+                    'Cam Linh Commune',
+                    'Cam Thuong Commune',
+                    'Chau Son Commune',
+                    'Chu Minh Commune',
+                    'Co Do Commune',
+                    'Dong Quang Commune',
+                    'Dong Thai Commune',
+                    'Khanh Thuong Commune',
+                    'Minh Chau Commune',
+                    'Minh Quang Commune',
+                    'Phong Van Commune',
+                    'Phu Chau Commune',
+                    'Phu Cuong Commune',
+                    'Phu Dong Commune',
+                    'Phu Phuong Commune',
+                    'Phu Son Commune',
+                    'Son Da Commune',
+                    'Tan Hong Commune',
+                    'Tan Linh Commune',
+                    'Tay Dang Township',
+                    'Thai Hoa Commune',
+                    'Thuan My Commune',
+                    'Thuy An Commune',
+                    'Tien Phong Commune',
+                    'Tong Bat Commune',
+                    'Van Hoa Commune',
+                    'Van Thang Commune',
+                    'Vat Lai Commune',
+                    'Yen Bai Commune'
+                ]
+            },
+            'Bac Tu Liem': {
+                subDistrict: [
+                    'Dong Ngac Ward',
+                    'Duc Thang Ward',
+                    'Lien Mac Ward',
+                    'Minh Khai Ward',
+                    'Phu Dien Ward',
+                    'Phuc Dien Ward',
+                    'Tay Tuu Ward',
+                    'Thuong Cat Ward',
+                    'Thuy Phuong Ward',
+                    'Ward Co Nhue 1',
+                    'Ward Co Nhue 2',
+                    'Xuan Dinh Ward',
+                    'Xuan Tao Ward'
+                ]
+            },
+            'Cau Giay': {
+                subDistrict: [
+                    'Dich Vong Hau Ward',
+                    'Dich Vong Ward',
+                    'Mai Dich Ward',
+                    'Nghia Do Ward',
+                    'Nghia Tan Ward',
+                    'Quan Hoa Ward',
+                    'Trung Hoa Ward',
+                    'Yen Hoa Ward'
+                ]
+            },
+            'Chuong My': {
+                subDistrict: [
+                    'Chuc Son Township',
+                    'Dai Yen Commune',
+                    'Dong Lac Commune',
+                    'Dong Phu Commune',
+                    'Dong Phuong Yen Commune',
+                    'Dong Son Commune',
+                    'Hoa Chinh Commune',
+                    'Hoang Dieu Commune',
+                    'Hoang Van Thu Commune',
+                    'Hong Phong Commune',
+                    'Hop Dong Commune',
+                    'Huu Van Commune',
+                    'Lam Dien Commune',
+                    'My Luong Commune',
+                    'Nam Phuong Tien Commune',
+                    'Ngoc Hoa Commune',
+                    'Phu Nam An Commune',
+                    'Phu Nghia Commune',
+                    'Phung Chau Commune',
+                    'Quang Bi Commune',
+                    'Tan Tien Commune',
+                    'Thanh Binh Commune',
+                    'Thuong Vuc Commune',
+                    'Thuy Huong Commune',
+                    'Thuy Xuan Tien Commune',
+                    'Tien Phuong Commune',
+                    'Tot Dong Commune',
+                    'Tran Phu Commune',
+                    'Trung Hoa Commune',
+                    'Truong Yen Commune',
+                    'Van Vo Commune',
+                    'Xuan Mai Township'
+                ]
+            },
+            'Dan Phuong': {
+                subDistrict: [
+                    'Dan Phuong Commune',
+                    'Dong Thap Commune',
+                    'Ha Mo Commune',
+                    'Hong Ha Commune',
+                    'Lien Ha Commune',
+                    'Lien Hong Commune',
+                    'Lien Trung Commune',
+                    'Phung Township',
+                    'Phuong Dinh Commune',
+                    'Song Phuong Commune',
+                    'Tan Hoi Commune',
+                    'Tan Lap Commune',
+                    'Tho An Commune',
+                    'Tho Xuan Commune',
+                    'Thuong Mo Commune',
+                    'Trung Chau Commune'
+                ]
+            },
+            'Dong Anh': {
+                subDistrict: [
+                    'Bac Hong Commune',
+                    'Co Loa Commune',
+                    'Dai Mach Commune',
+                    'Dong Anh Township',
+                    'Dong Hoi Commune',
+                    'Duc Tu Commune',
+                    'Hai Boi Commune',
+                    'Kim Chung Commune',
+                    'Kim No Commune',
+                    'Lien Ha Commune',
+                    'Mai Lam Commune',
+                    'Nam Hong Commune',
+                    'Nguyen Khe Commune',
+                    'Tam Xa Commune',
+                    'Thuy Lam Commune',
+                    'Tien Duong Commune',
+                    'Uy No Commune',
+                    'Van Ha Commune',
+                    'Van Noi Commune',
+                    'Viet Hung Commune',
+                    'Vinh Ngoc Commune',
+                    'Vong La Commune',
+                    'Xuan Canh Commune',
+                    'Xuan Non Commune'
+                ]
+            },
+            'Dong Da': {
+                subDistrict: [
+                    'Cat Linh Ward',
+                    'Hang Bot Ward',
+                    'Kham Thien Ward',
+                    'Khuong Thuong Ward',
+                    'Kim Lien Ward',
+                    'Lang Ha Ward',
+                    'Lang Thuong Ward',
+                    'Nam Dong Ward',
+                    'Nga Tu So Ward',
+                    'O Cho Dua Ward',
+                    'Phuong Lien Ward',
+                    'Phuong Mai Ward',
+                    'Quang Trung Ward',
+                    'Quoc Tu Giam Ward',
+                    'Thinh Quang Ward',
+                    'Tho Quan Ward',
+                    'Trung Liet Ward',
+                    'Trung Phung Ward',
+                    'Trung Tu Ward',
+                    'Van Chuong Ward',
+                    'Van Mieu Ward'
+                ]
+            },
+            'Gia Lam': {
+                subDistrict: [
+                    'Bat Trang Commune',
+                    'Co Bi Commune',
+                    'Da Ton Commune',
+                    'Dang Xa Commune',
+                    'Dinh Xuyen Commune',
+                    'Dong Du Commune',
+                    'Duong Ha Commune',
+                    'Duong Quang Commune',
+                    'Duong Xa Commune',
+                    'Kieu Ky Commune',
+                    'Kim Lan Commune',
+                    'Kim Son Commune',
+                    'Le Chi Commune',
+                    'Ninh Hiep Commune',
+                    'Phu Dong Commune',
+                    'Phu Thi Commune',
+                    'Trau Quy Township',
+                    'Trung Mau Commune',
+                    'Van Duc Commune',
+                    'Yen Thuong Commune',
+                    'Yen Vien Commune',
+                    'Yen Vien Township'
+                ]
+            },
+            'Ha Dong': {
+                subDistrict: [
+                    'Bien Giang Ward',
+                    'Dong Mai Ward',
+                    'Duong Noi Ward',
+                    'Ha Cau Ward',
+                    'Kien Hung Ward',
+                    'La Khe Ward',
+                    'Mo Lao Ward',
+                    'Nguyen Trai Ward',
+                    'Phu La Ward',
+                    'Phu Lam Ward',
+                    'Phu Luong Ward',
+                    'Phuc La Ward',
+                    'Quang Trung Ward',
+                    'Van Phuc Ward',
+                    'Van Quan Ward',
+                    'Yen Nghia Ward',
+                    'Yet Kieu Ward'
+                ]
+            },
+            'Hai Ba Trung': {
+                subDistrict: [
+                    'Bach Dang Ward',
+                    'Bach Khoa Ward',
+                    'Bach Mai Ward',
+                    'Cau Den Ward',
+                    'Dong Mac Ward',
+                    'Dong Nhan Ward',
+                    'Dong Tam Ward',
+                    'Le Dai Hanh Ward',
+                    'Minh Khai Ward',
+                    'Nguyen Du Ward',
+                    'Pham Dinh Ho Ward',
+                    'Pho Hue Ward',
+                    'Quynh Loi Ward',
+                    'Quynh Mai Ward',
+                    'Thanh Luong Ward',
+                    'Thanh Nhan Ward',
+                    'Truong Dinh Ward',
+                    'Vinh Tuy Ward'
+                ]
+            },
+            'Hoai Duc': {
+                subDistrict: [
+                    'An Khanh Commune',
+                    'An Thuong Commune',
+                    'Cat Que Commune',
+                    'Dac So Commune',
+                    'Di Trach Commune',
+                    'Dong La Commune',
+                    'Duc Giang Commune',
+                    'Duc Thuong Commune',
+                    'Duong Lieu Commune',
+                    'Kim Chung Commune',
+                    'La Phu Commune',
+                    'Lai Yen Commune',
+                    'Minh Khai Commune',
+                    'Son Dong Commune',
+                    'Song Phuong Commune',
+                    'Tien Yen Commune',
+                    'Tram Troi Township',
+                    'Van Canh Commune',
+                    'Van Con Commune',
+                    'Yen So Commune'
+                ]
+            },
+            'Hoan Kiem': {
+                subDistrict: [
+                    'Chuong Duong Ward',
+                    'Cua Dong Ward',
+                    'Cua Nam Ward',
+                    'Dong Xuan Ward',
+                    'Hang Bac Ward',
+                    'Hang Bai Ward',
+                    'Hang Bo Ward',
+                    'Hang Bong Ward',
+                    'Hang Buom Ward',
+                    'Hang Dao Ward',
+                    'Hang Gai Ward',
+                    'Hang Ma Ward',
+                    'Hang Trong Ward',
+                    'Ly Thai To Ward',
+                    'Phan Chu Trinh Ward',
+                    'Phuc Tan Ward',
+                    'Tran Hung Dao Ward',
+                    'Trang Tien Ward'
                 ]
             },
             'Hoang Mai': {
                 subDistrict: [
-                    'Quynh Vinh Commune',
-                    'Quynh Loc Commune',
-                    'Quynh Thien Ward',
-                    'Quynh Lap Commune',
-                    'Quynh Trang Commune',
-                    'Mai Hung Ward',
-                    'Quynh Di Ward',
-                    'Quynh Xuan Ward',
-                    'Quynh Phuong Ward',
-                    'Quynh Lien Commune'
-                ]
-            },
-            'Con Cuong': {
-                subDistrict: [
-                    'Con Cuong Township',
-                    'Binh Chuan Commune',
-                    'Lang Khe Commune',
-                    'Cam Lam Commune',
-                    'Thach Ngan Commune',
-                    'Don Phuc Commune',
-                    'Mau Duc Commune',
-                    'Chau Khe Commune',
-                    'Chi Khe Commune',
-                    'Bong Khe Commune',
-                    'Yen Khe Commune',
-                    'Luc Da Commune',
-                    'Mon Son Commune'
-                ]
-            },
-            'Tan Ky': {
-                subDistrict: [
-                    'Tan Ky Township',
-                    'Tan Hop Commune',
-                    'Tan Phu Commune',
-                    'Tan Xuan Commune',
-                    'Giai Xuan Commune',
-                    'Nghia Binh Commune',
-                    'Nghia Dong Commune',
-                    'Dong Van Commune',
-                    'Nghia Thai Commune',
-                    'Nghia Hop Commune',
-                    'Nghia Hoan Commune',
-                    'Nghia Phuc Commune',
-                    'Tien Ky Commune',
-                    'Tan An Commune',
-                    'Nghia Dung Commune',
-                    'Tan Long Commune',
-                    'Ky Son Commune',
-                    'Huong Son Commune',
-                    'Ky Tan Commune',
-                    'Phu Son Commune',
-                    'Tan Huong Commune',
-                    'Nghia Hanh Commune'
-                ]
-            },
-            'Anh Son': {
-                subDistrict: [
-                    'Anh Son Township',
-                    'Tho Son Commune',
-                    'Thanh Son Commune',
-                    'Binh Son Commune',
-                    'Tam Son Commune',
-                    'Dinh Son Commune',
-                    'Hung Son Commune',
-                    'Cam Son Commune',
-                    'Duc Son Commune',
-                    'Tuong Son Commune',
-                    'Hoa Son Commune',
-                    'Tao Son Commune',
-                    'Vinh Son Commune',
-                    'Lang Son Commune',
-                    'Hoi Son Commune',
-                    'Thach Son Commune',
-                    'Phuc Son Commune',
-                    'Long Son Commune',
-                    'Khai Son Commune',
-                    'Linh Son Commune',
-                    'Cao Son Commune'
-                ]
-            },
-            'Dien Chau': {
-                subDistrict: [
-                    'Dien Chau Township',
-                    'Dien Lam Commune',
-                    'Dien Doai Commune',
-                    'Dien Truong Commune',
-                    'Dien Yen Commune',
-                    'Dien Hoang Commune',
-                    'Dien Hung Commune',
-                    'Dien My Commune',
-                    'Dien Hong Commune',
-                    'Dien Phong Commune',
-                    'Dien Hai Commune',
-                    'Dien Thap Commune',
-                    'Dien Lien Commune',
-                    'Dien Van Commune',
-                    'Dien Kim Commune',
-                    'Dien Ky Commune',
-                    'Dien Xuan Commune',
-                    'Dien Thai Commune',
-                    'Dien Dong Commune',
-                    'Dien Bich Commune',
-                    'Dien Hanh Commune',
-                    'Dien Ngoc Commune',
-                    'Dien Quang Commune',
-                    'Dien Nguyen Commune',
-                    'Dien Hoa Commune',
-                    'Dien Thanh Commune',
-                    'Dien Phuc Commune',
-                    'Dien Cat Commune',
-                    'Dien Thinh Commune',
-                    'Dien Tan Commune',
-                    'Minh Chau Commune',
-                    'Dien Tho Commune',
-                    'Dien Loi Commune',
-                    'Dien Loc Commune',
-                    'Dien Trung Commune',
-                    'Dien An Commune',
-                    'Dien Phu Commune'
-                ]
-            },
-            'Yen Thanh': {
-                subDistrict: [
-                    'Yen Thanh Township',
-                    'Ma Thanh Commune',
-                    'Tien Thanh Commune',
-                    'Lang Thanh Commune',
-                    'Tan Thanh Commune',
-                    'Duc Thanh Commune',
-                    'Kim Thanh Commune',
-                    'Hau Thanh Commune',
-                    'Hung Thanh Commune',
-                    'Do Thanh Commune',
-                    'Tho Thanh Commune',
-                    'Quang Thanh Commune',
-                    'Tay Thanh Commune',
-                    'Phuc Thanh Commune',
-                    'Hong Thanh Commune',
-                    'Dong Thanh Commune',
-                    'Phu Thanh Commune',
-                    'Hoa Thanh Commune',
-                    'Tang Thanh Commune',
-                    'Van Thanh Commune',
-                    'Thinh Thanh Commune',
-                    'Hop Thanh Commune',
-                    'Xuan Thanh Commune',
-                    'Bac Thanh Commune',
-                    'Nhan Thanh Commune',
-                    'Trung Thanh Commune',
-                    'Long Thanh Commune',
-                    'Minh Thanh Commune',
-                    'Nam Thanh Commune',
-                    'Vinh Thanh Commune',
-                    'Ly Thanh Commune',
-                    'Khanh Thanh Commune',
-                    'Vien Thanh Commune',
-                    'Dai Thanh Commune',
-                    'Lien Thanh Commune',
-                    'Bao Thanh Commune',
-                    'My Thanh Commune',
-                    'Cong Thanh Commune',
-                    'Son Thanh Commune'
-                ]
-            },
-            'Do Luong': {
-                subDistrict: [
-                    'Do Luong Township',
-                    'Giang Son Dong Commune',
-                    'Giang Son Tay Commune',
-                    'Lam Son Commune',
-                    'Boi Son Commune',
-                    'Hong Son Commune',
-                    'Bai Son Commune',
-                    'Ngoc Son Commune',
-                    'Bac Son Commune',
-                    'Trang Son Commune',
-                    'Thuong Son Commune',
-                    'Hoa Son Commune',
-                    'Dang Son Commune',
-                    'Dong Son Commune',
-                    'Nam Son Commune',
-                    'Luu Son Commune',
-                    'Yen Son Commune',
-                    'Van Son Commune',
-                    'Da Son Commune',
-                    'Lac Son Commune',
-                    'Tan Son Commune',
-                    'Thai Son Commune',
-                    'Quang Son Commune',
-                    'Thinh Son Commune',
-                    'Trung Son Commune',
-                    'Xuan Son Commune',
-                    'Minh Son Commune',
-                    'Thuan Son Commune',
-                    'Nhan Son Commune',
-                    'Hien Son Commune',
-                    'My Son Commune',
-                    'Tru Son Commune',
-                    'Dai Son Commune'
-                ]
-            },
-            'Thanh Chuong': {
-                subDistrict: [
-                    'Thanh Chuong Township',
-                    'Cat Van Commune',
-                    'Thanh Nho Commune',
-                    'Hanh Lam Commune',
-                    'Thanh Son Commune',
-                    'Thanh Hoa Commune',
-                    'Phong Thinh Commune',
-                    'Thanh Phong Commune',
-                    'Thanh My Commune',
-                    'Thanh Tien Commune',
-                    'Thanh Lien Commune',
-                    'Dai Dong Commune',
-                    'Thanh Dong Commune',
-                    'Thanh Ngoc Commune',
-                    'Thanh Huong Commune',
-                    'Ngoc Lam Commune',
-                    'Thanh Linh Commune',
-                    'Dong Van Commune',
-                    'Ngoc Son Commune',
-                    'Thanh Thinh Commune',
-                    'Thanh An Commune',
-                    'Thanh Chi Commune',
-                    'Xuan Tuong Commune',
-                    'Thanh Duong Commune',
-                    'Thanh Luong Commune',
-                    'Thanh Khe Commune',
-                    'Vo Liet Commune',
-                    'Thanh Long Commune',
-                    'Thanh Thuy Commune',
-                    'Thanh Khai Commune',
-                    'Thanh Yen Commune',
-                    'Thanh Ha Commune',
-                    'Thanh Giang Commune',
-                    'Thanh Tung Commune',
-                    'Thanh Lam Commune',
-                    'Thanh Mai Commune',
-                    'Thanh Xuan Commune',
-                    'Thanh Duc Commune'
-                ]
-            },
-            'Nghi Loc': {
-                subDistrict: [
-                    'Quan Hanh Township',
-                    'Nghi Van Commune',
-                    'Nghi Yen Commune',
-                    'Nghi Tien Commune',
-                    'Nghi Hung Commune',
-                    'Nghi Dong Commune',
-                    'Nghi Thiet Commune',
-                    'Nghi Lam Commune',
-                    'Nghi Quang Commune',
-                    'Nghi Kieu Commune',
-                    'Nghi My Commune',
-                    'Nghi Phuong Commune',
-                    'Nghi Thuan Commune',
-                    'Nghi Long Commune',
-                    'Nghi Xa Commune',
-                    'Nghi Hoa Commune',
-                    'Khanh Hop Commune',
-                    'Nghi Thinh Commune',
-                    'Nghi Cong Bac Commune',
-                    'Nghi Cong Nam Commune',
-                    'Nghi Thach Commune',
-                    'Nghi Trung Commune',
-                    'Nghi Truong Commune',
-                    'Nghi Dien Commune',
-                    'Nghi Phong Commune',
-                    'Nghi Xuan Commune',
-                    'Phuc Tho Commune',
-                    'Nghi Thai Commune'
-                ]
-            },
-            'Nam Dan': {
-                subDistrict: [
-                    'Nam Hung Commune',
-                    'Nam Nghia Commune',
-                    'Nam Thanh Commune',
-                    'Nam Anh Commune',
-                    'Nam Xuan Commune',
-                    'Nam Thai Commune',
-                    'Nam Dan Township',
-                    'Nam Linh Commune',
-                    'Nam Giang Commune',
-                    'Xuan Hoa Commune',
-                    'Hung Tien Commune',
-                    'Thuong Tan Loc Commune',
-                    'Kim Lien Commune',
-                    'Hong Long Commune',
-                    'Xuan Lam Commune',
-                    'Nam Cat Commune',
-                    'Khanh Son Commune',
-                    'Trung Phuc Cuong Commune',
-                    'Nam Kim Commune'
-                ]
-            },
-            'Hung Nguyen': {
-                subDistrict: [
-                    'Hung Nguyen Township',
-                    'Hung Trung Commune',
-                    'Hung Yen Commune',
-                    'Hung Yen Bac Commune',
-                    'Hung Tay Commune',
-                    'Hung Dao Commune',
-                    'Hung My Commune',
-                    'Hung Thinh Commune',
-                    'Hung Linh Commune',
-                    'Hung Thong Commune',
-                    'Hung Tan Commune',
-                    'Hung Loi Commune',
-                    'Hung Nghia Commune',
-                    'Hung Phuc Commune',
-                    'Long Xa Commune',
-                    'Chau Nhan Commune',
-                    'Xuan Lam Commune',
-                    'Hung Thanh Commune'
-                ]
-            }
-        },
-        'Ha Tinh': {
-            'Ha Tinh': {
-                subDistrict: [
+                    'Dai Kim Ward',
+                    'Dinh Cong Ward',
+                    'Giap Bat Ward',
+                    'Hoang Liet Ward',
+                    'Hoang Van Thu Ward',
+                    'Linh Nam Ward',
+                    'Mai Dong Ward',
+                    'Tan Mai Ward',
+                    'Thanh Tri Ward',
+                    'Thinh Liet Ward',
                     'Tran Phu Ward',
-                    'Nam Ha Ward',
-                    'Bac Ha Ward',
-                    'Nguyen Du Ward',
-                    'Tan Giang Ward',
-                    'Dai Nai Ward',
-                    'Ha Huy Tap Ward',
-                    'Thach Trung Commune',
-                    'Thach Quy Ward',
-                    'Thach Linh Ward',
-                    'Van Yen Ward',
-                    'Thach Ha Commune',
-                    'Dong Mon Commune',
-                    'Thach Hung Commune',
-                    'Thach Binh Commune'
+                    'Tuong Mai Ward',
+                    'Vinh Hung Ward',
+                    'Yen So Ward'
                 ]
             },
-            'Hong Linh': {
+            'Long Bien': {
                 subDistrict: [
-                    'Bac Hong Ward',
-                    'Nam Hong Ward',
-                    'Trung Luong Ward',
-                    'Duc Thuan Ward',
-                    'Dau Lieu Ward',
-                    'Thuan Loc Commune'
+                    'Bo De Ward',
+                    'Cu Khoi Ward',
+                    'Duc Giang Ward',
+                    'Gia Thuy Ward',
+                    'Giang Bien Ward',
+                    'Long Bien Ward',
+                    'Ngoc Lam Ward',
+                    'Ngoc Thuy Ward',
+                    'Phuc Dong Ward',
+                    'Phuc Loi Ward',
+                    'Sai Dong Ward',
+                    'Thach Ban Ward',
+                    'Thuong Thanh Ward',
+                    'Viet Hung Ward'
                 ]
             },
-            'Huong Son': {
+            'Me Linh': {
                 subDistrict: [
-                    'Pho Chau Township',
-                    'Tay Son Township',
-                    'Son Hong Commune',
-                    'Son Tien Commune',
-                    'Son Lam Commune',
-                    'Son Le Commune',
-                    'Son Giang Commune',
-                    'Son Linh Commune',
-                    'An Hoa Thinh Commune',
-                    'Son Tay Commune',
-                    'Son Ninh Commune',
-                    'Son Chau Commune',
-                    'Tan My Ha Commune',
-                    'Quang Diem Commune',
-                    'Son Trung Commune',
-                    'Son Bang Commune',
-                    'Son Binh Commune',
-                    'Commune Son Kim 1',
-                    'Commune Son Kim 2',
-                    'Son Tra Commune',
-                    'Son Long Commune',
+                    'Chi Dong Township',
+                    'Chu Phan Commune',
+                    'Dai Thinh Commune',
+                    'Hoang Kim Commune',
                     'Kim Hoa Commune',
-                    'Son Ham Commune',
-                    'Son Phu Commune',
-                    'Son Truong Commune'
+                    'Lien Mac Commune',
+                    'Me Linh Commune',
+                    'Quang Minh Township',
+                    'Tam Dong Commune',
+                    'Thach Da Commune',
+                    'Thanh Lam Commune',
+                    'Tien Phong Commune',
+                    'Tien Thang Commune',
+                    'Tien Thinh Commune',
+                    'Trang Viet Commune',
+                    'Tu Lap Commune',
+                    'Van Khe Commune',
+                    'Van Yen Commune'
                 ]
             },
-            'Duc Tho': {
+            'My Duc': {
                 subDistrict: [
-                    'Duc Tho Township',
-                    'Quang Vinh Commune',
-                    'Tung Chau Commune',
-                    'Truong Son Commune',
-                    'Lien Minh Commune',
-                    'Yen Ho Commune',
-                    'Tung Anh Commune',
-                    'Bui La Nhan Commune',
-                    'Thanh Binh Thinh Commune',
-                    'Lam Trung Thuy Commune',
-                    'Hoa Lac Commune',
-                    'Tan Dan Commune',
-                    'An Dung Commune',
-                    'Duc Dong Commune',
-                    'Duc Lang Commune',
-                    'Tan Huong Commune'
-                ]
-            },
-            'Vu Quang': {
-                subDistrict: [
-                    'Vu Quang Township',
+                    'An My Commune',
                     'An Phu Commune',
-                    'Duc Giang Commune',
-                    'Duc Linh Commune',
-                    'Tho Dien Commune',
-                    'Duc Huong Commune',
-                    'Duc Bong Commune',
-                    'Duc Lien Commune',
-                    'Huong Minh Commune',
-                    'Quang Tho Commune'
-                ]
-            },
-            'Nghi Xuan': {
-                subDistrict: [
-                    'Xuan An Township',
-                    'Xuan Hoi Commune',
-                    'Dan Truong Commune',
-                    'Xuan Pho Commune',
-                    'Xuan Hai Commune',
-                    'Xuan Giang Commune',
-                    'Tien Dien Township',
-                    'Xuan Yen Commune',
-                    'Xuan My Commune',
-                    'Xuan Thanh Commune',
-                    'Xuan Vien Commune',
-                    'Xuan Hong Commune',
-                    'Co Dam Commune',
-                    'Xuan Lien Commune',
-                    'Xuan Linh Commune',
-                    'Xuan Lam Commune',
-                    'Cuong Gian Commune'
-                ]
-            },
-            'Can Loc': {
-                subDistrict: [
-                    'Nghen Township',
-                    'Thien Loc Commune',
-                    'Thuan Thien Commune',
-                    'Vuong Loc Commune',
-                    'Thanh Loc Commune',
-                    'Kim Song Truong Commune',
-                    'Thuong Nga Commune',
-                    'Tung Loc Commune',
-                    'Phu Loc Commune',
-                    'Gia Hanh Commune',
-                    'Khanh Vinh Yen Commune',
-                    'Trung Loc Commune',
-                    'Xuan Loc Commune',
-                    'Thuong Loc Commune',
-                    'Quang Loc Commune',
-                    'Dong Loc Township',
-                    'My Loc Commune',
-                    'Son Loc Commune'
-                ]
-            },
-            'Loc Ha': {
-                subDistrict: [
-                    'Tan Loc Commune',
-                    'Hong Loc Commune',
-                    'Thinh Loc Commune',
-                    'Binh An Commune',
-                    'Ich Hau Commune',
-                    'Phu Luu Commune',
-                    'Loc Ha Township',
-                    'Thach My Commune',
-                    'Thach Kim Commune',
-                    'Thach Chau Commune',
-                    'Ho Do Commune',
-                    'Mai Phu Commune'
-                ]
-            },
-            'Huong Khe': {
-                subDistrict: [
-                    'Huong Khe Township',
-                    'Dien My Commune',
-                    'Ha Linh Commune',
-                    'Huong Thuy Commune',
-                    'Hoa Hai Commune',
-                    'Phuc Dong Commune',
-                    'Huong Giang Commune',
-                    'Loc Yen Commune',
-                    'Huong Binh Commune',
-                    'Huong Long Commune',
-                    'Phu Gia Commune',
-                    'Gia Pho Commune',
-                    'Phu Phong Commune',
-                    'Huong Do Commune',
-                    'Huong Vinh Commune',
-                    'Huong Xuan Commune',
-                    'Phuc Trach Commune',
-                    'Huong Tra Commune',
-                    'Huong Trach Commune',
-                    'Huong Lam Commune',
-                    'Huong Lien Commune'
-                ]
-            },
-            'Thach Ha': {
-                subDistrict: [
-                    'Thach Ha Township',
-                    'Ngoc Son Commune',
-                    'Thach Hai Commune',
-                    'Thach Kenh Commune',
-                    'Thach Son Commune',
-                    'Thach Lien Commune',
-                    'Dinh Ban Commune',
-                    'Viet Tien Commune',
-                    'Thach Khe Commune',
-                    'Thach Long Commune',
-                    'Thach Tri Commune',
-                    'Thach Lac Commune',
-                    'Thach Ngoc Commune',
-                    'Tuong Son Commune',
-                    'Thach Van Commune',
-                    'Luu Vinh Son Commune',
-                    'Thach Thang Commune',
-                    'Thach Dai Commune',
-                    'Thach Hoi Commune',
-                    'Tan Lam Huong Commune',
-                    'Thach Xuan Commune',
-                    'Nam Dien Commune'
-                ]
-            },
-            'Cam Xuyen': {
-                subDistrict: [
-                    'Cam Xuyen Township',
-                    'Thien Cam Township',
-                    'Yen Hoa Commune',
-                    'Cam Duong Commune',
-                    'Cam Binh Commune',
-                    'Cam Vinh Commune',
-                    'Cam Thanh Commune',
-                    'Cam Quang Commune',
-                    'Cam Thach Commune',
-                    'Cam Nhuong Commune',
-                    'Nam Phuc Thang Commune',
-                    'Cam Due Commune',
-                    'Cam Linh Commune',
-                    'Cam Quan Commune',
-                    'Cam Ha Commune',
-                    'Cam Loc Commune',
-                    'Cam Hung Commune',
-                    'Cam Thinh Commune',
-                    'Cam My Commune',
-                    'Cam Trung Commune',
-                    'Cam Son Commune',
-                    'Cam Lac Commune',
-                    'Cam Minh Commune'
-                ]
-            },
-            'Ky Anh': {
-                subDistrict: [
-                    'Hung Tri Ward',
-                    'Ky Xuan Commune',
-                    'Ky Bac Commune',
-                    'Ky Phu Commune',
-                    'Ky Phong Commune',
-                    'Ky Tien Commune',
-                    'Ky Giang Commune',
-                    'Ky Dong Commune',
-                    'Ky Khang Commune',
-                    'Ky Ninh Commune',
-                    'Ky Van Commune',
-                    'Ky Trung Commune',
-                    'Ky Tho Commune',
-                    'Ky Tay Commune',
-                    'Ky Loi Commune',
-                    'Ky Thuong Commune',
-                    'Ky Hai Commune',
-                    'Ky Thu Commune',
-                    'Ky Ha Commune',
-                    'Ky Chau Commune',
-                    'Ky Tan Commune',
-                    'Ky Trinh Ward',
-                    'Ky Thinh Ward',
-                    'Ky Hoa Commune',
-                    'Ky Phuong Ward',
-                    'Ky Long Ward',
-                    'Lam Hop Commune',
-                    'Ky Lien Ward',
-                    'Ky Son Commune',
-                    'Ky Nam Commune',
-                    'Ky Lac Commune'
-                ]
-            }
-        },
-        'Quang Binh': {
-            'Dong Hoi': {
-                subDistrict: [
-                    'Hai Thanh Ward',
-                    'Dong Phu Ward',
-                    'Bac Ly Ward',
-                    'Nam Ly Ward',
-                    'Dong Hai Ward',
-                    'Dong Son Ward',
-                    'Phu Hai Ward',
-                    'Bac Nghia Ward',
-                    'Duc Ninh Dong Ward',
-                    'Quang Phu Commune',
-                    'Loc Ninh Commune',
-                    'Bao Ninh Commune',
-                    'Nghia Ninh Commune',
-                    'Thuan Duc Commune',
-                    'Duc Ninh Commune'
-                ]
-            },
-            'Minh Hoa': {
-                subDistrict: [
-                    'Quy Dat Township',
-                    'Dan Hoa Commune',
-                    'Trong Hoa Commune',
-                    'Hoa Phuc Commune',
-                    'Hong Hoa Commune',
-                    'Hoa Thanh Commune',
-                    'Hoa Tien Commune',
-                    'Hoa Hop Commune',
-                    'Xuan Hoa Commune',
-                    'Yen Hoa Commune',
-                    'Minh Hoa Commune',
-                    'Tan Hoa Commune',
-                    'Hoa Son Commune',
-                    'Trung Hoa Commune',
-                    'Thuong Hoa Commune'
-                ]
-            },
-            'Tuyen Hoa': {
-                subDistrict: [
-                    'Dong Le Township',
-                    'Huong Hoa Commune',
-                    'Kim Hoa Commune',
-                    'Thanh Hoa Commune',
-                    'Thanh Thach Commune',
-                    'Thuan Hoa Commune',
-                    'Lam Hoa Commune',
-                    'Le Hoa Commune',
-                    'Son Hoa Commune',
-                    'Dong Hoa Commune',
-                    'Ngu Hoa Commune',
-                    'Thach Hoa Commune',
-                    'Duc Hoa Commune',
-                    'Phong Hoa Commune',
-                    'Mai Hoa Commune',
-                    'Tien Hoa Commune',
-                    'Chau Hoa Commune',
-                    'Cao Quang Commune',
-                    'Van Hoa Commune'
-                ]
-            },
-            'Ba Don': {
-                subDistrict: [
-                    'Ba Don Ward',
-                    'Quang Long Ward',
-                    'Quang Tho Ward',
-                    'Quang Tien Commune',
-                    'Quang Trung Commune',
-                    'Quang Phong Ward',
-                    'Quang Thuan Ward',
-                    'Quang Tan Commune',
-                    'Quang Hai Commune',
-                    'Quang Son Commune',
-                    'Quang Loc Commune',
-                    'Quang Thuy Commune',
-                    'Quang Van Commune',
-                    'Quang Phuc Ward',
-                    'Quang Hoa Commune',
-                    'Quang Minh Commune'
-                ]
-            },
-            'Quang Trach': {
-                subDistrict: [
-                    'Quang Hop Commune',
-                    'Quang Kim Commune',
-                    'Quang Dong Commune',
-                    'Quang Phu Commune',
-                    'Quang Chau Commune',
-                    'Quang Thach Commune',
-                    'Quang Luu Commune',
-                    'Quang Tung Commune',
-                    'Canh Duong Commune',
-                    'Quang Tien Commune',
-                    'Quang Hung Commune',
-                    'Quang Xuan Commune',
-                    'Canh Hoa Commune',
-                    'Lien Truong Commune',
-                    'Quang Phuong Commune',
-                    'Phu Hoa Commune',
-                    'Quang Thanh Commune'
-                ]
-            },
-            'Bo Trach': {
-                subDistrict: [
-                    'Hoan Lao Township',
-                    'NT Viet Trung Township',
-                    'Xuan Trach Commune',
-                    'My Trach Commune',
-                    'Ha Trach Commune',
-                    'Bac Trach Commune',
-                    'Lam Trach Commune',
-                    'Thanh Trach Commune',
-                    'Lien Trach Commune',
-                    'Phuc Trach Commune',
-                    'Cu Nam Commune',
-                    'Hai Phu Commune',
-                    'Thuong Trach Commune',
-                    'Son Loc Commune',
-                    'Hung Trach Commune',
-                    'Dong Trach Commune',
-                    'Duc Trach Commune',
-                    'Phong Nha Township',
-                    'Van Trach Commune',
-                    'Phu Dinh Commune',
-                    'Trung Trach Commune',
-                    'Tay Trach Commune',
-                    'Hoa Trach Commune',
-                    'Dai Trach Commune',
-                    'Nhan Trach Commune',
-                    'Tan Trach Commune',
-                    'Nam Trach Commune',
-                    'Ly Trach Commune'
-                ]
-            },
-            'Quang Ninh': {
-                subDistrict: [
-                    'Quan Hau Township',
-                    'Truong Son Commune',
-                    'Luong Ninh Commune',
-                    'Vinh Ninh Commune',
-                    'Vo Ninh Commune',
-                    'Hai Ninh Commune',
-                    'Ham Ninh Commune',
-                    'Duy Ninh Commune',
-                    'Gia Ninh Commune',
-                    'Truong Xuan Commune',
-                    'Hien Ninh Commune',
-                    'Tan Ninh Commune',
-                    'Xuan Ninh Commune',
-                    'An Ninh Commune',
-                    'Van Ninh Commune'
-                ]
-            },
-            'Le Thuy': {
-                subDistrict: [
-                    'NT Le Ninh Township',
-                    'Kien Giang Township',
-                    'Hong Thuy Commune',
-                    'Ngu Thuy Bac Commune',
-                    'Hoa Thuy Commune',
-                    'Thanh Thuy Commune',
-                    'An Thuy Commune',
-                    'Phong Thuy Commune',
-                    'Cam Thuy Commune',
-                    'Ngan Thuy Commune',
-                    'Son Thuy Commune',
-                    'Loc Thuy Commune',
-                    'Lien Thuy Commune',
-                    'Hung Thuy Commune',
-                    'Duong Thuy Commune',
-                    'Tan Thuy Commune',
-                    'Phu Thuy Commune',
-                    'Xuan Thuy Commune',
-                    'My Thuy Commune',
-                    'Ngu Thuy Commune',
-                    'Mai Thuy Commune',
-                    'Sen Thuy Commune',
-                    'Thai Thuy Commune',
-                    'Kim Thuy Commune',
-                    'Truong Thuy Commune',
-                    'Lam Thuy Commune'
-                ]
-            }
-        },
-        'Quang Tri': {
-            'Dong Ha': {
-                subDistrict: [
-                    'Dong Giang Ward',
-                    'Ward 1',
-                    'Dong Le Ward',
-                    'Dong Thanh Ward',
-                    'Ward 2',
-                    'Ward 4',
-                    'Ward 5',
-                    'Dong Luong Ward',
-                    'Ward 3'
-                ]
-            },
-            'Quang Tri': {
-                subDistrict: [
-                    'Ward 1',
-                    'An Don Ward',
-                    'Ward 2',
-                    'Ward 3',
-                    'Hai Le Commune'
-                ]
-            },
-            'Vinh Linh': {
-                subDistrict: [
-                    'Ho Xa Township',
-                    'Ben Quan Township',
-                    'Vinh Thai Commune',
-                    'Vinh Tu Commune',
-                    'Vinh Chap Commune',
-                    'Trung Nam Commune',
-                    'Kim Thach Commune',
-                    'Vinh Long Commune',
-                    'Vinh Khe Commune',
-                    'Vinh Hoa Commune',
-                    'Vinh Thuy Commune',
-                    'Vinh Lam Commune',
-                    'Hien Thanh Commune',
-                    'Cua Tung Township',
-                    'Vinh Ha Commune',
-                    'Vinh Son Commune',
-                    'Vinh Giang Commune',
-                    'Vinh O Commune'
-                ]
-            },
-            'Huong Hoa': {
-                subDistrict: [
-                    'Khe Sanh Township',
-                    'Lao Bao Township',
-                    'Huong Lap Commune',
-                    'Huong Viet Commune',
-                    'Huong Phung Commune',
+                    'An Tien Commune',
+                    'Bot Xuyen Commune',
+                    'Dai Hung Commune',
+                    'Dai Nghia Township',
+                    'Doc Tin Commune',
+                    'Dong Tam Commune',
+                    'Hong Son Commune',
+                    'Hop Thanh Commune',
+                    'Hop Tien Commune',
+                    'Hung Tien Commune',
                     'Huong Son Commune',
-                    'Huong Linh Commune',
-                    'Tan Hop Commune',
-                    'Huong Tan Commune',
-                    'Tan Thanh Commune',
-                    'Tan Long Commune',
-                    'Tan Lap Commune',
-                    'Tan Lien Commune',
-                    'Huc Commune',
-                    'Thuan Commune',
-                    'Huong Loc Commune',
-                    'Ba Tang Commune',
-                    'Thanh Commune',
-                    'A Doi Commune',
-                    'Lia Commune',
-                    'Xy Commune'
+                    'Le Thanh Commune',
+                    'My Thanh Commune',
+                    'Phu Luu Te Commune',
+                    'Phuc Lam Commune',
+                    'Phung Xa Commune',
+                    'Thuong Lam Commune',
+                    'Tuy Lai Commune',
+                    'Van Kim Commune',
+                    'Xuy Xa Commune'
                 ]
             },
-            'Gio Linh': {
+            'Nam Tu Liem': {
                 subDistrict: [
-                    'Gio Linh Township',
-                    'Cua Viet Township',
-                    'Trung Giang Commune',
-                    'Trung Hai Commune',
-                    'Trung Son Commune',
-                    'Phong Binh Commune',
-                    'Gio My Commune',
-                    'Gio Hai Commune',
-                    'Gio An Commune',
-                    'Gio Chau Commune',
-                    'Gio Viet Commune',
-                    'Linh Truong Commune',
-                    'Gio Son Commune',
-                    'Gio Mai Commune',
-                    'Hai Thai Commune',
-                    'Linh Hai Commune',
-                    'Gio Quang Commune'
+                    'Cau Dien Ward',
+                    'Dai Mo Ward',
+                    'Me Tri Ward',
+                    'Phu Do Ward',
+                    'Phuong Canh Ward',
+                    'Tay Mo Ward',
+                    'Trung Van Ward',
+                    'Ward My Dinh 1',
+                    'Ward My Dinh 2',
+                    'Xuan Phuong Ward'
                 ]
             },
-            'Da Krong': {
+            'Phu Xuyen': {
                 subDistrict: [
-                    'Krong Klang Township',
-                    'Mo O Commune',
-                    'Huong Hiep Commune',
-                    'Da Krong Commune',
-                    'Trieu Nguyen Commune',
-                    'Ba Long Commune',
-                    'Ba Nang Commune',
-                    'Ta Long Commune',
-                    'Huc Nghi Commune',
-                    'A Vao Commune',
-                    'Ta Rut Commune',
-                    'A Bung Commune',
-                    'A Ngo Commune'
-                ]
-            },
-            'Cam Lo': {
-                subDistrict: [
-                    'Cam Lo Township',
-                    'Cam Tuyen Commune',
-                    'Thanh An Commune',
-                    'Cam Thuy Commune',
-                    'Cam Thanh Commune',
-                    'Cam Hieu Commune',
-                    'Cam Chinh Commune',
-                    'Cam Nghia Commune'
-                ]
-            },
-            'Trieu Phong': {
-                subDistrict: [
-                    'Ai Tu Township',
-                    'Trieu An Commune',
-                    'Trieu Van Commune',
-                    'Trieu Phuoc Commune',
-                    'Trieu Do Commune',
-                    'Trieu Trach Commune',
-                    'Trieu Thuan Commune',
-                    'Trieu Dai Commune',
-                    'Trieu Hoa Commune',
-                    'Trieu Lang Commune',
-                    'Trieu Son Commune',
-                    'Trieu Long Commune',
-                    'Trieu Tai Commune',
-                    'Trieu Trung Commune',
-                    'Trieu Ai Commune',
-                    'Trieu Thuong Commune',
-                    'Trieu Giang Commune',
-                    'Trieu Thanh Commune'
-                ]
-            },
-            'Hai Lang': {
-                subDistrict: [
-                    'Dien Sanh Township',
-                    'Hai An Commune',
-                    'Hai Ba Commune',
-                    'Hai Quy Commune',
-                    'Hai Que Commune',
-                    'Hai Hung Commune',
-                    'Hai Phu Commune',
-                    'Hai Thuong Commune',
-                    'Hai Duong Commune',
-                    'Hai Dinh Commune',
-                    'Hai Lam Commune',
-                    'Hai Phong Commune',
-                    'Hai Truong Commune',
-                    'Hai Son Commune',
-                    'Hai Chanh Commune',
-                    'Hai Khe Commune'
-                ]
-            }
-        },
-        'Thua Thien Hue': {
-            Hue: {
-                subDistrict: [
-                    'Tay Loc Ward',
-                    'Thuan Loc Ward',
-                    'Gia Hoi Ward',
-                    'Phu Hau Ward',
-                    'Thuan Hoa Ward',
-                    'Dong Ba Ward',
-                    'Kim Long Ward',
-                    'Vy Da Ward',
-                    'Phuong Duc Ward',
-                    'Vinh Ninh Ward',
-                    'Phu Hoi Ward',
-                    'Phu Nhuan Ward',
-                    'Xuan Phu Ward',
-                    'Truong An Ward',
-                    'Phuoc Vinh Ward',
-                    'An Cuu Ward',
-                    'An Hoa Ward',
-                    'Huong So Ward',
-                    'Thuy Bieu Ward',
-                    'Huong Long Ward',
-                    'Thuy Xuan Ward',
-                    'An Dong Ward',
-                    'An Tay Ward',
-                    'Thuan An Ward',
-                    'Phu Duong Commune',
-                    'Phu Mau Commune',
-                    'Phu Thanh Commune',
-                    'Phu Thuong Ward',
-                    'Thuy Van Ward',
-                    'Thuy Bang Commune',
-                    'Hai Duong Commune',
-                    'Huong Phong Commune',
-                    'Huong Vinh Ward',
-                    'Huong An Ward',
-                    'Huong Ho Ward',
-                    'Huong Tho Commune'
-                ]
-            },
-            'Phong Dien': {
-                subDistrict: [
-                    'Phong Dien Township',
-                    'Dien Huong Commune',
-                    'Dien Mon Commune',
-                    'Dien Loc Commune',
-                    'Phong Binh Commune',
-                    'Dien Hoa Commune',
-                    'Phong Chuong Commune',
-                    'Phong Hai Commune',
-                    'Dien Hai Commune',
-                    'Phong Hoa Commune',
-                    'Phong Thu Commune',
-                    'Phong Hien Commune',
-                    'Phong My Commune',
-                    'Phong An Commune',
-                    'Phong Xuan Commune',
-                    'Phong Son Commune'
-                ]
-            },
-            'Quang Dien': {
-                subDistrict: [
-                    'Sia Township',
-                    'Quang Thai Commune',
-                    'Quang Ngan Commune',
-                    'Quang Loi Commune',
-                    'Quang Cong Commune',
-                    'Quang Phuoc Commune',
-                    'Quang Vinh Commune',
-                    'Quang An Commune',
-                    'Quang Thanh Commune',
-                    'Quang Tho Commune',
-                    'Quang Phu Commune'
-                ]
-            },
-            'Phu Vang': {
-                subDistrict: [
-                    'Phu Thuan Commune',
-                    'Phu An Commune',
-                    'Phu Hai Commune',
-                    'Phu Xuan Commune',
-                    'Phu Dien Commune',
-                    'Phu My Commune',
-                    'Phu Ho Commune',
-                    'Vinh Xuan Commune',
-                    'Phu Luong Commune',
-                    'Phu Da Township',
-                    'Vinh Thanh Commune',
-                    'Vinh An Commune',
-                    'Phu Gia Commune',
-                    'Vinh Ha Commune'
-                ]
-            },
-            'Huong Thuy': {
-                subDistrict: [
-                    'Phu Bai Ward',
-                    'Thuy Thanh Commune',
-                    'Thuy Duong Ward',
-                    'Thuy Phuong Ward',
-                    'Thuy Chau Ward',
-                    'Thuy Luong Ward',
-                    'Thuy Tan Commune',
-                    'Thuy Phu Commune',
-                    'Phu Son Commune',
-                    'Duong Hoa Commune'
-                ]
-            },
-            'Huong Tra': {
-                subDistrict: [
-                    'Tu Ha Ward',
-                    'Huong Toan Commune',
-                    'Huong Van Ward',
-                    'Huong Xuan Ward',
-                    'Huong Chu Ward',
-                    'Huong Binh Commune',
-                    'Binh Tien Commune',
-                    'Binh Thanh Commune'
-                ]
-            },
-            'A Luoi': {
-                subDistrict: [
-                    'A Luoi Township',
-                    'Hong Van Commune',
-                    'Hong Ha Commune',
-                    'Hong Kim Commune',
-                    'Trung Son Commune',
-                    'Huong Nguyen Commune',
-                    'Hong Bac Commune',
-                    'A Ngo Commune',
-                    'Son Thuy Commune',
-                    'Phu Vinh Commune',
-                    'Huong Phong Commune',
-                    'Quang Nham Commune',
-                    'Hong Thuong Commune',
+                    'Bach Ha Commune',
+                    'Chau Can Commune',
+                    'Chuyen My Commune',
+                    'Dai Thang Commune',
+                    'Dai Xuyen Commune',
+                    'Hoang Long Commune',
+                    'Hong Minh Commune',
                     'Hong Thai Commune',
-                    'A Roang Commune',
+                    'Khai Thai Commune',
+                    'Minh Tan Commune',
+                    'Nam Phong Commune',
+                    'Nam Tien Commune',
+                    'Nam Trieu Commune',
+                    'Phu Minh Township',
+                    'Phu Tuc Commune',
+                    'Phu Xuyen Township',
+                    'Phu Yen Commune',
+                    'Phuc Tien Commune',
+                    'Phuong Duc Commune',
+                    'Quang Lang Commune',
+                    'Quang Trung Commune',
+                    'Son Ha Commune',
+                    'Tan Dan Commune',
+                    'Tri Thuy Commune',
+                    'Tri Trung Commune',
+                    'Van Hoang Commune',
+                    'Van Tu Commune'
+                ]
+            },
+            'Phuc Tho': {
+                subDistrict: [
+                    'Hat Mon Commune',
+                    'Hiep Thuan Commune',
+                    'Lien Hiep Commune',
+                    'Long Xuyen Commune',
+                    'Ngoc Tao Commune',
+                    'Phuc Hoa Commune',
+                    'Phuc Tho Township',
+                    'Phung Thuong Commune',
+                    'Sen Phuong Commune',
+                    'Tam Hiep Commune',
+                    'Tam Thuan Commune',
+                    'Thanh Da Commune',
+                    'Tho Loc Commune',
+                    'Thuong Coc Commune',
+                    'Tich Giang Commune',
+                    'Trach My Loc Commune',
+                    'Van Ha Commune',
+                    'Van Nam Commune',
+                    'Van Phuc Commune',
+                    'Vong Xuyen Commune',
+                    'Xuan Dinh Commune'
+                ]
+            },
+            'Quoc Oai': {
+                subDistrict: [
+                    'Can Huu Commune',
+                    'Cong Hoa Commune',
+                    'Dai Thanh Commune',
+                    'Dong Quang Commune',
+                    'Dong Xuan Commune',
+                    'Dong Yen Commune',
+                    'Hoa Thach Commune',
+                    'Liep Tuyet Commune',
+                    'Nghia Huong Commune',
+                    'Ngoc Liep Commune',
+                    'Ngoc My Commune',
+                    'Phu Cat Commune',
+                    'Phu Man Commune',
+                    'Phuong Cach Commune',
+                    'Quoc Oai Township',
+                    'Sai Son Commune',
+                    'Tan Hoa Commune',
+                    'Tan Phu Commune',
+                    'Thach Than Commune',
+                    'Tuyet Nghia Commune',
+                    'Yen Son Commune'
+                ]
+            },
+            'Soc Son': {
+                subDistrict: [
+                    'Bac Phu Commune',
+                    'Bac Son Commune',
+                    'Dong Xuan Commune',
+                    'Duc Hoa Commune',
+                    'Hien Ninh Commune',
+                    'Hong Ky Commune',
+                    'Kim Lu Commune',
+                    'Mai Dinh Commune',
+                    'Minh Phu Commune',
+                    'Minh Tri Commune',
+                    'Nam Son Commune',
+                    'Phu Cuong Commune',
+                    'Phu Linh Commune',
+                    'Phu Lo Commune',
+                    'Phu Minh Commune',
+                    'Quang Tien Commune',
+                    'Soc Son Township',
+                    'Tan Dan Commune',
+                    'Tan Hung Commune',
+                    'Tan Minh Commune',
+                    'Thanh Xuan Commune',
+                    'Tien Duoc Commune',
+                    'Trung Gia Commune',
+                    'Viet Long Commune',
+                    'Xuan Giang Commune',
+                    'Xuan Thu Commune'
+                ]
+            },
+            'Son Tay': {
+                subDistrict: [
+                    'Co Dong Commune',
+                    'Duong Lam Commune',
+                    'Kim Son Commune',
+                    'Le Loi Ward',
+                    'Ngo Quyen Ward',
+                    'Phu Thinh Ward',
+                    'Quang Trung Ward',
+                    'Son Dong Commune',
+                    'Son Loc Ward',
+                    'Thanh My Commune',
+                    'Trung Hung Ward',
+                    'Trung Son Tram Ward',
+                    'Vien Son Ward',
+                    'Xuan Khanh Ward',
+                    'Xuan Son Commune'
+                ]
+            },
+            'Tay Ho': {
+                subDistrict: [
+                    'Buoi Ward',
+                    'Nhat Tan Ward',
+                    'Phu Thuong Ward',
+                    'Quang An Ward',
+                    'Thuy Khue Ward',
+                    'Tu Lien Ward',
+                    'Xuan La Ward',
+                    'Yen Phu Ward'
+                ]
+            },
+            'Thach That': {
+                subDistrict: [
+                    'Binh Phu Commune',
+                    'Binh Yen Commune',
+                    'Cam Yen Commune',
+                    'Can Kiem Commune',
+                    'Canh Nau Commune',
+                    'Chang Son Commune',
+                    'Dai Dong Commune',
+                    'Di Nau Commune',
+                    'Dong Truc Commune',
+                    'Ha Bang Commune',
+                    'Huong Ngai Commune',
+                    'Huu Bang Commune',
+                    'Kim Quan Commune',
+                    'Lai Thuong Commune',
+                    'Lien Quan Township',
+                    'Phu Kim Commune',
+                    'Phung Xa Commune',
+                    'Tan Xa Commune',
+                    'Thach Hoa Commune',
+                    'Thach Xa Commune',
+                    'Tien Xuan Commune',
+                    'Yen Binh Commune',
+                    'Yen Trung Commune'
+                ]
+            },
+            'Thanh Oai': {
+                subDistrict: [
+                    'Bich Hoa Commune',
+                    'Binh Minh Commune',
+                    'Cao Duong Commune',
+                    'Cao Vien Commune',
+                    'Cu Khe Commune',
+                    'Dan Hoa Commune',
+                    'Do Dong Commune',
+                    'Hong Duong Commune',
+                    'Kim An Commune',
+                    'Kim Bai Township',
+                    'Kim Thu Commune',
+                    'Lien Chau Commune',
+                    'My Hung Commune',
+                    'Phuong Trung Commune',
+                    'Tam Hung Commune',
+                    'Tan Uoc Commune',
+                    'Thanh Cao Commune',
+                    'Thanh Mai Commune',
+                    'Thanh Thuy Commune',
+                    'Thanh Van Commune',
+                    'Xuan Duong Commune'
+                ]
+            },
+            'Thanh Tri': {
+                subDistrict: [
+                    'Dai ang Commune',
+                    'Dong My Commune',
+                    'Duyen Ha Commune',
+                    'Huu Hoa Commune',
+                    'Lien Ninh Commune',
+                    'Ngoc Hoi Commune',
+                    'Ngu Hiep Commune',
+                    'Ta Thanh Oai Commune',
+                    'Tam Hiep Commune',
+                    'Tan Trieu Commune',
+                    'Thanh Liet Commune',
+                    'Tu Hiep Commune',
+                    'Van Dien Township',
+                    'Van Phuc Commune',
+                    'Vinh Quynh Commune',
+                    'Yen My Commune'
+                ]
+            },
+            'Thanh Xuan': {
+                subDistrict: [
+                    'Ha Dinh Ward',
+                    'Khuong Dinh Ward',
+                    'Khuong Mai Ward',
+                    'Khuong Trung Ward',
+                    'Kim Giang Ward',
+                    'Nhan Chinh Ward',
+                    'Phuong Liet Ward',
+                    'Thanh Xuan Bac Ward',
+                    'Thanh Xuan Nam Ward',
+                    'Thanh Xuan Trung Ward',
+                    'Thuong Dinh Ward'
+                ]
+            },
+            'Thuong Tin': {
+                subDistrict: [
+                    'Chuong Duong Commune',
+                    'Dung Tien Commune',
+                    'Duyen Thai Commune',
+                    'Ha Hoi Commune',
+                    'Hien Giang Commune',
+                    'Hoa Binh Commune',
+                    'Hong Van Commune',
+                    'Khanh Ha Commune',
+                    'Le Loi Commune',
+                    'Lien Phuong Commune',
+                    'Minh Cuong Commune',
+                    'Nghiem Xuyen Commune',
+                    'Nguyen Trai Commune',
+                    'Nhi Khe Commune',
+                    'Ninh So Commune',
+                    'Quat Dong Commune',
+                    'Tan Minh Commune',
+                    'Thang Loi Commune',
+                    'Thong Nhat Commune',
+                    'Thu Phu Commune',
+                    'Thuong Tin Township',
+                    'Tien Phong Commune',
+                    'To Hieu Commune',
+                    'Tu Nhien Commune',
+                    'Van Binh Commune',
+                    'Van Diem Commune',
+                    'Van Phu Commune',
+                    'Van Tao Commune',
+                    'Van Tu Commune'
+                ]
+            },
+            'Ung Hoa': {
+                subDistrict: [
+                    'Cao Thanh Commune',
+                    'Dai Cuong Commune',
+                    'Dai Hung Commune',
+                    'Doi Binh Commune',
+                    'Dong Lo Commune',
+                    'Dong Tan Commune',
+                    'Dong Tien Commune',
+                    'Hoa Lam Commune',
+                    'Hoa Nam Commune',
+                    'Hoa Phu Commune',
+                    'Hoa Son Commune',
+                    'Hoa Xa Commune',
+                    'Hong Quang Commune',
+                    'Kim Duong Commune',
+                    'Lien Bat Commune',
+                    'Luu Hoang Commune',
+                    'Minh Duc Commune',
+                    'Phu Luu Commune',
+                    'Phuong Tu Commune',
+                    'Quang Phu Cau Commune',
+                    'Son Cong Commune',
+                    'Tao Duong Van Commune',
+                    'Tram Long Commune',
+                    'Trung Tu Commune',
+                    'Truong Thinh Commune',
+                    'Van Dinh Township',
+                    'Van Thai Commune',
+                    'Vien An Commune',
+                    'Vien Noi Commune'
+                ]
+            }
+        },
+        'Hai Duong': {
+            'Binh Giang': {
+                subDistrict: [
+                    'Binh Minh Commune',
+                    'Binh Xuyen Commune',
+                    'Co Bi Commune',
+                    'Hong Khe Commune',
+                    'Hung Thang Commune',
+                    'Ke Sat Township',
+                    'Long Xuyen Commune',
+                    'Nhan Quyen Commune',
+                    'Tan Hong Commune',
+                    'Tan Viet Commune',
+                    'Thai Duong Commune',
+                    'Thai Hoa Commune',
+                    'Thai Hoc Commune',
+                    'Thuc Khang Commune',
+                    'Vinh Hong Commune',
+                    'Vinh Hung Commune'
+                ]
+            },
+            'Cam Giang': {
+                subDistrict: [
+                    'Cam Dien Commune',
+                    'Cam Doai Commune',
+                    'Cam Dong Commune',
+                    'Cam Giang Township',
+                    'Cam Hoang Commune',
+                    'Cam Hung Commune',
+                    'Cam Phuc Commune',
+                    'Cam Van Commune',
+                    'Cam Vu Commune',
+                    'Cao An Commune',
+                    'Dinh Son Commune',
+                    'Duc Chinh Commune',
+                    'Lai Cach Township',
+                    'Luong Dien Commune',
+                    'Ngoc Lien Commune',
+                    'Tan Truong Commune',
+                    'Thach Loi Commune'
+                ]
+            },
+            'Chi Linh': {
+                subDistrict: [
+                    'An Lac Ward',
+                    'Bac An Commune',
+                    'Ben Tam Ward',
+                    'Chi Minh Ward',
+                    'Co Thanh Ward',
+                    'Cong Hoa Ward',
+                    'Dong Lac Ward',
+                    'Hoang Hoa Tham Commune',
+                    'Hoang Tan Ward',
+                    'Hoang Tien Ward',
+                    'Hung Dao Commune',
+                    'Le Loi Commune',
+                    'Nhan Hue Commune',
+                    'Pha Lai Ward',
+                    'Sao Do Ward',
+                    'Tan Dan Ward',
+                    'Thai Hoc Ward',
+                    'Van An Ward',
+                    'Van Duc Ward'
+                ]
+            },
+            'Gia Loc': {
+                subDistrict: [
+                    'Doan Thuong Commune',
+                    'Dong Quang Commune',
+                    'Duc Xuong Commune',
+                    'Gia Khanh Commune',
+                    'Gia Loc Township',
+                    'Gia Luong Commune',
+                    'Gia Tan Commune',
+                    'Hoang Dieu Commune',
+                    'Hong Hung Commune',
+                    'Le Loi Commune',
+                    'Nhat Tan Commune',
+                    'Pham Tran Commune',
+                    'Quang Minh Commune',
+                    'Tan Tien Commune',
+                    'Thong Kenh Commune',
+                    'Thong Nhat Commune',
+                    'Toan Thang Commune',
+                    'Yet Kieu Commune'
+                ]
+            },
+            'Hai Duong': {
+                subDistrict: [
+                    'Ai Quoc Ward',
+                    'An Thuong Commune',
+                    'Binh Han Ward',
+                    'Cam Thuong Ward',
+                    'Gia Xuyen Commune',
+                    'Hai Tan Ward',
+                    'Le Thanh Nghi Ward',
+                    'Lien Hong Commune',
+                    'Nam Dong Ward',
+                    'Ngoc Chau Ward',
+                    'Ngoc Son Commune',
+                    'Nguyen Trai Ward',
+                    'Nhi Chau Ward',
+                    'Pham Ngu Lao Ward',
+                    'Quang Trung Ward',
+                    'Quyet Thang Commune',
+                    'Tan Binh Ward',
+                    'Tan Hung Ward',
+                    'Thach Khoi Ward',
+                    'Thanh Binh Ward',
+                    'Tien Tien Commune',
+                    'Tran Hung Dao Ward',
+                    'Tran Phu Ward',
+                    'Tu Minh Ward',
+                    'Viet Hoa Ward'
+                ]
+            },
+            'Kim Thanh': {
+                subDistrict: [
+                    'Binh Dan Commune',
+                    'Co Dung Commune',
+                    'Cong Hoa Commune',
+                    'Dai Duc Commune',
+                    'Dong Cam Commune',
+                    'Kim Anh Commune',
+                    'Kim Dinh Commune',
+                    'Kim Lien Commune',
+                    'Kim Tan Commune',
+                    'Kim Xuyen Commune',
+                    'Lai Vu Commune',
+                    'Lien Hoa Commune',
+                    'Ngu Phuc Commune',
+                    'Phu Thai Township',
+                    'Phuc Thanh A Commune',
+                    'Tam Ky Commune',
+                    'Thuong Vu Commune',
+                    'Tuan Viet Commune'
+                ]
+            },
+            'Kinh Mon': {
+                subDistrict: [
+                    'An Luu Ward',
+                    'An Phu Ward',
+                    'An Sinh Ward',
+                    'Bach Dang Commune',
+                    'Duy Tan Ward',
+                    'Hien Thanh Ward',
+                    'Hiep An Ward',
+                    'Hiep Hoa Commune',
+                    'Hiep Son Ward',
+                    'Hoanh Son Commune',
+                    'Lac Long Commune',
+                    'Le Ninh Commune',
+                    'Long Xuyen Ward',
+                    'Minh Hoa Commune',
+                    'Minh Tan Ward',
+                    'Pham Thai Ward',
+                    'Phu Thu Ward',
+                    'Quang Thanh Commune',
+                    'Tan Dan Ward',
+                    'Thai Thinh Ward',
+                    'Thang Long Commune',
+                    'That Hung Ward',
+                    'Thuong Quan Commune'
+                ]
+            },
+            'Nam Sach': {
+                subDistrict: [
+                    'An Binh Commune',
+                    'An Lam Commune',
+                    'An Son Commune',
+                    'Cong Hoa Commune',
+                    'Dong Lac Commune',
+                    'Hiep Cat Commune',
+                    'Hong Phong Commune',
+                    'Hop Tien Commune',
+                    'Minh Tan Commune',
+                    'Nam Chinh Commune',
+                    'Nam Hong Commune',
+                    'Nam Hung Commune',
+                    'Nam Sach Township',
+                    'Nam Tan Commune',
+                    'Nam Trung Commune',
+                    'Phu Dien Commune',
+                    'Quoc Tuan Commune',
+                    'Thai Tan Commune',
+                    'Thanh Quang Commune'
+                ]
+            },
+            'Ninh Giang': {
+                subDistrict: [
+                    'An Duc Commune',
+                    'Dong Tam Commune',
+                    'Dong Xuyen Commune',
+                    'Hiep Luc Commune',
+                    'Hong Du Commune',
+                    'Hong Duc Commune',
+                    'Hong Phong Commune',
+                    'Hong Phuc Commune',
+                    'Hung Long Commune',
+                    'Kien Quoc Commune',
+                    'Nghia An Commune',
+                    'Ninh Giang Township',
+                    'Ninh Hai Commune',
+                    'Tan Huong Commune',
+                    'Tan Phong Commune',
+                    'Tan Quang Commune',
+                    'Ung Hoe Commune',
+                    'Van Hoi Commune',
+                    'Van Phuc Commune',
+                    'Vinh Hoa Commune'
+                ]
+            },
+            'Thanh Ha': {
+                subDistrict: [
+                    'An Phuong Commune',
+                    'Cam Che Commune',
+                    'Hong Lac Commune',
+                    'Lien Mac Commune',
+                    'Tan An Commune',
+                    'Tan Viet Commune',
+                    'Thanh An Commune',
+                    'Thanh Cuong Commune',
+                    'Thanh Ha Township',
+                    'Thanh Hai Commune',
+                    'Thanh Hong Commune',
+                    'Thanh Khe Commune',
+                    'Thanh Lang Commune',
+                    'Thanh Quang Commune',
+                    'Thanh Son Commune',
+                    'Thanh Thuy Commune',
+                    'Thanh Xa Commune',
+                    'Thanh Xuan Commune',
+                    'Viet Hong Commune',
+                    'Vinh Lap Commune'
+                ]
+            },
+            'Thanh Mien': {
+                subDistrict: [
+                    'Cao Thang Commune',
+                    'Chi Lang Bac Commune',
+                    'Chi Lang Nam Commune',
+                    'Doan Ket Commune',
+                    'Doan Tung Commune',
+                    'Hong Phong Commune',
+                    'Hong Quang Commune',
+                    'Lam Son Commune',
+                    'Le Hong Commune',
+                    'Ngo Quyen Commune',
+                    'Ngu Hung Commune',
+                    'Pham Kha Commune',
+                    'Tan Trao Commune',
+                    'Thanh Giang Commune',
+                    'Thanh Mien Township',
+                    'Thanh Tung Commune',
+                    'Tu Cuong Commune'
+                ]
+            },
+            'Tu Ky': {
+                subDistrict: [
+                    'An Thanh Commune',
+                    'Binh Lang Commune',
+                    'Chi Minh Commune',
+                    'Cong Lac Commune',
+                    'Dai Hop Commune',
+                    'Dai Son Commune',
+                    'Dan Chu Commune',
+                    'Ha Ky Commune',
+                    'Ha Thanh Commune',
+                    'Hung Dao Commune',
+                    'Minh Duc Commune',
+                    'Ngoc Ky Commune',
+                    'Nguyen Giap Commune',
+                    'Phuong Ky Commune',
+                    'Quang Khai Commune',
+                    'Quang Nghiep Commune',
+                    'Quang Phuc Commune',
+                    'Quang Trung Commune',
+                    'Tai Son Commune',
+                    'Tan Ky Commune',
+                    'Tien Dong Commune',
+                    'Tu Ky Township',
+                    'Van To Commune'
+                ]
+            }
+        },
+        'Hai Phong': {
+            'An Duong': {
+                subDistrict: [
+                    'An Dong Commune',
+                    'An Duong Township',
+                    'An Hoa Commune',
+                    'An Hong Commune',
+                    'An Hung Commune',
+                    'Bac Son Commune',
+                    'Dai Ban Commune',
+                    'Dang Cuong Commune',
+                    'Dong Thai Commune',
+                    'Hong Phong Commune',
+                    'Hong Thai Commune',
+                    'Le Loi Commune',
+                    'Le Thien Commune',
+                    'Nam Son Commune',
+                    'Quoc Tuan Commune',
+                    'Tan Tien Commune'
+                ]
+            },
+            'An Lao': {
+                subDistrict: [
+                    'An Lao Township',
+                    'An Thai Commune',
+                    'An Thang Commune',
+                    'An Tho Commune',
+                    'An Tien Commune',
+                    'Bat Trang Commune',
+                    'Chien Thang Commune',
+                    'My Duc Commune',
+                    'Quang Hung Commune',
+                    'Quang Trung Commune',
+                    'Quoc Tuan Commune',
+                    'Tan Dan Commune',
+                    'Tan Vien Commune',
+                    'Thai Son Commune',
+                    'Truong Son Township',
+                    'Truong Thanh Commune',
+                    'Truong Tho Commune'
+                ]
+            },
+            'Cat Hai': {
+                subDistrict: [
+                    'Cat Ba Township',
+                    'Cat Hai Township',
+                    'Dong Bai Commune',
+                    'Gia Luan Commune',
+                    'Hien Hao Commune',
+                    'Hoang Chau Commune',
+                    'Nghia Lo Commune',
+                    'Phu Long Commune',
+                    'Tran Chau Commune',
+                    'Van Phong Commune',
+                    'Viet Hai Commune',
+                    'Xuan Dam Commune'
+                ]
+            },
+            'Do Son': {
+                subDistrict: [
+                    'Bang La Ward',
+                    'Hai Son Ward',
+                    'Hop Duc Ward',
+                    'Minh Duc Ward',
+                    'Ngoc Xuyen Ward',
+                    'Van Huong Ward'
+                ]
+            },
+            'Duong Kinh': {
+                subDistrict: [
+                    'Anh Dung Ward',
+                    'Da Phuc Ward',
+                    'Hai Thanh Ward',
+                    'Hoa Nghia Ward',
+                    'Hung Dao Ward',
+                    'Tan Thanh Ward'
+                ]
+            },
+            'Hai An': {
+                subDistrict: [
+                    'Cat Bi Ward',
+                    'Dang Hai Ward',
+                    'Dang Lam Ward',
+                    'Nam Hai Ward',
+                    'Thanh To Ward',
+                    'Trang Cat Ward',
+                    'Ward Dong Hai 1',
+                    'Ward Dong Hai 2'
+                ]
+            },
+            'Hong Bang': {
+                subDistrict: [
+                    'Ha Ly Ward',
+                    'Hoang Van Thu Ward',
+                    'Hung Vuong Ward',
+                    'Minh Khai Ward',
+                    'Phan Boi Chau Ward',
+                    'Quan Toan Ward',
+                    'So Dau Ward',
+                    'Thuong Ly Ward',
+                    'Trai Chuoi Ward'
+                ]
+            },
+            'Kien An': {
+                subDistrict: [
+                    'Bac Son Ward',
+                    'Dong Hoa Ward',
+                    'Lam Ha Ward',
+                    'Nam Son Ward',
+                    'Ngoc Son Ward',
+                    'Phu Lien Ward',
+                    'Quan Tru Ward',
+                    'Tran Thanh Ngo Ward',
+                    'Trang Minh Ward',
+                    'Van Dau Ward'
+                ]
+            },
+            'Kien Thuy': {
+                subDistrict: [
+                    'Dai Dong Commune',
+                    'Dai Ha Commune',
+                    'Dai Hop Commune',
+                    'Doan Xa Commune',
+                    'Dong Phuong Commune',
+                    'Du Le Commune',
+                    'Huu Bang Commune',
+                    'Kien Quoc Commune',
+                    'Minh Tan Commune',
+                    'Ngu Doan Commune',
+                    'Ngu Phuc Commune',
+                    'Nui Doi Township',
+                    'Tan Phong Commune',
+                    'Tan Trao Commune',
+                    'Thanh Son Commune',
+                    'Thuan Thien Commune',
+                    'Thuy Huong Commune',
+                    'Tu Son Commune'
+                ]
+            },
+            'Le Chan': {
+                subDistrict: [
+                    'An Bien Ward',
+                    'An Duong Ward',
+                    'Cat Dai Ward',
+                    'Dong Hai Ward',
+                    'Du Hang Kenh Ward',
+                    'Du Hang Ward',
+                    'Hang Kenh Ward',
+                    'Ho Nam Ward',
+                    'Kenh Duong Ward',
+                    'Lam Son Ward',
+                    'Nghia Xa Ward',
+                    'Niem Nghia Ward',
+                    'Trai Cau Ward',
+                    'Tran Nguyen Han Ward',
+                    'Vinh Niem Ward'
+                ]
+            },
+            'Ngo Quyen': {
+                subDistrict: [
+                    'Cau Dat Ward',
+                    'Cau Tre Ward',
+                    'Dang Giang Ward',
+                    'Dong Khe Ward',
+                    'Dong Quoc Binh Ward',
+                    'Gia Vien Ward',
+                    'Lac Vien Ward',
+                    'Lach Tray Ward',
+                    'Le Loi Ward',
+                    'May Chai Ward',
+                    'May To Ward',
+                    'Van My Ward'
+                ]
+            },
+            'Thuy Nguyen': {
+                subDistrict: [
+                    'An Lu Commune',
+                    'An Son Commune',
+                    'Cao Nhan Commune',
+                    'Chinh My Commune',
                     'Dong Son Commune',
-                    'Lam Dot Commune',
-                    'Hong Thuy Commune'
+                    'Duong Quan Commune',
+                    'Gia Duc Commune',
+                    'Gia Minh Commune',
+                    'Hoa Binh Commune',
+                    'Hoa Dong Commune',
+                    'Hoang Dong Commune',
+                    'Hop Thanh Commune',
+                    'Kenh Giang Commune',
+                    'Kien Bai Commune',
+                    'Ky Son Commune',
+                    'Lai Xuan Commune',
+                    'Lam Dong Commune',
+                    'Lap Le Commune',
+                    'Lien Khe Commune',
+                    'Luu Kiem Commune',
+                    'Luu Ky Commune',
+                    'Minh Duc Township',
+                    'Minh Tan Commune',
+                    'My Dong Commune',
+                    'Ngu Lao Commune',
+                    'Nui Deo Township',
+                    'Pha Le Commune',
+                    'Phu Ninh Commune',
+                    'Phuc Le Commune',
+                    'Quang Thanh Commune',
+                    'Tam Hung Commune',
+                    'Tan Duong Commune',
+                    'Thien Huong Commune',
+                    'Thuy Duong Commune',
+                    'Thuy Son Commune',
+                    'Thuy Trieu Commune',
+                    'Trung Ha Commune'
                 ]
             },
-            'Phu Loc': {
+            'Tien Lang': {
                 subDistrict: [
-                    'Phu Loc Township',
-                    'Lang Co Township',
-                    'Vinh My Commune',
-                    'Vinh Hung Commune',
-                    'Giang Hai Commune',
-                    'Vinh Hien Commune',
-                    'Loc Bon Commune',
-                    'Loc Son Commune',
-                    'Loc Binh Commune',
-                    'Loc Vinh Commune',
-                    'Loc An Commune',
-                    'Loc Dien Commune',
-                    'Loc Thuy Commune',
-                    'Loc Tri Commune',
-                    'Loc Tien Commune',
-                    'Loc Hoa Commune',
-                    'Xuan Loc Commune'
+                    'Bac Hung Commune',
+                    'Bach Dang Commune',
+                    'Cap Tien Commune',
+                    'Dai Thang Commune',
+                    'Doan Lap Commune',
+                    'Dong Hung Commune',
+                    'Hung Thang Commune',
+                    'Khoi Nghia Commune',
+                    'Kien Thiet Commune',
+                    'Nam Hung Commune',
+                    'Quang Phuc Commune',
+                    'Quyet Tien Commune',
+                    'Tay Hung Commune',
+                    'Tien Cuong Commune',
+                    'Tien Lang Township',
+                    'Tien Minh Commune',
+                    'Tien Thang Commune',
+                    'Tien Thanh Commune',
+                    'Toan Thang Commune',
+                    'Tu Cuong Commune',
+                    'Vinh Quang Commune'
                 ]
             },
-            'Nam Dong': {
+            'Vinh Bao': {
                 subDistrict: [
-                    'Khe Tre Township',
-                    'Huong Phu Commune',
+                    'An Hoa Commune',
+                    'Cao Minh Commune',
+                    'Co Am Commune',
+                    'Cong Hien Commune',
+                    'Dong Minh Commune',
+                    'Dung Tien Commune',
+                    'Giang Bien Commune',
+                    'Hiep Hoa Commune',
+                    'Hoa Binh Commune',
+                    'Hung Nhan Commune',
+                    'Hung Tien Commune',
+                    'Lien Am Commune',
+                    'Ly Hoc Commune',
+                    'Nhan Hoa Commune',
+                    'Tam Cuong Commune',
+                    'Tam Da Commune',
+                    'Tan Hung Commune',
+                    'Tan Lien Commune',
+                    'Thang Thuy Commune',
+                    'Thanh Luong Commune',
+                    'Tien Phong Commune',
+                    'Tran Duong Commune',
+                    'Trung Lap Commune',
+                    'Viet Tien Commune',
+                    'Vinh An Commune',
+                    'Vinh Bao Township',
+                    'Vinh Long Commune',
+                    'Vinh Phong Commune',
+                    'Vinh Quang Commune',
+                    'Vinh Tien Commune'
+                ]
+            }
+        },
+        'Hung Yen': {
+            'An Thi': {
+                subDistrict: [
+                    'An Thi Township',
+                    'Bac Son Commune',
+                    'Bai Say Commune',
+                    'Cam Ninh Commune',
+                    'Da Loc Commune',
+                    'Dang Le Commune',
+                    'Dao Duong Commune',
+                    'Ha Le Commune',
+                    'Ho Tung Mau Commune',
+                    'Hoang Hoa Tham Commune',
+                    'Hong Quang Commune',
+                    'Hong Van Commune',
+                    'Nguyen Trai Commune',
+                    'Phu Ung Commune',
+                    'Quang Lang Commune',
+                    'Quang Vinh Commune',
+                    'Tan Phuc Commune',
+                    'Tien Phong Commune',
+                    'Van Du Commune',
+                    'Van Nhue Commune',
+                    'Xuan Truc Commune'
+                ]
+            },
+            'Hung Yen': {
+                subDistrict: [
+                    'An Tao Ward',
+                    'Bao Khe Commune',
+                    'Hien Nam Ward',
+                    'Hoang Hanh Commune',
+                    'Hong Chau Ward',
+                    'Hong Nam Commune',
+                    'Hung Cuong Commune',
+                    'Lam Son Ward',
+                    'Le Loi Ward',
+                    'Lien Phuong Commune',
+                    'Minh Khai Ward',
+                    'Phu Cuong Commune',
+                    'Phuong Chieu Commune',
+                    'Quang Chau Commune',
+                    'Quang Trung Ward',
+                    'Tan Hung Commune',
+                    'Trung Nghia Commune'
+                ]
+            },
+            'Khoai Chau': {
+                subDistrict: [
+                    'An Vi Commune',
+                    'Binh Kieu Commune',
+                    'Binh Minh Commune',
+                    'Chi Tan Commune',
+                    'Da Trach Commune',
+                    'Dai Hung Commune',
+                    'Dai Tap Commune',
+                    'Dan Tien Commune',
+                    'Dong Ket Commune',
+                    'Dong Ninh Commune',
+                    'Dong Tao Commune',
+                    'Dong Tien Commune',
+                    'Ham Tu Commune',
+                    'Hong Tien Commune',
+                    'Khoai Chau Township',
+                    'Lien Khe Commune',
+                    'Nhue Duong Commune',
+                    'Ong Dinh Commune',
+                    'Phung Hung Commune',
+                    'Tan Chau Commune',
+                    'Tan Dan Commune',
+                    'Thanh Cong Commune',
+                    'Thuan Hung Commune',
+                    'Tu Dan Commune',
+                    'Viet Hoa Commune'
+                ]
+            },
+            'Kim Dong': {
+                subDistrict: [
+                    'Chinh Nghia Commune',
+                    'Dong Thanh Commune',
+                    'Duc Hop Commune',
+                    'Hiep Cuong Commune',
+                    'Hung An Commune',
+                    'Luong Bang Township',
+                    'Mai Dong Commune',
+                    'Nghia Dan Commune',
+                    'Ngoc Thanh Commune',
+                    'Nhan La Commune',
+                    'Pham Ngu Lao Commune',
+                    'Phu Thinh Commune',
+                    'Song Mai Commune',
+                    'Tho Vinh Commune',
+                    'Toan Thang Commune',
+                    'Vinh Xa Commune',
+                    'Vu Xa Commune'
+                ]
+            },
+            'My Hao': {
+                subDistrict: [
+                    'Bach Sam Ward',
+                    'Ban Yen Nhan Ward',
+                    'Cam Xa Commune',
+                    'Di Su Ward',
+                    'Duong Quang Commune',
+                    'Hoa Phong Commune',
+                    'Hung Long Commune',
+                    'Minh Duc Ward',
+                    'Ngoc Lam Commune',
+                    'Nhan Hoa Ward',
+                    'Phan Dinh Phung Ward',
+                    'Phung Chi Kien Ward',
+                    'Xuan Duc Commune'
+                ]
+            },
+            'Phu Cu': {
+                subDistrict: [
+                    'Dinh Cao Commune',
+                    'Doan Dao Commune',
+                    'Minh Hoang Commune',
+                    'Minh Tan Commune',
+                    'Minh Tien Commune',
+                    'Nguyen Hoa Commune',
+                    'Nhat Quang Commune',
+                    'Phan Sao Nam Commune',
+                    'Quang Hung Commune',
+                    'Tam Da Commune',
+                    'Tien Tien Commune',
+                    'Tong Phan Commune',
+                    'Tong Tran Commune',
+                    'Tran Cao Township'
+                ]
+            },
+            'Tien Lu': {
+                subDistrict: [
+                    'An Vien Commune',
+                    'Cuong Chinh Commune',
+                    'Di Che Commune',
+                    'Duc Thang Commune',
+                    'Hai Trieu Commune',
+                    'Hung Dao Commune',
+                    'Le Xa Commune',
+                    'Minh Phuong Commune',
+                    'Ngo Quyen Commune',
+                    'Nhat Tan Commune',
+                    'Thien Phien Commune',
+                    'Thu Sy Commune',
+                    'Thuy Loi Commune',
+                    'Trung Dung Commune',
+                    'Vuong Township'
+                ]
+            },
+            'Van Giang': {
+                subDistrict: [
+                    'Cuu Cao Commune',
+                    'Lien Nghia Commune',
+                    'Long Hung Commune',
+                    'Me So Commune',
+                    'Nghia Tru Commune',
+                    'Phung Cong Commune',
+                    'Tan Tien Commune',
+                    'Thang Loi Commune',
+                    'Van Giang Township',
+                    'Vinh Khuc Commune',
+                    'Xuan Quan Commune'
+                ]
+            },
+            'Van Lam': {
+                subDistrict: [
+                    'Chi Dao Commune',
+                    'Dai Dong Commune',
+                    'Dinh Du Commune',
+                    'Lac Dao Commune',
+                    'Lac Hong Commune',
+                    'Luong Tai Commune',
+                    'Minh Hai Commune',
+                    'Nhu Quynh Township',
+                    'Tan Quang Commune',
+                    'Trung Trac Commune',
+                    'Viet Hung Commune'
+                ]
+            },
+            'Yen My': {
+                subDistrict: [
+                    'Dong Than Commune',
+                    'Giai Pham Commune',
+                    'Hoan Long Commune',
+                    'Lieu Xa Commune',
+                    'Ly Thuong Kiet Commune',
+                    'Minh Chau Commune',
+                    'Nghia Hiep Commune',
+                    'Ngoc Long Commune',
+                    'Tan Lap Commune',
+                    'Tan Viet Commune',
+                    'Thanh Long Commune',
+                    'Trung Hoa Commune',
+                    'Trung Hung Commune',
+                    'Viet Cuong Commune',
+                    'Yen Hoa Commune',
+                    'Yen My Township',
+                    'Yen Phu Commune'
+                ]
+            }
+        },
+        'Nam Dinh': {
+            'Giao Thuy': {
+                subDistrict: [
+                    'Bach Long Commune',
+                    'Binh Hoa Commune',
+                    'Giao An Commune',
+                    'Giao Chau Commune',
+                    'Giao Ha Commune',
+                    'Giao Hai Commune',
+                    'Giao Huong Commune',
+                    'Giao Lac Commune',
+                    'Giao Long Commune',
+                    'Giao Nhan Commune',
+                    'Giao Phong Commune',
+                    'Giao Tan Commune',
+                    'Giao Thanh Commune',
+                    'Giao Thien Commune',
+                    'Giao Thinh Commune',
+                    'Giao Thuy Township',
+                    'Giao Xuan Commune',
+                    'Giao Yen Commune',
+                    'Hong Thuan Commune',
+                    'Quat Lam Township'
+                ]
+            },
+            'Hai Hau': {
+                subDistrict: [
+                    'Con Township',
+                    'Hai An Commune',
+                    'Hai Anh Commune',
+                    'Hai Chau Commune',
+                    'Hai Dong Commune',
+                    'Hai Duong Commune',
+                    'Hai Giang Commune',
+                    'Hai Hoa Commune',
+                    'Hai Hung Commune',
+                    'Hai Loc Commune',
+                    'Hai Long Commune',
+                    'Hai Minh Commune',
+                    'Hai Nam Commune',
+                    'Hai Ninh Commune',
+                    'Hai Phong Commune',
+                    'Hai Phu Commune',
+                    'Hai Quang Commune',
+                    'Hai Son Commune',
+                    'Hai Tan Commune',
+                    'Hai Tay Commune',
+                    'Hai Trung Commune',
+                    'Hai Xuan Commune',
+                    'Thinh Long Township',
+                    'Yen Dinh Township'
+                ]
+            },
+            'Nam Dinh': {
+                subDistrict: [
+                    'Cua Bac Ward',
+                    'Cua Nam Ward',
+                    'Hung Loc Ward',
+                    'Loc Ha Ward',
+                    'Loc Hoa Ward',
+                    'Loc Vuong Ward',
+                    'My Ha Commune',
+                    'My Loc Commune',
+                    'My Phuc Commune',
+                    'My Tan Commune',
+                    'My Thang Commune',
+                    'My Thuan Commune',
+                    'My Trung Commune',
+                    'My Xa Ward',
+                    'Nam Phong Ward',
+                    'Nam Van Ward',
+                    'Nang Tinh Ward',
+                    'Quang Trung Ward',
+                    'Tran Hung Dao Ward',
+                    'Truong Thi Ward',
+                    'Vi Xuyen Ward'
+                ]
+            },
+            'Nam Truc': {
+                subDistrict: [
+                    'Binh Minh Commune',
+                    'Dong Son Commune',
+                    'Hong Quang Commune',
+                    'Nam Cuong Commune',
+                    'Nam Dien Commune',
+                    'Nam Duong Commune',
+                    'Nam Giang Township',
+                    'Nam Hai Commune',
+                    'Nam Hoa Commune',
+                    'Nam Hong Commune',
+                    'Nam Hung Commune',
+                    'Nam Loi Commune',
+                    'Nam Thai Commune',
+                    'Nam Thang Commune',
+                    'Nam Thanh Commune',
+                    'Nam Tien Commune',
+                    'Nghia An Commune',
+                    'Tan Thinh Commune'
+                ]
+            },
+            'Nghia Hung': {
+                subDistrict: [
+                    'Dong Thinh Commune',
+                    'Hoang Nam Commune',
+                    'Lieu De Township',
+                    'Nam Dien Commune',
+                    'Nghia Chau Commune',
+                    'Nghia Hai Commune',
+                    'Nghia Hong Commune',
+                    'Nghia Hung Commune',
+                    'Nghia Lac Commune',
+                    'Nghia Lam Commune',
+                    'Nghia Loi Commune',
+                    'Nghia Phong Commune',
+                    'Nghia Phu Commune',
+                    'Nghia Son Commune',
+                    'Nghia Thai Commune',
+                    'Nghia Thanh Commune',
+                    'Nghia Trung Commune',
+                    'Phuc Thang Commune',
+                    'Quy Nhat Township',
+                    'Rang Dong Township'
+                ]
+            },
+            'Truc Ninh': {
+                subDistrict: [
+                    'Cat Thanh Township',
+                    'Co Le Township',
+                    'Liem Hai Commune',
+                    'Ninh Cuong Township',
+                    'Phuong Dinh Commune',
+                    'Truc Chinh Commune',
+                    'Truc Cuong Commune',
+                    'Truc Dai Commune',
+                    'Truc Dao Commune',
+                    'Truc Hung Commune',
+                    'Truc Khang Commune',
+                    'Truc My Commune',
+                    'Truc Noi Commune',
+                    'Truc Thai Commune',
+                    'Truc Thang Commune',
+                    'Truc Thanh Commune',
+                    'Truc Thuan Commune',
+                    'Truc Tuan Commune',
+                    'Trung Dong Commune',
+                    'Viet Hung Commune'
+                ]
+            },
+            'Vu Ban': {
+                subDistrict: [
+                    'Cong Hoa Commune',
+                    'Dai An Commune',
+                    'Dai Thang Commune',
+                    'Goi Township',
+                    'Hien Khanh Commune',
+                    'Hop Hung Commune',
+                    'Kim Thai Commune',
+                    'Lien Minh Commune',
+                    'Minh Tan Commune',
+                    'Quang Trung Commune',
+                    'Tam Thanh Commune',
+                    'Thanh Loi Commune',
+                    'Trung Thanh Commune',
+                    'Vinh Hao Commune'
+                ]
+            },
+            'Xuan Truong': {
+                subDistrict: [
+                    'Tho Nghiep Commune',
+                    'Tra Lu Commune',
+                    'Xuan Chau Commune',
+                    'Xuan Giang Commune',
+                    'Xuan Hong Commune',
+                    'Xuan Ngoc Commune',
+                    'Xuan Ninh Commune',
+                    'Xuan Phu Commune',
+                    'Xuan Phuc Commune',
+                    'Xuan Tan Commune',
+                    'Xuan Thanh Commune',
+                    'Xuan Thuong Commune',
+                    'Xuan Truong Township',
+                    'Xuan Vinh Commune'
+                ]
+            },
+            'Y Yen': {
+                subDistrict: [
+                    'Hong Quang Commune',
+                    'Lam Township',
+                    'Phu Hung Commune',
+                    'Tan Minh Commune',
+                    'Trung Nghia Commune',
+                    'Yen Binh Commune',
+                    'Yen Chinh Commune',
+                    'Yen Cuong Commune',
+                    'Yen Dong Commune',
+                    'Yen Duong Commune',
+                    'Yen Khang Commune',
+                    'Yen Khanh Commune',
+                    'Yen Loc Commune',
+                    'Yen Luong Commune',
+                    'Yen My Commune',
+                    'Yen Nhan Commune',
+                    'Yen Ninh Commune',
+                    'Yen Phong Commune',
+                    'Yen Phuc Commune',
+                    'Yen Thang Commune',
+                    'Yen Tho Commune',
+                    'Yen Tien Commune',
+                    'Yen Tri Commune'
+                ]
+            }
+        },
+        'Ninh Binh': {
+            'Gia Vien': {
+                subDistrict: [
+                    'Gia Hoa Commune',
+                    'Gia Hung Commune',
+                    'Gia Lac Commune',
+                    'Gia Lap Commune',
+                    'Gia Minh Commune',
+                    'Gia Phong Commune',
+                    'Gia Phu Commune',
+                    'Gia Phuong Commune',
+                    'Gia Sinh Commune',
+                    'Gia Tan Commune',
+                    'Gia Thang Commune',
+                    'Gia Thanh Commune',
+                    'Gia Thinh Commune',
+                    'Gia Tien Commune',
+                    'Gia Tran Commune',
+                    'Gia Trung Commune',
+                    'Gia Van Commune',
+                    'Gia Vuong Commune',
+                    'Gia Xuan Commune',
+                    'Lien Son Commune',
+                    'Me Township'
+                ]
+            },
+            'Hoa Lu': {
+                subDistrict: [
+                    'Ninh An Commune',
+                    'Ninh Giang Commune',
+                    'Ninh Hai Commune',
+                    'Ninh Hoa Commune',
+                    'Ninh Khang Commune',
+                    'Ninh My Commune',
+                    'Ninh Thang Commune',
+                    'Ninh Van Commune',
+                    'Ninh Xuan Commune',
+                    'Thien Ton Township',
+                    'Truong Yen Commune'
+                ]
+            },
+            'Kim Son': {
+                subDistrict: [
+                    'An Hoa Commune',
+                    'Binh Minh Township',
+                    'Chat Binh Commune',
+                    'Con Thoi Commune',
+                    'Dinh Hoa Commune',
+                    'Dong Huong Commune',
+                    'Hoi Ninh Commune',
+                    'Hung Tien Commune',
+                    'Kim Chinh Commune',
+                    'Kim Dinh Commune',
+                    'Kim Dong Commune',
+                    'Kim Hai Commune',
+                    'Kim My Commune',
+                    'Kim Tan Commune',
+                    'Kim Trung Commune',
+                    'Lai Thanh Commune',
+                    'Luu Phuong Commune',
+                    'Nhu Hoa Commune',
+                    'Phat Diem Township',
+                    'Quang Thien Commune',
+                    'Tan Thanh Commune',
+                    'Thuong Kiem Commune',
+                    'Van Hai Commune',
+                    'Xuan Chinh Commune',
+                    'Yen Loc Commune'
+                ]
+            },
+            'Nho Quan': {
+                subDistrict: [
+                    'Cuc Phuong Commune',
+                    'Dong Phong Commune',
+                    'Duc Long Commune',
+                    'Gia Lam Commune',
+                    'Gia Son Commune',
+                    'Gia Thuy Commune',
+                    'Gia Tuong Commune',
+                    'Ky Phu Commune',
+                    'Lac Van Commune',
+                    'Lang Phong Commune',
+                    'Nho Quan Township',
+                    'Phu Loc Commune',
+                    'Phu Long Commune',
+                    'Phu Son Commune',
+                    'Quang Lac Commune',
+                    'Quynh Luu Commune',
+                    'Son Ha Commune',
+                    'Son Lai Commune',
+                    'Son Thanh Commune',
+                    'Thach Binh Commune',
+                    'Thanh Lac Commune',
+                    'Thuong Hoa Commune',
+                    'Van Phong Commune',
+                    'Van Phu Commune',
+                    'Van Phuong Commune',
+                    'Xich Tho Commune',
+                    'Yen Quang Commune'
+                ]
+            },
+            'Ninh Binh': {
+                subDistrict: [
+                    'Bich Dao Ward',
+                    'Dong Thanh Ward',
+                    'Nam Binh Ward',
+                    'Nam Thanh Ward',
+                    'Ninh Khanh Ward',
+                    'Ninh Nhat Commune',
+                    'Ninh Phong Ward',
+                    'Ninh Phuc Commune',
+                    'Ninh Son Ward',
+                    'Ninh Tien Commune',
+                    'Phuc Thanh Ward',
+                    'Tan Thanh Ward',
+                    'Thanh Binh Ward',
+                    'Van Giang Ward'
+                ]
+            },
+            'Tam Diep': {
+                subDistrict: [
+                    'Bac Son Ward',
+                    'Dong Son Commune',
+                    'Nam Son Ward',
+                    'Quang Son Commune',
+                    'Tan Binh Ward',
+                    'Tay Son Ward',
+                    'Trung Son Ward',
+                    'Yen Binh Ward',
+                    'Yen Son Commune'
+                ]
+            },
+            'Yen Khanh': {
+                subDistrict: [
+                    'Khanh An Commune',
+                    'Khanh Cong Commune',
+                    'Khanh Cu Commune',
+                    'Khanh Cuong Commune',
+                    'Khanh Hai Commune',
+                    'Khanh Hoa Commune',
+                    'Khanh Hoi Commune',
+                    'Khanh Hong Commune',
+                    'Khanh Loi Commune',
+                    'Khanh Mau Commune',
+                    'Khanh Nhac Commune',
+                    'Khanh Phu Commune',
+                    'Khanh Thanh Commune',
+                    'Khanh Thien Commune',
+                    'Khanh Thuy Commune',
+                    'Khanh Tien Commune',
+                    'Khanh Trung Commune',
+                    'Khanh Van Commune',
+                    'Yen Ninh Township'
+                ]
+            },
+            'Yen Mo': {
+                subDistrict: [
+                    'Khanh Duong Commune',
+                    'Khanh Thinh Commune',
+                    'Khanh Thuong Commune',
+                    'Mai Son Commune',
+                    'Yen Dong Commune',
+                    'Yen Hoa Commune',
+                    'Yen Hung Commune',
+                    'Yen Lam Commune',
+                    'Yen Mac Commune',
+                    'Yen My Commune',
+                    'Yen Nhan Commune',
+                    'Yen Phong Commune',
+                    'Yen Thai Commune',
+                    'Yen Thang Commune',
+                    'Yen Thanh Commune',
+                    'Yen Thinh Township',
+                    'Yen Tu Commune'
+                ]
+            }
+        },
+        'Thai Binh': {
+            'Dong Hung': {
+                subDistrict: [
+                    'An Chau Commune',
+                    'Chuong Duong Commune',
+                    'Do Luong Commune',
+                    'Dong A Commune',
+                    'Dong Cac Commune',
+                    'Dong Cuong Commune',
+                    'Dong Dong Commune',
+                    'Dong Duong Commune',
+                    'Dong Hoang Commune',
+                    'Dong Hop Commune',
+                    'Dong Hung Township',
+                    'Dong Kinh Commune',
+                    'Dong La Commune',
+                    'Dong Phuong Commune',
+                    'Dong Quan Commune',
+                    'Dong Quang Commune',
+                    'Dong Son Commune',
+                    'Dong Tan Commune',
+                    'Dong Vinh Commune',
+                    'Dong Xa Commune',
+                    'Dong Xuan Commune',
+                    'Ha Giang Commune',
+                    'Hong Bach Commune',
+                    'Hong Giang Commune',
+                    'Hong Viet Commune',
+                    'Hop Tien Commune',
+                    'Lien Giang Commune',
+                    'Lien Hoa Commune',
+                    'Lo Giang Commune',
+                    'Me Linh Commune',
+                    'Minh Phu Commune',
+                    'Minh Tan Commune',
+                    'Nguyen Xa Commune',
+                    'Phong Chau Commune',
+                    'Phu Chau Commune',
+                    'Phu Luong Commune',
+                    'Thang Long Commune',
+                    'Trong Quan Commune'
+                ]
+            },
+            'Hung Ha': {
+                subDistrict: [
+                    'Bac Son Commune',
+                    'Canh Tan Commune',
+                    'Chi Hoa Commune',
+                    'Chi Lang Commune',
+                    'Cong Hoa Commune',
+                    'Dan Chu Commune',
+                    'Diep Nong Commune',
+                    'Doan Hung Commune',
+                    'Doc Lap Commune',
+                    'Dong Do Commune',
+                    'Duyen Hai Commune',
+                    'Hoa Binh Commune',
+                    'Hoa Tien Commune',
+                    'Hong An Commune',
+                    'Hong Linh Commune',
+                    'Hong Minh Commune',
+                    'Hung Dung Commune',
+                    'Hung Ha Township',
+                    'Hung Nhan Township',
+                    'Kim Chung Commune',
+                    'Lien Hiep Commune',
+                    'Minh Hoa Commune',
+                    'Minh Khai Commune',
+                    'Minh Tan Commune',
+                    'Phuc Khanh Commune',
+                    'Tan Hoa Commune',
+                    'Tan Le Commune',
+                    'Tan Tien Commune',
+                    'Tay Do Commune',
+                    'Thai Hung Commune',
+                    'Thai Phuong Commune',
+                    'Thong Nhat Commune',
+                    'Tien Duc Commune',
+                    'Van Cam Commune',
+                    'Van Lang Commune'
+                ]
+            },
+            'Kien Xuong': {
+                subDistrict: [
+                    'An Binh Commune',
+                    'Binh Dinh Commune',
+                    'Binh Minh Commune',
+                    'Binh Nguyen Commune',
+                    'Binh Thanh Commune',
+                    'Dinh Phung Commune',
+                    'Hoa Binh Commune',
+                    'Hong Thai Commune',
+                    'Hong Tien Commune',
+                    'Kien Xuong Township',
+                    'Le Loi Commune',
+                    'Minh Quang Commune',
+                    'Minh Tan Commune',
+                    'Nam Binh Commune',
+                    'Nam Cao Commune',
+                    'Quang Binh Commune',
+                    'Quang Lich Commune',
+                    'Quang Minh Commune',
+                    'Quang Trung Commune',
+                    'Quoc Tuan Commune',
+                    'Tay Son Commune',
+                    'Thanh Tan Commune',
+                    'Thuong Hien Commune',
+                    'Tra Giang Commune',
+                    'Vu An Commune',
+                    'Vu Binh Commune',
+                    'Vu Cong Commune',
+                    'Vu Hoa Commune',
+                    'Vu Le Commune',
+                    'Vu Ninh Commune',
+                    'Vu Qui Commune',
+                    'Vu Thang Commune',
+                    'Vu Trung Commune'
+                ]
+            },
+            'Quynh Phu': {
+                subDistrict: [
+                    'An Ap Commune',
+                    'An Bai Township',
+                    'An Cau Commune',
+                    'An Dong Commune',
+                    'An Duc Commune',
+                    'An Hiep Commune',
+                    'An Khe Commune',
+                    'An Le Commune',
+                    'An My Commune',
+                    'An Ninh Commune',
+                    'An Qui Commune',
+                    'An Thai Commune',
+                    'An Thanh Commune',
+                    'An Trang Commune',
+                    'An Vinh Commune',
+                    'An Vu Commune',
+                    'Chau Son Commune',
+                    'Dong Hai Commune',
+                    'Dong Tien Commune',
+                    'Quynh Bao Commune',
+                    'Quynh Coi Township',
+                    'Quynh Giao Commune',
+                    'Quynh Hai Commune',
+                    'Quynh Hoa Commune',
+                    'Quynh Hoang Commune',
+                    'Quynh Hoi Commune',
+                    'Quynh Hong Commune',
+                    'Quynh Hung Commune',
+                    'Quynh Khe Commune',
+                    'Quynh Lam Commune',
+                    'Quynh Minh Commune',
+                    'Quynh My Commune',
+                    'Quynh Ngoc Commune',
+                    'Quynh Nguyen Commune',
+                    'Quynh Tho Commune',
+                    'Quynh Trang Commune',
+                    'Quynh Xa Commune'
+                ]
+            },
+            'Thai Binh': {
+                subDistrict: [
+                    'Bo Xuyen Ward',
+                    'De Tham Ward',
+                    'Dong Hoa Commune',
+                    'Dong My Commune',
+                    'Dong Tho Commune',
+                    'Hoang Dieu Ward',
+                    'Ky Ba Ward',
+                    'Le Hong Phong Ward',
+                    'Phu Khanh Ward',
+                    'Phu Xuan Commune',
+                    'Quang Trung Ward',
+                    'Tan Binh Commune',
+                    'Tien Phong Ward',
+                    'Tran Hung Dao Ward',
+                    'Tran Lam Ward',
+                    'Vu Chinh Commune',
+                    'Vu Dong Commune',
+                    'Vu Lac Commune',
+                    'Vu Phuc Commune'
+                ]
+            },
+            'Thai Thuy': {
+                subDistrict: [
+                    'An Tan Commune',
+                    'Diem Dien Township',
+                    'Duong Hong Thuy Commune',
+                    'Duong Phuc Commune',
+                    'Hoa An Commune',
+                    'Hong Dung Commune',
+                    'My Loc Commune',
+                    'Son Ha Commune',
+                    'Tan Hoc Commune',
+                    'Thai Do Commune',
+                    'Thai Giang Commune',
+                    'Thai Hung Commune',
+                    'Thai Nguyen Commune',
+                    'Thai Phuc Commune',
+                    'Thai Thinh Commune',
+                    'Thai Tho Commune',
+                    'Thai Thuong Commune',
+                    'Thai Xuyen Commune',
+                    'Thuan Thanh Commune',
+                    'Thuy Binh Commune',
+                    'Thuy Chinh Commune',
+                    'Thuy Dan Commune',
+                    'Thuy Duyen Commune',
+                    'Thuy Hai Commune',
+                    'Thuy Hung Commune',
+                    'Thuy Lien Commune',
+                    'Thuy Ninh Commune',
+                    'Thuy Phong Commune',
+                    'Thuy Quynh Commune',
+                    'Thuy Son Commune',
+                    'Thuy Thanh Commune',
+                    'Thuy Trinh Commune',
+                    'Thuy Truong Commune',
+                    'Thuy Van Commune',
+                    'Thuy Viet Commune',
+                    'Thuy Xuan Commune'
+                ]
+            },
+            'Tien Hai': {
+                subDistrict: [
+                    'An Ninh Commune',
+                    'Bac Hai Commune',
+                    'Dong Co Commune',
+                    'Dong Hoang Commune',
+                    'Dong Lam Commune',
+                    'Dong Long Commune',
+                    'Dong Minh Commune',
+                    'Dong Phong Commune',
+                    'Dong Qui Commune',
+                    'Dong Tra Commune',
+                    'Dong Trung Commune',
+                    'Dong Xuyen Commune',
+                    'Nam Chinh Commune',
+                    'Nam Cuong Commune',
+                    'Nam Ha Commune',
+                    'Nam Hai Commune',
+                    'Nam Hong Commune',
+                    'Nam Hung Commune',
+                    'Nam Phu Commune',
+                    'Nam Thang Commune',
+                    'Nam Thanh Commune',
+                    'Nam Thinh Commune',
+                    'Nam Trung Commune',
+                    'Phuong Cong Commune',
+                    'Tay Giang Commune',
+                    'Tay Luong Commune',
+                    'Tay Ninh Commune',
+                    'Tay Phong Commune',
+                    'Tay Tien Commune',
+                    'Tien Hai Township',
+                    'Van Truong Commune',
+                    'Vu Lang Commune'
+                ]
+            },
+            'Vu Thu': {
+                subDistrict: [
+                    'Bach Thuan Commune',
+                    'Dong Thanh Commune',
+                    'Dung Nghia Commune',
+                    'Duy Nhat Commune',
+                    'Hiep Hoa Commune',
+                    'Hoa Binh Commune',
+                    'Hong Ly Commune',
+                    'Hong Phong Commune',
+                    'Minh Khai Commune',
+                    'Minh Lang Commune',
+                    'Minh Quang Commune',
+                    'Nguyen Xa Commune',
+                    'Phuc Thanh Commune',
+                    'Song An Commune',
+                    'Song Lang Commune',
+                    'Tam Quang Commune',
+                    'Tan Hoa Commune',
+                    'Tan Lap Commune',
+                    'Tan Phong Commune',
+                    'Trung An Commune',
+                    'Tu Tan Commune',
+                    'Viet Hung Commune',
+                    'Viet Thuan Commune',
+                    'Vu Doai Commune',
+                    'Vu Hoi Commune',
+                    'Vu Thu Township',
+                    'Vu Tien Commune',
+                    'Vu Van Commune',
+                    'Vu Vinh Commune',
+                    'Xuan Hoa Commune'
+                ]
+            }
+        },
+        'Vinh Phuc': {
+            'Binh Xuyen': {
+                subDistrict: [
+                    'Ba Hien Township',
+                    'Dao Duc Township',
+                    'Gia Khanh Township',
+                    'Huong Canh Township',
                     'Huong Son Commune',
-                    'Huong Loc Commune',
-                    'Thuong Quang Commune',
-                    'Huong Xuan Commune',
-                    'Huong Huu Commune',
-                    'Thuong Lo Commune',
-                    'Thuong Long Commune',
-                    'Thuong Nhat Commune'
+                    'Phu Xuan Commune',
+                    'Quat Luu Commune',
+                    'Son Loi Commune',
+                    'Tam Hop Commune',
+                    'Tan Phong Commune',
+                    'Thanh Lang Township',
+                    'Thien Ke Commune',
+                    'Trung My Commune'
+                ]
+            },
+            'Lap Thach': {
+                subDistrict: [
+                    'Bac Binh Commune',
+                    'Ban Gian Commune',
+                    'Dinh Chu Commune',
+                    'Dong Ich Commune',
+                    'Hoa Son Township',
+                    'Hop Ly Commune',
+                    'Lap Thach Township',
+                    'Lien Hoa Commune',
+                    'Lien Son Commune',
+                    'Ngoc My Commune',
+                    'Quang Son Commune',
+                    'Son Dong Commune',
+                    'Thai Hoa Commune',
+                    'Tien Lu Commune',
+                    'Trieu De Commune',
+                    'Tu Du Commune',
+                    'Van Quan Commune',
+                    'Van Truc Commune',
+                    'Xuan Hoa Commune',
+                    'Xuan Loi Commune'
+                ]
+            },
+            'Phuc Yen': {
+                subDistrict: [
+                    'Cao Minh Commune',
+                    'Dong Xuan Ward',
+                    'Hung Vuong Ward',
+                    'Nam Viem Ward',
+                    'Ngoc Thanh Commune',
+                    'Phuc Thang Ward',
+                    'Tien Chau Ward',
+                    'Trung Nhi Ward',
+                    'Trung Trac Ward',
+                    'Xuan Hoa Ward'
+                ]
+            },
+            'Song Lo': {
+                subDistrict: [
+                    'Bach Luu Commune',
+                    'Cao Phong Commune',
+                    'Don Nhan Commune',
+                    'Dong Que Commune',
+                    'Dong Thinh Commune',
+                    'Duc Bac Commune',
+                    'Hai Luu Commune',
+                    'Lang Cong Commune',
+                    'Nhan Dao Commune',
+                    'Nhao Son Commune',
+                    'Nhu Thuy Commune',
+                    'Phuong Khoan Commune',
+                    'Quang Yen Commune',
+                    'Tam Son Township',
+                    'Tan Lap Commune',
+                    'Tu Yen Commune',
+                    'Yen Thach Commune'
+                ]
+            },
+            'Tam Dao': {
+                subDistrict: [
+                    'Bo Ly Commune',
+                    'Dai Dinh Township',
+                    'Dao Tru Commune',
+                    'Ho Son Commune',
+                    'Hop Chau Township',
+                    'Minh Quang Commune',
+                    'Tam Dao Township',
+                    'Tam Quan Commune',
+                    'Yen Duong Commune'
+                ]
+            },
+            'Tam Duong': {
+                subDistrict: [
+                    'An Hoa Commune',
+                    'Dao Tu Commune',
+                    'Dong Tinh Commune',
+                    'Duy Phien Commune',
+                    'Hoang Dan Commune',
+                    'Hoang Hoa Commune',
+                    'Hoang Lau Commune',
+                    'Hop Hoa Township',
+                    'Hop Thinh Commune',
+                    'Huong Dao Commune',
+                    'Kim Long Township',
+                    'Thanh Van Commune',
+                    'Van Hoi Commune'
+                ]
+            },
+            'Vinh Tuong': {
+                subDistrict: [
+                    'An Tuong Commune',
+                    'Binh Duong Commune',
+                    'Bo Sao Commune',
+                    'Cao Dai Commune',
+                    'Chan Hung Commune',
+                    'Dai Dong Commune',
+                    'Kim Xa Commune',
+                    'Lung Hoa Commune',
+                    'Ly Nhan Commune',
+                    'Nghia Hung Commune',
+                    'Ngu Kien Commune',
+                    'Phu Da Commune',
+                    'Tam Phuc Commune',
+                    'Tan Phu Commune',
+                    'Tan Tien Commune',
+                    'Tho Tang Township',
+                    'Thuong Trung Commune',
+                    'Tu Trung Township',
+                    'Tuan Chinh Commune',
+                    'Van Xuan Commune',
+                    'Viet Xuan Commune',
+                    'Vinh Ninh Commune',
+                    'Vinh Son Commune',
+                    'Vinh Thinh Commune',
+                    'Vinh Tuong Township',
+                    'Vu Di Commune',
+                    'Yen Binh Commune',
+                    'Yen Lap Commune'
+                ]
+            },
+            'Vinh Yen': {
+                subDistrict: [
+                    'Dinh Trung Ward',
+                    'Dong Da Ward',
+                    'Dong Tam Ward',
+                    'Hoi Hop Ward',
+                    'Khai Quang Ward',
+                    'Lien Bao Ward',
+                    'Ngo Quyen Ward',
+                    'Thanh Tru Commune',
+                    'Tich Son Ward'
+                ]
+            },
+            'Yen Lac': {
+                subDistrict: [
+                    'Binh Dinh Commune',
+                    'Dai Tu Commune',
+                    'Dong Cuong Commune',
+                    'Dong Van Commune',
+                    'Hong Chau Commune',
+                    'Hong Phuong Commune',
+                    'Lien Chau Commune',
+                    'Nguyet Duc Commune',
+                    'Tam Hong Township',
+                    'Te Lo Commune',
+                    'Trung Ha Commune',
+                    'Trung Kien Commune',
+                    'Trung Nguyen Commune',
+                    'Van Tien Commune',
+                    'Yen Dong Commune',
+                    'Yen Lac Township',
+                    'Yen Phuong Commune'
                 ]
             }
         }
     },
     'South Central Coast': {
+        'Binh Dinh': {
+            'An Lao': {
+                subDistrict: [
+                    'An Dung Commune',
+                    'An Hoa Commune',
+                    'An Hung Commune',
+                    'An Lao Township',
+                    'An Nghia Commune',
+                    'An Quang Commune',
+                    'An Tan Commune',
+                    'An Toan Commune',
+                    'An Trung Commune',
+                    'An Vinh Commune'
+                ]
+            },
+            'An Nhon': {
+                subDistrict: [
+                    'Binh Dinh Ward',
+                    'Dap Da Ward',
+                    'Nhon An Commune',
+                    'Nhon Hanh Commune',
+                    'Nhon Hau Commune',
+                    'Nhon Hoa Ward',
+                    'Nhon Hung Ward',
+                    'Nhon Khanh Commune',
+                    'Nhon Loc Commune',
+                    'Nhon My Commune',
+                    'Nhon Phong Commune',
+                    'Nhon Phuc Commune',
+                    'Nhon Tan Commune',
+                    'Nhon Thanh Ward',
+                    'Nhon Tho Commune'
+                ]
+            },
+            'Hoai An': {
+                subDistrict: [
+                    'An Duc Commune',
+                    'An Hao Dong Commune',
+                    'An Hao Tay Commune',
+                    'An Huu Commune',
+                    'An My Commune',
+                    'An Nghia Commune',
+                    'An Phong Commune',
+                    'An Son Commune',
+                    'An Thanh Commune',
+                    'An Tin Commune',
+                    'An Tuong Dong Commune',
+                    'An Tuong Tay Commune',
+                    'Bok Toi Commune',
+                    'Dak Mang Commune',
+                    'Tang Bat Ho Township'
+                ]
+            },
+            'Hoai Nhon': {
+                subDistrict: [
+                    'Bong Son Ward',
+                    'Hoai Chau Bac Commune',
+                    'Hoai Chau Commune',
+                    'Hoai Duc Ward',
+                    'Hoai Hai Commune',
+                    'Hoai Hao Ward',
+                    'Hoai Huong Ward',
+                    'Hoai My Commune',
+                    'Hoai Phu Commune',
+                    'Hoai Son Commune',
+                    'Hoai Tan Ward',
+                    'Hoai Thanh Tay Ward',
+                    'Hoai Thanh Ward',
+                    'Hoai Xuan Ward',
+                    'Tam Quan Bac Ward',
+                    'Tam Quan Nam Ward',
+                    'Tam Quan Ward'
+                ]
+            },
+            'Phu Cat': {
+                subDistrict: [
+                    'Cat Chanh Commune',
+                    'Cat Hai Commune',
+                    'Cat Hanh Commune',
+                    'Cat Hiep Commune',
+                    'Cat Hung Commune',
+                    'Cat Khanh Commune',
+                    'Cat Lam Commune',
+                    'Cat Minh Commune',
+                    'Cat Nhon Commune',
+                    'Cat Son Commune',
+                    'Cat Tai Commune',
+                    'Cat Tan Commune',
+                    'Cat Thang Commune',
+                    'Cat Thanh Commune',
+                    'Cat Tien Township',
+                    'Cat Trinh Commune',
+                    'Cat Tuong Commune',
+                    'Ngo May Township'
+                ]
+            },
+            'Phu My': {
+                subDistrict: [
+                    'Binh Duong Township',
+                    'My An Commune',
+                    'My Cat Commune',
+                    'My Chanh Commune',
+                    'My Chanh Tay Commune',
+                    'My Chau Commune',
+                    'My Duc Commune',
+                    'My Hiep Commune',
+                    'My Hoa Commune',
+                    'My Loc Commune',
+                    'My Loi Commune',
+                    'My Phong Commune',
+                    'My Quang Commune',
+                    'My Tai Commune',
+                    'My Thang Commune',
+                    'My Thanh Commune',
+                    'My Tho Commune',
+                    'My Trinh Commune',
+                    'Phu My Township'
+                ]
+            },
+            'Quy Nhon': {
+                subDistrict: [
+                    'Bui Thi Xuan Ward',
+                    'Dong Da Ward',
+                    'Ghenh Rang Ward',
+                    'Hai Cang Ward',
+                    'Le Hong Phong Ward',
+                    'Le Loi Ward',
+                    'Ly Thuong Kiet Ward',
+                    'Ngo May Ward',
+                    'Nguyen Van Cu Ward',
+                    'Nhon Binh Ward',
+                    'Nhon Chau Commune',
+                    'Nhon Hai Commune',
+                    'Nhon Hoi Commune',
+                    'Nhon Ly Commune',
+                    'Nhon Phu Ward',
+                    'Phuoc My Commune',
+                    'Quang Trung Ward',
+                    'Thi Nai Ward',
+                    'Tran Hung Dao Ward',
+                    'Tran Phu Ward',
+                    'Tran Quang Dieu Ward'
+                ]
+            },
+            'Tay Son': {
+                subDistrict: [
+                    'Binh Hoa Commune',
+                    'Binh Nghi Commune',
+                    'Binh Tan Commune',
+                    'Binh Thanh Commune',
+                    'Binh Thuan Commune',
+                    'Binh Tuong Commune',
+                    'Phu Phong Township',
+                    'Tay An Commune',
+                    'Tay Binh Commune',
+                    'Tay Giang Commune',
+                    'Tay Phu Commune',
+                    'Tay Thuan Commune',
+                    'Tay Vinh Commune',
+                    'Tay Xuan Commune',
+                    'Vinh An Commune'
+                ]
+            },
+            'Tuy Phuoc': {
+                subDistrict: [
+                    'Dieu Tri Township',
+                    'Phuoc An Commune',
+                    'Phuoc Hiep Commune',
+                    'Phuoc Hoa Commune',
+                    'Phuoc Hung Commune',
+                    'Phuoc Loc Commune',
+                    'Phuoc Nghia Commune',
+                    'Phuoc Quang Commune',
+                    'Phuoc Son Commune',
+                    'Phuoc Thang Commune',
+                    'Phuoc Thanh Commune',
+                    'Phuoc Thuan Commune',
+                    'Tuy Phuoc Township'
+                ]
+            },
+            'Van Canh': {
+                subDistrict: [
+                    'Canh Hien Commune',
+                    'Canh Hiep Commune',
+                    'Canh Hoa Commune',
+                    'Canh Lien Commune',
+                    'Canh Thuan Commune',
+                    'Canh Vinh Commune',
+                    'Van Canh Township'
+                ]
+            },
+            'Vinh Thanh': {
+                subDistrict: [
+                    'Vinh Hao Commune',
+                    'Vinh Hiep Commune',
+                    'Vinh Hoa Commune',
+                    'Vinh Kim Commune',
+                    'Vinh Quang Commune',
+                    'Vinh Son Commune',
+                    'Vinh Thanh Township',
+                    'Vinh Thinh Commune',
+                    'Vinh Thuan Commune'
+                ]
+            }
+        },
+        'Binh Thuan': {
+            'Bac Binh': {
+                subDistrict: [
+                    'Binh An Commune',
+                    'Binh Tan Commune',
+                    'Cho Lau Township',
+                    'Hai Ninh Commune',
+                    'Hoa Thang Commune',
+                    'Hong Phong Commune',
+                    'Hong Thai Commune',
+                    'Luong Son Township',
+                    'Phan Dien Commune',
+                    'Phan Hiep Commune',
+                    'Phan Hoa Commune',
+                    'Phan Lam Commune',
+                    'Phan Ri Thanh Commune',
+                    'Phan Son Commune',
+                    'Phan Thanh Commune',
+                    'Phan Tien Commune',
+                    'Song Binh Commune',
+                    'Song Luy Commune'
+                ]
+            },
+            'Duc Linh': {
+                subDistrict: [
+                    'Da Kai Commune',
+                    'Dong Ha Commune',
+                    'Duc Hanh Commune',
+                    'Duc Tai Township',
+                    'Duc Tin Commune',
+                    'Me Pu Commune',
+                    'Nam Chinh Commune',
+                    'Sung Nhon Commune',
+                    'Tan Ha Commune',
+                    'Tra Tan Commune',
+                    'Vo Xu Township',
+                    'Vu Hoa Commune'
+                ]
+            },
+            'Ham Tan': {
+                subDistrict: [
+                    'Son My Commune',
+                    'Song Phan Commune',
+                    'Tan Duc Commune',
+                    'Tan Ha Commune',
+                    'Tan Minh Township',
+                    'Tan Nghia Township',
+                    'Tan Phuc Commune',
+                    'Tan Thang Commune',
+                    'Tan Xuan Commune',
+                    'Thang Hai Commune'
+                ]
+            },
+            'Ham Thuan Bac': {
+                subDistrict: [
+                    'Da Mi Commune',
+                    'Dong Giang Commune',
+                    'Dong Tien Commune',
+                    'Ham Chinh Commune',
+                    'Ham Duc Commune',
+                    'Ham Hiep Commune',
+                    'Ham Liem Commune',
+                    'Ham Phu Commune',
+                    'Ham Thang Commune',
+                    'Ham Tri Commune',
+                    'Hong Liem Commune',
+                    'Hong Son Commune',
+                    'La Da Commune',
+                    'Ma Lam Township',
+                    'Phu Long Township',
+                    'Thuan Hoa Commune',
+                    'Thuan Minh Commune'
+                ]
+            },
+            'Ham Thuan Nam': {
+                subDistrict: [
+                    'Ham Can Commune',
+                    'Ham Cuong Commune',
+                    'Ham Kiem Commune',
+                    'Ham Minh Commune',
+                    'Ham My Commune',
+                    'Ham Thanh Commune',
+                    'Muong Man Commune',
+                    'My Thanh Commune',
+                    'Tan Lap Commune',
+                    'Tan Thanh Commune',
+                    'Tan Thuan Commune',
+                    'Thuan Nam Township',
+                    'Thuan Qui Commune'
+                ]
+            },
+            'La Gi': {
+                subDistrict: [
+                    'Binh Tan Ward',
+                    'Phuoc Hoi Ward',
+                    'Phuoc Loc Ward',
+                    'Tan An Ward',
+                    'Tan Binh Commune',
+                    'Tan Hai Commune',
+                    'Tan Phuoc Commune',
+                    'Tan Thien Ward',
+                    'Tan Tien Commune'
+                ]
+            },
+            'Phan Thiet': {
+                subDistrict: [
+                    'Binh Hung Ward',
+                    'Duc Long Ward',
+                    'Duc Nghia Ward',
+                    'Duc Thang Ward',
+                    'Ham Tien Ward',
+                    'Hung Long Ward',
+                    'Lac Dao Ward',
+                    'Mui Ne Ward',
+                    'Phong Nam Commune',
+                    'Phu Hai Ward',
+                    'Phu Tai Ward',
+                    'Phu Thuy Ward',
+                    'Phu Trinh Ward',
+                    'Thanh Hai Ward',
+                    'Thien Nghiep Commune',
+                    'Tien Loi Commune',
+                    'Tien Thanh Commune',
+                    'Xuan An Ward'
+                ]
+            },
+            'Phu Qui': {
+                subDistrict: [
+                    'Long Hai Commune',
+                    'Ngu Phung Commune',
+                    'Tam Thanh Commune'
+                ]
+            },
+            'Tanh Linh': {
+                subDistrict: [
+                    'Bac Ruong Commune',
+                    'Dong Kho Commune',
+                    'Duc Binh Commune',
+                    'Duc Phu Commune',
+                    'Duc Thuan Commune',
+                    'Gia An Commune',
+                    'Gia Huynh Commune',
+                    'Huy Khiem Commune',
+                    'La Ngau Commune',
+                    'Lac Tanh Township',
+                    'Mang To Commune',
+                    'Nghi Duc Commune',
+                    'Suoi Kiet Commune'
+                ]
+            },
+            'Tuy Phong': {
+                subDistrict: [
+                    'Binh Thanh Commune',
+                    'Chi Cong Commune',
+                    'Hoa Minh Commune',
+                    'Lien Huong Township',
+                    'Phan Dung Commune',
+                    'Phan Ri Cua Township',
+                    'Phong Phu Commune',
+                    'Phu Lac Commune',
+                    'Phuoc The Commune',
+                    'Vinh Hao Commune',
+                    'Vinh Tan Commune'
+                ]
+            }
+        },
         'Da Nang': {
+            'Cam Le': {
+                subDistrict: [
+                    'Hoa An Ward',
+                    'Hoa Phat Ward',
+                    'Hoa Tho Dong Ward',
+                    'Hoa Tho Tay Ward',
+                    'Hoa Xuan Ward',
+                    'Khue Trung Ward'
+                ]
+            },
+            'Hai Chau': {
+                subDistrict: [
+                    'Binh Hien Ward',
+                    'Binh Thuan Ward',
+                    'Hai Chau I Ward',
+                    'Hai Chau II Ward',
+                    'Hoa Cuong Bac Ward',
+                    'Hoa Cuong Nam Ward',
+                    'Hoa Thuan Dong Ward',
+                    'Hoa Thuan Tay Ward',
+                    'Nam Duong Ward',
+                    'Phuoc Ninh Ward',
+                    'Thach Thang Ward',
+                    'Thanh Binh Ward',
+                    'Thuan Phuoc Ward'
+                ]
+            },
+            'Hoa Vang': {
+                subDistrict: [
+                    'Hoa Bac Commune',
+                    'Hoa Chau Commune',
+                    'Hoa Khuong Commune',
+                    'Hoa Lien Commune',
+                    'Hoa Nhon Commune',
+                    'Hoa Ninh Commune',
+                    'Hoa Phong Commune',
+                    'Hoa Phu Commune',
+                    'Hoa Phuoc Commune',
+                    'Hoa Son Commune',
+                    'Hoa Tien Commune'
+                ]
+            },
             'Lien Chieu': {
                 subDistrict: [
                     'Hoa Hiep Bac Ward',
@@ -7758,5676 +11293,2141 @@ module.exports = {
                     'Hoa Minh Ward'
                 ]
             },
-            'Thanh Khe': {
+            'Ngu Hanh Son': {
                 subDistrict: [
-                    'Tam Thuan Ward',
-                    'Thanh Khe Tay Ward',
-                    'Thanh Khe Dong Ward',
-                    'Xuan Ha Ward',
-                    'Tan Chinh Ward',
-                    'Chinh Gian Ward',
-                    'Vinh Trung Ward',
-                    'Thac Gian Ward',
-                    'An Khe Ward',
-                    'Hoa Khe Ward'
-                ]
-            },
-            'Hai Chau': {
-                subDistrict: [
-                    'Thanh Binh Ward',
-                    'Thuan Phuoc Ward',
-                    'Thach Thang Ward',
-                    'Hai Chau I Ward',
-                    'Hai Chau II Ward',
-                    'Phuoc Ninh Ward',
-                    'Hoa Thuan Tay Ward',
-                    'Hoa Thuan Dong Ward',
-                    'Nam Duong Ward',
-                    'Binh Hien Ward',
-                    'Binh Thuan Ward',
-                    'Hoa Cuong Bac Ward',
-                    'Hoa Cuong Nam Ward'
-                ]
-            },
-            'Cam Le': {
-                subDistrict: [
-                    'Khue Trung Ward',
-                    'Hoa Phat Ward',
-                    'Hoa An Ward',
-                    'Hoa Tho Tay Ward',
-                    'Hoa Tho Dong Ward',
-                    'Hoa Xuan Ward'
+                    'Hoa Hai Ward',
+                    'Hoa Quy Ward',
+                    'Khue My Ward',
+                    'My An Ward'
                 ]
             },
             'Son Tra': {
                 subDistrict: [
-                    'Tho Quang Ward',
-                    'Nai Hien Dong Ward',
-                    'Man Thai Ward',
                     'An Hai Bac Ward',
-                    'Phuoc My Ward',
+                    'An Hai Dong Ward',
                     'An Hai Tay Ward',
-                    'An Hai Dong Ward'
+                    'Man Thai Ward',
+                    'Nai Hien Dong Ward',
+                    'Phuoc My Ward',
+                    'Tho Quang Ward'
                 ]
             },
-            'Ngu Hanh Son': {
+            'Thanh Khe': {
                 subDistrict: [
-                    'My An Ward',
-                    'Khue My Ward',
-                    'Hoa Quy Ward',
-                    'Hoa Hai Ward'
-                ]
-            },
-            'Hoa Vang': {
-                subDistrict: [
-                    'Hoa Bac Commune',
-                    'Hoa Lien Commune',
-                    'Hoa Ninh Commune',
-                    'Hoa Son Commune',
-                    'Hoa Nhon Commune',
-                    'Hoa Phu Commune',
-                    'Hoa Phong Commune',
-                    'Hoa Chau Commune',
-                    'Hoa Tien Commune',
-                    'Hoa Phuoc Commune',
-                    'Hoa Khuong Commune'
-                ]
-            }
-        },
-        'Quang Nam': {
-            'Tam Ky': {
-                subDistrict: [
-                    'Tan Thanh Ward',
-                    'Phuoc Hoa Ward',
-                    'An My Ward',
-                    'Hoa Huong Ward',
-                    'An Xuan Ward',
-                    'An Son Ward',
-                    'Truong Xuan Ward',
-                    'An Phu Ward',
-                    'Tam Thanh Commune',
-                    'Tam Thang Commune',
-                    'Tam Phu Commune',
-                    'Hoa Thuan Ward',
-                    'Tam Ngoc Commune'
-                ]
-            },
-            'Phu Ninh': {
-                subDistrict: [
-                    'Phu Thinh Township',
-                    'Tam Thanh Commune',
-                    'Tam An Commune',
-                    'Tam Dan Commune',
-                    'Tam Loc Commune',
-                    'Tam Phuoc Commune',
-                    'Tam Vinh Commune',
-                    'Tam Thai Commune',
-                    'Tam Dai Commune',
-                    'Tam Lanh Commune'
-                ]
-            },
-            'Hoi An': {
-                subDistrict: [
-                    'Minh An Ward',
-                    'Tan An Ward',
-                    'Cam Pho Ward',
-                    'Thanh Ha Ward',
-                    'Son Phong Ward',
-                    'Cam Chau Ward',
-                    'Cua Dai Ward',
-                    'Cam An Ward',
-                    'Cam Ha Commune',
-                    'Cam Kim Commune',
-                    'Cam Nam Ward',
-                    'Cam Thanh Commune',
-                    'Tan Hiep Commune'
-                ]
-            },
-            'Tay Giang': {
-                subDistrict: [
-                    "Ch'om Commune",
-                    'Ga Ri Commune',
-                    'A Xan Commune',
-                    "Tr'Hy Commune",
-                    'Lang Commune',
-                    'A Nong Commune',
-                    'A Tieng Commune',
-                    'Bha Le Commune',
-                    'A Vuong Commune',
-                    'Dang Commune'
-                ]
-            },
-            'Dong Giang': {
-                subDistrict: [
-                    'P Rao Township',
-                    'Ta Lu Commune',
-                    'Song Kon Commune',
-                    'Jo Ngay Commune',
-                    'A Ting Commune',
-                    'Tu Commune',
-                    'Ba Commune',
-                    'A Rooi Commune',
-                    'Za Hung Commune',
-                    'Ma Cooi Commune',
-                    'Ka Dang Commune'
-                ]
-            },
-            'Dai Loc': {
-                subDistrict: [
-                    'Ai Nghia Township',
-                    'Dai Son Commune',
-                    'Dai Lanh Commune',
-                    'Dai Hung Commune',
-                    'Dai Hong Commune',
-                    'Dai Dong Commune',
-                    'Dai Quang Commune',
-                    'Dai Nghia Commune',
-                    'Dai Hiep Commune',
-                    'Dai Thanh Commune',
-                    'Dai Chanh Commune',
-                    'Dai Tan Commune',
-                    'Dai Phong Commune',
-                    'Dai Minh Commune',
-                    'Dai Thang Commune',
-                    'Dai Cuong Commune',
-                    'Dai An Commune',
-                    'Dai Hoa Commune'
-                ]
-            },
-            'Dien Ban': {
-                subDistrict: [
-                    'Vinh Dien Ward',
-                    'Dien Tien Commune',
-                    'Dien Hoa Commune',
-                    'Dien Thang Bac Ward',
-                    'Dien Thang Trung Ward',
-                    'Dien Thang Nam Ward',
-                    'Dien Ngoc Ward',
-                    'Dien Hong Commune',
-                    'Dien Tho Commune',
-                    'Dien Phuoc Commune',
-                    'Dien An Ward',
-                    'Dien Nam Bac Ward',
-                    'Dien Nam Trung Ward',
-                    'Dien Nam Dong Ward',
-                    'Dien Duong Ward',
-                    'Dien Quang Commune',
-                    'Dien Trung Commune',
-                    'Dien Phong Commune',
-                    'Dien Minh Ward',
-                    'Dien Phuong Ward'
-                ]
-            },
-            'Duy Xuyen': {
-                subDistrict: [
-                    'Nam Phuoc Township',
-                    'Duy Thu Commune',
-                    'Duy Phu Commune',
-                    'Duy Tan Commune',
-                    'Duy Hoa Commune',
-                    'Duy Chau Commune',
-                    'Duy Trinh Commune',
-                    'Duy Son Commune',
-                    'Duy Trung Commune',
-                    'Duy Phuoc Commune',
-                    'Duy Thanh Commune',
-                    'Duy Vinh Commune',
-                    'Duy Nghia Commune',
-                    'Duy Hai Commune'
-                ]
-            },
-            'Que Son': {
-                subDistrict: [
-                    'Dong Phu Township',
-                    'Commune Que Xuan 1',
-                    'Commune Que Xuan 2',
-                    'Que Phu Commune',
-                    'Huong An Township',
-                    'Que Hiep Commune',
-                    'Que Thuan Commune',
-                    'Que My Commune',
-                    'Que Long Commune',
-                    'Que Chau Commune',
-                    'Que Phong Commune',
-                    'Que An Commune',
-                    'Que Minh Commune'
-                ]
-            },
-            'Nong Son': {
-                subDistrict: [
-                    'Trung Phuoc Township',
-                    'Ninh Phuoc Commune',
-                    'Phuoc Ninh Commune',
-                    'Que Loc Commune',
-                    'Son Vien Commune',
-                    'Que Lam Commune'
-                ]
-            },
-            'Nam Giang': {
-                subDistrict: [
-                    'Thanh My Township',
-                    'Laee Commune',
-                    'Cho Chun Commune',
-                    'Zuoich Commune',
-                    'Ta Poo Commune',
-                    'La Dee Commune',
-                    'Dac Toi Commune',
-                    'Cha Val Commune',
-                    'Ta Bhinh Commune',
-                    'Ca Dy Commune',
-                    'Dac Pre Commune',
-                    'Dac Pring Commune'
-                ]
-            },
-            'Phuoc Son': {
-                subDistrict: [
-                    'Kham Duc Township',
-                    'Phuoc Xuan Commune',
-                    'Phuoc Hiep Commune',
-                    'Phuoc Hoa Commune',
-                    'Phuoc Duc Commune',
-                    'Phuoc Nang Commune',
-                    'Phuoc My Commune',
-                    'Phuoc Chanh Commune',
-                    'Phuoc Cong Commune',
-                    'Phuoc Kim Commune',
-                    'Phuoc Loc Commune',
-                    'Phuoc Thanh Commune'
-                ]
-            },
-            'Hiep Duc': {
-                subDistrict: [
-                    'Hiep Hoa Commune',
-                    'Hiep Thuan Commune',
-                    'Que Tho Commune',
-                    'Binh Lam Commune',
-                    'Song Tra Commune',
-                    'Phuoc Tra Commune',
-                    'Phuoc Gia Commune',
-                    'Tan Binh Township',
-                    'Que Luu Commune',
-                    'Thang Phuoc Commune',
-                    'Binh Son Commune'
-                ]
-            },
-            'Thang Binh': {
-                subDistrict: [
-                    'Ha Lam Township',
-                    'Binh Duong Commune',
-                    'Binh Giang Commune',
-                    'Binh Nguyen Commune',
-                    'Binh Phuc Commune',
-                    'Binh Trieu Commune',
-                    'Binh Dao Commune',
-                    'Binh Minh Commune',
-                    'Binh Lanh Commune',
-                    'Binh Tri Commune',
-                    'Binh Dinh Bac Commune',
-                    'Binh Dinh Nam Commune',
-                    'Binh Quy Commune',
-                    'Binh Phu Commune',
-                    'Binh Chanh Commune',
-                    'Binh Tu Commune',
-                    'Binh Sa Commune',
-                    'Binh Hai Commune',
-                    'Binh Que Commune',
-                    'Binh An Commune',
-                    'Binh Trung Commune',
-                    'Binh Nam Commune'
-                ]
-            },
-            'Tien Phuoc': {
-                subDistrict: [
-                    'Tien Ky Township',
-                    'Tien Son Commune',
-                    'Tien Ha Commune',
-                    'Tien Cam Commune',
-                    'Tien Chau Commune',
-                    'Tien Lanh Commune',
-                    'Tien Ngoc Commune',
-                    'Tien Hiep Commune',
-                    'Tien Canh Commune',
-                    'Tien My Commune',
-                    'Tien Phong Commune',
-                    'Tien Tho Commune',
-                    'Tien An Commune',
-                    'Tien Loc Commune',
-                    'Tien Lap Commune'
-                ]
-            },
-            'Bac Tra My': {
-                subDistrict: [
-                    'Tra My Township',
-                    'Tra Son Commune',
-                    'Tra Kot Commune',
-                    'Tra Nu Commune',
-                    'Tra Dong Commune',
-                    'Tra Duong Commune',
-                    'Tra Giang Commune',
-                    'Tra Bui Commune',
-                    'Tra Doc Commune',
-                    'Tra Tan Commune',
-                    'Tra Giac Commune',
-                    'Tra Giap Commune',
-                    'Tra Ka Commune'
-                ]
-            },
-            'Nam Tra My': {
-                subDistrict: [
-                    'Tra Leng Commune',
-                    'Tra Don Commune',
-                    'Tra Tap Commune',
-                    'Tra Mai Commune',
-                    'Tra Cang Commune',
-                    'Tra Linh Commune',
-                    'Tra Nam Commune',
-                    'Tra Van Commune',
-                    'Tra Vinh Commune'
-                ]
-            },
-            'Nui Thanh': {
-                subDistrict: [
-                    'Nui Thanh Township',
-                    'Tam Xuan I Commune',
-                    'Tam Xuan II Commune',
-                    'Tam Tien Commune',
-                    'Tam Son Commune',
-                    'Tam Thanh Commune',
-                    'Tam Anh Bac Commune',
-                    'Tam Anh Nam Commune',
-                    'Tam Hoa Commune',
-                    'Tam Hiep Commune',
-                    'Tam Hai Commune',
-                    'Tam Giang Commune',
-                    'Tam Quang Commune',
-                    'Tam Nghia Commune',
-                    'Tam My Tay Commune',
-                    'Tam My Dong Commune',
-                    'Tam Tra Commune'
-                ]
-            }
-        },
-        'Quang Ngai': {
-            'Quang Ngai': {
-                subDistrict: [
-                    'Le Hong Phong Ward',
-                    'Tran Phu Ward',
-                    'Quang Phu Ward',
-                    'Nghia Chanh Ward',
-                    'Tran Hung Dao Ward',
-                    'Nguyen Nghiem Ward',
-                    'Nghia Lo Ward',
-                    'Chanh Lo Ward',
-                    'Nghia Dung Commune',
-                    'Nghia Dong Commune',
-                    'Truong Quang Trong Ward',
-                    'Tinh Hoa Commune',
-                    'Tinh Ky Commune',
-                    'Tinh Thien Commune',
-                    'Tinh An Dong Commune',
-                    'Tinh Chau Commune',
-                    'Tinh Khe Commune',
-                    'Tinh Long Commune',
-                    'Tinh An Tay Commune',
-                    'Tinh An Commune',
-                    'Nghia Phu Commune',
-                    'Nghia Ha Commune',
-                    'Nghia An Commune'
-                ]
-            },
-            'Binh Son': {
-                subDistrict: [
-                    'Chau O Township',
-                    'Binh Thuan Commune',
-                    'Binh Thanh Commune',
-                    'Binh Dong Commune',
-                    'Binh Chanh Commune',
-                    'Binh Nguyen Commune',
-                    'Binh Khuong Commune',
-                    'Binh Tri Commune',
-                    'Binh An Commune',
-                    'Binh Hai Commune',
-                    'Binh Duong Commune',
-                    'Binh Phuoc Commune',
-                    'Binh Hoa Commune',
-                    'Binh Trung Commune',
-                    'Binh Minh Commune',
-                    'Binh Long Commune',
-                    'Binh Chuong Commune',
-                    'Binh Hiep Commune',
-                    'Binh My Commune',
-                    'Binh Tan Phu Commune',
-                    'Binh Chau Commune'
-                ]
-            },
-            'Tra Bong': {
-                subDistrict: [
-                    'Tra Xuan Township',
-                    'Tra Giang Commune',
-                    'Tra Thuy Commune',
-                    'Tra Hiep Commune',
-                    'Tra Binh Commune',
-                    'Tra Phu Commune',
-                    'Tra Lam Commune',
-                    'Tra Tan Commune',
-                    'Tra Son Commune',
-                    'Tra Bui Commune',
-                    'Tra Thanh Commune',
-                    'Son Tra Commune',
-                    'Tra Phong Commune',
-                    'Huong Tra Commune',
-                    'Tra Xinh Commune',
-                    'Tra Tay Commune'
-                ]
-            },
-            'Son Tinh': {
-                subDistrict: [
-                    'Tinh Tho Commune',
-                    'Tinh Tra Commune',
-                    'Tinh Phong Commune',
-                    'Tinh Hiep Commune',
-                    'Tinh Binh Commune',
-                    'Tinh Dong Commune',
-                    'Tinh Bac Commune',
-                    'Tinh Son Commune',
-                    'Tinh Ha Commune',
-                    'Tinh Giang Commune',
-                    'Tinh Minh Commune'
-                ]
-            },
-            'Tu Nghia': {
-                subDistrict: [
-                    'La Ha Township',
-                    'Song Ve Township',
-                    'Nghia Lam Commune',
-                    'Nghia Thang Commune',
-                    'Nghia Thuan Commune',
-                    'Nghia Ky Commune',
-                    'Nghia Son Commune',
-                    'Nghia Hoa Commune',
-                    'Nghia Dien Commune',
-                    'Nghia Thuong Commune',
-                    'Nghia Trung Commune',
-                    'Nghia Hiep Commune',
-                    'Nghia Phuong Commune',
-                    'Nghia My Commune'
-                ]
-            },
-            'Son Ha': {
-                subDistrict: [
-                    'Di Lang Township',
-                    'Son Ha Commune',
-                    'Son Thanh Commune',
-                    'Son Nham Commune',
-                    'Son Bao Commune',
-                    'Son Linh Commune',
-                    'Son Giang Commune',
-                    'Son Trung Commune',
-                    'Son Thuong Commune',
-                    'Son Cao Commune',
-                    'Son Hai Commune',
-                    'Son Thuy Commune',
-                    'Son Ky Commune',
-                    'Son Ba Commune'
-                ]
-            },
-            'Son Tay': {
-                subDistrict: [
-                    'Son Bua Commune',
-                    'Son Mua Commune',
-                    'Son Lien Commune',
-                    'Son Tan Commune',
-                    'Son Mau Commune',
-                    'Son Dung Commune',
-                    'Son Long Commune',
-                    'Son Tinh Commune',
-                    'Son Lap Commune'
-                ]
-            },
-            'Minh Long': {
-                subDistrict: [
-                    'Long Son Commune',
-                    'Long Mai Commune',
-                    'Thanh An Commune',
-                    'Long Mon Commune',
-                    'Long Hiep Commune'
-                ]
-            },
-            'Nghia Hanh': {
-                subDistrict: [
-                    'Cho Chua Township',
-                    'Hanh Thuan Commune',
-                    'Hanh Dung Commune',
-                    'Hanh Trung Commune',
-                    'Hanh Nhan Commune',
-                    'Hanh Duc Commune',
-                    'Hanh Minh Commune',
-                    'Hanh Phuoc Commune',
-                    'Hanh Thien Commune',
-                    'Hanh Thinh Commune',
-                    'Hanh Tin Tay Commune',
-                    'Hanh Tin Dong Commune'
-                ]
-            },
-            'Mo Duc': {
-                subDistrict: [
-                    'Mo Duc Township',
-                    'Duc Loi Commune',
-                    'Duc Thang Commune',
-                    'Duc Nhuan Commune',
-                    'Duc Chanh Commune',
-                    'Duc Hiep Commune',
-                    'Duc Minh Commune',
-                    'Duc Thanh Commune',
-                    'Duc Hoa Commune',
-                    'Duc Tan Commune',
-                    'Duc Phu Commune',
-                    'Duc Phong Commune',
-                    'Duc Lan Commune'
-                ]
-            },
-            'Duc Pho': {
-                subDistrict: [
-                    'Nguyen Nghiem Ward',
-                    'Pho An Commune',
-                    'Pho Phong Commune',
-                    'Pho Thuan Commune',
-                    'Pho Van Ward',
-                    'Pho Quang Ward',
-                    'Pho Nhon Commune',
-                    'Pho Ninh Ward',
-                    'Pho Minh Ward',
-                    'Pho Vinh Ward',
-                    'Pho Hoa Ward',
-                    'Pho Cuong Commune',
-                    'Pho Khanh Commune',
-                    'Pho Thanh Ward',
-                    'Pho Chau Commune'
-                ]
-            },
-            'Ba To': {
-                subDistrict: [
-                    'Ba To Township',
-                    'Ba Dien Commune',
-                    'Ba Vinh Commune',
-                    'Ba Thanh Commune',
-                    'Ba Dong Commune',
-                    'Ba Dinh Commune',
-                    'Ba Giang Commune',
-                    'Ba Lien Commune',
-                    'Ba Ngac Commune',
-                    'Ba Kham Commune',
-                    'Ba Cung Commune',
-                    'Ba Tieu Commune',
-                    'Ba Trang Commune',
-                    'Ba To Commune',
-                    'Ba Bich Commune',
-                    'Ba Vi Commune',
-                    'Ba Le Commune',
-                    'Ba Nam Commune',
-                    'Ba Xa Commune'
-                ]
-            }
-        },
-        'Binh Dinh': {
-            'Quy Nhon': {
-                subDistrict: [
-                    'Nhon Binh Ward',
-                    'Nhon Phu Ward',
-                    'Dong Da Ward',
-                    'Tran Quang Dieu Ward',
-                    'Hai Cang Ward',
-                    'Quang Trung Ward',
-                    'Thi Nai Ward',
-                    'Le Hong Phong Ward',
-                    'Tran Hung Dao Ward',
-                    'Ngo May Ward',
-                    'Ly Thuong Kiet Ward',
-                    'Le Loi Ward',
-                    'Tran Phu Ward',
-                    'Bui Thi Xuan Ward',
-                    'Nguyen Van Cu Ward',
-                    'Ghenh Rang Ward',
-                    'Nhon Ly Commune',
-                    'Nhon Hoi Commune',
-                    'Nhon Hai Commune',
-                    'Nhon Chau Commune',
-                    'Phuoc My Commune'
-                ]
-            },
-            'An Lao': {
-                subDistrict: [
-                    'An Lao Township',
-                    'An Hung Commune',
-                    'An Trung Commune',
-                    'An Dung Commune',
-                    'An Vinh Commune',
-                    'An Toan Commune',
-                    'An Tan Commune',
-                    'An Hoa Commune',
-                    'An Quang Commune',
-                    'An Nghia Commune'
-                ]
-            },
-            'Hoai Nhon': {
-                subDistrict: [
-                    'Tam Quan Ward',
-                    'Bong Son Ward',
-                    'Hoai Son Commune',
-                    'Hoai Chau Bac Commune',
-                    'Hoai Chau Commune',
-                    'Hoai Phu Commune',
-                    'Tam Quan Bac Ward',
-                    'Tam Quan Nam Ward',
-                    'Hoai Hao Ward',
-                    'Hoai Thanh Tay Ward',
-                    'Hoai Thanh Ward',
-                    'Hoai Huong Ward',
-                    'Hoai Tan Ward',
-                    'Hoai Hai Commune',
-                    'Hoai Xuan Ward',
-                    'Hoai My Commune',
-                    'Hoai Duc Ward'
-                ]
-            },
-            'Hoai An': {
-                subDistrict: [
-                    'Tang Bat Ho Township',
-                    'An Hao Tay Commune',
-                    'An Hao Dong Commune',
-                    'An Son Commune',
-                    'An My Commune',
-                    'Dak Mang Commune',
-                    'An Tin Commune',
-                    'An Thanh Commune',
-                    'An Phong Commune',
-                    'An Duc Commune',
-                    'An Huu Commune',
-                    'Bok Toi Commune',
-                    'An Tuong Tay Commune',
-                    'An Tuong Dong Commune',
-                    'An Nghia Commune'
-                ]
-            },
-            'Phu My': {
-                subDistrict: [
-                    'Phu My Township',
-                    'Binh Duong Township',
-                    'My Duc Commune',
-                    'My Chau Commune',
-                    'My Thang Commune',
-                    'My Loc Commune',
-                    'My Loi Commune',
-                    'My An Commune',
-                    'My Phong Commune',
-                    'My Trinh Commune',
-                    'My Tho Commune',
-                    'My Hoa Commune',
-                    'My Thanh Commune',
-                    'My Chanh Commune',
-                    'My Quang Commune',
-                    'My Hiep Commune',
-                    'My Tai Commune',
-                    'My Cat Commune',
-                    'My Chanh Tay Commune'
-                ]
-            },
-            'Vinh Thanh': {
-                subDistrict: [
-                    'Vinh Thanh Township',
-                    'Vinh Son Commune',
-                    'Vinh Kim Commune',
-                    'Vinh Hiep Commune',
-                    'Vinh Hao Commune',
-                    'Vinh Hoa Commune',
-                    'Vinh Thinh Commune',
-                    'Vinh Thuan Commune',
-                    'Vinh Quang Commune'
-                ]
-            },
-            'Tay Son': {
-                subDistrict: [
-                    'Phu Phong Township',
-                    'Binh Tan Commune',
-                    'Tay Thuan Commune',
-                    'Binh Thuan Commune',
-                    'Tay Giang Commune',
-                    'Binh Thanh Commune',
-                    'Tay An Commune',
-                    'Binh Hoa Commune',
-                    'Tay Binh Commune',
-                    'Binh Tuong Commune',
-                    'Tay Vinh Commune',
-                    'Vinh An Commune',
-                    'Tay Xuan Commune',
-                    'Binh Nghi Commune',
-                    'Tay Phu Commune'
-                ]
-            },
-            'Phu Cat': {
-                subDistrict: [
-                    'Ngo May Township',
-                    'Cat Son Commune',
-                    'Cat Minh Commune',
-                    'Cat Khanh Commune',
-                    'Cat Tai Commune',
-                    'Cat Lam Commune',
-                    'Cat Hanh Commune',
-                    'Cat Thanh Commune',
-                    'Cat Trinh Commune',
-                    'Cat Hai Commune',
-                    'Cat Hiep Commune',
-                    'Cat Nhon Commune',
-                    'Cat Hung Commune',
-                    'Cat Tuong Commune',
-                    'Cat Tan Commune',
-                    'Cat Tien Township',
-                    'Cat Thang Commune',
-                    'Cat Chanh Commune'
-                ]
-            },
-            'An Nhon': {
-                subDistrict: [
-                    'Binh Dinh Ward',
-                    'Dap Da Ward',
-                    'Nhon My Commune',
-                    'Nhon Thanh Ward',
-                    'Nhon Hanh Commune',
-                    'Nhon Hau Commune',
-                    'Nhon Phong Commune',
-                    'Nhon An Commune',
-                    'Nhon Phuc Commune',
-                    'Nhon Hung Ward',
-                    'Nhon Khanh Commune',
-                    'Nhon Loc Commune',
-                    'Nhon Hoa Ward',
-                    'Nhon Tan Commune',
-                    'Nhon Tho Commune'
-                ]
-            },
-            'Tuy Phuoc': {
-                subDistrict: [
-                    'Tuy Phuoc Township',
-                    'Dieu Tri Township',
-                    'Phuoc Thang Commune',
-                    'Phuoc Hung Commune',
-                    'Phuoc Quang Commune',
-                    'Phuoc Hoa Commune',
-                    'Phuoc Son Commune',
-                    'Phuoc Hiep Commune',
-                    'Phuoc Loc Commune',
-                    'Phuoc Nghia Commune',
-                    'Phuoc Thuan Commune',
-                    'Phuoc An Commune',
-                    'Phuoc Thanh Commune'
-                ]
-            },
-            'Van Canh': {
-                subDistrict: [
-                    'Van Canh Township',
-                    'Canh Lien Commune',
-                    'Canh Hiep Commune',
-                    'Canh Vinh Commune',
-                    'Canh Hien Commune',
-                    'Canh Thuan Commune',
-                    'Canh Hoa Commune'
-                ]
-            }
-        },
-        'Phu Yen': {
-            'Tuy Hoa': {
-                subDistrict: [
-                    'Ward 1',
-                    'Ward 8',
-                    'Ward 2',
-                    'Ward 9',
-                    'Ward 3',
-                    'Ward 4',
-                    'Ward 5',
-                    'Ward 7',
-                    'Ward 6',
-                    'Phu Thanh Ward',
-                    'Phu Dong Ward',
-                    'Hoa Kien Commune',
-                    'Binh Kien Commune',
-                    'Binh Ngoc Commune',
-                    'An Phu Commune',
-                    'Phu Lam Ward'
-                ]
-            },
-            'Song Cau': {
-                subDistrict: [
-                    'Xuan Phu Ward',
-                    'Xuan Lam Commune',
-                    'Xuan Thanh Ward',
-                    'Xuan Hai Commune',
-                    'Xuan Loc Commune',
-                    'Xuan Binh Commune',
-                    'Xuan Canh Commune',
-                    'Xuan Thinh Commune',
-                    'Xuan Phuong Commune',
-                    'Xuan Yen Ward',
-                    'Commune Xuan Tho 1',
-                    'Xuan Dai Ward',
-                    'Commune Xuan Tho 2'
-                ]
-            },
-            'Dong Xuan': {
-                subDistrict: [
-                    'La Hai Township',
-                    'Da Loc Commune',
-                    'Phu Mo Commune',
-                    'Xuan Lanh Commune',
-                    'Xuan Long Commune',
-                    'Commune Xuan Quang 1',
-                    'Xuan Son Bac Commune',
-                    'Commune Xuan Quang 2',
-                    'Xuan Son Nam Commune',
-                    'Commune Xuan Quang 3',
-                    'Xuan Phuoc Commune'
-                ]
-            },
-            'Tuy An': {
-                subDistrict: [
-                    'Chi Thanh Township',
-                    'An Dan Commune',
-                    'An Ninh Tay Commune',
-                    'An Ninh Dong Commune',
-                    'An Thach Commune',
-                    'An Dinh Commune',
-                    'An Nghiep Commune',
-                    'An Cu Commune',
-                    'An Xuan Commune',
-                    'An Linh Commune',
-                    'An Hoa Hai Commune',
-                    'An Hiep Commune',
-                    'An My Commune',
-                    'An Chan Commune',
-                    'An Tho Commune'
-                ]
-            },
-            'Son Hoa': {
-                subDistrict: [
-                    'Cung Son Township',
-                    'Phuoc Tan Commune',
-                    'Son Hoi Commune',
-                    'Son Dinh Commune',
-                    'Son Long Commune',
-                    'Ca Lui Commune',
-                    'Son Phuoc Commune',
-                    'Son Xuan Commune',
-                    'Son Nguyen Commune',
-                    'Eacha Rang Commune',
-                    'Krong Pa Commune',
-                    'Suoi Bac Commune',
-                    'Son Ha Commune',
-                    'Suoi Trai Commune'
-                ]
-            },
-            'Song Hinh': {
-                subDistrict: [
-                    'Hai Rieng Township',
-                    'Ea Lam Commune',
-                    'Duc Binh Tay Commune',
-                    'Ea Ba Commune',
-                    'Son Giang Commune',
-                    'Duc Binh Dong Commune',
-                    'EaBar Commune',
-                    'EaBia Commune',
-                    'EaTrol Commune',
-                    'Song Hinh Commune',
-                    'Ealy Commune'
-                ]
-            },
-            'Dong Hoa': {
-                subDistrict: [
-                    'Hoa Thanh Commune',
-                    'Hoa Hiep Bac Ward',
-                    'Hoa Vinh Ward',
-                    'Hoa Hiep Trung Ward',
-                    'Hoa Tan Dong Commune',
-                    'Hoa Xuan Tay Ward',
-                    'Hoa Hiep Nam Ward',
-                    'Hoa Xuan Dong Commune',
-                    'Hoa Tam Commune',
-                    'Hoa Xuan Nam Commune'
-                ]
-            },
-            'Tay Hoa': {
-                subDistrict: [
-                    'Son Thanh Tay Commune',
-                    'Son Thanh Dong Commune',
-                    'Commune Hoa Binh 1',
-                    'Phu Thu Township',
-                    'Hoa Phong Commune',
-                    'Hoa Phu Commune',
-                    'Hoa Tan Tay Commune',
-                    'Hoa Dong Commune',
-                    'Hoa My Dong Commune',
-                    'Hoa My Tay Commune',
-                    'Hoa Thinh Commune'
-                ]
-            },
-            'Phu Hoa': {
-                subDistrict: [
-                    'Hoa Quang Bac Commune',
-                    'Hoa Quang Nam Commune',
-                    'Hoa Hoi Commune',
-                    'Hoa Tri Commune',
-                    'Hoa An Commune',
-                    'Hoa Dinh Dong Commune',
-                    'Phu Hoa Township',
-                    'Hoa Dinh Tay Commune',
-                    'Hoa Thang Commune'
+                    'An Khe Ward',
+                    'Chinh Gian Ward',
+                    'Hoa Khe Ward',
+                    'Tam Thuan Ward',
+                    'Tan Chinh Ward',
+                    'Thac Gian Ward',
+                    'Thanh Khe Dong Ward',
+                    'Thanh Khe Tay Ward',
+                    'Vinh Trung Ward',
+                    'Xuan Ha Ward'
                 ]
             }
         },
         'Khanh Hoa': {
-            'Nha Trang': {
-                subDistrict: [
-                    'Vinh Hoa Ward',
-                    'Vinh Hai Ward',
-                    'Vinh Phuoc Ward',
-                    'Ngoc Hiep Ward',
-                    'Vinh Tho Ward',
-                    'Xuong Huan Ward',
-                    'Van Thang Ward',
-                    'Van Thanh Ward',
-                    'Phuong Sai Ward',
-                    'Phuong Son Ward',
-                    'Phuoc Hai Ward',
-                    'Phuoc Tan Ward',
-                    'Loc Tho Ward',
-                    'Phuoc Tien Ward',
-                    'Tan Lap Ward',
-                    'Phuoc Hoa Ward',
-                    'Vinh Nguyen Ward',
-                    'Phuoc Long Ward',
-                    'Vinh Truong Ward',
-                    'Vinh Luong Commune',
-                    'Vinh Phuong Commune',
-                    'Vinh Ngoc Commune',
-                    'Vinh Thanh Commune',
-                    'Vinh Trung Commune',
-                    'Vinh Hiep Commune',
-                    'Vinh Thai Commune',
-                    'Phuoc Dong Commune'
-                ]
-            },
-            'Cam Ranh': {
-                subDistrict: [
-                    'Cam Nghia Ward',
-                    'Cam Phuc Bac Ward',
-                    'Cam Phuc Nam Ward',
-                    'Cam Loc Ward',
-                    'Cam Phu Ward',
-                    'Ba Ngoi Ward',
-                    'Cam Thuan Ward',
-                    'Cam Loi Ward',
-                    'Cam Linh Ward',
-                    'Cam Thanh Nam Commune',
-                    'Cam Phuoc Dong Commune',
-                    'Cam Thinh Tay Commune',
-                    'Cam Thinh Dong Commune',
-                    'Cam Lap Commune',
-                    'Cam Binh Commune'
-                ]
-            },
             'Cam Lam': {
                 subDistrict: [
-                    'Cam Tan Commune',
-                    'Cam Hoa Commune',
-                    'Cam Hai Dong Commune',
-                    'Cam Hai Tay Commune',
-                    'Son Tan Commune',
-                    'Cam Hiep Bac Commune',
-                    'Cam Duc Township',
-                    'Cam Hiep Nam Commune',
-                    'Cam Phuoc Tay Commune',
-                    'Cam Thanh Bac Commune',
                     'Cam An Bac Commune',
                     'Cam An Nam Commune',
+                    'Cam Duc Township',
+                    'Cam Hai Dong Commune',
+                    'Cam Hai Tay Commune',
+                    'Cam Hiep Bac Commune',
+                    'Cam Hiep Nam Commune',
+                    'Cam Hoa Commune',
+                    'Cam Phuoc Tay Commune',
+                    'Cam Tan Commune',
+                    'Cam Thanh Bac Commune',
+                    'Son Tan Commune',
                     'Suoi Cat Commune',
                     'Suoi Tan Commune'
                 ]
             },
-            'Van Ninh': {
+            'Cam Ranh': {
                 subDistrict: [
-                    'Van Gia Township',
-                    'Dai Lanh Commune',
-                    'Van Phuoc Commune',
-                    'Van Long Commune',
-                    'Van Binh Commune',
-                    'Van Tho Commune',
-                    'Van Khanh Commune',
-                    'Van Phu Commune',
-                    'Van Luong Commune',
-                    'Van Thang Commune',
-                    'Van Thanh Commune',
-                    'Xuan Son Commune',
-                    'Van Hung Commune'
-                ]
-            },
-            'Ninh Hoa': {
-                subDistrict: [
-                    'Ninh Hiep Ward',
-                    'Ninh Son Commune',
-                    'Ninh Tay Commune',
-                    'Ninh Thuong Commune',
-                    'Ninh An Commune',
-                    'Ninh Hai Ward',
-                    'Ninh Tho Commune',
-                    'Ninh Trung Commune',
-                    'Ninh Sim Commune',
-                    'Ninh Xuan Commune',
-                    'Ninh Than Commune',
-                    'Ninh Diem Ward',
-                    'Ninh Dong Commune',
-                    'Ninh Thuy Ward',
-                    'Ninh Da Ward',
-                    'Ninh Phung Commune',
-                    'Ninh Binh Commune',
-                    'Ninh Phuoc Commune',
-                    'Ninh Phu Commune',
-                    'Ninh Tan Commune',
-                    'Ninh Quang Commune',
-                    'Ninh Giang Ward',
-                    'Ninh Ha Ward',
-                    'Ninh Hung Commune',
-                    'Ninh Loc Commune',
-                    'Ninh Ich Commune',
-                    'Ninh Van Commune'
-                ]
-            },
-            'Khanh Vinh': {
-                subDistrict: [
-                    'Khanh Vinh Township',
-                    'Khanh Hiep Commune',
-                    'Khanh Binh Commune',
-                    'Khanh Trung Commune',
-                    'Khanh Dong Commune',
-                    'Khanh Thuong Commune',
-                    'Khanh Nam Commune',
-                    'Song Cau Commune',
-                    'Giang Ly Commune',
-                    'Cau Ba Commune',
-                    'Lien Sang Commune',
-                    'Khanh Thanh Commune',
-                    'Khanh Phu Commune',
-                    'Son Thai Commune'
+                    'Ba Ngoi Ward',
+                    'Cam Binh Commune',
+                    'Cam Lap Commune',
+                    'Cam Linh Ward',
+                    'Cam Loc Ward',
+                    'Cam Loi Ward',
+                    'Cam Nghia Ward',
+                    'Cam Phu Ward',
+                    'Cam Phuc Bac Ward',
+                    'Cam Phuc Nam Ward',
+                    'Cam Phuoc Dong Commune',
+                    'Cam Thanh Nam Commune',
+                    'Cam Thinh Dong Commune',
+                    'Cam Thinh Tay Commune',
+                    'Cam Thuan Ward'
                 ]
             },
             'Dien Khanh': {
                 subDistrict: [
-                    'Dien Khanh Township',
-                    'Dien Lam Commune',
-                    'Dien Dien Commune',
-                    'Dien Xuan Commune',
-                    'Dien Son Commune',
-                    'Dien Dong Commune',
-                    'Dien Phu Commune',
-                    'Dien Tho Commune',
-                    'Dien Phuoc Commune',
-                    'Dien Lac Commune',
-                    'Dien Tan Commune',
-                    'Dien Hoa Commune',
-                    'Dien Thanh Commune',
-                    'Dien Toan Commune',
-                    'Dien An Commune',
                     'Binh Loc Commune',
+                    'Dien An Commune',
+                    'Dien Dien Commune',
+                    'Dien Dong Commune',
+                    'Dien Hoa Commune',
+                    'Dien Khanh Township',
+                    'Dien Lac Commune',
+                    'Dien Lam Commune',
+                    'Dien Phu Commune',
+                    'Dien Phuoc Commune',
+                    'Dien Son Commune',
+                    'Dien Tan Commune',
+                    'Dien Thanh Commune',
+                    'Dien Tho Commune',
+                    'Dien Toan Commune',
+                    'Dien Xuan Commune',
                     'Suoi Hiep Commune',
                     'Suoi Tien Commune'
                 ]
             },
             'Khanh Son': {
                 subDistrict: [
-                    'To Hap Township',
-                    'Thanh Son Commune',
-                    'Son Lam Commune',
-                    'Son Hiep Commune',
-                    'Son Binh Commune',
-                    'Son Trung Commune',
                     'Ba Cum Bac Commune',
-                    'Ba Cum Nam Commune'
+                    'Ba Cum Nam Commune',
+                    'Son Binh Commune',
+                    'Son Hiep Commune',
+                    'Son Lam Commune',
+                    'Son Trung Commune',
+                    'Thanh Son Commune',
+                    'To Hap Township'
+                ]
+            },
+            'Khanh Vinh': {
+                subDistrict: [
+                    'Cau Ba Commune',
+                    'Giang Ly Commune',
+                    'Khanh Binh Commune',
+                    'Khanh Dong Commune',
+                    'Khanh Hiep Commune',
+                    'Khanh Nam Commune',
+                    'Khanh Phu Commune',
+                    'Khanh Thanh Commune',
+                    'Khanh Thuong Commune',
+                    'Khanh Trung Commune',
+                    'Khanh Vinh Township',
+                    'Lien Sang Commune',
+                    'Son Thai Commune',
+                    'Song Cau Commune'
+                ]
+            },
+            'Nha Trang': {
+                subDistrict: [
+                    'Loc Tho Ward',
+                    'Ngoc Hiep Ward',
+                    'Phuoc Dong Commune',
+                    'Phuoc Hai Ward',
+                    'Phuoc Hoa Ward',
+                    'Phuoc Long Ward',
+                    'Phuoc Tan Ward',
+                    'Phuoc Tien Ward',
+                    'Phuong Sai Ward',
+                    'Phuong Son Ward',
+                    'Tan Lap Ward',
+                    'Van Thang Ward',
+                    'Van Thanh Ward',
+                    'Vinh Hai Ward',
+                    'Vinh Hiep Commune',
+                    'Vinh Hoa Ward',
+                    'Vinh Luong Commune',
+                    'Vinh Ngoc Commune',
+                    'Vinh Nguyen Ward',
+                    'Vinh Phuoc Ward',
+                    'Vinh Phuong Commune',
+                    'Vinh Thai Commune',
+                    'Vinh Thanh Commune',
+                    'Vinh Tho Ward',
+                    'Vinh Trung Commune',
+                    'Vinh Truong Ward',
+                    'Xuong Huan Ward'
+                ]
+            },
+            'Ninh Hoa': {
+                subDistrict: [
+                    'Ninh An Commune',
+                    'Ninh Binh Commune',
+                    'Ninh Da Ward',
+                    'Ninh Diem Ward',
+                    'Ninh Dong Commune',
+                    'Ninh Giang Ward',
+                    'Ninh Ha Ward',
+                    'Ninh Hai Ward',
+                    'Ninh Hiep Ward',
+                    'Ninh Hung Commune',
+                    'Ninh Ich Commune',
+                    'Ninh Loc Commune',
+                    'Ninh Phu Commune',
+                    'Ninh Phung Commune',
+                    'Ninh Phuoc Commune',
+                    'Ninh Quang Commune',
+                    'Ninh Sim Commune',
+                    'Ninh Son Commune',
+                    'Ninh Tan Commune',
+                    'Ninh Tay Commune',
+                    'Ninh Than Commune',
+                    'Ninh Tho Commune',
+                    'Ninh Thuong Commune',
+                    'Ninh Thuy Ward',
+                    'Ninh Trung Commune',
+                    'Ninh Van Commune',
+                    'Ninh Xuan Commune'
                 ]
             },
             'Truong Sa': {
                 subDistrict: [
-                    'Truong Sa Township',
+                    'Sinh Ton Commune',
                     'Song Tu Tay Commune',
-                    'Sinh Ton Commune'
+                    'Truong Sa Township'
+                ]
+            },
+            'Van Ninh': {
+                subDistrict: [
+                    'Dai Lanh Commune',
+                    'Van Binh Commune',
+                    'Van Gia Township',
+                    'Van Hung Commune',
+                    'Van Khanh Commune',
+                    'Van Long Commune',
+                    'Van Luong Commune',
+                    'Van Phu Commune',
+                    'Van Phuoc Commune',
+                    'Van Thang Commune',
+                    'Van Thanh Commune',
+                    'Van Tho Commune',
+                    'Xuan Son Commune'
                 ]
             }
         },
         'Ninh Thuan': {
-            'Phan Rang-Thap Cham': {
-                subDistrict: [
-                    'Do Vinh Ward',
-                    'Phuoc My Ward',
-                    'Bao An Ward',
-                    'Phu Ha Ward',
-                    'Thanh Son Ward',
-                    'My Huong Ward',
-                    'Tan Tai Ward',
-                    'Kinh Dinh Ward',
-                    'Dao Long Ward',
-                    'Dai Son Ward',
-                    'Dong Hai Ward',
-                    'My Dong Ward',
-                    'Thanh Hai Commune',
-                    'Van Hai Ward',
-                    'My Binh Ward',
-                    'My Hai Ward'
-                ]
-            },
             'Bac Ai': {
                 subDistrict: [
                     'Phuoc Binh Commune',
+                    'Phuoc Chinh Commune',
+                    'Phuoc Dai Commune',
                     'Phuoc Hoa Commune',
                     'Phuoc Tan Commune',
-                    'Phuoc Tien Commune',
                     'Phuoc Thang Commune',
                     'Phuoc Thanh Commune',
-                    'Phuoc Dai Commune',
-                    'Phuoc Chinh Commune',
+                    'Phuoc Tien Commune',
                     'Phuoc Trung Commune'
-                ]
-            },
-            'Ninh Son': {
-                subDistrict: [
-                    'Tan Son Township',
-                    'Lam Son Commune',
-                    'Luong Son Commune',
-                    'Quang Son Commune',
-                    'My Son Commune',
-                    'Hoa Son Commune',
-                    'Ma Noi Commune',
-                    'Nhon Son Commune'
                 ]
             },
             'Ninh Hai': {
                 subDistrict: [
+                    'Ho Hai Commune',
                     'Khanh Hai Township',
-                    'Vinh Hai Commune',
+                    'Nhon Hai Commune',
                     'Phuong Hai Commune',
                     'Tan Hai Commune',
-                    'Xuan Hai Commune',
-                    'Ho Hai Commune',
+                    'Thanh Hai Commune',
                     'Tri Hai Commune',
-                    'Nhon Hai Commune',
-                    'Thanh Hai Commune'
-                ]
-            },
-            'Thuan Bac': {
-                subDistrict: [
-                    'Phuoc Chien Commune',
-                    'Cong Hai Commune',
-                    'Phuoc Khang Commune',
-                    'Loi Hai Commune',
-                    'Bac Son Commune',
-                    'Bac Phong Commune'
+                    'Vinh Hai Commune',
+                    'Xuan Hai Commune'
                 ]
             },
             'Ninh Phuoc': {
                 subDistrict: [
+                    'An Hai Commune',
                     'Phuoc Dan Township',
+                    'Phuoc Hai Commune',
+                    'Phuoc Hau Commune',
+                    'Phuoc Huu Commune',
                     'Phuoc Son Commune',
                     'Phuoc Thai Commune',
-                    'Phuoc Hau Commune',
                     'Phuoc Thuan Commune',
-                    'An Hai Commune',
-                    'Phuoc Huu Commune',
-                    'Phuoc Hai Commune',
                     'Phuoc Vinh Commune'
+                ]
+            },
+            'Ninh Son': {
+                subDistrict: [
+                    'Hoa Son Commune',
+                    'Lam Son Commune',
+                    'Luong Son Commune',
+                    'Ma Noi Commune',
+                    'My Son Commune',
+                    'Nhon Son Commune',
+                    'Quang Son Commune',
+                    'Tan Son Township'
+                ]
+            },
+            'Phan Rang-Thap Cham': {
+                subDistrict: [
+                    'Bao An Ward',
+                    'Dai Son Ward',
+                    'Dao Long Ward',
+                    'Do Vinh Ward',
+                    'Dong Hai Ward',
+                    'Kinh Dinh Ward',
+                    'My Binh Ward',
+                    'My Dong Ward',
+                    'My Hai Ward',
+                    'My Huong Ward',
+                    'Phu Ha Ward',
+                    'Phuoc My Ward',
+                    'Tan Tai Ward',
+                    'Thanh Hai Commune',
+                    'Thanh Son Ward',
+                    'Van Hai Ward'
+                ]
+            },
+            'Thuan Bac': {
+                subDistrict: [
+                    'Bac Phong Commune',
+                    'Bac Son Commune',
+                    'Cong Hai Commune',
+                    'Loi Hai Commune',
+                    'Phuoc Chien Commune',
+                    'Phuoc Khang Commune'
                 ]
             },
             'Thuan Nam': {
                 subDistrict: [
-                    'Phuoc Ha Commune',
-                    'Phuoc Nam Commune',
-                    'Phuoc Ninh Commune',
+                    'Ca Na Commune',
                     'Nhi Ha Commune',
-                    'Phuoc Dinh Commune',
-                    'Phuoc Minh Commune',
                     'Phuoc Diem Commune',
-                    'Ca Na Commune'
+                    'Phuoc Dinh Commune',
+                    'Phuoc Ha Commune',
+                    'Phuoc Minh Commune',
+                    'Phuoc Nam Commune',
+                    'Phuoc Ninh Commune'
                 ]
             }
         },
-        'Binh Thuan': {
-            'Phan Thiet': {
+        'Phu Yen': {
+            'Dong Hoa': {
                 subDistrict: [
-                    'Mui Ne Ward',
-                    'Ham Tien Ward',
-                    'Phu Hai Ward',
-                    'Phu Thuy Ward',
-                    'Phu Tai Ward',
-                    'Phu Trinh Ward',
-                    'Xuan An Ward',
-                    'Thanh Hai Ward',
-                    'Binh Hung Ward',
-                    'Duc Nghia Ward',
-                    'Lac Dao Ward',
-                    'Duc Thang Ward',
-                    'Hung Long Ward',
-                    'Duc Long Ward',
-                    'Thien Nghiep Commune',
-                    'Phong Nam Commune',
-                    'Tien Loi Commune',
-                    'Tien Thanh Commune'
+                    'Hoa Hiep Bac Ward',
+                    'Hoa Hiep Nam Ward',
+                    'Hoa Hiep Trung Ward',
+                    'Hoa Tam Commune',
+                    'Hoa Tan Dong Commune',
+                    'Hoa Thanh Commune',
+                    'Hoa Vinh Ward',
+                    'Hoa Xuan Dong Commune',
+                    'Hoa Xuan Nam Commune',
+                    'Hoa Xuan Tay Ward'
                 ]
             },
-            'Tuy Phong': {
+            'Dong Xuan': {
                 subDistrict: [
-                    'Lien Huong Township',
-                    'Phan Ri Cua Township',
-                    'Phan Dung Commune',
-                    'Phong Phu Commune',
-                    'Vinh Hao Commune',
-                    'Vinh Tan Commune',
-                    'Phu Lac Commune',
-                    'Phuoc The Commune',
-                    'Hoa Minh Commune',
-                    'Chi Cong Commune',
-                    'Binh Thanh Commune'
+                    'Commune Xuan Quang 1',
+                    'Commune Xuan Quang 2',
+                    'Commune Xuan Quang 3',
+                    'Da Loc Commune',
+                    'La Hai Township',
+                    'Phu Mo Commune',
+                    'Xuan Lanh Commune',
+                    'Xuan Long Commune',
+                    'Xuan Phuoc Commune',
+                    'Xuan Son Bac Commune',
+                    'Xuan Son Nam Commune'
                 ]
             },
-            'Bac Binh': {
+            'Phu Hoa': {
                 subDistrict: [
-                    'Cho Lau Township',
-                    'Phan Son Commune',
-                    'Phan Lam Commune',
-                    'Binh An Commune',
-                    'Phan Dien Commune',
-                    'Hai Ninh Commune',
-                    'Song Luy Commune',
-                    'Phan Tien Commune',
-                    'Song Binh Commune',
-                    'Luong Son Township',
-                    'Phan Hoa Commune',
-                    'Phan Thanh Commune',
-                    'Hong Thai Commune',
-                    'Phan Hiep Commune',
-                    'Binh Tan Commune',
-                    'Phan Ri Thanh Commune',
+                    'Hoa An Commune',
+                    'Hoa Dinh Dong Commune',
+                    'Hoa Dinh Tay Commune',
+                    'Hoa Hoi Commune',
+                    'Hoa Quang Bac Commune',
+                    'Hoa Quang Nam Commune',
                     'Hoa Thang Commune',
-                    'Hong Phong Commune'
+                    'Hoa Tri Commune',
+                    'Phu Hoa Township'
                 ]
             },
-            'Ham Thuan Bac': {
+            'Son Hoa': {
                 subDistrict: [
-                    'Ma Lam Township',
-                    'Phu Long Township',
-                    'La Da Commune',
-                    'Dong Tien Commune',
-                    'Thuan Hoa Commune',
-                    'Dong Giang Commune',
-                    'Ham Phu Commune',
-                    'Hong Liem Commune',
-                    'Thuan Minh Commune',
-                    'Hong Son Commune',
-                    'Ham Tri Commune',
-                    'Ham Duc Commune',
-                    'Ham Liem Commune',
-                    'Ham Chinh Commune',
-                    'Ham Hiep Commune',
-                    'Ham Thang Commune',
-                    'Da Mi Commune'
+                    'Ca Lui Commune',
+                    'Cung Son Township',
+                    'Eacha Rang Commune',
+                    'Krong Pa Commune',
+                    'Phuoc Tan Commune',
+                    'Son Dinh Commune',
+                    'Son Ha Commune',
+                    'Son Hoi Commune',
+                    'Son Long Commune',
+                    'Son Nguyen Commune',
+                    'Son Phuoc Commune',
+                    'Son Xuan Commune',
+                    'Suoi Bac Commune',
+                    'Suoi Trai Commune'
                 ]
             },
-            'Ham Thuan Nam': {
+            'Song Cau': {
                 subDistrict: [
-                    'Thuan Nam Township',
-                    'My Thanh Commune',
-                    'Ham Can Commune',
-                    'Muong Man Commune',
-                    'Ham Thanh Commune',
-                    'Ham Kiem Commune',
-                    'Ham Cuong Commune',
-                    'Ham My Commune',
-                    'Tan Lap Commune',
-                    'Ham Minh Commune',
-                    'Thuan Qui Commune',
-                    'Tan Thuan Commune',
-                    'Tan Thanh Commune'
+                    'Commune Xuan Tho 1',
+                    'Commune Xuan Tho 2',
+                    'Xuan Binh Commune',
+                    'Xuan Canh Commune',
+                    'Xuan Dai Ward',
+                    'Xuan Hai Commune',
+                    'Xuan Lam Commune',
+                    'Xuan Loc Commune',
+                    'Xuan Phu Ward',
+                    'Xuan Phuong Commune',
+                    'Xuan Thanh Ward',
+                    'Xuan Thinh Commune',
+                    'Xuan Yen Ward'
                 ]
             },
-            'Tanh Linh': {
+            'Song Hinh': {
                 subDistrict: [
-                    'Lac Tanh Township',
-                    'Bac Ruong Commune',
-                    'Nghi Duc Commune',
-                    'La Ngau Commune',
-                    'Huy Khiem Commune',
-                    'Mang To Commune',
-                    'Duc Phu Commune',
-                    'Dong Kho Commune',
-                    'Gia An Commune',
-                    'Duc Binh Commune',
-                    'Gia Huynh Commune',
-                    'Duc Thuan Commune',
-                    'Suoi Kiet Commune'
+                    'Duc Binh Dong Commune',
+                    'Duc Binh Tay Commune',
+                    'Ea Ba Commune',
+                    'Ea Lam Commune',
+                    'EaBar Commune',
+                    'EaBia Commune',
+                    'Ealy Commune',
+                    'EaTrol Commune',
+                    'Hai Rieng Township',
+                    'Son Giang Commune',
+                    'Song Hinh Commune'
                 ]
             },
-            'Duc Linh': {
+            'Tay Hoa': {
                 subDistrict: [
-                    'Vo Xu Township',
-                    'Duc Tai Township',
-                    'Da Kai Commune',
-                    'Sung Nhon Commune',
-                    'Me Pu Commune',
-                    'Nam Chinh Commune',
-                    'Duc Hanh Commune',
-                    'Duc Tin Commune',
-                    'Vu Hoa Commune',
-                    'Tan Ha Commune',
-                    'Dong Ha Commune',
+                    'Commune Hoa Binh 1',
+                    'Hoa Dong Commune',
+                    'Hoa My Dong Commune',
+                    'Hoa My Tay Commune',
+                    'Hoa Phong Commune',
+                    'Hoa Phu Commune',
+                    'Hoa Tan Tay Commune',
+                    'Hoa Thinh Commune',
+                    'Phu Thu Township',
+                    'Son Thanh Dong Commune',
+                    'Son Thanh Tay Commune'
+                ]
+            },
+            'Tuy An': {
+                subDistrict: [
+                    'An Chan Commune',
+                    'An Cu Commune',
+                    'An Dan Commune',
+                    'An Dinh Commune',
+                    'An Hiep Commune',
+                    'An Hoa Hai Commune',
+                    'An Linh Commune',
+                    'An My Commune',
+                    'An Nghiep Commune',
+                    'An Ninh Dong Commune',
+                    'An Ninh Tay Commune',
+                    'An Thach Commune',
+                    'An Tho Commune',
+                    'An Xuan Commune',
+                    'Chi Thanh Township'
+                ]
+            },
+            'Tuy Hoa': {
+                subDistrict: [
+                    'An Phu Commune',
+                    'Binh Kien Commune',
+                    'Binh Ngoc Commune',
+                    'Hoa Kien Commune',
+                    'Phu Dong Ward',
+                    'Phu Lam Ward',
+                    'Phu Thanh Ward',
+                    'Ward 1',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 6',
+                    'Ward 7',
+                    'Ward 8',
+                    'Ward 9'
+                ]
+            }
+        },
+        'Quang Nam': {
+            'Bac Tra My': {
+                subDistrict: [
+                    'Tra Bui Commune',
+                    'Tra Doc Commune',
+                    'Tra Dong Commune',
+                    'Tra Duong Commune',
+                    'Tra Giac Commune',
+                    'Tra Giang Commune',
+                    'Tra Giap Commune',
+                    'Tra Ka Commune',
+                    'Tra Kot Commune',
+                    'Tra My Township',
+                    'Tra Nu Commune',
+                    'Tra Son Commune',
                     'Tra Tan Commune'
                 ]
             },
-            'Ham Tan': {
+            'Dai Loc': {
                 subDistrict: [
-                    'Tan Minh Township',
-                    'Tan Nghia Township',
-                    'Song Phan Commune',
-                    'Tan Phuc Commune',
-                    'Tan Duc Commune',
-                    'Tan Thang Commune',
-                    'Thang Hai Commune',
-                    'Tan Ha Commune',
-                    'Tan Xuan Commune',
-                    'Son My Commune'
+                    'Ai Nghia Township',
+                    'Dai An Commune',
+                    'Dai Chanh Commune',
+                    'Dai Cuong Commune',
+                    'Dai Dong Commune',
+                    'Dai Hiep Commune',
+                    'Dai Hoa Commune',
+                    'Dai Hong Commune',
+                    'Dai Hung Commune',
+                    'Dai Lanh Commune',
+                    'Dai Minh Commune',
+                    'Dai Nghia Commune',
+                    'Dai Phong Commune',
+                    'Dai Quang Commune',
+                    'Dai Son Commune',
+                    'Dai Tan Commune',
+                    'Dai Thang Commune',
+                    'Dai Thanh Commune'
                 ]
             },
-            'La Gi': {
+            'Dien Ban': {
                 subDistrict: [
-                    'Phuoc Hoi Ward',
-                    'Phuoc Loc Ward',
-                    'Tan Thien Ward',
+                    'Dien An Ward',
+                    'Dien Duong Ward',
+                    'Dien Hoa Commune',
+                    'Dien Hong Commune',
+                    'Dien Minh Ward',
+                    'Dien Nam Bac Ward',
+                    'Dien Nam Dong Ward',
+                    'Dien Nam Trung Ward',
+                    'Dien Ngoc Ward',
+                    'Dien Phong Commune',
+                    'Dien Phuoc Commune',
+                    'Dien Phuong Ward',
+                    'Dien Quang Commune',
+                    'Dien Thang Bac Ward',
+                    'Dien Thang Nam Ward',
+                    'Dien Thang Trung Ward',
+                    'Dien Tho Commune',
+                    'Dien Tien Commune',
+                    'Dien Trung Commune',
+                    'Vinh Dien Ward'
+                ]
+            },
+            'Dong Giang': {
+                subDistrict: [
+                    'A Rooi Commune',
+                    'A Ting Commune',
+                    'Ba Commune',
+                    'Jo Ngay Commune',
+                    'Ka Dang Commune',
+                    'Ma Cooi Commune',
+                    'P Rao Township',
+                    'Song Kon Commune',
+                    'Ta Lu Commune',
+                    'Tu Commune',
+                    'Za Hung Commune'
+                ]
+            },
+            'Duy Xuyen': {
+                subDistrict: [
+                    'Duy Chau Commune',
+                    'Duy Hai Commune',
+                    'Duy Hoa Commune',
+                    'Duy Nghia Commune',
+                    'Duy Phu Commune',
+                    'Duy Phuoc Commune',
+                    'Duy Son Commune',
+                    'Duy Tan Commune',
+                    'Duy Thanh Commune',
+                    'Duy Thu Commune',
+                    'Duy Trinh Commune',
+                    'Duy Trung Commune',
+                    'Duy Vinh Commune',
+                    'Nam Phuoc Township'
+                ]
+            },
+            'Hiep Duc': {
+                subDistrict: [
+                    'Binh Lam Commune',
+                    'Binh Son Commune',
+                    'Hiep Hoa Commune',
+                    'Hiep Thuan Commune',
+                    'Phuoc Gia Commune',
+                    'Phuoc Tra Commune',
+                    'Que Luu Commune',
+                    'Que Tho Commune',
+                    'Song Tra Commune',
+                    'Tan Binh Township',
+                    'Thang Phuoc Commune'
+                ]
+            },
+            'Hoi An': {
+                subDistrict: [
+                    'Cam An Ward',
+                    'Cam Chau Ward',
+                    'Cam Ha Commune',
+                    'Cam Kim Commune',
+                    'Cam Nam Ward',
+                    'Cam Pho Ward',
+                    'Cam Thanh Commune',
+                    'Cua Dai Ward',
+                    'Minh An Ward',
+                    'Son Phong Ward',
                     'Tan An Ward',
-                    'Binh Tan Ward',
-                    'Tan Hai Commune',
-                    'Tan Tien Commune',
-                    'Tan Binh Commune',
-                    'Tan Phuoc Commune'
+                    'Tan Hiep Commune',
+                    'Thanh Ha Ward'
                 ]
             },
-            'Phu Qui': {
+            'Nam Giang': {
                 subDistrict: [
-                    'Ngu Phung Commune',
-                    'Long Hai Commune',
-                    'Tam Thanh Commune'
-                ]
-            }
-        }
-    },
-    'Central Highlands': {
-        'Kon Tum': {
-            'Kon Tum': {
-                subDistrict: [
-                    'Quang Trung Ward',
-                    'Duy Tan Ward',
-                    'Quyet Thang Ward',
-                    'Truong Chinh Ward',
-                    'Thang Loi Ward',
-                    'Ngo May Ward',
-                    'Thong Nhat Ward',
-                    'Le Loi Ward',
-                    'Nguyen Trai Ward',
-                    'Tran Hung Dao Ward',
-                    'Dak Cam Commune',
-                    'Kroong Commune',
-                    'Ngok Bay Commune',
-                    'Vinh Quang Commune',
-                    'Dak Bla Commune',
-                    'Ia Chim Commune',
-                    'Dak Nang Commune',
-                    'Doan Ket Commune',
-                    'Chu Hreng Commune',
-                    'Dak Ro Wa Commune',
-                    'Hoa Binh Commune'
+                    'Ca Dy Commune',
+                    'Cha Val Commune',
+                    'Cho Chun Commune',
+                    'Dac Pre Commune',
+                    'Dac Pring Commune',
+                    'Dac Toi Commune',
+                    'La Dee Commune',
+                    'Laee Commune',
+                    'Ta Bhinh Commune',
+                    'Ta Poo Commune',
+                    'Thanh My Township',
+                    'Zuoich Commune'
                 ]
             },
-            'Dak Glei': {
+            'Nam Tra My': {
                 subDistrict: [
-                    'Dak Glei Township',
-                    'Dak Blo Commune',
-                    'Dak Man Commune',
-                    'Dak Nhoong Commune',
-                    'Dak Pek Commune',
-                    'Dak Choong Commune',
-                    'Xop Commune',
-                    'Muong Hoong Commune',
-                    'Ngoc Linh Commune',
-                    'Dak Long Commune',
-                    'Dak KRoong Commune',
-                    'Dak Mon Commune'
+                    'Tra Cang Commune',
+                    'Tra Don Commune',
+                    'Tra Leng Commune',
+                    'Tra Linh Commune',
+                    'Tra Mai Commune',
+                    'Tra Nam Commune',
+                    'Tra Tap Commune',
+                    'Tra Van Commune',
+                    'Tra Vinh Commune'
                 ]
             },
-            'Ngoc Hoi': {
+            'Nong Son': {
                 subDistrict: [
-                    'Plei Kan Township',
-                    'Dak Ang Commune',
-                    'Dak Duc Commune',
-                    'Dak Nong Commune',
-                    'Dak Xu Commune',
-                    'Dak Kan Commune',
-                    'Bo Y Commune',
-                    'Sa Loong Commune'
+                    'Ninh Phuoc Commune',
+                    'Phuoc Ninh Commune',
+                    'Que Lam Commune',
+                    'Que Loc Commune',
+                    'Son Vien Commune',
+                    'Trung Phuoc Township'
                 ]
             },
-            'Dak To': {
+            'Nui Thanh': {
                 subDistrict: [
-                    'Dak To Township',
-                    'Dak Ro Nga Commune',
-                    'Ngok Tu Commune',
-                    'Dak Tram Commune',
-                    'Van Lem Commune',
-                    'Kon Dao Commune',
-                    'Tan Canh Commune',
-                    'Dien Binh Commune',
-                    'Po Ko Commune'
+                    'Nui Thanh Township',
+                    'Tam Anh Bac Commune',
+                    'Tam Anh Nam Commune',
+                    'Tam Giang Commune',
+                    'Tam Hai Commune',
+                    'Tam Hiep Commune',
+                    'Tam Hoa Commune',
+                    'Tam My Dong Commune',
+                    'Tam My Tay Commune',
+                    'Tam Nghia Commune',
+                    'Tam Quang Commune',
+                    'Tam Son Commune',
+                    'Tam Thanh Commune',
+                    'Tam Tien Commune',
+                    'Tam Tra Commune',
+                    'Tam Xuan I Commune',
+                    'Tam Xuan II Commune'
                 ]
             },
-            'Tu Mo Rong': {
+            'Phu Ninh': {
                 subDistrict: [
-                    'Ngoc Lay Commune',
-                    'Dak Na Commune',
-                    'Mang Ri Commune',
-                    'Ngoc Yeu Commune',
-                    'Dak Sao Commune',
-                    'Dak Ro Ong Commune',
-                    'Dak To Kan Commune',
-                    'Tu Mo Rong Commune',
-                    'Dak Ha Commune',
-                    'Te Xang Commune',
-                    'Van Xuoi Commune'
+                    'Phu Thinh Township',
+                    'Tam An Commune',
+                    'Tam Dai Commune',
+                    'Tam Dan Commune',
+                    'Tam Lanh Commune',
+                    'Tam Loc Commune',
+                    'Tam Phuoc Commune',
+                    'Tam Thai Commune',
+                    'Tam Thanh Commune',
+                    'Tam Vinh Commune'
                 ]
             },
-            'Kon Plong': {
+            'Phuoc Son': {
                 subDistrict: [
-                    'Dak Nen Commune',
-                    'Dak Ring Commune',
-                    'Mang Buk Commune',
-                    'Dak Tang Commune',
-                    'Ngok Tem Commune',
-                    'Po E Commune',
-                    'Mang Canh Commune',
-                    'Mang Den Township',
-                    'Hieu Commune'
+                    'Kham Duc Township',
+                    'Phuoc Chanh Commune',
+                    'Phuoc Cong Commune',
+                    'Phuoc Duc Commune',
+                    'Phuoc Hiep Commune',
+                    'Phuoc Hoa Commune',
+                    'Phuoc Kim Commune',
+                    'Phuoc Loc Commune',
+                    'Phuoc My Commune',
+                    'Phuoc Nang Commune',
+                    'Phuoc Thanh Commune',
+                    'Phuoc Xuan Commune'
                 ]
             },
-            'Kon Ray': {
+            'Que Son': {
                 subDistrict: [
-                    'Dak Rve Township',
-                    'Dak Koi Commune',
-                    'Dak To Lung Commune',
-                    'Dak Ruong Commune',
-                    'Dak Pne Commune',
-                    'Dak To Re Commune',
-                    'Tan Lap Commune'
+                    'Commune Que Xuan 1',
+                    'Commune Que Xuan 2',
+                    'Dong Phu Township',
+                    'Huong An Township',
+                    'Que An Commune',
+                    'Que Chau Commune',
+                    'Que Hiep Commune',
+                    'Que Long Commune',
+                    'Que Minh Commune',
+                    'Que My Commune',
+                    'Que Phong Commune',
+                    'Que Phu Commune',
+                    'Que Thuan Commune'
                 ]
             },
-            'Dak Ha': {
+            'Tam Ky': {
                 subDistrict: [
-                    'Dak Ha Township',
-                    'Dak PXi Commune',
-                    'Dak Long Commune',
-                    'Dak HRing Commune',
-                    'Dak Ui Commune',
-                    'Dak Ngok Commune',
-                    'Dak Mar Commune',
-                    'Ngok Wang Commune',
-                    'Ngok Reo Commune',
-                    'Ha Mon Commune',
-                    'Dak La Commune'
+                    'An My Ward',
+                    'An Phu Ward',
+                    'An Son Ward',
+                    'An Xuan Ward',
+                    'Hoa Huong Ward',
+                    'Hoa Thuan Ward',
+                    'Phuoc Hoa Ward',
+                    'Tam Ngoc Commune',
+                    'Tam Phu Commune',
+                    'Tam Thang Commune',
+                    'Tam Thanh Commune',
+                    'Tan Thanh Ward',
+                    'Truong Xuan Ward'
                 ]
             },
-            'Sa Thay': {
+            'Tay Giang': {
                 subDistrict: [
-                    'Sa Thay Township',
-                    'Ro Koi Commune',
-                    'Sa Nhon Commune',
-                    'Ho Moong Commune',
-                    'Mo Rai Commune',
-                    'Sa Son Commune',
-                    'Sa Nghia Commune',
-                    'Sa Binh Commune',
-                    'Ya Xier Commune',
-                    'Ya Tang Commune',
-                    'Ya ly Commune'
+                    'A Nong Commune',
+                    'A Tieng Commune',
+                    'A Vuong Commune',
+                    'A Xan Commune',
+                    'Bha Le Commune',
+                    'Ch\'om Commune',
+                    'Dang Commune',
+                    'Ga Ri Commune',
+                    'Lang Commune',
+                    'Tr\'Hy Commune'
                 ]
             },
-            "Ia H' Drai": {
+            'Thang Binh': {
                 subDistrict: [
-                    'Ia Dal Commune',
-                    'Ia Dom Commune',
-                    'Ia Toi Commune'
+                    'Binh An Commune',
+                    'Binh Chanh Commune',
+                    'Binh Dao Commune',
+                    'Binh Dinh Bac Commune',
+                    'Binh Dinh Nam Commune',
+                    'Binh Duong Commune',
+                    'Binh Giang Commune',
+                    'Binh Hai Commune',
+                    'Binh Lanh Commune',
+                    'Binh Minh Commune',
+                    'Binh Nam Commune',
+                    'Binh Nguyen Commune',
+                    'Binh Phu Commune',
+                    'Binh Phuc Commune',
+                    'Binh Que Commune',
+                    'Binh Quy Commune',
+                    'Binh Sa Commune',
+                    'Binh Tri Commune',
+                    'Binh Trieu Commune',
+                    'Binh Trung Commune',
+                    'Binh Tu Commune',
+                    'Ha Lam Township'
+                ]
+            },
+            'Tien Phuoc': {
+                subDistrict: [
+                    'Tien An Commune',
+                    'Tien Cam Commune',
+                    'Tien Canh Commune',
+                    'Tien Chau Commune',
+                    'Tien Ha Commune',
+                    'Tien Hiep Commune',
+                    'Tien Ky Township',
+                    'Tien Lanh Commune',
+                    'Tien Lap Commune',
+                    'Tien Loc Commune',
+                    'Tien My Commune',
+                    'Tien Ngoc Commune',
+                    'Tien Phong Commune',
+                    'Tien Son Commune',
+                    'Tien Tho Commune'
                 ]
             }
         },
-        'Gia Lai': {
-            Pleiku: {
+        'Quang Ngai': {
+            'Ba To': {
                 subDistrict: [
-                    'Yen Do Ward',
-                    'Dien Hong Ward',
-                    'Ia Kring Ward',
-                    'Hoi Thuong Ward',
-                    'Hoi Phu Ward',
-                    'Phu Dong Ward',
-                    'Hoa Lu Ward',
-                    'Tay Son Ward',
-                    'Thong Nhat Ward',
-                    'Dong Da Ward',
-                    'Tra Ba Ward',
-                    'Thang Loi Ward',
-                    'Yen The Ward',
-                    'Chi Lang Ward',
-                    'Bien Ho Commune',
-                    'Tan Son Commune',
-                    'Tra Da Commune',
-                    'Chu A Commune',
-                    'An Phu Commune',
-                    'Dien Phu Commune',
-                    'Ia Kenh Commune',
-                    'Gao Commune'
+                    'Ba Bich Commune',
+                    'Ba Cung Commune',
+                    'Ba Dien Commune',
+                    'Ba Dinh Commune',
+                    'Ba Dong Commune',
+                    'Ba Giang Commune',
+                    'Ba Kham Commune',
+                    'Ba Le Commune',
+                    'Ba Lien Commune',
+                    'Ba Nam Commune',
+                    'Ba Ngac Commune',
+                    'Ba Thanh Commune',
+                    'Ba Tieu Commune',
+                    'Ba To Commune',
+                    'Ba To Township',
+                    'Ba Trang Commune',
+                    'Ba Vi Commune',
+                    'Ba Vinh Commune',
+                    'Ba Xa Commune'
                 ]
             },
-            'An Khe': {
+            'Binh Son': {
                 subDistrict: [
-                    'An Binh Ward',
-                    'Tay Son Ward',
-                    'An Phu Ward',
-                    'An Tan Ward',
-                    'Tu An Commune',
-                    'Xuan An Commune',
-                    'Cuu An Commune',
-                    'An Phuoc Ward',
-                    'Song An Commune',
-                    'Ngo May Ward',
+                    'Binh An Commune',
+                    'Binh Chanh Commune',
+                    'Binh Chau Commune',
+                    'Binh Chuong Commune',
+                    'Binh Dong Commune',
+                    'Binh Duong Commune',
+                    'Binh Hai Commune',
+                    'Binh Hiep Commune',
+                    'Binh Hoa Commune',
+                    'Binh Khuong Commune',
+                    'Binh Long Commune',
+                    'Binh Minh Commune',
+                    'Binh My Commune',
+                    'Binh Nguyen Commune',
+                    'Binh Phuoc Commune',
+                    'Binh Tan Phu Commune',
+                    'Binh Thanh Commune',
+                    'Binh Thuan Commune',
+                    'Binh Tri Commune',
+                    'Binh Trung Commune',
+                    'Chau O Township'
+                ]
+            },
+            'Duc Pho': {
+                subDistrict: [
+                    'Nguyen Nghiem Ward',
+                    'Pho An Commune',
+                    'Pho Chau Commune',
+                    'Pho Cuong Commune',
+                    'Pho Hoa Ward',
+                    'Pho Khanh Commune',
+                    'Pho Minh Ward',
+                    'Pho Nhon Commune',
+                    'Pho Ninh Ward',
+                    'Pho Phong Commune',
+                    'Pho Quang Ward',
+                    'Pho Thanh Ward',
+                    'Pho Thuan Commune',
+                    'Pho Van Ward',
+                    'Pho Vinh Ward'
+                ]
+            },
+            'Minh Long': {
+                subDistrict: [
+                    'Long Hiep Commune',
+                    'Long Mai Commune',
+                    'Long Mon Commune',
+                    'Long Son Commune',
                     'Thanh An Commune'
                 ]
             },
-            KBang: {
+            'Mo Duc': {
                 subDistrict: [
-                    'KBang Township',
-                    'Kon Pne Commune',
-                    'Dak Roong Commune',
-                    'Son Lang Commune',
-                    'KRong Commune',
-                    'So Pai Commune',
-                    'Lo Ku Commune',
-                    'Dong Commune',
-                    'Dak SMar Commune',
+                    'Duc Chanh Commune',
+                    'Duc Hiep Commune',
+                    'Duc Hoa Commune',
+                    'Duc Lan Commune',
+                    'Duc Loi Commune',
+                    'Duc Minh Commune',
+                    'Duc Nhuan Commune',
+                    'Duc Phong Commune',
+                    'Duc Phu Commune',
+                    'Duc Tan Commune',
+                    'Duc Thang Commune',
+                    'Duc Thanh Commune',
+                    'Mo Duc Township'
+                ]
+            },
+            'Nghia Hanh': {
+                subDistrict: [
+                    'Cho Chua Township',
+                    'Hanh Duc Commune',
+                    'Hanh Dung Commune',
+                    'Hanh Minh Commune',
+                    'Hanh Nhan Commune',
+                    'Hanh Phuoc Commune',
+                    'Hanh Thien Commune',
+                    'Hanh Thinh Commune',
+                    'Hanh Thuan Commune',
+                    'Hanh Tin Dong Commune',
+                    'Hanh Tin Tay Commune',
+                    'Hanh Trung Commune'
+                ]
+            },
+            'Quang Ngai': {
+                subDistrict: [
+                    'Chanh Lo Ward',
+                    'Le Hong Phong Ward',
                     'Nghia An Commune',
-                    'To Tung Commune',
-                    'Kong Long Khong Commune',
-                    'Kong Pla Commune',
-                    'Dak HLo Commune'
+                    'Nghia Chanh Ward',
+                    'Nghia Dong Commune',
+                    'Nghia Dung Commune',
+                    'Nghia Ha Commune',
+                    'Nghia Lo Ward',
+                    'Nghia Phu Commune',
+                    'Nguyen Nghiem Ward',
+                    'Quang Phu Ward',
+                    'Tinh An Commune',
+                    'Tinh An Dong Commune',
+                    'Tinh An Tay Commune',
+                    'Tinh Chau Commune',
+                    'Tinh Hoa Commune',
+                    'Tinh Khe Commune',
+                    'Tinh Ky Commune',
+                    'Tinh Long Commune',
+                    'Tinh Thien Commune',
+                    'Tran Hung Dao Ward',
+                    'Tran Phu Ward',
+                    'Truong Quang Trong Ward'
                 ]
             },
-            'Dak Doa': {
+            'Son Ha': {
                 subDistrict: [
-                    'Dak Doa Township',
-                    'Ha Dong Commune',
-                    'Dak Somei Commune',
-                    'Dak Krong Commune',
-                    'Hai Yang Commune',
-                    'Kon Gang Commune',
-                    'Ha Bau Commune',
-                    'Nam Yang Commune',
-                    "K' Dang Commune",
-                    "H' Neng Commune",
-                    'Tan Binh Commune',
-                    'Glar Commune',
-                    'A Dok Commune',
-                    'Trang Commune',
-                    'HNol Commune',
-                    'Ia Pet Commune',
-                    'Ia Bang Commune'
+                    'Di Lang Township',
+                    'Son Ba Commune',
+                    'Son Bao Commune',
+                    'Son Cao Commune',
+                    'Son Giang Commune',
+                    'Son Ha Commune',
+                    'Son Hai Commune',
+                    'Son Ky Commune',
+                    'Son Linh Commune',
+                    'Son Nham Commune',
+                    'Son Thanh Commune',
+                    'Son Thuong Commune',
+                    'Son Thuy Commune',
+                    'Son Trung Commune'
                 ]
             },
-            'Chu Pah': {
+            'Son Tay': {
                 subDistrict: [
-                    'Phu Hoa Township',
-                    'Ha Tay Commune',
-                    'Ia Khuol Commune',
-                    'Ia Phi Commune',
-                    'Ia Ly Township',
-                    'Ia Mo Nong Commune',
-                    'Ia Kreng Commune',
-                    'Dak To Ver Commune',
-                    'Hoa Phu Commune',
-                    'Chu Dang Ya Commune',
-                    'Ia Ka Commune',
-                    'Ia Nhin Commune',
+                    'Son Bua Commune',
+                    'Son Dung Commune',
+                    'Son Lap Commune',
+                    'Son Lien Commune',
+                    'Son Long Commune',
+                    'Son Mau Commune',
+                    'Son Mua Commune',
+                    'Son Tan Commune',
+                    'Son Tinh Commune'
+                ]
+            },
+            'Son Tinh': {
+                subDistrict: [
+                    'Tinh Bac Commune',
+                    'Tinh Binh Commune',
+                    'Tinh Dong Commune',
+                    'Tinh Giang Commune',
+                    'Tinh Ha Commune',
+                    'Tinh Hiep Commune',
+                    'Tinh Minh Commune',
+                    'Tinh Phong Commune',
+                    'Tinh Son Commune',
+                    'Tinh Tho Commune',
+                    'Tinh Tra Commune'
+                ]
+            },
+            'Tra Bong': {
+                subDistrict: [
+                    'Huong Tra Commune',
+                    'Son Tra Commune',
+                    'Tra Binh Commune',
+                    'Tra Bui Commune',
+                    'Tra Giang Commune',
+                    'Tra Hiep Commune',
+                    'Tra Lam Commune',
+                    'Tra Phong Commune',
+                    'Tra Phu Commune',
+                    'Tra Son Commune',
+                    'Tra Tan Commune',
+                    'Tra Tay Commune',
+                    'Tra Thanh Commune',
+                    'Tra Thuy Commune',
+                    'Tra Xinh Commune',
+                    'Tra Xuan Township'
+                ]
+            },
+            'Tu Nghia': {
+                subDistrict: [
+                    'La Ha Township',
+                    'Nghia Dien Commune',
+                    'Nghia Hiep Commune',
                     'Nghia Hoa Commune',
-                    'Nghia Hung Commune'
-                ]
-            },
-            'Ia Grai': {
-                subDistrict: [
-                    'Ia Kha Township',
-                    'Ia Sao Commune',
-                    'Ia Yok Commune',
-                    'Ia Hrung Commune',
-                    'Ia Ba Commune',
-                    'Ia Khai Commune',
-                    'Ia KRai Commune',
-                    'Ia Grang Commune',
-                    'Ia To Commune',
-                    'Ia O Commune',
-                    'Ia Der Commune',
-                    'Ia Chia Commune',
-                    'Ia Pech Commune'
-                ]
-            },
-            'Mang Yang': {
-                subDistrict: [
-                    'Kon Dong Township',
-                    'Ayun Commune',
-                    'Dak Jo Ta Commune',
-                    'Dak Ta Ley Commune',
-                    'Hra Commune',
-                    'Dak Ya Commune',
-                    'Dak Djrang Commune',
-                    'Lo Pang Commune',
-                    'Kon Thup Commune',
-                    'De Ar Commune',
-                    'Kon Chieng Commune',
-                    'Dak Troi Commune'
-                ]
-            },
-            'Kong Chro': {
-                subDistrict: [
-                    'Kong Chro Township',
-                    'Chu Krey Commune',
-                    'An Trung Commune',
-                    'Kong Yang Commune',
-                    'Dak To Pang Commune',
-                    'SRo Commune',
-                    'Dak Ko Ning Commune',
-                    'Dak Song Commune',
-                    'Dak Pling Commune',
-                    'Yang Trung Commune',
-                    'Dak Po Pho Commune',
-                    'Ya Ma Commune',
-                    'Cho Long Commune',
-                    'Yang Nam Commune'
-                ]
-            },
-            'Duc Co': {
-                subDistrict: [
-                    'Chu Ty Township',
-                    'Ia Dok Commune',
-                    'Ia Krel Commune',
-                    'Ia Din Commune',
-                    'Ia Kla Commune',
-                    'Ia Dom Commune',
-                    'Ia Lang Commune',
-                    'Ia Krieng Commune',
-                    'Ia Pnon Commune',
-                    'Ia Nan Commune'
-                ]
-            },
-            'Chu Prong': {
-                subDistrict: [
-                    'Chu Prong Township',
-                    'Ia Kly Commune',
-                    'Binh Giao Commune',
-                    'Ia Drang Commune',
-                    'Thang Hung Commune',
-                    'Bau Can Commune',
-                    'Ia Phin Commune',
-                    'Ia Bang Commune',
-                    'Ia Tor Commune',
-                    'Ia Boong Commune',
-                    'Ia O Commune',
-                    'Ia Puch Commune',
-                    'Ia Me Commune',
-                    'Ia Ve Commune',
-                    'Ia Pia Commune',
-                    'Ia Ga Commune',
-                    'Ia Lau Commune',
-                    'Ia Pior Commune',
-                    'Ia Mo Commune'
-                ]
-            },
-            'Chu Se': {
-                subDistrict: [
-                    'Chu Se Township',
-                    'Ia Tiem Commune',
-                    'Chu Pong Commune',
-                    'Bar Maih Commune',
-                    'Bo Ngoong Commune',
-                    'Ia Glai Commune',
-                    'AL Ba Commune',
-                    'Kong HTok Commune',
-                    'AYun Commune',
-                    'Ia HLop Commune',
-                    'Ia Blang Commune',
-                    'Dun Commune',
-                    'Ia Pal Commune',
-                    'H Bong Commune',
-                    'Ia Ko Commune'
-                ]
-            },
-            'Chu Puh': {
-                subDistrict: [
-                    'Nhon Hoa Township',
-                    'Ia Hru Commune',
-                    'Ia Rong Commune',
-                    'Ia Dreng Commune',
-                    'Ia Hla Commune',
-                    'Chu Don Commune',
-                    'Ia Phang Commune',
-                    'Ia Le Commune',
-                    'Ia BLu Commune'
-                ]
-            },
-            'Dak Po': {
-                subDistrict: [
-                    'Ha Tam Commune',
-                    'An Thanh Commune',
-                    'Dak Po Township',
-                    'Yang Bac Commune',
-                    'Cu An Commune',
-                    'Tan An Commune',
-                    'Phu An Commune',
-                    'Ya Hoi Commune'
-                ]
-            },
-            'Ia Pa': {
-                subDistrict: [
-                    'Po To Commune',
-                    'Chu Rang Commune',
-                    'Ia KDam Commune',
-                    'Kim Tan Commune',
-                    'Chu Mo Commune',
-                    'Ia Tul Commune',
-                    'Ia Ma Ron Commune',
-                    'Ia Broai Commune',
-                    'Ia Trok Commune'
-                ]
-            },
-            'Ayun Pa': {
-                subDistrict: [
-                    'Cheo Reo Ward',
-                    'Hoa Binh Ward',
-                    'Doan Ket Ward',
-                    'Song Bo Ward',
-                    'Ia RBol Commune',
-                    'Chu Bah Commune',
-                    'Ia RTo Commune',
-                    'Ia Sao Commune'
-                ]
-            },
-            'Phu Thien': {
-                subDistrict: [
-                    'Phu Thien Township',
-                    'Chu A Thai Commune',
-                    'Ayun Ha Commune',
-                    'Ia Ake Commune',
-                    'Ia Sol Commune',
-                    'Ia Piar Commune',
-                    'Ia Peng Commune',
-                    'Chroh Ponan Commune',
-                    'Ia Hiao Commune',
-                    'Ia Yeng Commune'
-                ]
-            },
-            'Krong Pa': {
-                subDistrict: [
-                    'Phu Tuc Township',
-                    'Ia RSai Commune',
-                    'Ia RSuom Commune',
-                    'Chu Gu Commune',
-                    'Dat Bang Commune',
-                    'Ia Mlah Commune',
-                    'Chu Drang Commune',
-                    'Phu Can Commune',
-                    'Ia HDreh Commune',
-                    'Ia RMok Commune',
-                    'Chu Ngoc Commune',
-                    'Uar Commune',
-                    'Chu Rcam Commune',
-                    'Krong Nang Commune'
-                ]
-            }
-        },
-        'Dak Lak': {
-            'Buon Ma Thuot': {
-                subDistrict: [
-                    'Tan Lap Ward',
-                    'Tan Hoa Ward',
-                    'Tan An Ward',
-                    'Thong Nhat Ward',
-                    'Thanh Nhat Ward',
-                    'Thang Loi Ward',
-                    'Tan Loi Ward',
-                    'Thanh Cong Ward',
-                    'Tan Thanh Ward',
-                    'Tan Tien Ward',
-                    'Tu An Ward',
-                    'Ea Tam Ward',
-                    'Khanh Xuan Ward',
-                    'Hoa Thuan Commune',
-                    'Cu EBur Commune',
-                    'Ea Tu Commune',
-                    'Hoa Thang Commune',
-                    'Ea Kao Commune',
-                    'Hoa Phu Commune',
-                    'Hoa Khanh Commune',
-                    'Hoa Xuan Commune'
-                ]
-            },
-            "Ea H'leo": {
-                subDistrict: [
-                    'Ea Drang Township',
-                    "Ea H'leo Commune",
-                    'Ea Sol Commune',
-                    'Ea Ral Commune',
-                    'Ea Wy Commune',
-                    'Cu A Mung Commune',
-                    'Cu Mot Commune',
-                    'Ea Hiao Commune',
-                    'Ea Khal Commune',
-                    'Dlie Yang Commune',
-                    'Ea Tir Commune',
-                    'Ea Nam Commune'
-                ]
-            },
-            'Ea Sup': {
-                subDistrict: [
-                    'Ea Sup Township',
-                    'Ia Lop Commune',
-                    'Ia JLoi Commune',
-                    'Ea Rok Commune',
-                    'Ya To Mot Commune',
-                    'Ia RVe Commune',
-                    'Ea Le Commune',
-                    'Cu KBang Commune',
-                    'Ea Bung Commune',
-                    "Cu M'Lan Commune"
-                ]
-            },
-            'Buon Don': {
-                subDistrict: [
-                    'Krong Na Commune',
-                    'Ea Huar Commune',
-                    'Ea Wer Commune',
-                    'Tan Hoa Commune',
-                    'Cuor KNia Commune',
-                    'Ea Bar Commune',
-                    'Ea Nuol Commune'
-                ]
-            },
-            "Cu M'gar": {
-                subDistrict: [
-                    'Ea Pok Township',
-                    'Quang Phu Township',
-                    'Quang Tien Commune',
-                    'Ea Kueh Commune',
-                    'Ea Kiet Commune',
-                    'Ea Tar Commune',
-                    "Cu Dlie M'nong Commune",
-                    "Ea H'dinh Commune",
-                    'Ea Tul Commune',
-                    'Ea KPam Commune',
-                    "Ea M'DRoh Commune",
-                    'Quang Hiep Commune',
-                    "Cu M'gar Commune",
-                    "Ea D'Rong Commune",
-                    "Ea M'nang Commune",
-                    'Cu Sue Commune',
-                    'Cuor Dang Commune'
-                ]
-            },
-            'Buon Ho': {
-                subDistrict: [
-                    'An Lac Ward',
-                    'An Binh Ward',
-                    'Thien An Ward',
-                    'Dat Hieu Ward',
-                    'Doan Ket Ward',
-                    'Ea Blang Commune',
-                    'Ea Drong Commune',
-                    'Thong Nhat Ward',
-                    'Binh Tan Ward',
-                    'Ea Sien Commune',
-                    'Binh Thuan Commune',
-                    'Cu Bao Commune'
-                ]
-            },
-            'Krong Buk': {
-                subDistrict: [
-                    'Cu Ne Commune',
-                    'Chu KBo Commune',
-                    'Cu Pong Commune',
-                    'Ea Sin Commune',
-                    'Pong Drang Township',
-                    'Tan Lap Commune',
-                    'Ea Ngai Commune'
-                ]
-            },
-            'Krong Nang': {
-                subDistrict: [
-                    'Krong Nang Township',
-                    'DLie Ya Commune',
-                    'Ea Toh Commune',
-                    'Ea Tam Commune',
-                    'Phu Loc Commune',
-                    'Tam Giang Commune',
-                    'Ea Puk Commune',
-                    'Ea Dah Commune',
-                    'Ea Ho Commune',
-                    'Phu Xuan Commune',
-                    'Cu Klong Commune',
-                    'Ea Tan Commune'
-                ]
-            },
-            'Ea Kar': {
-                subDistrict: [
-                    'Ea Kar Township',
-                    'Ea Knop Township',
-                    'Ea So Commune',
-                    'Ea Sar Commune',
-                    'Xuan Phu Commune',
-                    'Cu Hue Commune',
-                    'Ea Tih Commune',
-                    'Ea Dar Commune',
-                    'Ea Kmut Commune',
-                    'Cu Ni Commune',
-                    'Ea Pal Commune',
-                    'Cu Prong Commune',
-                    'Ea O Commune',
-                    'Cu ELang Commune',
-                    'Cu Bong Commune',
-                    'Cu Jang Commune'
-                ]
-            },
-            "M'Drak": {
-                subDistrict: [
-                    "M'Drak Township",
-                    'Cu Prao Commune',
-                    'Ea Pil Commune',
-                    'Ea Lai Commune',
-                    "Ea H'MLay Commune",
-                    'Krong Jing Commune',
-                    "Ea M' Doal Commune",
-                    'Ea Rieng Commune',
-                    "Cu M'ta Commune",
-                    'Cu K Roa Commune',
-                    'Krong A Commune',
-                    'Cu San Commune',
-                    'Ea Trang Commune'
-                ]
-            },
-            'Krong Bong': {
-                subDistrict: [
-                    'Krong Kmar Township',
-                    'Dang Kang Commune',
-                    'Cu KTy Commune',
-                    'Hoa Thanh Commune',
-                    'Hoa Tan Commune',
-                    'Hoa Phong Commune',
-                    'Hoa Le Commune',
-                    'Yang Reh Commune',
-                    'Ea Trul Commune',
-                    'Khue Ngoc Dien Commune',
-                    'Cu Pui Commune',
-                    'Hoa Son Commune',
-                    'Cu Dram Commune',
-                    'Yang Mao Commune'
-                ]
-            },
-            'Krong Pac': {
-                subDistrict: [
-                    'Phuoc An Township',
-                    'KRong Buk Commune',
-                    'Ea Kly Commune',
-                    'Ea Kenh Commune',
-                    'Ea Phe Commune',
-                    'Ea KNuec Commune',
-                    'Ea Yong Commune',
-                    'Hoa An Commune',
-                    'Ea Kuang Commune',
-                    'Hoa Dong Commune',
-                    'Ea Hiu Commune',
-                    'Hoa Tien Commune',
-                    'Tan Tien Commune',
-                    'Vu Bon Commune',
-                    'Ea Uy Commune',
-                    'Ea Yieng Commune'
-                ]
-            },
-            'Krong A Na': {
-                subDistrict: [
-                    'Buon Trap Township',
-                    'Dray Sap Commune',
-                    'Ea Na Commune',
-                    'Ea Bong Commune',
-                    'Bang A Drenh Commune',
-                    'Dur KMal Commune',
-                    'Binh Hoa Commune',
-                    'Quang Dien Commune'
-                ]
-            },
-            'Cu Kuin': {
-                subDistrict: [
-                    'Ea Ning Commune',
-                    'Cu E Wi Commune',
-                    'Ea Ktur Commune',
-                    'Ea Tieu Commune',
-                    'Ea BHok Commune',
-                    'Ea Hu Commune',
-                    'Dray Bhang Commune',
-                    'Hoa Hiep Commune'
-                ]
-            },
-            Lak: {
-                subDistrict: [
-                    'Lien Son Township',
-                    'Yang Tao Commune',
-                    'Bong Krang Commune',
-                    'Dak Lieng Commune',
-                    'Buon Triet Commune',
-                    'Buon Tria Commune',
-                    'Dak Phoi Commune',
-                    'Dak Nue Commune',
-                    'Krong No Commune',
-                    'Nam Ka Commune',
-                    "Ea R'Bin Commune"
-                ]
-            }
-        },
-        'Dak Nong': {
-            'Gia Nghia': {
-                subDistrict: [
-                    'Nghia Duc Ward',
-                    'Nghia Thanh Ward',
-                    'Nghia Phu Ward',
-                    'Nghia Tan Ward',
-                    'Nghia Trung Ward',
-                    "Dak R'Moan Commune",
-                    'Quang Thanh Ward',
-                    'Dak Nia Commune'
-                ]
-            },
-            'Dak Glong': {
-                subDistrict: [
-                    'Quang Son Commune',
-                    'Quang Hoa Commune',
-                    'Dak Ha Commune',
-                    "Dak R'Mang Commune",
-                    'Quang Khe Commune',
-                    'Dak Plao Commune',
-                    'Dak Som Commune'
-                ]
-            },
-            'Cu Jut': {
-                subDistrict: [
-                    "Ea T'Ling Township",
-                    'Dak Wil Commune',
-                    'Ea Po Commune',
-                    'Nam Dong Commune',
-                    'Dak DRong Commune',
-                    'Tam Thang Commune',
-                    'Cu Knia Commune',
-                    'Truc Son Commune'
-                ]
-            },
-            'Dak Mil': {
-                subDistrict: [
-                    'Dak Mil Township',
-                    'Dak Lao Commune',
-                    "Dak R'La Commune",
-                    'Dak Gan Commune',
-                    'Duc Manh Commune',
-                    "Dak N'Drot Commune",
-                    'Long Son Commune',
-                    'Dak Sak Commune',
-                    'Thuan An Commune',
-                    'Duc Minh Commune'
-                ]
-            },
-            'Krong No': {
-                subDistrict: [
-                    'Dak Mam Township',
-                    'Dak Sor Commune',
-                    'Nam Xuan Commune',
-                    'Buon Choah Commune',
-                    'Nam Da Commune',
-                    'Tan Thanh Commune',
-                    'Dak Dro Commune',
-                    'Nam Nung Commune',
-                    'Duc Xuyen Commune',
-                    'Dak Nang Commune',
-                    'Quang Phu Commune',
-                    "Nam N'Dir Commune"
-                ]
-            },
-            'Dak Song': {
-                subDistrict: [
-                    'Duc An Township',
-                    'Dak Mol Commune',
-                    'Dak Hoa Commune',
-                    'Nam Binh Commune',
-                    'Thuan Ha Commune',
-                    'Thuan Hanh Commune',
-                    "Dak N'Dung Commune",
-                    "Nam N'Jang Commune",
-                    'Truong Xuan Commune'
-                ]
-            },
-            "Dak R'Lap": {
-                subDistrict: [
-                    'Kien Duc Township',
-                    'Quang Tin Commune',
-                    'Dak Wer Commune',
-                    'Nhan Co Commune',
-                    'Kien Thanh Commune',
+                    'Nghia Ky Commune',
+                    'Nghia Lam Commune',
+                    'Nghia My Commune',
+                    'Nghia Phuong Commune',
+                    'Nghia Son Commune',
                     'Nghia Thang Commune',
-                    'Dao Nghia Commune',
-                    'Dak Sin Commune',
-                    'Hung Binh Commune',
-                    'Dak Ru Commune',
-                    'Nhan Dao Commune'
-                ]
-            },
-            'Tuy Duc': {
-                subDistrict: [
-                    'Quang Truc Commune',
-                    'Dak Buk So Commune',
-                    'Quang Tam Commune',
-                    "Dak R'Tih Commune",
-                    'Dak Ngo Commune',
-                    'Quang Tan Commune'
-                ]
-            }
-        },
-        'Lam Dong': {
-            'Da Lat': {
-                subDistrict: [
-                    'Ward 7',
-                    'Ward 8',
-                    'Ward 12',
-                    'Ward 9',
-                    'Ward 2',
-                    'Ward 1',
-                    'Ward 6',
-                    'Ward 5',
-                    'Ward 4',
-                    'Ward 10',
-                    'Ward 11',
-                    'Ward 3',
-                    'Xuan Tho Commune',
-                    'Ta Nung Commune',
-                    'Tram Hanh Commune',
-                    'Xuan Truong Commune'
-                ]
-            },
-            'Bao Loc': {
-                subDistrict: [
-                    'Loc Phat Ward',
-                    'Loc Tien Ward',
-                    'Ward 2',
-                    'Ward 1',
-                    "B'lao Ward",
-                    'Loc Son Ward',
-                    'Dam Bri Commune',
-                    'Loc Thanh Commune',
-                    'Loc Nga Commune',
-                    'Loc Chau Commune',
-                    'Dai Lao Commune'
-                ]
-            },
-            'Lac Duong': {
-                subDistrict: [
-                    'Lac Duong Township',
-                    'Da Chais Commune',
-                    'Da Nhim Commune',
-                    'Dung KNo Commune',
-                    'Lat Commune',
-                    'Da Sar Commune'
-                ]
-            },
-            'Dam Rong': {
-                subDistrict: [
-                    'Da Tong Commune',
-                    'Da Long Commune',
-                    "Da M' Rong Commune",
-                    'Lieng Sronh Commune',
-                    'Da Rsal Commune',
-                    'Ro Men Commune',
-                    'Phi Lieng Commune',
-                    "Da K' Nang Commune"
-                ]
-            },
-            'Lam Ha': {
-                subDistrict: [
-                    'Nam Ban Township',
-                    'Dinh Van Township',
-                    'Phu Son Commune',
-                    'Phi To Commune',
-                    'Me Linh Commune',
-                    'Da Don Commune',
-                    'Phuc Tho Commune',
-                    'Dong Thanh Commune',
-                    'Gia Lam Commune',
-                    'Tan Thanh Commune',
-                    'Tan Van Commune',
-                    'Hoai Duc Commune',
-                    'Tan Ha Commune',
-                    'Lien Ha Commune',
-                    'Dan Phuong Commune',
-                    'Nam Ha Commune'
-                ]
-            },
-            'Don Duong': {
-                subDistrict: [
-                    "D'Ran Township",
-                    'Thanh My Township',
-                    'Lac Xuan Commune',
-                    'Da Ron Commune',
-                    'Lac Lam Commune',
-                    'Ka Do Commune',
-                    'Quang Lap Commune',
-                    'Ka Don Commune',
-                    'Tu Tra Commune',
-                    'Pro Commune'
-                ]
-            },
-            'Duc Trong': {
-                subDistrict: [
-                    'Lien Nghia Township',
-                    'Hiep An Commune',
-                    'Lien Hiep Commune',
-                    'Hiep Thanh Commune',
-                    'Binh Thanh Commune',
-                    "N'Thol Ha Commune",
-                    'Tan Hoi Commune',
-                    'Tan Thanh Commune',
-                    'Phu Hoi Commune',
-                    'Ninh Gia Commune',
-                    'Ta Nang Commune',
-                    'Da Quyn Commune',
-                    'Ta Hine Commune',
-                    'Da Loan Commune',
-                    'Ninh Loan Commune'
-                ]
-            },
-            'Di Linh': {
-                subDistrict: [
-                    'Di Linh Township',
-                    'Dinh Trang Thuong Commune',
-                    'Tan Thuong Commune',
-                    'Tan Lam Commune',
-                    'Tan Chau Commune',
-                    'Tan Nghia Commune',
-                    'Gia Hiep Commune',
-                    'Dinh Lac Commune',
-                    'Tam Bo Commune',
-                    'Dinh Trang Hoa Commune',
-                    'Lien Dam Commune',
-                    'Gung Re Commune',
-                    'Bao Thuan Commune',
-                    'Hoa Ninh Commune',
-                    'Hoa Trung Commune',
-                    'Hoa Nam Commune',
-                    'Hoa Bac Commune',
-                    'Son Dien Commune',
-                    'Gia Bac Commune'
-                ]
-            },
-            'Bao Lam': {
-                subDistrict: [
-                    'Loc Thang Township',
-                    'Loc Bao Commune',
-                    'Loc Lam Commune',
-                    'Loc Phu Commune',
-                    'Loc Bac Commune',
-                    "B' La Commune",
-                    'Loc Ngai Commune',
-                    'Loc Quang Commune',
-                    'Loc Tan Commune',
-                    'Loc Duc Commune',
-                    'Loc An Commune',
-                    'Tan Lac Commune',
-                    'Loc Thanh Commune',
-                    'Loc Nam Commune'
-                ]
-            },
-            'Da Huoai': {
-                subDistrict: [
-                    "Da M'ri Township",
-                    'Ma Da Guoi Township',
-                    'Ha Lam Commune',
-                    'Da Ton Commune',
-                    'Da Oai Commune',
-                    'Da Ploa Commune',
-                    'Ma Da Guoi Commune',
-                    'Doan Ket Commune',
-                    'Phuoc Loc Commune'
-                ]
-            },
-            'Da Teh': {
-                subDistrict: [
-                    'Da Teh Township',
-                    'An Nhon Commune',
-                    'Quoc Oai Commune',
-                    'My Duc Commune',
-                    'Quang Tri Commune',
-                    'Da Lay Commune',
-                    'Trieu Hai Commune',
-                    'Da Kho Commune',
-                    'Da Pal Commune'
-                ]
-            },
-            'Cat Tien': {
-                subDistrict: [
-                    'Cat Tien Township',
-                    'Tien Hoang Commune',
-                    'Commune Phuoc Cat 2',
-                    'Gia Vien Commune',
-                    'Nam Ninh Commune',
-                    'Phuoc Cat Township',
-                    'Duc Pho Commune',
-                    'Quang Ngai Commune',
-                    'Dong Nai Thuong Commune'
+                    'Nghia Thuan Commune',
+                    'Nghia Thuong Commune',
+                    'Nghia Trung Commune',
+                    'Song Ve Township'
                 ]
             }
         }
     },
     Southeast: {
-        'Binh Phuoc': {
-            'Dong Xoai': {
+        'Ba Ria - Vung Tau': {
+            'Ba Ria': {
                 subDistrict: [
-                    'Tan Phu Ward',
-                    'Tan Dong Ward',
-                    'Tan Binh Ward',
-                    'Tan Xuan Ward',
-                    'Tan Thien Ward',
-                    'Tan Thanh Commune',
-                    'Tien Thanh Ward',
-                    'Tien Hung Commune'
+                    'Hoa Long Commune',
+                    'Kim Dinh Ward',
+                    'Long Huong Ward',
+                    'Long Phuoc Commune',
+                    'Long Tam Ward',
+                    'Long Toan Ward',
+                    'Phuoc Hiep Ward',
+                    'Phuoc Hung Ward',
+                    'Phuoc Nguyen Ward',
+                    'Phuoc Trung Ward',
+                    'Tan Hung Commune'
                 ]
             },
-            'Phuoc Long': {
+            'Chau Duc': {
                 subDistrict: [
-                    'Thac Mo Ward',
-                    'Long Thuy Ward',
-                    'Phuoc Binh Ward',
-                    'Long Phuoc Ward',
-                    'Son Giang Ward',
-                    'Long Giang Commune',
-                    'Phuoc Tin Commune'
+                    'Bau Chinh Commune',
+                    'Binh Ba Commune',
+                    'Binh Gia Commune',
+                    'Binh Trung Commune',
+                    'Cu Bi Commune',
+                    'Da Bac Commune',
+                    'Kim Long Commune',
+                    'Lang Lon Commune',
+                    'Ngai Giao Township',
+                    'Nghia Thanh Commune',
+                    'Quang Thanh Commune',
+                    'Son Binh Commune',
+                    'Suoi Nghe Commune',
+                    'Suoi Rao Commune',
+                    'Xa Bang Commune',
+                    'Xuan Son Commune'
                 ]
             },
-            'Bu Gia Map': {
+            'Dat Do': {
                 subDistrict: [
-                    'Bu Gia Map Commune',
-                    'Dak O Commune',
-                    'Duc Hanh Commune',
-                    'Phu Van Commune',
-                    'Da Kia Commune',
-                    'Phuoc Minh Commune',
-                    'Binh Thang Commune',
-                    'Phu Nghia Commune'
-                ]
-            },
-            'Phu Rieng': {
-                subDistrict: [
-                    'Long Binh Commune',
-                    'Binh Tan Commune',
-                    'Binh Son Commune',
-                    'Long Hung Commune',
-                    'Phuoc Tan Commune',
-                    'Bu Nho Commune',
-                    'Long Ha Commune',
-                    'Long Tan Commune',
-                    'Phu Trung Commune',
-                    'Phu Rieng Commune'
-                ]
-            },
-            'Loc Ninh': {
-                subDistrict: [
-                    'Loc Ninh Township',
-                    'Loc Hoa Commune',
+                    'Dat Do Township',
+                    'Lang Dai Commune',
                     'Loc An Commune',
-                    'Loc Tan Commune',
-                    'Loc Thanh Commune',
-                    'Loc Hiep Commune',
-                    'Loc Thien Commune',
-                    'Loc Thuan Commune',
-                    'Loc Quang Commune',
-                    'Loc Phu Commune',
-                    'Loc Thai Commune',
-                    'Loc Dien Commune',
-                    'Loc Hung Commune',
-                    'Loc Thinh Commune',
-                    'Loc Khanh Commune'
+                    'Long My Commune',
+                    'Long Tan Commune',
+                    'Phuoc Hai Township',
+                    'Phuoc Hoi Commune',
+                    'Phuoc Long Tho Commune'
                 ]
             },
-            'Bu Dop': {
+            'Long Dien': {
                 subDistrict: [
-                    'Thanh Binh Township',
-                    'Hung Phuoc Commune',
-                    'Phuoc Thien Commune',
-                    'Thien Hung Commune',
-                    'Thanh Hoa Commune',
-                    'Tan Thanh Commune',
-                    'Tan Tien Commune'
+                    'An Ngai Commune',
+                    'An Nhut Commune',
+                    'Long Dien Township',
+                    'Long Hai Township',
+                    'Phuoc Hung Commune',
+                    'Phuoc Tinh Commune',
+                    'Tam Phuoc Commune'
                 ]
             },
+            'Phu My': {
+                subDistrict: [
+                    'Chau Pha Commune',
+                    'Hac Dich Ward',
+                    'My Xuan Ward',
+                    'Phu My Ward',
+                    'Phuoc Hoa Ward',
+                    'Song Xoai Commune',
+                    'Tan Hai Commune',
+                    'Tan Hoa Commune',
+                    'Tan Phuoc Ward',
+                    'Toc Tien Commune'
+                ]
+            },
+            'Vung Tau': {
+                subDistrict: [
+                    'Long Son Commune',
+                    'Nguyen An Ninh Ward',
+                    'Rach Dua Ward',
+                    'Thang Nhat Ward',
+                    'Thang Nhi Ward',
+                    'Thang Tam Ward',
+                    'Ward 1',
+                    'Ward 10',
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 2',
+                    'Ward 3',
+                    'Ward 4',
+                    'Ward 5',
+                    'Ward 7',
+                    'Ward 8',
+                    'Ward 9'
+                ]
+            },
+            'Xuyen Moc': {
+                subDistrict: [
+                    'Bau Lam Commune',
+                    'Binh Chau Commune',
+                    'Bong Trang Commune',
+                    'Bung Rieng Commune',
+                    'Hoa Binh Commune',
+                    'Hoa Hiep Commune',
+                    'Hoa Hoi Commune',
+                    'Hoa Hung Commune',
+                    'Phuoc Buu Township',
+                    'Phuoc Tan Commune',
+                    'Phuoc Thuan Commune',
+                    'Tan Lam Commune',
+                    'Xuyen Moc Commune'
+                ]
+            }
+        },
+        'Binh Duong': {
+            'Bac Tan Uyen': {
+                subDistrict: [
+                    'Binh My Commune',
+                    'Dat Cuoc Commune',
+                    'Hieu Liem Commune',
+                    'Lac An Commune',
+                    'Tan Binh Township',
+                    'Tan Dinh Commune',
+                    'Tan Lap Commune',
+                    'Tan My Commune',
+                    'Tan Thanh Township',
+                    'Thuong Tan Commune'
+                ]
+            },
+            'Bau Bang': {
+                subDistrict: [
+                    'Cay Truong II Commune',
+                    'Hung Hoa Commune',
+                    'Lai Hung Commune',
+                    'Lai Uyen Township',
+                    'Long Nguyen Commune',
+                    'Tan Hung Commune',
+                    'Tru Van Tho Commune'
+                ]
+            },
+            'Ben Cat': {
+                subDistrict: [
+                    'An Dien Ward',
+                    'An Tay Ward',
+                    'Chanh Phu Hoa Ward',
+                    'Hoa Loi Ward',
+                    'My Phuoc Ward',
+                    'Phu An Commune',
+                    'Tan Dinh Ward',
+                    'Thoi Hoa Ward'
+                ]
+            },
+            'Dau Tieng': {
+                subDistrict: [
+                    'An Lap Commune',
+                    'Dau Tieng Township',
+                    'Dinh An Commune',
+                    'Dinh Hiep Commune',
+                    'Dinh Thanh Commune',
+                    'Long Hoa Commune',
+                    'Long Tan Commune',
+                    'Minh Hoa Commune',
+                    'Minh Tan Commune',
+                    'Minh Thanh Commune',
+                    'Thanh An Commune',
+                    'Thanh Tuyen Commune'
+                ]
+            },
+            'Di An': {
+                subDistrict: [
+                    'An Binh Ward',
+                    'Binh An Ward',
+                    'Binh Thang Ward',
+                    'Di An Ward',
+                    'Dong Hoa Ward',
+                    'Tan Binh Ward',
+                    'Tan Dong Hiep Ward'
+                ]
+            },
+            'Phu Giao': {
+                subDistrict: [
+                    'An Binh Commune',
+                    'An Linh Commune',
+                    'An Long Commune',
+                    'An Thai Commune',
+                    'Phuoc Hoa Commune',
+                    'Phuoc Sang Commune',
+                    'Phuoc Vinh Township',
+                    'Tam Lap Commune',
+                    'Tan Hiep Commune',
+                    'Tan Long Commune',
+                    'Vinh Hoa Commune'
+                ]
+            },
+            'Tan Uyen': {
+                subDistrict: [
+                    'Bach Dang Commune',
+                    'Hoi Nghia Ward',
+                    'Khanh Binh Ward',
+                    'Phu Chanh Ward',
+                    'Tan Hiep Ward',
+                    'Tan Phuoc Khanh Ward',
+                    'Tan Vinh Hiep Ward',
+                    'Thai Hoa Ward',
+                    'Thanh Hoi Commune',
+                    'Thanh Phuoc Ward',
+                    'Uyen Hung Ward',
+                    'Vinh Tan Ward'
+                ]
+            },
+            'Thu Dau Mot': {
+                subDistrict: [
+                    'Chanh My Ward',
+                    'Chanh Nghia Ward',
+                    'Dinh Hoa Ward',
+                    'Hiep An Ward',
+                    'Hiep Thanh Ward',
+                    'Hoa Phu Ward',
+                    'Phu Cuong Ward',
+                    'Phu Hoa Ward',
+                    'Phu Loi Ward',
+                    'Phu My Ward',
+                    'Phu Tan Ward',
+                    'Phu Tho Ward',
+                    'Tan An Ward',
+                    'Tuong Binh Hiep Ward'
+                ]
+            },
+            'Thuan An': {
+                subDistrict: [
+                    'An Phu Ward',
+                    'An Son Commune',
+                    'An Thanh Ward',
+                    'Binh Chuan Ward',
+                    'Binh Hoa Ward',
+                    'Binh Nham Ward',
+                    'Hung Dinh Ward',
+                    'Lai Thieu Ward',
+                    'Thuan Giao Ward',
+                    'Vinh Phu Ward'
+                ]
+            }
+        },
+        'Binh Phuoc': {
             'Binh Long': {
                 subDistrict: [
-                    'Hung Chien Ward',
                     'An Loc Ward',
-                    'Phu Thinh Ward',
+                    'Hung Chien Ward',
                     'Phu Duc Ward',
+                    'Phu Thinh Ward',
                     'Thanh Luong Commune',
                     'Thanh Phu Commune'
                 ]
             },
-            'Hon Quan': {
-                subDistrict: [
-                    'Thanh An Commune',
-                    'An Khuong Commune',
-                    'An Phu Commune',
-                    'Tan Loi Commune',
-                    'Tan Hung Commune',
-                    'Minh Duc Commune',
-                    'Minh Tam Commune',
-                    'Phuoc An Commune',
-                    'Thanh Binh Commune',
-                    'Tan Khai Township',
-                    'Dong No Commune',
-                    'Tan Hiep Commune',
-                    'Tan Quan Commune'
-                ]
-            },
-            'Dong Phu': {
-                subDistrict: [
-                    'Tan Phu Township',
-                    'Thuan Loi Commune',
-                    'Dong Tam Commune',
-                    'Tan Phuoc Commune',
-                    'Tan Hung Commune',
-                    'Tan Loi Commune',
-                    'Tan Lap Commune',
-                    'Tan Hoa Commune',
-                    'Thuan Phu Commune',
-                    'Dong Tien Commune',
-                    'Tan Tien Commune'
-                ]
-            },
             'Bu Dang': {
                 subDistrict: [
-                    'Duc Phong Township',
-                    'Commune Duong 10',
-                    'Dak Nhau Commune',
-                    'Phu Son Commune',
-                    'Tho Son Commune',
                     'Binh Minh Commune',
                     'Bom Bo Commune',
-                    'Minh Hung Commune',
+                    'Commune Duong 10',
+                    'Dak Nhau Commune',
+                    'Dang Ha Commune',
                     'Doan Ket Commune',
                     'Dong Nai Commune',
                     'Duc Lieu Commune',
-                    'Thong Nhat Commune',
-                    'Nghia Trung Commune',
+                    'Duc Phong Township',
+                    'Minh Hung Commune',
                     'Nghia Binh Commune',
-                    'Dang Ha Commune',
-                    'Phuoc Son Commune'
+                    'Nghia Trung Commune',
+                    'Phu Son Commune',
+                    'Phuoc Son Commune',
+                    'Tho Son Commune',
+                    'Thong Nhat Commune'
+                ]
+            },
+            'Bu Dop': {
+                subDistrict: [
+                    'Hung Phuoc Commune',
+                    'Phuoc Thien Commune',
+                    'Tan Thanh Commune',
+                    'Tan Tien Commune',
+                    'Thanh Binh Township',
+                    'Thanh Hoa Commune',
+                    'Thien Hung Commune'
+                ]
+            },
+            'Bu Gia Map': {
+                subDistrict: [
+                    'Binh Thang Commune',
+                    'Bu Gia Map Commune',
+                    'Da Kia Commune',
+                    'Dak O Commune',
+                    'Duc Hanh Commune',
+                    'Phu Nghia Commune',
+                    'Phu Van Commune',
+                    'Phuoc Minh Commune'
                 ]
             },
             'Chon Thanh': {
                 subDistrict: [
                     'Hung Long Ward',
-                    'Thanh Tam Ward',
-                    'Minh Lap Commune',
-                    'Quang Minh Commune',
                     'Minh Hung Ward',
+                    'Minh Lap Commune',
                     'Minh Long Ward',
+                    'Minh Thang Commune',
                     'Minh Thanh Ward',
                     'Nha Bich Commune',
-                    'Minh Thang Commune'
-                ]
-            }
-        },
-        'Tay Ninh': {
-            'Tay Ninh': {
-                subDistrict: [
-                    'Ward 1',
-                    'Ward 3',
-                    'Ward 4',
-                    'Hiep Ninh Ward',
-                    'Ward 2',
-                    'Thanh Tan Commune',
-                    'Tan Binh Commune',
-                    'Binh Minh Commune',
-                    'Ninh Son Ward',
-                    'Ninh Thanh Ward'
+                    'Quang Minh Commune',
+                    'Thanh Tam Ward'
                 ]
             },
-            'Tan Bien': {
+            'Dong Phu': {
                 subDistrict: [
-                    'Tan Bien Township',
-                    'Tan Lap Commune',
-                    'Thanh Bac Commune',
-                    'Tan Binh Commune',
-                    'Thanh Binh Commune',
-                    'Thanh Tay Commune',
-                    'Hoa Hiep Commune',
-                    'Tan Phong Commune',
-                    'Mo Cong Commune',
-                    'Tra Vong Commune'
-                ]
-            },
-            'Tan Chau': {
-                subDistrict: [
-                    'Tan Chau Township',
-                    'Tan Ha Commune',
-                    'Tan Dong Commune',
-                    'Tan Hoi Commune',
+                    'Dong Tam Commune',
+                    'Dong Tien Commune',
                     'Tan Hoa Commune',
-                    'Suoi Ngo Commune',
-                    'Suoi Day Commune',
-                    'Tan Hiep Commune',
-                    'Thanh Dong Commune',
-                    'Tan Thanh Commune',
-                    'Tan Phu Commune',
-                    'Tan Hung Commune'
-                ]
-            },
-            'Duong Minh Chau': {
-                subDistrict: [
-                    'Duong Minh Chau Township',
-                    'Suoi Da Commune',
-                    'Phan Commune',
-                    'Phuoc Ninh Commune',
-                    'Phuoc Minh Commune',
-                    'Bau Nang Commune',
-                    'Cha La Commune',
-                    'Cau Khoi Commune',
-                    'Ben Cui Commune',
-                    'Loc Ninh Commune',
-                    'Truong Mit Commune'
-                ]
-            },
-            'Chau Thanh': {
-                subDistrict: [
-                    'Chau Thanh Township',
-                    'Hao Duoc Commune',
-                    'Phuoc Vinh Commune',
-                    'Dong Khoi Commune',
-                    'Thai Binh Commune',
-                    'An Co Commune',
-                    'Bien Gioi Commune',
-                    'Hoa Thanh Commune',
-                    'Tri Binh Commune',
-                    'Hoa Hoi Commune',
-                    'An Binh Commune',
-                    'Thanh Dien Commune',
-                    'Thanh Long Commune',
-                    'Ninh Dien Commune',
-                    'Long Vinh Commune'
-                ]
-            },
-            'Hoa Thanh': {
-                subDistrict: [
-                    'Long Hoa Ward',
-                    'Hiep Tan Ward',
-                    'Long Thanh Bac Ward',
-                    'Truong Hoa Commune',
-                    'Truong Dong Commune',
-                    'Long Thanh Trung Ward',
-                    'Truong Tay Commune',
-                    'Long Thanh Nam Commune'
-                ]
-            },
-            'Go Dau': {
-                subDistrict: [
-                    'Go Dau Township',
-                    'Thanh Duc Commune',
-                    'Cam Giang Commune',
-                    'Hiep Thanh Commune',
-                    'Bau Don Commune',
-                    'Phuoc Thanh Commune',
-                    'Phuoc Dong Commune',
-                    'Phuoc Trach Commune',
-                    'Thanh Phuoc Commune'
-                ]
-            },
-            'Ben Cau': {
-                subDistrict: [
-                    'Ben Cau Township',
-                    'Long Chu Commune',
-                    'Long Phuoc Commune',
-                    'Long Giang Commune',
-                    'Tien Thuan Commune',
-                    'Long Khanh Commune',
-                    'Loi Thuan Commune',
-                    'Long Thuan Commune',
-                    'An Thanh Commune'
-                ]
-            },
-            'Trang Bang': {
-                subDistrict: [
-                    'Trang Bang Ward',
-                    'Don Thuan Commune',
-                    'Hung Thuan Commune',
-                    'Loc Hung Ward',
-                    'Gia Loc Ward',
-                    'Gia Binh Ward',
-                    'Phuoc Binh Commune',
-                    'An Tinh Ward',
-                    'An Hoa Ward',
-                    'Phuoc Chi Commune'
-                ]
-            }
-        },
-        'Binh Duong': {
-            'Thu Dau Mot': {
-                subDistrict: [
-                    'Hiep Thanh Ward',
-                    'Phu Loi Ward',
-                    'Phu Cuong Ward',
-                    'Phu Hoa Ward',
-                    'Phu Tho Ward',
-                    'Chanh Nghia Ward',
-                    'Dinh Hoa Ward',
-                    'Hoa Phu Ward',
-                    'Phu My Ward',
-                    'Phu Tan Ward',
-                    'Tan An Ward',
-                    'Hiep An Ward',
-                    'Tuong Binh Hiep Ward',
-                    'Chanh My Ward'
-                ]
-            },
-            'Dau Tieng': {
-                subDistrict: [
-                    'Dau Tieng Township',
-                    'Minh Hoa Commune',
-                    'Minh Thanh Commune',
-                    'Minh Tan Commune',
-                    'Dinh An Commune',
-                    'Long Hoa Commune',
-                    'Dinh Thanh Commune',
-                    'Dinh Hiep Commune',
-                    'An Lap Commune',
-                    'Long Tan Commune',
-                    'Thanh An Commune',
-                    'Thanh Tuyen Commune'
-                ]
-            },
-            'Ben Cat': {
-                subDistrict: [
-                    'My Phuoc Ward',
-                    'Chanh Phu Hoa Ward',
-                    'An Dien Ward',
-                    'An Tay Ward',
-                    'Thoi Hoa Ward',
-                    'Hoa Loi Ward',
-                    'Tan Dinh Ward',
-                    'Phu An Commune'
-                ]
-            },
-            'Bau Bang': {
-                subDistrict: [
-                    'Tru Van Tho Commune',
-                    'Cay Truong II Commune',
-                    'Lai Uyen Township',
                     'Tan Hung Commune',
-                    'Long Nguyen Commune',
-                    'Hung Hoa Commune',
-                    'Lai Hung Commune'
-                ]
-            },
-            'Phu Giao': {
-                subDistrict: [
-                    'Phuoc Vinh Township',
-                    'An Linh Commune',
-                    'Phuoc Sang Commune',
-                    'An Thai Commune',
-                    'An Long Commune',
-                    'An Binh Commune',
-                    'Tan Hiep Commune',
-                    'Tam Lap Commune',
-                    'Tan Long Commune',
-                    'Vinh Hoa Commune',
-                    'Phuoc Hoa Commune'
-                ]
-            },
-            'Tan Uyen': {
-                subDistrict: [
-                    'Uyen Hung Ward',
-                    'Tan Phuoc Khanh Ward',
-                    'Vinh Tan Ward',
-                    'Hoi Nghia Ward',
-                    'Tan Hiep Ward',
-                    'Khanh Binh Ward',
-                    'Phu Chanh Ward',
-                    'Bach Dang Commune',
-                    'Tan Vinh Hiep Ward',
-                    'Thanh Phuoc Ward',
-                    'Thanh Hoi Commune',
-                    'Thai Hoa Ward'
-                ]
-            },
-            'Bac Tan Uyen': {
-                subDistrict: [
-                    'Tan Dinh Commune',
-                    'Binh My Commune',
-                    'Tan Binh Township',
                     'Tan Lap Commune',
-                    'Tan Thanh Township',
-                    'Dat Cuoc Commune',
-                    'Hieu Liem Commune',
-                    'Lac An Commune',
-                    'Tan My Commune',
-                    'Thuong Tan Commune'
+                    'Tan Loi Commune',
+                    'Tan Phu Township',
+                    'Tan Phuoc Commune',
+                    'Tan Tien Commune',
+                    'Thuan Loi Commune',
+                    'Thuan Phu Commune'
                 ]
             },
-            'Di An': {
+            'Dong Xoai': {
                 subDistrict: [
-                    'Di An Ward',
                     'Tan Binh Ward',
-                    'Tan Dong Hiep Ward',
-                    'Binh An Ward',
-                    'Binh Thang Ward',
-                    'Dong Hoa Ward',
-                    'An Binh Ward'
+                    'Tan Dong Ward',
+                    'Tan Phu Ward',
+                    'Tan Thanh Commune',
+                    'Tan Thien Ward',
+                    'Tan Xuan Ward',
+                    'Tien Hung Commune',
+                    'Tien Thanh Ward'
                 ]
             },
-            'Thuan An': {
+            'Hon Quan': {
                 subDistrict: [
-                    'An Thanh Ward',
-                    'Lai Thieu Ward',
-                    'Binh Chuan Ward',
-                    'Thuan Giao Ward',
-                    'An Phu Ward',
-                    'Hung Dinh Ward',
-                    'An Son Commune',
-                    'Binh Nham Ward',
-                    'Binh Hoa Ward',
-                    'Vinh Phu Ward'
+                    'An Khuong Commune',
+                    'An Phu Commune',
+                    'Dong No Commune',
+                    'Minh Duc Commune',
+                    'Minh Tam Commune',
+                    'Phuoc An Commune',
+                    'Tan Hiep Commune',
+                    'Tan Hung Commune',
+                    'Tan Khai Township',
+                    'Tan Loi Commune',
+                    'Tan Quan Commune',
+                    'Thanh An Commune',
+                    'Thanh Binh Commune'
+                ]
+            },
+            'Loc Ninh': {
+                subDistrict: [
+                    'Loc An Commune',
+                    'Loc Dien Commune',
+                    'Loc Hiep Commune',
+                    'Loc Hoa Commune',
+                    'Loc Hung Commune',
+                    'Loc Khanh Commune',
+                    'Loc Ninh Township',
+                    'Loc Phu Commune',
+                    'Loc Quang Commune',
+                    'Loc Tan Commune',
+                    'Loc Thai Commune',
+                    'Loc Thanh Commune',
+                    'Loc Thien Commune',
+                    'Loc Thinh Commune',
+                    'Loc Thuan Commune'
+                ]
+            },
+            'Phu Rieng': {
+                subDistrict: [
+                    'Binh Son Commune',
+                    'Binh Tan Commune',
+                    'Bu Nho Commune',
+                    'Long Binh Commune',
+                    'Long Ha Commune',
+                    'Long Hung Commune',
+                    'Long Tan Commune',
+                    'Phu Rieng Commune',
+                    'Phu Trung Commune',
+                    'Phuoc Tan Commune'
+                ]
+            },
+            'Phuoc Long': {
+                subDistrict: [
+                    'Long Giang Commune',
+                    'Long Phuoc Ward',
+                    'Long Thuy Ward',
+                    'Phuoc Binh Ward',
+                    'Phuoc Tin Commune',
+                    'Son Giang Ward',
+                    'Thac Mo Ward'
                 ]
             }
         },
         'Dong Nai': {
             'Bien Hoa': {
                 subDistrict: [
-                    'Trang Dai Ward',
-                    'Tan Phong Ward',
-                    'Tan Bien Ward',
-                    'Ho Nai Ward',
-                    'Tan Hoa Ward',
-                    'Tan Hiep Ward',
-                    'Buu Long Ward',
-                    'Tan Tien Ward',
-                    'Tam Hiep Ward',
-                    'Long Binh Ward',
-                    'Quang Vinh Ward',
-                    'Tan Mai Ward',
-                    'Thong Nhat Ward',
-                    'Trung Dung Ward',
-                    'Tam Hoa Ward',
-                    'Hoa Binh Ward',
-                    'Quyet Thang Ward',
-                    'Thanh Binh Ward',
-                    'Binh Da Ward',
                     'An Binh Ward',
-                    'Buu Hoa Ward',
-                    'Long Binh Tan Ward',
-                    'Tan Van Ward',
-                    'Tan Hanh Ward',
-                    'Hiep Hoa Ward',
-                    'Hoa An Ward',
                     'An Hoa Ward',
-                    'Tam Phuoc Ward',
+                    'Binh Da Ward',
+                    'Buu Hoa Ward',
+                    'Buu Long Ward',
+                    'Hiep Hoa Ward',
+                    'Ho Nai Ward',
+                    'Hoa An Ward',
+                    'Hoa Binh Ward',
+                    'Long Binh Tan Ward',
+                    'Long Binh Ward',
+                    'Long Hung Commune',
                     'Phuoc Tan Ward',
-                    'Long Hung Commune'
+                    'Quang Vinh Ward',
+                    'Quyet Thang Ward',
+                    'Tam Hiep Ward',
+                    'Tam Hoa Ward',
+                    'Tam Phuoc Ward',
+                    'Tan Bien Ward',
+                    'Tan Hanh Ward',
+                    'Tan Hiep Ward',
+                    'Tan Hoa Ward',
+                    'Tan Mai Ward',
+                    'Tan Phong Ward',
+                    'Tan Tien Ward',
+                    'Tan Van Ward',
+                    'Thanh Binh Ward',
+                    'Thong Nhat Ward',
+                    'Trang Dai Ward',
+                    'Trung Dung Ward'
                 ]
             },
-            'Long Khanh': {
+            'Cam My': {
                 subDistrict: [
-                    'Xuan Trung Ward',
-                    'Xuan Thanh Ward',
-                    'Xuan Binh Ward',
-                    'Xuan An Ward',
-                    'Xuan Hoa Ward',
-                    'Phu Binh Ward',
-                    'Binh Loc Commune',
-                    'Bao Quang Commune',
-                    'Suoi Tre Ward',
-                    'Bao Vinh Ward',
-                    'Xuan Lap Ward',
-                    'Bau Sen Ward',
-                    'Bau Tram Commune',
-                    'Xuan Tan Ward',
-                    'Hang Gon Commune'
-                ]
-            },
-            'Tan Phu': {
-                subDistrict: [
-                    'Tan Phu Township',
-                    'Dak Lua Commune',
-                    'Nam Cat Tien Commune',
-                    'Phu An Commune',
-                    'Nui Tuong Commune',
-                    'Ta Lai Commune',
-                    'Phu Lap Commune',
-                    'Phu Son Commune',
-                    'Phu Thinh Commune',
-                    'Thanh Son Commune',
-                    'Phu Trung Commune',
-                    'Phu Xuan Commune',
-                    'Phu Loc Commune',
-                    'Phu Lam Commune',
-                    'Phu Binh Commune',
-                    'Phu Thanh Commune',
-                    'Tra Co Commune',
-                    'Phu Dien Commune'
-                ]
-            },
-            'Vinh Cuu': {
-                subDistrict: [
-                    'Vinh An Township',
-                    'Phu Ly Commune',
-                    'Tri An Commune',
-                    'Tan An Commune',
-                    'Vinh Tan Commune',
-                    'Binh Loi Commune',
-                    'Thanh Phu Commune',
-                    'Thien Tan Commune',
-                    'Tan Binh Commune',
-                    'Binh Hoa Commune',
-                    'Ma Da Commune',
-                    'Hieu Liem Commune'
+                    'Bao Binh Commune',
+                    'Lam San Commune',
+                    'Long Giao Township',
+                    'Nhan Nghia Commune',
+                    'Song Nhan Commune',
+                    'Song Ray Commune',
+                    'Thua Duc Commune',
+                    'Xuan Bao Commune',
+                    'Xuan Dong Commune',
+                    'Xuan Duong Commune',
+                    'Xuan My Commune',
+                    'Xuan Que Commune',
+                    'Xuan Tay Commune'
                 ]
             },
             'Dinh Quan': {
                 subDistrict: [
                     'Dinh Quan Township',
-                    'Thanh Son Commune',
-                    'Phu Tan Commune',
-                    'Phu Vinh Commune',
-                    'Phu Loi Commune',
-                    'Phu Hoa Commune',
-                    'Ngoc Dinh Commune',
-                    'La Nga Commune',
                     'Gia Canh Commune',
-                    'Phu Ngoc Commune',
+                    'La Nga Commune',
+                    'Ngoc Dinh Commune',
                     'Phu Cuong Commune',
-                    'Tuc Trung Commune',
+                    'Phu Hoa Commune',
+                    'Phu Loi Commune',
+                    'Phu Ngoc Commune',
+                    'Phu Tan Commune',
                     'Phu Tuc Commune',
-                    'Suoi Nho Commune'
+                    'Phu Vinh Commune',
+                    'Suoi Nho Commune',
+                    'Thanh Son Commune',
+                    'Tuc Trung Commune'
                 ]
             },
-            'Trang Bom': {
+            'Long Khanh': {
                 subDistrict: [
-                    'Trang Bom Township',
-                    'Thanh Binh Commune',
-                    'Cay Gao Commune',
-                    'Bau Ham Commune',
-                    'Song Thao Commune',
-                    'Song Trau Commune',
-                    'Dong Hoa Commune',
-                    'Bac Son Commune',
-                    'Commune Ho Nai 3',
-                    'Tay Hoa Commune',
-                    'Binh Minh Commune',
-                    'Trung Hoa Commune',
-                    'Commune Doi 61',
-                    'Hung Thinh Commune',
-                    'Quang Tien Commune',
-                    'Giang Dien Commune',
-                    'An Vien Commune'
-                ]
-            },
-            'Thong Nhat': {
-                subDistrict: [
-                    'Commune Gia Tan 1',
-                    'Commune Gia Tan 2',
-                    'Commune Gia Tan 3',
-                    'Gia Kiem Commune',
-                    'Quang Trung Commune',
-                    'Commune Bau Ham 2',
-                    'Hung Loc Commune',
-                    'Commune Lo 25',
-                    'Xuan Thien Commune',
-                    'Dau Giay Township'
-                ]
-            },
-            'Cam My': {
-                subDistrict: [
-                    'Song Nhan Commune',
-                    'Xuan Que Commune',
-                    'Nhan Nghia Commune',
-                    'Xuan Duong Commune',
-                    'Long Giao Township',
-                    'Xuan My Commune',
-                    'Thua Duc Commune',
-                    'Bao Binh Commune',
-                    'Xuan Bao Commune',
-                    'Xuan Tay Commune',
-                    'Xuan Dong Commune',
-                    'Song Ray Commune',
-                    'Lam San Commune'
+                    'Bao Quang Commune',
+                    'Bao Vinh Ward',
+                    'Bau Sen Ward',
+                    'Bau Tram Commune',
+                    'Binh Loc Commune',
+                    'Hang Gon Commune',
+                    'Phu Binh Ward',
+                    'Suoi Tre Ward',
+                    'Xuan An Ward',
+                    'Xuan Binh Ward',
+                    'Xuan Hoa Ward',
+                    'Xuan Lap Ward',
+                    'Xuan Tan Ward',
+                    'Xuan Thanh Ward',
+                    'Xuan Trung Ward'
                 ]
             },
             'Long Thanh': {
                 subDistrict: [
-                    'Long Thanh Township',
                     'An Phuoc Commune',
-                    'Binh An Commune',
-                    'Long Duc Commune',
-                    'Loc An Commune',
-                    'Binh Son Commune',
-                    'Tam An Commune',
-                    'Cam Duong Commune',
-                    'Long An Commune',
                     'Bau Can Commune',
+                    'Binh An Commune',
+                    'Binh Son Commune',
+                    'Cam Duong Commune',
+                    'Loc An Commune',
+                    'Long An Commune',
+                    'Long Duc Commune',
                     'Long Phuoc Commune',
+                    'Long Thanh Township',
                     'Phuoc Binh Commune',
-                    'Tan Hiep Commune',
-                    'Phuoc Thai Commune'
-                ]
-            },
-            'Xuan Loc': {
-                subDistrict: [
-                    'Gia Ray Township',
-                    'Xuan Bac Commune',
-                    'Suoi Cao Commune',
-                    'Xuan Thanh Commune',
-                    'Xuan Tho Commune',
-                    'Xuan Truong Commune',
-                    'Xuan Hoa Commune',
-                    'Xuan Hung Commune',
-                    'Xuan Tam Commune',
-                    'Suoi Cat Commune',
-                    'Xuan Hiep Commune',
-                    'Xuan Phu Commune',
-                    'Xuan Dinh Commune',
-                    'Bao Hoa Commune',
-                    'Lang Minh Commune'
+                    'Phuoc Thai Commune',
+                    'Tam An Commune',
+                    'Tan Hiep Commune'
                 ]
             },
             'Nhon Trach': {
                 subDistrict: [
-                    'Phuoc Thien Commune',
-                    'Long Tan Commune',
                     'Dai Phuoc Commune',
                     'Hiep Phuoc Township',
-                    'Phu Huu Commune',
-                    'Phu Hoi Commune',
-                    'Phu Thanh Commune',
-                    'Phu Dong Commune',
-                    'Long Tho Commune',
-                    'Vinh Thanh Commune',
-                    'Phuoc Khanh Commune',
-                    'Phuoc An Commune'
-                ]
-            }
-        },
-        'Ba Ria - Vung Tau': {
-            'Vung Tau': {
-                subDistrict: [
-                    'Ward 1',
-                    'Thang Tam Ward',
-                    'Ward 2',
-                    'Ward 3',
-                    'Ward 4',
-                    'Ward 5',
-                    'Thang Nhi Ward',
-                    'Ward 7',
-                    'Nguyen An Ninh Ward',
-                    'Ward 8',
-                    'Ward 9',
-                    'Thang Nhat Ward',
-                    'Rach Dua Ward',
-                    'Ward 10',
-                    'Ward 11',
-                    'Ward 12',
-                    'Long Son Commune'
-                ]
-            },
-            'Ba Ria': {
-                subDistrict: [
-                    'Phuoc Hung Ward',
-                    'Phuoc Hiep Ward',
-                    'Phuoc Nguyen Ward',
-                    'Long Toan Ward',
-                    'Long Tam Ward',
-                    'Phuoc Trung Ward',
-                    'Long Huong Ward',
-                    'Kim Dinh Ward',
-                    'Tan Hung Commune',
-                    'Long Phuoc Commune',
-                    'Hoa Long Commune'
-                ]
-            },
-            'Chau Duc': {
-                subDistrict: [
-                    'Bau Chinh Commune',
-                    'Ngai Giao Township',
-                    'Binh Ba Commune',
-                    'Suoi Nghe Commune',
-                    'Xuan Son Commune',
-                    'Son Binh Commune',
-                    'Binh Gia Commune',
-                    'Binh Trung Commune',
-                    'Xa Bang Commune',
-                    'Cu Bi Commune',
-                    'Lang Lon Commune',
-                    'Quang Thanh Commune',
-                    'Kim Long Commune',
-                    'Suoi Rao Commune',
-                    'Da Bac Commune',
-                    'Nghia Thanh Commune'
-                ]
-            },
-            'Xuyen Moc': {
-                subDistrict: [
-                    'Phuoc Buu Township',
-                    'Phuoc Thuan Commune',
-                    'Phuoc Tan Commune',
-                    'Xuyen Moc Commune',
-                    'Bong Trang Commune',
-                    'Tan Lam Commune',
-                    'Bau Lam Commune',
-                    'Hoa Binh Commune',
-                    'Hoa Hung Commune',
-                    'Hoa Hiep Commune',
-                    'Hoa Hoi Commune',
-                    'Bung Rieng Commune',
-                    'Binh Chau Commune'
-                ]
-            },
-            'Long Dien': {
-                subDistrict: [
-                    'Long Dien Township',
-                    'Long Hai Township',
-                    'An Ngai Commune',
-                    'Tam Phuoc Commune',
-                    'An Nhut Commune',
-                    'Phuoc Tinh Commune',
-                    'Phuoc Hung Commune'
-                ]
-            },
-            'Dat Do': {
-                subDistrict: [
-                    'Dat Do Township',
-                    'Phuoc Long Tho Commune',
-                    'Phuoc Hoi Commune',
-                    'Long My Commune',
-                    'Phuoc Hai Township',
                     'Long Tan Commune',
-                    'Lang Dai Commune',
-                    'Loc An Commune'
+                    'Long Tho Commune',
+                    'Phu Dong Commune',
+                    'Phu Hoi Commune',
+                    'Phu Huu Commune',
+                    'Phu Thanh Commune',
+                    'Phuoc An Commune',
+                    'Phuoc Khanh Commune',
+                    'Phuoc Thien Commune',
+                    'Vinh Thanh Commune'
                 ]
             },
-            'Phu My': {
+            'Tan Phu': {
                 subDistrict: [
-                    'Phu My Ward',
-                    'Tan Hoa Commune',
-                    'Tan Hai Commune',
-                    'Phuoc Hoa Ward',
-                    'Tan Phuoc Ward',
-                    'My Xuan Ward',
-                    'Song Xoai Commune',
-                    'Hac Dich Ward',
-                    'Chau Pha Commune',
-                    'Toc Tien Commune'
+                    'Dak Lua Commune',
+                    'Nam Cat Tien Commune',
+                    'Nui Tuong Commune',
+                    'Phu An Commune',
+                    'Phu Binh Commune',
+                    'Phu Dien Commune',
+                    'Phu Lam Commune',
+                    'Phu Lap Commune',
+                    'Phu Loc Commune',
+                    'Phu Son Commune',
+                    'Phu Thanh Commune',
+                    'Phu Thinh Commune',
+                    'Phu Trung Commune',
+                    'Phu Xuan Commune',
+                    'Ta Lai Commune',
+                    'Tan Phu Township',
+                    'Thanh Son Commune',
+                    'Tra Co Commune'
+                ]
+            },
+            'Thong Nhat': {
+                subDistrict: [
+                    'Commune Bau Ham 2',
+                    'Commune Gia Tan 1',
+                    'Commune Gia Tan 2',
+                    'Commune Gia Tan 3',
+                    'Commune Lo 25',
+                    'Dau Giay Township',
+                    'Gia Kiem Commune',
+                    'Hung Loc Commune',
+                    'Quang Trung Commune',
+                    'Xuan Thien Commune'
+                ]
+            },
+            'Trang Bom': {
+                subDistrict: [
+                    'An Vien Commune',
+                    'Bac Son Commune',
+                    'Bau Ham Commune',
+                    'Binh Minh Commune',
+                    'Cay Gao Commune',
+                    'Commune Doi 61',
+                    'Commune Ho Nai 3',
+                    'Dong Hoa Commune',
+                    'Giang Dien Commune',
+                    'Hung Thinh Commune',
+                    'Quang Tien Commune',
+                    'Song Thao Commune',
+                    'Song Trau Commune',
+                    'Tay Hoa Commune',
+                    'Thanh Binh Commune',
+                    'Trang Bom Township',
+                    'Trung Hoa Commune'
+                ]
+            },
+            'Vinh Cuu': {
+                subDistrict: [
+                    'Binh Hoa Commune',
+                    'Binh Loi Commune',
+                    'Hieu Liem Commune',
+                    'Ma Da Commune',
+                    'Phu Ly Commune',
+                    'Tan An Commune',
+                    'Tan Binh Commune',
+                    'Thanh Phu Commune',
+                    'Thien Tan Commune',
+                    'Tri An Commune',
+                    'Vinh An Township',
+                    'Vinh Tan Commune'
+                ]
+            },
+            'Xuan Loc': {
+                subDistrict: [
+                    'Bao Hoa Commune',
+                    'Gia Ray Township',
+                    'Lang Minh Commune',
+                    'Suoi Cao Commune',
+                    'Suoi Cat Commune',
+                    'Xuan Bac Commune',
+                    'Xuan Dinh Commune',
+                    'Xuan Hiep Commune',
+                    'Xuan Hoa Commune',
+                    'Xuan Hung Commune',
+                    'Xuan Phu Commune',
+                    'Xuan Tam Commune',
+                    'Xuan Thanh Commune',
+                    'Xuan Tho Commune',
+                    'Xuan Truong Commune'
                 ]
             }
         },
         'Ho Chi Minh': {
             1: {
                 subDistrict: [
-                    'Tan Dinh Ward',
-                    'Da Kao Ward',
                     'Ben Nghe Ward',
                     'Ben Thanh Ward',
-                    'Nguyen Thai Binh Ward',
-                    'Pham Ngu Lao Ward',
+                    'Cau Kho Ward',
                     'Cau Ong Lanh Ward',
                     'Co Giang Ward',
+                    'Da Kao Ward',
                     'Nguyen Cu Trinh Ward',
-                    'Cau Kho Ward'
+                    'Nguyen Thai Binh Ward',
+                    'Pham Ngu Lao Ward',
+                    'Tan Dinh Ward'
                 ]
             },
             3: {
                 subDistrict: [
-                    'Ward 14',
-                    'Ward 12',
-                    'Ward 11',
-                    'Ward 13',
                     'Vo Thi Sau Ward',
-                    'Ward 09',
-                    'Ward 10',
+                    'Ward 01',
+                    'Ward 02',
+                    'Ward 03',
                     'Ward 04',
                     'Ward 05',
-                    'Ward 03',
-                    'Ward 02',
-                    'Ward 01'
+                    'Ward 09',
+                    'Ward 10',
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 13',
+                    'Ward 14'
                 ]
             },
             4: {
                 subDistrict: [
-                    'Ward 13',
-                    'Ward 09',
+                    'Ward 01',
+                    'Ward 02',
+                    'Ward 03',
+                    'Ward 04',
                     'Ward 06',
                     'Ward 08',
+                    'Ward 09',
                     'Ward 10',
-                    'Ward 18',
+                    'Ward 13',
                     'Ward 14',
-                    'Ward 04',
-                    'Ward 03',
-                    'Ward 16',
-                    'Ward 02',
                     'Ward 15',
-                    'Ward 01'
+                    'Ward 16',
+                    'Ward 18'
                 ]
             },
             5: {
                 subDistrict: [
-                    'Ward 04',
-                    'Ward 09',
-                    'Ward 03',
-                    'Ward 12',
-                    'Ward 02',
-                    'Ward 08',
-                    'Ward 07',
                     'Ward 01',
-                    'Ward 11',
-                    'Ward 14',
+                    'Ward 02',
+                    'Ward 03',
+                    'Ward 04',
                     'Ward 05',
                     'Ward 06',
+                    'Ward 07',
+                    'Ward 08',
+                    'Ward 09',
                     'Ward 10',
-                    'Ward 13'
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 13',
+                    'Ward 14'
                 ]
             },
             6: {
                 subDistrict: [
-                    'Ward 14',
-                    'Ward 13',
-                    'Ward 09',
-                    'Ward 06',
-                    'Ward 12',
-                    'Ward 05',
-                    'Ward 11',
-                    'Ward 02',
                     'Ward 01',
-                    'Ward 04',
-                    'Ward 08',
+                    'Ward 02',
                     'Ward 03',
+                    'Ward 04',
+                    'Ward 05',
+                    'Ward 06',
                     'Ward 07',
-                    'Ward 10'
+                    'Ward 08',
+                    'Ward 09',
+                    'Ward 10',
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 13',
+                    'Ward 14'
                 ]
             },
             7: {
                 subDistrict: [
-                    'Tan Thuan Dong Ward',
-                    'Tan Thuan Tay Ward',
-                    'Tan Kieng Ward',
-                    'Tan Hung Ward',
                     'Binh Thuan Ward',
-                    'Tan Quy Ward',
+                    'Phu My Ward',
                     'Phu Thuan Ward',
-                    'Tan Phu Ward',
+                    'Tan Hung Ward',
+                    'Tan Kieng Ward',
                     'Tan Phong Ward',
-                    'Phu My Ward'
+                    'Tan Phu Ward',
+                    'Tan Quy Ward',
+                    'Tan Thuan Dong Ward',
+                    'Tan Thuan Tay Ward'
                 ]
             },
             8: {
                 subDistrict: [
-                    'Ward 08',
-                    'Ward 02',
                     'Ward 01',
+                    'Ward 02',
                     'Ward 03',
-                    'Ward 11',
+                    'Ward 04',
+                    'Ward 05',
+                    'Ward 06',
+                    'Ward 07',
+                    'Ward 08',
                     'Ward 09',
                     'Ward 10',
-                    'Ward 04',
-                    'Ward 13',
+                    'Ward 11',
                     'Ward 12',
-                    'Ward 05',
+                    'Ward 13',
                     'Ward 14',
-                    'Ward 06',
                     'Ward 15',
-                    'Ward 16',
-                    'Ward 07'
+                    'Ward 16'
                 ]
             },
             10: {
                 subDistrict: [
-                    'Ward 15',
-                    'Ward 13',
-                    'Ward 14',
-                    'Ward 12',
-                    'Ward 11',
-                    'Ward 10',
-                    'Ward 09',
                     'Ward 01',
-                    'Ward 08',
                     'Ward 02',
                     'Ward 04',
-                    'Ward 07',
                     'Ward 05',
-                    'Ward 06'
+                    'Ward 06',
+                    'Ward 07',
+                    'Ward 08',
+                    'Ward 09',
+                    'Ward 10',
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 13',
+                    'Ward 14',
+                    'Ward 15'
                 ]
             },
             11: {
                 subDistrict: [
-                    'Ward 15',
-                    'Ward 05',
-                    'Ward 14',
-                    'Ward 11',
-                    'Ward 03',
-                    'Ward 10',
-                    'Ward 13',
-                    'Ward 08',
-                    'Ward 09',
-                    'Ward 12',
-                    'Ward 07',
-                    'Ward 06',
-                    'Ward 04',
                     'Ward 01',
                     'Ward 02',
+                    'Ward 03',
+                    'Ward 04',
+                    'Ward 05',
+                    'Ward 06',
+                    'Ward 07',
+                    'Ward 08',
+                    'Ward 09',
+                    'Ward 10',
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 13',
+                    'Ward 14',
+                    'Ward 15',
                     'Ward 16'
                 ]
             },
             12: {
                 subDistrict: [
-                    'Thanh Xuan Ward',
-                    'Thanh Loc Ward',
-                    'Hiep Thanh Ward',
-                    'Thoi An Ward',
-                    'Tan Chanh Hiep Ward',
                     'An Phu Dong Ward',
-                    'Tan Thoi Hiep Ward',
-                    'Trung My Tay Ward',
-                    'Tan Hung Thuan Ward',
                     'Dong Hung Thuan Ward',
-                    'Tan Thoi Nhat Ward'
+                    'Hiep Thanh Ward',
+                    'Tan Chanh Hiep Ward',
+                    'Tan Hung Thuan Ward',
+                    'Tan Thoi Hiep Ward',
+                    'Tan Thoi Nhat Ward',
+                    'Thanh Loc Ward',
+                    'Thanh Xuan Ward',
+                    'Thoi An Ward',
+                    'Trung My Tay Ward'
                 ]
             },
-            'Thu Duc': {
+            'Binh Chanh': {
                 subDistrict: [
-                    'Linh Xuan Ward',
-                    'Binh Chieu Ward',
-                    'Linh Trung Ward',
-                    'Tam Binh Ward',
-                    'Tam Phu Ward',
-                    'Hiep Binh Phuoc Ward',
-                    'Hiep Binh Chanh Ward',
-                    'Linh Chieu Ward',
-                    'Linh Tay Ward',
-                    'Linh Dong Ward',
-                    'Binh Tho Ward',
-                    'Truong Tho Ward',
-                    'Long Binh Ward',
-                    'Long Thanh My Ward',
-                    'Tan Phu Ward',
-                    'Hiep Phu Ward',
-                    'Tang Nhon Phu A Ward',
-                    'Tang Nhon Phu B Ward',
-                    'Phuoc Long B Ward',
-                    'Phuoc Long A Ward',
-                    'Truong Thanh Ward',
-                    'Long Phuoc Ward',
-                    'Long Truong Ward',
-                    'Phuoc Binh Ward',
-                    'Phu Huu Ward',
-                    'Thao Dien Ward',
-                    'An Phu Ward',
-                    'An Khanh Ward',
-                    'Binh Trung Dong Ward',
-                    'Binh Trung Tay Ward',
-                    'Cat Lai Ward',
-                    'Thanh My Loi Ward',
-                    'An Loi Dong Ward',
-                    'Thu Thiem Ward'
+                    'An Phu Tay Commune',
+                    'Binh Chanh Commune',
+                    'Binh Hung Commune',
+                    'Binh Loi Commune',
+                    'Da Phuoc Commune',
+                    'Hung Long Commune',
+                    'Le Minh Xuan Commune',
+                    'Pham Van Hai Commune',
+                    'Phong Phu Commune',
+                    'Quy Duc Commune',
+                    'Tan Kien Commune',
+                    'Tan Nhut Commune',
+                    'Tan Quy Tay Commune',
+                    'Tan Tuc Township',
+                    'Vinh Loc A Commune',
+                    'Vinh Loc B Commune'
                 ]
             },
-            'Go Vap': {
+            'Binh Tan': {
                 subDistrict: [
-                    'Ward 15',
-                    'Ward 13',
-                    'Ward 17',
-                    'Ward 6',
-                    'Ward 16',
-                    'Ward 12',
-                    'Ward 14',
-                    'Ward 10',
-                    'Ward 05',
-                    'Ward 07',
-                    'Ward 04',
-                    'Ward 01',
-                    'Ward 9',
-                    'Ward 8',
-                    'Ward 11',
-                    'Ward 03'
+                    'An Lac A Ward',
+                    'An Lac Ward',
+                    'Binh Hung Hoa A Ward',
+                    'Binh Hung Hoa B Ward',
+                    'Binh Hung Hoa Ward',
+                    'Binh Tri Dong A Ward',
+                    'Binh Tri Dong B Ward',
+                    'Binh Tri Dong Ward',
+                    'Tan Tao A Ward',
+                    'Tan Tao Ward'
                 ]
             },
             'Binh Thanh': {
                 subDistrict: [
-                    'Ward 13',
-                    'Ward 11',
-                    'Ward 27',
-                    'Ward 26',
-                    'Ward 12',
-                    'Ward 25',
+                    'Ward 01',
+                    'Ward 02',
+                    'Ward 03',
                     'Ward 05',
-                    'Ward 07',
-                    'Ward 24',
                     'Ward 06',
+                    'Ward 07',
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 13',
                     'Ward 14',
                     'Ward 15',
-                    'Ward 02',
-                    'Ward 01',
-                    'Ward 03',
                     'Ward 17',
+                    'Ward 19',
                     'Ward 21',
                     'Ward 22',
-                    'Ward 19',
+                    'Ward 24',
+                    'Ward 25',
+                    'Ward 26',
+                    'Ward 27',
                     'Ward 28'
+                ]
+            },
+            'Can Gio': {
+                subDistrict: [
+                    'An Thoi Dong Commune',
+                    'Binh Khanh Commune',
+                    'Can Thanh Township',
+                    'Long Hoa Commune',
+                    'Ly Nhon Commune',
+                    'Tam Thon Hiep Commune',
+                    'Thanh An Commune'
+                ]
+            },
+            'Cu Chi': {
+                subDistrict: [
+                    'An Nhon Tay Commune',
+                    'An Phu Commune',
+                    'Binh My Commune',
+                    'Cu Chi Township',
+                    'Hoa Phu Commune',
+                    'Nhuan Duc Commune',
+                    'Pham Van Coi Commune',
+                    'Phu Hoa Dong Commune',
+                    'Phu My Hung Commune',
+                    'Phuoc Hiep Commune',
+                    'Phuoc Thanh Commune',
+                    'Phuoc Vinh An Commune',
+                    'Tan An Hoi Commune',
+                    'Tan Phu Trung Commune',
+                    'Tan Thanh Dong Commune',
+                    'Tan Thanh Tay Commune',
+                    'Tan Thong Hoi Commune',
+                    'Thai My Commune',
+                    'Trung An Commune',
+                    'Trung Lap Ha Commune',
+                    'Trung Lap Thuong Commune'
+                ]
+            },
+            'Go Vap': {
+                subDistrict: [
+                    'Ward 01',
+                    'Ward 03',
+                    'Ward 04',
+                    'Ward 05',
+                    'Ward 07',
+                    'Ward 10',
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 13',
+                    'Ward 14',
+                    'Ward 15',
+                    'Ward 16',
+                    'Ward 17',
+                    'Ward 6',
+                    'Ward 8',
+                    'Ward 9'
+                ]
+            },
+            'Hoc Mon': {
+                subDistrict: [
+                    'Ba Diem Commune',
+                    'Dong Thanh Commune',
+                    'Hoc Mon Township',
+                    'Nhi Binh Commune',
+                    'Tan Hiep Commune',
+                    'Tan Thoi Nhi Commune',
+                    'Tan Xuan Commune',
+                    'Thoi Tam Thon Commune',
+                    'Trung Chanh Commune',
+                    'Xuan Thoi Dong Commune',
+                    'Xuan Thoi Son Commune',
+                    'Xuan Thoi Thuong Commune'
+                ]
+            },
+            'Nha Be': {
+                subDistrict: [
+                    'Hiep Phuoc Commune',
+                    'Long Thoi Commune',
+                    'Nha Be Township',
+                    'Nhon Duc Commune',
+                    'Phu Xuan Commune',
+                    'Phuoc Kien Commune',
+                    'Phuoc Loc Commune'
+                ]
+            },
+            'Phu Nhuan': {
+                subDistrict: [
+                    'Ward 01',
+                    'Ward 02',
+                    'Ward 03',
+                    'Ward 04',
+                    'Ward 05',
+                    'Ward 07',
+                    'Ward 08',
+                    'Ward 09',
+                    'Ward 10',
+                    'Ward 11',
+                    'Ward 13',
+                    'Ward 15',
+                    'Ward 17'
                 ]
             },
             'Tan Binh': {
                 subDistrict: [
-                    'Ward 02',
-                    'Ward 04',
-                    'Ward 12',
-                    'Ward 13',
                     'Ward 01',
+                    'Ward 02',
                     'Ward 03',
-                    'Ward 11',
-                    'Ward 07',
+                    'Ward 04',
                     'Ward 05',
-                    'Ward 10',
                     'Ward 06',
+                    'Ward 07',
                     'Ward 08',
                     'Ward 09',
+                    'Ward 10',
+                    'Ward 11',
+                    'Ward 12',
+                    'Ward 13',
                     'Ward 14',
                     'Ward 15'
                 ]
             },
             'Tan Phu': {
                 subDistrict: [
-                    'Tan Son Nhi Ward',
-                    'Tay Thanh Ward',
+                    'Hiep Tan Ward',
+                    'Hoa Thanh Ward',
+                    'Phu Thanh Ward',
+                    'Phu Tho Hoa Ward',
+                    'Phu Trung Ward',
                     'Son Ky Ward',
                     'Tan Quy Ward',
+                    'Tan Son Nhi Ward',
                     'Tan Thanh Ward',
-                    'Phu Tho Hoa Ward',
-                    'Phu Thanh Ward',
-                    'Phu Trung Ward',
-                    'Hoa Thanh Ward',
-                    'Hiep Tan Ward',
-                    'Tan Thoi Hoa Ward'
+                    'Tan Thoi Hoa Ward',
+                    'Tay Thanh Ward'
                 ]
             },
-            'Phu Nhuan': {
+            'Thu Duc': {
                 subDistrict: [
-                    'Ward 04',
-                    'Ward 05',
-                    'Ward 09',
-                    'Ward 07',
-                    'Ward 03',
-                    'Ward 01',
-                    'Ward 02',
-                    'Ward 08',
-                    'Ward 15',
-                    'Ward 10',
-                    'Ward 11',
-                    'Ward 17',
-                    'Ward 13'
-                ]
-            },
-            'Binh Tan': {
-                subDistrict: [
-                    'Binh Hung Hoa Ward',
-                    'Binh Hung Hoa A Ward',
-                    'Binh Hung Hoa B Ward',
-                    'Binh Tri Dong Ward',
-                    'Binh Tri Dong A Ward',
-                    'Binh Tri Dong B Ward',
-                    'Tan Tao Ward',
-                    'Tan Tao A Ward',
-                    'An Lac Ward',
-                    'An Lac A Ward'
-                ]
-            },
-            'Cu Chi': {
-                subDistrict: [
-                    'Cu Chi Township',
-                    'Phu My Hung Commune',
-                    'An Phu Commune',
-                    'Trung Lap Thuong Commune',
-                    'An Nhon Tay Commune',
-                    'Nhuan Duc Commune',
-                    'Pham Van Coi Commune',
-                    'Phu Hoa Dong Commune',
-                    'Trung Lap Ha Commune',
-                    'Trung An Commune',
-                    'Phuoc Thanh Commune',
-                    'Phuoc Hiep Commune',
-                    'Tan An Hoi Commune',
-                    'Phuoc Vinh An Commune',
-                    'Thai My Commune',
-                    'Tan Thanh Tay Commune',
-                    'Hoa Phu Commune',
-                    'Tan Thanh Dong Commune',
-                    'Binh My Commune',
-                    'Tan Phu Trung Commune',
-                    'Tan Thong Hoi Commune'
-                ]
-            },
-            'Hoc Mon': {
-                subDistrict: [
-                    'Hoc Mon Township',
-                    'Tan Hiep Commune',
-                    'Nhi Binh Commune',
-                    'Dong Thanh Commune',
-                    'Tan Thoi Nhi Commune',
-                    'Thoi Tam Thon Commune',
-                    'Xuan Thoi Son Commune',
-                    'Tan Xuan Commune',
-                    'Xuan Thoi Dong Commune',
-                    'Trung Chanh Commune',
-                    'Xuan Thoi Thuong Commune',
-                    'Ba Diem Commune'
-                ]
-            },
-            'Binh Chanh': {
-                subDistrict: [
-                    'Tan Tuc Township',
-                    'Pham Van Hai Commune',
-                    'Vinh Loc A Commune',
-                    'Vinh Loc B Commune',
-                    'Binh Loi Commune',
-                    'Le Minh Xuan Commune',
-                    'Tan Nhut Commune',
-                    'Tan Kien Commune',
-                    'Binh Hung Commune',
-                    'Phong Phu Commune',
-                    'An Phu Tay Commune',
-                    'Hung Long Commune',
-                    'Da Phuoc Commune',
-                    'Tan Quy Tay Commune',
-                    'Binh Chanh Commune',
-                    'Quy Duc Commune'
-                ]
-            },
-            'Nha Be': {
-                subDistrict: [
-                    'Nha Be Township',
-                    'Phuoc Kien Commune',
-                    'Phuoc Loc Commune',
-                    'Nhon Duc Commune',
-                    'Phu Xuan Commune',
-                    'Long Thoi Commune',
-                    'Hiep Phuoc Commune'
-                ]
-            },
-            'Can Gio': {
-                subDistrict: [
-                    'Can Thanh Township',
-                    'Binh Khanh Commune',
-                    'Tam Thon Hiep Commune',
-                    'An Thoi Dong Commune',
-                    'Thanh An Commune',
-                    'Long Hoa Commune',
-                    'Ly Nhon Commune'
-                ]
-            }
-        }
-    },
-    'Mekong River Delta': {
-        'Long An': {
-            'Tan An': {
-                subDistrict: [
-                    'Ward 5',
-                    'Ward 2',
-                    'Ward 4',
-                    'Tan Khanh Ward',
-                    'Ward 1',
-                    'Ward 3',
-                    'Ward 7',
-                    'Ward 6',
-                    'Huong Tho Phu Commune',
-                    'Nhon Thanh Trung Commune',
-                    'Loi Binh Nhon Commune',
-                    'Binh Tam Commune',
-                    'Khanh Hau Ward',
-                    'An Vinh Ngai Commune'
-                ]
-            },
-            'Tan Hung': {
-                subDistrict: [
-                    'Tan Hung Township',
-                    'Hung Ha Commune',
-                    'Hung Dien B Commune',
-                    'Hung Dien Commune',
-                    'Thanh Hung Commune',
-                    'Hung Thanh Commune',
-                    'Vinh Thanh Commune',
-                    'Vinh Chau B Commune',
-                    'Vinh Loi Commune',
-                    'Vinh Dai Commune',
-                    'Vinh Chau A Commune',
-                    'Vinh Buu Commune'
-                ]
-            },
-            'Vinh Hung': {
-                subDistrict: [
-                    'Vinh Hung Township',
-                    'Hung Dien A Commune',
-                    'Khanh Hung Commune',
-                    'Thai Tri Commune',
-                    'Vinh Tri Commune',
-                    'Thai Binh Trung Commune',
-                    'Vinh Binh Commune',
-                    'Vinh Thuan Commune',
-                    'Tuyen Binh Commune',
-                    'Tuyen Binh Tay Commune'
-                ]
-            },
-            'Kien Tuong': {
-                subDistrict: [
-                    'Ward 1',
-                    'Ward 2',
-                    'Thanh Tri Commune',
-                    'Binh Hiep Commune',
-                    'Binh Tan Commune',
-                    'Tuyen Thanh Commune',
-                    'Ward 3',
-                    'Thanh Hung Commune'
-                ]
-            },
-            'Moc Hoa': {
-                subDistrict: [
-                    'Binh Hoa Tay Commune',
-                    'Binh Thanh Commune',
-                    'Binh Hoa Trung Commune',
-                    'Binh Hoa Dong Commune',
-                    'Binh Phong Thanh Township',
-                    'Tan Lap Commune',
-                    'Tan Thanh Commune'
-                ]
-            },
-            'Tan Thanh': {
-                subDistrict: [
-                    'Tan Thanh Township',
-                    'Bac Hoa Commune',
-                    'Hau Thanh Tay Commune',
-                    'Nhon Hoa Lap Commune',
-                    'Tan Lap Commune',
-                    'Hau Thanh Dong Commune',
-                    'Nhon Hoa Commune',
-                    'Kien Binh Commune',
-                    'Tan Thanh Commune',
-                    'Tan Binh Commune',
-                    'Tan Ninh Commune',
-                    'Nhon Ninh Commune',
-                    'Tan Hoa Commune'
-                ]
-            },
-            'Thanh Hoa': {
-                subDistrict: [
-                    'Thanh Hoa Township',
-                    'Tan Hiep Commune',
-                    'Thuan Binh Commune',
-                    'Thanh Phuoc Commune',
-                    'Thanh Phu Commune',
-                    'Thuan Nghia Hoa Commune',
-                    'Thuy Dong Commune',
-                    'Thuy Tay Commune',
-                    'Tan Tay Commune',
-                    'Tan Dong Commune',
-                    'Thanh An Commune'
-                ]
-            },
-            'Duc Hue': {
-                subDistrict: [
-                    'Dong Thanh Township',
-                    'My Quy Dong Commune',
-                    'My Thanh Bac Commune',
-                    'My Quy Tay Commune',
-                    'My Thanh Tay Commune',
-                    'My Thanh Dong Commune',
-                    'Binh Thanh Commune',
-                    'Binh Hoa Bac Commune',
-                    'Binh Hoa Hung Commune',
-                    'Binh Hoa Nam Commune',
-                    'My Binh Commune'
-                ]
-            },
-            'Duc Hoa': {
-                subDistrict: [
-                    'Hau Nghia Township',
-                    'Hiep Hoa Township',
-                    'Duc Hoa Township',
-                    'Loc Giang Commune',
-                    'An Ninh Dong Commune',
-                    'An Ninh Tay Commune',
-                    'Tan My Commune',
-                    'Hiep Hoa Commune',
-                    'Duc Lap Thuong Commune',
-                    'Duc Lap Ha Commune',
-                    'Tan Phu Commune',
-                    'My Hanh Bac Commune',
-                    'Duc Hoa Thuong Commune',
-                    'Hoa Khanh Tay Commune',
-                    'Hoa Khanh Dong Commune',
-                    'My Hanh Nam Commune',
-                    'Hoa Khanh Nam Commune',
-                    'Duc Hoa Dong Commune',
-                    'Duc Hoa Ha Commune',
-                    'Huu Thanh Commune'
-                ]
-            },
-            'Ben Luc': {
-                subDistrict: [
-                    'Ben Luc Township',
-                    'Thanh Loi Commune',
-                    'Luong Binh Commune',
-                    'Thanh Hoa Commune',
-                    'Luong Hoa Commune',
-                    'Tan Hoa Commune',
-                    'Tan Buu Commune',
-                    'An Thanh Commune',
-                    'Binh Duc Commune',
-                    'My Yen Commune',
-                    'Thanh Phu Commune',
-                    'Long Hiep Commune',
-                    'Thanh Duc Commune',
-                    'Phuoc Loi Commune',
-                    'Nhut Chanh Commune'
-                ]
-            },
-            'Thu Thua': {
-                subDistrict: [
-                    'Thu Thua Township',
-                    'Long Thanh Commune',
-                    'Tan Thanh Commune',
-                    'Long Thuan Commune',
-                    'My Lac Commune',
-                    'My Thanh Commune',
-                    'Binh An Commune',
-                    'Nhi Thanh Commune',
-                    'My An Commune',
-                    'Binh Thanh Commune',
-                    'My Phu Commune',
-                    'Tan Long Commune'
-                ]
-            },
-            'Tan Tru': {
-                subDistrict: [
-                    'Tan Tru Township',
-                    'Tan Binh Commune',
-                    'Que My Thanh Commune',
-                    'Lac Tan Commune',
-                    'Binh Trinh Dong Commune',
-                    'Tan Phuoc Tay Commune',
-                    'Binh Lang Commune',
-                    'Binh Tinh Commune',
-                    'Duc Tan Commune',
-                    'Nhut Ninh Commune'
-                ]
-            },
-            'Can Duoc': {
-                subDistrict: [
-                    'Can Duoc Township',
-                    'Long Trach Commune',
-                    'Long Khe Commune',
-                    'Long Dinh Commune',
-                    'Phuoc Van Commune',
-                    'Long Hoa Commune',
-                    'Long Cang Commune',
-                    'Long Son Commune',
-                    'Tan Trach Commune',
-                    'My Le Commune',
-                    'Tan Lan Commune',
-                    'Phuoc Tuy Commune',
-                    'Long Huu Dong Commune',
-                    'Tan An Commune',
-                    'Phuoc Dong Commune',
-                    'Long Huu Tay Commune',
-                    'Tan Chanh Commune'
-                ]
-            },
-            'Can Giuoc': {
-                subDistrict: [
-                    'Can Giuoc Township',
-                    'Phuoc Ly Commune',
-                    'Long Thuong Commune',
-                    'Long Hau Commune',
-                    'Phuoc Hau Commune',
-                    'My Loc Commune',
-                    'Phuoc Lai Commune',
-                    'Phuoc Lam Commune',
-                    'Thuan Thanh Commune',
-                    'Phuoc Vinh Tay Commune',
-                    'Phuoc Vinh Dong Commune',
-                    'Long An Commune',
-                    'Long Phung Commune',
-                    'Dong Thanh Commune',
-                    'Tan Tap Commune'
-                ]
-            },
-            'Chau Thanh': {
-                subDistrict: [
-                    'Tam Vu Township',
-                    'Binh Quoi Commune',
-                    'Hoa Phu Commune',
-                    'Phu Ngai Tri Commune',
-                    'Vinh Cong Commune',
-                    'Thuan My Commune',
-                    'Hiep Thanh Commune',
-                    'Phuoc Tan Hung Commune',
-                    'Thanh Phu Long Commune',
-                    'Duong Xuan Hoi Commune',
-                    'An Luc Long Commune',
-                    'Long Tri Commune',
-                    'Thanh Vinh Dong Commune'
+                    'An Khanh Ward',
+                    'An Loi Dong Ward',
+                    'An Phu Ward',
+                    'Binh Chieu Ward',
+                    'Binh Tho Ward',
+                    'Binh Trung Dong Ward',
+                    'Binh Trung Tay Ward',
+                    'Cat Lai Ward',
+                    'Hiep Binh Chanh Ward',
+                    'Hiep Binh Phuoc Ward',
+                    'Hiep Phu Ward',
+                    'Linh Chieu Ward',
+                    'Linh Dong Ward',
+                    'Linh Tay Ward',
+                    'Linh Trung Ward',
+                    'Linh Xuan Ward',
+                    'Long Binh Ward',
+                    'Long Phuoc Ward',
+                    'Long Thanh My Ward',
+                    'Long Truong Ward',
+                    'Phu Huu Ward',
+                    'Phuoc Binh Ward',
+                    'Phuoc Long A Ward',
+                    'Phuoc Long B Ward',
+                    'Tam Binh Ward',
+                    'Tam Phu Ward',
+                    'Tan Phu Ward',
+                    'Tang Nhon Phu A Ward',
+                    'Tang Nhon Phu B Ward',
+                    'Thanh My Loi Ward',
+                    'Thao Dien Ward',
+                    'Thu Thiem Ward',
+                    'Truong Thanh Ward',
+                    'Truong Tho Ward'
                 ]
             }
         },
-        'Tien Giang': {
-            'My Tho': {
+        'Tay Ninh': {
+            'Ben Cau': {
                 subDistrict: [
-                    'Ward 5',
-                    'Ward 4',
-                    'Ward 7',
-                    'Ward 3',
-                    'Ward 1',
-                    'Ward 2',
-                    'Ward 8',
-                    'Ward 6',
-                    'Ward 9',
-                    'Ward 10',
-                    'Tan Long Ward',
-                    'Dao Thanh Commune',
-                    'Trung An Commune',
-                    'My Phong Commune',
-                    'Tan My Chanh Commune',
-                    'Phuoc Thanh Commune',
-                    'Thoi Son Commune'
-                ]
-            },
-            'Go Cong': {
-                subDistrict: [
-                    'Ward 2',
-                    'Ward 1',
-                    'Ward 5',
-                    'Long Hung Ward',
-                    'Long Thuan Ward',
-                    'Long Chanh Ward',
-                    'Long Hoa Ward',
-                    'Binh Dong Commune',
-                    'Binh Xuan Commune',
-                    'Tan Trung Commune'
-                ]
-            },
-            'Tan Phuoc': {
-                subDistrict: [
-                    'My Phuoc Township',
-                    'Tan Hoa Dong Commune',
-                    'Thanh Tan Commune',
-                    'Thanh My Commune',
-                    'Thanh Hoa Commune',
-                    'Phu My Commune',
-                    'Tan Hoa Thanh Commune',
-                    'Hung Thanh Commune',
-                    'Commune Tan Lap 1',
-                    'Tan Hoa Tay Commune',
-                    'Commune Tan Lap 2',
-                    'Phuoc Lap Commune'
-                ]
-            },
-            'Cai Be': {
-                subDistrict: [
-                    'Cai Be Township',
-                    'Hau My Bac B Commune',
-                    'Hau My Bac A Commune',
-                    'My Trung Commune',
-                    'Hau My Trinh Commune',
-                    'Hau My Phu Commune',
-                    'My Tan Commune',
-                    'My Loi B Commune',
-                    'Thien Trung Commune',
-                    'My Hoi Commune',
-                    'An Cu Commune',
-                    'Hau Thanh Commune',
-                    'My Loi A Commune',
-                    'Hoa Khanh Commune',
-                    'Thien Tri Commune',
-                    'My Duc Dong Commune',
-                    'My Duc Tay Commune',
-                    'Dong Hoa Hiep Commune',
-                    'An Thai Dong Commune',
-                    'Tan Hung Commune',
-                    'My Luong Commune',
-                    'Tan Thanh Commune',
-                    'An Thai Trung Commune',
-                    'An Huu Commune',
-                    'Hoa Hung Commune'
-                ]
-            },
-            'Cai Lay': {
-                subDistrict: [
-                    'Ward 1',
-                    'Ward 2',
-                    'Ward 3',
-                    'Thanh Loc Commune',
-                    'Ward 4',
-                    'Ward 5',
-                    'My Thanh Bac Commune',
-                    'Phu Cuong Commune',
-                    'My Phuoc Tay Commune',
-                    'My Hanh Dong Commune',
-                    'My Hanh Trung Commune',
-                    'My Thanh Nam Commune',
-                    'Tan Phu Commune',
-                    'Tan Binh Commune',
-                    'Phu Nhuan Commune',
-                    'Tan Hoi Commune',
-                    'Binh Phu Township',
-                    'Nhi My Ward',
-                    'Nhi Quy Commune',
-                    'Thanh Hoa Commune',
-                    'Phu Quy Commune',
+                    'An Thanh Commune',
+                    'Ben Cau Township',
+                    'Loi Thuan Commune',
+                    'Long Chu Commune',
+                    'Long Giang Commune',
                     'Long Khanh Commune',
-                    'Cam Son Commune',
-                    'Phu An Commune',
-                    'My Long Commune',
-                    'Long Tien Commune',
-                    'Hiep Duc Commune',
-                    'Long Trung Commune',
-                    'Hoi Xuan Commune',
-                    'Tan Phong Commune',
-                    'Tam Binh Commune',
-                    'Ngu Hiep Commune'
-                ]
-            },
-            'Chau Thanh': {
-                subDistrict: [
-                    'Tan Hiep Township',
-                    'Tan Hoi Dong Commune',
-                    'Tan Huong Commune',
-                    'Tan Ly Dong Commune',
-                    'Tan Ly Tay Commune',
-                    'Than Cuu Nghia Commune',
-                    'Tam Hiep Commune',
-                    'Diem Hy Commune',
-                    'Nhi Binh Commune',
-                    'Duong Diem Commune',
-                    'Dong Hoa Commune',
-                    'Long Dinh Commune',
-                    'Huu Dao Commune',
-                    'Long An Commune',
-                    'Long Hung Commune',
-                    'Binh Trung Commune',
-                    'Thanh Phu Commune',
-                    'Ban Long Commune',
-                    'Vinh Kim Commune',
-                    'Binh Duc Commune',
-                    'Song Thuan Commune',
-                    'Kim Son Commune',
-                    'Phu Phong Commune'
-                ]
-            },
-            'Cho Gao': {
-                subDistrict: [
-                    'Cho Gao Township',
-                    'Trung Hoa Commune',
-                    'Hoa Tinh Commune',
-                    'My Tinh An Commune',
-                    'Tan Binh Thanh Commune',
-                    'Phu Kiet Commune',
-                    'Luong Hoa Lac Commune',
-                    'Thanh Binh Commune',
-                    'Quon Long Commune',
-                    'Binh Phuc Nhut Commune',
-                    'Dang Hung Phuoc Commune',
-                    'Tan Thuan Binh Commune',
-                    'Song Binh Commune',
-                    'Binh Phan Commune',
-                    'Long Binh Dien Commune',
-                    'An Thanh Thuy Commune',
-                    'Xuan Dong Commune',
-                    'Hoa Dinh Commune',
-                    'Binh Ninh Commune'
-                ]
-            },
-            'Go Cong Tay': {
-                subDistrict: [
-                    'Vinh Binh Township',
-                    'Dong Son Commune',
-                    'Binh Phu Commune',
-                    'Dong Thanh Commune',
-                    'Thanh Cong Commune',
-                    'Binh Nhi Commune',
-                    'Yen Luong Commune',
-                    'Thanh Tri Commune',
-                    'Thanh Nhut Commune',
-                    'Long Vinh Commune',
-                    'Binh Tan Commune',
-                    'Vinh Huu Commune',
-                    'Long Binh Commune'
-                ]
-            },
-            'Tan Phu Dong': {
-                subDistrict: [
-                    'Tan Thoi Commune',
-                    'Tan Phu Commune',
-                    'Phu Thanh Commune',
-                    'Tan Thanh Commune',
-                    'Phu Dong Commune',
-                    'Phu Tan Commune'
-                ]
-            },
-            'Go Cong Dong': {
-                subDistrict: [
-                    'Tan Hoa Township',
-                    'Tang Hoa Commune',
-                    'Tan Phuoc Commune',
-                    'Gia Thuan Commune',
-                    'Vam Lang Township',
-                    'Tan Tay Commune',
-                    'Kieng Phuoc Commune',
-                    'Tan Dong Commune',
-                    'Binh An Commune',
-                    'Tan Dien Commune',
-                    'Binh Nghi Commune',
-                    'Phuoc Trung Commune',
-                    'Tan Thanh Commune'
-                ]
-            }
-        },
-        'Ben Tre': {
-            'Ben Tre': {
-                subDistrict: [
-                    'Phu Khuong Ward',
-                    'Phu Tan Ward',
-                    'Ward 8',
-                    'Ward 6',
-                    'Ward 4',
-                    'Ward 5',
-                    'An Hoi Ward',
-                    'Ward 7',
-                    'Son Dong Commune',
-                    'Phu Hung Commune',
-                    'Binh Phu Commune',
-                    'My Thanh An Commune',
-                    'Nhon Thanh Commune',
-                    'Phu Nhuan Commune'
-                ]
-            },
-            'Chau Thanh': {
-                subDistrict: [
-                    'Chau Thanh Township',
-                    'Tan Thach Commune',
-                    'Quoi Son Commune',
-                    'An Khanh Commune',
-                    'Giao Long Commune',
-                    'Phu Tuc Commune',
-                    'Phu Duc Commune',
-                    'Phu An Hoa Commune',
-                    'An Phuoc Commune',
-                    'Tam Phuoc Commune',
-                    'Thanh Trieu Commune',
-                    'Tuong Da Commune',
-                    'Tan Phu Commune',
-                    'Quoi Thanh Commune',
-                    'Phuoc Thanh Commune',
-                    'An Hoa Commune',
-                    'Tien Long Commune',
-                    'An Hiep Commune',
-                    'Huu Dinh Commune',
-                    'Tien Thuy Township',
-                    'Son Hoa Commune'
-                ]
-            },
-            'Cho Lach': {
-                subDistrict: [
-                    'Cho Lach Township',
-                    'Phu Phung Commune',
-                    'Son Dinh Commune',
-                    'Vinh Binh Commune',
-                    'Hoa Nghia Commune',
-                    'Long Thoi Commune',
-                    'Phu Son Commune',
-                    'Tan Thieng Commune',
-                    'Vinh Thanh Commune',
-                    'Vinh Hoa Commune',
-                    'Hung Khanh Trung B Commune'
-                ]
-            },
-            'Mo Cay Bac': {
-                subDistrict: [
-                    'Phu My Commune',
-                    'Hung Khanh Trung A Commune',
-                    'Thanh Tan Commune',
-                    'Thanh Ngai Commune',
-                    'Tan Phu Tay Commune',
-                    'Phuoc My Trung Township',
-                    'Tan Thanh Binh Commune',
-                    'Thanh An Commune',
-                    'Hoa Loc Commune',
-                    'Tan Thanh Tay Commune',
-                    'Tan Binh Commune',
-                    'Nhuan Phu Tan Commune',
-                    'Khanh Thanh Tan Commune'
-                ]
-            },
-            'Mo Cay Nam': {
-                subDistrict: [
-                    'Mo Cay Township',
-                    'Dinh Thuy Commune',
-                    'Da Phuoc Hoi Commune',
-                    'Tan Hoi Commune',
-                    'Phuoc Hiep Commune',
-                    'Binh Khanh Commune',
-                    'An Thanh Commune',
-                    'An Dinh Commune',
-                    'Thanh Thoi B Commune',
-                    'Tan Trung Commune',
-                    'An Thoi Commune',
-                    'Thanh Thoi A Commune',
-                    'Minh Duc Commune',
-                    'Ngai Dang Commune',
-                    'Cam Son Commune',
-                    'Huong My Commune'
-                ]
-            },
-            'Giong Trom': {
-                subDistrict: [
-                    'Giong Trom Township',
-                    'Phong Nam Commune',
-                    'My Thanh Commune',
-                    'Chau Hoa Commune',
-                    'Luong Hoa Commune',
-                    'Luong Quoi Commune',
-                    'Luong Phu Commune',
-                    'Chau Binh Commune',
-                    'Thuan Dien Commune',
-                    'Son Phu Commune',
-                    'Binh Hoa Commune',
-                    'Phuoc Long Commune',
-                    'Hung Phong Commune',
-                    'Long My Commune',
-                    'Tan Hao Commune',
-                    'Binh Thanh Commune',
-                    'Tan Thanh Commune',
-                    'Tan Loi Thanh Commune',
-                    'Thanh Phu Dong Commune',
-                    'Hung Nhuong Commune',
-                    'Hung Le Commune'
-                ]
-            },
-            'Binh Dai': {
-                subDistrict: [
-                    'Binh Dai Township',
-                    'Tam Hiep Commune',
-                    'Long Dinh Commune',
-                    'Long Hoa Commune',
-                    'Phu Thuan Commune',
-                    'Vang Quoi Tay Commune',
-                    'Vang Quoi Dong Commune',
-                    'Chau Hung Commune',
-                    'Phu Vang Commune',
-                    'Loc Thuan Commune',
-                    'Dinh Trung Commune',
-                    'Thoi Lai Commune',
-                    'Binh Thoi Commune',
-                    'Phu Long Commune',
-                    'Binh Thang Commune',
-                    'Thanh Tri Commune',
-                    'Dai Hoa Loc Commune',
-                    'Thua Duc Commune',
-                    'Thanh Phuoc Commune',
-                    'Thoi Thuan Commune'
-                ]
-            },
-            'Ba Tri': {
-                subDistrict: [
-                    'Ba Tri Township',
-                    'Tan My Commune',
-                    'My Hoa Commune',
-                    'Tan Xuan Commune',
-                    'My Chanh Commune',
-                    'Bao Thanh Commune',
-                    'An Phu Trung Commune',
-                    'My Thanh Commune',
-                    'My Nhon Commune',
-                    'Phuoc Ngai Commune',
-                    'An Ngai Trung Commune',
-                    'Phu Le Commune',
-                    'An Binh Tay Commune',
-                    'Bao Thuan Commune',
-                    'Tan Hung Commune',
-                    'An Ngai Tay Commune',
-                    'An Hiep Commune',
-                    'Vinh Hoa Commune',
-                    'Tan Thuy Commune',
-                    'Vinh An Commune',
-                    'An Duc Commune',
-                    'An Hoa Tay Commune',
-                    'Tiem Tom Township'
-                ]
-            },
-            'Thanh Phu': {
-                subDistrict: [
-                    'Thanh Phu Township',
-                    'Phu Khanh Commune',
-                    'Dai Dien Commune',
-                    'Quoi Dien Commune',
-                    'Tan Phong Commune',
-                    'My Hung Commune',
-                    'An Thanh Commune',
-                    'Thoi Thanh Commune',
-                    'Hoa Loi Commune',
-                    'An Dien Commune',
-                    'Binh Thanh Commune',
-                    'An Thuan Commune',
-                    'An Quy Commune',
-                    'Thanh Hai Commune',
-                    'An Nhon Commune',
-                    'Giao Thanh Commune',
-                    'Thanh Phong Commune',
-                    'My An Commune'
-                ]
-            }
-        },
-        'Tra Vinh': {
-            'Tra Vinh': {
-                subDistrict: [
-                    'Ward 4',
-                    'Ward 1',
-                    'Ward 3',
-                    'Ward 2',
-                    'Ward 5',
-                    'Ward 6',
-                    'Ward 7',
-                    'Ward 8',
-                    'Ward 9',
-                    'Long Duc Commune'
-                ]
-            },
-            'Cang Long': {
-                subDistrict: [
-                    'Cang Long Township',
-                    'My Cam Commune',
-                    'An Truong A Commune',
-                    'An Truong Commune',
-                    'Huyen Hoi Commune',
-                    'Tan An Commune',
-                    'Tan Binh Commune',
-                    'Binh Phu Commune',
-                    'Phuong Thanh Commune',
-                    'Dai Phuc Commune',
-                    'Dai Phuoc Commune',
-                    'Nhi Long Phu Commune',
-                    'Nhi Long Commune',
-                    'Duc My Commune'
-                ]
-            },
-            'Cau Ke': {
-                subDistrict: [
-                    'Cau Ke Township',
-                    'Hoa An Commune',
-                    'Chau Dien Commune',
-                    'An Phu Tan Commune',
-                    'Hoa Tan Commune',
-                    'Ninh Thoi Commune',
-                    'Phong Phu Commune',
-                    'Phong Thanh Commune',
-                    'Tam Ngai Commune',
-                    'Thong Hoa Commune',
-                    'Thanh Phu Commune'
-                ]
-            },
-            'Tieu Can': {
-                subDistrict: [
-                    'Tieu Can Township',
-                    'Cau Quan Township',
-                    'Phu Can Commune',
-                    'Hieu Tu Commune',
-                    'Hieu Trung Commune',
-                    'Long Thoi Commune',
-                    'Hung Hoa Commune',
-                    'Tan Hung Commune',
-                    'Tap Ngai Commune',
-                    'Ngai Hung Commune',
-                    'Tan Hoa Commune'
-                ]
-            },
-            'Chau Thanh': {
-                subDistrict: [
-                    'Chau Thanh Township',
-                    'Da Loc Commune',
-                    'My Chanh Commune',
-                    'Thanh My Commune',
-                    'Luong Hoa A Commune',
-                    'Luong Hoa Commune',
-                    'Song Loc Commune',
-                    'Nguyet Hoa Commune',
-                    'Hoa Thuan Commune',
-                    'Hoa Loi Commune',
-                    'Phuoc Hao Commune',
-                    'Hung My Commune',
-                    'Hoa Minh Commune',
-                    'Long Hoa Commune'
-                ]
-            },
-            'Cau Ngang': {
-                subDistrict: [
-                    'Cau Ngang Township',
-                    'My Long Township',
-                    'My Long Bac Commune',
-                    'My Long Nam Commune',
-                    'My Hoa Commune',
-                    'Vinh Kim Commune',
-                    'Kim Hoa Commune',
-                    'Hiep Hoa Commune',
-                    'Thuan Hoa Commune',
-                    'Long Son Commune',
-                    'Nhi Truong Commune',
-                    'Truong Tho Commune',
-                    'Hiep My Dong Commune',
-                    'Hiep My Tay Commune',
-                    'Thanh Hoa Son Commune'
-                ]
-            },
-            'Tra Cu': {
-                subDistrict: [
-                    'Tra Cu Township',
-                    'Dinh An Township',
-                    'Phuoc Hung Commune',
-                    'Tap Son Commune',
-                    'Tan Son Commune',
-                    'An Quang Huu Commune',
-                    'Luu Nghiep Anh Commune',
-                    'Ngai Xuyen Commune',
-                    'Kim Son Commune',
-                    'Thanh Son Commune',
-                    'Ham Giang Commune',
-                    'Ham Tan Commune',
-                    'Dai An Commune',
-                    'Dinh An Commune',
-                    'Ngoc Bien Commune',
-                    'Long Hiep Commune',
-                    'Tan Hiep Commune'
-                ]
-            },
-            'Duyen Hai': {
-                subDistrict: [
-                    'Don Xuan Commune',
-                    'Don Chau Commune',
-                    'Ward 1',
-                    'Long Thanh Township',
-                    'Long Toan Commune',
-                    'Ward 2',
-                    'Long Huu Commune',
-                    'Long Khanh Commune',
-                    'Dan Thanh Commune',
-                    'Truong Long Hoa Commune',
-                    'Ngu Lac Commune',
-                    'Long Vinh Commune',
-                    'Dong Hai Commune',
-                    'Hiep Thanh Commune'
-                ]
-            }
-        },
-        'Vinh Long': {
-            'Vinh Long': {
-                subDistrict: [
-                    'Ward 9',
-                    'Ward 5',
-                    'Ward 1',
-                    'Ward 2',
-                    'Ward 4',
-                    'Ward 3',
-                    'Ward 8',
-                    'Tan Ngai Ward',
-                    'Tan Hoa Ward',
-                    'Tan Hoi Ward',
-                    'Truong An Ward'
-                ]
-            },
-            'Long Ho': {
-                subDistrict: [
-                    'Long Ho Township',
-                    'Dong Phu Commune',
-                    'Binh Hoa Phuoc Commune',
-                    'Hoa Ninh Commune',
-                    'An Binh Commune',
-                    'Thanh Duc Commune',
-                    'Tan Hanh Commune',
-                    'Phuoc Hau Commune',
                     'Long Phuoc Commune',
-                    'Phu Duc Commune',
-                    'Loc Hoa Commune',
-                    'Long An Commune',
-                    'Phu Quoi Commune',
-                    'Thanh Quoi Commune',
-                    'Hoa Phu Commune'
-                ]
-            },
-            'Mang Thit': {
-                subDistrict: [
-                    'My An Commune',
-                    'My Phuoc Commune',
-                    'An Phuoc Commune',
-                    'Nhon Phu Commune',
-                    'Long My Commune',
-                    'Hoa Tinh Commune',
-                    'Cai Nhum Township',
-                    'Binh Phuoc Commune',
-                    'Chanh An Commune',
-                    'Tan An Hoi Commune',
-                    'Tan Long Commune',
-                    'Tan Long Hoi Commune'
-                ]
-            },
-            'Vung Liem': {
-                subDistrict: [
-                    'Vung Liem Township',
-                    'Tan Quoi Trung Commune',
-                    'Quoi Thien Commune',
-                    'Quoi An Commune',
-                    'Trung Chanh Commune',
-                    'Tan An Luong Commune',
-                    'Thanh Binh Commune',
-                    'Trung Thanh Tay Commune',
-                    'Trung Hiep Commune',
-                    'Hieu Phung Commune',
-                    'Trung Thanh Dong Commune',
-                    'Trung Thanh Commune',
-                    'Trung Hieu Commune',
-                    'Trung Ngai Commune',
-                    'Hieu Thuan Commune',
-                    'Trung Nghia Commune',
-                    'Trung An Commune',
-                    'Hieu Nhon Commune',
-                    'Hieu Thanh Commune',
-                    'Hieu Nghia Commune'
-                ]
-            },
-            'Tam Binh': {
-                subDistrict: [
-                    'Tam Binh Township',
-                    'Tan Loc Commune',
-                    'Phu Thinh Commune',
-                    'Hau Loc Commune',
-                    'Hoa Thanh Commune',
-                    'Hoa Loc Commune',
-                    'Phu Loc Commune',
-                    'Song Phu Commune',
-                    'Hoa Hiep Commune',
-                    'My Loc Commune',
-                    'Tan Phu Commune',
-                    'Long Phu Commune',
-                    'My Thanh Trung Commune',
-                    'Tuong Loc Commune',
-                    'Loan My Commune',
-                    'Ngai Tu Commune',
-                    'Binh Ninh Commune'
-                ]
-            },
-            'Binh Minh': {
-                subDistrict: [
-                    'Cai Von Ward',
-                    'Thanh Phuoc Ward',
-                    'Thuan An Commune',
-                    'Dong Thanh Commune',
-                    'Dong Binh Commune',
-                    'Dong Thuan Ward',
-                    'My Hoa Commune'
-                ]
-            },
-            'Binh Tan': {
-                subDistrict: [
-                    'Tan Hung Commune',
-                    'Tan Thanh Commune',
-                    'Thanh Trung Commune',
-                    'Tan An Thanh Commune',
-                    'Tan Luoc Commune',
-                    'Nguyen Van Thanh Commune',
-                    'Thanh Loi Commune',
-                    'My Thuan Commune',
-                    'Tan Binh Commune',
-                    'Tan Quoi Township'
-                ]
-            },
-            'Tra On': {
-                subDistrict: [
-                    'Tra On Township',
-                    'Xuan Hiep Commune',
-                    'Nhon Binh Commune',
-                    'Hoa Binh Commune',
-                    'Thoi Hoa Commune',
-                    'Tra Con Commune',
-                    'Tan My Commune',
-                    'Huu Thanh Commune',
-                    'Vinh Xuan Commune',
-                    'Thuan Thoi Commune',
-                    'Phu Thanh Commune',
-                    'Thien My Commune',
-                    'Luc Sy Thanh Commune',
-                    'Tich Thien Commune'
-                ]
-            }
-        },
-        'Dong Thap': {
-            'Cao Lanh': {
-                subDistrict: [
-                    'Ward 11',
-                    'Ward 1',
-                    'Ward 2',
-                    'Ward 4',
-                    'Ward 3',
-                    'Ward 6',
-                    'My Ngai Commune',
-                    'My Tan Commune',
-                    'My Tra Commune',
-                    'My Phu Ward',
-                    'Tan Thuan Tay Commune',
-                    'Hoa Thuan Ward',
-                    'Hoa An Commune',
-                    'Tan Thuan Dong Commune',
-                    'Tinh Thoi Commune',
-                    'My Tho Township',
-                    'Gao Giong Commune',
-                    'Phuong Thinh Commune',
-                    'Ba Sao Commune',
-                    'Phong My Commune',
-                    'Tan Nghia Commune',
-                    'Phuong Tra Commune',
-                    'Nhi My Commune',
-                    'My Tho Commune',
-                    'Tan Hoi Trung Commune',
-                    'An Binh Commune',
-                    'My Hoi Commune',
-                    'My Hiep Commune',
-                    'My Long Commune',
-                    'Binh Hang Trung Commune',
-                    'My Xuong Commune',
-                    'Binh Hang Tay Commune',
-                    'Binh Thanh Commune'
-                ]
-            },
-            'Sa Dec': {
-                subDistrict: [
-                    'Ward 3',
-                    'Ward 1',
-                    'Ward 4',
-                    'Ward 2',
-                    'Tan Khanh Dong Commune',
-                    'Tan Quy Dong Ward',
-                    'An Hoa Ward',
-                    'Tan Quy Tay Commune',
-                    'Tan Phu Dong Commune'
-                ]
-            },
-            'Tan Hong': {
-                subDistrict: [
-                    'Sa Rai Township',
-                    'Tan Ho Co Commune',
-                    'Thong Binh Commune',
-                    'Binh Phu Commune',
-                    'Tan Thanh A Commune',
-                    'Tan Thanh B Commune',
-                    'Tan Phuoc Commune',
-                    'Tan Cong Chi Commune',
-                    'An Phuoc Commune'
-                ]
-            },
-            'Hong Ngu': {
-                subDistrict: [
-                    'An Loc Ward',
-                    'An Thanh Ward',
-                    'Commune Thuong Phuoc 1',
-                    'Binh Thanh Commune',
-                    'Thuong Thoi Hau A Commune',
-                    'Tan Hoi Commune',
-                    'Thuong Thoi Tien Township',
-                    'Commune Thuong Phuoc 2',
-                    'Thuong Lac Commune',
-                    'An Lac Ward',
-                    'Long Khanh A Commune',
-                    'Long Khanh B Commune',
-                    'An Binh B Ward',
-                    'An Binh A Ward',
                     'Long Thuan Commune',
-                    'Phu Thuan B Commune',
-                    'Phu Thuan A Commune'
-                ]
-            },
-            'Tam Nong': {
-                subDistrict: [
-                    'Tram Chim Township',
-                    'Hoa Binh Commune',
-                    'Tan Cong Sinh Commune',
-                    'Phu Hiep Commune',
-                    'Phu Duc Commune',
-                    'Phu Thanh B Commune',
-                    'An Hoa Commune',
-                    'An Long Commune',
-                    'Phu Cuong Commune',
-                    'Phu Ninh Commune',
-                    'Phu Tho Commune',
-                    'Phu Thanh A Commune'
-                ]
-            },
-            'Thap Muoi': {
-                subDistrict: [
-                    'My An Township',
-                    'Thanh Loi Commune',
-                    'Hung Thanh Commune',
-                    'Truong Xuan Commune',
-                    'Tan Kieu Commune',
-                    'My Hoa Commune',
-                    'My Quy Commune',
-                    'My Dong Commune',
-                    'Doc Binh Kieu Commune',
-                    'My An Commune',
-                    'Phu Dien Commune',
-                    'Lang Bien Commune',
-                    'Thanh My Commune'
-                ]
-            },
-            'Thanh Binh': {
-                subDistrict: [
-                    'Thanh Binh Township',
-                    'Tan Quoi Commune',
-                    'Tan Hoa Commune',
-                    'An Phong Commune',
-                    'Phu Loi Commune',
-                    'Tan My Commune',
-                    'Binh Tan Commune',
-                    'Tan Hue Commune',
-                    'Tan Binh Commune',
-                    'Tan Thanh Commune',
-                    'Tan Phu Commune',
-                    'Binh Thanh Commune',
-                    'Tan Long Commune'
-                ]
-            },
-            'Lap Vo': {
-                subDistrict: [
-                    'Lap Vo Township',
-                    'My An Hung A Commune',
-                    'Tan My Commune',
-                    'My An Hung B Commune',
-                    'Tan Khanh Trung Commune',
-                    'Long Hung A Commune',
-                    'Vinh Thanh Commune',
-                    'Long Hung B Commune',
-                    'Binh Thanh Commune',
-                    'Dinh An Commune',
-                    'Dinh Yen Commune',
-                    'Hoi An Dong Commune',
-                    'Binh Thanh Trung Commune'
-                ]
-            },
-            'Lai Vung': {
-                subDistrict: [
-                    'Lai Vung Township',
-                    'Tan Duong Commune',
-                    'Hoa Thanh Commune',
-                    'Long Hau Commune',
-                    'Tan Phuoc Commune',
-                    'Hoa Long Commune',
-                    'Tan Thanh Commune',
-                    'Long Thang Commune',
-                    'Vinh Thoi Commune',
-                    'Tan Hoa Commune',
-                    'Dinh Hoa Commune',
-                    'Phong Hoa Commune'
+                    'Tien Thuan Commune'
                 ]
             },
             'Chau Thanh': {
                 subDistrict: [
-                    'Cai Tau Ha Township',
-                    'An Hiep Commune',
-                    'An Nhon Commune',
-                    'Tan Nhuan Dong Commune',
+                    'An Binh Commune',
+                    'An Co Commune',
+                    'Bien Gioi Commune',
+                    'Chau Thanh Township',
+                    'Dong Khoi Commune',
+                    'Hao Duoc Commune',
+                    'Hoa Hoi Commune',
+                    'Hoa Thanh Commune',
+                    'Long Vinh Commune',
+                    'Ninh Dien Commune',
+                    'Phuoc Vinh Commune',
+                    'Thai Binh Commune',
+                    'Thanh Dien Commune',
+                    'Thanh Long Commune',
+                    'Tri Binh Commune'
+                ]
+            },
+            'Duong Minh Chau': {
+                subDistrict: [
+                    'Bau Nang Commune',
+                    'Ben Cui Commune',
+                    'Cau Khoi Commune',
+                    'Cha La Commune',
+                    'Duong Minh Chau Township',
+                    'Loc Ninh Commune',
+                    'Phan Commune',
+                    'Phuoc Minh Commune',
+                    'Phuoc Ninh Commune',
+                    'Suoi Da Commune',
+                    'Truong Mit Commune'
+                ]
+            },
+            'Go Dau': {
+                subDistrict: [
+                    'Bau Don Commune',
+                    'Cam Giang Commune',
+                    'Go Dau Township',
+                    'Hiep Thanh Commune',
+                    'Phuoc Dong Commune',
+                    'Phuoc Thanh Commune',
+                    'Phuoc Trach Commune',
+                    'Thanh Duc Commune',
+                    'Thanh Phuoc Commune'
+                ]
+            },
+            'Hoa Thanh': {
+                subDistrict: [
+                    'Hiep Tan Ward',
+                    'Long Hoa Ward',
+                    'Long Thanh Bac Ward',
+                    'Long Thanh Nam Commune',
+                    'Long Thanh Trung Ward',
+                    'Truong Dong Commune',
+                    'Truong Hoa Commune',
+                    'Truong Tay Commune'
+                ]
+            },
+            'Tan Bien': {
+                subDistrict: [
+                    'Hoa Hiep Commune',
+                    'Mo Cong Commune',
+                    'Tan Bien Township',
                     'Tan Binh Commune',
-                    'Tan Phu Trung Commune',
-                    'Phu Long Commune',
-                    'An Phu Thuan Commune',
-                    'Phu Huu Commune',
-                    'An Khanh Commune',
-                    'Tan Phu Commune',
-                    'Hoa Tan Commune'
-                ]
-            }
-        },
-        'An Giang': {
-            'Long Xuyen': {
-                subDistrict: [
-                    'My Binh Ward',
-                    'My Long Ward',
-                    'Dong Xuyen Ward',
-                    'My Xuyen Ward',
-                    'Binh Duc Ward',
-                    'Binh Khanh Ward',
-                    'My Phuoc Ward',
-                    'My Quy Ward',
-                    'My Thoi Ward',
-                    'My Thanh Ward',
-                    'My Hoa Ward',
-                    'My Khanh Commune',
-                    'My Hoa Hung Commune'
-                ]
-            },
-            'Chau Doc': {
-                subDistrict: [
-                    'Chau Phu B Ward',
-                    'Chau Phu A Ward',
-                    'Vinh My Ward',
-                    'Nui Sam Ward',
-                    'Vinh Nguon Ward',
-                    'Vinh Te Commune',
-                    'Vinh Chau Commune'
-                ]
-            },
-            'An Phu': {
-                subDistrict: [
-                    'An Phu Township',
-                    'Khanh An Commune',
-                    'Long Binh Township',
-                    'Khanh Binh Commune',
-                    'Quoc Thai Commune',
-                    'Nhon Hoi Commune',
-                    'Phu Huu Commune',
-                    'Phu Hoi Commune',
-                    'Phuoc Hung Commune',
-                    'Vinh Loc Commune',
-                    'Vinh Hau Commune',
-                    'Vinh Truong Commune',
-                    'Vinh Hoi Dong Commune',
-                    'Da Phuoc Township'
+                    'Tan Lap Commune',
+                    'Tan Phong Commune',
+                    'Thanh Bac Commune',
+                    'Thanh Binh Commune',
+                    'Thanh Tay Commune',
+                    'Tra Vong Commune'
                 ]
             },
             'Tan Chau': {
                 subDistrict: [
-                    'Long Thanh Ward',
-                    'Long Hung Ward',
-                    'Long Chau Ward',
-                    'Phu Loc Commune',
-                    'Vinh Xuong Commune',
-                    'Vinh Hoa Commune',
-                    'Tan Thanh Commune',
-                    'Tan An Commune',
-                    'Long An Commune',
-                    'Long Phu Ward',
-                    'Chau Phong Commune',
-                    'Phu Vinh Commune',
-                    'Le Chanh Commune',
-                    'Long Son Ward'
-                ]
-            },
-            'Phu Tan': {
-                subDistrict: [
-                    'Phu My Township',
-                    'Cho Vam Township',
-                    'Long Hoa Commune',
-                    'Phu Long Commune',
-                    'Phu Lam Commune',
-                    'Phu Hiep Commune',
-                    'Phu Thanh Commune',
-                    'Hoa Lac Commune',
-                    'Phu An Commune',
-                    'Phu Xuan Commune',
-                    'Hiep Xuong Commune',
-                    'Phu Binh Commune',
-                    'Phu Tho Commune',
-                    'Phu Hung Commune',
-                    'Binh Thanh Dong Commune',
+                    'Suoi Day Commune',
+                    'Suoi Ngo Commune',
+                    'Tan Chau Township',
+                    'Tan Dong Commune',
+                    'Tan Ha Commune',
+                    'Tan Hiep Commune',
                     'Tan Hoa Commune',
-                    'Tan Trung Commune'
-                ]
-            },
-            'Chau Phu': {
-                subDistrict: [
-                    'Cai Dau Township',
-                    'Khanh Hoa Commune',
-                    'My Duc Commune',
-                    'My Phu Commune',
-                    'O Long Vy Commune',
-                    'Vinh Thanh Trung Township',
-                    'Thanh My Tay Commune',
-                    'Binh Long Commune',
-                    'Binh My Commune',
-                    'Binh Thuy Commune',
-                    'Dao Huu Canh Commune',
-                    'Binh Phu Commune',
-                    'Binh Chanh Commune'
-                ]
-            },
-            'Tinh Bien': {
-                subDistrict: [
-                    'Nha Bang Ward',
-                    'Chi Lang Ward',
-                    'Nui Voi Ward',
-                    'Nhon Hung Ward',
-                    'An Phu Ward',
-                    'Thoi Son Ward',
-                    'Tinh Bien Ward',
-                    'Van Giao Commune',
-                    'An Cu Commune',
-                    'An Nong Commune',
-                    'Vinh Trung Commune',
-                    'Tan Loi Commune',
-                    'An Hao Commune',
-                    'Tan Lap Commune'
-                ]
-            },
-            'Tri Ton': {
-                subDistrict: [
-                    'Tri Ton Township',
-                    'Ba Chuc Township',
-                    'Lac Quoi Commune',
-                    'Le Tri Commune',
-                    'Vinh Gia Commune',
-                    'Vinh Phuoc Commune',
-                    'Chau Lang Commune',
-                    'Luong Phi Commune',
-                    'Luong An Tra Commune',
-                    'Ta Danh Commune',
-                    'Nui To Commune',
-                    'An Tuc Commune',
-                    'Co To Township',
-                    'Tan Tuyen Commune',
-                    'O Lam Commune'
-                ]
-            },
-            'Chau Thanh': {
-                subDistrict: [
-                    'An Chau Township',
-                    'An Hoa Commune',
-                    'Can Dang Commune',
-                    'Vinh Hanh Commune',
-                    'Binh Thanh Commune',
-                    'Vinh Binh Township',
-                    'Binh Hoa Commune',
-                    'Vinh An Commune',
-                    'Hoa Binh Thanh Commune',
-                    'Vinh Loi Commune',
-                    'Vinh Nhuan Commune',
-                    'Tan Phu Commune',
-                    'Vinh Thanh Commune'
-                ]
-            },
-            'Cho Moi': {
-                subDistrict: [
-                    'Cho Moi Township',
-                    'My Luong Township',
-                    'Kien An Commune',
-                    'My Hoi Dong Commune',
-                    'Long Dien A Commune',
-                    'Tan My Commune',
-                    'Long Dien B Commune',
-                    'Kien Thanh Commune',
-                    'My Hiep Commune',
-                    'My An Commune',
-                    'Nhon My Commune',
-                    'Long Giang Commune',
-                    'Long Kien Commune',
-                    'Binh Phuoc Xuan Commune',
-                    'An Thanh Trung Commune',
-                    'Hoi An Township',
-                    'Hoa Binh Commune',
-                    'Hoa An Commune'
-                ]
-            },
-            'Thoai Son': {
-                subDistrict: [
-                    'Nui Sap Township',
-                    'Phu Hoa Township',
-                    'Oc Eo Township',
-                    'Tay Phu Commune',
-                    'An Binh Commune',
-                    'Vinh Phu Commune',
-                    'Vinh Trach Commune',
-                    'Phu Thuan Commune',
-                    'Vinh Chanh Commune',
-                    'Dinh My Commune',
-                    'Dinh Thanh Commune',
-                    'My Phu Dong Commune',
-                    'Vong Dong Commune',
-                    'Vinh Khanh Commune',
-                    'Thoai Giang Commune',
-                    'Binh Thanh Commune',
-                    'Vong The Commune'
-                ]
-            }
-        },
-        'Kien Giang': {
-            'Rach Gia': {
-                subDistrict: [
-                    'Vinh Thanh Van Ward',
-                    'Vinh Thanh Ward',
-                    'Vinh Quang Ward',
-                    'Vinh Hiep Ward',
-                    'Vinh Bao Ward',
-                    'Vinh Lac Ward',
-                    'An Hoa Ward',
-                    'An Binh Ward',
-                    'Rach Soi Ward',
-                    'Vinh Loi Ward',
-                    'Vinh Thong Ward',
-                    'Phi Thong Commune'
-                ]
-            },
-            'Ha Tien': {
-                subDistrict: [
-                    'To Chau Ward',
-                    'Dong Ho Ward',
-                    'Binh San Ward',
-                    'Phao Dai Ward',
-                    'My Duc Ward',
-                    'Tien Hai Commune',
-                    'Thuan Yen Commune'
-                ]
-            },
-            'Kien Luong': {
-                subDistrict: [
-                    'Kien Luong Township',
-                    'Kien Binh Commune',
-                    'Hoa Dien Commune',
-                    'Duong Hoa Commune',
-                    'Binh An Commune',
-                    'Binh Tri Commune',
-                    'Son Hai Commune',
-                    'Hon Nghe Commune'
-                ]
-            },
-            'Giang Thanh': {
-                subDistrict: [
-                    'Vinh Phu Commune',
-                    'Vinh Dieu Commune',
-                    'Tan Khanh Hoa Commune',
-                    'Phu Loi Commune',
-                    'Phu My Commune'
-                ]
-            },
-            'Hon Dat': {
-                subDistrict: [
-                    'Hon Dat Township',
-                    'Soc Son Township',
-                    'Binh Son Commune',
-                    'Binh Giang Commune',
-                    'My Thai Commune',
-                    'Nam Thai Son Commune',
-                    'My Hiep Son Commune',
-                    'Son Kien Commune',
-                    'Son Binh Commune',
-                    'My Thuan Commune',
-                    'Linh Huynh Commune',
-                    'Tho Son Commune',
-                    'My Lam Commune',
-                    'My Phuoc Commune'
-                ]
-            },
-            'Tan Hiep': {
-                subDistrict: [
-                    'Tan Hiep Township',
                     'Tan Hoi Commune',
+                    'Tan Hung Commune',
+                    'Tan Phu Commune',
                     'Tan Thanh Commune',
-                    'Tan Hiep B Commune',
-                    'Tan Hoa Commune',
-                    'Thanh Dong B Commune',
-                    'Thanh Dong Commune',
-                    'Tan Hiep A Commune',
-                    'Tan An Commune',
-                    'Thanh Dong A Commune',
-                    'Thanh Tri Commune'
+                    'Thanh Dong Commune'
                 ]
             },
-            'Chau Thanh': {
+            'Tay Ninh': {
                 subDistrict: [
-                    'Minh Luong Township',
-                    'Mong Tho A Commune',
-                    'Mong Tho B Commune',
-                    'Mong Tho Commune',
-                    'Giuc Tuong Commune',
-                    'Vinh Hoa Hiep Commune',
-                    'Vinh Hoa Phu Commune',
-                    'Minh Hoa Commune',
-                    'Binh An Commune',
-                    'Thanh Loc Commune'
-                ]
-            },
-            'Giong Rieng': {
-                subDistrict: [
-                    'Giong Rieng Township',
-                    'Thanh Hung Commune',
-                    'Thanh Phuoc Commune',
-                    'Thanh Loc Commune',
-                    'Thanh Hoa Commune',
-                    'Thanh Binh Commune',
-                    'Ban Thach Commune',
-                    'Ban Tan Dinh Commune',
-                    'Ngoc Thanh Commune',
-                    'Ngoc Chuc Commune',
-                    'Ngoc Thuan Commune',
-                    'Hoa Hung Commune',
-                    'Hoa Loi Commune',
-                    'Hoa An Commune',
-                    'Long Thanh Commune',
-                    'Vinh Thanh Commune',
-                    'Vinh Phu Commune',
-                    'Hoa Thuan Commune',
-                    'Ngoc Hoa Commune'
-                ]
-            },
-            'Go Quao': {
-                subDistrict: [
-                    'Go Quao Township',
-                    'Vinh Hoa Hung Bac Commune',
-                    'Dinh Hoa Commune',
-                    'Thoi Quan Commune',
-                    'Dinh An Commune',
-                    'Thuy Lieu Commune',
-                    'Vinh Hoa Hung Nam Commune',
-                    'Vinh Phuoc A Commune',
-                    'Vinh Phuoc B Commune',
-                    'Vinh Tuy Commune',
-                    'Vinh Thang Commune'
-                ]
-            },
-            'An Bien': {
-                subDistrict: [
-                    'Thu Ba Township',
-                    'Tay Yen Commune',
-                    'Tay Yen A Commune',
-                    'Nam Yen Commune',
-                    'Hung Yen Commune',
-                    'Nam Thai Commune',
-                    'Nam Thai A Commune',
-                    'Dong Thai Commune',
-                    'Dong Yen Commune'
-                ]
-            },
-            'U Minh Thuong': {
-                subDistrict: [
-                    'Thanh Yen Commune',
-                    'Thanh Yen A Commune',
-                    'An Minh Bac Commune',
-                    'Vinh Hoa Commune',
-                    'Hoa Chanh Commune',
-                    'Minh Thuan Commune'
-                ]
-            },
-            'An Minh': {
-                subDistrict: [
-                    'Thu Muoi Mot Township',
-                    'Thuan Hoa Commune',
-                    'Dong Hoa Commune',
-                    'Dong Thanh Commune',
-                    'Tan Thanh Commune',
-                    'Dong Hung Commune',
-                    'Dong Hung A Commune',
-                    'Dong Hung B Commune',
-                    'Van Khanh Commune',
-                    'Van Khanh Dong Commune',
-                    'Van Khanh Tay Commune'
-                ]
-            },
-            'Vinh Thuan': {
-                subDistrict: [
-                    'Vinh Thuan Township',
-                    'Vinh Binh Bac Commune',
-                    'Vinh Binh Nam Commune',
                     'Binh Minh Commune',
-                    'Vinh Thuan Commune',
-                    'Tan Thuan Commune',
-                    'Phong Dong Commune',
-                    'Vinh Phong Commune'
-                ]
-            },
-            'Phu Quoc': {
-                subDistrict: [
-                    'Duong Dong Ward',
-                    'An Thoi Ward',
-                    'Cua Can Commune',
-                    'Ganh Dau Commune',
-                    'Cua Duong Commune',
-                    'Ham Ninh Commune',
-                    'Duong To Commune',
-                    'Bai Thom Commune',
-                    'Tho Chau Commune'
-                ]
-            },
-            'Kien Hai': {
-                subDistrict: [
-                    'Hon Tre Commune',
-                    'Lai Son Commune',
-                    'An Son Commune',
-                    'Nam Du Commune'
-                ]
-            }
-        },
-        'Can Tho': {
-            'Ninh Kieu': {
-                subDistrict: [
-                    'Cai Khe Ward',
-                    'An Hoa Ward',
-                    'Thoi Binh Ward',
-                    'An Nghiep Ward',
-                    'An Cu Ward',
-                    'Tan An Ward',
-                    'An Phu Ward',
-                    'Xuan Khanh Ward',
-                    'Hung Loi Ward',
-                    'An Khanh Ward',
-                    'An Binh Ward'
-                ]
-            },
-            'O Mon': {
-                subDistrict: [
-                    'Chau Van Liem Ward',
-                    'Thoi Hoa Ward',
-                    'Thoi Long Ward',
-                    'Long Hung Ward',
-                    'Thoi An Ward',
-                    'Phuoc Thoi Ward',
-                    'Truong Lac Ward'
-                ]
-            },
-            'Binh Thuy': {
-                subDistrict: [
-                    'Binh Thuy Ward',
-                    'Tra An Ward',
-                    'Tra Noc Ward',
-                    'Thoi An Dong Ward',
-                    'An Thoi Ward',
-                    'Bui Huu Nghia Ward',
-                    'Long Hoa Ward',
-                    'Long Tuyen Ward'
-                ]
-            },
-            'Cai Rang': {
-                subDistrict: [
-                    'Le Binh Ward',
-                    'Hung Phu Ward',
-                    'Hung Thanh Ward',
-                    'Ba Lang Ward',
-                    'Thuong Thanh Ward',
-                    'Phu Thu Ward',
-                    'Tan Phu Ward'
-                ]
-            },
-            'Thot Not': {
-                subDistrict: [
-                    'Thot Not Ward',
-                    'Thoi Thuan Ward',
-                    'Thuan An Ward',
-                    'Tan Loc Ward',
-                    'Trung Nhut Ward',
-                    'Thanh Hoa Ward',
-                    'Trung Kien Ward',
-                    'Tan Hung Ward',
-                    'Thuan Hung Ward'
-                ]
-            },
-            'Vinh Thanh': {
-                subDistrict: [
-                    'Vinh Binh Commune',
-                    'Thanh An Township',
-                    'Vinh Thanh Township',
-                    'Thanh My Commune',
-                    'Vinh Trinh Commune',
-                    'Thanh An Commune',
-                    'Thanh Tien Commune',
-                    'Thanh Thang Commune',
-                    'Thanh Loi Commune',
-                    'Thanh Quoi Commune',
-                    'Thanh Loc Commune'
-                ]
-            },
-            'Co Do': {
-                subDistrict: [
-                    'Trung An Commune',
-                    'Trung Thanh Commune',
-                    'Thanh Phu Commune',
-                    'Trung Hung Commune',
-                    'Co Do Township',
-                    'Thoi Hung Commune',
-                    'Dong Hiep Commune',
-                    'Dong Thang Commune',
-                    'Thoi Dong Commune',
-                    'Thoi Xuan Commune'
-                ]
-            },
-            'Thoi Lai': {
-                subDistrict: [
-                    'Thoi Lai Township',
-                    'Thoi Thanh Commune',
-                    'Tan Thanh Commune',
-                    'Xuan Thang Commune',
-                    'Dong Binh Commune',
-                    'Dong Thuan Commune',
-                    'Thoi Tan Commune',
-                    'Truong Thang Commune',
-                    'Dinh Mon Commune',
-                    'Truong Thanh Commune',
-                    'Truong Xuan Commune',
-                    'Truong Xuan A Commune',
-                    'Truong Xuan B Commune'
-                ]
-            },
-            'Phong Dien': {
-                subDistrict: [
-                    'Phong Dien Township',
-                    'Nhon Ai Commune',
-                    'Giai Xuan Commune',
-                    'Tan Thoi Commune',
-                    'Truong Long Commune',
-                    'My Khanh Commune',
-                    'Nhon Nghia Commune'
-                ]
-            }
-        },
-        'Hau Giang': {
-            'Vi Thanh': {
-                subDistrict: [
-                    'I Ward',
-                    'III Ward',
-                    'IV Ward',
-                    'V Ward',
-                    'VII Ward',
-                    'Vi Tan Commune',
-                    'Hoa Luu Commune',
-                    'Tan Tien Commune',
-                    'Hoa Tien Commune'
-                ]
-            },
-            'Nga Bay': {
-                subDistrict: [
-                    'Nga Bay Ward',
-                    'Lai Hieu Ward',
-                    'Hiep Thanh Ward',
-                    'Hiep Loi Ward',
-                    'Dai Thanh Commune',
-                    'Tan Thanh Commune'
-                ]
-            },
-            'Chau Thanh A': {
-                subDistrict: [
-                    'Mot Ngan Township',
-                    'Tan Hoa Commune',
-                    'Bay Ngan Township',
-                    'Truong Long Tay Commune',
-                    'Truong Long A Commune',
-                    'Nhon Nghia A Commune',
-                    'Rach Goi Township',
-                    'Thanh Xuan Commune',
-                    'Cai Tac Township',
-                    'Tan Phu Thanh Commune'
-                ]
-            },
-            'Chau Thanh': {
-                subDistrict: [
-                    'Nga Sau Township',
-                    'Dong Thanh Commune',
-                    'Dong Phu Commune',
-                    'Phu Huu Commune',
-                    'Phu Tan Commune',
-                    'Mai Dam Township',
-                    'Dong Phuoc Commune',
-                    'Dong Phuoc A Commune'
-                ]
-            },
-            'Phung Hiep': {
-                subDistrict: [
-                    'Kinh Cung Township',
-                    'Cay Duong Township',
+                    'Hiep Ninh Ward',
+                    'Ninh Son Ward',
+                    'Ninh Thanh Ward',
                     'Tan Binh Commune',
-                    'Binh Thanh Commune',
-                    'Thanh Hoa Commune',
-                    'Long Thanh Commune',
-                    'Phung Hiep Commune',
-                    'Hoa My Commune',
-                    'Hoa An Commune',
-                    'Phuong Binh Commune',
-                    'Hiep Hung Commune',
-                    'Tan Phuoc Hung Commune',
-                    'Bung Tau Township',
-                    'Phuong Phu Commune',
-                    'Tan Long Commune'
-                ]
-            },
-            'Vi Thuy': {
-                subDistrict: [
-                    'Nang Mau Township',
-                    'Vi Trung Commune',
-                    'Vi Thuy Commune',
-                    'Vi Thang Commune',
-                    'Vinh Thuan Tay Commune',
-                    'Vinh Trung Commune',
-                    'Vinh Tuong Commune',
-                    'Vi Dong Commune',
-                    'Vi Thanh Commune',
-                    'Vi Binh Commune'
-                ]
-            },
-            'Long My': {
-                subDistrict: [
-                    'Thuan An Ward',
-                    'Tra Long Ward',
-                    'Binh Thanh Ward',
-                    'Long Binh Commune',
-                    'Vinh Tuong Ward',
-                    'Long Tri Commune',
-                    'Long Tri A Commune',
-                    'Long Phu Commune',
-                    'Tan Phu Commune',
-                    'Thuan Hung Commune',
-                    'Thuan Hoa Commune',
-                    'Vinh Thuan Dong Commune',
-                    'Vinh Vien Township',
-                    'Vinh Vien A Commune',
-                    'Luong Tam Commune',
-                    'Luong Nghia Commune',
-                    'Xa Phien Commune'
-                ]
-            }
-        },
-        'Soc Trang': {
-            'Soc Trang': {
-                subDistrict: [
-                    'Ward 5',
-                    'Ward 7',
-                    'Ward 8',
-                    'Ward 6',
-                    'Ward 2',
-                    'Ward 4',
-                    'Ward 3',
-                    'Ward 1',
-                    'Ward 10'
-                ]
-            },
-            'Ke Sach': {
-                subDistrict: [
-                    'Ke Sach Township',
-                    'An Lac Thon Township',
-                    'Xuan Hoa Commune',
-                    'Phong Nam Commune',
-                    'An Lac Tay Commune',
-                    'Trinh Phu Commune',
-                    'Ba Trinh Commune',
-                    'Thoi An Hoi Commune',
-                    'Nhon My Commune',
-                    'Ke Thanh Commune',
-                    'Ke An Commune',
-                    'Dai Hai Commune',
-                    'An My Commune'
-                ]
-            },
-            'My Tu': {
-                subDistrict: [
-                    'Huynh Huu Nghia Township',
-                    'Long Hung Commune',
-                    'Hung Phu Commune',
-                    'My Huong Commune',
-                    'My Tu Commune',
-                    'My Phuoc Commune',
-                    'Thuan Hung Commune',
-                    'My Thuan Commune',
-                    'Phu My Commune'
-                ]
-            },
-            'Chau Thanh': {
-                subDistrict: [
-                    'Chau Thanh Township',
-                    'Ho Dac Kien Commune',
-                    'Phu Tam Commune',
-                    'Thuan Hoa Commune',
-                    'Phu Tan Commune',
-                    'Thien My Commune',
-                    'An Hiep Commune',
-                    'An Ninh Commune'
-                ]
-            },
-            'Cu Lao Dung': {
-                subDistrict: [
-                    'Cu Lao Dung Township',
-                    'Commune An Thanh 1',
-                    'An Thanh Tay Commune',
-                    'An Thanh Dong Commune',
-                    'Commune Dai An 1',
-                    'Commune An Thanh 2',
-                    'Commune An Thanh 3',
-                    'An Thanh Nam Commune'
-                ]
-            },
-            'Long Phu': {
-                subDistrict: [
-                    'Long Phu Township',
-                    'Song Phung Commune',
-                    'Dai Ngai Township',
-                    'Hau Thanh Commune',
-                    'Long Duc Commune',
-                    'Truong Khanh Commune',
-                    'Phu Huu Commune',
-                    'Tan Hung Commune',
-                    'Chau Khanh Commune',
-                    'Tan Thanh Commune',
-                    'Long Phu Commune'
-                ]
-            },
-            'Tran De': {
-                subDistrict: [
-                    'Commune Dai An 2',
-                    'Tran De Township',
-                    'Lieu Tu Commune',
-                    'Lich Hoi Thuong Commune',
-                    'Lich Hoi Thuong Township',
-                    'Trung Binh Commune',
-                    'Tai Van Commune',
-                    'Vien An Commune',
-                    'Thanh Thoi An Commune',
-                    'Thanh Thoi Thuan Commune',
-                    'Vien Binh Commune'
-                ]
-            },
-            'My Xuyen': {
-                subDistrict: [
-                    'My Xuyen Township',
-                    'Dai Tam Commune',
-                    'Tham Don Commune',
-                    'Thanh Phu Commune',
-                    'Ngoc Dong Commune',
-                    'Thanh Quoi Commune',
-                    'Commune Hoa Tu 1',
-                    'Commune Gia Hoa 1',
-                    'Ngoc To Commune',
-                    'Commune Gia Hoa 2',
-                    'Hoa Tu II Commune'
-                ]
-            },
-            'Nga Nam': {
-                subDistrict: [
-                    'Ward 1',
-                    'Ward 2',
-                    'Vinh Quoi Commune',
-                    'Tan Long Commune',
-                    'Long Binh Commune',
-                    'Ward 3',
-                    'My Binh Commune',
-                    'My Quoi Commune'
-                ]
-            },
-            'Thanh Tri': {
-                subDistrict: [
-                    'Phu Loc Township',
-                    'Hung Loi Township',
-                    'Lam Tan Commune',
                     'Thanh Tan Commune',
-                    'Lam Kiet Commune',
-                    'Tuan Tuc Commune',
-                    'Vinh Thanh Commune',
-                    'Thanh Tri Commune',
-                    'Vinh Loi Commune',
-                    'Chau Hung Commune'
-                ]
-            },
-            'Vinh Chau': {
-                subDistrict: [
                     'Ward 1',
-                    'Hoa Dong Commune',
-                    'Khanh Hoa Ward',
-                    'Vinh Hiep Commune',
-                    'Vinh Hai Commune',
-                    'Lac Hoa Commune',
-                    'Ward 2',
-                    'Vinh Phuoc Ward',
-                    'Vinh Tan Commune',
-                    'Lai Hoa Commune'
-                ]
-            }
-        },
-        'Bac Lieu': {
-            'Bac Lieu': {
-                subDistrict: [
                     'Ward 2',
                     'Ward 3',
-                    'Ward 5',
-                    'Ward 7',
-                    'Ward 1',
-                    'Ward 8',
-                    'Nha Mat Ward',
-                    'Vinh Trach Commune',
-                    'Vinh Trach Dong Commune',
-                    'Hiep Thanh Commune'
+                    'Ward 4'
                 ]
             },
-            'Hong Dan': {
+            'Trang Bang': {
                 subDistrict: [
-                    'Ngan Dua Township',
-                    'Ninh Quoi Commune',
-                    'Ninh Quoi A Commune',
-                    'Ninh Hoa Commune',
-                    'Loc Ninh Commune',
-                    'Vinh Loc Commune',
-                    'Vinh Loc A Commune',
-                    'Ninh Thanh Loi A Commune',
-                    'Ninh Thanh Loi Commune'
-                ]
-            },
-            'Phuoc Long': {
-                subDistrict: [
-                    'Phuoc Long Township',
-                    'Vinh Phu Dong Commune',
-                    'Vinh Phu Tay Commune',
-                    'Phuoc Long Commune',
-                    'Hung Phu Commune',
-                    'Vinh Thanh Commune',
-                    'Phong Thanh Tay A Commune',
-                    'Phong Thanh Tay B Commune'
-                ]
-            },
-            'Hoa Binh': {
-                subDistrict: [
-                    'Hoa Binh Township',
-                    'Minh Dieu Commune',
-                    'Vinh Binh Commune',
-                    'Vinh My B Commune',
-                    'Vinh Hau Commune',
-                    'Vinh Hau A Commune',
-                    'Vinh My A Commune',
-                    'Vinh Thinh Commune'
-                ]
-            },
-            'Vinh Loi': {
-                subDistrict: [
-                    'Vinh Hung Commune',
-                    'Vinh Hung A Commune',
-                    'Chau Hung Township',
-                    'Chau Hung A Commune',
-                    'Hung Thanh Commune',
-                    'Hung Hoi Commune',
-                    'Chau Thoi Commune',
-                    'Long Thanh Commune'
-                ]
-            },
-            'Gia Rai': {
-                subDistrict: [
-                    'Ward 1',
-                    'Ho Phong Ward',
-                    'Phong Thanh Dong Commune',
-                    'Lang Tron Ward',
-                    'Phong Tan Commune',
-                    'Tan Phong Commune',
-                    'Phong Thanh Commune',
-                    'Phong Thanh A Commune',
-                    'Phong Thanh Tay Commune',
-                    'Tan Thanh Commune'
-                ]
-            },
-            'Dong Hai': {
-                subDistrict: [
-                    'Ganh Hao Township',
-                    'Long Dien Dong Commune',
-                    'Long Dien Dong A Commune',
-                    'Long Dien Commune',
-                    'Long Dien Tay Commune',
-                    'Dien Hai Commune',
-                    'An Trach Commune',
-                    'An Trach A Commune',
-                    'An Phuc Commune',
-                    'Dinh Thanh Commune',
-                    'Dinh Thanh A Commune'
-                ]
-            }
-        },
-        'Ca Mau': {
-            'Ca Mau': {
-                subDistrict: [
-                    'Ward 9',
-                    'Ward 4',
-                    'Ward 1',
-                    'Ward 5',
-                    'Ward 2',
-                    'Ward 8',
-                    'Ward 6',
-                    'Ward 7',
-                    'Tan Xuyen Ward',
-                    'An Xuyen Commune',
-                    'Tan Thanh Ward',
-                    'Tan Thanh Commune',
-                    'Tac Van Commune',
-                    'Ly Van Lam Commune',
-                    'Dinh Binh Commune',
-                    'Hoa Thanh Commune',
-                    'Hoa Tan Commune'
-                ]
-            },
-            'U Minh': {
-                subDistrict: [
-                    'U Minh Township',
-                    'Khanh Hoa Commune',
-                    'Khanh Thuan Commune',
-                    'Khanh Tien Commune',
-                    'Nguyen Phich Commune',
-                    'Khanh Lam Commune',
-                    'Khanh An Commune',
-                    'Khanh Hoi Commune'
-                ]
-            },
-            'Thoi Binh': {
-                subDistrict: [
-                    'Thoi Binh Township',
-                    'Bien Bach Commune',
-                    'Tan Bang Commune',
-                    'Tri Phai Commune',
-                    'Tri Luc Commune',
-                    'Bien Bach Dong Commune',
-                    'Thoi Binh Commune',
-                    'Tan Phu Commune',
-                    'Tan Loc Bac Commune',
-                    'Tan Loc Commune',
-                    'Tan Loc Dong Commune',
-                    'Ho Thi Ky Commune'
-                ]
-            },
-            'Tran Van Thoi': {
-                subDistrict: [
-                    'Tran Van Thoi Township',
-                    'Song Doc Township',
-                    'Khanh Binh Tay Bac Commune',
-                    'Khanh Binh Tay Commune',
-                    'Tran Hoi Commune',
-                    'Khanh Loc Commune',
-                    'Khanh Binh Commune',
-                    'Khanh Hung Commune',
-                    'Khanh Binh Dong Commune',
-                    'Khanh Hai Commune',
-                    'Loi An Commune',
-                    'Phong Dien Commune',
-                    'Phong Lac Commune'
-                ]
-            },
-            'Cai Nuoc': {
-                subDistrict: [
-                    'Cai Nuoc Township',
-                    'Thanh Phu Commune',
-                    'Luong The Tran Commune',
-                    'Phu Hung Commune',
-                    'Tan Hung Commune',
-                    'Hung My Commune',
-                    'Hoa My Commune',
-                    'Dong Hung Commune',
-                    'Dong Thoi Commune',
-                    'Tan Hung Dong Commune',
-                    'Tran Thoi Commune'
-                ]
-            },
-            'Dam Doi': {
-                subDistrict: [
-                    'Dam Doi Township',
-                    'Ta An Khuong Commune',
-                    'Ta An Khuong Dong Commune',
-                    'Tran Phan Commune',
-                    'Tan Trung Commune',
-                    'Tan Duc Commune',
-                    'Tan Thuan Commune',
-                    'Ta An Khuong Nam Commune',
-                    'Tan Duyet Commune',
-                    'Tan Dan Commune',
-                    'Tan Tien Commune',
-                    'Quach Pham Bac Commune',
-                    'Quach Pham Commune',
-                    'Thanh Tung Commune',
-                    'Ngoc Chanh Commune',
-                    'Nguyen Huan Commune'
-                ]
-            },
-            'Nam Can': {
-                subDistrict: [
-                    'Nam Can Township',
-                    'Ham Rong Commune',
-                    'Hiep Tung Commune',
-                    'Dat Moi Commune',
-                    'Lam Hai Commune',
-                    'Hang Vinh Commune',
-                    'Tam Giang Commune',
-                    'Tam Giang Dong Commune'
-                ]
-            },
-            'Phu Tan': {
-                subDistrict: [
-                    'Cai Doi Vam Township',
-                    'Phu Thuan Commune',
-                    'Phu My Commune',
-                    'Phu Tan Commune',
-                    'Tan Hai Commune',
-                    'Viet Thang Commune',
-                    'Tan Hung Tay Commune',
-                    'Rach Cheo Commune',
-                    'Nguyen Viet Khai Commune'
-                ]
-            },
-            'Ngoc Hien': {
-                subDistrict: [
-                    'Tam Giang Tay Commune',
-                    'Tan An Tay Commune',
-                    'Vien An Dong Commune',
-                    'Vien An Commune',
-                    'Rach Goc Township',
-                    'Tan An Commune',
-                    'Dat Mui Commune'
+                    'An Hoa Ward',
+                    'An Tinh Ward',
+                    'Don Thuan Commune',
+                    'Gia Binh Ward',
+                    'Gia Loc Ward',
+                    'Hung Thuan Commune',
+                    'Loc Hung Ward',
+                    'Phuoc Binh Commune',
+                    'Phuoc Chi Commune',
+                    'Trang Bang Ward'
                 ]
             }
         }
