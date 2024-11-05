@@ -257,12 +257,14 @@ function placeOrder(order, is2c2pCallback, _2c2pRes, paymentChannel, server, req
     order.setConfirmationStatus(Order.CONFIRMATION_STATUS_CONFIRMED);
     order.setExportStatus(Order.EXPORT_STATUS_READY);
     order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
-    paymentTransaction.paymentInstrument.paymentTransaction.transactionID = _2c2pRes.response.transaction.txnRef;
+    paymentTransaction.paymentInstrument.paymentTransaction.transactionID ='response' in _2c2pRes ? _2c2pRes.response.transaction.txnRef : '';
     order.custom['2c2pPaymentMethod'] = paymentChannel;
-    order.custom['2c2ptransactionID']= _2c2pRes.response.transaction.txnRef;
-    var check2c2pPendingStatus = co.getCustomObject('2c2pPendingStatus', _2c2pRes.response.transaction.txnRef);
-    if (check2c2pPendingStatus) {
-      co.remove(check2c2pPendingStatus);
+    order.custom['2c2ptransactionID']= 'response' in _2c2pRes ? _2c2pRes.response.transaction.txnRef : '';
+    if('response' in _2c2pRes) {
+      var check2c2pPendingStatus = co.getCustomObject('2c2pPendingStatus', _2c2pRes.response.transaction.txnRef);
+      if (check2c2pPendingStatus) {
+        co.remove(check2c2pPendingStatus);
+      }
     }
     paymentTransaction.paymentInstrument.custom['2c2pLog'] = JSON.stringify(queryParam);
     Transaction.commit();
