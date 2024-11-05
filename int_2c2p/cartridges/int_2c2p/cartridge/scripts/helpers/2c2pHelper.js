@@ -18,6 +18,25 @@ var URLUtils = require('dw/web/URLUtils');
 var logger = require('dw/system/Logger').getLogger('2c2p');
 var OrderHelpers = require('*/cartridge/scripts/order/orderHelpers');
 var collections = require('*/cartridge/scripts/util/collections');
+var Site = require('dw/system/Site');
+
+function getAddress(address) {
+  return address.address1 + ' ' + address.address2 + ' ' + address.city  + ' ' + address.stateCode + ' ' + address.postalCode;
+}
+
+function getItems(productLineItems) {
+  var items = collections.map(productLineItems, function (productLineItem) {
+    return {
+      reference: '',
+      total_unit_amount: productLineItem.adjustedGrossPrice.value,
+      no_of_unit: productLineItem.quantityValue,
+      name: productLineItem.lineItemText,
+      tax: productLineItem.adjustedTax.value,
+      unit_amount: productLineItem.basePrice.value
+    }
+  })
+  return items;
+}
 
 /**
  * createRequestBody function is responsible to generate the Request Body For Payment URL Request
@@ -26,7 +45,7 @@ var collections = require('*/cartridge/scripts/util/collections');
  * @param  {Object} paymentForm paymentForm Filled during checkout
  * @return {string} stringified request
  */
-function createRequestBody(order, basket, paymentForm, req) {
+function createRequestBody(order, basket, paymentForm, req, payoo) {
   var transaction = {};
   var system = {};
   var payment = {};
@@ -56,14 +75,47 @@ function createRequestBody(order, basket, paymentForm, req) {
   merchant.merId = _2c2pPreferences.hsbcMerchantID;
   customer.email = paymentForm.contactInfoFields.email.htmlValue;
   reqOrder.description = 'Payment For BBW Order no.' + order.orderNo;
-  reqBody = {
-    transaction: transaction,
-    system: system,
-    payment: payment,
-    merchant: merchant,
-    customer: customer,
-    order: reqOrder
-  };
+  if (payoo) {
+    var url_setting = {
+      webhook: _2c2pPreferences.hsbcMerchantNotificationUrl.toString(),
+      return_page: URLUtils.abs(_2c2pPreferences.hsbcMerchantCallBackUrl, 'order', order.currentOrderNo).toString()
+    }
+    var page_setting = {
+      payment_option: ['card','installment','wallet'],
+      expiry: parseInt((Date.now() + 86400) / 1000, 10)
+    }
+    var customer = {
+      address: getAddress(basket.defaultShipment.shippingAddress),
+      phone: paymentForm.contactInfoFields.phone.htmlValue,
+      last_name: basket.defaultShipment.shippingAddress.lastName,
+      first_name: basket.defaultShipment.shippingAddress.firstName,
+      email: paymentForm.contactInfoFields.email.htmlValue
+    }
+    var checkout_model = {
+      vn_py_hosted_checkout : {
+        url_setting: url_setting,
+        page_setting: page_setting,
+        customer: customer
+      }
+    }
+    reqBody = {
+      amount: payment.amount,
+      checkout_model: checkout_model,
+      description: 'Payment For BBW Order no' + order.orderNo.toString(),
+      currency: Site.getCurrent().currencyCode.toLowerCase(),
+      id: order.orderNo.toString(),
+      items: getItems(basket.allProductLineItems)
+    }
+  } else {
+    reqBody = {
+      transaction: transaction,
+      system: system,
+      payment: payment,
+      merchant: merchant,
+      customer: customer,
+      order: reqOrder
+    };
+  }
 
   return reqBody;
 }

@@ -1,6 +1,7 @@
 /* eslint-disable vars-on-top */
 'use strict';
 var _2c2pService = require('*/cartridge/scripts/service/init/2c2pService');
+var payooService = require('*/cartridge/scripts/service/init/payooService');
 var _2c2pPreferences = require('*/cartridge/scripts/service/2c2pPreferences');
 var Site = require('dw/system/Site');
 var Logger = require('dw/system/Logger');
@@ -17,6 +18,39 @@ function getServiceCredentials(serviceName) {
     baseUrl: serviceCredentials.getURL(),
     user: serviceCredentials.user,
     password: serviceCredentials.password
+  };
+}
+
+function generatePaymentUrlPayoo(requestJSON) {
+  logger.info('in Generate payment url with req body {0}', JSON.stringify(requestJSON));
+  var service;
+  service = payooService.payooService;
+  var url = getServiceCredentials(service).baseUrl + 'orders';
+  var serviceResponse = {};
+  var responseObject;
+  service.setURL(url);
+  service.setRequestMethod('POST');
+  if (!_2c2pPreferences.hsbcEncrypt) {
+    service.addHeader('message_encrypt', false);
+    logger.info('Message is not encrypted');
+  }
+  service.addHeader('Authorization', _2c2pPreferences.hsbcAuthorizationHeader);
+  service.addHeader('x-hsbc-client-id', _2c2pPreferences.hsbcClient_id);
+  service.addHeader('x-hsbc-client-secret', _2c2pPreferences.hsbcClientSecret);
+  service.addHeader('x-hsbc-msg-encrypt-id', 'vn+' + _2c2pPreferences.hsbcMerchantID + '+' +
+    _2c2pPreferences.hsbcJWS + '+' + _2c2pPreferences.hsbcJWE);
+  serviceResponse = service.call(JSON.stringify(requestJSON));
+  logger.info('Service response is {0}', serviceResponse);
+  logger.info('Service response object is {0}', serviceResponse.object);
+  if (serviceResponse.status === 'OK') {
+    responseObject = JSON.parse(serviceResponse.object);
+    if ('status' in responseObject && responseObject.status === 'created') {
+      return responseObject.checkout_model.vn_py_hosted_checkout.access_method.url_link;
+    }
+  }
+  return {
+    error: true,
+    message: serviceResponse.errorMessage
   };
 }
 
@@ -50,6 +84,40 @@ function generatePaymentUrl(requestJSON) {
     responseObject = JSON.parse(serviceResponse.object);
     if ('api_gw' in responseObject && responseObject.api_gw.returnCode === '200') {
       return responseObject.response.system.redirectLink;
+    }
+  }
+  return {
+    error: true,
+    message: serviceResponse.errorMessage
+  };
+}
+
+
+/**
+ * getPaymentStatus function is responsible to generate the Payment Url for 2c2p Checkout Page
+ * @param {object} requestJSON string
+ * @return {string} payment url
+ */
+function getPaymentStatusPayoo(orderID) {
+  var service;
+  service = payooService.payooService;
+  var url = getServiceCredentials(service).baseUrl + 'orders/' + orderID + '/payments';
+  var serviceResponse = {};
+  service.setURL(url);
+  service.setRequestMethod('Get');
+  if (!_2c2pPreferences.hsbcEncrypt) {
+    service.addHeader('message_encrypt', false);
+  }
+  service.addHeader('Authorization', _2c2pPreferences.hsbcAuthorizationHeader);
+  service.addHeader('x-hsbc-client-id', _2c2pPreferences.hsbcClient_id);
+  service.addHeader('x-hsbc-client-secret', _2c2pPreferences.hsbcClientSecret);
+  service.addHeader('x-hsbc-msg-encrypt-id', 'vn+' +_2c2pPreferences.hsbcMerchantID + '+' +
+    _2c2pPreferences.hsbcJWS + '+' + _2c2pPreferences.hsbcJWE);
+  serviceResponse = service.call();
+  if (serviceResponse.status === 'OK') {
+    var resObject = JSON.parse(serviceResponse.object);
+    if ('counts' in resObject && resObject.counts >= 1) {
+      return resObject.payload[0];
     }
   }
   return {
@@ -104,5 +172,7 @@ function getPaymentStatus(orderID) {
 module.exports = {
   getServiceCredentials: getServiceCredentials,
   generatePaymentUrl: generatePaymentUrl,
-  getPaymentStatus: getPaymentStatus
+  generatePaymentUrlPayoo: generatePaymentUrlPayoo,
+  getPaymentStatus: getPaymentStatus,
+  getPaymentStatusPayoo: getPaymentStatusPayoo
 };
