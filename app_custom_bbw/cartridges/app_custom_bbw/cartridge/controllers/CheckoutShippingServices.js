@@ -95,11 +95,15 @@ server.replace(
                 address1: form.shippingAddress.addressFields.address1.value,
                 address2: form.shippingAddress.addressFields.address2.value,
                 city: form.shippingAddress.addressFields.city.value,
-                postalCode: form.shippingAddress.addressFields.postalCode.value,
+                postalCode:
+                    'postalCode' in
+                    form.shippingAddress.addressFields && 
+                    form.shippingAddress.addressFields.postalCode.value ? form.shippingAddress.addressFields : '',
                 countryCode: form.shippingAddress.addressFields.country.value,
                 phone: phoneNumber,
                 dialCode: form.shippingAddress.addressFields.dialCode.value,
-                dialCodeCountry: form.shippingAddress.addressFields.dialCodeCountry.value
+                dialCodeCountry:
+                    form.shippingAddress.addressFields.dialCodeCountry.value
             };
             if ('district' in form.shippingAddress.addressFields && form.shippingAddress.addressFields.district.value) {
                 result.address.district = form.shippingAddress.addressFields.district.value;
