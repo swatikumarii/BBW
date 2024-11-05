@@ -10,8 +10,8 @@ var baseAddress = require('base/checkout/address');
 function populateAddressSummary(parentSelector, address) {
     $.each(address, function (attr) {
         var val = address[attr];
-        if (attr === 'countryCode' && typeof val === 'object' && val.value === 'AU') {
-            val = 'Australia';
+        if (attr === 'countryCode' && typeof val === 'object' && val.value === 'VN') {
+            val = 'Vietnam';
         }
         $('.' + attr, parentSelector).text(val || '');
     });
@@ -136,6 +136,8 @@ function getAddressFieldsFromUI(form) {
         address1: $('input[name$=_address1]', form).val(),
         address2: $('input[name$=_address2]', form).val(),
         city: $('select[name$=_city]', form).val(),
+        district: $('select[name$=_district]', form).val(),
+        subDistrict: $('select[name$=_subDistrict]', form).val(),
         postalCode: $('select[name$=_postalCode]', form).val(),
         stateCode: $('select[name$=_stateCode],input[name$=_stateCode]', form).val(),
         countryCode: $('select[name$=_country]', form).val(),

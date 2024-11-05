@@ -173,7 +173,7 @@ $(document).on('click', '#editAddress', function () {
             )[0];
             var options = {
                 placeholder: ' ',
-                componentRestrictions: { country: 'AU' },
+                componentRestrictions: { country: 'VN' },
                 fields: [
                     'formatted_address',
                     'geometry',
@@ -211,25 +211,22 @@ $(document).on('click', '#editAddress', function () {
                                 addressObject.address1 += element.long_name;
                             }
                             break;
-                        case 'locality':
+                        case 'administrative_area_level_2':
                             addressObject.city = element.long_name;
                             break;
                         case 'administrative_area_level_1':
                             addressObject.state = element.long_name;
                             break;
-                        case 'postal_code':
-                            addressObject.zipcode = element.long_name;
+                        case 'administrative_area_level_3':
+                            addressObject.shippingAddressDistrict =
+                            element.long_name;
+                            break;
+                        case 'administrative_area_level_4':
+                            addressObject.shippingAddressSubdistrict =
+                            element.long_name;
                             break;
                         default:
                             break;
-                    }
-                    var fullAddress = addressObject.address1;
-                    if (addressObject.address2) {
-                        fullAddress += ' ' + addressObject.address2;
-                    }
-                    if (fullAddress.length > 30) {
-                        addressObject.address1  = fullAddress.substring(0, 30).trim();
-                        addressObject.address2  = fullAddress.substring(31, 60).trim();
                     }
                 }
                 var form = $('#modalContent').find('.address-form');
@@ -241,9 +238,58 @@ $(document).on('click', '#editAddress', function () {
                     .trigger('change');
                 form.find('#state').val(addressObject.state).trigger('change');
                 form.find('#city').val(addressObject.city).trigger('change');
-                form.find('#zipCode')
-                    .val(addressObject.zipcode)
-                    .trigger('change');
+                if (
+                    addressObject.address1 &&
+                        addressObject.state &&
+                        addressObject.addressDistrict &&
+                        addressObject.addressSubdistrict
+                ) {
+                    if (
+                        form.find('#city').val() === '' ||
+                            form.find('#city').val() === null
+                    ) {
+                        // setting city as per place API response
+                        var suburbDropdown = $('.address-city-input');
+                        suburbDropdown.empty();
+                        suburbDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.city,
+                                text: addressObject.city
+                            }).attr('selected', 'selected')
+                        );
+                        $('.address-city-input').removeClass('is-invalid');
+
+                        // setting district as per place API response
+                        var billingAddressDistrictDropdown = $(
+                            '.address-district-input'
+                        );
+                        billingAddressDistrictDropdown.empty();
+                        billingAddressDistrictDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.addressDistrict,
+                                text: addressObject.addressDistrict
+                            }).attr('selected', 'selected')
+                        );
+                        $('.address-district-input').removeClass(
+                            'is-invalid'
+                        );
+
+                        // setting subdistrict as per place API response
+                        var billingAddressSubDistrictDropdown = $(
+                            '.address-subdistrict-input'
+                        );
+                        billingAddressSubDistrictDropdown.empty();
+                        billingAddressSubDistrictDropdown.prepend(
+                            $('<option>', {
+                                value: addressObject.addressSubdistrict,
+                                text: addressObject.addressSubdistrict
+                            }).attr('selected', 'selected')
+                        );
+                        $('.address-subdistrict-input').removeClass(
+                            'is-invalid'
+                        );
+                    }
+                }
             });
             /** Append Pac container inside div */
             var addressInputElement = $('#modalContent').find('#accountAddressAutoComplete');
@@ -269,32 +315,6 @@ $(document).on('click', '#editAddress', function () {
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
             $('#modalContent').find('.address-state-input').trigger('change');
-            var selectedAddressCity = $('#modalContent')
-                .find('.address-city-input')
-                .attr('data-selected');
-            if (selectedAddressCity !== 'null') {
-                $('.address-city-input option').each(function () {
-                    if ($(this).val() === selectedAddressCity) {
-                        $('.address-city-input option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.address-city-input').trigger('change');
-                        return false;
-                    }
-                });
-            }
-            var selectedPostalCode = $('#modalContent')
-                .find('.address-zipcode-input')
-                .attr('data-selected');
-            if (selectedPostalCode !== 'null') {
-                $('.address-zipcode-input option').each(function () {
-                    if ($(this).val() === selectedPostalCode) {
-                        $('.address-zipcode-input option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.address-zipcode-input').trigger('change');
-                        return false;
-                    }
-                });
-            }
             var addressForm = $($(response)[0]).find('input,select');
             window.addressForm = $(addressForm).serialize();
         }
@@ -310,9 +330,11 @@ addressInputElement.on('focus', function () {
 
 module.exports = $.extend({}, base, {
     stateDropdown: function () {
-        $('body').on('change', '.address-state-input',function () {
-            const selectedState = $(this).val();
-            const suburbDropdown = $(this).closest('form').find('.address-city-input');
+        $('body').on('change', '.address-state-input', function () {
+            var selectedState = $(this).val();
+            var suburbDropdown = $(this)
+                .closest('form')
+                .find('.address-city-input');
             suburbDropdown.empty(); // clear existing options
 
             if (addressData[selectedState]) {
@@ -329,26 +351,89 @@ module.exports = $.extend({}, base, {
         });
     },
     cityDropdown: function () {
-        $('body').on('change', '.address-city-input',function () {
-            const selectedState = $(this).closest('form').find('.address-state-input').val();
-            const selectedSuburb = $(this).val();
-            const zipDropdown = $(this).closest('form').find('.address-zipcode-input');
-            zipDropdown.empty(); // clear existing options
+        $('body').on('change', '.address-city-input', function () {
+            var selectedState = $(this)
+                .closest('form')
+                .find('.address-state-input')
+                .val();
+            var selectedSuburb = $(this).val();
+            var districtDropdown = $(this)
+                .closest('form')
+                .find('.address-district-input');
+            var selectedDistrict = districtDropdown.data('selected');
+            districtDropdown.empty(); // clear existing options
 
             if (
                 addressData[selectedState] &&
                 addressData[selectedState][selectedSuburb]
             ) {
-                const zipCodes = addressData[selectedState][selectedSuburb];
-                zipCodes.forEach((zip) => {
-                    zipDropdown.append(
-                        $('<option>', {
-                            value: zip,
-                            text: zip
-                        })
-                    );
+                var districtMappingObj = addressData[selectedState][selectedSuburb];
+                Object.keys(districtMappingObj).forEach((district) => {
+                    if (selectedDistrict === district) {
+                        districtDropdown.append(
+                            $('<option>', {
+                                value: district,
+                                text: district
+                            }).attr('selected', 'selected')
+                        );
+                    } else {
+                        districtDropdown.append(
+                            $('<option>', {
+                                value: district,
+                                text: district
+                            })
+                        );
+                    }
                 });
-                zipDropdown.trigger('change');
+                districtDropdown.trigger('change');
+            }
+        });
+    },
+    districtDropdown: function () {
+        $('body').on('change', '.address-district-input', function () {
+            var selectedState = $(this)
+                .closest('form')
+                .find('.address-state-input')
+                .val();
+            var selectedSuburb = $(this)
+                .closest('form')
+                .find('.address-city-input')
+                .val();
+            var selectedDistrict = $(this).val();
+            var subDistrictDropdown = $(this)
+                .closest('form')
+                .find('.address-subdistrict-input');
+            var selectedSubDistrict = subDistrictDropdown.data('selected');
+            subDistrictDropdown.empty(); // clear existing options
+
+            if (
+                addressData[selectedState] &&
+                addressData[selectedState][selectedSuburb] &&
+                addressData[selectedState][selectedSuburb][selectedDistrict]
+            ) {
+                var districtMappingObj =
+                    addressData[selectedState][selectedSuburb][
+                        selectedDistrict
+                    ];
+                districtMappingObj.forEach((subDistrict) => {
+                    if (selectedSubDistrict === subDistrict) {
+                        subDistrictDropdown.append(
+                            $('<option>', {
+                                value: subDistrict,
+                                text: subDistrict
+                            })
+                        ).attr('selected', 'selected');
+                    } else {
+                        subDistrictDropdown
+                            .append(
+                                $('<option>', {
+                                    value: subDistrict,
+                                    text: subDistrict
+                                })
+                            );
+                    }
+                });
+                subDistrictDropdown.trigger('change');
             }
         });
     },
