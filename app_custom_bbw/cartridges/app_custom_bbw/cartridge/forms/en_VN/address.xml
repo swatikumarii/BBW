@@ -58,6 +58,14 @@
        range-error="error.message.between2and50"
        missing-error="address.subdistrict.missing"/>
 
+       <!--  postal code -->
+       <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="true" min-length="4" max-length="5"
+       regexp="^[0-9]*$"
+       binding="postalCode"
+       range-error="error.message.zip.upto5"
+       missing-error="error.zip.code"
+       parse-error="error.message.parse.zip"/>
+
     <!-- use set of supported countries -->
     <field formid="country" label="label.input.country" type="string" mandatory="true" binding="countryCode"
            missing-error="address.country.missing">

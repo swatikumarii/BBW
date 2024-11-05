@@ -255,6 +255,25 @@
         </div>
     </div>
 
+    <div class="col-sm-12 d-none">
+        <div class="form-group
+                    ${addressFields.postalCode.mandatory === true ? 'required' : ''}
+                    ${addressFields.postalCode.htmlName}">
+            <label class="form-control-label h-font-size--16 h-fw--semibold"
+                for="shippingZipCode${lineItem ? lineItem.UUID : 'default'}">
+                ${Resource.msg('field.shipping.address.zip.code', 'address', null)}
+            </label>
+            <input type="text" class="form-control shippingZipCode"
+                id="shippingZipCode${lineItem ? lineItem.UUID : 'default'}"
+                aria-describedby="${lineItem ? lineItem.UUID : 'default'}ZipCode"
+                data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
+                value="${shippingAddress.postalCode || '999077'}" <isprint value="${addressFields.postalCode.attributes}"
+                encoding="off" />>
+            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}ZipCode">
+                <isprint value="${addressFields.postalCode.error}" />
+            </div>
+        </div>
+    </div>
     
 </div>
 
