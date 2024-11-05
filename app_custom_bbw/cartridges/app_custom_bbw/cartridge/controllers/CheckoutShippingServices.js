@@ -99,7 +99,8 @@ server.replace(
                 countryCode: form.shippingAddress.addressFields.country.value,
                 phone: phoneNumber,
                 dialCode: form.shippingAddress.addressFields.dialCode.value,
-                dialCodeCountry: form.shippingAddress.addressFields.dialCodeCountry.value
+                dialCodeCountry:
+                    form.shippingAddress.addressFields.dialCodeCountry.value
             };
             if ('district' in form.shippingAddress.addressFields && form.shippingAddress.addressFields.district.value) {
                 result.address.district = form.shippingAddress.addressFields.district.value;

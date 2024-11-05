@@ -709,6 +709,8 @@
 </div>
 <script>
     window.onload = function () {
-        window.print();
+        window.setTimeout(() => {
+            window.print();
+        }, 2000);
     };
 </script>
