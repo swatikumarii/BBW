@@ -578,9 +578,8 @@ module.exports = $.extend({}, base, {
                 addressDataEN[selectedState][selectedSuburb] &&
                 addressDataEN[selectedState][selectedSuburb][selectedDistrict]
             ) {
-                subDistrictMappingObj =
-                    addressDataEN[selectedState][selectedSuburb];
-                $.each(subDistrictMappingObj, function (subDistrict) {
+                subDistrictMappingObj = addressDataEN[selectedState][selectedSuburb][selectedDistrict];
+                $.each(subDistrictMappingObj, function (index,subDistrict) {
                     if (selectedSubDistrict === subDistrict) {
                         subDistrictDropdown.append(
                             $('<option>', {
@@ -603,8 +602,8 @@ module.exports = $.extend({}, base, {
                 addressDataEN[selectedState][selectedSuburb][selectedDistrict]
             ) {
                 subDistrictMappingObj =
-                    addressDataNativeLocale[selectedState][selectedSuburb];
-                $.each(subDistrictMappingObj, function (subDistrict) {
+                    addressDataNativeLocale[selectedState][selectedSuburb][selectedDistrict];
+                $.each(subDistrictMappingObj, function (index,subDistrict) {
                     if (selectedSubDistrict === subDistrict) {
                         subDistrictDropdown.append(
                             $('<option>', {
