@@ -18,7 +18,7 @@ var logger = Logger.getLogger('2c2p');
  * @param  {Object} req place order request
  * @param  {Object} res place order response
  */
-function createOrder(req, res, taxID) {
+function createOrder(req, res, taxID, payoo) {
   var BasketMgr = require('dw/order/BasketMgr');
   var OrderMgr = require('dw/order/OrderMgr');
   var Resource = require('dw/web/Resource');
@@ -160,18 +160,21 @@ function createOrder(req, res, taxID) {
   // TODO: Remove logs
   logger.info('Creating Payment url for {0}', order.orderNo);
   // Generate 2c2p redirect URL
-  var requestJSON = _2c2pHelpers.createRequestBody(order, currentBasket, paymentForm, req);
+  var requestJSON = _2c2pHelpers.createRequestBody(order, currentBasket, paymentForm, req, payoo);
 
   var orderModel = new OrderModel(order,
     { containerView: 'order' });
 
-  var _2c2pForm = _2c2pApi.generatePaymentUrl(requestJSON);
+  var _2c2pForm = !payoo ? _2c2pApi.generatePaymentUrl(requestJSON) : '';
+  var payooURL = payoo ? _2c2pApi.generatePaymentUrlPayoo(requestJSON) : '';
   res.json({
     error: false,
     order: orderModel,
     customer: req.currentCustomer,
     _2c2pForm: _2c2pForm,
-    is2c2p: true
+    payooURL: payooURL,
+    is2c2p: !payoo,
+    isPayoo: payoo
   });
 }
 
@@ -190,7 +193,7 @@ server.prepend(
     var paymentForm = server.forms.getForm('billing');
     var paymentMethodId = paymentForm.paymentMethod.htmlValue;
     // If payment method is 2c2p then we will replace the base catridge route
-    if (paymentMethodId === '2c2p') {
+    if (paymentMethodId === '2c2p' || paymentMethodId === 'payoo') {
       var Resource = require('dw/web/Resource');
       var PaymentManager = require('dw/order/PaymentMgr');
       var HookManager = require('dw/system/HookMgr');
@@ -231,7 +234,7 @@ server.prepend(
           address2: { value: paymentForm.addressFields.address2.value },
           city: { value: paymentForm.addressFields.city.value },
           subDistrict: { value: paymentForm.addressFields.subDistrict.value },
-          postalCode: { value: paymentForm.addressFields.postalCode.value },
+          postalCode: { value: paymentForm.addressFields.postalCode ? paymentForm.addressFields.postalCode.value : '' },
           countryCode: { value: paymentForm.addressFields.country.value },
         };
 
@@ -432,7 +435,11 @@ server.prepend(
       }
 
       // If everything is okay then  create the order and redirect merchant to 2c2p/2C2P Payment portal
-      createOrder(req, res, taxID);
+      if (paymentMethodId === 'payoo') {
+        createOrder(req, res, taxID, true);
+      } else {
+        createOrder(req, res, taxID, false);
+      }
 
       this.emit('route:Complete', req, res);
       return;

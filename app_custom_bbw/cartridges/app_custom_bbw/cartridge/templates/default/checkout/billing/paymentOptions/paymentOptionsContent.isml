@@ -24,6 +24,8 @@
             <isinclude template="checkout/billing/paymentOptions/eghlContent" />
         <iselseif condition="${paymentOption.ID === '2c2p'}" />
             <isinclude template="checkout/billing/paymentOptions/2c2pContent" />
+        <iselseif condition="${paymentOption.ID === 'payoo'}" />
+            <isinclude template="checkout/billing/paymentOptions/payooContent" />
         </isif>
     </div>
 </isloop>

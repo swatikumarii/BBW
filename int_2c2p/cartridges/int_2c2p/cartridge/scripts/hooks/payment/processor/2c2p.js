@@ -37,7 +37,7 @@ function Handle(basket, paymentInformation, paymentMethodID, req) {
     });
 
     paymentInstrument = currentBasket.createPaymentInstrument(
-      '2c2p', currentBasket.totalGrossPrice
+      paymentMethodID.toLowerCase(), currentBasket.totalGrossPrice
     );
   });
 

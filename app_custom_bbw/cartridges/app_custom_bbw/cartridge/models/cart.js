@@ -237,13 +237,13 @@ function getFreeItemCount(items) {
 function getAvailableBonusProducts(basket) {
     var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
     var ProductFactory = require('*/cartridge/scripts/factories/product');
-    var bonusDiscountLineItems = basket.bonusDiscountLineItems;
-    var bonusLineItems = basket.bonusLineItems;
+    var bonusDiscountLineItems = basket ? basket.bonusDiscountLineItems : null;
+    var bonusLineItems = basket  ? basket.bonusLineItems : null;
     var availableBonusProducts = [];
     var product;
     var pids;
     var isPWP = false;
-    if (bonusLineItems.length === 0 && bonusDiscountLineItems.length > 0) {
+    if (bonusLineItems && bonusLineItems.length === 0 && bonusDiscountLineItems.length > 0) {
         collections.forEach(bonusDiscountLineItems, function (bonusDiscountLineItem) {
             pids = collections.map(bonusDiscountLineItem.bonusProducts, function (bonusProduct) {
                 return bonusProduct.ID;
@@ -281,7 +281,7 @@ function getAvailableBonusProducts(basket) {
                 product: product
             });
         });
-    } else if (bonusDiscountLineItems.length !== bonusLineItems.length) {
+    } else if (bonusDiscountLineItems && bonusDiscountLineItems.length !== bonusLineItems.length) {
         collections.forEach(bonusDiscountLineItems, function (bonusDiscountLineItem) {
             var bonusDiscountLineItemExists = false;
             collections.forEach(bonusLineItems, function (bonusLineItem) {
@@ -391,7 +391,7 @@ function CartModel(basket) {
         )
     };
     this.availableBonusProducts = getAvailableBonusProducts(basket);
-    this.hasBonusProducts = basket.bonusDiscountLineItems.length > 0;
+    this.hasBonusProducts = basket ? basket.bonusDiscountLineItems.length > 0 : false;
     this.CheckLoosingBonusURL = URLUtils.url('Cart-CheckLoosingBonus');
 }
 module.exports = CartModel;
