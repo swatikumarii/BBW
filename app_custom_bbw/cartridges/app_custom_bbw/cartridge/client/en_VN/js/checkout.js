@@ -122,7 +122,6 @@ $(document).ready(function () {
     } else {
         addressData = addressDataEN;
     }
-    shippingState.trigger('change');
     var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     var name = 'paymentError';
     var error = new RegExp(
@@ -1072,7 +1071,7 @@ $('.billingAddressDistrict').change(function () {
     var selectedState = $('.billingState').val();
     var selectedSuburb = $('.billingAddressCity').val();
     var selectedDistrict = $(this).val();
-    var subDistrictDropdown = $('.billingAddressSubDistrict');
+    var subDistrictDropdown = $('.billingAddressSubdistrict');
     var selectedSUbDistrict = subDistrictDropdown.attr('data-selected');
     var subDistrictMappingObj;
     subDistrictDropdown.empty(); // clear existing options
@@ -1090,7 +1089,7 @@ $('.billingAddressDistrict').change(function () {
         );
         subDistrictMappingObj =
             addressDataEN[selectedState][selectedSuburb][selectedDistrict];
-        $.each(subDistrictMappingObj, function (subDistrict) {
+        $.each(subDistrictMappingObj, function (index,subDistrict) {
             if (subDistrict === selectedSUbDistrict) {
                 subDistrictDropdown.append(
                     $('<option>', {
@@ -1120,7 +1119,7 @@ $('.billingAddressDistrict').change(function () {
         );
         subDistrictMappingObj =
             addressDataNativeLocale[selectedState][selectedSuburb][selectedDistrict];
-        $.each(subDistrictMappingObj, function (subDistrict) {
+        $.each(subDistrictMappingObj, function (index,subDistrict) {
             if (subDistrict === selectedSUbDistrict) {
                 subDistrictDropdown.append(
                     $('<option>', {

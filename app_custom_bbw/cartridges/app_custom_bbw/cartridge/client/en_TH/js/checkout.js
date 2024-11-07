@@ -122,7 +122,6 @@ $(document).ready(function () {
     } else {
         addressData = addressDataEN;
     }
-    shippingState.trigger('change');
     var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     var name = 'paymentError';
     var error = new RegExp(
@@ -650,8 +649,8 @@ $('.shippingState').change(function () {
         );
     }
     suburbDropdown.trigger('change');
-    var shippingEstimatedText = $('.estimeted-shipping-text').attr("data-estimated-shipping-text");
-    var shippingText = $('.estimeted-shipping-text').attr("data-shipping-text");
+    var shippingEstimatedText = $('.estimeted-shipping-text').attr('data-estimated-shipping-text');
+    var shippingText = $('.estimeted-shipping-text').attr('data-shipping-text');
     var updateShippingMethodsURL =
         $('input[name="update-shipping-method-url"]').val() +
         '?stateCode=' +
