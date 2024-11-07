@@ -242,6 +242,9 @@ server.prepend(
           viewData.address.stateCode = { value: paymentForm.addressFields.states.stateCode.value };
         }
       }
+      if (Object.prototype.hasOwnProperty.call(paymentForm.addressFields, 'district')) {
+          viewData.address.district = { value: paymentForm.addressFields.district.value };
+        }
 
       if (Object.keys(contactInfoFormErrors).length) {
         formFieldErrors.push(contactInfoFormErrors);
@@ -343,6 +346,9 @@ server.prepend(
         var subDistrictString = JSON.stringify(billingData.address.subDistrict);
         if (billingAddress.custom) {
           billingAddress.custom.subDistrict = JSON.parse(subDistrictString).value;
+          if ("district" in billingData.address) {
+              billingAddress.custom.district = billingData.address.district.value;
+          }
         }
         billingAddress.setPostalCode(billingData.address.postalCode.value);
         billingAddress.custom.subDistrict = billingData.address.subDistrict.value;
