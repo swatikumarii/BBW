@@ -708,7 +708,7 @@
     }
 }
 
-#removeBonusModal {
+div[id^="removeBonusModal-"] {
     .modal-header {
         .close {
             right: 20px;

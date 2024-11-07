@@ -144,7 +144,7 @@
         <isif condition="${!lineItem.isBonusProductLineItem || lineItem.isPWP}">
             <isinclude template="cart/productCard/cartProductCardProductPrice" />
             <div class="line-item-remove">
-                <span class="${lineItem.isPWP ? '' : 'cart-delete-confirmation-btn'}" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
+                <span class="${lineItem.isPWP ? 'd-none' : 'cart-delete-confirmation-btn'}" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
                     data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}" ${lineItem.isPWP ? 'data-toggle=modal data-target=#removeBonusModal' : ''}>
                     <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
                 </span>

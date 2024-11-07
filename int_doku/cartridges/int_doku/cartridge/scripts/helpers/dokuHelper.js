@@ -182,6 +182,8 @@ function renderCustomer(order, result, orderStatus, server, req, res, next) {
         paymentMethod.push(paymentMethods.paymentMethod);
       });
   }
+  var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
+  viewData.isGiftProductAvailable = isGiftProductAvailable;
   res.setViewData(viewData);
   var responseObject
   if (!req.currentCustomer.profile) {
