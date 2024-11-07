@@ -469,7 +469,7 @@ server.append('RemoveProductLineItem', function (req, res, next) {
     if (currentBasket && currentBasket.defaultShipment) {
         var shippingAddress = currentBasket.defaultShipment.shippingAddress;
         
-        if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+        if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != '') {
             isEstimatedShipping = false;
         }
     }
@@ -519,6 +519,7 @@ server.prepend('AddProduct', function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var Transaction = require('dw/system/Transaction');
     var ProductLineItemsModel = require('*/cartridge/models/productLineItems');
+    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
     var price = cartHelper.getProductPrice(req.form.pid);
     var currentBasket = BasketMgr.getCurrentBasket();
     if (price === 0) {
@@ -541,6 +542,9 @@ server.prepend('AddProduct', function (req, res, next) {
             for (var i = 0; i < productLineItems.length; i++) {
                 var item = productLineItems[i];
                 currentBasket.removeProductLineItem(item);
+                Transaction.wrap(function () {
+                    basketCalculationHelpers.calculateTotals(currentBasket);
+                });
             }
         });
     }
@@ -790,7 +794,7 @@ server.append(
         if (currentBasket && currentBasket.defaultShipment) {
             var shippingAddress = currentBasket.defaultShipment.shippingAddress;
             
-            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != "") {
+            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != '') {
                 isEstimatedShipping = false;
             }
         } 
