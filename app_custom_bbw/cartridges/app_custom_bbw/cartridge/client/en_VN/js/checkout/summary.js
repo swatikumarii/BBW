@@ -97,7 +97,6 @@ function updateOrderProductSummaryInformation(order) {
             if (address.stateCode) {
                 $('.ship-to-st', tmpl).text(address.stateCode);
             }
-            $('.ship-to-zip', tmpl).text(address.postalCode);
             $('.ship-to-phone', tmpl).text(phoneLine);
 
             if (!address2Line) {

@@ -191,6 +191,30 @@
             </div>
         </div>
         
+        <!-- District  -->
+        <div class="col-12">
+            <div class="form-group select-box">
+                <div class="form-label-require d-flex align-items-center justify-content-between">
+                    <label class="form-control-label mb-0" for="district">
+                        <span class="required-indicator"></span>
+                        <isprint value="${pdict.addressForm.district.label}" encoding="htmlcontent" />
+                    </label>
+                    <iscomment> <span
+                            class="${pdict.addressForm.district.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                        </span> </iscomment>
+                </div>
+                <div class="select-address-wrap">
+                    <select type="text" class="form-control address-district-input" id="district"
+                        data-selected="${pdict.addressForm.district.htmlValue}"
+                        data-missing-error="${Resource.msg('address.district.missing', 'forms', null)}" <isprint
+                        value="${pdict.addressForm.district.attributes}" encoding="off" />
+                    autocomplete="address-level2">
+                    </select>
+                    <div class="invalid-feedback select-error"></div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Sub District  -->
         <div class="col-12">
             <div class="form-group select-box">
