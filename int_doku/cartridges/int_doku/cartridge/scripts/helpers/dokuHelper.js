@@ -20,6 +20,7 @@ var Encoding = require('dw/crypto/Encoding');
 var co = require('dw/object/CustomObjectMgr');
 var OrderHelpers = require('*/cartridge/scripts/order/orderHelpers');
 var collections = require('*/cartridge/scripts/util/collections');
+var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
 
  /**
    * createRequestBody function is responsible to generate the Request Body For Payment URL Request
@@ -257,7 +258,6 @@ function placeOrder(order, isDokuCallback, dokuRes, server, req, res, next) {
     transactionID = transaction[0].value;
   }
 
-  var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
   var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
   var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
   var giftCardAPIResult;
