@@ -1029,7 +1029,7 @@ module.exports = {
             Monaco: ['7011'],
             'Nelson Airport': ['7011'],
             'Nelson Central': ['7010'],
-            'Nelson South': ['7010', '7042'],
+            'Nelson South': ['7010', '7042', '7046'],
             'Port Nelson': ['7010', '7043'],
             Stepheyville: ['7010'],
             Tahunanui: ['7011'],
@@ -1044,9 +1044,6 @@ module.exports = {
             'Nelson East': ['7010', '7040', '7047'],
             Richmond: ['7020', '7081'],
             Stoke: ['7011', '7041']
-        },
-        undefined: {
-            'Nelson South': ['7046']
         }
     },
     Northland: {
@@ -1467,9 +1464,7 @@ module.exports = {
             Wairoto: ['9691'],
             Wallacetown: ['9816'],
             Winton: ['9720', '9741'],
-            Wyndham: ['9831', '9849']
-        },
-        undefined: {
+            Wyndham: ['9831', '9849'],
             'Halfmoon Bay (Oban)': ['9818'],
             'Stewart Island': ['9818']
         }
