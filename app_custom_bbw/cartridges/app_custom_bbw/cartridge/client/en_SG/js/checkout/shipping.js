@@ -196,6 +196,12 @@ function updateShippingMethods(shipping) {
                     } else {
                         $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
                     }
+                    // set shipping cost
+                    if (shippingMethod.isShippingDiscountPrice) {
+                        $('.shipping-cost-discount', tmpl).css('display','block');
+                        $('.shipping-cost', tmpl).addClass('discountPrice');
+                        $('.shipping-cost-discount', tmpl).text(shippingMethod.isShippingDiscountPrice);
+                    }
                     $shippingMethodList.append(tmpl.html());
                 });
             }
@@ -834,6 +840,7 @@ module.exports = {
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
             var postalCode = attrs.postalCode.toString();
+            var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
                 $('.shippingState option').each(function () {
                     if ($(this).val() === stateCode) {
@@ -843,6 +850,11 @@ module.exports = {
                         return false;
                     }
                 });
+            } else {
+                $('.shippingState option').removeAttr('selected');
+                $('.shippingState').val('');
+                $('.shippingAddressCity').val('');
+                $('.shippingZipCode').val('');
             };
             if (city) {
                 $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
@@ -859,14 +871,13 @@ module.exports = {
                 });
             }
             if (postalCode) {
-                $('.shippingZipCode option').each(function () {
-                    if ($(this).val() === postalCode) {
-                        $('.shippingZipCode option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.shippingZipCode').trigger('change');
-                        return false;
-                    }
-                });
+                $('.shippingZipCode').val(postalCode);
+            }
+            if (dialCodeCountry) {
+                // Get the instance of intl-tel-input
+                if (window.itiInstance) {
+                    window.itiInstance.setCountry(dialCodeCountry);
+                }
             }
             Object.keys(attrs).forEach(function (attr) {
                 if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
@@ -904,15 +915,17 @@ module.exports = {
 
     updateShippingList: function () {
         var baseObj = this;
-
-        $('select[name$="shippingAddress_addressFields_states_stateCode"]')
-            .on('change', function (e) {
-                if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
-                    baseObj.methods.updateShippingMethodList($(e.currentTarget.form));
-                } else {
-                    updateShippingMethodList($(e.currentTarget.form));
-                }
-            });
+        $(
+            'select[name$="shippingAddress_addressFields_states_stateCode"], input[name$="shippingAddress_addressFields_postalCode"], input[name$="shippingAddress_addressFields_address1"]'
+        ).on('change', function (e) {
+            if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
+                baseObj.methods.updateShippingMethodList(
+                    $(e.currentTarget.form)
+                );
+            } else {
+                updateShippingMethodList($(e.currentTarget.form));
+            }
+        });
     },
 
     updateDataAddressMode: function () {

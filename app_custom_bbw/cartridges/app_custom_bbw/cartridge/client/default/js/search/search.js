@@ -372,9 +372,8 @@ function chooseBonusProducts(data) {
         '<!-- Modal content-->' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '    <span class="">' +
+        '    <span class="w-100 text-center d-block">' +
         data.labels.selectprods +
-        data.labels.selectedprods +
         '</span>' +
         '    <button type="button" class="close pull-right" data-dismiss="modal">' +
         '        <span aria-hidden="true">&times;</span>' +
@@ -382,7 +381,7 @@ function chooseBonusProducts(data) {
         '    </button>' +
         '</div>' +
         '<div class="modal-body"></div>' +
-        '<div class="modal-footer"></div>' +
+        '<div class="modal-footer pb-0 pt-3"></div>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -394,7 +393,7 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-            if (response.initialAddBonusProduct) {
+            if (response.initialAddBonusProduct && !data.isPWP) {
                 $.ajax({
                     type: 'POST',
                     url: response.initialAddBonusProductUrl,
@@ -575,7 +574,7 @@ module.exports = {
                 var searchUrl = $(this).data('href');
                 var seoUrl = $(this).data('seo-href') || searchUrl;
                 if (seoUrl) {
-                    window.history.pushState({}, null, seoUrl);
+                    window.history.pushState({}, null, seoUrl.split('?')[0]);
                 }
 
                 var attributeId = '#' + $(this).find('span').last().attr('id');
@@ -825,7 +824,7 @@ module.exports = {
                             self.addClass('disable');
                         }
                         if (
-                            data.newBonusDiscountLineItem &&
+                            data.newBonusDiscountLineItem && data.newBonusDiscountLineItem!== undefined &&
                             Object.keys(data.newBonusDiscountLineItem).length !== 0
                         ) {
                             chooseBonusProducts(data.newBonusDiscountLineItem);
@@ -855,6 +854,12 @@ module.exports = {
                 data: urlParams,
                 success: function (data) {
                     $('.minicart').trigger('count:update', data);
+                    if (
+                        data.newBonusDiscountLineItem && data.newBonusDiscountLineItem!== undefined &&
+                        Object.keys(data.newBonusDiscountLineItem).length !== 0
+                    ) {
+                        chooseBonusProducts(data.newBonusDiscountLineItem);
+                    }
                     inputTag.val(quantity).trigger('change');
                     if (quantity <= maxOrderQty) {
                         increaseButton.removeClass('disable');

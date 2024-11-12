@@ -134,7 +134,7 @@
                         <span class="d-block h-font-size--12 h-fw--semibold">
                             ${Resource.msg('minicart.login.message', 'cart', null)}
                         </span>
-                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Login-Show')}"
+                        <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Login-Show')}"
                             class="minicart-login-btn h-bdc--blue d-block h-fw--bold text-center">${Resource.msg('action.customer.login', 'checkout', null)}</a>
                     </div>
                 </isif>
@@ -169,7 +169,7 @@
                 <p class="sub-total-label m-0 h-font-size--15 h-fw--semibold h-ls-01  h-clr--black-1">${Resource.msg('label.sub.total.estimated', 'cart', null)}</p>
                 <p class="text-right sub-total m-0 h-font-size--15 h-fw--semibold h-ls-01 text-center h-clr--black-1">${pdict.totals.miniCartSubTotal}</p>
             </div>
-            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Cart-Show')}" class="btn btn-primary btn-block h-bg--black-1 h-clr--white h-font-size--16 h-fw--semibold h-lh-42 view-cart-btn">${Resource.msg('view.cart.and.checkout', 'cart', null)}</a>
+            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Cart-Show')}" class="btn btn-primary btn-block h-bg--black-1 h-clr--white h-font-size--16 h-fw--semibold h-lh-42 view-cart-btn">${Resource.msg('view.cart.and.checkout', 'cart', null)}</a>
         </div>
     </isif>
 </div>

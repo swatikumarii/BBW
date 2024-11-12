@@ -3,8 +3,8 @@
     assets.addJs('/js/custom.js');
     assets.addCss('/css/account/account.css');
 </isscript>
-<isif condition="${order.orderStatus.value != dw.order.Order.ORDER_STATUS_FAILED}">
-    <div class="card collapse show" id="orderlist" data-parent="#order-list-accordion">
+<isif condition="${order.orderStatus.value != dw.order.Order.ORDER_STATUS_FAILED && order.orderStatus.value != dw.order.Order.ORDER_STATUS_CREATED}">
+    <div class="card collapse show" id="orderlist${index}" data-parent="#order-list-accordion">
         <div class="card-head card-info-group">
             <div class="d-md-flex d-block align-items-center justify-content-between">
                 <div class="order-date-wrap">
@@ -29,7 +29,7 @@
                         <iselseif condition="${order.exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED && order.shippingStatus.value != dw.order.Order.SHIPPING_STATUS_SHIPPED}" />
                             <span
                                 class="summary-details order-number text-capitalize order-right-info">${Resource.msg('orderstatusinclude.orderprocessed', 'order', null)}</span>
-                        
+
                         <iselseif condition="${order.orderStatus.value == dw.order.Order.ORDER_STATUS_CANCELLED}" />
                             <span
                                 class="summary-details order-number text-capitalize order-right-info">${Resource.msg('orderstatusinclude.ordercancelled', 'order', null)}</span>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="d-flex flex-column h-grid-gap--5">
                     <a class="btn btn-hover"
-                        hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-Details', 'orderID', order.orderNumber, 'orderFilter', pdict.orderFilter)}"
+                        hreflang="${pdict.hrefLang}" href="${URLUtils.url('Order-Details', 'orderID', order.orderNumber, 'orderFilter', pdict.orderFilter)}"
                         aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, order.orderNumber)}">${Resource.msg('order.link.view.details', 'account', null)}</a>
                 </div>
             </div>

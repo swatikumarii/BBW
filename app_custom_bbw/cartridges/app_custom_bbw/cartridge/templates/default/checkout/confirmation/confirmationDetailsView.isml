@@ -39,6 +39,7 @@
                 <span class="shipping-type via h-font-size--16 h-fw--bold confirmation-shipping h-clr--black-1" role="heading" aria-level="3">${Resource.msg('label.order.shipping.standard', 'confirmation', null)}</span>
             </div>
             <div class="confirmation-product-summary d-block">
+                <isset name="isOrderConfirmPage" value="${true}" scope="page" />
                 <isinclude template="checkout/review/productSummary" />
             </div>
         </div>

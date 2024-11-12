@@ -22,7 +22,7 @@
                     <isloop iterator="${pdict.fragranceCategories}" alias="fragranceCategories" status="loopstate">
                         <li class="new-row">
                             <a
-                                hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories
+                                hreflang="${pdict.hrefLang}" href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories
                                       .fragrance)}">
                                 <img width="221" height="100"
                                     src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, fragranceCategories.image)}"
@@ -71,10 +71,10 @@
                     <div class="fragrance-header-search col-12 mt-3">
                         <div class="fragrance-search search-wrapper">
                             <fieldset class="text-justify seatch-text">
-                                <span class="h-clr--gray h-font-size--14 ">
+                                <span class="h-clr--gray h-font-size--14 d-block">
                                     ${Resource.msg('lable.fragrance.name.search', 'fragrance', null)} </span>
                                 <input class="search-input-box" type="text" id="search-input" placeholder="${Resource.msg('fragrance.search.placeholder', 'fragrance', null)}" name="search-input" autocomplete="off" />
-                                <div class="search-icon-details">
+                                <div class="search-icon-details h-bg--white pl-2">
                                     <img width="20" class="h-auto"
                                         src="${URLUtils.staticURL('/images/shopByFragrance/UI-Search.svg')}"
                                         alt="Search Icon">
@@ -95,7 +95,7 @@
                                         <isloop iterator="${fragranceGroup.value}" alias="fragrance" status="loopstate">
                                             <li class="level-2 text-start mt-3 mb-3">
                                                 <a class="h-clr--gray"
-                                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragrance.name)}"
+                                                    hreflang="${pdict.hrefLang}" href="${URLUtils.https('Search-Show', 'cgid', 's-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragrance.name.split('(')[0].trim())}"
                                                     data-fragrancename="${fragrance.name}">
                                                     ${fragrance.name}</a>
                                                 <isif condition="${fragrance.topFragrance}">

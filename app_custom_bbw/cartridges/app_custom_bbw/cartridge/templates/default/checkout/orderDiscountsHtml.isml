@@ -1,22 +1,25 @@
 <div class="col-7">
-    <p class="h-font-size--16 h-clr--black-1 cart-saving h-line-height--20">${Resource.msg('label.order.savings', 'common', null)}</p>
+    <p class="h-font-size--16 h-clr--black-1 cart-saving h-line-height--20 position-relative">${Resource.msg('label.order.savings', 'common', null)}</p>
 </div>
 <div class="col-5">
     <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold order-discount-total h-line-height--20">
         ${pdict.order.totals.totalDiscountFormatted}</p>
 </div>
-<isif condition="${pdict.order.totals.allDiscounts.length > 0}">
-    <div class="accordion-collapse collapse col-12" id="allDiscounts">
-        <isloop items="${pdict.order.totals.allDiscounts}" var="discount" status="loopstatus">
-            <div class="row">
-                <div class="col-7">
-                    <p class="h-font-size--11 h-clr--black-1 merchandise-total h-line-height--20">${discount.promotion}</p>
-                </div>
-                <div class="col-5">
-                    <p class="text-right h-font-size--11 h-clr--black-1 h-fw--semibold order-discount-total h-line-height--20">
-                        ${discount.discount}</p>
-                </div>
-            </div>
-        </isloop>
-    </div>
+<isif condition="${'mergedDiscounts' in pdict.order.totals && pdict.order.totals.mergedDiscounts.length > 0}">
+    <isset name="dicounts" value="${pdict.order.totals.mergedDiscounts}" scope="page" />
+<iselse>
+    <isset name="dicounts" value="${pdict.order.totals.allDiscounts}" scope="page" />
 </isif>
+<div class="accordion-collapse collapse col-12" id="allDiscounts">
+    <isloop items="${pdict.order.totals.mergedDiscounts}" var="discount" status="loopstatus">
+        <div class="row">
+            <div class="col-7">
+                <p class="h-font-size--11 h-clr--black-1 merchandise-total h-line-height--20">${discount.promotion}</p>
+            </div>
+            <div class="col-5">
+                <p class="text-right h-font-size--11 h-clr--black-1 h-fw--semibold order-discount-total h-line-height--20">
+                    ${discount.discount}</p>
+            </div>
+        </div>
+    </isloop>
+</div>

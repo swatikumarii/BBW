@@ -2,7 +2,7 @@
 <isloop items="${pdict.items}" var="lineItem" status="loopstatus">
     <isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
     <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
-    <isset name="bonuslineitemrow" value="${hasEmbeddedBonushasEmbeddedBonusProductsProducts ? 'bonus-line-item-row' : ''}" scope="page" />
+    <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
     <div class="card">
         <div class="product-info ${bonusproductlineitem} uuid-${lineItem.UUID}">
             <!--- name and remove buttons --->
@@ -13,7 +13,7 @@
                         <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x" alt="${lineItem.images.small[0].alt}"
                             title="${lineItem.images.small[0].title}" />
                     <iselse/>
-                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                        <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
                             <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x" alt="${lineItem.images.small[0].alt}"
                                 title="${lineItem.images.small[0].title}" />
                         </a>

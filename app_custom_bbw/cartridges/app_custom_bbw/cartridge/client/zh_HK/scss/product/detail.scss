@@ -1,0 +1,23 @@
+// @import "../_brand/_api/api";
+
+@import "../../../default/scss/product/detail";
+
+.product-detail {
+    .attributes {
+        .description-and-detail {
+            .card {
+                .content {
+                    p {
+                        font-size: 14px;
+                    }
+
+                    .pdp_ov_ul {
+                        li {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

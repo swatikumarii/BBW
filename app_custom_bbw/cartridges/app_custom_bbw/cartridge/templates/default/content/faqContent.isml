@@ -1,4 +1,4 @@
-<link rel="stylesheet" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+<link rel="stylesheet" hreflang="${pdict.hrefLang}" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
 <script src="${URLUtils.staticURL('/js/faqContent.js')}"></script>
 
 <aside class="article-sidebar" aria-labelledby="section-articles-title">
@@ -26,16 +26,16 @@
                     </isif>
                     <li>
                         <isif condition="${content.ID === pdict.currentContentId}">
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}"
+                            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}"
                                 class="sidenav-item current-article">${content.name}</a>
                         <iselse/>
-                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}" class="sidenav-item">${content.name}</a>
+                            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', content.ID)}" class="sidenav-item">${content.name}</a>
                         </isif>
                     </li>
                 </isloop>
             </ul>
             <isif condition="${pdict.contents.length > 10}">
-                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', pdict.currentFolder.ID)}" class="article-sidebar-item">
+                <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', pdict.currentFolder.ID)}" class="article-sidebar-item">
                     ${Resource.msg('link.faq.see.more', 'common', null)}
                 </a>
             </isif>

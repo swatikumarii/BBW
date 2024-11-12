@@ -100,7 +100,28 @@ function register() {
         return false;
     });
 }
+/**
+ *  To Scroll to alert
+ */
+function scrollToAlert() {
+    const $alert = $('.alert-danger');
+    const $modalBody = $('.login-modal-body');
 
+    if ($alert.length) {
+        const desiredScrollTop = Math.max(
+            0,
+            Math.min(
+                $alert.position().top +
+                    $modalBody.scrollTop() -
+                    $modalBody.height() / 2 +
+                    $alert.outerHeight() / 2,
+                $modalBody[0].scrollHeight - $modalBody.height()
+            )
+        );
+
+        $modalBody.animate({ scrollTop: desiredScrollTop }, 200);
+    }
+}
 /**
  *  To login user
  */
@@ -134,10 +155,11 @@ function login() {
                         formValidation(form, data);
                         form.trigger('login:error', data);
                     }
-                    $('.login-modal-body').animate(
-                        { scrollTop: $('.alert-danger').offset().top },
-                        200
-                    );
+                    /**
+                     *
+                     */
+                    scrollToAlert();
+
                 } else {
                     localStorage.setItem('isLoggedIn', true);
                     form.trigger('login:success', data);
@@ -351,11 +373,7 @@ function validatePasswordField(passwordInput) {
 function togglePasswordVisibility(passwordInput, showButton) {
     var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
     passwordInput.attr('type', type);
-    if(showButton.data('lang') === 'in-id') {
-        showButton.find('.show').text(type === 'password' ? 'Menunjukkan' : 'Bersembunyi');
-    } else {
-        showButton.find('.show').text(type === 'password' ? 'Show' : 'Hide');
-    }
+    showButton.find('.show').text(type === 'password' ? showButton.data('show-label') : showButton.data('hide-label'));
 }
 $(document).ready(function () {
     $(document.body).on('click', '.login-modal-password-hide', function () {

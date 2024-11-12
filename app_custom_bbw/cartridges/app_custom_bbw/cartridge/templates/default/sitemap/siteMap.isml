@@ -24,12 +24,12 @@
                         <h1 class="sitemap-title-head mb-0">
                             <isif condition="${category.custom && category.custom.alternativeUrl}">
                                 <a class="sitemap-cateogry h-font-size--18 h-fw--bold text-uppercase text-left h-clr--blue"
-                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${category.custom.alternativeUrl}" id="${category.ID}">
+                                    hreflang="${pdict.hrefLang}" href="${category.custom.alternativeUrl}" id="${category.ID}">
                                     ${category.displayName}
                                 </a>
                             <iselse>
                                 <a class="sitemap-cateogry h-font-size--18 h-fw--bold text-uppercase text-left h-clr--blue"
-                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
+                                    hreflang="${pdict.hrefLang}" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
                                     ${category.displayName}
                                 </a>
                             </isif>
@@ -40,7 +40,7 @@
                                             && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                                     <div class="col-md-4 col-sm-12">
                                         <h1 class="sitemap-title">
-                                            <a class="text-uppercase h-fw--semibold h-clr--black-3 h-font-size--20" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
+                                            <a class="text-uppercase h-fw--semibold h-clr--black-3 h-font-size--20" hreflang="${pdict.hrefLang}" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
                                                 ${category.displayName}
                                             </a>
                                         </h1>
@@ -48,7 +48,7 @@
                                             <isif condition="${(category.siteMapIncluded === null || category.siteMapIncluded === 1)
                                                         && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                                                 <div class="end-level-category">
-                                                    <a class="h-font-size--16 h-clr--blue"  hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
+                                                    <a class="h-font-size--16 h-clr--blue"  hreflang="${pdict.hrefLang}" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
                                                         ${category.displayName}
                                                     </a>
                                                 </div>

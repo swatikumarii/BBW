@@ -1,9 +1,14 @@
 <iscontent type="text/html" charset="UTF-8" compact="true" />
 <isif condition="${slotcontent}">
+    <isset name="counter" value="${0}" scope="page"/>
     <isloop items="${slotcontent.content}" var="product" status="loopState">
-        <isobject object="${product}" view="recommendation">
-            <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false)}" />
-        </isobject>
+        <isif condition="${counter < 5 && (('searchableIfUnavailable' in product && product.searchableIfUnavailable)
+            || product.availabilityModel.inventoryRecord.ATS.value > product.custom.reserveQty)}">
+            <isobject object="${product}" view="recommendation">
+                <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false)}" />
+            </isobject>
+            <isset name="counter" value="${counter = counter + 1}" scope="page"/>
+        </isif>
     </isloop>
     <isinclude template="product/components/removeGiftLineItem" />
 </isif>

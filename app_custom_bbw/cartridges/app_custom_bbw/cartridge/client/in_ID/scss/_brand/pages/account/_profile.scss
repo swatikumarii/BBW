@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+// Import from default
+
+@import "../../../../../default/scss/_brand/pages/account/profile";
+
+// Indonesia IN_ID SCSS
+
+.wishlistItemCards {
+    table {
+        tr {
+            td.item-product-detail {
+                .wishlist-btn {
+                    line-height: 1;
+                }
+            }
+        }
+    }
+}

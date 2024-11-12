@@ -1,0 +1,45 @@
+<!---item price--->
+<div class="line-item-price line-item-price-${lineItem.UUID}">
+    <isif condition="${lineItem.price}">
+        <isset name="price" value="${lineItem.price}" scope="page"/>
+        <div class="unit-price">
+            <isif condition="${!lineItem.appliedPromotions}">
+                <isinclude template="/product/components/pricing/main" />
+            <iselse>
+                <isinclude template="/product/components/pricing/promoPrice" />
+            </isif>
+        </div>
+    <iselseif condition="${lineItem.bonusUnitPrice}"/>
+        <div class="unit-price">
+            <span class="value" content="${lineItem.bonusUnitPrice}">${lineItem.bonusUnitPrice === dw.system.Site.getCurrent().currencyCode + ' 0.00' ? 'GRATIS' : lineItem.bonusUnitPrice}</span>
+        </div>
+    </isif>
+</div>
+
+<!--- quantity --->
+<div class="line-item-quantity">
+    <isif condition="${lineItem.customBundle}">
+        <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+    <iselse/>
+        <isinclude template="checkout/productCard/productCardQuantitySelector" />
+    </isif>
+    <iscomment> availability </iscomment>
+    <isinclude template="cart/productCard/cartProductCardAvailability" />
+</div>
+
+<!--- Savings --->
+<div class="line-item-savings">
+    <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
+        <span class="d-inline d-md-none">${Resource.msg('cart.label.saved', 'cart', null)}</span>
+        <span class="value">${lineItem.totalSavings}</span>
+    <iselse/>
+        <span class="value value-dash d-none d-md-block">${'-'}</span>
+    </isif>
+</div>
+
+<!--- line item total price --->
+<div class="line-item-total-price">
+    <div class="item-total-${lineItem.UUID} price">
+        <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+    </div>
+</div>

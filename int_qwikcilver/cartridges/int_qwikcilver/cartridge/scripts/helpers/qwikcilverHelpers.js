@@ -285,6 +285,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
             var Order = require('dw/order/Order');
             order.setShippingStatus(Order.SHIPPING_STATUS_SHIPPED);
             order.setStatus(Order.ORDER_STATUS_COMPLETED);
+            order.setExportStatus(Order.EXPORT_STATUS_EXPORTED);
             logger.info('setting order and shipping status for order id {0} Done', order.orderNo);
             logger.info('After updating order and shipping status for order id {0} is {1}', order.orderNo, order.status.displayValue);
             // If Card is not created, Set Email pending status and Sent email through Job
@@ -363,16 +364,17 @@ function updatePaymentInstruments(basket, cardNumber, cardPin, cardsObj) {
             for (var i = 0; i < cardsObj.length; i++) {
                 var card = cardsObj[i];
                 if (card.Balance > 0) {
-                    var cardBalance;
+                    var eGiftTotalAmountValue;
                     var pendingAmount = (currentBasket.totalGrossPrice.value) - (currentBasket.custom.eGiftTotalAmount);
+                    var cardBalance = card.Balance;
                     if (currentBasket.custom.eGiftTotalAmount === null && card.Balance >= currentBasket.totalGrossPrice.value) {
-                        cardBalance = currentBasket.totalGrossPrice.value;
+                        eGiftTotalAmountValue = currentBasket.totalGrossPrice.value;
                     } else if (currentBasket.custom.eGiftTotalAmount !== null && card.Balance >= pendingAmount) {
-                        cardBalance = pendingAmount;
+                        eGiftTotalAmountValue = pendingAmount;
                     } else {
-                        cardBalance = card.Balance;
+                        eGiftTotalAmountValue = card.Balance;
                     }
-                    var eGiftTotalAmount = new Money(cardBalance, currentBasket.getCurrencyCode());
+                    var eGiftTotalAmount = new Money(eGiftTotalAmountValue, currentBasket.getCurrencyCode());
                     currentBasket.createPaymentInstrument(
                         'GIFT_CERTIFICATE', eGiftTotalAmount
                     );
@@ -389,10 +391,10 @@ function updatePaymentInstruments(basket, cardNumber, cardPin, cardsObj) {
                     }
                     // Update Basket gift total amount
                     if (giftPaymentInstruments.length > 1) {
-                        eGiftTotalAmount = currentBasket.custom.eGiftTotalAmount + cardBalance;
+                        eGiftTotalAmount = currentBasket.custom.eGiftTotalAmount + eGiftTotalAmountValue;
                         currentBasket.custom.eGiftTotalAmount = eGiftTotalAmount;
                     } else {
-                        currentBasket.custom.eGiftTotalAmount = cardBalance;
+                        currentBasket.custom.eGiftTotalAmount = eGiftTotalAmountValue;
                     }
                 }
             }

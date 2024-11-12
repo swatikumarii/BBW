@@ -340,6 +340,7 @@ module.exports = {
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
             var postalCode = attrs.postalCode.toString();
+            var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
@@ -367,14 +368,12 @@ module.exports = {
                 });
             }
             if (postalCode) {
-                $('.billingZipCode option').each(function () {
-                    if ($(this).val() === postalCode) {
-                        $('.billingZipCode option').removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                        $('body').find('.billingZipCode').trigger('change');
-                        return false;
-                    }
-                });
+                $('.billingZipCode').val(postalCode);
+            }
+            if (dialCodeCountry) {
+                if (window.billingInstance) {
+                    window.billingInstance.setCountry(dialCodeCountry);
+                }
             }
 
             Object.keys(attrs).forEach(function (attr) {

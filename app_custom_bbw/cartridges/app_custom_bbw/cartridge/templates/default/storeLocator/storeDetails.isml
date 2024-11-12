@@ -37,11 +37,11 @@
 
                     <div class="store-direction">
                         <a class="h-fw--semibold h-clr--black-1" target='_blank'
-                            hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${store.storeMapLink}">
+                            hreflang="${pdict.hrefLang}" href="${store.storeMapLink}">
                             ${Resource.msg('label.get.directions', 'storeLocator', null)}
                         </a>
                         <a class="h-fw--semibold h-clr--black-1 mt-1 d-block" target='_blank'
-                            hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${STORE_DETAIL_URL}">
+                            hreflang="${pdict.hrefLang}" href="${STORE_DETAIL_URL}">
                             ${Resource.msg('label.get.details', 'storeLocator', null)}
                         </a>
                     </div>

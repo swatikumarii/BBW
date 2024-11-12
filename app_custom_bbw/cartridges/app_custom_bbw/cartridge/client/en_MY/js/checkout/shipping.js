@@ -11,7 +11,12 @@ var scrollAnimate = require('base/components/scrollAnimate');
  * @param {object} order - the order model
  * @param {object} customer - the customer model
  */
-function updateShippingAddressSelector(productLineItem, shipping, order, customer) {
+function updateShippingAddressSelector(
+    productLineItem,
+    shipping,
+    order,
+    customer
+) {
     var uuidEl = $('input[value=' + productLineItem.UUID + ']');
     var shippings = order.shipping;
 
@@ -27,18 +32,18 @@ function updateShippingAddressSelector(productLineItem, shipping, order, custome
     if ($shippingAddressSelector && $shippingAddressSelector.length === 1) {
         $shippingAddressSelector.empty();
         // Add New Address option
-        $shippingAddressSelector.append(addressHelpers.methods.optionValueForAddress(
-            null,
-            false,
-            order
-        ));
+        $shippingAddressSelector.append(
+            addressHelpers.methods.optionValueForAddress(null, false, order)
+        );
 
         if (customer.addresses && customer.addresses.length > 0) {
-            $shippingAddressSelector.append(addressHelpers.methods.optionValueForAddress(
-                order.resources.accountAddresses,
-                false,
-                order
-            ));
+            $shippingAddressSelector.append(
+                addressHelpers.methods.optionValueForAddress(
+                    order.resources.accountAddresses,
+                    false,
+                    order
+                )
+            );
 
             customer.addresses.forEach(function (address) {
                 var isSelected = shipping.matchingAddressId === address.ID;
@@ -52,7 +57,14 @@ function updateShippingAddressSelector(productLineItem, shipping, order, custome
             });
         }
         // Separator -
-        $shippingAddressSelector.append(addressHelpers.methods.optionValueForAddress(order.resources.shippingAddresses, false, order, { className: 'multi-shipping' }));
+        $shippingAddressSelector.append(
+            addressHelpers.methods.optionValueForAddress(
+                order.resources.shippingAddresses,
+                false,
+                order,
+                { className: 'multi-shipping' }
+            )
+        );
         shippings.forEach(function (aShipping) {
             var isSelected = shipping.UUID === aShipping.UUID;
             hasSelectedAddress = hasSelectedAddress || isSelected;
@@ -63,9 +75,14 @@ function updateShippingAddressSelector(productLineItem, shipping, order, custome
                 { className: 'multi-shipping' }
             );
 
-            var newAddress = addressOption.html() === order.resources.addNewAddress;
+            var newAddress =
+                addressOption.html() === order.resources.addNewAddress;
             var matchingUUID = aShipping.UUID === shipping.UUID;
-            if ((newAddress && matchingUUID) || (!newAddress && matchingUUID) || (!newAddress && !matchingUUID)) {
+            if (
+                (newAddress && matchingUUID) ||
+                (!newAddress && matchingUUID) ||
+                (!newAddress && !matchingUUID)
+            ) {
                 $shippingAddressSelector.append(addressOption);
             }
             if (newAddress && !matchingUUID) {
@@ -117,11 +134,14 @@ function updateShippingAddressFormValues(shipping) {
         $('input[name$=_address2]', form).val(addressObject.address2);
         $('input[name$=_city]', form).val(addressObject.city);
         $('input[name$=_postalCode]', form).val(addressObject.postalCode);
-        $('select[name$=_stateCode],input[name$=_stateCode]', form)
-            .val(addressObject.stateCode);
+        $('select[name$=_stateCode],input[name$=_stateCode]', form).val(
+            addressObject.stateCode
+        );
 
         if (countryCode && typeof countryCode === 'object') {
-            $('select[name$=_country]', form).val(addressObject.countryCode.value);
+            $('select[name$=_country]', form).val(
+                addressObject.countryCode.value
+            );
         } else {
             $('select[name$=_country]', form).val(addressObject.countryCode);
         }
@@ -129,10 +149,16 @@ function updateShippingAddressFormValues(shipping) {
         $('input[name$=_phone]', form).val(addressObject.phone);
 
         $('input[name$=_isGift]', form).prop('checked', addressObject.isGift);
-        $('textarea[name$=_giftMessage]', form).val(addressObject.isGift && addressObject.giftMessage ? addressObject.giftMessage : '');
+        $('textarea[name$=_giftMessage]', form).val(
+            addressObject.isGift && addressObject.giftMessage
+                ? addressObject.giftMessage
+                : ''
+        );
     });
 
-    $('body').trigger('shipping:updateShippingAddressFormValues', { shipping: shipping });
+    $('body').trigger('shipping:updateShippingAddressFormValues', {
+        shipping: shipping
+    });
 }
 
 /**
@@ -152,7 +178,8 @@ function updateShippingMethods(shipping) {
                 $shippingMethodList.empty();
                 var shippingMethods = shipping.applicableShippingMethods;
                 var selected = shipping.selectedShippingMethod || {};
-                var shippingMethodFormID = form.name + '_shippingAddress_shippingMethodID';
+                var shippingMethodFormID =
+                    form.name + '_shippingAddress_shippingMethodID';
                 //
                 // Create the new rows for each shipping method
                 //
@@ -161,24 +188,40 @@ function updateShippingMethods(shipping) {
                     var lineItemUUIDPart = '';
 
                     if ($(el).parents('.multi-shipping').length) {
-                        lineItemUUIDPart = '-' + shipping.productLineItems.items[0].UUID;
+                        lineItemUUIDPart =
+                            '-' + shipping.productLineItems.items[0].UUID;
                     }
 
                     // set input
                     $('input', tmpl)
-                        .prop('id', 'shippingMethod-' + shippingMethod.ID + '-' + shipping.UUID + lineItemUUIDPart)
+                        .prop(
+                            'id',
+                            'shippingMethod-' +
+                                shippingMethod.ID +
+                                '-' +
+                                shipping.UUID +
+                                lineItemUUIDPart
+                        )
                         .prop('name', shippingMethodFormID)
                         .prop('value', shippingMethod.ID)
                         .attr('checked', shippingMethod.ID === selected.ID);
 
-                    $('label', tmpl)
-                        .prop('for', 'shippingMethod-' + shippingMethod.ID + '-' + shipping.UUID + lineItemUUIDPart);
+                    $('label', tmpl).prop(
+                        'for',
+                        'shippingMethod-' +
+                            shippingMethod.ID +
+                            '-' +
+                            shipping.UUID +
+                            lineItemUUIDPart
+                    );
                     // set shipping method name
                     $('.display-name', tmpl).text(shippingMethod.displayName);
                     // set or hide arrival time
                     if (shippingMethod.estimatedArrivalTime) {
                         $('.arrival-time', tmpl)
-                            .text('(' + shippingMethod.estimatedArrivalTime + ')')
+                            .text(
+                                '(' + shippingMethod.estimatedArrivalTime + ')'
+                            )
                             .show();
                     }
                     if (shippingMethod.htmlDescription) {
@@ -194,7 +237,15 @@ function updateShippingMethods(shipping) {
                     if (shippingMethod.isFree) {
                         $('.shipping-cost', tmpl).text('FREE');
                     } else {
-                        $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
+                        $('.shipping-cost', tmpl).text(
+                            shippingMethod.shippingCost
+                        );
+                    }
+                    // set shipping cost
+                    if (shippingMethod.isShippingDiscountPrice) {
+                       $('.shipping-cost-discount', tmpl).css('display',"block");
+                       $('.shipping-cost', tmpl).addClass('discountPrice');
+                       $('.shipping-cost-discount', tmpl).text(shippingMethod.isShippingDiscountPrice);
                     }
                     $shippingMethodList.append(tmpl.html());
                 });
@@ -213,7 +264,8 @@ function updateShippingMethodList($shippingForm) {
     // delay for autocomplete!
     setTimeout(function () {
         var $shippingMethodList = $shippingForm.find('.shipping-method-list');
-        var urlParams = addressHelpers.methods.getAddressFieldsFromUI($shippingForm);
+        var urlParams =
+            addressHelpers.methods.getAddressFieldsFromUI($shippingForm);
         var shipmentUUID = $shippingForm.find('[name=shipmentUUID]').val();
         var url = $shippingMethodList.data('actionUrl');
         urlParams.shipmentUUID = shipmentUUID;
@@ -228,14 +280,11 @@ function updateShippingMethodList($shippingForm) {
                 if (data.error) {
                     window.location.href = data.redirectUrl;
                 } else {
-                    $('body').trigger(
-                        'checkout:updateCheckoutView',
-                        {
-                            order: data.order,
-                            customer: data.customer,
-                            options: { keepOpen: true }
-                        }
-                    );
+                    $('body').trigger('checkout:updateCheckoutView', {
+                        order: data.order,
+                        customer: data.customer,
+                        options: { keepOpen: true }
+                    });
 
                     $shippingMethodList.spinner().stop();
                 }
@@ -256,7 +305,9 @@ function updateShippingSummaryInformation(shipping, order) {
         var $addressContainer = $container.find('.address-summary');
         var $shippingPhone = $container.find('.shipping-phone');
         var $methodTitle = $container.find('.shipping-method-title');
-        var $methodArrivalTime = $container.find('.shipping-method-arrival-time');
+        var $methodArrivalTime = $container.find(
+            '.shipping-method-arrival-time'
+        );
         var $methodPrice = $container.find('.shipping-method-price');
         var $shippingSummaryLabel = $container.find('.shipping-method-label');
         var $summaryDetails = $container.find('.row.summary-details');
@@ -266,7 +317,10 @@ function updateShippingSummaryInformation(shipping, order) {
         var selectedShippingMethod = shipping.selectedShippingMethod;
         var isGift = shipping.isGift;
 
-        addressHelpers.methods.populateAddressSummary($addressContainer, address);
+        addressHelpers.methods.populateAddressSummary(
+            $addressContainer,
+            address
+        );
 
         if (address && address.phone) {
             $shippingPhone.text(address.phone);
@@ -275,10 +329,11 @@ function updateShippingSummaryInformation(shipping, order) {
         }
 
         if (selectedShippingMethod) {
-            $('body').trigger(
-                'shipping:updateAddressLabelText',
-                { selectedShippingMethod: selectedShippingMethod, resources: order.resources, shippingAddressLabel: $shippingAddressLabel }
-            );
+            $('body').trigger('shipping:updateAddressLabelText', {
+                selectedShippingMethod: selectedShippingMethod,
+                resources: order.resources,
+                shippingAddressLabel: $shippingAddressLabel
+            });
             $shippingSummaryLabel.show();
             $summaryDetails.show();
             $methodTitle.text(selectedShippingMethod.displayName);
@@ -293,14 +348,19 @@ function updateShippingSummaryInformation(shipping, order) {
         }
 
         if (isGift) {
-            giftMessageSummary.find('.gift-message-summary').text(shipping.giftMessage);
+            giftMessageSummary
+                .find('.gift-message-summary')
+                .text(shipping.giftMessage);
             giftMessageSummary.removeClass('d-none');
         } else {
             giftMessageSummary.addClass('d-none');
         }
     });
 
-    $('body').trigger('shipping:updateShippingSummaryInformation', { shipping: shipping, order: order });
+    $('body').trigger('shipping:updateShippingSummaryInformation', {
+        shipping: shipping,
+        order: order
+    });
 }
 
 /**
@@ -311,7 +371,12 @@ function updateShippingSummaryInformation(shipping, order) {
  * @param {object} [options] - options for updating PLI summary info
  * @param {object} [options.keepOpen] - if true, prevent changing PLI view mode to 'view'
  */
-function updatePLIShippingSummaryInformation(productLineItem, shipping, order, options) {
+function updatePLIShippingSummaryInformation(
+    productLineItem,
+    shipping,
+    order,
+    options
+) {
     var $pli = $('input[value=' + productLineItem.UUID + ']');
     var form = $pli && $pli.length > 0 ? $pli[0].form : null;
 
@@ -332,9 +397,10 @@ function updatePLIShippingSummaryInformation(productLineItem, shipping, order, o
 
     var shippingCost = selectedMethod ? selectedMethod.shippingCost : '';
     var methodNameLine = selectedMethod ? selectedMethod.displayName : '';
-    var methodArrivalTime = selectedMethod && selectedMethod.estimatedArrivalTime
-        ? '(' + selectedMethod.estimatedArrivalTime + ')'
-        : '';
+    var methodArrivalTime =
+        selectedMethod && selectedMethod.estimatedArrivalTime
+            ? '(' + selectedMethod.estimatedArrivalTime + ')'
+            : '';
 
     var tmpl = $('#pli-shipping-summary-template').clone();
 
@@ -371,10 +437,11 @@ function updatePLIShippingSummaryInformation(productLineItem, shipping, order, o
     }
     // checking h5 title shipping to or pickup
     var $shippingAddressLabel = $('.shipping-header-text', tmpl);
-    $('body').trigger(
-        'shipping:updateAddressLabelText',
-        { selectedShippingMethod: selectedMethod, resources: order.resources, shippingAddressLabel: $shippingAddressLabel }
-    );
+    $('body').trigger('shipping:updateAddressLabelText', {
+        selectedShippingMethod: selectedMethod,
+        resources: order.resources,
+        shippingAddressLabel: $shippingAddressLabel
+    });
 
     $viewBlock.html(tmpl.html());
 
@@ -429,8 +496,18 @@ function updateShippingInformation(shipping, order, customer, options) {
 
     // And update the PLI-based summary information as well
     shipping.productLineItems.items.forEach(function (productLineItem) {
-        updateShippingAddressSelector(productLineItem, shipping, order, customer);
-        updatePLIShippingSummaryInformation(productLineItem, shipping, order, options);
+        updateShippingAddressSelector(
+            productLineItem,
+            shipping,
+            order,
+            customer
+        );
+        updatePLIShippingSummaryInformation(
+            productLineItem,
+            shipping,
+            order,
+            options
+        );
     });
 
     $('body').trigger('shipping:updateShippingInformation', {
@@ -468,11 +545,14 @@ function updateMultiShipInformation(order) {
  * @param {object} message - Error message to display
  */
 function createErrorNotification(message) {
-    var errorHtml = '<div class="alert alert-danger alert-dismissible valid-cart-error '
-    + 'fade show" role="alert">'
-    + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
-    + '<span aria-hidden="true">&times;</span>'
-    + '</button>' + message + '</div>';
+    var errorHtml =
+        '<div class="alert alert-danger alert-dismissible valid-cart-error ' +
+        'fade show" role="alert">' +
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+        '<span aria-hidden="true">&times;</span>' +
+        '</button>' +
+        message +
+        '</div>';
 
     $('.shipping-error').append(errorHtml);
     scrollAnimate($('.shipping-error'));
@@ -550,7 +630,10 @@ function clearShippingForms(order) {
             $(form).find('.gift-message').addClass('d-none');
 
             $(form).attr('data-address-mode', 'new');
-            var addressSelectorDropDown = $('.addressSelector option[value=new]', form);
+            var addressSelectorDropDown = $(
+                '.addressSelector option[value=new]',
+                form
+            );
             $(addressSelectorDropDown).prop('selected', true);
         });
     });
@@ -593,21 +676,15 @@ function selectShippingMethodAjax(url, urlParams, el) {
             if (data.error) {
                 window.location.href = data.redirectUrl;
             } else {
-                $('body').trigger(
-                    'checkout:updateCheckoutView',
-                    {
-                        order: data.order,
-                        customer: data.customer,
-                        options: { keepOpen: true },
-                        urlParams: urlParams
-                    }
-                );
-                $('body').trigger(
-                    'checkout:postUpdateCheckoutView',
-                    {
-                        el: el
-                    }
-                );
+                $('body').trigger('checkout:updateCheckoutView', {
+                    order: data.order,
+                    customer: data.customer,
+                    options: { keepOpen: true },
+                    urlParams: urlParams
+                });
+                $('body').trigger('checkout:postUpdateCheckoutView', {
+                    el: el
+                });
             }
             $('body').trigger('checkout:shippingMethodSelected', data);
             $.spinner().stop();
@@ -660,7 +737,10 @@ function editMultiShipAddress(element) {
     element.find('.btn-edit-multi-ship').addClass('d-none');
     element.find('.multi-ship-address-actions').addClass('d-none');
 
-    $('body').trigger('shipping:editMultiShipAddress', { element: element, form: element.find('.shipping-form') });
+    $('body').trigger('shipping:editMultiShipAddress', {
+        element: element,
+        form: element.find('.shipping-form')
+    });
 }
 
 /**
@@ -672,7 +752,10 @@ function editOrEnterMultiShipInfo(element, mode) {
     var form = $(element).closest('form');
     var root = $(element).closest('.shipping-content');
 
-    $('body').trigger('shipping:updateDataAddressMode', { form: form, mode: mode });
+    $('body').trigger('shipping:updateDataAddressMode', {
+        form: form,
+        mode: mode
+    });
 
     editMultiShipAddress(root);
 
@@ -692,7 +775,8 @@ module.exports = {
         updateShippingAddressFormValues: updateShippingAddressFormValues,
         updateShippingMethods: updateShippingMethods,
         updateShippingSummaryInformation: updateShippingSummaryInformation,
-        updatePLIShippingSummaryInformation: updatePLIShippingSummaryInformation,
+        updatePLIShippingSummaryInformation:
+            updatePLIShippingSummaryInformation,
         updateProductLineItemShipmentUUIDs: updateProductLineItemShipmentUUIDs,
         updateShippingInformation: updateShippingInformation,
         updateMultiShipInformation: updateMultiShipInformation,
@@ -714,16 +798,23 @@ module.exports = {
             var $shippingForm = $(this).parents('form');
             var methodID = $(':checked', this).val();
             var shipmentUUID = $shippingForm.find('[name=shipmentUUID]').val();
-            var urlParams = addressHelpers.methods.getAddressFieldsFromUI($shippingForm);
+            var urlParams =
+                addressHelpers.methods.getAddressFieldsFromUI($shippingForm);
             urlParams.shipmentUUID = shipmentUUID;
             urlParams.methodID = methodID;
             urlParams.isGift = $shippingForm.find('.gift').prop('checked');
-            urlParams.giftMessage = $shippingForm.find('textarea[name$=_giftMessage]').val();
+            urlParams.giftMessage = $shippingForm
+                .find('textarea[name$=_giftMessage]')
+                .val();
 
             var url = $(this).data('select-shipping-method-url');
 
             if (baseObj.methods && baseObj.methods.selectShippingMethodAjax) {
-                baseObj.methods.selectShippingMethodAjax(url, urlParams, $(this));
+                baseObj.methods.selectShippingMethodAjax(
+                    url,
+                    urlParams,
+                    $(this)
+                );
             } else {
                 selectShippingMethodAjax(url, urlParams, $(this));
             }
@@ -751,32 +842,68 @@ module.exports = {
                             customer: response.customer
                         });
 
-                        if ($('#checkout-main').data('customer-type') === 'guest') {
-                            if (baseObj.methods && baseObj.methods.clearShippingForms) {
-                                baseObj.methods.clearShippingForms(response.order);
+                        if (
+                            $('#checkout-main').data('customer-type') ===
+                            'guest'
+                        ) {
+                            if (
+                                baseObj.methods &&
+                                baseObj.methods.clearShippingForms
+                            ) {
+                                baseObj.methods.clearShippingForms(
+                                    response.order
+                                );
                             } else {
                                 clearShippingForms(response.order);
                             }
                         } else {
-                            response.order.shipping.forEach(function (shipping) {
-                                $('input[value=' + shipping.UUID + ']').each(function (formIndex, el) {
-                                    var form = el.form;
-                                    if (!form) return;
+                            response.order.shipping.forEach(
+                                function (shipping) {
+                                    $(
+                                        'input[value=' + shipping.UUID + ']'
+                                    ).each(function (formIndex, el) {
+                                        var form = el.form;
+                                        if (!form) return;
 
-                                    $(form).attr('data-address-mode', 'edit');
-                                    var addressSelectorDropDown = $(form).find('.addressSelector option[value="ab_' + shipping.matchingAddressId + '"]');
-                                    $(addressSelectorDropDown).prop('selected', true);
-                                    $('input[name$=_isGift]', form).prop('checked', false);
-                                    $('textarea[name$=_giftMessage]', form).val('');
-                                    $(form).find('.gift-message').addClass('d-none');
-                                });
-                            });
+                                        $(form).attr(
+                                            'data-address-mode',
+                                            'edit'
+                                        );
+                                        var addressSelectorDropDown = $(
+                                            form
+                                        ).find(
+                                            '.addressSelector option[value="ab_' +
+                                                shipping.matchingAddressId +
+                                                '"]'
+                                        );
+                                        $(addressSelectorDropDown).prop(
+                                            'selected',
+                                            true
+                                        );
+                                        $('input[name$=_isGift]', form).prop(
+                                            'checked',
+                                            false
+                                        );
+                                        $(
+                                            'textarea[name$=_giftMessage]',
+                                            form
+                                        ).val('');
+                                        $(form)
+                                            .find('.gift-message')
+                                            .addClass('d-none');
+                                    });
+                                }
+                            );
                         }
 
                         if (usingMultiShip) {
-                            $('body').trigger('shipping:selectMultiShipping', { data: response });
+                            $('body').trigger('shipping:selectMultiShipping', {
+                                data: response
+                            });
                         } else {
-                            $('body').trigger('shipping:selectSingleShipping', { data: response });
+                            $('body').trigger('shipping:selectSingleShipping', {
+                                data: response
+                            });
                         }
                     }
 
@@ -802,10 +929,17 @@ module.exports = {
             $('.multi-shipping .shipping-address').addClass('d-none');
 
             data.data.order.shipping.forEach(function (shipping) {
-                var element = $('.multi-shipping .card[data-shipment-uuid="' + shipping.UUID + '"]');
+                var element = $(
+                    '.multi-shipping .card[data-shipment-uuid="' +
+                        shipping.UUID +
+                        '"]'
+                );
 
                 if (shipping.shippingAddress) {
-                    if (baseObj.methods && baseObj.methods.viewMultishipAddress) {
+                    if (
+                        baseObj.methods &&
+                        baseObj.methods.viewMultishipAddress
+                    ) {
                         baseObj.methods.viewMultishipAddress($(element));
                     } else {
                         viewMultishipAddress($(element));
@@ -834,42 +968,116 @@ module.exports = {
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
             var postalCode = attrs.postalCode.toString();
+            var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
+                var stateCodeExists = false;
                 $('.shippingState option').each(function () {
                     if ($(this).val() === stateCode) {
                         $('.shippingState option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.shippingState').trigger('change');
+                        stateCodeExists = true;
                         return false;
                     }
                 });
+                if (!stateCodeExists) {
+                    var shippingState = $('.shippingState');
+                    shippingState.empty();
+                    shippingState
+                        .prepend(
+                            $('<option>', {
+                                value: stateCode,
+                                text: stateCode
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.shippingState').removeClass('is-invalid');
+                }
+            } else {
+                $('.shippingState option').removeAttr('selected');
+                $('.shippingState').val('');
+                $('.shippingAddressCity').val('');
+                $('.shippingZipCode').val('');
             };
             if (city) {
-                $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
-                $('.shippingZipCode').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+                var cityExistsShiping = false;
+                $('.shippingAddressCity').prepend(
+                    $('<option></option>')
+                        .attr('value', '')
+                        .attr('selected', 'selected')
+                );
+                $('.shippingZipCode').prepend(
+                    $('<option></option>')
+                        .attr('value', '')
+                        .attr('selected', 'selected')
+                );
                 $('.shippingAddressCity option').each(function () {
                     if ($(this).val() === city) {
                         $('.shippingAddressCity option').removeAttr('selected');
                         $('.shippingAddressCity option')[0].remove();
                         $(this).attr('selected', 'selected');
-                        $('body').find('.shippingAddressCity').trigger('change');
+                        $('body')
+                            .find('.shippingAddressCity')
+                            .trigger('change');
+                        cityExistsShiping = true;
                         return false;
                     }
                     $('.shippingZipCode option').slice(1).remove();
                 });
+                if(!cityExistsShiping){
+                    var shippingAddressCity = $('.shippingAddressCity');
+                    shippingAddressCity.empty();
+                    shippingAddressCity
+                        .prepend(
+                            $('<option>', {
+                                value: city,
+                                text: city
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.shippingAddressCity').removeClass('is-invalid');
+                }
             }
             if (postalCode) {
+                var postalCodeExistss = false;
                 $('.shippingZipCode option').each(function () {
                     if ($(this).val() === postalCode) {
                         $('.shippingZipCode option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.shippingZipCode').trigger('change');
+                        postalCodeExistss = true;
                         return false;
                     }
                 });
+                if(!postalCodeExistss){
+                    var shippingZipCode = $('.shippingZipCode');
+                    shippingZipCode.empty();
+                    shippingZipCode
+                        .prepend(
+                            $('<option>', {
+                                value: postalCode,
+                                text: postalCode
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.shippingZipCode').removeClass('is-invalid');
+                }
+            }
+            if (dialCodeCountry) {
+                // Get the instance of intl-tel-input
+                if (window.itiInstance) {
+                    window.itiInstance.setCountry(dialCodeCountry);
+                }
             }
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (
+                    ![
+                        'stateCode',
+                        'city',
+                        'postalCode',
+                        'countryCode'
+                    ].includes(attr)
+                ) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     $('[name$=' + element + ']', form).val(attrs[attr]);
                     // validate an hide/show errors
@@ -905,14 +1113,17 @@ module.exports = {
     updateShippingList: function () {
         var baseObj = this;
 
-        $('select[name$="shippingAddress_addressFields_states_stateCode"]')
-            .on('change', function (e) {
-                if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
-                    baseObj.methods.updateShippingMethodList($(e.currentTarget.form));
-                } else {
-                    updateShippingMethodList($(e.currentTarget.form));
-                }
-            });
+        $(
+            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_postalCode"], input[name$="shippingAddress_addressFields_address1"]'
+        ).on('change', function (e) {
+            if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
+                baseObj.methods.updateShippingMethodList(
+                    $(e.currentTarget.form)
+                );
+            } else {
+                updateShippingMethodList($(e.currentTarget.form));
+            }
+        });
     },
 
     updateDataAddressMode: function () {
@@ -971,30 +1182,39 @@ module.exports = {
                 .done(function (response) {
                     formHelpers.clearPreviousErrors(form);
                     if (response.error) {
-                        if (response.fieldErrors && response.fieldErrors.length) {
+                        if (
+                            response.fieldErrors &&
+                            response.fieldErrors.length
+                        ) {
                             response.fieldErrors.forEach(function (error) {
                                 if (Object.keys(error).length) {
                                     formHelpers.loadFormErrors(form, error);
                                 }
                             });
-                        } else if (response.serverErrors && response.serverErrors.length) {
-                            $.each(response.serverErrors, function (index, element) {
-                                createErrorNotification(element);
-                            });
+                        } else if (
+                            response.serverErrors &&
+                            response.serverErrors.length
+                        ) {
+                            $.each(
+                                response.serverErrors,
+                                function (index, element) {
+                                    createErrorNotification(element);
+                                }
+                            );
                         } else if (response.redirectUrl) {
                             window.location.href = response.redirectUrl;
                         }
                     } else {
                         // Update UI from response
-                        $('body').trigger(
-                            'checkout:updateCheckoutView',
-                            {
-                                order: response.order,
-                                customer: response.customer
-                            }
-                        );
+                        $('body').trigger('checkout:updateCheckoutView', {
+                            order: response.order,
+                            customer: response.customer
+                        });
 
-                        if (baseObj.methods && baseObj.methods.viewMultishipAddress) {
+                        if (
+                            baseObj.methods &&
+                            baseObj.methods.viewMultishipAddress
+                        ) {
                             baseObj.methods.viewMultishipAddress($rootEl);
                         } else {
                             viewMultishipAddress($rootEl);
@@ -1032,11 +1252,17 @@ module.exports = {
             // Should clear out changes / restore previous state
             if (restoreState) {
                 var restoreStateObj = JSON.parse(restoreState);
-                var originalStateCode = restoreStateObj.shippingAddress.stateCode;
+                var originalStateCode =
+                    restoreStateObj.shippingAddress.stateCode;
                 var stateCode = $('[name$=_stateCode]', form).val();
 
-                if (baseObj.methods && baseObj.methods.updateShippingAddressFormValues) {
-                    baseObj.methods.updateShippingAddressFormValues(restoreStateObj);
+                if (
+                    baseObj.methods &&
+                    baseObj.methods.updateShippingAddressFormValues
+                ) {
+                    baseObj.methods.updateShippingAddressFormValues(
+                        restoreStateObj
+                    );
                 } else {
                     updateShippingAddressFormValues(restoreStateObj);
                 }
@@ -1045,7 +1271,10 @@ module.exports = {
                     $('[data-action=save]', form).trigger('click');
                 } else {
                     $(form).attr('data-address-mode', 'edit');
-                    if (baseObj.methods && baseObj.methods.editMultiShipAddress) {
+                    if (
+                        baseObj.methods &&
+                        baseObj.methods.editMultiShipAddress
+                    ) {
                         baseObj.methods.editMultiShipAddress($rootEl);
                     } else {
                         editMultiShipAddress($rootEl);

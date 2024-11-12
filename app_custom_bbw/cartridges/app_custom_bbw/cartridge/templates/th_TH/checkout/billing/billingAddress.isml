@@ -1,0 +1,235 @@
+<isset name="billingFields" value="${pdict.forms.billingForm.addressFields}" scope="page" />
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+                ${billingFields.firstName.mandatory === true ? 'required' : ''}
+                ${billingFields.firstName.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingFirstName"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.first.name', 'address', null)}</label>
+            <input autofocus type="text" class="form-control billingFirstName" id="billingFirstName"
+                value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.firstName ? pdict.order.billing
+                    .billingAddress.address.firstName : ''}" <isprint value=${billingFields.firstName.attributes}
+                encoding="off" />
+                data-missing-error="${Resource.msg('error.first.name', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.FName', 'forms', null)}"
+                autocomplete="given-name" >
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="form-group
+                ${billingFields.lastName.mandatory === true ? 'required' : ''}
+                ${billingFields.lastName.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingLastName"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.last.name', 'address', null)}</label>
+            <input type="text" class="form-control billingLastName" id="billingLastName"
+                value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.lastName ? pdict.order.billing
+                    .billingAddress.address.lastName : ''}" <isprint value=${billingFields.lastName.attributes}
+                encoding="off" />
+                data-missing-error="${Resource.msg('error.last.name', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.LName', 'forms', null)}"
+                autocomplete="family-name">
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label class="form-control-label h-font-size--16 h-fw--semibold" for="billingAddressAutoComplete">
+                ${Resource.msg('field.address.auto', 'address', null)}
+            </label>
+            <input id="billingAddressAutoComplete" type="text" size="50" disabled='disabled'>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+                ${billingFields.address1.mandatory === true ? 'required' : ''}
+                ${billingFields.address1.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingAddressOne"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.one', 'address', null)}</label>
+            <input type="text" class="form-control billingAddressOne" id="billingAddressOne"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.address', 'forms', null)}"
+                value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.address1 ? pdict.order.billing
+                    .billingAddress.address.address1 : ''}" <isprint value=${billingFields.address1.attributes}
+                encoding="off" />
+                data-missing-error="${Resource.msg('error.address.line-1', 'forms', null)}"
+                autocomplete="billing address-line1">
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+                ${billingFields.address2.mandatory === true ? 'required' : ''}
+                ${billingFields.address2.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingAddressTwo">${Resource.msg('field.billing.address.two', 'address', null)}</label>
+            <input type="text" class="form-control billingAddressTwo" id="billingAddressTwo"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.address', 'forms', null)}"
+                value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.address2 ? pdict.order.billing
+                    .billingAddress.address.address2 : ''}" <isprint value=${billingFields.address2.attributes}
+                encoding="off" />
+                autocomplete="billing address-line2">
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+</div>
+
+<!--- make drop down--->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+                ${billingFields.country.mandatory === true ? 'required' : ''}
+                ${billingFields.country.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingCountry"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.country', 'address', null)}</label>
+            <div class="custom-select-wrap">
+                <select class="form-control billingCountry custom-select" id="billingCountry" <isprint
+                    value=${billingFields.country.attributes} encoding="off" />
+                    autocomplete="billing country">
+                    <isloop items=${billingFields.country.options} var="country">
+                        <option id="${country.id}" value="${country.htmlValue}" selected>
+                            ${country.label}
+                        </option>
+                    </isloop>
+                </select>
+            </div>
+            <div class="invalid-feedback"></div>
+
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="form-group
+                ${billingFields.states.stateCode.mandatory === true ? 'required' : ''}
+                ${billingFields.states.stateCode.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingState"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.state', 'address', null)}</label>
+            <div class="custom-select-wrap">
+                <select class="form-control billingState custom-select"
+                    id="billingState" name="${billingFields.states.stateCode.htmlName}"
+                    data-missing-error="${Resource.msg('error.state', 'forms', null)}"
+                    data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.stateCode}"
+                    <isprint value="${pdict.addressForm.states.stateCode.attributes}" encoding="off" />
+                autocomplete="shipping address-level1"
+                aria-describedby="${lineItem ? lineItem.UUID : 'default'}State">
+                <isloop items=${addressFields.states.stateCode.options} var="state">
+                    <option id="${state.id}" value="${state.htmlValue}" ${state.id === pdict.order.billing.billingAddress.address.stateCode ? 'selected' : ''}>${state.label || ' '}</option>
+                </isloop>
+                </select>
+            </div>
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+                ${billingFields.city.mandatory === true ? 'required' : ''}
+                ${billingFields.city.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingAddressCity"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.city', 'address', null)}</label>
+            
+            <div class="custom-select-wrap">
+                <select class="form-control billingAddressCity custom-select" id="billingAddressCity"
+                    data-missing-error="${Resource.msg('error.city', 'forms', null)}"
+                autocomplete="billing address-level2"
+                data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.city}"
+                <isprint value="${billingFields.city.attributes}" encoding="off" />>
+                <isif condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.city}">
+                    <option id="${pdict.order.billing.billingAddress.address.city}" value="${pdict.order.billing.billingAddress.address.city}"  selected>${pdict.order.billing.billingAddress.address.city}</option>
+                </isif>
+                </select>
+                <div class="invalid-feedback shipping-select-error"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="form-group
+                    ${billingFields.subDistrict.mandatory === true ? 'required' : ''}
+                    ${billingFields.subDistrict.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="billingAddressSubdistrict"><span
+                    class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.subdistrict', 'address', null)}</label>
+    
+            <div class="custom-select-wrap">
+                <select class="form-control billingAddressSubdistrict custom-select" id="billingAddressSubdistrict"
+                    data-missing-error="${Resource.msg('error.subdistrict', 'forms', null)}" autocomplete="billing address-level2"
+                    data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress
+                                   .address.subDistrict}"
+                    <isprint value="${billingFields.subDistrict.attributes}" encoding="off" />>
+                <isif
+                    condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.subdistrict}">
+                    <option id="${pdict.order.billing.billingAddress.address.subdistrict}"
+                        value="${pdict.order.billing.billingAddress.address.subdistrict}" selected>
+                        ${pdict.order.billing.billingAddress.address.subdistrict}</option>
+                </isif>
+                </select>
+                <div class="invalid-feedback shipping-select-error"></div>
+            </div>
+    
+    
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="form-group
+                ${billingFields.postalCode.mandatory === true ? 'required' : ''}
+                ${billingFields.postalCode.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingZipCode"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.zip.code', 'address', null)}</label>
+            
+            <div class="custom-select-wrap">
+                <select class="form-control billingZipCode custom-select"
+                    id="billingZipCode"
+                    value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.postalCode ? pdict.order
+                    .billing.billingAddress.address.postalCode : ''}" <isprint
+                value=${billingFields.postalCode.attributes} encoding="off" />
+                data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress
+                              .address.postalCode}"
+                data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('valid.zip.code', 'forms', null)}"
+                autocomplete="billing postal-code"
+                >
+                <isif condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.postalCode}">
+                    <option id="${pdict.order.billing.billingAddress.address.postalCode}"
+                        value="${pdict.order.billing.billingAddress.address.postalCode}" selected>
+                        ${pdict.order.billing.billingAddress.address.postalCode}</option>
+                </isif>
+                </select>
+                <div class="invalid-feedback shipping-select-error"></div>
+            </div>
+            <input type="hidden" class="dialCode" value="${billingFields.dialCode.htmlValue || dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCode')}" <isprint value="${billingFields.dialCode.attributes}" encoding="off" />
+            />
+            <input type="hidden" class="dialCodeCountry" value="${billingFields.dialCodeCountry.htmlValue || dw.system.Site.getCurrent().getCustomPreferenceValue(
+                                                                'defaultDialCodeCountry')}" <isprint value="${billingFields.dialCodeCountry.attributes}"
+                encoding="off" />
+            />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input class="custom-control-input gift" type="checkbox"
+                    id="billingSaveAddress"
+                    <isprint value="${pdict.forms.billingForm.saveAddress.attributes}"
+                    encoding="off" />
+                >
+                <label for="billingSaveAddress"
+                    class="custom-control-label checkout-checkbox h-font-size--16 h-clr--black-1">
+                    ${Resource.msg('check.save.address', 'checkout', null)}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

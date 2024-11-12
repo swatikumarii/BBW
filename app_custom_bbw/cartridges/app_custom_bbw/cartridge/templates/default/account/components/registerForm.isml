@@ -67,8 +67,9 @@
         </label>
         <input type="tel" class="form-control select-dropdown-value h-clr--black-1" required
             id="registration-form-phone" initOptions.allowDropdown="true"
+            placeholder="412 345 678"
             data-missing-error="${Resource.msg('error.message.phone.required', 'forms', null)}"
-            data-pattern-mismatch="${Resource.msg('error.message.parse.phone.profile.form', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
             aria-describedby="form-phone-error" <isprint value=${pdict.profileForm.customer.phone.attributes}
             encoding="off" /> />
@@ -261,21 +262,23 @@
     </div>
 
     <div class="form-group register-form text-center custom-control custom-checkbox p-0">
-        <input type="checkbox" id="add-to-email-list" class="custom-control-input" required <isprint
-            value=${pdict.profileForm.customer.addtoemaillist.attributes} encoding="off" />
+        <input type="checkbox" id="add-to-email-list" class="add-to-email-list custom-control-input" data-missing-error="${Resource.msg('error.message.checkbox.required', 'forms', null)}" required
         />
         <label class="custom-control-label h-clr--black-1 h-font-size--16" for="add-to-email-list">
-            
             <span class="h-clr--black-1 h-font-size--16 cursor-pointer"><isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" /> ${Resource.msg('label.terms.contitions', 'forms', null)}</span>
-            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', 'terms-of-use')}"
+            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', 'terms-of-use')}"
                 class="h-clr--black-1 h-font-size--16 d-block text-left b-link--underlined">${Resource.msg('label.read.here', 'forms', null)}</a>
         </label>
         <div class="invalid-feedback p-0" id="tnc-checkbox-error"></div>
     </div>
-
+    <input type="hidden" class="dialCode" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCode')}" <isprint value=${pdict.profileForm.customer.dialCode.attributes}
+        encoding="off" />
+    />
+    <input type="hidden" class="dialCodeCountry" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCodeCountry')}" value="" <isprint value=${pdict.profileForm.customer.dialCodeCountry.attributes} encoding="off" />
+    />
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <div class="text-center register-privacy">
-        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3">
+        <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3">
             ${Resource.msg('link.privacypolicy.registration', 'login', null)}
         </a>
     </div>
@@ -297,7 +300,7 @@
     <iscomment>
         <div class="privacy-policy">
             ${Resource.msg('description.privacypolicy.registration', 'registration', null)}
-            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${'#'}">
+            <a hreflang="${pdict.hrefLang}" href="${'#'}">
                 ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
             </a>
         </div>

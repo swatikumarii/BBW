@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+       <field
+              formid="taxID"
+              label="label.input.taxid"
+              type="string"
+              mandatory="false"
+              missing-error="error.tax.id"
+              regexp="^[a-zA-Z0-9 ''\-]+$" parse-error="error.message.parse.taxid"
+       />
+</form>

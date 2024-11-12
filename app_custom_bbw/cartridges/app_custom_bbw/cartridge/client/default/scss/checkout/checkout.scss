@@ -130,6 +130,10 @@ footer {
     font-weight: 600;
 }
 
+.discountPrice {
+    text-decoration: line-through !important;
+}
+
 .multi-ship .multi-shipping {
     display: block;
 }
@@ -199,8 +203,10 @@ span.ship-to-city-st-zip {
 }
 
 .data-checkout-stage {
+
     // Initial states ------------------------
     &[data-checkout-stage] {
+
         .card.payment-summary,
         .shipping-summary {
             display: none;
@@ -243,6 +249,7 @@ span.ship-to-city-st-zip {
     }
 
     &[data-checkout-stage="submitted"] {
+
         .shipping-form,
         .card.payment-form,
         button.submit-customer,
@@ -268,7 +275,7 @@ span.ship-to-city-st-zip {
         display: none;
     }
 
-    h5 > span {
+    h5>span {
         font-size: 0.8em;
     }
 }
@@ -714,8 +721,7 @@ input[type="tel"],
             height: 47px;
             width: 35px;
             border-left: 1px solid colour(gray, 5);
-            background: colour(white) url("../../images/UI-Carat.svg") no-repeat
-                50%;
+            background: colour(white) url("../../images/UI-Carat.svg") no-repeat 50%;
             background-size: 15px;
         }
 
@@ -740,6 +746,8 @@ input[type="tel"],
             }
         }
     }
+
+
 
     .form-group {
         margin: 10px 0 30px;
@@ -1033,10 +1041,10 @@ input[type="tel"],
     &:hover {
         display: block;
 
-        + .info-icon-border-arrow-outline {
+        +.info-icon-border-arrow-outline {
             display: block;
 
-            + .info-icon-border-arrow {
+            +.info-icon-border-arrow {
                 display: block;
             }
         }
@@ -1119,13 +1127,13 @@ input[type="tel"],
             display: none;
         }
 
-        + .info-icon-text {
+        +.info-icon-text {
             display: block;
 
-            + .info-icon-border-arrow-outline {
+            +.info-icon-border-arrow-outline {
                 display: block;
 
-                + .info-icon-border-arrow {
+                +.info-icon-border-arrow {
                     display: block;
                 }
             }
@@ -1257,10 +1265,10 @@ input[type="tel"],
     &:hover {
         display: block;
 
-        + .tooltip-arrow {
+        +.tooltip-arrow {
             display: block;
 
-            + .tooltip-arrow::before {
+            +.tooltip-arrow::before {
                 display: block;
             }
         }
@@ -1337,6 +1345,9 @@ input[type="tel"],
 
     &.accordion-item.collapsed {
         .cart-saving {
+            width: fit-content;
+            position: relative;
+
             &::before {
                 background: url("../../images/UI-Carat.svg") 50%;
                 background-repeat: no-repeat;
@@ -1344,7 +1355,8 @@ input[type="tel"],
                 content: "";
                 height: 12px;
                 position: absolute;
-                left: 74px;
+                right: -20px;
+                left: auto;
                 transform: rotate(0deg);
                 transition: all 0.5s ease-out;
                 width: 12px;
@@ -1355,6 +1367,9 @@ input[type="tel"],
 
     &.accordion-item {
         .cart-saving {
+            width: fit-content;
+            position: relative;
+
             &::before {
                 background: url("../../images/UI-Carat.svg") 50%;
                 background-repeat: no-repeat;
@@ -1362,7 +1377,8 @@ input[type="tel"],
                 content: "";
                 height: 12px;
                 position: absolute;
-                left: 74px;
+                right: -20px;
+                left: auto;
                 transition: all 0.5s ease-out;
                 width: 12px;
                 top: 4px;
@@ -1509,7 +1525,34 @@ input[type="tel"],
     top: 47px;
 }
 
-#adyenModalDialog { // stylelint-disable-line
+#adyenModalDialog {
+    // stylelint-disable-line
     height: 400px;
     width: 390px;
+}
+
+.contact-info-block {
+    .phone-number-wrapper {
+        .iti {
+            width: 100%;
+        }
+    }
+}
+
+.payment-2c2p {
+    background-color: colour(gray, 29);
+    border: 1px solid colour(gray, 32);
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 12px 15px;
+    margin-top: 16px;
+}
+
+#shippingAddressAutoComplete:disabled, 
+#billingAddressAutoComplete:disabled,
+#accountAddressAutoComplete:disabled {
+    border-color: #ccc;
+    color: #666;
+    cursor: default;
+    opacity: 0.5;
 }

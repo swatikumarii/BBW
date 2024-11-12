@@ -166,7 +166,8 @@ function getApproachingDiscounts(basket, discountPlan) {
                     ),
                     conditionThreshold: approachingShippingDiscount.conditionThreshold.value,
                     formattedConditionThreshold: formatMoney(approachingShippingDiscount.conditionThreshold),
-                    distanceFromConditionThreshold: approachingShippingDiscount.distanceFromConditionThreshold.value
+                    distanceFromConditionThreshold: approachingShippingDiscount.distanceFromConditionThreshold.value,
+                    condition: approachingShippingDiscount.discount.promotion && 'custom' in approachingShippingDiscount.discount.promotion && 'shippingMotivatorCondition' in approachingShippingDiscount.discount.promotion.custom ? approachingShippingDiscount.discount.promotion.custom.shippingMotivatorCondition.markup : ''
                 };
             }
         );
@@ -185,7 +186,8 @@ function getApproachingDiscounts(basket, discountPlan) {
                         ),
                         conditionThreshold: conditionThreshold,
                         formattedConditionThreshold: formatMoney(new Money(conditionThreshold, basket.currencyCode)),
-                        distanceFromConditionThreshold: 0
+                        distanceFromConditionThreshold: 0,
+                        condition: appliedShippingDiscount.promotion && 'custom' in appliedShippingDiscount.promotion && 'shippingMotivatorCondition' in appliedShippingDiscount.promotion.custom ? appliedShippingDiscount.promotion.custom.shippingMotivatorCondition.markup : ''
                     };
                 }
             );
@@ -226,6 +228,108 @@ function getFreeItemCount(items) {
     }
     return freeItemCount;
 }
+
+/**
+ *
+ * @param {object} basket basket object
+ * @returns {Array} availableBonusProducts
+ */
+function getAvailableBonusProducts(basket) {
+    var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
+    var ProductFactory = require('*/cartridge/scripts/factories/product');
+    var bonusDiscountLineItems = basket ? basket.bonusDiscountLineItems : null;
+    var bonusLineItems = basket  ? basket.bonusLineItems : null;
+    var availableBonusProducts = [];
+    var product;
+    var pids;
+    var isPWP = false;
+    if (bonusLineItems && bonusLineItems.length === 0 && bonusDiscountLineItems.length > 0) {
+        collections.forEach(bonusDiscountLineItems, function (bonusDiscountLineItem) {
+            pids = collections.map(bonusDiscountLineItem.bonusProducts, function (bonusProduct) {
+                return bonusProduct.ID;
+            });
+            isPWP = bonusDiscountLineItem.promotion && 'custom' in bonusDiscountLineItem.promotion && bonusDiscountLineItem.promotion.custom && bonusDiscountLineItem.promotion.custom.isPWP;
+            product = ProductFactory.get({pid: bonusDiscountLineItem.bonusProducts[0].ID, pview: 'bonus'});
+            product.isBonusProductLineItem = true;
+            product.discountLineItem = {
+                uuid: bonusDiscountLineItem.UUID,
+                pliuuid: bonusDiscountLineItem.custom.bonusProductLineItemUUID,
+                maxpids: bonusDiscountLineItem.maxBonusItems,
+                url: URLUtils.url('Product-ShowBonusProducts', 'DUUID', bonusDiscountLineItem.UUID, 'pagesize', cartHelper.BONUS_PRODUCTS_PAGE_SIZE, 'pagestart', 0, 'maxpids', bonusDiscountLineItem.maxBonusItems, 'pids', pids).toString()
+            };
+            product.availableDiscountObject = {
+                addToCartUrl: URLUtils.url('Cart-AddBonusProduct').toString(),
+                bonusChoiceRuleBased: bonusDiscountLineItem.bonusChoiceRuleBased,
+                labels: {
+                    close: Resource.msg('link.choiceofbonus.close', 'product', null),
+                    selectprods: isPWP ? Resource.msgf('modal.header.selectPWP', 'product', null, null) : Resource.msgf('modal.header.selectproducts', 'product', null, null),
+                    selectedprods: isPWP ? Resource.msgf('modal.header.selected.pwp', 'product',null ,0, bonusDiscountLineItem.maxBonusItems) : Resource.msgf('modal.header.selected.products', 'product', null,0, bonusDiscountLineItem.maxBonusItems),
+                    maxprods:  isPWP ? Resource.msgf('label.pwp.selectproducts', 'product', null, bonusDiscountLineItem.maxBonusItems) : Resource.msgf('label.choiceofbonus.selectproducts', 'product', null, bonusDiscountLineItem.maxBonusItems)
+                },
+                maxBonusItems: bonusDiscountLineItem.maxBonusItems,
+                pageSize: cartHelper.BONUS_PRODUCTS_PAGE_SIZE,
+                pliUUID: bonusDiscountLineItem.custom.bonusProductLineItemUUID,
+                queryString: 'duuid=' + bonusDiscountLineItem.UUID,
+                selectedBonusProducts: [],
+                selectprods: [],
+                showProductsUrl: URLUtils.url('Product-ShowBonusProducts').toString(),
+                showProductsUrlListBased: URLUtils.url('Product-ShowBonusProducts', 'DUUID', bonusDiscountLineItem.UUID, 'pagesize', cartHelper.BONUS_PRODUCTS_PAGE_SIZE, 'pagestart', 0, 'maxpids', bonusDiscountLineItem.maxBonusItems, 'pids', pids).toString(),
+                showProductsUrlRuleBased: URLUtils.url('Product-ShowBonusProducts', 'DUUID', bonusDiscountLineItem.UUID, 'pagesize', cartHelper.BONUS_PRODUCTS_PAGE_SIZE, 'pagestart', 0, 'maxpids', bonusDiscountLineItem.maxBonusItems).toString(),
+                uuid: bonusDiscountLineItem.UUID
+            };
+            availableBonusProducts.push({
+                product: product
+            });
+        });
+    } else if (bonusDiscountLineItems && bonusDiscountLineItems.length !== bonusLineItems.length) {
+        collections.forEach(bonusDiscountLineItems, function (bonusDiscountLineItem) {
+            var bonusDiscountLineItemExists = false;
+            collections.forEach(bonusLineItems, function (bonusLineItem) {
+                if (bonusLineItem.bonusDiscountLineItem.UUID === bonusDiscountLineItem.UUID) {
+                    bonusDiscountLineItemExists = true;
+                }
+            });
+            if (!bonusDiscountLineItemExists) {
+                pids = collections.map(bonusDiscountLineItem.bonusProducts, function (bonusProduct) {
+                    return bonusProduct.ID;
+                });
+                product = ProductFactory.get({pid: bonusDiscountLineItem.bonusProducts[0].ID, pview: 'bonus'});
+                product.isBonusProductLineItem = true;
+                product.discountLineItem = {
+                    uuid: bonusDiscountLineItem.UUID,
+                    pliuuid: bonusDiscountLineItem.custom.bonusProductLineItemUUID,
+                    maxpids: bonusDiscountLineItem.maxBonusItems,
+                    url: URLUtils.url('Product-ShowBonusProducts', 'DUUID', bonusDiscountLineItem.UUID, 'pagesize', cartHelper.BONUS_PRODUCTS_PAGE_SIZE, 'pagestart', 0, 'maxpids', bonusDiscountLineItem.maxBonusItems, 'pids', pids).toString()
+                };
+                product.availableDiscountObject = {
+                    addToCartUrl: URLUtils.url('Cart-AddBonusProduct').toString(),
+                    bonusChoiceRuleBased: bonusDiscountLineItem.bonusChoiceRuleBased,
+                    labels: {
+                        close: Resource.msg('link.choiceofbonus.close', 'product', null),
+                        selectprods: isPWP ? Resource.msgf('modal.header.selectPWP', 'product', null, null) : Resource.msgf('modal.header.selectproducts', 'product', null, null),
+                        selectedprods: isPWP ? Resource.msgf('modal.header.selected.pwp', 'product',null ,0, bonusDiscountLineItem.maxBonusItems) : Resource.msgf('modal.header.selected.products', 'product', null,0, bonusDiscountLineItem.maxBonusItems),
+                        maxprods:  isPWP ? Resource.msgf('label.pwp.selectproducts', 'product', null, bonusDiscountLineItem.maxBonusItems) : Resource.msgf('label.choiceofbonus.selectproducts', 'product', null, bonusDiscountLineItem.maxBonusItems)
+                    },
+                    maxBonusItems: bonusDiscountLineItem.maxBonusItems,
+                    pageSize: cartHelper.BONUS_PRODUCTS_PAGE_SIZE,
+                    pliUUID: bonusDiscountLineItem.custom.bonusProductLineItemUUID,
+                    queryString: 'duuid=' + bonusDiscountLineItem.UUID,
+                    selectedBonusProducts: [],
+                    selectprods: [],
+                    showProductsUrl: URLUtils.url('Product-ShowBonusProducts').toString(),
+                    showProductsUrlListBased: URLUtils.url('Product-ShowBonusProducts', 'DUUID', bonusDiscountLineItem.UUID, 'pagesize', cartHelper.BONUS_PRODUCTS_PAGE_SIZE, 'pagestart', 0, 'maxpids', bonusDiscountLineItem.maxBonusItems, 'pids', pids).toString(),
+                    showProductsUrlRuleBased: URLUtils.url('Product-ShowBonusProducts', 'DUUID', bonusDiscountLineItem.UUID, 'pagesize', cartHelper.BONUS_PRODUCTS_PAGE_SIZE, 'pagestart', 0, 'maxpids', bonusDiscountLineItem.maxBonusItems).toString(),
+                    uuid: bonusDiscountLineItem.UUID
+                };
+                availableBonusProducts.push({
+                    product: product
+                });
+            }
+        });
+    }
+    return availableBonusProducts;
+}
+
 /**
  * @class
  * @classdesc CartModel class that represents the current basket
@@ -286,5 +390,8 @@ function CartModel(basket) {
             null
         )
     };
+    this.availableBonusProducts = getAvailableBonusProducts(basket);
+    this.hasBonusProducts = basket ? basket.bonusDiscountLineItems.length > 0 : false;
+    this.CheckLoosingBonusURL = URLUtils.url('Cart-CheckLoosingBonus');
 }
 module.exports = CartModel;

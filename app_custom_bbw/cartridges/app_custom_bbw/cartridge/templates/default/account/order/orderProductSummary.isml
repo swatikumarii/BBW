@@ -34,11 +34,17 @@
                         </td>
                         <td class="item-details">
                             <div class="line-item-name">
+                                <isif condition="${lineItem.isBonusProductLineItem && !lineItem.isPWP}">
+                                    <span class="product-name d-block">${Resource.msg('label.free.gift', 'common', null)}</span>
+                                </isif>
+                                <isif condition="${lineItem.isPWP}">
+                                    <span class="product-name d-block">${Resource.msg('label.pwp.product', 'common', null)}</span>
+                                </isif>
                                 <isif condition="${pdict.isEgiftCard || lineItem.noProduct}">
                                     <span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span>
                                 <iselse/>
                                     <a class="product-name" title="${lineItem.productName}"
-                                    hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span></a>
+                                    hreflang="${pdict.hrefLang}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span></a>
                                 </isif>
                                 <isif condition="${lineItem.titlePartB}">
                                     <span class="product-number d-block">${lineItem.titlePartB}</span>

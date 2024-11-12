@@ -1,0 +1,67 @@
+{
+    "step-types": {
+        "chunk-script-module-step": [{
+            "@type-id": "custom.ordersExportToMiddleware",
+            "@supports-parallel-execution": true,
+            "@supports-site-context": true,
+            "@supports-organization-context": false,
+            "description": "Post the order JSON object to middleware service",
+            "module": "int_middleware_jobs/cartridge/scripts/jobstep/middlewareOrderExport.js",
+            "before-step-function": "beforeStep",
+            "total-count-function":"getTotalCount",
+            "read-function": "read",
+            "process-function": "process",
+            "write-function": "write",
+            "after-step-function": "afterStep",
+            "chunk-size": 10,
+            "transactional": true,
+            "parameters": {
+                "parameter": [{
+                    "@name": "serviceID",
+                    "@type": "string",
+                    "@required": true,
+                    "description": "Configure service ID where to POST order object",
+                    "default-value": "orderExportMiddleware.http.post",
+                    "@trim": "true"
+                },
+                {
+                    "@name": "orderPrefix",
+                    "@type": "string",
+                    "@required": false,
+                    "description": "Configure order number Prefix if we have any. For Ex: filter only order starts with BBW, pass 'BBW*'",
+                    "default-value": "*",
+                    "@trim": "true"
+                },
+                {
+                    "@name": "minutes",
+                    "@type": "long",
+                    "@required": false,
+                    "description": "Configure in minutes to fetch order past from",
+                    "default-value": "10"
+                },
+                {
+                    "@name": "allOrdersExport",
+                    "@type": "boolean",
+                    "@required": false,
+                    "description": "Enable the flag for executing all (prefix)orders. This will override minutes parameter."
+                },
+                {
+                    "@name": "exportErrorOrdersOnly",
+                    "@type": "boolean",
+                    "@required": false,
+                    "description": "Enable the flag for fetching middlewareExportStatus Error orders only. This will override minutes & allOrdersExport parameter."
+                }]
+            },
+            "status-codes": {
+                "status": [{
+                    "@code": "ERROR",
+                    "description": "Used when the step failed with an error."
+                },
+                {
+                    "@code": "OK",
+                    "description": "Used when the step finished successfully."
+                }]
+            }
+        }]
+    }
+}

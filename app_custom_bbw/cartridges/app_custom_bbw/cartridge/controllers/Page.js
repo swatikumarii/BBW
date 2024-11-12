@@ -181,17 +181,25 @@ server.replace('SetLocale', function (req, res, next) {
         }
 
         var redirectUrl = URLUtils.url(req.querystring.action).toString();
+        if (
+            req.querystring.action === 'Home-Show' &&
+            currentSite.defaultLocale !== req.querystring.code
+        ) {
+            redirectUrl = 'https://'+ request.httpHost + '/' + request.getLocale().toString().substring(0, 2);
+        }
         var qsConnector = redirectUrl.indexOf('?') >= 0 ? '&' : '?';
 
         redirectUrl = Object.keys(queryStringObj).length === 0
             ? redirectUrl += queryStringObj.toString()
             : redirectUrl += qsConnector + queryStringObj.toString();
 
-                
         if (req.querystring.action === 'Page-Show' && queryStringObj && queryStringObj.cid) {
             redirectUrl = URLUtils.https(req.querystring.action, 'cid', queryStringObj.cid).toString();
             if (queryStringObj.cid === 'homepage') {
                 redirectUrl = URLUtils.https('Home-Show').toString();
+                if (currentSite.defaultLocale !== req.querystring.code) {
+                    redirectUrl = 'https://'+ request.httpHost + '/' + request.getLocale().toString().substring(0, 2);
+                }
             }
         }
 
@@ -202,6 +210,44 @@ server.replace('SetLocale', function (req, res, next) {
     } else {
         res.json({ error: true }); // TODO: error message
     }
+    next();
+});
+
+server.post('GatedEntry', function (req,res,next) {
+    var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+    var URLUtils = require('dw/web/URLUtils');
+    var CouponMgr = require('dw/campaign/CouponMgr');
+    var Transaction = require('dw/system/Transaction');
+    var BasketMgr = require('dw/order/BasketMgr');
+    var currentBasket = BasketMgr.getCurrentOrNewBasket();
+    var password = req.httpParameterMap.gatedPassword.value;
+    var customObjectID = req.httpParameterMap.customObject.value;
+    var success = false;
+    var customObject = CustomObjectMgr.getCustomObject('GatedEntry', customObjectID);
+    if (customObject && customObject.custom.password && customObject.custom.password === password) {
+        success = true;
+        session.custom.gatedAllowed = customObjectID;
+        var coupon = CouponMgr.getCouponByCode(password);
+        if (coupon) {
+            var couponPromos = coupon.getPromotions();
+            if (couponPromos.length > 0) {
+                Transaction.wrap(function () {
+                    try {
+                        currentBasket.createCouponLineItem(
+                            password,
+                            true
+                        );
+                    } catch (error) {
+                        var couponError = true;
+                    }
+                });
+            }
+        }
+    }
+    res.json({
+        success: success,
+        redirectUrl: URLUtils.url('Home-Show').toString()
+    });
     next();
 });
 module.exports = server.exports();

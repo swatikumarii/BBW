@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
+		<options>
+			<option optionid="" 	label="resource.select.state" 		value=""/>
+			<!-- regular VN states -->
+			<option label="Central Highlands" value="Central Highlands"/>
+			<option label="Mekong River Delta" value="Mekong River Delta"/>
+			<option label="North Central Coast" value="North Central Coast"/>
+			<option label="Northeast" value="Northeast"/>
+			<option label="Northwest" value="Northwest"/>
+			<option label="Red River Delta" value="Red River Delta"/>
+			<option label="South Central Coast" value="South Central Coast"/>
+			<option label="Southeast" value="Southeast"/>
+		</options>
+	</field>
+</form>

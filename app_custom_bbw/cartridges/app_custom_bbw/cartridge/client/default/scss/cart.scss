@@ -283,10 +283,10 @@
                             &:hover {
                                 display: block;
 
-                                + .tooltip-arrow {
+                                +.tooltip-arrow {
                                     display: block;
 
-                                    + .tooltip-arrow::before {
+                                    +.tooltip-arrow::before {
                                         display: block;
                                     }
                                 }
@@ -597,15 +597,17 @@
                     .order-discount {
                         &.accordion-item.collapsed {
                             .cart-saving {
+                                width: fit-content;
+                                position: relative;
                                 &::before {
-                                    background: url("../images/UI-Carat.svg")
-                                        50%;
+                                    background: url("../images/UI-Carat.svg") 50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
                                     height: 12px;
                                     position: absolute;
-                                    left: 74px;
+                                    right: -20px;
+                                    left: auto;
                                     transform: rotate(0deg);
                                     transition: all 0.5s ease-out;
                                     width: 12px;
@@ -616,15 +618,17 @@
 
                         &.accordion-item {
                             .cart-saving {
+                                width: fit-content;
+                                position: relative;
                                 &::before {
-                                    background: url("../images/UI-Carat.svg")
-                                        50%;
+                                    background: url("../images/UI-Carat.svg") 50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
                                     height: 12px;
                                     position: absolute;
-                                    left: 74px;
+                                    right: -20px;
+                                    left: auto;
                                     transition: all 0.5s ease-out;
                                     width: 12px;
                                     top: 4px;
@@ -959,8 +963,7 @@ footer {
 
             span.arrow {
                 display: inline-block;
-                background: url("../../images/cart/Caret_Bold.svg") no-repeat
-                    50%;
+                background: url("../../images/cart/Caret_Bold.svg") no-repeat 50%;
                 background-size: 14px;
                 height: 12px;
                 width: 12px;
@@ -1014,4 +1017,23 @@ footer {
 
 .social-badge-wrapper {
     margin-bottom: 6px;
+}
+
+.cart-dangerous-goods {
+    position: relative;
+
+    @include media-up(sm) {
+        position: absolute;
+        bottom: 20px;
+        right: 11px;
+    }
+}
+
+.apple-pay-popup {
+    font-size: 12px;
+    letter-spacing: .12em;
+    line-height: 2.0625rem;
+    max-width: 226px;
+    min-height: unset;
+    width: 100%;
 }

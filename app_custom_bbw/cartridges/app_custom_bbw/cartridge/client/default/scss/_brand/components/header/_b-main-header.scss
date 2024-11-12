@@ -200,7 +200,13 @@ header {
                             }
 
                             @include media-up(md) {
-                                padding: 1px 45px 0 12px;
+                                padding: 1px 66px 0 12px;
+                            }
+
+                            &:focus {
+                                @include media-up(md) {
+                                    padding: 1px 66px 0 12px;
+                                }
                             }
                         }
 
@@ -508,22 +514,6 @@ header {
             &:hover {
                 color: colour(gray);
             }
-        }
-    }
-}
-
-.in-id {
-    header .bbw-nav .bbw-nav-wrap .primary-logo {
-        @include media-up(md) {
-            left: 28px;
-        }
-    }
-}
-
-.en-id {
-    header .bbw-nav .bbw-nav-wrap .primary-logo {
-        @include media-up(md) {
-            left: 28px;
         }
     }
 }

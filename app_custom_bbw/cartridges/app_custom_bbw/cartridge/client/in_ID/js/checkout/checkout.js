@@ -5,7 +5,8 @@ var addressHelpers = require('base/checkout/address');
 var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
-var formHelpers = require('base/checkout/formErrors');
+var formHelpers = require('./formErrors');
+var scrollAnimate = require('base/components/scrollAnimate');
 var location = window.location;
 var history = window.history;
 
@@ -33,6 +34,67 @@ function checkFields(form) {
         $('.verify-msg').show();
     }
 }
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validateEmail() {
+    var emailInput = $('#email');
+    var pattern = /^[\w.%+-]+@[\w.-]+\.\w{2,}$/i;
+    if (!emailInput.val()) {
+        emailInput.addClass('is-invalid'); // Add class for input border error
+        $('#emailInvalidMessage').html(emailInput.data('missing-error'));
+        $('#emailInvalidMessage').css('display', 'block');
+        return false;
+    }
+    if (!pattern.test(emailInput.val())) {
+        emailInput.addClass('is-invalid'); // Add class for input border error
+        $('#emailInvalidMessage').html(emailInput.data('pattern-mismatch'));
+        $('#emailInvalidMessage').css('display', 'block');
+        return false;
+    }
+    $('#emailInvalidMessage').css('display', 'none');
+    emailInput.removeClass('is-invalid'); // Remove class if input is valid
+    return true;
+}
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validatePassword() {
+    var passwordInput = $('#password');
+    if (!passwordInput.val()) {
+        passwordInput.addClass('is-invalid'); // Add class for input border error
+        $('#passwordInvalidMessage').html(passwordInput.data('missing-error'));
+        $('#passwordInvalidMessage').css('display', 'block');
+        return false;
+    }
+    $('#passwordInvalidMessage').css('display', 'none');
+    passwordInput.removeClass('is-invalid'); // Remove class if input is valid
+    return true;
+}
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validateLoginForm() {
+    var isValid = true;
+    if (!validatePassword()) {
+        isValid = false;
+    }
+    if (!validateEmail()) {
+        isValid = false;
+    }
+    return isValid;
+}
+
+$(document).on('blur', '#password', function () {
+    validatePassword();
+});
+
+$(document).on('blur', '#email', function () {
+    validateEmail();
+});
 
 /**
  *
@@ -93,15 +155,17 @@ function ovoStart(orderID) {
          * @param {number} currentStage - The current stage the user is currently on in the checkout
          */
         function updateUrl(currentStage) {
-            history.pushState(
-                checkoutStages[currentStage],
-                document.title,
-                location.pathname
-                + '?stage='
-                + checkoutStages[currentStage]
-                + '#'
-                + checkoutStages[currentStage]
-            );
+            if (currentStage && currentStage > 0 && checkoutStages[currentStage]) {
+                history.pushState(
+                    checkoutStages[currentStage],
+                    document.title,
+                    location.pathname
+                    + '?stage='
+                    + checkoutStages[currentStage]
+                    + '#'
+                    + checkoutStages[currentStage]
+                );
+            }
         }
 
         //
@@ -125,44 +189,61 @@ function ovoStart(orderID) {
                     // Clear Previous Errors
                     //
                     customerHelpers.methods.clearErrors();
-                    //
-                    // Submit the Customer Form
-                    //
-                    var customerFormSelector = customerHelpers.methods.isGuestFormActive() ? customerHelpers.vars.GUEST_FORM : customerHelpers.vars.REGISTERED_FORM;
-                    var customerForm = $(customerFormSelector);
-                    $.spinner().start();
-                    $.ajax({
-                        url: customerForm.attr('action'),
-                        type: 'post',
-                        data: customerForm.serialize(),
-                        success: function (data) {
-                            $.spinner().stop();
-                            if (data.error) {
-                                $('#form-error').html(data.customerErrorMessage);
-                                $('.form-error-div').removeClass('d-none');
-                            } else if (data.redirectUrl) {
-                                window.location.href = data.redirectUrl;
-                            } else {
-                                $('#form-error').html('');
-                                $('.form-error-div').addClass('d-none');
-                                customerHelpers.methods.customerFormResponse(defer, data);
+
+                    if (validateLoginForm()) {
+                        //
+                        // Submit the Customer Form
+                        //
+                        var customerFormSelector = customerHelpers.methods.isGuestFormActive() ? customerHelpers.vars.GUEST_FORM : customerHelpers.vars.REGISTERED_FORM;
+                        var customerForm = $(customerFormSelector);
+                        $.spinner().start();
+                        $.ajax({
+                            url: customerForm.attr('action'),
+                            type: 'post',
+                            data: customerForm.serialize(),
+                            success: function (data) {
+                                $.spinner().stop();
+                                if (data.error) {
+                                    $('#form-error').html(data.customerErrorMessage);
+                                    $('.form-error-div').removeClass('d-none');
+                                } else if (data.redirectUrl) {
+                                    window.location.href = data.redirectUrl;
+                                } else {
+                                    $('#form-error').html('');
+                                    $('.form-error-div').addClass('d-none');
+                                    customerHelpers.methods.customerFormResponse(defer, data);
+                                }
+                            },
+                            error: function (err) {
+                                if (err.responseJSON && err.responseJSON.redirectUrl) {
+                                    window.location.href = err.responseJSON.redirectUrl;
+                                }
+                                // Server error submitting form
+                                defer.reject(err.responseJSON);
+                                $.spinner().stop();
                             }
-                        },
-                        error: function (err) {
-                            if (err.responseJSON && err.responseJSON.redirectUrl) {
-                                window.location.href = err.responseJSON.redirectUrl;
-                            }
-                            // Server error submitting form
-                            defer.reject(err.responseJSON);
-                            $.spinner().stop();
-                        }
-                    });
+                        });
+                    }
                     return defer;
                 } if (stage === 'shipping') {
                     //
                     // Clear Previous Errors
                     //
                     formHelpers.clearPreviousErrors('.shipping-form');
+
+                    var shippingAddressOneVal = $('.shippingAddressOne').val();
+                    var shippingAddressTwoVal = $('.shippingAddressTwo').val();
+                    var shippingAddressAutoCompleteVal = $('#shippingAddressAutoComplete').val();
+                    var AddressLogUrl = $('#addressLog-url').val();
+                    $.ajax({
+                        type: 'POST',
+                        data: {
+                            shippingAddressOne: shippingAddressOneVal,
+                            shippingAddressTwo: shippingAddressTwoVal,
+                            shippingAddressAutoComplete: shippingAddressAutoCompleteVal
+                        },
+                        url: AddressLogUrl
+                    });
 
                     //
                     // Submit the Shipping Address Form
@@ -342,18 +423,27 @@ function ovoStart(orderID) {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
-                                    $('.edit-billing-address').click();
                                     data.fieldErrors.forEach(function (error) {
                                         if (Object.keys(error).length) {
                                             formHelpers.loadFormErrors('.payment-form', error);
                                         }
                                     });
+                                    if ($('.summary-details.billing').is(':visible')) {
+                                        $('.edit-billing-address').click();
+                                    }
+                                    setTimeout(function () {
+                                        var element = $(document).find('.form-control.is-invalid').closest('.row');
+                                        var position = element && element.length ? element.offset().top - 100 : 0;
+                                        $('html, body').animate({
+                                            scrollTop: position
+                                        }, 500);
+                                    },500);
                                 }
 
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
-                                        $('.error-message-text').append(error);
+                                        $('.error-message-text').empty().append(error);
                                         scrollAnimate($('.error-message'));
                                     });
                                 }
@@ -449,6 +539,13 @@ function ovoStart(orderID) {
                                     // go to appropriate stage and display error message
                                     defer.reject(data);
                                 }
+                                setTimeout(function () {
+                                    var element = $(document).find('.payment-error');
+                                    var position = element && element.length ? element.offset().top : 0;
+                                    $('html, body').animate({
+                                        scrollTop: position
+                                    }, 500);
+                                },500);
                                 $.spinner().stop();
                             } else {
                                 var redirect = $('<form>')
@@ -535,14 +632,6 @@ function ovoStart(orderID) {
                     members.gotoStage('customer');
                 });
 
-                $('.shipping-summary .edit-button', plugin).on('click', function () {
-                    if (!$('#checkout-main').hasClass('multi-ship')) {
-                        $('body').trigger('shipping:selectSingleShipping');
-                    }
-
-                    members.gotoStage('shipping');
-                });
-
                 $('.payment-summary .edit-button', plugin).on('click', function () {
                     members.gotoStage('payment');
                 });
@@ -573,6 +662,7 @@ function ovoStart(orderID) {
                 // Set the form data
                 //
                 plugin.data('formData', formData);
+                $('.payment-method-options').find('input[type=\'radio\']').first().click();
             },
 
             /**
@@ -605,7 +695,7 @@ function ovoStart(orderID) {
 
                         if (data.errorMessage) {
                             $('.error-message').show();
-                            $('.error-message-text').append(data.errorMessage);
+                            $('.error-message-text').empty().append(data.errorMessage);
                         }
                     }
                 });

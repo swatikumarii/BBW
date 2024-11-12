@@ -11,7 +11,7 @@
                             width="100" />
                     </div>
                 <iselse/>
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                    <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
                         <div class="item-image">
                             <img class="product-image" src="${lineItem.images.small[0].url}"
                                 srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
@@ -25,8 +25,11 @@
         <div class="col-8 pr-1 pr-md-0">
             <div class="line-item-header flex-column">
                 <iscomment> Display Name </iscomment>
-                <isif condition="${lineItem.isBonusProductLineItem}">
+                <isif condition="${lineItem.isBonusProductLineItem && !isPWP}">
                     <span>${Resource.msg('label.free.gift', 'common', null)}</span>
+                </isif>
+                <isif condition="${lineItem.isPWP}">
+                    <span>${Resource.msg('label.pwp.product', 'common', null)}</span>
                 </isif>
                 <isif condition="${miniCart}">
                     <isinclude template="checkout/productCard/productCardProductNameAndRemove" />
@@ -108,7 +111,7 @@
                         </isif>
                         <isinclude template="checkout/productCard/productCardProductPromotions" />
                         <isif condition="${pdict.containsDangerousGoods && lineItem.dangerousGoods}">
-                            <div class="dangerous-goods-label">
+                            <div class="dangerous-goods-label h-font-size--12 h-clr--red h-fw--normal">
                                 ${Resource.msg('dangerous.goods.lable', 'common', null)}
                             </div>
                         </isif>

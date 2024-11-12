@@ -124,6 +124,18 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="primaryCategoryID">
+                <display-name xml:lang="x-default">Primary Category Id</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="titlePartB">
                 <display-name xml:lang="x-default">Title Part B</display-name>
                 <type>string</type>
@@ -470,6 +482,10 @@
                 <display-name xml:lang="x-default">Product Description</display-name>
                 <attribute attribute-id="collectionName"/>
             </attribute-group>
+            <attribute-group group-id="primaryCategory">
+                <display-name xml:lang="x-default">Primary Category</display-name>
+                <attribute attribute-id="primaryCategoryID"/>
+            </attribute-group>
         </group-definitions>
     </type-extension>
 
@@ -701,6 +717,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="dialCodeCountry">
+				<display-name xml:lang="x-default">Country DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
 			<attribute-definition attribute-id="lastModified">
                 <display-name xml:lang="x-default">Last Modified</display-name>
                 <type>datetime</type>
@@ -721,6 +744,7 @@
                 <attribute attribute-id="email"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="dialCodeCountry"/>
                 <attribute attribute-id="addressType"/>
             </attribute-group>
         </group-definitions>
@@ -816,6 +840,22 @@
                 <type>html</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="gaMeasurementId">
+                <display-name xml:lang="x-default">GA Measurement Id</display-name>
+                <description xml:lang="x-default">GA Measurement ID</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="gaMpApiSecret">
+                <display-name xml:lang="x-default">GA Measurement Protocol API Secret</display-name>
+                <description xml:lang="x-default">GA Measurement Protocol API Secret</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
             </attribute-definition>
             <attribute-definition attribute-id="disImageSourceEnvironment">
                 <display-name xml:lang="x-default">DIS Image Source Environment</display-name>
@@ -1144,6 +1184,13 @@
                 <field-length>0</field-length>
                 <default-value>12345</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="countFragranceEnabled">
+                <display-name xml:lang="x-default">Fragrance Count</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
 
             <attribute-definition attribute-id="ApplePayExpress_Enabled">
                 <display-name xml:lang="x-default">Enable Apple Pay express checkout</display-name>
@@ -1317,6 +1364,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
                 <default-value>giftWraps</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="isBillingZipCodeRequired">
+                <display-name xml:lang="x-default">Billing Zip Code is required</display-name>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
             </attribute-definition>
             <attribute-definition attribute-id="header_image">
                 <display-name xml:lang="x-default">Header Image</display-name>
@@ -1923,6 +1977,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="showInclTaxRateInst">
+                <display-name xml:lang="x-default">Show Inclusive Tax Rate Instruction</display-name>
+                <description xml:lang="x-default">Show Inclusive Tax Rate Instruction</description>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="showMinicartPopup">
                 <display-name xml:lang="x-default">Show Minicart popup</display-name>
                 <type>boolean</type>
@@ -2002,6 +2064,35 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="defaultDialCode">
+				<display-name xml:lang="x-default">Default Phone DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="defaultDialCodeCountry">
+				<display-name xml:lang="x-default">Default Phone DialCode Country</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="capillaryUsername">
+                <display-name xml:lang="x-default">Capillary Username</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="capillaryPassword">
+                <display-name xml:lang="x-default">Capillary Password</display-name>
+                <type>password</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -2015,6 +2106,8 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="gtmBodyScript"/>
                 <attribute attribute-id="gaEnabled"/>
                 <attribute attribute-id="gaScript"/>
+                <attribute attribute-id="gaScript"/>
+                <attribute attribute-id="gaMpApiSecret"/>
                 <attribute attribute-id="metaPixelEnabled"/>
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>
@@ -2070,6 +2163,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showTopOffers"/>
                 <attribute attribute-id="showMinicartPopup"/>
                 <attribute attribute-id="homePageSchema"/>
+                <attribute attribute-id="defaultDialCode"/>
+                <attribute attribute-id="defaultDialCodeCountry"/>
+                <attribute attribute-id="capillaryUsername"/>
+                <attribute attribute-id="capillaryPassword"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -2131,11 +2228,13 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="topFragrances"/>
                 <attribute attribute-id="productIngredients"/>
                 <attribute attribute-id="essentialFragrances"/>
+                <attribute attribute-id="countFragranceEnabled"/>
             </attribute-group>
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
                 <attribute attribute-id="estimatedDelivery"/>
                 <attribute attribute-id="allTrackingUrls"/>
+                <attribute attribute-id="isBillingZipCodeRequired"/>
             </attribute-group>
             <attribute-group group-id="Integration_Afterpay">
                 <display-name xml:lang="x-default">Integration Afterpay</display-name>
@@ -2166,6 +2265,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showSalesTaxes"/>
                 <attribute attribute-id="showShippingHandlingTaxes"/>
                 <attribute attribute-id="showAdjustedMerchandizeSubtotal"/>
+                <attribute attribute-id="showInclTaxRateInst"/>
             </attribute-group>
             <attribute-group group-id="sendgrid">
                 <display-name xml:lang="x-default">Sendgrid</display-name>
@@ -3864,8 +3964,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="isEgiftOrder"/>
                 <attribute attribute-id="eGiftTotalAmount"/>
             </attribute-group>
-        </group-definitions>
-        <group-definitions>
+       
             <attribute-group group-id="AdyenPayment">
                 <display-name xml:lang="x-default">Adyen Payment</display-name>
                 <attribute attribute-id="adyenGiftCards"/>
@@ -4564,6 +4663,45 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="shippingMethodAttr">
                 <display-name xml:lang="x-default">Shipping Method Attributes</display-name>
                 <attribute attribute-id="estimatedArrivalTime"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="OrderAddress">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="dialCode">
+                <display-name xml:lang="x-default">Dial Code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dialCodeCountry">
+                <display-name xml:lang="x-default">DialCode Country</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Standard Address</display-name>
+                <attribute attribute-id="title" system="true"/>
+                <attribute attribute-id="companyName" system="true"/>
+                <attribute attribute-id="salutation" system="true"/>
+                <attribute attribute-id="firstName" system="true"/>
+                <attribute attribute-id="secondName" system="true"/>
+                <attribute attribute-id="lastName" system="true"/>
+                <attribute attribute-id="suffix" system="true"/>
+                <attribute attribute-id="address1" system="true"/>
+                <attribute attribute-id="address2" system="true"/>
+                <attribute attribute-id="suite" system="true"/>
+                <attribute attribute-id="postBox" system="true"/>
+                <attribute attribute-id="city" system="true"/>
+                <attribute attribute-id="postalCode" system="true"/>
+                <attribute attribute-id="countryCode" system="true"/>
+                <attribute attribute-id="stateCode" system="true"/>
+                <attribute attribute-id="phone" system="true"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

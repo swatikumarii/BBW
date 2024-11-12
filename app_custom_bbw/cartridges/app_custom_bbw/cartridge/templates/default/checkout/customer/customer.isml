@@ -18,24 +18,25 @@
                             <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block b-text-letter-space-01 h-line-height--20 mb-0">
                                 <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}
                             </label>
-                            <input type="text" class="form-control email" id="email"
+                            <input type="text" class="email" id="email"
+                                data-missing-error="${Resource.msg('error.message.parse.email', 'forms', null)}"
+                                data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
                                 value="${(pdict.customer.registeredUser && pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile
                                     .email: ''}"
-                                <isprint value=${pdict.forms.registeredCustomerForm.email.attributes} encoding="off" />
-                                aria-describedby="emailInvalidMessage" >
+                                aria-describedby="emailInvalidMessage" <isprint value=${pdict.forms.registeredCustomerForm.email.attributes} encoding="off" />>
                             <div class="invalid-feedback" id="emailInvalidMessage"></div>
                         </div>
                         <div class="form-group password-form h-pos--relative">
                             <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block b-text-letter-space-01 h-line-height--20 mb-0">
                                 <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.password', 'checkout', null)}
                             </label>
-                            <input type="password" class="form-control password" id="password" <isprint
-                                value=${pdict.forms.registeredCustomerForm.password.attributes} encoding="off" />
-                                aria-describedby="passwordInvalidMessage" >
+                            <input type="password" class="password" id="password"
+                                data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
+                                aria-describedby="passwordInvalidMessage" <isprint value=${pdict.forms.registeredCustomerForm.password.attributes} encoding="off" />>
                             <span class="toggle-password h-clr--black-3 h-line-height--24 b-text-letter-space-0">${Resource.msg('form.show', 'forms', null)}</span>
                             <div class="invalid-feedback" id="passwordInvalidMessage"></div>
                         </div>
-                        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Account-PasswordReset')}"
+                        <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Account-PasswordReset')}"
                             class="ml-2 forgot-password-link-checkout h-clr--gray-4 text-capitalize">${Resource.msg('link.login.forgotpassword', 'login', null)}</a>
                     </div>
                 </div>
@@ -61,14 +62,14 @@
 <iselse/>
     <span class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block">
         ${Resource.msg('label.welcome.back', 'checkout', null)}
-        <span class="h-font-size--14 h-fw--normal">${'('} <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Login-Logout')}">${Resource.msg('label.sign.out', 'checkout', null)}</a>
+        <span class="h-font-size--14 h-fw--normal">${'('} <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Login-Logout')}">${Resource.msg('label.sign.out', 'checkout', null)}</a>
             ${')'}</span>
     </span>
     <div class="accordion-content customer-message">
         <p class="h-clr--blue-1 h-font-size--18 h-fw--bold">${Resource.msgf('msg.hello.customer', 'checkout', null, session.customer.profile.firstName)}</p>
         <isif condition="${pdict.customer.addresses && pdict.customer.addresses.length > 0}">
             <p class="h-clr--black-1 h-font-size--16">${Resource.msg('text.loggedin.customer.with.address.section', 'checkout', null)}
-                <a class="skipToPayment" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">${Resource.msg('text.skip.to.payment', 'checkout', null)}</a>
+                <a class="skipToPayment" hreflang="${pdict.hrefLang}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">${Resource.msg('text.skip.to.payment', 'checkout', null)}</a>
             </p>
         <iselse/>
             <p class="h-clr--black-1 h-font-size--16">${Resource.msg('text.loggedin.customer.section', 'checkout', null)}</p>

@@ -15,6 +15,7 @@ var OrderMgr = require('dw/order/OrderMgr');
 var HookMgr = require('dw/system/HookMgr');
 var Logger = require('dw/system/Logger');
 var loggerOrderConfirmation = Logger.getLogger('CheckoutHelpersOrder');
+var ShippingHelper = require('*/cartridge/scripts/checkout/shippingHelpers');
 
 /**
  * Validates payment
@@ -153,31 +154,33 @@ function handlePayments(order, orderNumber) {
                     .getPaymentMethod(paymentInstrument.paymentMethod)
                     .paymentProcessor;
                 var authorizationResult;
-                if (paymentProcessor === null) {
-                    Transaction.begin();
-                    paymentInstrument.paymentTransaction.setTransactionID(orderNumber);
-                    Transaction.commit();
-                } else {
-                    if (HookMgr.hasHook('app.payment.processor.'
-                            + paymentProcessor.ID.toLowerCase())) {
-                        authorizationResult = HookMgr.callHook(
-                            'app.payment.processor.' + paymentProcessor.ID.toLowerCase(),
-                            'Authorize',
-                            order,
-                            paymentInstrument,
-                            paymentProcessor
-                        );
+                if (!(paymentInstrument.paymentMethod === 'AdyenComponent' && paymentInstrument.custom && 'adyenPaymentMethod' in paymentInstrument.custom && paymentInstrument.custom.adyenPaymentMethod && (paymentInstrument.custom.adyenPaymentMethod === 'Touch \'n Go' || paymentInstrument.custom.adyenPaymentMethod === 'Malaysia E-Banking'))) {
+                    if (paymentProcessor === null) {
+                        Transaction.begin();
+                        paymentInstrument.paymentTransaction.setTransactionID(orderNumber);
+                        Transaction.commit();
                     } else {
-                        authorizationResult = HookMgr.callHook(
-                            'app.payment.processor.default',
-                            'Authorize'
-                        );
-                    }
+                        if (HookMgr.hasHook('app.payment.processor.'
+                                + paymentProcessor.ID.toLowerCase())) {
+                            authorizationResult = HookMgr.callHook(
+                                'app.payment.processor.' + paymentProcessor.ID.toLowerCase(),
+                                'Authorize',
+                                order,
+                                paymentInstrument,
+                                paymentProcessor
+                            );
+                        } else {
+                            authorizationResult = HookMgr.callHook(
+                                'app.payment.processor.default',
+                                'Authorize'
+                            );
+                        }
 
-                    if (authorizationResult.error) {
-                        Transaction.wrap(function () { OrderMgr.failOrder(order, true); });
-                        result.error = true;
-                        break;
+                        if (authorizationResult.error) {
+                            Transaction.wrap(function () { OrderMgr.failOrder(order, true); });
+                            result.error = true;
+                            break;
+                        }
                     }
                 }
             }
@@ -298,6 +301,8 @@ function placeOrder(order, fraudDetectionStatus) {
 function copyBillingAddressToBasket(address) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var billingAddress = currentBasket && currentBasket.billingAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
 
     Transaction.wrap(function () {
         if (!billingAddress) {
@@ -314,10 +319,17 @@ function copyBillingAddressToBasket(address) {
         var countryCode = address.countryCode;
         billingAddress.setCountryCode(countryCode.value);
         billingAddress.setPhone(address.phone);
-        if ('district' in address.custom) {
+        if ('raw' in address) {
+            billingAddress.custom.dialCode = address.raw.custom.dialCode ? address.raw.custom.dialCode : defaultDialCode;
+            billingAddress.custom.dialCodeCountry = address.raw.custom.dialCodeCountry ? address.raw.custom.dialCodeCountry : defaultDialCodeCountry;
+        } else {
+            billingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
+            billingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
+        }
+        if (address.custom && address.custom.district) {
             billingAddress.custom.district = address.custom.district;
         }
-        if ('subDistrict' in address.custom) {
+        if (address.custom && address.custom.subDistrict) {
             billingAddress.custom.subDistrict = address.custom.subDistrict;
         }
     });
@@ -375,6 +387,7 @@ function createOrder(currentBasket) {
         order = Transaction.wrap(function () {
             order = OrderMgr.createOrder(currentBasket);
             order.custom.emailRecommendationPids = 'custom' in currentBasket && 'emailRecommendationPids' in currentBasket.custom && currentBasket.custom.emailRecommendationPids ? currentBasket.custom.emailRecommendationPids : null;
+            order.custom.addressLog = 'custom' in currentBasket && 'addressLog' in currentBasket.custom && currentBasket.custom.addressLog ? currentBasket.custom.addressLog : null;
             return order;
         });
     } catch (error) {
@@ -384,16 +397,99 @@ function createOrder(currentBasket) {
 }
 
 /**
+ * Copies a CustomerAddress to a Shipment as its Shipping Address
+ * @param {dw.customer.CustomerAddress} address - The customer address
+ * @param {dw.order.Shipment} [shipmentOrNull] - The target shipment
+ */
+function copyCustomerAddressToShipment(address, shipmentOrNull) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var shipment = shipmentOrNull || currentBasket.defaultShipment;
+    var shippingAddress = shipment.shippingAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
+
+    Transaction.wrap(function () {
+        if (shippingAddress === null) {
+            shippingAddress = shipment.createShippingAddress();
+        }
+
+        shippingAddress.setFirstName(address.firstName);
+        shippingAddress.setLastName(address.lastName);
+        shippingAddress.setAddress1(address.address1);
+        shippingAddress.setAddress2(address.address2);
+        shippingAddress.setCity(address.city);
+        shippingAddress.setPostalCode(address.postalCode);
+        shippingAddress.setStateCode(address.stateCode);
+        var countryCode = address.countryCode;
+        shippingAddress.setCountryCode(countryCode.value);
+        shippingAddress.setPhone(address.phone);
+        if ('raw' in address) {
+            shippingAddress.custom.dialCode = address.raw.custom.dialCode ? address.raw.custom.dialCode : defaultDialCode;
+            shippingAddress.custom.dialCodeCountry = address.raw.custom.dialCodeCountry ? address.raw.custom.dialCodeCountry : defaultDialCodeCountry;
+            shippingAddress.custom.district = address.raw.custom.district ? address.raw.custom.district : '';
+            shippingAddress.custom.subDistrict = address.raw.custom.subDistrict ? address.raw.custom.subDistrict : '';
+        } else {
+            shippingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
+            shippingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
+            shippingAddress.custom.district = address.custom.district ? address.custom.district : '';
+            shippingAddress.custom.subDistrict = address.custom.subDistrict ? address.custom.subDistrict : '';
+        }
+    });
+}
+
+/**
+ * Copies a CustomerAddress to a Basket as its Billing Address
+ * @param {dw.customer.CustomerAddress} address - The customer address
+ */
+function copyCustomerAddressToBilling(address) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var billingAddress = currentBasket.billingAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
+
+    Transaction.wrap(function () {
+        if (!billingAddress) {
+            billingAddress = currentBasket.createBillingAddress();
+        }
+
+        billingAddress.setFirstName(address.firstName);
+        billingAddress.setLastName(address.lastName);
+        billingAddress.setAddress1(address.address1);
+        billingAddress.setAddress2(address.address2);
+        billingAddress.setCity(address.city);
+        billingAddress.setPostalCode(address.postalCode);
+        billingAddress.setStateCode(address.stateCode);
+        var countryCode = address.countryCode;
+        billingAddress.setCountryCode(countryCode.value);
+        if (!billingAddress.phone) {
+            billingAddress.setPhone(address.phone);
+        }
+        if ('raw' in address) {
+            billingAddress.custom.dialCode = address.raw.custom.dialCode ? address.raw.custom.dialCode : defaultDialCode;
+            billingAddress.custom.dialCodeCountry = address.raw.custom.dialCodeCountry ? address.raw.custom.dialCodeCountry : defaultDialCodeCountry;
+            billingAddress.custom.district = address.raw.custom.district ? address.raw.custom.district : '';
+            billingAddress.custom.subDistrict = address.raw.custom.subDistrict ? address.raw.custom.subDistrict : '';
+        } else {
+            billingAddress.custom.dialCode = address.custom.dialCode ? address.custom.dialCode : defaultDialCode;
+            billingAddress.custom.dialCodeCountry = address.custom.dialCodeCountry ? address.custom.dialCodeCountry : defaultDialCodeCountry;
+            billingAddress.custom.district = address.custom.district ? address.custom.district : '';
+            billingAddress.custom.subDistrict = address.custom.subDistrict ? address.custom.subDistrict : '';
+        }
+    });
+}
+
+/**
  * Copies information from the shipping form to the associated shipping address
  * @param {object} shippingData - the shipping data
  * @param {dw.order.Shipment} [shipmentOrNull] - the target Shipment
  */
 function copyShippingAddressToShipment(shippingData, shipmentOrNull) {
-    var ShippingHelper = require('*/cartridge/scripts/checkout/shippingHelpers');
     var currentBasket = BasketMgr.getCurrentBasket();
     var shipment = shipmentOrNull || currentBasket.defaultShipment;
 
     var shippingAddress = shipment.shippingAddress;
+    var defaultDialCode = Site.current.getCustomPreferenceValue('defaultDialCode') || '61';
+    var defaultDialCodeCountry = Site.current.getCustomPreferenceValue('defaultDialCodeCountry') || 'au';
 
     Transaction.wrap(function () {
         if (shippingAddress === null) {
@@ -407,9 +503,12 @@ function copyShippingAddressToShipment(shippingData, shipmentOrNull) {
         shippingAddress.setCity(shippingData.address.city);
         shippingAddress.setPostalCode(shippingData.address.postalCode);
         shippingAddress.setStateCode(shippingData.address.stateCode);
-        var countryCode = shippingData.address.countryCode.value ? shippingData.address.countryCode.value : shippingData.address.countryCode;
+        var countryCode = shippingData.address.countryCode && shippingData.address.countryCode.value ? shippingData.address.countryCode.value : shippingData.address.countryCode;
         shippingAddress.setCountryCode(countryCode);
         shippingAddress.setPhone(shippingData.address.phone);
+        shippingAddress.custom.dialCode = shippingData.address.dialCode ? shippingData.address.dialCode : defaultDialCode;
+        shippingAddress.custom.dialCodeCountry = shippingData.address.dialCodeCountry ? shippingData.address.dialCodeCountry : defaultDialCodeCountry;
+
         if (shippingData.address.district) {
             shippingAddress.custom.district = shippingData.address.district;
         }
@@ -427,6 +526,8 @@ base.calculatePaymentTransaction = calculatePaymentTransaction;
 base.copyBillingAddressToBasket = copyBillingAddressToBasket;
 base.sendFailedOrderEmail = sendFailedOrderEmail;
 base.createOrder = createOrder;
+base.copyCustomerAddressToShipment = copyCustomerAddressToShipment;
+base.copyCustomerAddressToBilling = copyCustomerAddressToBilling;
 base.copyShippingAddressToShipment = copyShippingAddressToShipment;
 
 module.exports = base;

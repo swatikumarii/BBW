@@ -1,0 +1,15 @@
+@include media-up(sm) {
+    .bbw-brand-menu {
+        .navbar {
+            .level-1-ul {
+                .level-1-li {
+                    .menu-wrap-level-1 {
+                        .level-2-ul-wrap {
+                            min-height: 260px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

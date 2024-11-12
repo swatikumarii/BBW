@@ -1,13 +1,13 @@
 <isif condition="${pdict.name === null}">
-    <div class="user">
+    <div class="user hidden-md-down">
         <div class="account-dropdown">
-            <button class="user-btn border-0 h-bg--white p-0 dropdown-toggle" type="button" data-toggle="dropdown">
-                <img class="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" data-src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+            <button class="user-btn border-0 h-bg--white p-0 dropdown-toggle ddd" type="button" data-toggle="dropdown">
+                <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
                     alt="${Resource.msg('global.storename', 'common', null)}" width="36px" height="36px"/>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li><button class="border-0 bg-white loginPopupBtn">${Resource.msg('mobile.menu.signIn', 'common', null)}</button></li>
-                <li><a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-Status')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a></li>
+                <li><a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Order-Status')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a></li>
                 <li><button class="border-0 bg-white loginPopupBtn">${Resource.msg('mobile.menu.myAccount', 'common', null)}</button></li>
                 <li><button class="border-0 bg-white loginPopupBtn">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</button></li>
             </ul>
@@ -19,26 +19,26 @@
             <button class="user-btn border-0 h-bg--white p-0 dropdown-toggle" id="myaccount"
                 aria-haspopup="true" type="button" data-toggle="dropdown"
                 aria-label="${Resource.msg('link.header.myaccount', 'account', null)}" role="button">
-                <img class="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" data-src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+                <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
                     alt="${Resource.msg('global.storename', 'common', null)}" width="36px" height="36px"/>
             </button>
 
             <ul class=" dropdown-menu dropdown-menu-right" role="menu"
                 aria-label="${Resource.msg('label.profile.myaccountlink', 'account', null)}" aria-hidden="true">
                 <li class="nav-item" role="presentation">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Account-Show')}" role="menuitem"
+                    <a hreflang="${pdict.hrefLang}" href="${URLUtils.https('Account-Show')}" role="menuitem"
                         tabindex="0">${Resource.msg('link.header.myaccount', 'account', null)}</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Order-History')}" role="menuitem"
+                    <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Order-History')}" role="menuitem"
                         tabindex="0">${Resource.msg('label.myorders', 'account', null)}</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Wishlist-Show')}" role="menuitem"
+                    <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Wishlist-Show')}" role="menuitem"
                         tabindex="0">${Resource.msg('label.loveItList', 'account', null)}</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Login-Logout')}" role="menuitem" id="logoutButton"
+                    <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Login-Logout')}" role="menuitem" id="logoutButton"
                         tabindex="0">${Resource.msg('link.header.logout', 'account', null)}</a>
                 </li>
             </ul>

@@ -66,9 +66,8 @@ function chooseBonusProducts(data) {
         '<!-- Modal content-->' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '    <span class="">' +
+        '    <span class="w-100 text-center d-block">' +
         data.labels.selectprods +
-        data.labels.selectedprods +
         '</span>' +
         '    <button type="button" class="close pull-right" data-dismiss="modal">' +
         '        <span aria-hidden="true">&times;</span>' +
@@ -76,7 +75,7 @@ function chooseBonusProducts(data) {
         '    </button>' +
         '</div>' +
         '<div class="modal-body"></div>' +
-        '<div class="modal-footer"></div>' +
+        '<div class="modal-footer pb-0 pt-3"></div>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -88,7 +87,7 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-            if (response.initialAddBonusProduct) {
+            if (response.initialAddBonusProduct && !data.isPWP) {
                 $.ajax({
                     type: 'POST',
                     url: response.initialAddBonusProductUrl,
@@ -316,11 +315,15 @@ module.exports = $.extend({}, detail, {
                             $.get(updateShippingMethodURL);
                             handlePostCartAdd(data);
                             if ($('.gift-card-form').length > 0) {
+                                var selectedAmount = $('.gift-card-form .select-amount').val();
                                 $('.gift-card-form')[0].reset();
+                                $('.gift-card-form .select-amount').val(selectedAmount).trigger('change');
                                 $('#video-preview').attr('src', '');
                                 $('.gift-card-video video').addClass('d-none');
                                 $('.gift-card-video .remove-video').addClass('d-none');
                                 $('.egift-video-label').removeClass('d-none');
+                                $('.schedule-egift-date').addClass('d-none');
+                                $('.schedule-egift-months').addClass('d-none');
                                 $('#progress').empty();
                             }
                             $('button.add-to-cart').prop('disabled', false);

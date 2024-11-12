@@ -7,7 +7,7 @@
             <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5" />
         </svg>
         <form role="search" class="search w-100" data-search="" action="${URLUtils.url('Faq-Search')}" method="get">
-            <input type="text" name="query" id="query" placeholder="Type your question here..." aria-label="Search" />
+            <input type="text" name="query" id="query" placeholder="${Resource.msg('faq.type.your.question.here', 'faq', null)}" aria-label="Search" />
         </form>
     </div>
 </div>

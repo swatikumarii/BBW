@@ -61,10 +61,10 @@ window.submitAddressForm = function (token) {
  * updated the function for address-form submit
  */
 base.submitAddress = function () {
-    $('body').on('submit', 'form.address-form', function (e) {
+    $(document).on('submit', 'form.address-form', function (e) {
         var $form = $(this);
         e.preventDefault();
-        if ($form.find('input').serialize() !== window.addressForm) {
+        if ($form.find('input,select').serialize() !== window.addressForm) {
             action = $form.attr('action');
             $form.spinner().start();
             $('form.address-form').trigger('address:submit', e);
@@ -223,6 +223,14 @@ $(document).on('click', '#editAddress', function () {
                         default:
                             break;
                     }
+                    var fullAddress = addressObject.address1;
+                    if (addressObject.address2) {
+                        fullAddress += ' ' + addressObject.address2;
+                    }
+                    if (fullAddress.length > 30) {
+                        addressObject.address1  = fullAddress.substring(0, 30).trim();
+                        addressObject.address2  = fullAddress.substring(31, 60).trim();
+                    }
                 }
                 var form = $('#modalContent').find('.address-form');
                 form.find('#address1')
@@ -243,14 +251,20 @@ $(document).on('click', '#editAddress', function () {
                 var pacContainer = $('.pac-container');
                 $(addressInputElement.parent()).append(pacContainer);
             });
-            var phone = $('#modalContent').find('.addressPhoneNumber')[0];
-            intlTelInput(phone, {
+            var phone = $('#modalContent').find('.editAddressPhone')[0];
+            var editIntl = intlTelInput(phone, {
                 utilsScript: utils,
                 showFlags: true,
                 strictMode: true,
                 showSelectedDialCode: true,
-                initialCountry: 'au',
-                countryOrder: ['au']
+                initialCountry: $('.addressDialCodeCountry').val(),
+                formatOnDisplay: false,
+                formatAsYouType: false
+            });
+            $('.editAddressPhone').on('countrychange', function() {
+                var countryData = editIntl.getSelectedCountryData();
+                $('.addressDialCode').val(countryData.dialCode);
+                $('.addressDialCodeCountry').val(countryData.iso2);
             });
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
@@ -281,7 +295,7 @@ $(document).on('click', '#editAddress', function () {
                     }
                 });
             }
-            var addressForm = $($(response)[0]).find('input');
+            var addressForm = $($(response)[0]).find('input,select');
             window.addressForm = $(addressForm).serialize();
         }
     });
@@ -340,13 +354,22 @@ module.exports = $.extend({}, base, {
     },
     intlPhoneInit: function () {
         var phone = document.querySelector('.addressPhoneNumber');
-        intlTelInput(phone, {
+        var iti = intlTelInput(phone, {
             utilsScript: utils,
             showFlags: true,
             strictMode: true,
             showSelectedDialCode: true,
-            initialCountry: 'au',
-            countryOrder: ['au']
+            initialCountry: $('.dialCodeCountry').val(),
+            formatOnDisplay: false,
+            formatAsYouType: false
+        });
+        var initCountryData = iti.getSelectedCountryData();
+        $('.dialCode').val(initCountryData.dialCode);
+        $('.dialCodeCountry').val(initCountryData.iso2);
+        $('.addressPhoneNumber').on('countrychange', function() {
+            var countryData = iti.getSelectedCountryData();
+            $('.dialCode').val(countryData.dialCode);
+            $('.dialCodeCountry').val(countryData.iso2);
         });
     }
 });

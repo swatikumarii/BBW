@@ -16,6 +16,7 @@ module.exports = {
             types: ['address']
         };
         var autocomplete = new google.maps.places.Autocomplete(input, options);
+        $(input).removeAttr('disabled');
         autocomplete.addListener('place_changed', function () {
             var place = autocomplete.getPlace();
             var components = place.address_components;
@@ -81,6 +82,72 @@ module.exports = {
             form.find('#shippingAddressSubdistrictdefault')
                 .val(addressObject.shippingAddressSubdistrict)
                 .trigger('change');
+            if (
+                addressObject.address1 &&
+                addressObject.state &&
+                addressObject.shippingAddressDistrict &&
+                addressObject.shippingAddressSubdistrict &&
+                addressObject.zipcode
+            ) {
+                if (
+                    form.find('#shippingAddressCitydefault').val() === '' ||
+                    form.find('#shippingAddressCitydefault').val() === null
+                ) {
+                    // setting city as per place API response
+                    var suburbDropdown = $('.shippingAddressCity');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.city,
+                            text: addressObject.city
+                        }).attr('selected', 'selected')
+                    );
+                    var cityError = $('#defaultCity');
+                    cityError.empty();
+                    $('.shippingAddressCity').removeClass('is-invalid');
+
+                    // setting district as per place API response
+                    var shippingAddressDistrictDropdown = $('.shippingAddressDistrict');
+                    shippingAddressDistrictDropdown.empty();
+                    shippingAddressDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.shippingAddressDistrict,
+                            text: addressObject.shippingAddressDistrict
+                        }).attr('selected', 'selected')
+                    );
+                    var shippingAddressDistrictError = $('#defaultDistrict');
+                    shippingAddressDistrictError.empty();
+                    $('.shippingAddressDistrict').removeClass(
+                        'is-invalid'
+                    );
+
+                    // setting subdistrict as per place API response
+                    var shippingAddressSubDistrictDropdown = $('.shippingAddressSubdistrict');
+                    shippingAddressSubDistrictDropdown.empty();
+                    shippingAddressSubDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.shippingAddressSubdistrict,
+                            text: addressObject.shippingAddressSubdistrict
+                        }).attr('selected', 'selected')
+                    );
+                    var shippingAddressSubDistrictError = $('#defaultSubdistrict');
+                    shippingAddressSubDistrictError.empty();
+                    $('.shippingAddressSubdistrict').removeClass('is-invalid');
+
+                    // setting zipcode as per place API response
+                    var zipcodeDropdown = $('.shippingZipCode');
+                    zipcodeDropdown.empty();
+                    zipcodeDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.zipcode,
+                            text: addressObject.zipcode
+                        }).attr('selected', 'selected')
+                    );
+                    var zipcodeError = $('#defaultZipCode');
+                    zipcodeError.empty();
+                    $('.shippingZipCode').removeClass('is-invalid');
+                }
+            }
         });
     },
     initializeBilling: function () {
@@ -98,6 +165,7 @@ module.exports = {
             types: ['address']
         };
         var autocomplete = new google.maps.places.Autocomplete(input, options);
+        $(input).removeAttr('disabled');
         autocomplete.addListener('place_changed', function () {
             var place = autocomplete.getPlace();
             var components = place.address_components;
@@ -163,6 +231,66 @@ module.exports = {
             form.find('#billingAddressSubdistrict')
                 .val(addressObject.addressSubdistrict)
                 .trigger('change');
+            if (
+                addressObject.address1 &&
+                addressObject.state &&
+                addressObject.addressDistrict &&
+                addressObject.addressSubdistrict &&
+                addressObject.zipcode
+            ) {
+                if (
+                    form.find('#billingAddressCity').val() === '' ||
+                    form.find('#billingAddressCity').val() === null
+                ) {
+                    // setting city as per place API response
+                    var suburbDropdown = $('.billingAddressCity');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.city,
+                            text: addressObject.city
+                        }).attr('selected', 'selected')
+                    );
+                    $('.billingAddressCity').removeClass('is-invalid');
+
+                    // setting district as per place API response
+                    var billingAddressDistrictDropdown = $(
+                        '.billingAddressDistrict'
+                    );
+                    billingAddressDistrictDropdown.empty();
+                    billingAddressDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.addressDistrict,
+                            text: addressObject.addressDistrict
+                        }).attr('selected', 'selected')
+                    );
+                    $('.billingAddressDistrict').removeClass('is-invalid');
+
+                    // setting subdistrict as per place API response
+                    var billingAddressSubDistrictDropdown = $(
+                        '.billingAddressSubdistrict'
+                    );
+                    billingAddressSubDistrictDropdown.empty();
+                    billingAddressSubDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.addressSubdistrict,
+                            text: addressObject.addressSubdistrict
+                        }).attr('selected', 'selected')
+                    );
+                    $('.billingAddressSubdistrict').removeClass('is-invalid');
+
+                    // setting zipcode as per place API response
+                    var billingZipcodeDropdown = $('.billingZipCode');
+                    billingZipcodeDropdown.empty();
+                    billingZipcodeDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.zipcode,
+                            text: addressObject.zipcode
+                        }).attr('selected', 'selected')
+                    );
+                    $('.billingZipCode').removeClass('is-invalid');
+                }
+            }                
         });
     },
     initializeAccount: function () {
@@ -180,6 +308,7 @@ module.exports = {
             types: ['address']
         };
         var autocomplete = new google.maps.places.Autocomplete(input, options);
+        $(input).removeAttr('disabled');
         autocomplete.addListener('place_changed', function () {
             var place = autocomplete.getPlace();
             var components = place.address_components;
@@ -235,6 +364,66 @@ module.exports = {
             form.find('#shippingAddressDistrict').val(addressObject.addressDistrict).trigger('change');
             form.find('#shippingAddressSubdistrict').val(addressObject.addressSubdistrict).trigger('change');
             form.find('#zipCode').val(addressObject.zipcode).trigger('change');
+            if (
+                addressObject.address1 &&
+                addressObject.state &&
+                addressObject.addressDistrict &&
+                addressObject.addressSubdistrict &&
+                addressObject.zipcode
+            ) {
+                if (
+                    form.find('#city').val() === '' ||
+                    form.find('#city').val() === null
+                ) {
+                    // setting city as per place API response
+                    var suburbDropdown = $('.address-city-input');
+                    suburbDropdown.empty();
+                    suburbDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.city,
+                            text: addressObject.city
+                        }).attr('selected', 'selected')
+                    );
+                    $('.address-city-input').removeClass('is-invalid');
+
+                    // setting district as per place API response
+                    var billingAddressDistrictDropdown = $(
+                        '.address-district-input'
+                    );
+                    billingAddressDistrictDropdown.empty();
+                    billingAddressDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.addressDistrict,
+                            text: addressObject.addressDistrict
+                        }).attr('selected', 'selected')
+                    );
+                    $('.address-district-input').removeClass('is-invalid');
+
+                    // setting subdistrict as per place API response
+                    var billingAddressSubDistrictDropdown = $(
+                        '.address-subdistrict-input'
+                    );
+                    billingAddressSubDistrictDropdown.empty();
+                    billingAddressSubDistrictDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.addressSubdistrict,
+                            text: addressObject.addressSubdistrict
+                        }).attr('selected', 'selected')
+                    );
+                    $('.address-subdistrict-input').removeClass('is-invalid');
+
+                    // setting zipcode as per place API response
+                    var billingZipcodeDropdown = $('.address-zipcode-input');
+                    billingZipcodeDropdown.empty();
+                    billingZipcodeDropdown.prepend(
+                        $('<option>', {
+                            value: addressObject.zipcode,
+                            text: addressObject.zipcode
+                        }).attr('selected', 'selected')
+                    );
+                    $('.address-zipcode-input').removeClass('is-invalid');
+                }
+            }
         });
     }
 };

@@ -22,6 +22,7 @@ server.append(
         if (req.querystring.cgid) {
             if (!viewData.product.isEgiftCard) {
                 viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id, 'cat', req.querystring.cgid);
+                // viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id);
             }
         }
         var qtyAlreadyInCartPID = 0;

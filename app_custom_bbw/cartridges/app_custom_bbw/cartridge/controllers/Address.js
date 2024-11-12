@@ -16,7 +16,7 @@ var seo = require('*/cartridge/scripts/middleware/seo');
 /**
  * Append Address-List controller: Update breadcrumbs
  */
-server.append('List', function (req, res, next) {
+server.append('List', csrfProtection.generateToken, function (req, res, next) {
     var viewData = res.getViewData();
     var addressForm = server.forms.getForm('address');
     addressForm.clear();
@@ -65,9 +65,10 @@ server.replace(
 
         addressForm.copyFrom(addressModel.address);
 
-        res.render('account/addressForm', {
+        res.render('account/editAddressForm', {
             addressForm: addressForm,
-            addressId: addressId
+            addressId: addressId,
+            addressModel: addressModel
         });
 
         next();

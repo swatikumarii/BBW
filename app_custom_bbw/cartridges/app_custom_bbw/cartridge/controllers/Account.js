@@ -19,6 +19,13 @@ var Logger = require('dw/system/Logger');
 var loggerReset = Logger.getLogger('ResetPasswordLogger');
 var loggerResetError = Logger.getLogger('ResetPasswordError');
 
+var seo = require('*/cartridge/scripts/middleware/seo');
+
+/**
+ * Account-DoSetNewPassword : Show title
+ */
+server.append('DoSetNewPassword', seo.addCurrentPageMetaData);
+
 /**
  * Append Account-Show controller: Update breadcrumbs
  */
@@ -71,7 +78,9 @@ server.append('EditProfile', function (req, res, next) {
             accountModel.profile.isProfileComplete !== null ||
             accountModel.profile.isProfileComplete !== undefined
                 ? accountModel.profile.isProfileComplete
-                : false
+                : false,
+        dialCode: accountModel.profile.dialCode,
+        dialCodeCountry: accountModel.profile.dialCodeCountry
     };
 
     var breadcrumbs = [{
@@ -255,6 +264,8 @@ server.replace(
         if (profileForm.customer.gender.htmlValue === 'Other') {
             gender = 3;
         }
+        // remove spaces between phone number digits
+        var phoneNumber = profileForm.customer.phone.value.replace(/[+\-\s()]/g, '');
 
         var result = {
             salutation: profileForm.customer.salutation.value,
@@ -262,12 +273,14 @@ server.replace(
             nationality: profileForm.customer.nationality.value,
             firstName: profileForm.customer.firstname.value,
             lastName: profileForm.customer.lastname.value,
-            phone: profileForm.customer.phone.value,
+            phone: phoneNumber,
             email: profileForm.customer.email.value,
             confirmEmail: profileForm.customer.emailconfirm.value,
             password: profileForm.login.password.value,
             zipCode: profileForm.customer.zipCode.value,
-            profileForm: profileForm
+            profileForm: profileForm,
+            dialCode: profileForm.customer.dialCode.value,
+            dialCodeCountry: profileForm.customer.dialCodeCountry.value
         };
 
         var isProfileComplete = req.httpParameterMap.get('isProfileComplete')
@@ -328,7 +341,9 @@ server.replace(
                 password: profileForm.login.password.value,
                 zipCode: profileForm.customer.zipCode.value,
                 birthday: birthday,
-                profileForm: profileForm
+                profileForm: profileForm,
+                dialCode: profileForm.customer.dialCode.value,
+                dialCodeCountry: profileForm.customer.dialCodeCountry.value
             };
         }
 
@@ -370,32 +385,22 @@ server.replace(
                 delete formInfo.confirmEmail;
 
                 if (customerLogin) {
-                    if (isProfileComplete === 'false') {
-                        Transaction.wrap(function () {
-                            profile.setFirstName(formInfo.firstName);
-                            profile.setLastName(formInfo.lastName);
-                            profile.setEmail(formInfo.email);
-                            profile.setPhoneHome(formInfo.phone);
-                            profile.custom.zipCode = formInfo.zipCode;
-                            profile.setGender(formInfo.gender);
-                            profile.salutation = formInfo.salutation;
-                            profile.custom.nationality = formInfo.nationality;
+                    Transaction.wrap(function () {
+                        profile.setFirstName(formInfo.firstName);
+                        profile.setLastName(formInfo.lastName);
+                        profile.setEmail(formInfo.email);
+                        profile.setPhoneHome(formInfo.phone);
+                        profile.custom.zipCode = formInfo.zipCode;
+                        profile.setGender(formInfo.gender);
+                        profile.salutation = formInfo.salutation;
+                        profile.custom.nationality = formInfo.nationality;
+                        profile.custom.isProfileComplete = true;
+                        profile.custom.dialCode = formInfo.dialCode;
+                        profile.custom.dialCodeCountry = formInfo.dialCodeCountry;
+                        if (isProfileComplete === 'false') {
                             profile.birthday = formInfo.birthday;
-                            profile.custom.isProfileComplete = true;
-                        });
-                    } else {
-                        Transaction.wrap(function () {
-                            profile.setFirstName(formInfo.firstName);
-                            profile.setLastName(formInfo.lastName);
-                            profile.setEmail(formInfo.email);
-                            profile.setPhoneHome(formInfo.phone);
-                            profile.custom.zipCode = formInfo.zipCode;
-                            profile.setGender(formInfo.gender);
-                            profile.salutation = formInfo.salutation;
-                            profile.custom.nationality = formInfo.nationality;
-                            profile.custom.isProfileComplete = true;
-                        });
-                    }
+                        }
+                    });
 
                     // Send account edited email
                     accountHelpers.sendAccountEditedEmail(customer.profile);
@@ -867,11 +872,14 @@ server.replace(
                 registrationForm.valid = false;
             }
 
+            // remove spaces between phone number digits
+            var phoneNumber = registrationForm.customer.phone.value.replace(/[+\-\s()]/g, '');
+
             var registrationFormObj = {
                 salutation: registrationForm.customer.salutation.value,
                 firstName: registrationForm.customer.firstname.value,
                 lastName: registrationForm.customer.lastname.value,
-                phone: registrationForm.customer.phone.value,
+                phone: phoneNumber,
                 email: registrationForm.customer.email.value,
                 emailConfirm: registrationForm.customer.emailconfirm.value,
                 gender: gender,
@@ -881,7 +889,9 @@ server.replace(
                 password: registrationForm.login.password.value,
                 passwordConfirm: registrationForm.login.passwordconfirm.value,
                 validForm: registrationForm.valid,
-                form: registrationForm
+                form: registrationForm,
+                dialCode: registrationForm.customer.dialCode.value,
+                dialCodeCountry: registrationForm.customer.dialCodeCountry.value
             };
 
             if (registrationForm.valid) {
@@ -953,6 +963,8 @@ server.replace(
                                     newCustomerProfile.custom.zipCode = registrationForm.zipCode;
                                     newCustomerProfile.custom.nationality = registrationForm.nationality;
                                     newCustomerProfile.custom.isProfileComplete = true;
+                                    newCustomerProfile.custom.dialCode = registrationForm.dialCode;
+                                    newCustomerProfile.custom.dialCodeCountry = registrationForm.dialCodeCountry;
 
                                     if (registrationForm.form.customer.addtoemaillist.checked) {
                                         var getCustomObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', newCustomerProfile.email);

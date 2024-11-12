@@ -9,6 +9,7 @@
               max-length="20"
               missing-error="error.address.title"
               range-error="error.message.20orless"
+              regexp="^[a-zA-Z0-9 ''\-]+$" parse-error="error.message.parse.lname"
        />
 
        <field formid="firstName"
@@ -40,11 +41,14 @@
               type="string" mandatory="true"
               binding="address1"
               max-length="50"
+              regexp="^[A-Za-z0-9\.\-\/\+\,\=\_\:\'\@\%\. ]+$"
+              parse-error="error.message.parse.address"
               missing-error="address.address1.missing"
               range-error="error.message.50orless"/>
 
     <field formid="address2" label="label.input.address2" type="string" mandatory="false" binding="address2"
-           max-length="50" range-error="error.message.50orless"/>
+           max-length="50"  regexp="^[A-Za-z0-9\.\-\/\+\,\=\_\:\'\@\%\. ]+$"
+              parse-error="error.message.parse.address" range-error="error.message.50orless"/>
 
     <field formid="city" label="label.input.city" type="string" mandatory="true" binding="city" min-length="2"
            max-length="50" missing-error="address.city.missing" range-error="error.message.between2and50"/>
@@ -52,8 +56,8 @@
     <field formid="district" label="label.input.district" type="string" mandatory="true" binding="city" min-length="2"
            max-length="50" missing-error="address.district.missing" range-error="error.message.between2and50"/>
 
-       <field formid="subdistrict" label="label.input.subdistrict" type="string" mandatory="true" min-length="2" max-length="50"
-       binding="subdistrict"
+       <field formid="subDistrict" label="label.input.subdistrict" type="string" mandatory="true" min-length="2" max-length="50"
+       binding="subDistrict"
        range-error="error.message.between2and50"
        missing-error="address.subdistrict.missing"/>
 
@@ -79,10 +83,20 @@
     <!-- phone is mandatory for addresses -->
        <field formid="phone" label="label.input.phonenumber" description="address.phone.example" type="string" mandatory="true"
            binding="phone" min-length="8" max-length="12"
-           regexp="^(0?[0-9\s]{8,13})$"
+           regexp="^(?!0)[0-9\s-]{8,13}$"
            missing-error="error.phone.number"
            range-error="error.message.phonebetween8and12"
            parse-error="error.message.pattern.phone"/>
+
+       <field
+            formid="dialCode"
+            type="string">
+        </field>
+
+		<field
+            formid="dialCodeCountry"
+            type="string">
+        </field>
 
     <!-- actions provided by the edit shipping address dialog -->
     <action formid="apply" valid-form="true"/>

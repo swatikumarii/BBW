@@ -27,76 +27,96 @@ server.post('ResendEmail', function (req, res, next) {
         // var requestBody = JSON.parse(req.body);
         var order = OrderMgr.getOrder(orderNumber);
 
-        // Add entry in custom object to to retrigger email in next run
-        if (order.custom.eInvoiceErpId) {
-            if (
-                order.custom.eInvoiceStatus ===
-                    einvoiveStatusCode.EINVOICESTATUSCODES.PENDING ||
-                order.custom.eInvoiceStatus ===
-                    einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS
-            ) {
-                try {
-                    var eInvoiceDetails = customObjectMgr.getCustomObject(
-                        'eInvoiceDetails',
-                        order.custom.eInvoiceErpId
-                    );
-                    if (!eInvoiceDetails) {
-                        Transaction.wrap(function () {
-                            var eInvoiceObj =
-                                customObjectMgr.createCustomObject(
-                                    'eInvoiceDetails',
-                                    order.custom.eInvoiceErpId
-                                );
-                            eInvoiceObj.custom.orderId = order.orderNo;
-                            eInvoiceObj.custom.eInvoiceId =
-                                order.custom.eInvoiceNumber;
-                        });
-                        res.json({
-                            type: einvoiveStatusCode.EINVOICESTATUSCODES
-                                .SUCCESS,
-                            message: 'User will get the email shortly.'
-                        });
-                    } else {
+        if (order){
+            if (order.custom.eInvoiceErpId) {
+                // Add entry in custom object to to retrigger email in next run
+                if (
+                    order.custom.eInvoiceStatus ===
+                        einvoiveStatusCode.EINVOICESTATUSCODES.PENDING ||
+                    order.custom.eInvoiceStatus ===
+                        einvoiveStatusCode.EINVOICESTATUSCODES.SUCCESS
+                ) {
+                    try {
+                        var eInvoiceDetails = customObjectMgr.getCustomObject(
+                            'eInvoiceDetails',
+                            order.custom.eInvoiceErpId
+                        );
+                        if (!eInvoiceDetails) {
+                            Transaction.wrap(function () {
+                                var eInvoiceObj =
+                                    customObjectMgr.createCustomObject(
+                                        'eInvoiceDetails',
+                                        order.custom.eInvoiceErpId
+                                    );
+                                eInvoiceObj.custom.orderId = order.orderNo;
+                                eInvoiceObj.custom.eInvoiceId =
+                                    order.custom.eInvoiceNumber;
+                            });
+                            res.json({
+                                type: einvoiveStatusCode.EINVOICESTATUSCODES
+                                    .SUCCESS,
+                                message:
+                                    'The email will be sent to the customer shortly.'
+                            });
+                        } else {
+                            res.json({
+                                type: einvoiveStatusCode.EINVOICESTATUSCODES
+                                    .ERROR,
+                                message:
+                                    'Too many requests for the same order. Please wait! The email will be sent to the customer shortly.'
+                            });
+                        }
+                    } catch (ex) {
                         res.json({
                             type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
                             message:
-                                'Too many request for the same order. User will get the email shortly.'
+                                'An error occurred while sending the e-invoice.'
                         });
                     }
-                } catch (ex) {
+                } else if (
+                    order.custom.eInvoiceStatus ===
+                    einvoiveStatusCode.EINVOICESTATUSCODES.ERROR
+                ) {
+                    // QR code is already generated else show proper message
+
+                    var errorJson = JSON.parse(order.custom.einvoiceErrorMsg);
+
                     res.json({
                         type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
-                        message: 'Error occurred when send e-invoice'
+                        message:
+                            'The error source is ' +
+                            errorJson.errorSource +
+                            '. The error is: ' +
+                            errorJson.detailedMessage +
+                            '.'
+                    });
+                } else {
+                    res.json({
+                        type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
+                        message:
+                            'The customer needs to request the E-Invoice either from the order confirmation page or the order details page within the "My Account" section.'
                     });
                 }
-            } else if (
-                order.custom.eInvoiceStatus ===
-                einvoiveStatusCode.EINVOICESTATUSCODES.ERROR
-            ) {
-                // QR code is already generated else show proper message
-                res.json({
-                    type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
-                    message: order.custom.einvoiceErrorMsg
-                });
             } else {
                 res.json({
                     type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
                     message:
-                        'User have to request the E-Invoice either from order confirmation page or order detail page from my account.'
+                        'The customer needs to request the E-Invoice either from the order confirmation page or the order details page within the "My Account" section.'
                 });
             }
-        } else {
-            res.json({
-                type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
-                message:
-                    'User have to request the E-Invoice either from order confirmation page or order detail page from my account.'
-            });
+        
+        }
+        else{
+             res.json({
+                 type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
+                 message: 'Order number is required or incorrect.'
+             });
         }
         next();
     } catch (error) {
         res.json({
             type: einvoiveStatusCode.EINVOICESTATUSCODES.ERROR,
-            message: 'Error occurred when send e-invoice'
+            message: 'An error occurred while sending the e-invoice.'
         });
         next();
     }

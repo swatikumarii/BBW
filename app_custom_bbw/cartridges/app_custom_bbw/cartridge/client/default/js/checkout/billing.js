@@ -340,6 +340,7 @@ module.exports = {
             var stateCode = attrs.stateCode.trim();
             var city = attrs.city.trim();
             var postalCode = attrs.postalCode.toString();
+            var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
                 $('.billingState option').each(function () {
                     if ($(this).val() === stateCode) {
@@ -376,9 +377,14 @@ module.exports = {
                     }
                 });
             }
+            if (dialCodeCountry) {
+                if (window.billingInstance) {
+                    window.billingInstance.setCountry(dialCodeCountry);
+                }
+            }
 
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode','district','subdistrict'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     if (element === 'cardNumber') {
                         $('.cardNumber').data('cleave').setRawValue(attrs[attr]);

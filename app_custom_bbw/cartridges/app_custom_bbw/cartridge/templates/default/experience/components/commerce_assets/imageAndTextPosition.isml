@@ -6,7 +6,7 @@
 <div class="row no-gutters w-100">
     <div class="col px-0">
         <div class="d-flex ${pdict.imagePositionClass} ${pdict.customClass}">
-            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.link}"
+            <a hreflang="${pdict.hrefLang}" href="${pdict.link}"
                 class="image-link clpShopNowBtn w-100 h-100 d-block position-relative lazy-skeleton overflow-hidden"
                  data-lazy="${pdict.disableLazyLoad}">
                 <isif condition="${pdict.disableLazyLoad}">
@@ -43,7 +43,7 @@
                         </isif>
                         <isif condition="${pdict.linkText}">
                             <a class="text-center"
-                                hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}"
+                                hreflang="${pdict.hrefLang}" href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}"
                                 >
                                 <div>
                                     <isprint value="${pdict.linkText ? pdict.linkText : ''}" encoding="off" />

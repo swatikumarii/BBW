@@ -76,7 +76,7 @@ function OrderModel(lineItemContainer, options) {
         this.exportStatus = 'exportStatus' in lineItemContainer ? lineItemContainer.exportStatus : 0;
         this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'token', encrptedOrderNumber).toString();
         this.trackingUrl = trackingUrl;
-        this.trackOrderShippingUrl = '';        
+        this.trackOrderShippingUrl = '';
         var currentSite = Site.getCurrent();
         var currency = new Money(0, currentSite.getDefaultCurrency());
         var currencyCode = currency.toFormattedString();
@@ -127,6 +127,7 @@ function OrderModel(lineItemContainer, options) {
                 );
         }
         this.emailRecommendationProducts = emailRecommendationProductDetails;
+        this.taxID = lineItemContainer.custom && 'taxID' in lineItemContainer.custom && lineItemContainer.custom.taxID ? lineItemContainer.custom.taxID : null;
     }
 }
 

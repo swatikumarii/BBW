@@ -23,6 +23,9 @@ function updateGiftPendingTotals(totals) {
         $('.grand-total-sum').empty().append(totals.grandTotal);
     }
     $('.giftcard-total').empty().text(totals.pendingTotal.giftTotal);
+    $('.giftcard-redemption').removeClass('d-none');
+    $('.giftcard-redemption .giftcard-total').empty().append('-' + totals.pendingTotal.giftTotal);
+    $('.grand-total-wrap .grand-total').empty().append(totals.pendingTotal.pendingAmount ? totals.pendingTotal.pendingAmount : totals.grandTotal)
     // update order total
     if (totals.orderTotal) {
         $('.order-total-sum').empty().append(totals.orderTotal);
@@ -32,6 +35,60 @@ function updateGiftPendingTotals(totals) {
     }
 }
 
+/**
+ * Get Total no of Days of Months
+ * @return {ArrayList} daysObj
+ */
+function getNoOfDaysOfMonth(monthName) {
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var month = monthNames.indexOf(monthName) + 1;
+    const d = new Date();
+    var year = d.getFullYear();
+    var noOfDays = new Date(year, month, 0).getDate();
+    var daysObj = [];
+    for (var i = 1; i <= noOfDays; i++) {
+        daysObj.push(i);
+    }
+    return daysObj;
+}
+
+/**
+ * Get Current Month
+ * @return {integer} index
+ */
+function getCurrentMonth() {
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const d = new Date();
+    return monthNames[d.getMonth()];
+}
+
+/**
+ * Update the day list in gift card form
+ * @param {string} selectedMonth - current selected month
+ */
+function updateDayList(selectedMonth) {
+    var daysList = $('#schedule-days-list');
+    var daysListData = getNoOfDaysOfMonth(selectedMonth);
+    $(daysList).empty();
+    var currenytMonth = getCurrentMonth();
+    var currentDay = new Date().getDate();
+    if (daysListData !== null) {
+        var options = daysListData;
+        $.each(options, function (value, index) {
+            value = value + 1;
+            if (currenytMonth !== selectedMonth) {
+                $('<option value="' + value + '">' + index + '</option>').appendTo(daysList);
+            } else {
+                if (value >= currentDay) {
+                    $('<option value="' + value + '">' + index + '</option>').appendTo(daysList);
+                    if (value === currentDay) {
+                        $("#schedule-days-list option").attr("selected", "selected");
+                    }
+                }
+            }
+        });
+    }
+}
 
 $(document).ready(function () {
     $('#giftcard-redeem').on('click', function (e) {
@@ -104,8 +161,11 @@ $(document).ready(function () {
                             .empty()
                             .append(data.noPendingAmount).addClass('mt-4 p-2');
                         $('.add-giftcard-section').removeClass('show');
-                        $('.add-giftcard-header').hide();
+                        $('.add-giftcard-header').removeClass('d-flex').hide();
                         $('.payment-options-heading').hide();
+                        $('button.submit-payment').each(function () {
+                            $(this).removeAttr('disabled');
+                        });
                         $(document).off('ajaxComplete');
                     }
                     if (data.success) {
@@ -148,6 +208,7 @@ $(document).ready(function () {
                         $('#selectedPaymentOption').val('');
                         $('.form-nav.billing-nav.payment-information').hide();
                         $('.payment-method-options').hide();
+                        $('.giftcard-partial-redemption').empty().removeClass('mt-4 p-2');
                     }
                 }
                 $.spinner().stop();
@@ -157,6 +218,11 @@ $(document).ready(function () {
                 return false;
             }
         });
+    });
+
+    $('#schedule-months-list').on('change', function() {
+        var selectedMonth = $.trim($(this).val());
+        updateDayList(selectedMonth);
     });
 
     if ($('.same-day-delivery').is(':checked')) {
@@ -178,6 +244,7 @@ $(document).ready(function () {
     $(document).on('click', '.remove-giftcard-btn', function () {
         var url = $('input[name="remove-giftcard-url"]').val();
         var cardNumber = $(this).data('cardno');
+        var hideGCTotals = false;
         $.ajax({
             type: 'POST',
             url: url,
@@ -240,8 +307,9 @@ $(document).ready(function () {
                         }
                     }
                 } else {
+                    hideGCTotals = true;
                     $('.added-cards').empty();
-                    $('.giftcard-partial-redemption').empty().removeClass('mt-4 p-2');;
+                    $('.giftcard-partial-redemption').empty().removeClass('mt-4 p-2');
                     $('.add-giftcard-button').empty().text(data.messages.addAGiftcard);
                     $('.remaining-balance').empty();
                     if (!data.hideCreditCardForm) {
@@ -269,10 +337,17 @@ $(document).ready(function () {
                             $('.afterpay-checkout-widget').find('square-placement').attr('data-amount', data.basketModel.totals.pendingTotal.pendingAmountValue);
                         }
                     }
+                    $('label#lb_scheme').siblings('input').click();
+                }
+                if ($('.giftcard-partial-redemption > span').text().length) {
+                    $('label#lb_scheme').siblings('input').click();
                 }
                 $('.add-giftcard-header').show();
                 if (data.basketModel && data.basketModel.totals) {
                     updateGiftPendingTotals(data.basketModel.totals);
+                }
+                if (hideGCTotals) {
+                    $('.giftcard-redemption').addClass('d-none');
                 }
             },
             error: function () {

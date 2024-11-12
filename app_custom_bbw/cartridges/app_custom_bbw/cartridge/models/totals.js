@@ -25,6 +25,7 @@ function getTotals(total) {
 function getAllDiscounts(lineItemContainer) {
     var totalDiscount = 0;
     var allDiscountItems = [];
+    var mergedDiscountItems = [];
     var allProductLineItems = lineItemContainer.allProductLineItems;
     var orderLevelpriceAdjustments = lineItemContainer.priceAdjustments;
     collections.forEach(allProductLineItems, function (productLineItem) {
@@ -38,10 +39,33 @@ function getAllDiscounts(lineItemContainer) {
                 function (priceAdjustment) {
                     var discountObject = {
                         promotion: priceAdjustment.lineItemText,
-                        discount: getTotals(priceAdjustment.grossPrice)
+                        discount: getTotals(priceAdjustment.grossPrice),
+                        unformattedDiscount: priceAdjustment.grossPrice
                     };
-                    totalDiscount+= priceAdjustment.grossPrice.value;
+                    var discountObjectMerge = {
+                        promotion: priceAdjustment.lineItemText,
+                        discount: getTotals(priceAdjustment.grossPrice),
+                        unformattedDiscount: priceAdjustment.grossPrice
+                    };
                     allDiscountItems.push(discountObject);
+                    totalDiscount+= priceAdjustment.grossPrice.value;
+                    if (mergedDiscountItems.length === 0) {
+                        mergedDiscountItems.push(discountObjectMerge);
+                    } else {
+                        var isPromoPresent = false;
+                        mergedDiscountItems.forEach(function (discountElem) {
+                            var promoText = discountObjectMerge.promotion;
+                            var promoDiscount = discountObjectMerge.unformattedDiscount;
+                            if(discountElem.promotion === promoText) {
+                                discountElem.unformattedDiscount = discountElem.unformattedDiscount.add(promoDiscount);
+                                discountElem.discount = getTotals(discountElem.unformattedDiscount);
+                                isPromoPresent = true;
+                            }
+                        });
+                        if (!isPromoPresent) {
+                            mergedDiscountItems.push(discountObjectMerge);
+                        }
+                    }
                 }
             );
         }
@@ -52,15 +76,18 @@ function getAllDiscounts(lineItemContainer) {
             function (orderLevelpriceAdjustment) {
                 var discountObject = {
                     promotion: orderLevelpriceAdjustment.lineItemText,
-                    discount: getTotals(orderLevelpriceAdjustment.grossPrice)
+                    discount: getTotals(orderLevelpriceAdjustment.grossPrice),
+                    unformattedDiscount: orderLevelpriceAdjustment.grossPrice
                 };
                 totalDiscount += orderLevelpriceAdjustment.grossPrice.value;
                 allDiscountItems.push(discountObject);
+                mergedDiscountItems.push(discountObject);
             }
         );
     }
     return {
         allDiscountItems: allDiscountItems,
+        mergedDiscountItems: mergedDiscountItems,
         totalDiscount: new Money(totalDiscount, lineItemContainer.currencyCode)
     };
 };
@@ -210,7 +237,7 @@ function getDiscountsHtml(discounts) {
 function totals(lineItemContainer) {
     base.call(this, lineItemContainer);
     if (lineItemContainer) {
-        this.shippingTotalTax = getTotals(lineItemContainer.shippingTotalTax);
+        this.shippingTotalTax = lineItemContainer &&  lineItemContainer.allShippingPriceAdjustments && lineItemContainer.allShippingPriceAdjustments.length >0 && lineItemContainer.allShippingPriceAdjustments[0].appliedDiscount && lineItemContainer.allShippingPriceAdjustments[0].appliedDiscount.type === 'FREE' ? dw.util.StringUtils.formatMoney(new dw.value.Money(0, session.currency.getCurrencyCode())) : getTotals(lineItemContainer.shippingTotalTax);
         this.shippingTotalExclTax = getTotals(
             lineItemContainer.adjustedShippingTotalNetPrice
         );
@@ -219,9 +246,14 @@ function totals(lineItemContainer) {
         );
         var allDiscounts = getAllDiscounts(lineItemContainer);
         this.allDiscounts = allDiscounts.allDiscountItems;
+        this.mergedDiscounts = allDiscounts.mergedDiscountItems;
         this.totalDiscount = allDiscounts.totalDiscount;
         this.allDiscountsHTML = getAllDiscountsHTML(
             allDiscounts.allDiscountItems,
+            allDiscounts.totalDiscount
+        );
+        this.mergedDiscountsHTML = getAllDiscountsHTML(
+            allDiscounts.mergedDiscountItems,
             allDiscounts.totalDiscount
         );
         this.totalDiscountFormatted = getTotals(allDiscounts.totalDiscount);

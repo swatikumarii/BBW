@@ -1,7 +1,7 @@
-<isif condition="${pdict.giftWrapItem}">
+<isif condition="${pdict && pdict.giftWrapItem}">
     <isset name="giftWrapItem" value="${pdict.giftWrapItem}" scope="page" />
 </isif>
-<isif condition="${giftWrapItem}">
+<isif condition="${typeof(giftWrapItem) != 'undefined' && giftWrapItem}">
     <isset name="lineItem" value="${giftWrapItem}" scope="page" />
     <isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
     <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}"

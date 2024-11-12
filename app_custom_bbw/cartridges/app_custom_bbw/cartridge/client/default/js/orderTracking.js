@@ -37,16 +37,20 @@ function validateEmail() {
  */
 function validateBillingZipCode() {
     var billingZipCodeInput = $('#billingZipCode');
-    if (!billingZipCodeInput.val()) {
-        billingZipCodeInput.addClass('is-invalid'); // Add class for input border error
-        return false;
+    if (billingZipCodeInput.length > 0) {
+        if (!billingZipCodeInput.val()) {
+            billingZipCodeInput.addClass('is-invalid'); // Add class for input border error
+            return false;
+        }
+        if (billingZipCodeInput.val().length > 10) {
+            billingZipCodeInput.addClass('is-invalid'); // Add class for input border error
+            $('#billingZipCode-error').html(
+                billingZipCodeInput.data('maxlength')
+            );
+            return false;
+        }
+        billingZipCodeInput.removeClass('is-invalid'); // Remove class if input is valid
     }
-    if (billingZipCodeInput.val().length > 10) {
-        billingZipCodeInput.addClass('is-invalid'); // Add class for input border error
-        $('#billingZipCode-error').html(billingZipCodeInput.data('maxlength'));
-        return false;
-    }
-    billingZipCodeInput.removeClass('is-invalid'); // Remove class if input is valid
     return true;
 }
 

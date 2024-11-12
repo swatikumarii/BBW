@@ -109,18 +109,37 @@ function togglePasswordVisibility(passwordInput, showButton) {
 $(document).ready(function () {
     processInclude(require('./login/login'));
     var phone = document.querySelector('#registration-form-phone');
-    intlTelInput(phone, {
+    var iti = intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
         strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au',
-        countryOrder: ['au']
+        initialCountry: $('.dialCodeCountry').val(),
+        formatOnDisplay: false,
+        formatAsYouType: false
+    });
+    var initCountryData = iti.getSelectedCountryData();
+    $('.dialCode').val(initCountryData.dialCode);
+    $('.dialCodeCountry').val(initCountryData.iso2);
+
+    $('#registration-form-phone').on('countrychange', function() {
+        var countryData = iti.getSelectedCountryData();
+        $('.dialCode').val(countryData.dialCode);
+        $('.dialCodeCountry').val(countryData.iso2);
     });
 
     // Event delegation for toggling password visibility
     $(document.body).on('click', '.register-form-hide', function () {
         togglePasswordVisibility($('#registration-form-password'), $(this));
+    });
+
+    // removing error msg when checkbox is checked - TnC Checkbox
+    $(document.body).on('click', '.add-to-email-list', function () {
+        var cb = $('.add-to-email-list');
+        cb.val(cb.prop('checked'));
+        if(cb.val() === 'true'){
+            $('#tnc-checkbox-error').empty();
+        }
     });
 
     $(document.body).on(
@@ -219,6 +238,8 @@ $(document).ready(function () {
                 );
             }
         }, 100);
+        validateEmailMatch($('#registration-form-email'), $('#registration-form-email-confirm'));
+        validateEmailField($('#registration-form-email'));
     });
 
     $(function () {

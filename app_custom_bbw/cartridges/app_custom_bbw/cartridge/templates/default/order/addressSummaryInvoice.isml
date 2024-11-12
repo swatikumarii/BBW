@@ -54,7 +54,7 @@
         style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
         class="postalCode">
         <isif condition="${address.phone !== 'null'}">
-            <isif condition="${address && address.phone}">${address.phone}&#44;</isif>
+            <isif condition="${address && address.phone}">${Resource.msg('label.invoice.phone', 'order', null)}${address.phone}</isif>
         </isif>
     </span>
     <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
@@ -63,4 +63,12 @@
             <isif condition="${pdict.order.orderEmail}">${pdict.order.orderEmail}</isif>
         </span>
     </div>
+    <isif condition="${pdict.order.taxID}">
+        <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+            class="email">
+            <span>
+                ${Resource.msgf('tax.id.with.label', 'checkout', null, pdict.order.taxID)}
+            </span>
+        </div>
+    </isif>
 </div>

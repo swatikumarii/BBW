@@ -1,0 +1,86 @@
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
+		<options>
+			<option optionid="" 	label="resource.select.state" 		value=""/>
+
+			<!-- regular TH states -->
+			<option label="กรุงเทพมหานคร" value="กรุงเทพมหานคร"/>
+			<option label="สมุทรปราการ" value="สมุทรปราการ"/>
+			<option label="นนทบุรี" value="นนทบุรี"/>
+			<option label="ปทุมธานี" value="ปทุมธานี"/>
+			<option label="พระนครศรีอยุธยา" value="พระนครศรีอยุธยา"/>
+			<option label="อ่างทอง" value="อ่างทอง"/>
+			<option label="ลพบุรี" value="ลพบุรี"/>
+			<option label="สิงห์บุรี" value="สิงห์บุรี"/>
+			<option label="ชัยนาท" value="ชัยนาท"/>
+			<option label="สระบุรี" value="สระบุรี"/>
+			<option label="ชลบุรี" value="ชลบุรี"/>
+			<option label="ระยอง" value="ระยอง"/>
+			<option label="จันทบุรี" value="จันทบุรี"/>
+			<option label="ตราด" value="ตราด"/>
+			<option label="ฉะเชิงเทรา" value="ฉะเชิงเทรา"/>
+			<option label="ปราจีนบุรี" value="ปราจีนบุรี"/>
+			<option label="นครนายก" value="นครนายก"/>
+			<option label="สระแก้ว" value="สระแก้ว"/>
+			<option label="นครราชสีมา" value="นครราชสีมา"/>
+			<option label="บุรีรัมย์" value="บุรีรัมย์"/>
+			<option label="สุรินทร์" value="สุรินทร์"/>
+			<option label="ศรีสะเกษ" value="ศรีสะเกษ"/>
+			<option label="อุบลราชธานี" value="อุบลราชธานี"/>
+			<option label="ยโสธร" value="ยโสธร"/>
+			<option label="ชัยภูมิ" value="ชัยภูมิ"/>
+			<option label="อำนาจเจริญ" value="อำนาจเจริญ"/>
+			<option label="บึงกาฬ" value="บึงกาฬ"/>
+			<option label="หนองบัวลำภู" value="หนองบัวลำภู"/>
+			<option label="ขอนแก่น" value="ขอนแก่น"/>
+			<option label="อุดรธานี" value="อุดรธานี"/>
+			<option label="เลย" value="เลย"/>
+			<option label="หนองคาย" value="หนองคาย"/>
+			<option label="มหาสารคาม" value="มหาสารคาม"/>
+			<option label="ร้อยเอ็ด" value="ร้อยเอ็ด"/>
+			<option label="กาฬสินธุ์" value="กาฬสินธุ์"/>
+			<option label="สกลนคร" value="สกลนคร"/>
+			<option label="นครพนม" value="นครพนม"/>
+			<option label="มุกดาหาร" value="มุกดาหาร"/>
+			<option label="เชียงใหม่" value="เชียงใหม่"/>
+			<option label="ลำพูน" value="ลำพูน"/>
+			<option label="ลำปาง" value="ลำปาง"/>
+			<option label="อุตรดิตถ์" value="อุตรดิตถ์"/>
+			<option label="แพร่" value="แพร่"/>
+			<option label="น่าน" value="น่าน"/>
+			<option label="พะเยา" value="พะเยา"/>
+			<option label="เชียงราย" value="เชียงราย"/>
+			<option label="แม่ฮ่องสอน" value="แม่ฮ่องสอน"/>
+			<option label="นครสวรรค์" value="นครสวรรค์"/>
+			<option label="อุทัยธานี" value="อุทัยธานี"/>
+			<option label="กำแพงเพชร" value="กำแพงเพชร"/>
+			<option label="ตาก" value="ตาก"/>
+			<option label="สุโขทัย" value="สุโขทัย"/>
+			<option label="พิษณุโลก" value="พิษณุโลก"/>
+			<option label="พิจิตร" value="พิจิตร"/>
+			<option label="เพชรบูรณ์" value="เพชรบูรณ์"/>
+			<option label="ราชบุรี" value="ราชบุรี"/>
+			<option label="กาญจนบุรี" value="กาญจนบุรี"/>
+			<option label="สุพรรณบุรี" value="สุพรรณบุรี"/>
+			<option label="นครปฐม" value="นครปฐม"/>
+			<option label="สมุทรสาคร" value="สมุทรสาคร"/>
+			<option label="สมุทรสงคราม" value="สมุทรสงคราม"/>
+			<option label="เพชรบุรี" value="เพชรบุรี"/>
+			<option label="ประจวบคีรีขันธ์" value="ประจวบคีรีขันธ์"/>
+			<option label="นครศรีธรรมราช" value="นครศรีธรรมราช"/>
+			<option label="กระบี่" value="กระบี่"/>
+			<option label="พังงา" value="พังงา"/>
+			<option label="ภูเก็ต" value="ภูเก็ต"/>
+			<option label="สุราษฎร์ธานี" value="สุราษฎร์ธานี"/>
+			<option label="ระนอง" value="ระนอง"/>
+			<option label="ชุมพร" value="ชุมพร"/>
+			<option label="สงขลา" value="สงขลา"/>
+			<option label="สตูล" value="สตูล"/>
+			<option label="ตรัง" value="ตรัง"/>
+			<option label="พัทลุง" value="พัทลุง"/>
+			<option label="ปัตตานี" value="ปัตตานี"/>
+			<option label="ยะลา" value="ยะลา"/>
+			<option label="นราธิวาส" value="นราธิวาส"/>
+		</options>
+	</field>
+</form>

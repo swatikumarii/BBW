@@ -27,7 +27,7 @@ then
 elif [ "$1" = 'init' ]
 then
     DIR=`pwd`
-    CartridgePath='storefront-reference-architecture:adyen-salesforce-commerce-cloud:afterpay-salesforce-commerce-cloud:int_qwikcilver:plugin_bundling:plugin_emarsys:plugin_event_tracking:plugin_gift_wrap_greeting_card:plugin_marketing_tiles:plugin_metapixel:plugin_notify_back_in_stock:plugin_popups:plugin_wishlists:app_custom_bbw'
+    CartridgePath='storefront-reference-architecture:adyen-salesforce-commerce-cloud:afterpay-salesforce-commerce-cloud:int_qwikcilver:plugin_bundling:plugin_emarsys:plugin_event_tracking:plugin_gift_wrap_greeting_card:plugin_marketing_tiles:plugin_metapixel:plugin_notify_back_in_stock:plugin_popups:plugin_wishlists:app_custom_bbw:plugin_einvoice'
     # setting environment variable for afterpay backward compatibilty
     export NODE_OPTIONS="--openssl-legacy-provider"
     for i in $(echo $CartridgePath | tr ":" "\n")
