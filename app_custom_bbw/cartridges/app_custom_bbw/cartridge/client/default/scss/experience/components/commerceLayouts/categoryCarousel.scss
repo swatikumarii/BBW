@@ -211,4 +211,30 @@
             }
         }
     }
+
+    .swiper {
+        &-button-next {
+            height: 26px;
+            right: 5px;
+            width: 13px;
+
+            @include media-up(sm) {
+                right: 10px;
+            }
+
+            @include media-up(md) {
+                right: 0;
+            }
+        }
+
+        &-button-prev {
+            height: 26px;
+            left: 5px;
+            width: 13px;
+
+            @include media-up(md) {
+                left: 0;
+            }
+        }
+    }
 }
