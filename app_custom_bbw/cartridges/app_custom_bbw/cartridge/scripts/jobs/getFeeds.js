@@ -64,7 +64,6 @@ function getGoogleFeeds() {
                     apiProduct = ProductMgr.getProduct(product.ID);
                     productObj = ProductFactory.get({ pid: product.ID });
                     if (!product.custom.isBonusProduct && product.online && productValidationHelpers.getProductMaxOrderQty(apiProduct) >= 1) {
-                        xmlStreamWriter.writeStartElement('item');
                         var images = new ImageModel(apiProduct, config);
                         breadcrumbs = '';
                         categories = '';
@@ -82,6 +81,8 @@ function getGoogleFeeds() {
                                 if (product.categories.length >= 2) {
                                     category = product.categories[1].displayName;
                                     categoryIndex = 1;
+                                } else {
+                                    continue;
                                 }
                             }
                             breadcrumbs = productHelper.getAllBreadcrumbs(
@@ -107,7 +108,8 @@ function getGoogleFeeds() {
                                 categories += breadcrumbs[index1].htmlValue;
                             }
                         }
-
+                        
+                        xmlStreamWriter.writeStartElement('item');
                         xmlStreamWriter.writeStartElement('item_group_id');
                         xmlStreamWriter.writeCData(' ' + product.ID + ' ');
                         xmlStreamWriter.writeEndElement();
@@ -152,7 +154,7 @@ function getGoogleFeeds() {
                         xmlStreamWriter.writeCharacters(' New ');
                         xmlStreamWriter.writeEndElement();
 
-                        xmlStreamWriter.writeStartElement('size_type');
+                        xmlStreamWriter.writeStartElement('g:size_type');
                         xmlStreamWriter.writeCData(' ');
                         xmlStreamWriter.writeEndElement();  
                         

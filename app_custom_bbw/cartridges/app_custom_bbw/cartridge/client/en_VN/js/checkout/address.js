@@ -13,7 +13,9 @@ function populateAddressSummary(parentSelector, address) {
         if (attr === 'countryCode' && typeof val === 'object' && val.value === 'VN') {
             val = 'Vietnam';
         }
-        $('.' + attr, parentSelector).text(val || '');
+        if (attr !== 'postalCode') {
+            $('.' + attr, parentSelector).text(val || '');
+        }
     });
 };
 
@@ -76,9 +78,6 @@ function optionValueForAddress(shipping, selected, order, options) {
         if (shippingAddress.stateCode) {
             title.push(shippingAddress.stateCode);
         }
-        if (shippingAddress.postalCode) {
-            title.push(shippingAddress.postalCode);
-        }
         if (!isBilling && safeShipping.selectedShippingMethod) {
             title.push('-');
             title.push(safeShipping.selectedShippingMethod.displayName);
@@ -99,8 +98,9 @@ function optionValueForAddress(shipping, selected, order, options) {
         'data-address2': 'address2',
         'data-city': 'city',
         'data-state-code': 'stateCode',
-        'data-postal-code': 'postalCode',
         'data-country-code': 'countryCode',
+        'data-district': 'district',
+        'data-subdistrict': 'subDistrict',
         'data-phone': 'phone',
         'data-dial-code': 'dialCode',
         'data-dial-code-country': 'dialCodeCountry'
@@ -138,7 +138,7 @@ function getAddressFieldsFromUI(form) {
         city: $('select[name$=_city]', form).val(),
         district: $('select[name$=_district]', form).val(),
         subDistrict: $('select[name$=_subDistrict]', form).val(),
-        postalCode: $('select[name$=_postalCode]', form).val(),
+        postalCode: $('input[name$=_postalCode]', form).val(),
         stateCode: $('select[name$=_stateCode],input[name$=_stateCode]', form).val(),
         countryCode: $('select[name$=_country]', form).val(),
         phone: $('input[name$=_phone]', form).val()

@@ -156,6 +156,34 @@
 
     <div class="col-sm-12">
         <div class="form-group
+                        ${billingFields.district.mandatory === true ? 'required' : ''}
+                        ${billingFields.district.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingAddressDistrict"><span
+                    class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.district', 'address', null)}</label>
+    
+            <div class="custom-select-wrap">
+                <select class="form-control billingAddressDistrict custom-select" id="billingAddressDistrict"
+                    data-missing-error="${Resource.msg('error.district', 'forms', null)}"
+                    autocomplete="billing address-level2" data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress
+                                                                         .address.district}" <isprint value="${billingFields.district.attributes}"
+                    encoding="off" />>
+                <isif
+                    condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.district}">
+                    <option id="${pdict.order.billing.billingAddress.address.district}"
+                        value="${pdict.order.billing.billingAddress.address.district}" selected>
+                        ${pdict.order.billing.billingAddress.address.district}</option>
+                </isif>
+                </select>
+                <div class="invalid-feedback shipping-select-error"></div>
+            </div>
+    
+    
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="form-group
                     ${billingFields.subDistrict.mandatory === true ? 'required' : ''}
                     ${billingFields.subDistrict.htmlName}">
             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="billingAddressSubdistrict"><span
@@ -176,7 +204,29 @@
                 </select>
                 <div class="invalid-feedback shipping-select-error"></div>
             </div>
+        </div>
+    </div>
+    <div class="col-sm-12 d-none">
+        <div class="form-group
+                    ${billingFields.postalCode.mandatory === true ? 'required' : ''}
+                    ${billingFields.postalCode.htmlName}">
+            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
+                for="billingZipCode">${Resource.msg('field.billing.address.zip.code', 'address', null)}</label>
+            <input type="text" class="form-control billingZipCode" id="billingZipCode"
+                value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.postalCode ? pdict.order
+                       .billing.billingAddress.address.postalCode : '00000'}" <isprint
+                value=${billingFields.postalCode.attributes} encoding="off" />
+            autocomplete="billing postal-code"/>
+            <div class="invalid-feedback"></div>
     
+            <input type="hidden" class="dialCode"
+                value="${billingFields.dialCode.htmlValue || dw.system.Site.getCurrent().getCustomPreferenceValue('defaultDialCode')}"
+                <isprint value="${billingFields.dialCode.attributes}" encoding="off" />
+            />
+            <input type="hidden" class="dialCodeCountry" value="${billingFields.dialCodeCountry.htmlValue || dw.system.Site.getCurrent().getCustomPreferenceValue(
+                                                                'defaultDialCodeCountry')}" <isprint
+                value="${billingFields.dialCodeCountry.attributes}" encoding="off" />
+            />
     
         </div>
     </div>

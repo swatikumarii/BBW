@@ -668,8 +668,8 @@ module.exports = function () {
         $.spinner().start();
 
         $('body').trigger('cart:beforeUpdate');
-        var shippingEstimatedText = $('.estimated-shipping-text-cart').attr("data-estimated-shipping-text");
-        var shippingText = $('.estimated-shipping-text-cart').attr("data-shipping-text");
+        var shippingEstimatedText = $('.estimated-shipping-text-cart').attr('data-estimated-shipping-text');
+        var shippingText = $('.estimated-shipping-text-cart').attr('data-shipping-text');
         $.ajax({
             url: url,
             type: 'get',
@@ -926,12 +926,12 @@ module.exports = function () {
                 success: function (response) {
                     if (response.loosingBonus && response.bonusUUID) {
                         stopExecution = true;
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal').modal('show');
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('uuid', uuid);
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('pid', productID);
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').data('quantity', quantity);
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').addClass('loosing-bonus-quantity-update');
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal .cart-delete-confirmation-btn').removeClass('cart-delete-confirmation-btn');
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal-' +response.bonusUUID).modal('show');
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').data('uuid', uuid);
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').data('pid', productID);
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').data('quantity', quantity);
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').addClass('loosing-bonus-quantity-update');
+                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').removeClass('cart-delete-confirmation-btn');
                     }
                 }
             });

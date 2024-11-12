@@ -5,6 +5,7 @@
 var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');
 var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
+var collections = require('*/cartridge/scripts/util/collections');
 
 /**
  * get level one category
@@ -16,6 +17,17 @@ function getLevelOneCategory(category) {
         return category;
     }
     return getLevelOneCategory(category.parent);
+}
+
+/**
+ *
+ * @param {*} categoryName  category name
+ * @param {*} res  The response object for the current controller request
+ * @returns if product is in stock then true else false
+ */
+function isProductIDsAvailableByCategoryName(categoryName){
+    var productIds = searchHelper.getOnlineProductsByCategory(categoryName, {});
+    return productIds && productIds.length > 0;
 }
 
 /**
@@ -40,7 +52,35 @@ module.exports.render = function (context, modelIn) {
             result.apiProductSearch.category
         );
     }
+
+    var levelTwoCategories = [];
+    collections.forEach(result.productSearch.levelOneCategory.onlineSubCategories, function (subCat2) {
+        if (subCat2.custom && subCat2.custom.showInMenu
+            && subCat2.hasOnlineSubCategories() && isProductIDsAvailableByCategoryName(subCat2.ID)) {
+            var levelThreeCategories = [];
+            collections.forEach(subCat2.onlineSubCategories, function (subCat) {
+                if (subCat.custom && subCat.custom.showInMenu &&
+                    subCat.products.empty === false && subCat.onlineProducts.empty === false && isProductIDsAvailableByCategoryName(subCat.ID)) {
+                    levelThreeCategories.push({
+                        'ID': subCat.ID,
+                        'displayName': subCat.displayName,
+                        'absURL': subCat.thumbnail ? subCat.thumbnail.absURL : '',
+                        'isShowCategoryInSlider': subCat.custom.showCategoryInSlider === null || subCat.custom.showCategoryInSlider
+                    });
+                }
+            });
+            levelTwoCategories.push({
+                'ID': subCat2.ID,
+                'displayName': subCat2.displayName,
+                'levelThreeCategories': levelThreeCategories
+            });
+        }
+    });
     model.productSearch = result.productSearch;
+    model.productSearch.levelOneCategory = {
+        slotId: result.productSearch.levelOneCategory.custom.slotId,
+        levelTwoCategories: levelTwoCategories
+    };
     model.productSearch.isCategorySearch = true;
     model.maxSlots = result.maxSlots;
     model.reportingURLs = null;

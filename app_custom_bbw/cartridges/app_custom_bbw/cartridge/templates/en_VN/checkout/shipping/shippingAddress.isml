@@ -267,7 +267,7 @@
                 id="shippingZipCode${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}ZipCode"
                 data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
-                value="${shippingAddress.postalCode || '999077'}" <isprint value="${addressFields.postalCode.attributes}"
+                value="${shippingAddress.postalCode || '00000'}" <isprint value="${addressFields.postalCode.attributes}"
                 encoding="off" />>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}ZipCode">
                 <isprint value="${addressFields.postalCode.error}" />
