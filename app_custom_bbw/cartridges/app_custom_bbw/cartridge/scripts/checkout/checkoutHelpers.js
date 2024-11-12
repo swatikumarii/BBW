@@ -154,7 +154,7 @@ function handlePayments(order, orderNumber) {
                     .getPaymentMethod(paymentInstrument.paymentMethod)
                     .paymentProcessor;
                 var authorizationResult;
-                if (!(paymentInstrument.paymentMethod === 'AdyenComponent' && paymentInstrument.custom && 'adyenPaymentMethod' in paymentInstrument.custom && paymentInstrument.custom.adyenPaymentMethod && (paymentInstrument.custom.adyenPaymentMethod === 'Touch \'n Go' || paymentInstrument.custom.adyenPaymentMethod === 'Malaysia E-Banking'))) {
+                if (!(paymentInstrument.paymentMethod === 'AdyenComponent')) {
                     if (paymentProcessor === null) {
                         Transaction.begin();
                         paymentInstrument.paymentTransaction.setTransactionID(orderNumber);
@@ -239,27 +239,45 @@ function calculatePaymentTransaction(currentBasket) {
  */
 function placeOrder(order, fraudDetectionStatus) {
     var Order = require('dw/order/Order');
+    var collections = require('*/cartridge/scripts/util/collections');
     var Status = require('dw/system/Status');
     var result = { error: false };
     var adyenGiftcardFailed = false;
     if (order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0 && order.getPaymentInstruments('AdyenComponent').length > 0) {
         var giftCardAPIRedeemResultAdyen;
+        var skipRedeem = false;
         var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
         var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
         // Handles Gift payment authorization
         handlePayments(order, order.orderNo);
         // Redeem Qwikcilver Gift Card
         if (order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0) {
-            giftCardAPIRedeemResultAdyen = qwikcilverApis.redeemGiftCards(order);
-            if (giftCardAPIRedeemResultAdyen) {
-                var redeemedGiftCardAdyen = JSON.parse(giftCardAPIRedeemResultAdyen.object);
-                if (redeemedGiftCardAdyen.ResponseCode === 0) {
-                    qwikcilverHelpers.saveGiftCardDetails(order, redeemedGiftCardAdyen, 'Redeemed');
+            order.getPaymentInstruments('GIFT_CERTIFICATE').toArray().forEach(function (giftInstrument) { 
+                if ('custom' in giftInstrument && giftInstrument.custom && 'eGiftRedeemSucess' in giftInstrument.custom && giftInstrument.custom.eGiftRedeemSucess) {
+                    skipRedeem = true;
+                }
+            });
+            if (!skipRedeem) {
+                giftCardAPIRedeemResultAdyen = qwikcilverApis.redeemGiftCards(order);
+                if (giftCardAPIRedeemResultAdyen) {
+                    var redeemedGiftCardAdyen = JSON.parse(giftCardAPIRedeemResultAdyen.object);
+                    if (redeemedGiftCardAdyen.ResponseCode === 0) {
+                        order.getPaymentInstruments('GIFT_CERTIFICATE').toArray().forEach(function (giftInstrument) { 
+                            redeemedGiftCardAdyen.Cards.forEach(function (card) {
+                                if (card.CardNumber === giftInstrument.custom.eGiftCardNumber) {
+                                    Transaction.wrap(function () {
+                                        giftInstrument.custom.eGiftRedeemSucess = true;
+                                    });
+                                }
+                            });
+                        });
+                        qwikcilverHelpers.saveGiftCardDetails(order, redeemedGiftCardAdyen, 'Redeemed');
+                    } else {
+                        adyenGiftcardFailed = true;
+                    }
                 } else {
                     adyenGiftcardFailed = true;
                 }
-            } else {
-                adyenGiftcardFailed = true;
             }
             if (adyenGiftcardFailed) {
                 Transaction.wrap(function () {
