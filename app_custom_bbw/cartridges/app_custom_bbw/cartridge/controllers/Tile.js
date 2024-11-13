@@ -40,6 +40,7 @@ server.append(
         var maxOrderQty = productValidationHelpers.getProductMaxOrderQty(product);
         viewData.product.maxOrderQty = maxOrderQty;
         viewData.isPlp = isPlp;
+        viewData.isSearchSuggestion = req.querystring.isSearchSuggestion ? req.querystring.isSearchSuggestion : false;
         res.setViewData(viewData);
         next();
     }
