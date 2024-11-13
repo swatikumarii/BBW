@@ -414,10 +414,8 @@ module.exports = $.extend({}, base, {
                 addressData[selectedState][selectedSuburb][selectedDistrict]
             ) {
                 var districtMappingObj =
-                    addressData[selectedState][selectedSuburb][
-                        selectedDistrict
-                    ];
-                districtMappingObj.zipcode.forEach((zip) => {
+                    addressData[selectedState][selectedSuburb][selectedDistrict];
+                districtMappingObj.forEach((zip) => {
                     if (selectedZipCode === zip) {
                         zipDropdown
                             .append(
@@ -435,12 +433,6 @@ module.exports = $.extend({}, base, {
                             })
                         );
                     }
-                    zipDropdown.append(
-                        $('<option>', {
-                            value: zip,
-                            text: zip
-                        })
-                    );
                 });
             }
         });
