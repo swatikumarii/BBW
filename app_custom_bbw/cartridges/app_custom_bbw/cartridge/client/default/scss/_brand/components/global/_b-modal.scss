@@ -490,10 +490,11 @@
                     background-size: 15px;
                     height: 35px;
                     width: 35px;
-                    right: -16px;
-                    position: relative;
-                    top: -16px;
+                    right: 0;
+                    position: absolute;
+                    top: 0;
                     opacity: 1;
+                    margin: 0;
 
                     &:hover {
                         background-color: colour(black, 3) !important;
@@ -501,6 +502,10 @@
                         opacity: 1;
                         background-image: url("../../images/plp/quickview/UI-Close-dark-hover.svg");
                     }
+                }
+
+                .free-item-popup-icon {
+                    object-fit: cover;
                 }
             }
         }
@@ -659,7 +664,7 @@
                 position: relative;
                 opacity: 1;
 
-                &:focus-visible{
+                &:focus-visible {
                     outline: unset;
                 }
 
@@ -667,8 +672,8 @@
                     display: none;
                 }
             }
-
         }
+
         .modal-body {
             overflow: hidden;
             max-height: 72vh;

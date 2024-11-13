@@ -1,5 +1,5 @@
-<nav class="plp-category-swiper ds-smooth-scroll d-flex flex-nowrap row h-mb--30" data-cgid="${pdict.productSearch.category.id}">
-    <div class="w-100 overflow-hidden position-relative" id="plp-swiper">
+<nav class="d-flex ds-smooth-scroll flex-nowrap h-mb--30 h-pl--30 h-pr--30 plp-category-swiper position-relative row" data-cgid="${pdict.productSearch.category.id}">
+    <div class="w-100 overflow-hidden h-pr--5" id="plp-swiper">
         <div class="swiper-wrapper">
             <isloop items="${pdict.productSearch.levelOneCategory.levelTwoCategories}" var="levelTwoCategory">
                 <isloop items="${levelTwoCategory.levelThreeCategories}" var="levelThreeCategory">

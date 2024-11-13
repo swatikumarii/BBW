@@ -1,8 +1,9 @@
 <div class="modal fade" id="addFreeItem" tabindex="-1" role="dialog" aria-labelledby="add-free-item">
     <div class="modal-dialog add-free-dialog" role="document">
-        <div class="modal-content free-item-content border-0">
-            <div class="modal-header free-item-header border-0 p-0">
-                <h5 class="modal-title h-font-size-md--18 h-font-size-sm--18 h-font-size--16  h-clr--black-3 m-0 h-fw--semibold free-header">
+        <div class="border-0 free-item-content modal-content text-center">
+            <div class="modal-header free-item-header border-0 p-0 justify-content-center align-items-center flex-column">
+                <img src="${URLUtils.staticURL('/images/cart/free-item-popup-icon.svg')}" alt="Free item popup icon" class="free-item-popup-icon" height="92" width="128"/>
+                <h5 class="modal-title h-font-size-sm--20 h-font-size--18  h-clr--black-3 m-0 h-fw--semibold free-header">
                     ${Resource.msg('free-item-header', 'checkout', null)}</h5>
                 <button type="button" class="close close-icon-btn  h-bg--gray-1 pull-right" data-dismiss="modal">
                     <span aria-hidden="true">
@@ -10,13 +11,13 @@
                     </span>
                 </button>
             </div>
-            <div class="modal-body free-item-body p-0 mt-3">
+            <div class="free-item-body h-mx--auto h-width-perc-sm--75 modal-body mt-3 p-0">
                 <div class="col-12 p-0">
                     <span class="free-item-para h-clr--black-1 h-font-size-md--16 h-font-size-sm--16 h-font-size--14 ">
                         ${Resource.msg('free.item.para', 'checkout', null)}</span>
                 </div>
             </div>
-            <div class="modal-footer border-0 p-0 mt-3 m-0 justify-content-md-end justify-content-center">
+            <div class="modal-footer border-0 p-0 mt-3 m-0 justify-content-center">
                 <a hreflang="${pdict.hrefLang}" href="${URLUtils.https('Checkout-Begin')}" class="m-0">
                     <button type="button" class="btn free-item-btn btn-primary  h-font-size-md--16 h-font-size-sm--16 h-font-size--14">${Resource.msg('button.confirm.free', 'checkout', null)}</button>
                 </a>

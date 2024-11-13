@@ -159,6 +159,15 @@ function placeOrder(req, res, next) {
     if (currentBasket.getPaymentInstruments('GIFT_CERTIFICATE').length > 0) {
         giftCardAPIRedeemResult = qwikcilverApis.redeemGiftCards(order);
         if (giftCardAPIRedeemResult && giftCardAPIRedeemResult.status === 'OK' && giftCardAPIRedeemResult.object) {
+            order.getPaymentInstruments('GIFT_CERTIFICATE').toArray().forEach(function (giftInstrument) {
+                giftCardAPIRedeemResult.Cards.forEach(function (card) {
+                    if (card.CardNumber === giftInstrument.custom.eGiftCardNumber) {
+                        Transaction.wrap(function () {
+                            giftInstrument.custom.eGiftRedeemSucess = true;
+                        });
+                    }
+                });
+            });
             var redeemGiftCard = JSON.parse(giftCardAPIRedeemResult.object);
             if (redeemGiftCard.ResponseCode !== 0 && redeemGiftCard.Cards && redeemGiftCard.Cards.length > 0) {
                 res.json({
