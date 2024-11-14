@@ -89,6 +89,7 @@ function handle(customObj) {
   var isAdyen = false;
   var orderCreateDate = order.creationDate;
   var orderCreateDateDelay = createDelayOrderDate(orderCreateDate);
+  var needToProcess = checkIfDelayedBeyondLimit(orderCreateDate);
   var currentDate = new Date();
   var reasonCode = 'reason' in customObj.custom && !empty(customObj.custom.reason) ? customObj.custom.reason.toUpperCase() : null;
   AdyenLogs.debug_log("Order date ".concat(orderCreateDate, " , orderCreateDateDelay ").concat(orderCreateDateDelay, " , currentDate ").concat(currentDate));
@@ -107,7 +108,7 @@ function handle(customObj) {
             adyenPaymentInstrument = paymentInstruments[pi];
           }
         }
-        if (customObj.custom.success === 'true' && adyenPaymentInstrument) {
+        if (customObj.custom.success === 'true' && adyenPaymentInstrument && needToProcess) {
           var amountPaid = parseFloat(order.custom.Adyen_value) + parseFloat(customObj.custom.value);
           var totalAmount = adyenHelper.getCurrencyValueForApi(adyenPaymentInstrument.getPaymentTransaction().getAmount()).value;
           if (order.paymentStatus.value === Order.PAYMENT_STATUS_PAID) {
@@ -120,7 +121,7 @@ function handle(customObj) {
             order.setExportStatus(Order.EXPORT_STATUS_READY);
             order.setConfirmationStatus(Order.CONFIRMATION_STATUS_CONFIRMED);
             AdyenLogs.info_log("Order ".concat(order.orderNo, " updated to status PAID."));
-            COHelpers.sendConfirmationEmail(order, 'default');
+            // COHelpers.sendConfirmationEmail(order, 'default');
 
             result.SubmitOrder = true;
           }
@@ -128,6 +129,9 @@ function handle(customObj) {
           order.custom.Adyen_value = amountPaid.toString();
         } else {
           AdyenLogs.info_log("Authorization for order ".concat(order.orderNo, " was not successful - no update."));
+          if (!needToProcess) {
+            AdyenLogs.info_log("Order ".concat(order.orderNo, " was delayed beyond limit."));
+          }
           // Determine if payment was refused and was used Adyen payment method
           if (!empty(reasonCode) && (reasonCode === 'REFUSED' || reasonCode.indexOf('FAILED') > -1) && isAdyen) {
             refusedHpp = true;
@@ -268,6 +272,17 @@ function createDelayOrderDate(orderCreateDate) {
   var newDate = new Date();
   newDate.setTime(orderCreateDate.getTime() + adyenDelayMin * 60 * 1000);
   return newDate;
+}
+
+function checkIfDelayedBeyondLimit(orderCreateDate) {
+   var Site = require('dw/system/Site');
+   var allowedDelay = Site.getCurrent().getCustomPreferenceValue('Adyen_notification_allowed_delay');
+
+  var newDate = new Date();
+  newDate.setDate(newDate.getDate() - allowedDelay);
+  var creationDate = new Date();
+  creationDate.setDate(creationDate.getDate());
+  return orderCreateDate >= newDate;
 }
 module.exports = {
   execute: execute,
