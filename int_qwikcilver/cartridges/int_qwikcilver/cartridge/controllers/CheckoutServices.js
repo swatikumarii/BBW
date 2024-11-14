@@ -476,7 +476,7 @@ server.prepend('SubmitPayment', server.middleware.https, csrfProtection.validate
 
             billingAddress.setPhone(billingData.phone.value);
             if (paymentMethodIdValue === 'AFTERPAY' || paymentMethodIdValue === 'CLEARPAY') {
-                billingAddress.setPhone(billingForm.addressFields.phone.value);
+                // billingAddress.setPhone(billingForm.addressFields.phone.value);
                 currentBasket.setCustomerEmail(paymentForm.contactInfoFields.email.value);
             }
             currentBasket.setCustomerEmail(paymentForm.contactInfoFields.email.value);
