@@ -19,6 +19,8 @@ var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpe
 var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
 var giftWrapCartHelpers = require('*/cartridge/scripts/helpers/cart/giftWrap');
 var Site = require('dw/system/Site');
+var collections = require('*/cartridge/scripts/util/collections');
+
 
 /**
  * Cart-AddCoupon : The Cart-AddCoupon endpoint is responsible for adding a coupon to a basket
@@ -280,6 +282,11 @@ server.replace('UpdateQuantity', function (req, res, next) {
         matchingLineItem.UUID
     );
     if (newBonusDiscountLineItem) {
+
+        var newBonusPromo = newBonusDiscountLineItem && 'newBonusDiscountLineItem' in newBonusDiscountLineItem ? newBonusDiscountLineItem.newBonusDiscountLineItem.promotion : null;
+        if (newBonusPromo && 'custom' in newBonusPromo && 'isPWP' in newBonusPromo.custom && newBonusPromo.custom.isPWP) {
+            newBonusDiscountLineItem.isPWP = true;
+        }
         var allLineItems = currentBasket.allProductLineItems;
         collections.forEach(allLineItems, function (pli) {
             if (pli.UUID === matchingLineItem.UUID) {
@@ -430,6 +437,7 @@ server.append('RemoveProductLineItem', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var changes = cartHelper.createFreeLineItem(currentBasket, 0);
     var viewData = res.getViewData();
+    var isEstimatedShipping = true;
     var basketModel = new CartModel(currentBasket);
     if (changes) {
         viewData.refreshItems = true;
@@ -458,7 +466,15 @@ server.append('RemoveProductLineItem', function (req, res, next) {
             req.currentCustomer.raw.profile
         );
     }
+    if (currentBasket && currentBasket.defaultShipment) {
+        var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+        
+        if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != '') {
+            isEstimatedShipping = false;
+        }
+    }
     // free item count
+    viewData.basket.isEstimatedShipping = isEstimatedShipping;
     viewData.basket.freeItemCount = basketModel.freeItemCount;
     viewData.basket.freeItemToastMessage = basketModel.freeItemToastMessage;
     res.setViewData(viewData);
@@ -503,6 +519,7 @@ server.prepend('AddProduct', function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var Transaction = require('dw/system/Transaction');
     var ProductLineItemsModel = require('*/cartridge/models/productLineItems');
+    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
     var price = cartHelper.getProductPrice(req.form.pid);
     var currentBasket = BasketMgr.getCurrentBasket();
     if (price === 0) {
@@ -525,6 +542,9 @@ server.prepend('AddProduct', function (req, res, next) {
             for (var i = 0; i < productLineItems.length; i++) {
                 var item = productLineItems[i];
                 currentBasket.removeProductLineItem(item);
+                Transaction.wrap(function () {
+                    basketCalculationHelpers.calculateTotals(currentBasket);
+                });
             }
         });
     }
@@ -589,6 +609,10 @@ server.append('AddProduct', function (req, res, next) {
             maxOrderQtyValue,
             apiProduct.name
         );
+    }
+    var newBonusPromo = viewData.newBonusDiscountLineItem && 'newBonusDiscountLineItem' in viewData.newBonusDiscountLineItem ? viewData.newBonusDiscountLineItem.newBonusDiscountLineItem.promotion : null;
+    if (newBonusPromo && 'custom' in newBonusPromo && 'isPWP' in newBonusPromo.custom && newBonusPromo.custom.isPWP) {
+        viewData.newBonusDiscountLineItem.isPWP = true;
     }
     res.setViewData(viewData);
     next();
@@ -740,9 +764,13 @@ server.append(
     function (req, res, next) {
         var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
         var showDangerousGoodsMsg = req.querystring.error === 'dangerous-goods';
+        var Locale = require('dw/util/Locale');
+        var country = Locale.getLocale(req.locale.id).getDisplayCountry();
         var viewData = res.getViewData();
+        viewData.country = country;
         var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
         var isGiftProductAvailable = false;
+        var isEstimatedShipping = true;
         var currentBasket = BasketMgr.getCurrentBasket();
         var isDangerousGoodsInBasket = false;
         if (currentBasket) {
@@ -763,6 +791,14 @@ server.append(
                 }
             }
         }
+        if (currentBasket && currentBasket.defaultShipment) {
+            var shippingAddress = currentBasket.defaultShipment.shippingAddress;
+            
+            if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != '') {
+                isEstimatedShipping = false;
+            }
+        } 
+        viewData.isEstimatedShipping = isEstimatedShipping; 
         viewData.showDangerousGoodsMsg = showDangerousGoodsMsg && isDangerousGoodsInBasket;
         var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
             type: 10
@@ -851,6 +887,7 @@ server.get('MissingFree', function (req, res, next) {
 server.append('EditBonusProduct', function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var viewData = res.getViewData();
+    viewData.labels.selectprods =  Resource.msg('modal.header.selected.products.pwp', 'product', null);
     viewData.labels.selectedprods =  Resource.msgf('modal.header.selected.products', 'product', null,viewData.selectedBonusProducts.length, viewData.maxBonusItems);
     res.setViewData(viewData);
     next();
@@ -889,6 +926,47 @@ server.get('CheckMotivator', function (req, res, next) {
     var motivator = {};
     decorators.promotions(motivator, promotions);
     res.json({motivator: motivator});
+    next();
+});
+
+server.get('CheckLoosingBonus', function (req, res, next) {
+    var Transaction = require('dw/system/Transaction');
+    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var loosingBonus = false;
+    var bonusUUID;
+    var quantity = req.querystring.quantity ? req.querystring.quantity - 0 : null;
+    if (req.querystring.pid && req.querystring.uuid) {
+        Transaction.begin();
+        var previousBonusDiscountLineItems = currentBasket.getBonusDiscountLineItems();
+        var productLineItem = currentBasket.getAllProductLineItems(req.querystring.pid);
+        if (quantity) {
+            bonusUUID = previousBonusDiscountLineItems[0].bonusProductLineItems[0].UUID;
+            productLineItem[0].setQuantityValue(quantity);
+            basketCalculationHelpers.calculateTotals(currentBasket);
+        } else {
+            currentBasket.removeProductLineItem(productLineItem[0]);
+        }
+        var newBonusDiscountLineItems = currentBasket.getBonusDiscountLineItems();
+        if (previousBonusDiscountLineItems && newBonusDiscountLineItems.length !== previousBonusDiscountLineItems.length) {
+            loosingBonus = true;
+        } else {
+            collections.forEach(newBonusDiscountLineItems, function (newBonusDiscountLineItem) {
+                var promotion = newBonusDiscountLineItem.promotion;
+                var limit = promotion.custom && 'Buy' in promotion.custom && promotion.custom.Buy ? promotion.custom.Buy[0] : 0;
+                if (currentBasket.adjustedMerchandizeTotalGrossPrice.value - newBonusDiscountLineItem.bonusProductLineItems[0].adjustedGrossPrice.value < limit) {
+                    loosingBonus = true;
+                    bonusUUID = newBonusDiscountLineItem.bonusProductLineItems[0].UUID;
+                }
+            });
+        }
+        Transaction.rollback();
+    }
+    res.json({
+        loosingBonus: loosingBonus,
+        bonusUUID: bonusUUID,
+        quantity: quantity
+    });
     next();
 });
 

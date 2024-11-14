@@ -59,7 +59,7 @@
                 </div>
                 <div class="selected-store-container h-font-size--16">
                     <a class="choose-store b-text-a h-clr--black-1 h-fw--semibold h-font-size--16"
-                        hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="javascript:void(0)" role="button" tabindex="0">Set Store</a> <span
+                        hreflang="${pdict.hrefLang}" href="javascript:void(0)" role="button" tabindex="0">Set Store</a> <span
                         class="h-font-size--16">to check availability</span>
                 </div>
             </div>

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
+		<options>
+			<option optionid="" 	label="resource.select.state" 		value=""/>
+
+			<!-- regular PH states -->
+			<option label="Abra" value="Abra"/>
+			<option label="Agusan Del Norte" value="Agusan Del Norte"/>
+			<option label="Agusan Del Sur" value="Agusan Del Sur"/>
+			<option label="Aklan" value="Aklan"/>
+			<option label="Albay" value="Albay"/>
+			<option label="Antique" value="Antique"/>
+			<option label="Apayao" value="Apayao"/>
+			<option label="Aurora" value="Aurora"/>
+			<option label="Basilan" value="Basilan"/>
+			<option label="Bataan" value="Bataan"/>
+			<option label="Batanes" value="Batanes"/>
+			<option label="Batangas" value="Batangas"/>
+			<option label="Benguet" value="Benguet"/>
+			<option label="Biliran" value="Biliran"/>
+			<option label="Bohol" value="Bohol"/>
+			<option label="Bukidnon" value="Bukidnon"/>
+			<option label="Bulacan" value="Bulacan"/>
+			<option label="Cagayan" value="Cagayan"/>
+			<option label="Camarines Norte" value="Camarines Norte"/>
+			<option label="Camarines Sur" value="Camarines Sur"/>
+			<option label="Camiguin" value="Camiguin"/>
+			<option label="Capiz" value="Capiz"/>
+			<option label="Catanduanes" value="Catanduanes"/>
+			<option label="Cavite" value="Cavite"/>
+			<option label="Cebu" value="Cebu"/>
+			<option label="Cotabato" value="Cotabato"/>
+			<option label="Davao de Oro" value="Davao de Oro"/>
+			<option label="Davao Del Norte" value="Davao Del Norte"/>
+			<option label="Davao Del Sur" value="Davao Del Sur"/>
+			<option label="Davao Occidental" value="Davao Occidental"/>
+			<option label="Davao Oriental" value="Davao Oriental"/>
+			<option label="Dinagat Islands" value="Dinagat Islands"/>
+			<option label="Eastern Samar" value="Eastern Samar"/>
+			<option label="Guimaras" value="Guimaras"/>
+			<option label="Ifugao" value="Ifugao"/>
+			<option label="Ilocos Norte" value="Ilocos Norte"/>
+			<option label="Ilocos Sur" value="Ilocos Sur"/>
+			<option label="Iloilo" value="Iloilo"/>
+			<option label="Isabela" value="Isabela"/>
+			<option label="Kalinga" value="Kalinga"/>
+			<option label="La Union" value="La Union"/>
+			<option label="Laguna" value="Laguna"/>
+			<option label="Lanao Del Norte" value="Lanao Del Norte"/>
+			<option label="Lanao Del Sur" value="Lanao Del Sur"/>
+			<option label="Leyte" value="Leyte"/>
+			<option label="Maguindanao" value="Maguindanao"/>
+			<option label="Marinduque" value="Marinduque"/>
+			<option label="Masbate" value="Masbate"/>
+			<option label="Metro Manila" value="Metro Manila"/>
+			<option label="Misamis Occidental" value="Misamis Occidental"/>
+			<option label="Misamis Oriental" value="Misamis Oriental"/>
+			<option label="Mountain Province" value="Mountain Province"/>
+			<option label="Negros Occidental" value="Negros Occidental"/>
+			<option label="Negros Oriental" value="Negros Oriental"/>
+			<option label="Northern Samar" value="Northern Samar"/>
+			<option label="Nueva Ecija" value="Nueva Ecija"/>
+			<option label="Nueva Vizcaya" value="Nueva Vizcaya"/>
+			<option label="Occidental Mindoro" value="Occidental Mindoro"/>
+			<option label="Oriental Mindoro" value="Oriental Mindoro"/>
+			<option label="Palawan" value="Palawan"/>
+			<option label="Pampanga" value="Pampanga"/>
+			<option label="Pangasinan" value="Pangasinan"/>
+			<option label="Quezon" value="Quezon"/>
+			<option label="Quirino" value="Quirino"/>
+			<option label="Rizal" value="Rizal"/>
+			<option label="Romblon" value="Romblon"/>
+			<option label="Samar" value="Samar"/>
+			<option label="Sarangani" value="Sarangani"/>
+			<option label="Siquijor" value="Siquijor"/>
+			<option label="Sorsogon" value="Sorsogon"/>
+			<option label="South Cotabato" value="South Cotabato"/>
+			<option label="Southern Leyte" value="Southern Leyte"/>
+			<option label="Sultan Kudarat" value="Sultan Kudarat"/>
+			<option label="Sulu" value="Sulu"/>
+			<option label="Surigao Del Norte" value="Surigao Del Norte"/>
+			<option label="Surigao Del Sur" value="Surigao Del Sur"/>
+			<option label="Tarlac" value="Tarlac"/>
+			<option label="Tawi-Tawi" value="Tawi-Tawi"/>
+			<option label="Zambales" value="Zambales"/>
+			<option label="Zamboanga Del Norte" value="Zamboanga Del Norte"/>
+			<option label="Zamboanga Del Sur" value="Zamboanga Del Sur"/>
+			<option label="Zamboanga Sibugay" value="Zamboanga Sibugay"/>
+		</options>
+	</field>
+</form>

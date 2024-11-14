@@ -120,57 +120,62 @@ server.append(
  */
 server.get('InvoiceDownload', function (req, res, next) {
     var OrderMgr = require('dw/order/OrderMgr');
+    var Logger = require('dw/system/Logger');
     var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
     var TaxMgr = require('dw/order/TaxMgr');
     var orderID = encryptionHelper.decryptPin(
         decodeURIComponent(req.querystring.token)
     );
-    var order = OrderMgr.getOrder(orderID);
-    var taxClassId = TaxMgr.getDefaultTaxClassID();
-    var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
-    var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
-    var taxRate = getTaxRate * 100;
+    try {
+        var order = OrderMgr.getOrder(orderID);
+        var taxClassId = TaxMgr.getDefaultTaxClassID();
+        var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
+        var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
+        var taxRate = getTaxRate * 100;
 
-    if (order) {
-        var isEgiftCard = false;
-        var orderModel = orderHelpers.getOrderDetailsByID(
-            orderID,
-            req.locale.id
-        );
-        if (
-            orderModel &&
-            orderModel.shipping &&
-            orderModel.shipping.length > 0
-        ) {
+        if (order) {
+            var isEgiftCard = false;
+            var orderModel = orderHelpers.getOrderDetailsByID(
+                orderID,
+                req.locale.id
+            );
             if (
-                orderModel.shipping[0].productLineItems &&
-                orderModel.shipping[0].productLineItems.items
+                orderModel &&
+                orderModel.shipping &&
+                orderModel.shipping.length > 0
             ) {
-                var products = orderModel.shipping[0].productLineItems.items;
-                for (var index = 0; index < products.length; index++) {
-                    if (products[index].isEgiftCard) {
-                        isEgiftCard = products[index].isEgiftCard;
-                        break;
+                if (
+                    orderModel.shipping[0].productLineItems &&
+                    orderModel.shipping[0].productLineItems.items
+                ) {
+                    var products = orderModel.shipping[0].productLineItems.items;
+                    for (var index = 0; index < products.length; index++) {
+                        if (products[index].isEgiftCard) {
+                            isEgiftCard = products[index].isEgiftCard;
+                            break;
+                        }
                     }
                 }
             }
-        }
 
-        var eInvoiceJson = {};
-        if('eInvoiceQrCode' in order.custom)
-        {
-            eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
-        }
+            var eInvoiceJson = {};
+            if('eInvoiceQrCode' in order.custom)
+            {
+                eInvoiceJson = JSON.parse(order.custom.eInvoiceQrCode) || {};
+            }
 
-        res.render('order/invoiceDownload', {
-            order: orderModel,
-            taxRate: taxRate,
-            isEgiftCard: isEgiftCard,
-            eInvoiceQrCodeLink: eInvoiceJson.url || '',
-            eInvoiceQrCode: eInvoiceJson.qrcode || false
-        });
-    } else {
-        res.redirect(URLUtils.url('Order-History'));
+            res.render('order/invoiceDownload', {
+                order: orderModel,
+                taxRate: taxRate,
+                isEgiftCard: isEgiftCard,
+                eInvoiceQrCodeLink: eInvoiceJson.url || '',
+                eInvoiceQrCode: eInvoiceJson.qrcode || false
+            });
+        } else {
+            res.redirect(URLUtils.url('Order-History'));
+        }
+    } catch (error) {
+        Logger.error('Einvoice Error : ' + JSON.stringify(error));
     }
     next();
 });
@@ -493,18 +498,32 @@ server.post(
     function (req, res, next) {
         var OrderMgr = require('dw/order/OrderMgr');
         var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+        var isBillingZipCodeRequired =
+            dw.system.Site.getCurrent().getCustomPreferenceValue(
+                'isBillingZipCodeRequired'
+            );
         var error = orderHelpers.validateTrackingData(
-            req.form.orderNumber, req.form.orderEmail, req.form.billingZipCode
+            req.form.orderNumber,
+            req.form.orderEmail,
+            req.form.billingZipCode,
+            isBillingZipCodeRequired
         );
         if (error && error.length === 0) {
             var order = OrderMgr.getOrder(req.form.orderNumber);
             if (
                 order &&
-                order.customerEmail.toLowerCase() === req.form.orderEmail.toLowerCase().trim() &&
-                order.billingAddress.postalCode === req.form.billingZipCode.trim()
+                order.customerEmail.toLowerCase() ===
+                    req.form.orderEmail.toLowerCase().trim() &&
+                (!isBillingZipCodeRequired ||
+                    order.billingAddress.postalCode ===
+                        req.form.billingZipCode.trim())
             ) {
                 res.json({
-                    redirectUrl: URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString()
+                    redirectUrl: URLUtils.url(
+                        'Order-Tracking',
+                        'token',
+                        encryptionHelper.encryptPin(req.form.orderNumber)
+                    ).toString()
                 });
             } else {
                 res.json({
@@ -541,6 +560,7 @@ server.append(
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
             var order = OrderMgr.getOrder(viewData.order.orderNumber);
+            var isEstimatedShipping = true;
 
             // save address
             if (session.privacy.addressBook && session.privacy.saveAddress) {
@@ -583,6 +603,13 @@ server.append(
             //     });
             //     COHelpers.sendConfirmationEmail(order, req.locale.id);
             // }
+            if (order && order.defaultShipment) {
+                var shippingAddress = order.defaultShipment.shippingAddress;                
+                if (shippingAddress && shippingAddress.stateCode && shippingAddress.stateCode != '') {
+                    isEstimatedShipping = false;
+                }
+            }
+            viewData.isEstimatedShipping = isEstimatedShipping;
             res.setViewData(viewData);
             if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
                 res.redirect(URLUtils.url('Order-Failed'));

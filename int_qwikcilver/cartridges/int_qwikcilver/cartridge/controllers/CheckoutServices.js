@@ -159,6 +159,15 @@ function placeOrder(req, res, next) {
     if (currentBasket.getPaymentInstruments('GIFT_CERTIFICATE').length > 0) {
         giftCardAPIRedeemResult = qwikcilverApis.redeemGiftCards(order);
         if (giftCardAPIRedeemResult && giftCardAPIRedeemResult.status === 'OK' && giftCardAPIRedeemResult.object) {
+            order.getPaymentInstruments('GIFT_CERTIFICATE').toArray().forEach(function (giftInstrument) {
+                JSON.parse(giftCardAPIRedeemResult.object).Cards.forEach(function (card) {
+                    if (card.CardNumber === giftInstrument.custom.eGiftCardNumber) {
+                        Transaction.wrap(function () {
+                            giftInstrument.custom.eGiftRedeemSucess = true;
+                        });
+                    }
+                });
+            });
             var redeemGiftCard = JSON.parse(giftCardAPIRedeemResult.object);
             if (redeemGiftCard.ResponseCode !== 0 && redeemGiftCard.Cards && redeemGiftCard.Cards.length > 0) {
                 res.json({
@@ -626,6 +635,19 @@ server.prepend('SubmitPayment', server.middleware.https, csrfProtection.validate
                     isovo: true
                 });
             }
+            this.emit('route:Complete', req, res);
+        }
+        if (paymentMethodIdValue === 'EGHL') {
+            var eghlHelper = require('*/cartridge/scripts/helpers/eghlHelper');
+            var order = COHelpers.createOrder(currentBasket);
+            var paymentId = eghlHelper.generatePaymentId(order.orderNo);
+            var continueUrl = eghlHelper.generateEghlPaymentUrl(order, paymentId);
+            logger.error('EGHL:Order is created with continue url {0}', continueUrl);
+            res.json({
+                error: false,
+                continueUrl: continueUrl,
+                isEghl: true,
+            });
             this.emit('route:Complete', req, res);
         }
     } else {

@@ -196,6 +196,12 @@ function updateShippingMethods(shipping) {
                     } else {
                         $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
                     }
+                    // set shipping cost
+                    if (shippingMethod.isShippingDiscountPrice) {
+                        $('.shipping-cost-discount', tmpl).css('display','block');
+                        $('.shipping-cost', tmpl).addClass('discountPrice');
+                        $('.shipping-cost-discount', tmpl).text(shippingMethod.isShippingDiscountPrice);
+                    } 
                     $shippingMethodList.append(tmpl.html());
                 });
             }
@@ -881,7 +887,7 @@ module.exports = {
                 }
             }
             Object.keys(attrs).forEach(function (attr) {
-                if (!['stateCode', 'city', 'postalCode', 'countryCode'].includes(attr)) {
+                if (!['stateCode', 'city', 'postalCode', 'countryCode','district','subdistrict'].includes(attr)) {
                     element = attr === 'countryCode' ? 'country' : attr;
                     $('[name$=' + element + ']', form).val(attrs[attr]);
                     // validate an hide/show errors
@@ -916,14 +922,17 @@ module.exports = {
 
     updateShippingList: function () {
         var baseObj = this;
-        $('select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_postalCode"]')
-            .on('change', function (e) {
-                if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
-                    baseObj.methods.updateShippingMethodList($(e.currentTarget.form));
-                } else {
-                    updateShippingMethodList($(e.currentTarget.form));
-                }
-            });
+        $(
+            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_postalCode"], input[name$="shippingAddress_addressFields_address1"]'
+        ).on('change', function (e) {
+            if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
+                baseObj.methods.updateShippingMethodList(
+                    $(e.currentTarget.form)
+                );
+            } else {
+                updateShippingMethodList($(e.currentTarget.form));
+            }
+        });
     },
 
     updateDataAddressMode: function () {

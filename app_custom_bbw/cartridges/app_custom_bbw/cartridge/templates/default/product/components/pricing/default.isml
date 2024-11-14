@@ -22,7 +22,7 @@
     <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
     <isif condition="${pdict.urls && pdict.urls.product}">
         <span class="sales">
-            <a class="b-product-tile__price-link d-block mt-0 js-product-tile-price gift-cards-price ${pdict.product.promoPrice ? 'hpp-promo-price h-fw--normal' : 'h-fw--semibold'}" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.urls.product}">
+            <a class="b-product-tile__price-link d-block mt-0 js-product-tile-price gift-cards-price ${pdict.product.promoPrice ? 'hpp-promo-price h-fw--normal' : 'h-fw--semibold'}" hreflang="${pdict.hrefLang}" href="${pdict.urls.product}">
                 <isif condition="${isLowPrice == 'range-low'}">
                     <span class="value" itemprop="price" content="${price.decimalPrice}"></span>
                 </isif>
@@ -54,6 +54,11 @@
     <isif condition="${pdict.product && pdict.product.promoPrice}">
         <span class="promo-price h-clr--pink h-fw--semibold gift-cards-price">
             ${pdict.product.promoPrice}
+        </span>
+    </isif>
+    <isif condition="${pdict.product && pdict.product.pwpPrice}">
+        <span class="promo-price h-clr--pink h-fw--semibold gift-cards-price">
+            ${pdict.product.pwpPrice}
         </span>
     </isif>
 </span>

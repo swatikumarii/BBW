@@ -1,3 +1,4 @@
+<isset name="isGiftCertificateUsed" value="${false}" scope="page" />
 <div class="payment-details h-font-size--16">
     <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
         <isif condition="${payment.paymentMethod == 'AdyenPOS' || payment.paymentMethod == 'AdyenComponent' || payment.paymentMethod ===
@@ -8,8 +9,13 @@
             <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
         <iselseif
             condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
-        <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
-        <iselseif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}" />
+            <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
+        <iselseif condition="${payment.paymentMethod === '2c2p'}" />
+            <isinclude template="checkout/billing/paymentOptions/2c2pSummary" />
+        <iselseif condition="${payment.paymentMethod === 'EGHL'}" />
+            <isinclude template="checkout/billing/paymentOptions/eghlSummary" />
+        <iselseif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE' && !isGiftCertificateUsed}" />
+            <isset name="isGiftCertificateUsed" value="${true}" scope="page" />
             <div class="mb-2">
                 ${Resource.msg('label.add.egift.title', 'giftcards', null)}
             </div>

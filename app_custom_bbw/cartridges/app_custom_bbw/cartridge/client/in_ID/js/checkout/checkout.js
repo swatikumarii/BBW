@@ -231,6 +231,20 @@ function ovoStart(orderID) {
                     //
                     formHelpers.clearPreviousErrors('.shipping-form');
 
+                    var shippingAddressOneVal = $('.shippingAddressOne').val();
+                    var shippingAddressTwoVal = $('.shippingAddressTwo').val();
+                    var shippingAddressAutoCompleteVal = $('#shippingAddressAutoComplete').val();
+                    var AddressLogUrl = $('#addressLog-url').val();
+                    $.ajax({
+                        type: 'POST',
+                        data: {
+                            shippingAddressOne: shippingAddressOneVal,
+                            shippingAddressTwo: shippingAddressTwoVal,
+                            shippingAddressAutoComplete: shippingAddressAutoCompleteVal
+                        },
+                        url: AddressLogUrl
+                    });
+
                     //
                     // Submit the Shipping Address Form
                     //
@@ -422,10 +436,10 @@ function ovoStart(orderID) {
                                         var position = element && element.length ? element.offset().top - 100 : 0;
                                         $('html, body').animate({
                                             scrollTop: position
-                                        }, 500);    
+                                        }, 500);
                                     },500);
                                 }
-                                
+
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
@@ -530,7 +544,7 @@ function ovoStart(orderID) {
                                     var position = element && element.length ? element.offset().top : 0;
                                     $('html, body').animate({
                                         scrollTop: position
-                                    }, 500);    
+                                    }, 500);
                                 },500);
                                 $.spinner().stop();
                             } else {
@@ -616,14 +630,6 @@ function ovoStart(orderID) {
                 //
                 $('.customer-summary .edit-button', plugin).on('click', function () {
                     members.gotoStage('customer');
-                });
-
-                $('.shipping-summary .edit-button', plugin).on('click', function () {
-                    if (!$('#checkout-main').hasClass('multi-ship')) {
-                        $('body').trigger('shipping:selectSingleShipping');
-                    }
-
-                    members.gotoStage('shipping');
                 });
 
                 $('.payment-summary .edit-button', plugin).on('click', function () {

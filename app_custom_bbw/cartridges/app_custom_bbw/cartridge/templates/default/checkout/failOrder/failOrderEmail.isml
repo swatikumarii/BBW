@@ -1,6 +1,7 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <isdecorate template="common/layout/email">
     <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
+    <isset name="isGiftCertificateUsed" value="${false}" scope="page" />
     <iscomment>
         <isemailheaderdynamic heading="${Resource.msg('label.sitename', 'email', null)}"
             title="${Resource.msg('headline.resetpassword.notification.email', 'email', null)}" />
@@ -72,9 +73,14 @@
                                             </td>
                                             <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
                                                 <div style="width:245px">
-                                                    <isif condition="${lineItem.isBonusProductLineItem}">
+                                                    <isif condition="${lineItem.isBonusProductLineItem && !lineItem.isPWP}">
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${Resource.msg('label.free.gift', 'common', null)}
+                                                        </div>
+                                                    </isif>
+                                                    <isif condition="${lineItem.isPWP}">
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${Resource.msg('label.pwp.product', 'common', null)}
                                                         </div>
                                                     </isif>
                                                     <div
@@ -228,17 +234,18 @@
                                             </div>
                                             <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}"
                                                 var="payment">
-                                                <isif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}">
+                                                <isif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE' && !isGiftCertificateUsed}">
+                                                    <isset name="isGiftCertificateUsed" value="${true}" scope="page" />
                                                     <p>${Resource.msg('label.add.egift.title', 'giftcards', null)}</p>
                                                     <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
-                                                        ${pdict.order.eGiftTotalAmount}</p>
+                                                        <isprint value="${pdict.order.eGiftTotalAmount}" /></p>
                                                 </isif>
                                                 <isif
                                                     condition="${payment.paymentMethod === 'AdyenComponent' || payment.paymentMethod === 'CREDIT_CARD'}">
                                                     <isinclude
                                                         template="checkout/confirmation/adyenConfirmationDetails" />
                                                     <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
-                                                        ${payment.amount}</p>
+                                                        <isprint value="${payment.amount}" /></p>
                                                     <iselseif
                                                         condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
                                                         <isinclude
@@ -246,7 +253,17 @@
                                                     <iselseif condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
                                                         <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
                                                         <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
-                                                            ${payment.amount}</p>
+                                                            <isprint value="${payment.amount}" /></p>
+                                                    <iselseif condition="${payment.paymentMethod === '2c2p'}" />
+                                                        <isinclude template="checkout/billing/paymentOptions/2c2pSummary" />
+                                                        <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
+                                                            <isprint value="${payment.amount}" />
+                                                        </p>
+                                                    <iselseif condition="${payment.paymentMethod === 'EGHL'}" />
+                                                        <isinclude template="checkout/billing/paymentOptions/eghlSummary" />
+                                                        <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode}
+                                                            <isprint value="${payment.amount}" />
+                                                        </p>
                                                     </isif>
                                             </isloop>
                                         </td>

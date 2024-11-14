@@ -76,10 +76,15 @@ server.append(
                         currentBasket.billingAddress.custom.dialCode = paymentForm.addressFields.dialCode.value;
                         currentBasket.billingAddress.custom.dialCodeCountry = paymentForm.addressFields.dialCodeCountry.value;
                     }
+                    if ('subDistrict' in paymentForm.addressFields) {
+                        currentBasket.billingAddress.custom.subDistrict = paymentForm.addressFields.subDistrict.value;
+                    }
+                    if ('district' in paymentForm.addressFields) {
+                        currentBasket.billingAddress.custom.dialCodeCountry = paymentForm.addressFields.district.value;
+                    }
                 });
             });
         }
-
         next();
     }
 );

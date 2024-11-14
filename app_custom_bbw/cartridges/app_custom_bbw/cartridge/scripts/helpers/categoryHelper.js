@@ -1,6 +1,17 @@
 'use strict';
 
-
+var collections = require('*/cartridge/scripts/util/collections');
+var searchHelpers = require('*/cartridge/scripts/helpers/searchHelpers');
+/**
+ * 
+ * @param {*} categoryName  category name
+ * @param {*} res  The response object for the current controller request
+ * @returns if product is in stock then true else false
+ */
+function isProductIDsAvailableByCategoryName(categoryName, res){
+    var productIds = searchHelpers.getOnlineProductsByCategory(categoryName, res);
+    return productIds && productIds.length > 0;
+}
 /**
  * get level one category
  * @param  {object} category category
@@ -22,9 +33,36 @@ function getLevelOneCategory(category) {
 function appendLevelOneCategory(req, res, next) {
     var viewData = res.getViewData();
     if (viewData.apiProductSearch && viewData.apiProductSearch.category) {
-        viewData.productSearch.levelOneCategory = getLevelOneCategory(
+        var levelOneCategory = getLevelOneCategory(
             viewData.apiProductSearch.category
         );
+        var levelTwoCategories = [];
+        collections.forEach(levelOneCategory.onlineSubCategories, function (subCat2) {
+            if (subCat2.custom && subCat2.custom.showInMenu
+                && subCat2.hasOnlineSubCategories() && isProductIDsAvailableByCategoryName(subCat2.ID, res)) {
+                    var levelThreeCategories = [];
+                    collections.forEach(subCat2.onlineSubCategories, function (subCat) {
+                        if (subCat.custom && subCat.custom.showInMenu && 
+                            subCat.products.empty === false && subCat.onlineProducts.empty === false && isProductIDsAvailableByCategoryName(subCat.ID, res)) {
+                            levelThreeCategories.push({
+                                'ID': subCat.ID,
+                                'displayName': subCat.displayName,
+                                'absURL': subCat.thumbnail ? subCat.thumbnail.absURL : '',
+                                'isShowCategoryInSlider': subCat.custom.showCategoryInSlider == null || subCat.custom.showCategoryInSlider
+                            });
+                        }
+                    });
+                    levelTwoCategories.push({
+                        'ID': subCat2.ID,
+                        'displayName': subCat2.displayName,
+                        'levelThreeCategories': levelThreeCategories
+                    });
+            }
+        });
+        viewData.productSearch.levelOneCategory = {
+            slotId: levelOneCategory.custom.slotId,
+            levelTwoCategories: levelTwoCategories
+        };
         res.setViewData(viewData);
     }
     var hideFilterBar = false;
@@ -86,11 +124,11 @@ function appendCategoryBreadcrum(req, res, next) {
             []
         );
     }
-    if (!viewData.productSearch.isCategorySearch && viewData.productSearch.searchKeywords) {
-        breadcrumbs.push({
-            htmlValue: Resource.msgf('search.result.breadcrumb', 'search', null, viewData.productSearch.searchKeywords)
-        });
-    }
+    // if (!viewData.productSearch.isCategorySearch && viewData.productSearch.searchKeywords) {
+    //     breadcrumbs.push({
+    //         htmlValue: Resource.msgf('search.result.breadcrumb', 'search', null, viewData.productSearch.searchKeywords)
+    //     });
+    // }
 
     breadcrumbs = breadcrumbs.reverse();
 

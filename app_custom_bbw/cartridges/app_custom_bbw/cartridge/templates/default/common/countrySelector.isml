@@ -3,7 +3,7 @@
     <div class="modal-dialog countrypopup-dialog" role="document">
         <div class="modal-content country-content border-0">
             <div class="modal-header border-0 pb-0">
-                <h2 class="h-font-size--24 h-fw--bold popup-header h-clr--black-3">${Resource.msg('msg.current.country', 'common', null)} 
+                <h2 id="exampleModalLongTitle" class="h-font-size--24 h-fw--bold popup-header h-clr--black-3">${Resource.msg('msg.current.country', 'common', null)} 
                     <span id="request-country-name" data-country-code="${pdict.reqCountryCode}"></span>!
                 </h2>
                 <button type="button" class="close close-icon-btn" data-dismiss="modal" aria-label="Close">
@@ -17,7 +17,7 @@
                     <span id="site-country-code">${pdict.siteCountryCode}</span>
                     ${Resource.msg('msg.site.country.last', 'common', null)}
                 </p>
-                <label class="h-font-size--16 h-fw--semibold h-clr--black-1" for="site">${Resource.msg('label.select.location', 'common', null)}</label>
+                <label class="h-font-size--16 h-fw--semibold h-clr--black-1" for="selected-site">${Resource.msg('label.select.location', 'common', null)}</label>
                 <div>
                     <select name="site" id="selected-site" class="h-clr--black-1 country-select h-font-size--18">
                         <isloop iterator="${pdict.countrySiteMapping}" alias="countrySite" status="loopState">
@@ -29,7 +29,7 @@
                 <div class="location-para  h-clr--gray-4 h-font-size--14">
                 ${Resource.msg('label.location', 'common', null)}
                     <a class="store-redirect h-clr--gray-4 h-font-size--14"
-                        hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Stores-Find')}" data-link-text="find a store"
+                        hreflang="${pdict.hrefLang}" href="${URLUtils.url('Stores-Find')}" data-link-text="find a store"
                         data-formname="international-redirect-modal">${Resource.msg('label.store', 'common', null)}</a>
                    ${Resource.msg('label.near', 'common', null)}
                 </div>

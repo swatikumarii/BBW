@@ -1,0 +1,29 @@
+<isif condition="${pdict.localeModel.locale.localeLinks.length > 0}">
+    <div class="bbw-locale-links country-selector d-none d-md-flex align-items-center" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10" class="nav-flag">
+            <rect width="16" height="10" fill="#DE2910" />
+            <g transform="translate(8 5)">
+                <g fill="#fff">
+                    <path d="M0,0 L0.75,-1.75 L-0.2,-1.5 A1,1 0 0,1 -0.9,-0.1 Z" transform="rotate(0)" />
+                    <path d="M0,0 L0.75,-1.75 L-0.2,-1.5 A1,1 0 0,1 -0.9,-0.1 Z" transform="rotate(72)" />
+                    <path d="M0,0 L0.75,-1.75 L-0.2,-1.5 A1,1 0 0,1 -0.9,-0.1 Z" transform="rotate(144)" />
+                    <path d="M0,0 L0.75,-1.75 L-0.2,-1.5 A1,1 0 0,1 -0.9,-0.1 Z" transform="rotate(216)" />
+                    <path d="M0,0 L0.75,-1.75 L-0.2,-1.5 A1,1 0 0,1 -0.9,-0.1 Z" transform="rotate(288)" />
+                </g>
+                <circle r="0.5" fill="#DE2910" />
+            </g>
+        </svg>
+        <div class="dropdown-country-selector">
+            <isloop items="${pdict.localeModel.locale.localeLinks}" var="localeLink" status="loopStatus">
+                <a class="bbw-country-link ${localeLink.isCurrentLocale ? 'selected-locale b-link--underlined h-fw--semibold' : ''}" href="${'#'}" data-locale="${localeLink.localID}"
+                    data-currencyCode="${localeLink.currencyCode}">${localeLink.language !== 'zh' ? localeLink.language.toUpperCase() : Resource.msg(
+    'locale.hongkong.zh.language', 'common', null)}</a>
+                <isif condition="${!loopStatus.last}">
+                    <span class="bbw-locale-separator">
+                        /
+                    </span>
+                </isif>
+            </isloop>
+        </div>
+    </div>
+</isif>

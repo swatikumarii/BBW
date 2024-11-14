@@ -1,0 +1,13 @@
+<!--- Generic Component--->
+<isinclude template="/components/modules" sf-toolkit="off" />
+<div class="tab-pane active eghl-component-content d-flex justify-content-between payment-2c2p" id="eghl-component-content"
+    role="tabpanel">
+    <fieldset class="payment-form-fields">
+        <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+            value="EGHL" />
+        <fieldset>
+            <iscontentasset aid="eghl-payment-description" />
+        </fieldset>
+    </fieldset>
+    <input name="paymentMethods" type="radio" value="eghl" />
+</div>

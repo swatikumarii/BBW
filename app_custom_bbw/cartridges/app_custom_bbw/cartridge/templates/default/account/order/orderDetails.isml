@@ -150,7 +150,7 @@
                             </p>
                             <isif condition="${!(pdict.order.trackOrderShippingUrl === '' || pdict.order.trackOrderShippingUrl === null)}">
                                 <p class="shipping-method">
-                                    <a class="btn btn-hover btn-secondary h-fw--bold h-p h-pb--5 h-pt--5" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.order.trackOrderShippingUrl}" target="_blank">${Resource.msg('msg.track.order', 'order', null)}</a>
+                                    <a class="btn btn-hover btn-secondary h-fw--bold h-p h-pb--5 h-pt--5" hreflang="${pdict.hrefLang}" href="${pdict.order.trackOrderShippingUrl}" target="_blank">${Resource.msg('msg.track.order', 'order', null)}</a>
                                 </p>
                             </isif>
                         </div>
@@ -276,7 +276,7 @@
                             <div class="row leading-lines shipping-item">
                                 <div class="col-6 start-lines">
                                     <p class="order-receipt-label">
-                                        <span>${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</span>
+                                        <span>${Resource.msg('label.shipping.fee.excluding.tax', 'cart', null)}</span>
                                     </p>
                                 </div>
                                 <div class="col-6 end-lines">

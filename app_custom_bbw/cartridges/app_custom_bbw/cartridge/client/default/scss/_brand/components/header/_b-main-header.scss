@@ -517,19 +517,3 @@ header {
         }
     }
 }
-
-.in-id {
-    header .bbw-nav .bbw-nav-wrap .primary-logo {
-        @include media-up(md) {
-            left: 28px;
-        }
-    }
-}
-
-.en-id {
-    header .bbw-nav .bbw-nav-wrap .primary-logo {
-        @include media-up(md) {
-            left: 28px;
-        }
-    }
-}

@@ -90,9 +90,14 @@
                                             </td>
                                             <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
                                                 <div style="width:245px">
-                                                    <isif condition="${lineItem.isBonusProductLineItem}">
+                                                    <isif condition="${lineItem.isBonusProductLineItem && !lineItem.isPWP}">
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${Resource.msg('label.free.gift', 'common', null)}
+                                                        </div>
+                                                    </isif>
+                                                    <isif condition="${lineItem.isPWP}">
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${Resource.msg('label.pwp.product', 'common', null)}
                                                         </div>
                                                     </isif>
                                                     <div
@@ -251,6 +256,10 @@
                                                     <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
                                                 <iselseif condition="${payment.paymentMethod === 'Doku' || payment.paymentMethod === 'ovo'}" />
                                                     <isinclude template="checkout/billing/paymentOptions/dokuSummary" />
+                                                <iselseif condition="${payment.paymentMethod === '2c2p'}" />
+                                                    <isinclude template="checkout/billing/paymentOptions/2c2pSummary" />
+                                                <iselseif condition="${payment.paymentMethod === 'EGHL'}" />
+                                                    <isinclude template="checkout/billing/paymentOptions/eghlSummary" />
                                                 </isif>
                                                 <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.totals.grandTotal}</p>
                                             </isloop>

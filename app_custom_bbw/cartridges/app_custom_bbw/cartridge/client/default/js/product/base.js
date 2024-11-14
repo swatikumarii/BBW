@@ -94,9 +94,8 @@ function chooseBonusProducts(data) {
         '<!-- Modal content-->' +
         '<div class="modal-content">' +
         '<div class="modal-header">' +
-        '    <span class="">' +
+        '    <span class="w-100 text-center d-block">' +
         data.labels.selectprods +
-        data.labels.selectedprods +
         '</span>' +
         '    <button type="button" class="close pull-right" data-dismiss="modal">' +
         '        <span aria-hidden="true">&times;</span>' +
@@ -104,7 +103,7 @@ function chooseBonusProducts(data) {
         '    </button>' +
         '</div>' +
         '<div class="modal-body"></div>' +
-        '<div class="modal-footer"></div>' +
+        '<div class="modal-footer pb-0 pt-3"></div>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -116,7 +115,7 @@ function chooseBonusProducts(data) {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-            if (response.initialAddBonusProduct) {
+            if (response.initialAddBonusProduct && !data.isPWP) {
                 $.ajax({
                     type: 'POST',
                     url: response.initialAddBonusProductUrl,
@@ -891,6 +890,8 @@ module.exports = $.extend({}, base, {
                                 $('#video-preview').attr('src', '');
                                 $('.gift-card-video video').addClass('d-none');
                                 $('.gift-card-video .remove-video').addClass('d-none');
+                                $('.schedule-egift-date').addClass('d-none');
+                                $('.schedule-egift-months').addClass('d-none');
                                 $('.egift-video-label').removeClass('d-none');
                                 $('#progress').empty();
                             }
@@ -1011,6 +1012,8 @@ module.exports = $.extend({}, base, {
                                 $('#video-preview').attr('src', '');
                                 $('.gift-card-video video').addClass('d-none');
                                 $('.gift-card-video .remove-video').addClass('d-none');
+                                $('.schedule-egift-date').addClass('d-none');
+                                $('.schedule-egift-months').addClass('d-none');
                                 $('.egift-video-label').removeClass('d-none');
                                 $('#progress').empty();
                             }
@@ -1033,35 +1036,79 @@ module.exports = $.extend({}, base, {
         });
     },
     selectBonusProduct: function () {
-        $(document).on('click', '.select-bonus-product', function () {
-            var $choiceOfBonusProduct = $(this).parents('.choice-of-bonus-product');
-            if ($(this).is(':checked')) {
-                var pid = $(this).data('pid');
-                $choiceOfBonusProduct.parent().find('.select-bonus-product').each(function () {
-                    if ($(this).data('pid') !== pid) {
-                        $(this).prop('checked', false);
-                    }
-                });
-                var maxPids = $('.choose-bonus-product-dialog').data('total-qty');
+        $(document).on('click', '.ready-to-order.choice-of-bonus-product', function (e) {
+            e.stopImmediatePropagation();
+            if($(this).hasClass('disabled')) {
+                return false;
+            }
+            var maxBonusItems = $(this).parents('.choose-bonus-product-dialog').data('total-qty');
+            var selectedQty = 0;
+            var selectedProducts = $(this).parents('.choose-bonus-product-dialog').find('.selected-bonus-products .selected-pid');
+            selectedProducts.each(function () {
+                selectedQty+= parseInt($(this).data('qty'), 10);
+            });
+            var checkbox = $(this).find('.select-bonus-product');
+            var $choiceOfBonusProduct = $(this);
+            if (selectedQty > 1 && checkbox.is(':checked')) {
+                var pidToRemove = $(this).data('pid');
+                checkbox.prop('checked', false);
+                $(this).removeClass('selected');
+                $('.ready-to-order.choice-of-bonus-product').removeClass('disabled');
+                var reduceQty = parseInt($('.pre-cart-products').html(), 10);
+                var removeQty = parseInt($choiceOfBonusProduct.find('.bonus-quantity-select').val(), 10);
+                reduceQty -= removeQty;
+                var quantityString = $('input[name="pre-cart-products-string"]').val();
+                if (reduceQty <= 0) {
+                    var noSelectBonusProductHtml = ''+
+                            '<div class="bonus-summary row">'+
+                            '<div class="col-12">'+
+                            '<span class="pre-cart-products">0</span>'+
+                                quantityString +
+                            '</div>'+
+                            '</div>';
+                    $('#chooseBonusProductModal .selected-bonus-products').empty().append(noSelectBonusProductHtml);
+                    $('.add-bonus-products').attr('disabled', true);
+                } else {
+                    $('.selected-pid[data-pid="'+pidToRemove+'"]').remove();
+                }
+                $('.pre-cart-products').html(reduceQty);
+            } else if (!checkbox.is(':checked')) {
+                checkbox.prop('checked', true);
+                var pid = checkbox.data('pid');
+                $(this).addClass('selected');
                 var submittedQty = parseInt($choiceOfBonusProduct.find('.bonus-quantity-select').val(), 10);
+                if (maxBonusItems < selectedQty + submittedQty) {
+                    $choiceOfBonusProduct.parent().find('.select-bonus-product').each(function () {
+                        if ($(this).data('pid') !== pid) {
+                            $(this).prop('checked', false);
+                            $(this).parents('.choice-of-bonus-product ').removeClass('selected');
+                        }
+                    });
+                } else if(maxBonusItems === selectedQty + submittedQty) {
+                    $('.ready-to-order.choice-of-bonus-product').addClass('disabled');
+                    $('.ready-to-order.choice-of-bonus-product.selected').removeClass('disabled');
+                }
+                var maxPids = $('.choose-bonus-product-dialog').data('total-qty');
                 var totalQty = 0;
-                totalQty += submittedQty;
+                totalQty += selectedQty + submittedQty;
                 var optionID = $choiceOfBonusProduct.find('.product-option').data('option-id');
                 var valueId = $choiceOfBonusProduct.find('.options-select option:selected').data('valueId');
                 if (totalQty <= maxPids) {
                     var selectedBonusProductHtml = ''
-                    + '<div class="selected-pid row" '
-                    + 'data-pid="' + pid + '"'
-                    + 'data-qty="' + submittedQty + '"'
-                    + 'data-optionID="' + (optionID || '') + '"'
-                    + 'data-option-selected-value="' + (valueId || '') + '"'
-                    + '>'
-                    + '<div class="col-sm-11 col-9 bonus-product-name" >'
-                    + $choiceOfBonusProduct.find('.product-name').html()
-                    + '</div>'
-                    + '<div class="col-1"><i class="fa fa-times" aria-hidden="true"></i></div>'
-                    + '</div>';
-                    $('#chooseBonusProductModal .selected-bonus-products .selected-pid').remove();
+                        + '<div class="selected-pid row" '
+                        + 'data-pid="' + pid + '"'
+                        + 'data-qty="' + submittedQty + '"'
+                        + 'data-optionID="' + (optionID || '') + '"'
+                        + 'data-option-selected-value="' + (valueId || '') + '"'
+                        + '>'
+                        + '<div class="col-sm-11 col-9 bonus-product-name" >'
+                        + $choiceOfBonusProduct.find('.product-name').html()
+                        + '</div>'
+                        + '<div class="col-1"><i class="fa fa-times" aria-hidden="true"></i></div>'
+                        + '</div>';
+                    if (maxPids === 1) {
+                        $('#chooseBonusProductModal .selected-bonus-products .selected-pid').remove();
+                    }
                     $('#chooseBonusProductModal .selected-bonus-products').append(selectedBonusProductHtml);
                     $('.pre-cart-products').html(totalQty);
                     $('.selected-bonus-products .bonus-summary').removeClass('alert-danger');
@@ -1070,17 +1117,19 @@ module.exports = $.extend({}, base, {
                 }
                 $('.add-bonus-products').attr('disabled', false);
             } else {
+                checkbox.prop('checked', false);
+                $(this).removeClass('selected');
                 var reducedQty = parseInt($('.pre-cart-products').html(), 10);
                 var removedQty = parseInt($choiceOfBonusProduct.find('.bonus-quantity-select').val(), 10);
                 reducedQty -= removedQty;
                 var qtyString = $('input[name="pre-cart-products-string"]').val();
                 var noSelectedBonusProductHtml = ''+
-                '<div class="bonus-summary row">'+
-                '<div class="col-12">'+
-                '<span class="pre-cart-products">0</span>'+
-                    qtyString +
-                '</div>'+
-                '</div>';
+                    '<div class="bonus-summary row">'+
+                    '<div class="col-12">'+
+                    '<span class="pre-cart-products">0</span>'+
+                        qtyString +
+                    '</div>'+
+                    '</div>';
                 $('#chooseBonusProductModal .selected-bonus-products').empty().append(noSelectedBonusProductHtml);
                 $('.add-bonus-products').attr('disabled', true);
                 $('.pre-cart-products').html(reducedQty);

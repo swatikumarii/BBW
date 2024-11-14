@@ -131,9 +131,15 @@ function getOrderDetailsByID(orderID, locale) {
  * @param {string} orderNumber - Order number from form
  * @param {string} orderEmail - Email from form
  * @param {string} billingZipCode - Billing ZIP Code from form
+ * @param {boolean} isBillingZipCodeRequired - is Billing Zip Code Required
  * @returns {boolean} - value which indicate that entered DOB is valid or not
  */
-function validateTrackingData(orderNumber, orderEmail, billingZipCode) {
+function validateTrackingData(
+    orderNumber,
+    orderEmail,
+    billingZipCode,
+    isBillingZipCodeRequired
+) {
     var pattern = /^[\w.%+-]+@[\w.-]+\.\w{2,}$/i;
     var error = [];
     if (!orderNumber) {
@@ -153,16 +159,26 @@ function validateTrackingData(orderNumber, orderEmail, billingZipCode) {
             message: Resource.msg('error.order.email.format', 'order', null)
         });
     }
-    if (!billingZipCode) {
-        error.push({
-            key: 'billingZipCode',
-            message: Resource.msg('error.billing.zip.code.required', 'order', null)
-        });
-    } else if (billingZipCode.length > 10) {
-        error.push({
-            key: 'billingZipCode',
-            message: Resource.msg('error.billing.zip.code.maxlength', 'order', null)
-        });
+    if (isBillingZipCodeRequired) {
+        if (!billingZipCode) {
+            error.push({
+                key: 'billingZipCode',
+                message: Resource.msg(
+                    'error.billing.zip.code.required',
+                    'order',
+                    null
+                )
+            });
+        } else if (billingZipCode.length > 10) {
+            error.push({
+                key: 'billingZipCode',
+                message: Resource.msg(
+                    'error.billing.zip.code.maxlength',
+                    'order',
+                    null
+                )
+            });
+        }
     }
 
     return error;

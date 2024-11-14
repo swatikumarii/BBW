@@ -597,6 +597,8 @@
                     .order-discount {
                         &.accordion-item.collapsed {
                             .cart-saving {
+                                width: fit-content;
+                                position: relative;
                                 &::before {
                                     background: url("../images/UI-Carat.svg") 50%;
                                     background-repeat: no-repeat;
@@ -604,7 +606,8 @@
                                     content: "";
                                     height: 12px;
                                     position: absolute;
-                                    left: 74px;
+                                    right: -20px;
+                                    left: auto;
                                     transform: rotate(0deg);
                                     transition: all 0.5s ease-out;
                                     width: 12px;
@@ -615,6 +618,8 @@
 
                         &.accordion-item {
                             .cart-saving {
+                                width: fit-content;
+                                position: relative;
                                 &::before {
                                     background: url("../images/UI-Carat.svg") 50%;
                                     background-repeat: no-repeat;
@@ -622,7 +627,8 @@
                                     content: "";
                                     height: 12px;
                                     position: absolute;
-                                    left: 74px;
+                                    right: -20px;
+                                    left: auto;
                                     transition: all 0.5s ease-out;
                                     width: 12px;
                                     top: 4px;
@@ -1021,4 +1027,13 @@ footer {
         bottom: 20px;
         right: 11px;
     }
+}
+
+.apple-pay-popup {
+    font-size: 12px;
+    letter-spacing: .12em;
+    line-height: 2.0625rem;
+    max-width: 226px;
+    min-height: unset;
+    width: 100%;
 }

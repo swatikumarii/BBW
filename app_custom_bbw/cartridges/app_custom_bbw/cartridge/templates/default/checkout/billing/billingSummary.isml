@@ -4,7 +4,7 @@
     <isset name="address" value="{}" scope="page"/>
 </isif>
 
-<div class="summary-details billing">
+<div class="summary-details billing h-mr--15">
     <span class="summary-section-label billing-addr-label d-block mb-2 h-clr--black-1 h-fw--bold">${Resource.msg('label.order.billing.address', 'order', null)}</span>
      <isinclude template="checkout/addressSummary" />
     <isif condition="${pdict.order.billing.billingAddress.address !== null}">
@@ -16,6 +16,9 @@
     </isif>
     <isif condition="${pdict.order.orderEmail}">
         <div><span class="order-summary-emailaddress h-font-size--16">${pdict.order.orderEmail}</span></div>
+    </isif>
+    <isif condition="${pdict.order.taxID}">
+        <div><span class="h-font-size--16 order-summary-taxID text-break">${Resource.msgf('tax.id.with.label', 'checkout', null, pdict.order.taxID)}</span></div>
     </isif>
 </div>
 
@@ -29,5 +32,5 @@
     <isinclude template="adyenActionModal" />
 </isif>
 <iscomment> ### Custom Adyen cartridge end ### </iscomment>
-    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}" class="edit-button pull-right h-clr--black-1 "
+    <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}" class="edit-button pull-right h-clr--black-1 "
     aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</a>

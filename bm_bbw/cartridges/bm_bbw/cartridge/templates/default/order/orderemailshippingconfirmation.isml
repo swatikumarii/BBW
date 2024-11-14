@@ -20,7 +20,7 @@
     <body>
         <isscript>
             var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
-            var orderDetail = orderModel.getShippedEmailContent(pdict.Order.orderNo);
+            var orderDetail = orderModel.getShippedEmailContent(pdict.Order.orderNo, pdict.Order.customerLocaleID);
         </isscript>
         <isprint value="${orderDetail}" encoding="off" />
     </body>

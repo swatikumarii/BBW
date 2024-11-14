@@ -241,6 +241,12 @@ function updateShippingMethods(shipping) {
                             shippingMethod.shippingCost
                         );
                     }
+                    // set shipping cost
+                    if (shippingMethod.isShippingDiscountPrice) {
+                       $('.shipping-cost-discount', tmpl).css('display',"block");
+                       $('.shipping-cost', tmpl).addClass('discountPrice');
+                       $('.shipping-cost-discount', tmpl).text(shippingMethod.isShippingDiscountPrice);
+                    }
                     $shippingMethodList.append(tmpl.html());
                 });
             }
@@ -964,14 +970,29 @@ module.exports = {
             var postalCode = attrs.postalCode.toString();
             var dialCodeCountry = attrs.dialCodeCountry;
             if (stateCode) {
+                var stateCodeExists = false;
                 $('.shippingState option').each(function () {
                     if ($(this).val() === stateCode) {
                         $('.shippingState option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.shippingState').trigger('change');
+                        stateCodeExists = true;
                         return false;
                     }
                 });
+                if (!stateCodeExists) {
+                    var shippingState = $('.shippingState');
+                    shippingState.empty();
+                    shippingState
+                        .prepend(
+                            $('<option>', {
+                                value: stateCode,
+                                text: stateCode
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.shippingState').removeClass('is-invalid');
+                }
             } else {
                 $('.shippingState option').removeAttr('selected');
                 $('.shippingState').val('');
@@ -979,6 +1000,7 @@ module.exports = {
                 $('.shippingZipCode').val('');
             };
             if (city) {
+                var cityExistsShiping = false;
                 $('.shippingAddressCity').prepend(
                     $('<option></option>')
                         .attr('value', '')
@@ -997,20 +1019,49 @@ module.exports = {
                         $('body')
                             .find('.shippingAddressCity')
                             .trigger('change');
+                        cityExistsShiping = true;
                         return false;
                     }
                     $('.shippingZipCode option').slice(1).remove();
                 });
+                if(!cityExistsShiping){
+                    var shippingAddressCity = $('.shippingAddressCity');
+                    shippingAddressCity.empty();
+                    shippingAddressCity
+                        .prepend(
+                            $('<option>', {
+                                value: city,
+                                text: city
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.shippingAddressCity').removeClass('is-invalid');
+                }
             }
             if (postalCode) {
+                var postalCodeExistss = false;
                 $('.shippingZipCode option').each(function () {
                     if ($(this).val() === postalCode) {
                         $('.shippingZipCode option').removeAttr('selected');
                         $(this).attr('selected', 'selected');
                         $('body').find('.shippingZipCode').trigger('change');
+                        postalCodeExistss = true;
                         return false;
                     }
                 });
+                if(!postalCodeExistss){
+                    var shippingZipCode = $('.shippingZipCode');
+                    shippingZipCode.empty();
+                    shippingZipCode
+                        .prepend(
+                            $('<option>', {
+                                value: postalCode,
+                                text: postalCode
+                            })
+                        )
+                        .attr('selected', 'selected');
+                    $('.shippingZipCode').removeClass('is-invalid');
+                }
             }
             if (dialCodeCountry) {
                 // Get the instance of intl-tel-input
@@ -1062,7 +1113,9 @@ module.exports = {
     updateShippingList: function () {
         var baseObj = this;
 
-        $('select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_postalCode"]').on('change', function (e) {
+        $(
+            'select[name$="shippingAddress_addressFields_states_stateCode"], select[name$="shippingAddress_addressFields_postalCode"], input[name$="shippingAddress_addressFields_address1"]'
+        ).on('change', function (e) {
             if (baseObj.methods && baseObj.methods.updateShippingMethodList) {
                 baseObj.methods.updateShippingMethodList(
                     $(e.currentTarget.form)

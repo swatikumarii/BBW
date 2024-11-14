@@ -295,7 +295,7 @@ $(document).on('click', '#editAddress', function () {
                     }
                 });
             }
-            var addressForm = $($(response)[0]).find('input');
+            var addressForm = $($(response)[0]).find('input,select');
             window.addressForm = $(addressForm).serialize();
         }
     });

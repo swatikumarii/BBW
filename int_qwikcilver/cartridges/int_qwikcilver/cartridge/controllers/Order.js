@@ -7,6 +7,7 @@ var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var OrderMgr = require('dw/order/OrderMgr');
 var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
+var Order = require('dw/order/Order');
 
 server.prepend(
     'Confirm',
@@ -21,12 +22,16 @@ server.prepend(
         var enableQCeGift =
             Site.current.getCustomPreferenceValue('enableQwikcilver');
         var requestParameter = req.httpParameterMap;
+        var orderPaid = false;
         var requestOrderId = 'orderID' in requestParameter && requestParameter.orderID.value ? requestParameter.orderID.value : requestParameter.ID.value;
         if (enableQCeGift && requestOrderId !== null) {
             var order = OrderMgr.getOrder(requestOrderId);
 
             var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
             var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
+            if (order.paymentStatus.value === Order.PAYMENT_STATUS_PAID) {
+                orderPaid = true;
+            }
             var isGiftProductAvailable =
                 qwikcilverHelpers.validateGiftProduct(order);
             if ( isGiftProductAvailable && (order.getPaymentInstruments('AdyenComponent').length > 0 ||
@@ -42,16 +47,21 @@ server.prepend(
                     index < order.productLineItems.length;
                     index++
                 ) {
-                    // Create GiftCard
-                    if (
+                    if (!orderPaid) {
+                        // eslint-disable-next-line no-loop-func
+                        Transaction.wrap(function () {
+                            order.productLineItems[index].custom.eGiftEmailPending = true;
+                        });
+                    } else if (
                         order.productLineItems[index] &&
                         !(
                             'custom' in order.productLineItems[index] &&
                             'eGiftCardNumber' in
-                                order.productLineItems[index].custom &&
+                            order.productLineItems[index].custom &&
                             order.productLineItems[index].custom.eGiftCardNumber
                         )
                     ) {
+                        // Create GiftCard
                         giftCardAPIResult = qwikcilverApis.createGiftCards(
                             order,
                             index
@@ -87,20 +97,26 @@ server.prepend(
                         }
                     }
                 }
-                qwikcilverHelpers.sendGiftCardEmail(
-                    order,
-                    req.locale.id,
-                    false,
-                    false
-                );
-                log.info(
-                    'Error while Creating a Gift Card for OrderNo: {0}',
-                    order.orderNo
-                );
-                log.info(
-                    'Gift Card Email is not Sent to the Customer for OrderID: {0}',
-                    order.orderNo
-                );
+                if (orderPaid) {
+                    qwikcilverHelpers.sendGiftCardEmail(
+                        order,
+                        req.locale.id,
+                        false,
+                        false
+                    );
+                    log.info(
+                        'Error while Creating a Gift Card for OrderNo: {0}',
+                        order.orderNo
+                    );
+                    log.info(
+                        'Gift Card Email is not Sent to the Customer for OrderID: {0}',
+                        order.orderNo
+                    );
+                } else {
+                    Transaction.wrap(function () {
+                        order.custom.eGiftEmailPending = true;
+                    });
+                }
                 var orderModel = new OrderModel(order, {
                     containerView: 'order'
                 });

@@ -1,0 +1,17 @@
+<isif condition="${request.session.custom.gatedAllowed === null || request.session.custom.gatedAllowed !== pdict.customObjectID}">
+    <div class="gated-popup-backdrop"></div>
+    <div class="gated-popup d-flex text-center">
+        <form action="${URLUtils.url('Page-GatedEntry')}">
+            <input type="hidden" name="customObject" value="${pdict.customObjectID}">
+            <div class="form-group">
+                <label class="form-control-label h-font-size--14 text-center" for="gatedPassword">
+                    Enter Password to access the page
+                </label>
+                <input type="password" class="form-control" name="gatedPassword" value="">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" name="gatedPasswordSubmit">
+            </div>
+        </form>
+    </div>
+</isif>

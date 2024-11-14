@@ -20,6 +20,7 @@ var Encoding = require('dw/crypto/Encoding');
 var co = require('dw/object/CustomObjectMgr');
 var OrderHelpers = require('*/cartridge/scripts/order/orderHelpers');
 var collections = require('*/cartridge/scripts/util/collections');
+var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
 
  /**
    * createRequestBody function is responsible to generate the Request Body For Payment URL Request
@@ -57,6 +58,10 @@ function createRequestBody(order, basket, paymentForm) {
   var payment = {
     payment_due_date: dokuPreference.paymentDueDate
   };
+  // var payment = {
+  //   payment_due_date: dokuPreference.paymentDueDate,
+  //   type: "SALE"
+  // };
   var paymentMethodTypes = dokuPreference.dokuPaymentMethods;
   if (paymentMethodTypes) {
     payment.payment_method_types = paymentMethodTypes.split(',');
@@ -77,9 +82,9 @@ function createRequestBody(order, basket, paymentForm) {
       address: paymentForm.addressFields.address1.value + ' ' + paymentForm.addressFields.address2.value + ' ' + paymentForm.addressFields.city.value + ' ' + paymentForm.addressFields.postalCode.value,
       country: paymentForm.addressFields.country.value
     },
-    additional_info:{
-      doku_wallet_notify_url : URLUtils.abs('Doku-Notification')
-    }
+    // additional_info: {
+    //   doku_wallet_notify_url: URLUtils.abs('Doku-Notifcation').toString()
+    // }
   };
 
   return JSON.stringify(requestJSON);
@@ -178,6 +183,8 @@ function renderCustomer(order, result, orderStatus, server, req, res, next) {
         paymentMethod.push(paymentMethods.paymentMethod);
       });
   }
+  var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
+  viewData.isGiftProductAvailable = isGiftProductAvailable;
   res.setViewData(viewData);
   var responseObject
   if (!req.currentCustomer.profile) {
@@ -251,7 +258,6 @@ function placeOrder(order, isDokuCallback, dokuRes, server, req, res, next) {
     transactionID = transaction[0].value;
   }
 
-  var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
   var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
   var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
   var giftCardAPIResult;

@@ -1,0 +1,294 @@
+<form action="${URLUtils.url('Address-SaveAddress', 'addressId', pdict.addressId)}" class="address-form" method="POST"
+    <isprint value="${pdict.addressForm.attributes}" encoding="off" />>
+<!-- Address Title -->
+<div class="form-group">
+    <div class="form-label-require d-flex align-items-center justify-content-between">
+        <label class="form-control-label mb-0" for="addressId">
+        <span class="required-indicator"></span>
+            <isprint value="${pdict.addressForm.addressId.label}" encoding="htmlcontent" />
+        </label>
+        <span
+            class="${pdict.addressForm.addressId.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+        </span>
+    </div>
+    <input type="text" class="form-control" id="addressId"
+        data-missing-error="${Resource.msg('error.address.title', 'forms', null)}"
+        data-range-error="${Resource.msg('error.message.20orless', 'forms', null)}"
+        data-pattern-mismatch="${Resource.msg('error.message.parse.addressID', 'forms', null)}" <isprint
+        value="${pdict.addressForm.addressId.attributes}" encoding="off" />>
+    <div class="invalid-feedback"></div>
+</div>
+
+<!-- Name -->
+<div class="row">
+    <!-- First Name -->
+    <div class="col-12">
+        <div class="form-group">
+            <div class="form-label-require d-flex align-items-center justify-content-between">
+                <label class="form-control-label mb-0" for="firstName">
+                <span class="required-indicator"></span>
+                    <isprint value="${pdict.addressForm.firstName.label}" encoding="htmlcontent" />
+                </label>
+                <iscomment> <span
+                    class="${pdict.addressForm.firstName.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                </span> </iscomment>
+            </div>
+            <input type="text" class="form-control" id="firstName"
+                data-missing-error="${Resource.msg('error.first.name', 'forms', null)}"
+                data-range-error="${Resource.msg('error.message.50orless.fname', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.fname', 'forms', null)}" <isprint
+                value="${pdict.addressForm.firstName.attributes}" encoding="off" />
+            autocomplete="given-name">
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+
+    <!-- Last Name -->
+    <div class="col-12">
+        <div class="form-group">
+            <div class="form-label-require d-flex align-items-center justify-content-between">
+                <label class="form-control-label mb-0" for="lastName">
+                <span class="required-indicator"></span>
+                    <isprint value="${pdict.addressForm.lastName.label}" encoding="htmlcontent" />
+                </label>
+                <iscomment> <span
+                    class="${pdict.addressForm.lastName.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                </span> </iscomment>
+            </div>
+            <input type="text" class="form-control" id="lastName"
+                data-missing-error="${Resource.msg('error.last.name', 'forms', null)}"
+                data-range-error="${Resource.msg('error.message.50orless.lname', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.lname', 'forms', null)}" <isprint
+                value="${pdict.addressForm.lastName.attributes}" encoding="off" />
+            autocomplete="family-name">
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group position-relative">
+    <div class="form-label-require d-flex align-items-center justify-content-between">
+        <label class="form-control-label mb-0" for="accountAddressAutoComplete">
+            <isprint value="${Resource.msg('field.address.auto', 'address', null)}" encoding="htmlcontent" />
+        </label>
+    </div>
+    <input id="accountAddressAutoComplete" type="text" size="50" disabled='disabled'>
+</div>
+
+<!-- Address 1 -->
+<div class="form-group">
+    <div class="form-label-require d-flex align-items-center justify-content-between">
+        <label class="form-control-label mb-0" for="address1">
+        <span class="required-indicator"></span>
+            <isprint value="${pdict.addressForm.address1.label}" encoding="htmlcontent" />
+        </label>
+        <iscomment> <span
+            class="${pdict.addressForm.address1.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span> </iscomment>
+    </div>
+    <input type="text" class="form-control" id="address1"
+        data-missing-error="${Resource.msg('error.address.line-1', 'forms', null)}"
+        data-range-error="${Resource.msg('addressForm.address1.range', 'forms', null)}" <isprint
+        value="${pdict.addressForm.address1.attributes}" encoding="off" />
+    autocomplete="address-line1">
+    <div class="invalid-feedback"></div>
+</div>
+
+<!-- Address 2 -->
+<div class="form-group">
+    <div class="form-label-require d-flex align-items-center justify-content-between">
+        <label class="form-control-label mb-0" for="address2">
+        <iscomment> <span class="required-indicator"></span> </iscomment>
+            <isprint value="${pdict.addressForm.address2.label}" encoding="htmlcontent" />
+        </label>
+        <iscomment> <span
+            class="${pdict.addressForm.address2.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span> </iscomment>
+    </div>
+    <input type="text" class="form-control" id="address2" <isprint value="${pdict.addressForm.address2.attributes}"
+        encoding="off" />
+    autocomplete="billing address-line2">
+    <div class="invalid-feedback"></div>
+</div>
+
+<!-- Country and State drop downs -->
+<div class="row">
+    <!-- Country  -->
+    <div class="col-12">
+        <div class="form-group select-box">
+            <div class="form-label-require d-flex align-items-center justify-content-between">
+                <label class="form-control-label mb-0" for="country">
+                <span class="required-indicator"></span>
+                    <isprint value="${pdict.addressForm.country.label}" encoding="htmlcontent" />
+                </label>
+                <iscomment> <span
+                    class="${pdict.addressForm.country.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                </span> </iscomment>
+            </div>
+            <div class="select-address-wrap">
+                <select class="form-control" id="country" <isprint value="${pdict.addressForm.country.attributes}"
+                    encoding="off" />
+                autocomplete="country">
+                <isloop items=${pdict.addressForm.country.options} var="country">
+                    <option id="${country.id}" value="${country.htmlValue}" <isif condition="${country.selected}">
+                        selected
+                        </isif>>${country.label}</option>
+                </isloop>
+                </select>
+            <div class="invalid-feedback select-error"></div>
+            </div>
+        </div>
+    </div>
+    <!-- City and ZIP -->
+        <!-- State  -->
+        <div class="col-12">
+            <div class="form-group select-box">
+                <div class="form-label-require d-flex align-items-center justify-content-between">
+                    <label class="form-control-label mb-0" for="state">
+                        <span class="required-indicator"></span>
+                        <isprint value="${pdict.addressForm.states.stateCode.label}" encoding="htmlcontent" />
+                    </label>
+                    <iscomment> <span
+                            class="${pdict.addressForm.states.stateCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                        </span> </iscomment>
+                </div>
+                <div class="select-address-wrap">
+                    <select class="form-control address-state-input" id="state" <isprint
+                        value="${pdict.addressForm.states.stateCode.attributes}" encoding="off" />
+                    autocomplete="address-level1">
+                    <isloop items=${pdict.addressForm.states.stateCode.options} var="state">
+                        <option id="${state.id}" value="${state.htmlValue}" <isif condition="${state.selected}">selected
+                            </isif>
+                            >${state.label || ' '}</option>
+                    </isloop>
+                    </select>
+                <div class="invalid-feedback select-error"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- City  -->
+        <div class="col-12">
+            <div class="form-group select-box">
+                <div class="form-label-require d-flex align-items-center justify-content-between">
+                    <label class="form-control-label mb-0" for="city">
+                        <span class="required-indicator"></span>
+                        <isprint value="${pdict.addressForm.city.label}" encoding="htmlcontent" />
+                    </label>
+                    <iscomment> <span
+                            class="${pdict.addressForm.city.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                        </span> </iscomment>
+                </div>
+                <div class="select-address-wrap">
+                    <select type="text" class="form-control address-city-input" id="city"
+                    data-selected="${pdict.addressModel.address.city}"
+                        data-missing-error="${Resource.msg('address.city.missing', 'forms', null)}" <isprint
+                        value="${pdict.addressForm.city.attributes}" encoding="off" />
+                    autocomplete="address-level2">
+                    <isloop items=${pdict.addressForm.city.options} var="city">
+                        <isif condition="${city.htmlValue === pdict.addressModel.address.city}">
+                            <option id="${city.id}" value="${city.htmlValue}" selected='selected'>${city.label}</option>
+                        <iselse/>
+                            <option id="${city.id}" value="${city.htmlValue}">${city.label}</option>
+                        </isif>
+                    </isloop>
+                    </select>
+                <div class="invalid-feedback select-error"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sub District  -->
+        <div class="col-12">
+            <div class="form-group select-box">
+                <div class="form-label-require d-flex align-items-center justify-content-between">
+                    <label class="form-control-label mb-0" for="subDistrict">
+                        <span class="required-indicator"></span>
+                        <isprint value="${pdict.addressForm.subDistrict.label}" encoding="htmlcontent" />
+                    </label>
+                    <iscomment> <span
+                            class="${pdict.addressForm.subdistrict.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                        </span> </iscomment>
+                </div>
+                <div class="select-address-wrap">
+                    <select type="text" class="form-control address-subdistrict-input" id="subDistrict"
+                        data-selected="${pdict.addressForm.subDistrict.htmlValue}"
+                        data-missing-error="${Resource.msg('address.subdistrict.missing', 'forms', null)}" <isprint
+                        value="${pdict.addressForm.subDistrict.attributes}" encoding="off" />
+                    autocomplete="address-level2">
+                    </select>
+                    <div class="invalid-feedback select-error"></div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- ZIP Code -->
+        <div class="col-12 d-none">
+            <div class="form-group">
+                <div class="form-label-require d-flex align-items-center justify-content-between">
+                    <label class="form-control-label mb-0" for="zipCode">
+                        <span class="required-indicator"></span>
+                        <isprint value="${pdict.addressForm.postalCode.label}" encoding="htmlcontent" />
+                    </label>
+                </div>
+                <input type="text" class="form-control address-zipcode-input" id="zipCode"
+                    data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
+                    data-pattern-mismatch="${Resource.msg('error.message.zip.upto6', 'forms', null)}"
+                    data-range-error="${Resource.msg('error.message.zip.upto6', 'forms', null)}" <isprint
+                    value="${pdict.addressForm.postalCode.attributes || '999077'}" encoding="off" />
+                autocomplete="postal-code">
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+</div>
+
+<!-- Phone Number -->
+<div class="form-group add-phone-number">
+    <div class="form-label-require d-flex align-items-center justify-content-between">
+        <label class="form-control-label mb-0" for="editphone">
+        <span class="required-indicator"></span>
+            <isprint value="${pdict.addressForm.phone.label}" encoding="htmlcontent" />
+        </label>
+        <iscomment> <span class="${pdict.addressForm.phone.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+        </span> </iscomment>
+    </div>
+    <input type="tel" class="form-control editAddressPhone" id="editphone"
+        placeholder="412 345 678"
+        data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
+        data-missing-error="${Resource.msg('error.phone.number', 'forms', null)}"
+        data-range-error="${Resource.msg('error.message.parse.phonevalid.form', 'forms', null)}" <isprint
+        value="${pdict.addressForm.phone.attributes}" encoding="off" /> autocomplete="tel"/>
+    <div class="invalid-feedback"></div>
+</div>
+
+<input type="hidden" class="addressDialCode" <isprint value=${pdict.addressForm.dialCode.attributes} encoding="off" />
+/>
+<input type="hidden" class="addressDialCodeCountry" <isprint value=${pdict.addressForm.dialCodeCountry.attributes}
+    encoding="off" />
+/>
+<input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+
+<!-- Cancel and Save Buttons -->
+<div class="row">
+    <div class="col-12 text-center">
+        <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3 privacy-policy">
+            ${Resource.msg('label.privacy', 'account', null)}
+        </a>
+    </div>
+    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
+        <div class="col-12 text-center">
+            <button name="save" class="btn btn-save btn-hover g-recaptcha"
+                data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+                data-callback="submitAddressForm" data-action="submit">${Resource.msg('label.button.apply', 'account', null)}</button>
+        </div>
+    <iselse/>
+        <div class="col-12 text-center">
+            <button type="submit" name="save" class="btn btn-save btn-hover">${Resource.msg('label.button.apply', 'account', null)}</button>
+        </div>
+    </isif>
+    <div class="col-12 text-center">
+        <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Address-List')}" class="btn-cancel">${Resource.msg('button.cancel', 'account', null)}</a>
+    </div>
+</div>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
+    <isinclude template="/common/googleRecaptcha" />
+</isif>
+</form>

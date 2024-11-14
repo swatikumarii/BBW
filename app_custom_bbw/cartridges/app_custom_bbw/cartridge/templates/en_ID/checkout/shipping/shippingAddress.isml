@@ -60,7 +60,7 @@
                 for="shippingAddressAutoComplete">
                 ${Resource.msg('field.address.auto', 'address', null)}
             </label>
-            <input id="shippingAddressAutoComplete" type="text" size="50">
+            <input id="shippingAddressAutoComplete" type="text" size="50" disabled='disabled'>
         </div>
     </div>
 </div>
@@ -321,7 +321,7 @@
                 <div class="info-icon-border-arrow-outline"></div>
                 <div class="info-icon-border-arrow"></div>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber">
-                <isprint value="${addressFields.phone.error}">
+                <isprint value="${addressFields.phone.error}"/>
             </div>
         </div>
     </div>

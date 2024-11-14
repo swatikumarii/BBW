@@ -14,6 +14,15 @@ var productLineItemDecorators = require('*/cartridge/models/productLineItem/deco
 module.exports = function orderLineItem(product, apiProduct, options) {
     base.call(this, product, apiProduct, options);
     productDecorators.images(product, apiProduct, { types: ['small', 'small_2x'], quantity: 'single' });
+    productDecorators.promotions(product, options.promotions);
     productLineItemDecorators.totalSavings(product, options.lineItem);
+    if (product.isBonusProductLineItem) {
+        product.isPWP = false;
+        product.promotions.forEach(function (promotion) {
+            if (promotion.isPWPPromo) {
+                product.isPWP = true;
+            }
+        });
+    }
     return product;
 };

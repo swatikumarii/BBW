@@ -25,11 +25,8 @@
                 <isinclude url="${URLUtils.url('Page-Locale')}" />
             </isif>
             <isset name="homeUrl" value="${URLUtils.url('Home-Show')}" scope="page" />
-            <isif condition="${allowedLocales.length > 2 && request.getLocale() !=== dw.system.Site.getCurrent().defaultLocale}">
-                <isset name="homeUrl" value="https://${request.httpHost}/${request.getLocale().toString().substring(0, 2)}" scope="page" />
-            </isif>
             <div class="navbar-header brand primary-logo">
-                <a class="logo-home d-block h-100" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${homeUrl}"
+                <a class="logo-home d-block h-100" hreflang="${pdict.hrefLang}" href="<isif condition="${allowedLocales.length > 2 && request.getLocale() !== dw.system.Site.getCurrent().defaultLocale}">https://${request.httpHost}/${request.getLocale().toString().substring(0, 2)}<iselse/>${homeUrl}</isif>"
                     title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
                                                                'global.home', 'common', null))}">
                     <isset name="headerImage"
@@ -51,7 +48,7 @@
                 <iscomment>Mobile Menu</iscomment>
                 <div id="mobile-custom-search"
                     class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center js-mobile-custom-search">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="" role="button">
+                    <a hreflang="${pdict.hrefLang}" href="" role="button">
                         <img class="" src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}"
                             alt="${Resource.msg('global.search', 'common', null)}" />
                     </a>
@@ -67,7 +64,7 @@
                 </div>
                 <iscomment>Offers</iscomment>
                 <div class="offers d-md-none fa-pull-right m-0">
-                    <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}"
+                    <a hreflang="${pdict.hrefLang}"
                         href="${URLUtils.url('Page-Show', 'cid', 'top-offers')}" title="offers">
                         <img class="" width="20px" height="29px"
                             src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}"
