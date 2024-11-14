@@ -13,13 +13,14 @@ var Site = require('dw/system/Site');
 function sendEgiftEmail() {
     try {
         var OrderMgr = require('dw/order/OrderMgr');
-        var queryString = 'custom.eGiftEmailPending={0}';
+        var queryString = 'custom.eGiftEmailPending={0} AND paymentStatus = {1}';
         var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
         var currentMonth = qwikcilverHelpers.getCurrentMonth();
         var currentDate = qwikcilverHelpers.getCurrentDate();
         var locale = Site.getCurrent().defaultLocale;
+        var Order = require('dw/order/Order');
 
-        var orders = OrderMgr.searchOrders(queryString, 'creationDate desc', 'true');
+        var orders = OrderMgr.searchOrders(queryString , 'creationDate desc', 'true', Order.PAYMENT_STATUS_PAID);
         Transaction.wrap(function () {
             while (orders.hasNext()) {
                 var order = orders.next();

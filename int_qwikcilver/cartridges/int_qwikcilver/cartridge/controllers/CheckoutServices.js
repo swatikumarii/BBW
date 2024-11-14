@@ -160,7 +160,7 @@ function placeOrder(req, res, next) {
         giftCardAPIRedeemResult = qwikcilverApis.redeemGiftCards(order);
         if (giftCardAPIRedeemResult && giftCardAPIRedeemResult.status === 'OK' && giftCardAPIRedeemResult.object) {
             order.getPaymentInstruments('GIFT_CERTIFICATE').toArray().forEach(function (giftInstrument) {
-                giftCardAPIRedeemResult.Cards.forEach(function (card) {
+                JSON.parse(giftCardAPIRedeemResult.object).Cards.forEach(function (card) {
                     if (card.CardNumber === giftInstrument.custom.eGiftCardNumber) {
                         Transaction.wrap(function () {
                             giftInstrument.custom.eGiftRedeemSucess = true;
