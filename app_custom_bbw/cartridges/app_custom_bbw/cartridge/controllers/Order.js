@@ -644,7 +644,7 @@ server.append(
             } else {
                 var billingAddress = viewData.order.billing.billingAddress.address;
                 // remove 0 from starting of phone number
-                var billingPhn = billingAddress.phone;
+                var billingPhn = billingAddress.phone ? billingAddress.phone : order.getDefaultShipment().shippingAddress.phone;
                 if (billingPhn.startsWith('0')) {
                     billingPhn = billingPhn.substr(1);
                 }
