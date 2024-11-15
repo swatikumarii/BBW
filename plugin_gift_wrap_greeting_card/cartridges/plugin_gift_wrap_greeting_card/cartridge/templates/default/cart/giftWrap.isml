@@ -1,4 +1,4 @@
-<isif condition="${pdict.isGiftWrapEnable && pdict.wrapItemMethod && pdict.wrappableProducts}">
+<isif condition="${pdict.giftWrapProducts.length > 0 && pdict.isGiftWrapEnable && pdict.wrapItemMethod && pdict.wrappableProducts}">
     <isscript>
         var constants = require("*/cartridge/config/constants.js");
         var assets = require('*/cartridge/scripts/assets.js');
@@ -70,6 +70,8 @@
                                     data-price="${giftWrapProduct.price.sales.formatted}" />
                                 <label class="giftWrapProductLabel gift-wrap-product-label"
                                     for="giftWrapProductOptionsRadio-${loopstate.count}"></label>
+                                <isset name="price" value="${giftWrapProduct.price}" scope="page" />
+                                <isinclude template="experience/components/commerce_assets/product/pricing/main" />
                             </div>
                         </isloop>
                     </div>
