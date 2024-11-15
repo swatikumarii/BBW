@@ -43,6 +43,8 @@
                                         <h5 class="gift-wrapping-card-name js-card-name">
                                             ${greetingCardProduct.productName}
                                         </h5>
+                                        <isset name="price" value="${greetingCardProduct.price}" scope="page" />
+                                        <isinclude template="experience/components/commerce_assets/product/pricing/main" />
                                     </div>
                                 </div>
                                 <isset name="isFirstIterationGreeting" value="${false}" scope="page" />
