@@ -103,7 +103,7 @@ function getFragranceNames() {
             }
         }
         // Save fragrance counts if there are any fragrances found
-        if (fragranceNamesArray.length > 0) {
+        if (fragranceNamesArray.length > 0 || fragranceCountMap.length > 0) {
             if(countFragranceEnabled) {
                 saveFragranceCounts(fragranceCountMap);
             }
