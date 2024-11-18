@@ -1,40 +1,54 @@
-[{
-    "id": "en_AU",
-    "currencyCode": "AUD"
-},
-{
-    "id": "en_TH",
-    "currencyCode": "THB"
-},
-{
-    "id": "th_TH",
-    "currencyCode": "THB"
-},
-{
-    "id": "en_SG",
-    "currencyCode": "SGD"
-},
-{
-    "id": "en_MY",
-    "currencyCode": "MYR"
-},
-{
-    "id": "en_ID",
-    "currencyCode": "IDR"
-},
-{
-    "id": "in_ID",
-    "currencyCode": "IDR"
-},
-{
-    "id": "en_PH",
-    "currencyCode": "PHP"
-},
-{
-    "id": "en_HK",
-    "currencyCode": "HKD"
-},
-{
-    "id": "zh_HK",
-    "currencyCode": "HKD"
-}]
+[
+    {
+        "id": "en_AU",
+        "currencyCode": "AUD"
+    },
+    {
+        "id": "en_TH",
+        "currencyCode": "THB"
+    },
+    {
+        "id": "th_TH",
+        "currencyCode": "THB"
+    },
+    {
+        "id": "en_SG",
+        "currencyCode": "SGD"
+    },
+    {
+        "id": "en_MY",
+        "currencyCode": "MYR"
+    },
+    {
+        "id": "en_ID",
+        "currencyCode": "IDR"
+    },
+    {
+        "id": "in_ID",
+        "currencyCode": "IDR"
+    },
+    {
+        "id": "en_PH",
+        "currencyCode": "PHP"
+    },
+    {
+        "id": "en_HK",
+        "currencyCode": "HKD"
+    },
+    {
+        "id": "zh_HK",
+        "currencyCode": "HKD"
+    },
+    {
+        "id": "en_VN",
+        "currencyCode": "VND"
+    },
+    {
+        "id": "vi_VN",
+        "currencyCode": "VND"
+    },
+    {
+        "id": "en_NZ",
+        "currencyCode": "NZD"
+    }
+]

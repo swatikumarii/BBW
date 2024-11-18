@@ -143,6 +143,7 @@ server.replace('ShowBonusProducts', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentOrNewBasket();
     var showMoreButton;
     var selectedBonusProducts;
+    var selectedBonusProductIDs = [];
     var initialAddBonusProduct = false;
     var initialAddBonusProductUrl;
 
@@ -168,6 +169,9 @@ server.replace('ShowBonusProducts', function (req, res, next) {
                     option: option
                 };
             });
+            selectedBonusProductIDs = selectedBonusProducts.map(function (selectedBonusProduct) {
+                return selectedBonusProduct.pid;
+            });
         } else {
             selectedBonusProducts = [];
             initialAddBonusProduct = true;
@@ -175,20 +179,32 @@ server.replace('ShowBonusProducts', function (req, res, next) {
 
         if (req.querystring.pids) {
             var params = req.querystring.pids.split(',');
-            var bonusProductToAdd = params.find(function (bonusProduct) {
-                var apibonusProduct = ProductMgr.getProduct(bonusProduct);
-                if (apibonusProduct.availabilityModel.availability > 0) {
-                    return apibonusProduct.ID;
-                }
-            });
+            var bonusProductsToAdd = [];
+            var bonusProductToAdd;
+            var maxPids = req.querystring.maxpids;
+            do {
+                bonusProductToAdd = params.find(function (bonusProduct) {
+                    var apibonusProduct = ProductMgr.getProduct(bonusProduct);
+                    if (apibonusProduct.availabilityModel.availability > 0 && bonusProductsToAdd.indexOf(apibonusProduct.ID) === -1) {
+                        return apibonusProduct.ID;
+                    }
+                });
+                bonusProductsToAdd.push(bonusProductToAdd);
+                maxPids--;
+            } while (maxPids > 0);
             if (initialAddBonusProduct) {
+                var bonusProducts = [];
+                bonusProductsToAdd.forEach(function (bonusProduct) {
+                    bonusProducts.push(
+                        {
+                            pid: bonusProduct,
+                            qty: 1,
+                            options: [null]
+                        }
+                    );
+                });
                 var pidsObj = {
-                    bonusProducts: [{
-                        pid: bonusProductToAdd,
-                        qty: bonusDiscountLineItem.maxBonusItems,
-                        options: [null]
-
-                    }],
+                    bonusProducts: bonusProducts,
                     totalQty: bonusDiscountLineItem.maxBonusItems
                 };
                 var uuid = bonusDiscountLineItem.UUID;
@@ -239,6 +255,7 @@ server.replace('ShowBonusProducts', function (req, res, next) {
     var context = {
         products: products,
         selectedBonusProducts: selectedBonusProducts,
+        selectedBonusProductIDs: selectedBonusProductIDs,
         maxPids: req.querystring.maxpids,
         moreUrl: moreUrl,
         showMoreButton: showMoreButton,

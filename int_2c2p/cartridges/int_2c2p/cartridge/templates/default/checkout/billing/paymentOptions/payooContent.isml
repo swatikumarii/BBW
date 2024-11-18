@@ -1,0 +1,12 @@
+<!--- Generic Component--->
+<isinclude template="/components/modules" sf-toolkit="off" />
+<div class="tab-pane active payoo-component-content mb-4 d-flex justify-content-between payment-payoo" id="payoo-component-content" role="tabpanel">
+    <fieldset class="payment-form-fields">
+        <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+            value="payoo"/>
+        <fieldset>
+            <iscontentasset aid="payoo-payment-description" />
+        </fieldset>
+    </fieldset>
+    <input name="paymentMethods" type="radio" value="payoo" />
+</div>

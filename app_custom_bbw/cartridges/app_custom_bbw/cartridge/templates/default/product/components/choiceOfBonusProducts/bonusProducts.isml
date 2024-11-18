@@ -1,75 +1,81 @@
 <isset name="renderedQuantity" value="${false}" scope="page" />
+<isset name="disableOthers" value="${pdict.maxPids <= pdict.selectedBonusProductIDs.length}" scope="page" />
+
 <isloop items="${pdict.products}" var="product" status="productLoopStatus">
-    <div class="col-12 bonus-product-item ready-to-order choice-of-bonus-product border my-4" data-pid="${product.id}"
-        data-ready-to-order="${product.readyToOrder}" data-optionID="">
-        <div class="product-quickview product-${product.productType} col product-wrapper product-detail"
-            data-pid="${product.id}">
-            <div class="row align-items-center">
-                <!-- Product Images Carousel -->
-                <isloop items="${product.images['mediumLarge']}" var="image" status="loopStatus">
-                    <isif condition="${loopStatus.index == 0}">
-                        <div class="w-30">
-                            <img src="${image.url}" srcset="${image.url} 1x, ${product.images['mediumLarge_2x'][loopStatus.index].url} 2x"
-                                class="d-block img-fluid" alt="${image.alt} ${product.titlePartB}" itemprop="image" width="104px"
-                                height="140px" />
-                        </div>
-                    </isif>
-                </isloop>
-                <iscomment> <isinclude template="product/components/imageCarousel" /> </iscomment>
-                <!-- Product Name and Number -->
-                <div class="col-6 col-sm-8 ">
-                    <div class="row">
-                        <div class="col-12">
-                            <isif condition="${product.brand}">
-                                <h3 class="brand-name h-font-size--10 h-clr--black-1 text-capitalize mb-0">
-                                    ${product.brand}</h3>
-                            </isif>
-                            <p
-                                class="product-name hidden-sm-down h-font-size--18 text-capitalize h-clr--blue h-fw--semibold my-0">
-                                ${product.fragranceName ? product.fragranceName : product.productName}
-                            </p>
-                            <isif condition="${product.volume}">
-                                <div class="row">
-                                    <div class="col">
-                                        <span
-                                            class="titlePartB-name small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
+    <isif condition="${product.available}">
+        <div class="col-12 bonus-product-item ready-to-order choice-of-bonus-product border my-4 mx-1 ${pdict.selectedBonusProductIDs && !(pdict.selectedBonusProductIDs.length < 0) && pdict.selectedBonusProductIDs.indexOf(product.id) > -1 ? 'selected' : disableOthers ? 'disabled' : ''}" data-pid="${product.id}"
+            data-ready-to-order="${product.readyToOrder}" data-optionID="">
+            <div class="product-quickview product-${product.productType} col product-wrapper product-detail"
+                data-pid="${product.id}">
+                <div class="row align-items-center">
+                    <!-- Product Images Carousel -->
+                    <isloop items="${product.images['mediumLarge']}" var="image" status="loopStatus">
+                        <isif condition="${loopStatus.index == 0}">
+                            <div class="w-30">
+                                <img src="${image.url}" srcset="${image.url} 1x, ${product.images['mediumLarge_2x'][loopStatus.index].url} 2x"
+                                    class="d-block img-fluid" alt="${image.alt} ${product.titlePartB}" itemprop="image" width="104px"
+                                    height="140px" />
+                            </div>
+                        </isif>
+                    </isloop>
+                    <iscomment> <isinclude template="product/components/imageCarousel" /> </iscomment>
+                    <!-- Product Name and Number -->
+                    <div class="col-6 col-sm-8 ">
+                        <div class="row">
+                            <div class="col-12">
+                                <isif condition="${product.brand}">
+                                    <h3 class="brand-name h-font-size--10 h-clr--black-1 text-capitalize mb-0">
+                                        ${product.brand}</h3>
+                                </isif>
+                                <p
+                                    class="product-name hidden-sm-down h-font-size--18 text-capitalize h-clr--blue h-fw--semibold my-0">
+                                    ${product.fragranceName ? product.fragranceName : product.productName}
+                                </p>
+                                <isif condition="${product.volume}">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span
+                                                class="titlePartB-name small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </isif>
+                                </isif>
+                            </div>
                         </div>
+                        <isif condition="${product && product.pwpPrice}">
+                            <div class="pwp-price">
+                                <span
+                                    class="strike-through h-clr--black-1">
+                                    ${product.price.sales.formatted}
+                                </span>
+                                <span class="promo-price h-clr--pink h-fw--semibold gift-cards-price">
+                                    ${product.pwpPrice}
+                                </span>
+                            </div>
+                        </isif>
+                        <input type="hidden"
+                            class="h-bg--gray-1 input-text text-center bonus-quantity-select p-0 float-left border-0 h-fw--semibold quantity-select w-50"
+                            name="Quantity" id="Quantity" value="1" />
                     </div>
-                    <isif condition="${product && product.pwpPrice}">
-                        <div class="pwp-price">
-                            <span
-                                class="strike-through h-clr--black-1">
-                                ${product.price.sales.formatted}
-                            </span>
-                            <span class="promo-price h-clr--pink h-fw--semibold gift-cards-price">
-                                ${product.pwpPrice}
-                            </span>
-                        </div>
-                    </isif>
-                    <input type="hidden"
-                        class="h-bg--gray-1 input-text text-center bonus-quantity-select p-0 float-left border-0 h-fw--semibold quantity-select w-50"
-                        name="Quantity" id="Quantity" value="1" />
+
+                    <div class="form-group custom-control custom-checkbox m-0">
+                        <input type="checkbox" class="btn-block custom-control-input select-bonus-product" id="select-bonus-product-${product.id}"
+                            data-pid="${product.id}" disabled ${pdict.selectedBonusProductIDs && !(pdict.selectedBonusProductIDs.length < 0) && pdict.selectedBonusProductIDs.indexOf(product.id) > -1 ? 'checked' : ''}>
+                        <label class="custom-control-label h-clr--black-1 h-font-size--16" for="select-bonus-product-${product.id}">
+                        </label>
+                    </div>
+
                 </div>
-
-                <input type="checkbox" class="btn btn-block btn-outline-primary select-bonus-product"
-                    data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}
-                    ${pdict.selectedBonusProducts && !(pdict.selectedBonusProducts.length < 0) && pdict.selectedBonusProducts[0].pid ===
-                    product.id ? 'checked' : ''}>
-
             </div>
+            <isif condition="${pdict.moreUrl && productLoopStatus.last && pdict.showMoreButton}">
+                <div class="col-sm-12 text-center">
+                    <button class="btn btn-outline-primary col-12 col-sm-4 show-more-bonus-products"
+                        data-url="${pdict.moreUrl}">
+                        ${Resource.msg('button.more', 'search', null)}
+                    </button>
+                </div>
+            </isif>
         </div>
-        <isif condition="${pdict.moreUrl && productLoopStatus.last && pdict.showMoreButton}">
-            <div class="col-sm-12 text-center">
-                <button class="btn btn-outline-primary col-12 col-sm-4 show-more-bonus-products"
-                    data-url="${pdict.moreUrl}">
-                    ${Resource.msg('button.more', 'search', null)}
-                </button>
-            </div>
-        </isif>
-    </div>
+    </isif>
 </isloop>
 <div class="modal-footer border-0">
     <div class="row align-items-center justify-content-center pwp-modal-button-allign w-100 ml-0">
@@ -93,10 +99,10 @@
             </isloop>
         </div>
         <div class="d-flex justify-content-center pwp-button-align m-0 w-100">
-            <button class="btn btn-primary add-bonus-products h-minheight--30 mr-3" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+            <button class="btn btn-primary add-bonus-products h-minheight--45 mr-3 ml-4 text-uppercase w-50 h-font-size--14 h-fw--semibold" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
                 ${Resource.msg('button.addtocart', 'common', null)}
             </button>
-            <button class="btn btn-secondary h-minheight--30" data-dismiss="modal">
+            <button class="btn btn-secondary h-minheight--44 w-50 text-uppercase h-font-size--14 h-fw--semibold ml-3 mr-4" data-dismiss="modal">
                 ${Resource.msg('button.cancel', 'cart', null)}
             </button>
         </div>

@@ -18,6 +18,25 @@ var URLUtils = require('dw/web/URLUtils');
 var logger = require('dw/system/Logger').getLogger('2c2p');
 var OrderHelpers = require('*/cartridge/scripts/order/orderHelpers');
 var collections = require('*/cartridge/scripts/util/collections');
+var Site = require('dw/system/Site');
+
+function getAddress(address) {
+  return address.address1 + ' ' + address.address2 + ' ' + address.city  + ' ' + address.stateCode + ' ' + address.postalCode;
+}
+
+function getItems(productLineItems) {
+  var items = collections.map(productLineItems, function (productLineItem) {
+    return {
+      reference: '',
+      total_unit_amount: productLineItem.adjustedGrossPrice.value,
+      no_of_unit: productLineItem.quantityValue,
+      name: productLineItem.lineItemText,
+      tax: productLineItem.adjustedTax.value,
+      unit_amount: productLineItem.basePrice.value
+    }
+  })
+  return items;
+}
 
 /**
  * createRequestBody function is responsible to generate the Request Body For Payment URL Request
@@ -26,7 +45,7 @@ var collections = require('*/cartridge/scripts/util/collections');
  * @param  {Object} paymentForm paymentForm Filled during checkout
  * @return {string} stringified request
  */
-function createRequestBody(order, basket, paymentForm, req) {
+function createRequestBody(order, basket, paymentForm, req, payoo) {
   var transaction = {};
   var system = {};
   var payment = {};
@@ -56,14 +75,47 @@ function createRequestBody(order, basket, paymentForm, req) {
   merchant.merId = _2c2pPreferences.hsbcMerchantID;
   customer.email = paymentForm.contactInfoFields.email.htmlValue;
   reqOrder.description = 'Payment For BBW Order no.' + order.orderNo;
-  reqBody = {
-    transaction: transaction,
-    system: system,
-    payment: payment,
-    merchant: merchant,
-    customer: customer,
-    order: reqOrder
-  };
+  if (payoo) {
+    var url_setting = {
+      webhook: _2c2pPreferences.hsbcMerchantNotificationUrl.toString(),
+      return_page: URLUtils.abs(_2c2pPreferences.hsbcMerchantCallBackUrl, 'order', order.currentOrderNo).toString()
+    }
+    var page_setting = {
+      payment_option: ['card','installment','wallet'],
+      expiry: parseInt((Date.now() + 86400) / 1000, 10)
+    }
+    var customer = {
+      address: getAddress(basket.defaultShipment.shippingAddress),
+      phone: paymentForm.contactInfoFields.phone.htmlValue,
+      last_name: basket.defaultShipment.shippingAddress.lastName,
+      first_name: basket.defaultShipment.shippingAddress.firstName,
+      email: paymentForm.contactInfoFields.email.htmlValue
+    }
+    var checkout_model = {
+      vn_py_hosted_checkout : {
+        url_setting: url_setting,
+        page_setting: page_setting,
+        customer: customer
+      }
+    }
+    reqBody = {
+      amount: payment.amount,
+      checkout_model: checkout_model,
+      description: 'Payment For BBW Order no' + order.orderNo.toString(),
+      currency: Site.getCurrent().currencyCode.toLowerCase(),
+      id: order.orderNo.toString(),
+      items: getItems(basket.allProductLineItems)
+    }
+  } else {
+    reqBody = {
+      transaction: transaction,
+      system: system,
+      payment: payment,
+      merchant: merchant,
+      customer: customer,
+      order: reqOrder
+    };
+  }
 
   return reqBody;
 }
@@ -205,12 +257,14 @@ function placeOrder(order, is2c2pCallback, _2c2pRes, paymentChannel, server, req
     order.setConfirmationStatus(Order.CONFIRMATION_STATUS_CONFIRMED);
     order.setExportStatus(Order.EXPORT_STATUS_READY);
     order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
-    paymentTransaction.paymentInstrument.paymentTransaction.transactionID = _2c2pRes.response.transaction.txnRef;
+    paymentTransaction.paymentInstrument.paymentTransaction.transactionID ='response' in _2c2pRes ? _2c2pRes.response.transaction.txnRef : '';
     order.custom['2c2pPaymentMethod'] = paymentChannel;
-    order.custom['2c2ptransactionID']= _2c2pRes.response.transaction.txnRef;
-    var check2c2pPendingStatus = co.getCustomObject('2c2pPendingStatus', _2c2pRes.response.transaction.txnRef);
-    if (check2c2pPendingStatus) {
-      co.remove(check2c2pPendingStatus);
+    order.custom['2c2ptransactionID']= 'response' in _2c2pRes ? _2c2pRes.response.transaction.txnRef : '';
+    if('response' in _2c2pRes) {
+      var check2c2pPendingStatus = co.getCustomObject('2c2pPendingStatus', _2c2pRes.response.transaction.txnRef);
+      if (check2c2pPendingStatus) {
+        co.remove(check2c2pPendingStatus);
+      }
     }
     paymentTransaction.paymentInstrument.custom['2c2pLog'] = JSON.stringify(queryParam);
     Transaction.commit();
@@ -336,9 +390,9 @@ function failOrder(order, is2c2pCallback, _2c2pRes, paymentChannel, server, req,
     if (failOrderStatus === Status.ERROR) {
       throw new Error();
     }
-    // order.custom.2c2pPaymentMethod = paymentChannel;
+    order.custom['2c2pPaymentMethod'] = paymentChannel;
     var check2c2pPendingStatus = co.getCustomObject('2c2pPendingStatus', _2c2pRes.response.transaction.txnRef);
-    // paymentTransaction.paymentInstrument.custom.2c2pLog = JSON.stringify(queryParam);
+    paymentTransaction.paymentInstrument.custom['2c2pLog'] = JSON.stringify(queryParam);
     if (check2c2pPendingStatus) {
       co.remove(check2c2pPendingStatus);
     }

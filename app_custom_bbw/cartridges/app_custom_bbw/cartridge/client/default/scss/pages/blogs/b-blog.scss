@@ -443,6 +443,14 @@
             }
         }
 
+        .only-img {
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 49%;
+            }
+        }
+
         .txt {
             width: 100%;
             margin: 0 auto;
@@ -2204,8 +2212,7 @@
 .lunar-new-year {
     .main-bg-section {
         .main-bg {
-            background: url("../images/blogs/details/Luminous-bg.webp")
-                no-repeat left top;
+            background: url("../images/blogs/details/Luminous-bg.webp") no-repeat left top;
             height: 565px;
             display: flex;
             align-items: center;
@@ -2246,10 +2253,10 @@
                 .p-list {
                     padding: 0 10px;
 
-                     img {
-                            width: 100%;
-                            max-width: 446px;
-                        }
+                    img {
+                        width: 100%;
+                        max-width: 446px;
+                    }
 
                     h2 {
                         text-align: center;

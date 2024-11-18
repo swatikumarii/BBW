@@ -490,10 +490,11 @@
                     background-size: 15px;
                     height: 35px;
                     width: 35px;
-                    right: -16px;
-                    position: relative;
-                    top: -16px;
+                    right: 0;
+                    position: absolute;
+                    top: 0;
                     opacity: 1;
+                    margin: 0;
 
                     &:hover {
                         background-color: colour(black, 3) !important;
@@ -501,6 +502,10 @@
                         opacity: 1;
                         background-image: url("../../images/plp/quickview/UI-Close-dark-hover.svg");
                     }
+                }
+
+                .free-item-popup-icon {
+                    object-fit: cover;
                 }
             }
         }
@@ -657,10 +662,9 @@
                 height: 50px;
                 width: 50px;
                 position: relative;
-                top: 5px;
                 opacity: 1;
 
-                &:focus-visible{
+                &:focus-visible {
                     outline: unset;
                 }
 
@@ -668,8 +672,8 @@
                     display: none;
                 }
             }
-
         }
+
         .modal-body {
             overflow: hidden;
             max-height: 72vh;
@@ -706,5 +710,44 @@
 .pwp-price {
     .strike-through {
         text-decoration: line-through;
+    }
+}
+
+div[id^="removeBonusModal-"] {
+    .modal-header {
+        .close {
+            right: 20px;
+        }
+    }
+}
+
+.gated-popup-backdrop {
+    background: black;
+    opacity: 0.9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+}
+
+.gated-popup {
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 400px;
+    height: 250px;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.select-bonus-product {
+    &input[type="checkbox"] {
+        opacity: 0 !important;
     }
 }

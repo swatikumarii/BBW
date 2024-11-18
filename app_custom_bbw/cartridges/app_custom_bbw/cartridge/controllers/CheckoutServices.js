@@ -128,8 +128,18 @@ server.prepend(
         var coRegisteredCustomerForm = server.forms.getForm('coRegisteredCustomer');
         var result = validateCustomerForm(coRegisteredCustomerForm);
         if (result.json) {
-            res.json(result.json);
-            return next();
+            res.json({
+                form: result.customerForm,
+                fieldErrors: result.formFieldErrors,
+                serverErrors: [],
+                customerErrorMessage: Resource.msgf(
+                    'error.message.username.password.does.not.match',
+                    'login',
+                    null
+                ),
+                error: true
+            });
+            return this.emit('route:Complete', req, res);
         }
 
         // login the registered customer

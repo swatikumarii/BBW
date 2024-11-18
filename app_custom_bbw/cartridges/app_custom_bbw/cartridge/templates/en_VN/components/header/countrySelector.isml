@@ -1,0 +1,20 @@
+<isif condition="${pdict.localeModel.locale.localeLinks.length > 0}">
+    <div class="bbw-locale-links country-selector d-none d-md-flex align-items-center" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0" >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" version="1.1" class="nav-flag">
+            <rect width="30" height="20" fill="#da251d" />
+            <polygon points="15,4 11.47,14.85 20.71,8.15 9.29,8.15 18.53,14.85" fill="#ff0" />
+        </svg>
+        <div class="dropdown-country-selector">
+            <isloop items="${pdict.localeModel.locale.localeLinks}" var="localeLink" status="loopStatus">
+                <a class="bbw-country-link ${localeLink.isCurrentLocale ? 'selected-locale b-link--underlined h-fw--semibold' : ''}" href="${'#'}" data-locale="${localeLink.localID}"
+                    data-currencyCode="${localeLink.currencyCode}">${localeLink.language !== 'th' ? localeLink.language.toUpperCase() : Resource.msg(
+                    'locale.thailand.thai.language', 'common', null)}</a>
+                <isif condition="${!loopStatus.last}">
+                    <span class="bbw-locale-separator">
+                        /
+                    </span>
+                </isif>
+            </isloop>
+        </div>
+    </div>
+</isif>

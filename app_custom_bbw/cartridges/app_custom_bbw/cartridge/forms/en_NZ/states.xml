@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<field formid="stateCode" label="label.input.state" type="string" mandatory="true" binding="stateCode" missing-error="address.state.missing" value-error="address.field.invalid" parse-error="error.message.required">
+		<options>
+			<option optionid="" 	label="resource.select.state" 		value=""/>
+
+			<!-- regular NZ states -->
+			<option label="Auckland" value="Auckland"/>
+			<option label="Bay of Plenty" value="Bay of Plenty"/>
+			<option label="Canterbury" value="Canterbury"/>
+			<option label="Gisborne" value="Gisborne"/>
+			<option label="Hawke's Bay" value="Hawke's Bay"/>
+			<option label="Manawatu-Wanganui" value="Manawatu-Wanganui"/>
+			<option label="Marlborough" value="Marlborough"/>
+			<option label="Nelson" value="Nelson"/>
+			<option label="Northland" value="Northland"/>
+			<option label="Otago" value="Otago"/>
+			<option label="Southland" value="Southland"/>
+			<option label="Taranaki" value="Taranaki"/>
+			<option label="Tasman" value="Tasman"/>
+			<option label="Waikato" value="Waikato"/>
+			<option label="Wellington" value="Wellington"/>
+			<option label="West Coast" value="West Coast"/>
+		</options>
+	</field>
+</form>

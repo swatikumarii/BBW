@@ -159,6 +159,15 @@ function placeOrder(req, res, next) {
     if (currentBasket.getPaymentInstruments('GIFT_CERTIFICATE').length > 0) {
         giftCardAPIRedeemResult = qwikcilverApis.redeemGiftCards(order);
         if (giftCardAPIRedeemResult && giftCardAPIRedeemResult.status === 'OK' && giftCardAPIRedeemResult.object) {
+            order.getPaymentInstruments('GIFT_CERTIFICATE').toArray().forEach(function (giftInstrument) {
+                JSON.parse(giftCardAPIRedeemResult.object).Cards.forEach(function (card) {
+                    if (card.CardNumber === giftInstrument.custom.eGiftCardNumber) {
+                        Transaction.wrap(function () {
+                            giftInstrument.custom.eGiftRedeemSucess = true;
+                        });
+                    }
+                });
+            });
             var redeemGiftCard = JSON.parse(giftCardAPIRedeemResult.object);
             if (redeemGiftCard.ResponseCode !== 0 && redeemGiftCard.Cards && redeemGiftCard.Cards.length > 0) {
                 res.json({
@@ -467,7 +476,7 @@ server.prepend('SubmitPayment', server.middleware.https, csrfProtection.validate
 
             billingAddress.setPhone(billingData.phone.value);
             if (paymentMethodIdValue === 'AFTERPAY' || paymentMethodIdValue === 'CLEARPAY') {
-                billingAddress.setPhone(billingForm.addressFields.phone.value);
+                // billingAddress.setPhone(billingForm.addressFields.phone.value);
                 currentBasket.setCustomerEmail(paymentForm.contactInfoFields.email.value);
             }
             currentBasket.setCustomerEmail(paymentForm.contactInfoFields.email.value);

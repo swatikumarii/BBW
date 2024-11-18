@@ -23,6 +23,25 @@ function saveFragranceNames(fragranceNamesArray) {
         Logger.error(err.toString());
     }
 }
+
+/**
+ * @param {Object} fragranceCountMap A map with fragrance names as keys and counts as values
+ * @description This function saves the sorted Fragrance Names and their counts in custom preference.
+ */
+function saveFragranceCounts(fragranceCountMap) {
+    try {
+        // Convert the fragrance count map to a string format to store in the custom preferences
+        var fragranceNamesArray = Object.keys(fragranceCountMap).sort();
+        var fragranceData = fragranceNamesArray.map(function(fragrance) {
+            return fragrance + ' (' + fragranceCountMap[fragrance] + ')';
+        }).join(', ');
+
+        Site.current.setCustomPreferenceValue('fragranceNames', fragranceData);
+    } catch (err) {
+        Logger.error(err.toString());
+    }
+}
+
 /**
  * @description This function is run by the job to get fragrance names list from all products.
  */
@@ -30,7 +49,9 @@ function getFragranceNames() {
     try {
         var allProducts = ProductMgr.queryAllSiteProductsSorted();
         var fragranceNamesArray = [];
+        var fragranceCountMap = {};  // Map to store fragrance names and their counts
         var allFragrances;
+        var countFragranceEnabled = Site.current.getCustomPreferenceValue('countFragranceEnabled');
 
         while (allProducts.hasNext()) {
             var product = allProducts.next();
@@ -54,12 +75,16 @@ function getFragranceNames() {
                     maxOrderQtyByReserveStock = (product.availabilityModel.inventoryRecord.ATS.value ? product.availabilityModel.inventoryRecord.ATS.value : 0) - reserveOosQty;
                 }
                 if (maxOrderQtyByReserveStock > 0) {
-                    // get fragrance names from all products
                     if (product.custom.fragranceName) {
                         allFragrances = product.custom.fragranceName.split(',');
                         for (var position = 0; position < allFragrances.length; position++) {
-                            if (!fragranceNamesArray.includes(allFragrances[position].trim())) {
-                                fragranceNamesArray.push(allFragrances[position].trim());
+                            var fragrance = allFragrances[position].trim();
+                            if (countFragranceEnabled) {
+                                // Increment the count for each fragrance
+                                fragranceCountMap[fragrance] = (fragranceCountMap[fragrance] || 0) + 1;
+                            } else if (!fragranceNamesArray.includes(fragrance)) {
+                                // Add fragrance to the array if it doesn't exist
+                                fragranceNamesArray.push(fragrance);
                             }
                         }
                     }
@@ -77,9 +102,14 @@ function getFragranceNames() {
                 }
             }
         }
-
-        if (fragranceNamesArray.length > 0) {
-            saveFragranceNames(fragranceNamesArray);
+        // Save fragrance counts if there are any fragrances found
+        if (fragranceNamesArray.length > 0 || fragranceCountMap.length > 0) {
+            if(countFragranceEnabled) {
+                saveFragranceCounts(fragranceCountMap);
+            }
+            else {
+                saveFragranceNames(fragranceNamesArray);
+            }
         } else {
             Site.current.setCustomPreferenceValue('fragranceNames', '');
         }
@@ -91,5 +121,6 @@ function getFragranceNames() {
 
 module.exports = {
     saveFragranceNames: saveFragranceNames,
-    getFragranceNames: getFragranceNames
+    getFragranceNames: getFragranceNames,
+    saveFragranceCounts: saveFragranceCounts
 };

@@ -122,7 +122,6 @@ $(document).ready(function () {
     } else {
         addressData = addressDataEN;
     }
-    shippingState.trigger('change');
     var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     var name = 'paymentError';
     var error = new RegExp(
@@ -538,7 +537,7 @@ $('.shippingState').change(function () {
     var selectedSuburb = suburbDropdown.attr('data-selected');
     var stateDropdown = $(this);
     var cityMappingObj;
-    suburbDropdown.empty(); // clear existing options
+    suburbDropdown.empty(); // clear existing options    
     if (addressDataEN[selectedState]) {
         $(this).empty();
         stateDropdown.prepend(
@@ -650,6 +649,8 @@ $('.shippingState').change(function () {
         );
     }
     suburbDropdown.trigger('change');
+    var shippingEstimatedText = $('.estimeted-shipping-text').attr('data-estimated-shipping-text');
+    var shippingText = $('.estimeted-shipping-text').attr('data-shipping-text');
     var updateShippingMethodsURL =
         $('input[name="update-shipping-method-url"]').val() +
         '?stateCode=' +
@@ -662,10 +663,15 @@ $('.shippingState').change(function () {
             $('.grand-total-wrap .grand-total')
                 .empty()
                 .text(data.order.priceTotal);
-            if (data.isOrderShippable) {
-                $('.cart-dangerous-goods').addClass('d-none');
-            } else {
+            if (data.showDangerousGoodsMessage) {
                 $('.cart-dangerous-goods').removeClass('d-none');
+            } else {
+                $('.cart-dangerous-goods').addClass('d-none');
+            }
+            if(!data.isEstimatedShipping || data.order.hasFreeShipping){
+                $('.tax-calculated-state').text(shippingText);
+            }else{
+                $('.tax-calculated-state').text(shippingEstimatedText);
             }
         }
     });

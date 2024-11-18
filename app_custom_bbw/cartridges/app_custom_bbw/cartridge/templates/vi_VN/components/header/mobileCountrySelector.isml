@@ -1,0 +1,16 @@
+<isif condition="${pdict.localeModel.locale.localeLinks.length > 0}">
+    <li class="bbw-locale-links country-selector d-block d-md-none" data-url="${URLUtils.url('Page-SetLocale')}" tabindex="0">
+        <div class="dropdown-country-selector">
+            <isloop items="${pdict.localeModel.locale.localeLinks}" var="localeLink">
+                <a class="bbw-country-link h-fw--normal h-clr--black-3 d-flex align-items-center ${localeLink.isCurrentLocale ? 'selected-locale' : ''}" href="${'#'}"
+                    data-locale="${localeLink.localID}" data-currencyCode="${localeLink.currencyCode}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" version="1.1" class="nav-flag">
+                        <rect width="30" height="20" fill="#da251d" />
+                        <polygon points="15,4 11.47,14.85 20.71,8.15 9.29,8.15 18.53,14.85" fill="#ff0" />
+                    </svg>
+                    ${localeLink.displayName}
+                </a>
+            </isloop>
+        </div>
+    </li>
+</isif>

@@ -1,0 +1,175 @@
+<isset name="miniCart" value="${true}" scope="page" />
+<div class="cart container">
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+    <isif condition="${!(dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup'))}">
+        <div class="mini-cart-content">
+            <div class="minicart-header h-pos--relative">
+                <span type="button" class="minicart-close-icon h-pos--absolute">
+                    <img src="${URLUtils.staticURL('/images/close-16-blue.svg')}" alt="close icon" width="20" />
+                </span>
+                <h1 class="text-center h-fw--semibold"><isprint value="${Resource.msgf('title.my.shopping.cart', 'cart', null, pdict.numItems)}" encoding="off" /></h1>
+            </div>
+            <isif condition="${pdict.items.length !== 0}">
+                <div class="text-center">
+                    <isif condition="${pdict.giftWrapItem}">
+                        <span class="comma">${Resource.msg('label.cart.gift.wrap', 'giftWrap', null)}</span>
+                    </isif>
+                    <isif condition="${pdict.greetingCardItem}">
+                        <span class="comma">${Resource.msg('label.cart.greeeting.card', 'greetingCard', null)}</span>
+                    </isif>
+                </div>
+                <isslot id="minicart-top-slot" context="global" description="This slot will apper on the top of minicart" />
+
+                <iscomment> Motivator to be added here </iscomment>
+                <isinclude template="cart/cartOrderApproachingDiscount" sf-toolkit="on" />
+
+
+                <isif condition="${!session.isCustomerAuthenticated()}">
+                    <div class="minicart-login d-flex justify-content-between align-items-center">
+                        <span class="d-block h-font-size--12 h-fw--semibold">
+                            ${Resource.msg('minicart.login.message', 'cart', null)}
+                        </span>
+                        <button class="minicart-login-btn h-bg--white h-bdc--blue h-clr--blue d-block h-fw--bold text-center">${Resource.msg('action.customer.login', 'checkout', null)}</button>
+                    </div>
+                </isif>
+                <iscomment> Motivator to be added here </iscomment>
+                <isinclude template="cart/cartShippingApproachingDiscount" sf-toolkit="on" />
+
+                <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
+                    <div class="minicart-error cart-error cart-error-messaging h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 my-3 d-flex">
+                        <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px" height="28px" class="pr-2" />
+                        <span>${pdict.valid.message}</span>
+                    </div>
+                </isif>
+
+                <div class="product-summary border-top mt-3">
+                    <isloop items="${pdict.items}" var="lineItem" status="loopstatus">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="${loopstatus.index < pdict.items.length - 1 && miniCart ? 'border-bottom' : ''}">
+                                    <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+                                        <div
+                                            class="card border-0 ${miniCart ? 'bonus-product-line-item' : ''} uuid-${lineItem.UUID}">
+                                            <div class="card-body">
+                                                <isinclude template="checkout/productCard/bonusProductCard" />
+                                            </div>
+                                        </div>
+                                    <iselse/>
+                                        <div class="card border-0 uuid-${lineItem.UUID}">
+                                            <div class="card-body">
+                                                <isif condition="${lineItem.noProduct === true}">
+                                                    <isinclude template="checkout/productCard/uncategorizedProductCard" />
+                                                <iselse/>
+                                                    <isinclude template="checkout/productCard/productCard" />
+                                                </isif>
+                                            </div>
+                                        </div>
+                                    </isif>
+                                </div>
+                            </div>
+                        </div>
+                    </isloop>
+                </div>
+                <div class="miniCartTopOffers">
+                    <isinclude template="checkout/cart/topOffers" />
+                </div>
+            <iselse/>
+            <div class="empty-minicart h-fw--semibold h-font-size--16 text-center">
+                <isslot id="empty-minicart-image-slot" context="global" description="This slot will be rendered on empty mini cart" context-object="" preview-url="" />
+
+                ${Resource.msg('empty.minicart.text', 'cart', null)}
+            </div>
+            </isif>
+        </div>
+
+        <isinclude template="cart/cartRemoveProductModal" />
+
+        <isif condition="${pdict.items.length !== 0}">
+            <isscript>
+                var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+                var afterpayPDPEnable = sitePreferences.isDisplayCartInfo() && sitePreferences.isAfterpayEnabled();
+            </isscript>
+            <div class="minicart-footer border-top">
+                <div class="sub-total-wrap d-flex justify-content-between border-bottom">
+                    <p class="sub-total-label m-0 h-font-size--14 h-clr--black-1">${Resource.msg('label.sub.total', 'cart', null)}</p>
+                    <p class="text-right sub-total m-0 h-font-size--14 h-clr--black-1">${pdict.totals.miniCartSubTotal}</p>
+                </div>
+                <div class="estimated-total d-flex justify-content-between border-bottom ${afterpayPDPEnable == true ? 'mb-0' : ''}">
+                    <p class="estimated-total-label m-0 h-font-size--22 h-fw--semibold h-clr--black-1">${Resource.msg('label.estimatedtotal', 'cart', null)}</p>
+                    <p class="text-right sub-total m-0 h-font-size--22 h-fw--semibold h-clr--blue-1">${pdict.totals.miniCartSubTotal}</p>
+                </div>
+                <!--- Afterpay Widget --->
+                <isif condition="${afterpayPDPEnable == true}">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <isinclude template="util/modulesAfterpay"/>
+                            <input type="hidden" class="updated-widget" value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
+                            <div class="afterpay-widget">
+                                <isafterpaymessage
+                                    classname="${pdict.classname}"
+                                    totalprice="${pdict.totalPrice}"
+                                    eligible="${pdict.apEligible}"
+                                    mpid="${pdict.apMpid}"
+                                    approductids="${pdict.apProductIDs}"
+                                    size="xs"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </isif>
+                <div class="checkout-continue">
+                    <isinclude template="cart/checkoutButtons" />
+                </div>
+                <isslot id="minicart-footer-payment-methods" context="global" description="This slot renders in the footer section of minicart and is primarily designated to show acceptable payments" />
+                <isslot id="minicart-footer-help" context="global" description="This slot renders in the footer section of minicart and is primarily designated to show need help section" />
+                <isslot id="minicart-footer-bottom" context="global" description="This slot renders at the bottom of the footer section of minicart" />
+
+            </div>
+        <iselse/>
+            <div class="empty-minicart-footer">
+                <isif condition="${!session.isCustomerAuthenticated()}">
+                    <div class="minicart-login d-flex justify-content-between align-items-center">
+                        <span class="d-block h-font-size--12 h-fw--semibold">
+                            ${Resource.msg('minicart.login.message', 'cart', null)}
+                        </span>
+                        <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Login-Show')}"
+                            class="minicart-login-btn h-bdc--blue d-block h-fw--bold text-center">${Resource.msg('action.customer.login', 'checkout', null)}</a>
+                    </div>
+                </isif>
+                <isslot id="minicart-footer-help" context="global"
+                    description="This slot renders in the footer section of minicart and is primarily designated to show need help section" />
+            </div>
+        </isif>
+    <iselse/>
+        <div class="minicart-heading h-font-size--18 h-fw--bold h-ls-01 text-center h-clr--black-1">
+        ${Resource.msg('minicart.popup.header', 'cart', null)}
+        </div>
+        <isinclude template="cart/miniCartShippingApproachingDiscount" />
+        <div class="product-summary">
+            <isloop items="${pdict.items}" var="lineItem" status="loopstatus">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-0 mb-0 uuid-${lineItem.UUID}">
+                            <div class="card-body">
+                                <isif condition="${lineItem.noProduct === true}">
+                                    <isinclude template="checkout/productCard/uncategorizedProductCard" />
+                                <iselse/>
+                                    <isinclude template="checkout/productCard/productCardMiniCartPopup" />
+                                </isif>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </isloop>
+        </div>
+        <div>
+            <div class="sub-total-wrap d-flex justify-content-between">
+                <p class="sub-total-label m-0 h-font-size--15 h-fw--semibold h-ls-01  h-clr--black-1">${Resource.msg('label.sub.total.estimated', 'cart', null)}</p>
+                <p class="text-right sub-total m-0 h-font-size--15 h-fw--semibold h-ls-01 text-center h-clr--black-1">${pdict.totals.miniCartSubTotal}</p>
+            </div>
+            <a hreflang="${pdict.hrefLang}" href="${URLUtils.url('Cart-Show')}" class="btn btn-primary btn-block h-bg--black-1 h-clr--white h-font-size--16 h-fw--semibold h-lh-42 view-cart-btn">${Resource.msg('view.cart.and.checkout', 'cart', null)}</a>
+        </div>
+    </isif>
+</div>

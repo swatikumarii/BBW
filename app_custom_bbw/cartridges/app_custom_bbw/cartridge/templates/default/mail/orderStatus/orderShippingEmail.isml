@@ -77,7 +77,7 @@
                                 style="margin:16px 0 0;font-size:16px;line-height:16px;color:#666666;text-align:center;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
                                 ${Resource.msg('track.order.id.label', 'email', null)}
                                 <span
-                                    style="color:#005699;text-decoration:underline;"><strong>1z2309930355546232</strong></span>
+                                    style="color:#005699;text-decoration:underline;"><strong>${pdict.order.trackingNumber}</strong></span>
                                 <span>${Resource.msg('track.order.expedited.label', 'email', null)}</span>
                             </p>
                         </div>

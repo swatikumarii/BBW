@@ -1,6 +1,7 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <isdecorate template="common/layout/email">
     <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
+    <isset name="isGiftCertificateUsed" value="${false}" scope="page" />
     <iscomment>
         <isemailheaderdynamic heading="${Resource.msg('label.sitename', 'email', null)}"
             title="${Resource.msg('headline.resetpassword.notification.email', 'email', null)}" />
@@ -280,8 +281,8 @@
                                             </div>
                                             <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}"
                                                 var="payment">
-                                                <isif
-                                                    condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}">
+                                                <isif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE' && !isGiftCertificateUsed}">
+                                                    <isset name="isGiftCertificateUsed" value="${true}" scope="page" />
                                                     <p>${Resource.msg('label.add.egift.title', 'giftcards', null)}</p>
                                                     <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode} <isprint value="${pdict.order.eGiftTotalAmount}" /></p>
                                                 </isif>

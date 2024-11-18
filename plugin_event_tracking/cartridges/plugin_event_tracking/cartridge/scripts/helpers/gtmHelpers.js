@@ -699,7 +699,7 @@ function getDataLayer(res) {
                 return getConfirmationData(res);
             case 'Order-Check':
                 return getOrderCheckData(res);
-            case '2c2p-Callback':
+            case '2C2P-Callback':
                 return getConfirmationData(res);
             default:
                 return false;
