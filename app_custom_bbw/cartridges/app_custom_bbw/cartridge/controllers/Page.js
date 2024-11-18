@@ -6,6 +6,7 @@
 
 var server = require('server');
 server.extend(module.superModule);
+var cache = require('*/cartridge/scripts/middleware/cache');
 
 /**
  * Page-IncludeHeaderMenu : Append for customer name
@@ -13,6 +14,7 @@ server.extend(module.superModule);
 server.append(
     'IncludeHeaderMenu',
     server.middleware.include,
+    cache.applyDefaultCache,
     function (req, res, next) {
         var viewData = res.getViewData();
         viewData.customerName = req.currentCustomer.profile
@@ -238,7 +240,6 @@ server.post('GatedEntry', function (req,res,next) {
                             true
                         );
                     } catch (error) {
-                        var couponError = true;
                     }
                 });
             }
