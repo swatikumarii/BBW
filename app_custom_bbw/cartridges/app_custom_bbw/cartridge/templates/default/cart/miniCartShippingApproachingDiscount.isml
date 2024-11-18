@@ -3,9 +3,10 @@
         <isloop items="${pdict.shippingApproachingDiscounts}" var="approachingDiscount" status="loopstate">
             <isif condition="${loopstate.index === 0}">
                 <div class="row align-items-center">
-                    <div class="d-flex flex-column col-12 py-0">
+                    <div class="d-flex flex-column col-12 py-0 minicart-top-text">
+                        <span class="free-shipping-progress"></span>
                         <isif condition="${approachingDiscount.distanceFromConditionThreshold > 0}">
-                            <p class="h-h-font-size--14 h-clr--pink h-fw--semibold m-0 text-center">
+                            <p class="h-font-size--14 h-clr--pink h-fw--semibold h-mt--0 h-mb--0 h-ml--45">
                                 <isprint
                                     value="${Resource.msgf('add.more.for.free.shipping', 'cart', null, dw.util.StringUtils.formatMoney(new dw.value.Money(
                                         approachingDiscount.distanceFromConditionThreshold, session.currency.getCurrencyCode())))}"
@@ -13,7 +14,7 @@
                             </p>
                             <isprint value="${approachingDiscount.condition}" encoding="off" />
                         <iselse/>
-                            <p class="h-font-size--14 h-clr--pink h-fw--semibold m-0 text-center">
+                            <p class="h-font-size--14 h-clr--pink h-fw--semibold h-mt--0 h-mb--0 h-ml--45">
                                 ${Resource.msg('congrats.free.shipping', 'cart', null)}</p>
                             <isprint value="${approachingDiscount.condition}" encoding="off" />
                         </isif>
