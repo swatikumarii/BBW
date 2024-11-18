@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<div class="row d-none">
+<div class="row ${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleAutoFill') ? '' : 'd-none'}">
     <div class="col-sm-12">
         <div class="form-group">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
