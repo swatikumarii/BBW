@@ -941,7 +941,7 @@ server.get('CheckLoosingBonus', function (req, res, next) {
         var previousBonusDiscountLineItems = currentBasket.getBonusDiscountLineItems();
         var productLineItem = currentBasket.getAllProductLineItems(req.querystring.pid);
         if (quantity) {
-            bonusUUID = previousBonusDiscountLineItems[0].bonusProductLineItems[0].UUID;
+            bonusUUID = previousBonusDiscountLineItems[0].UUID;
             productLineItem[0].setQuantityValue(quantity);
             basketCalculationHelpers.calculateTotals(currentBasket);
         } else {
@@ -956,7 +956,7 @@ server.get('CheckLoosingBonus', function (req, res, next) {
                 var limit = promotion.custom && 'Buy' in promotion.custom && promotion.custom.Buy ? promotion.custom.Buy[0] : 0;
                 if (currentBasket.adjustedMerchandizeTotalGrossPrice.value - newBonusDiscountLineItem.bonusProductLineItems[0].adjustedGrossPrice.value < limit) {
                     loosingBonus = true;
-                    bonusUUID = newBonusDiscountLineItem.bonusProductLineItems[0].UUID;
+                    bonusUUID = newBonusDiscountLineItem.UUID;
                 }
             });
         }

@@ -25,6 +25,11 @@
     <div class="cartContainer">
         <input type="hidden" name="cart-has-bonus" value="${pdict.hasBonusProducts}">
         <input type="hidden" name="cart-check-loosing-bonus-url" value="${pdict.CheckLoosingBonusURL}">
+        <isif condition="${pdict.bonusDiscountLineItems.length > 0}">
+            <isloop items="${pdict.bonusDiscountLineItems}" var="bonusDiscountLineItem" status="loopstatus">
+                <isinclude template="/cart/loosingBonusModal" sf-toolkit="on" />
+            </isloop>
+        </isif>
         <div class="container text-center <isif condition="${pdict.items.length !== 0}">d-none</isif>">
             <div class="empty-recommendation-container cart-page-add-to-bag">
                 <div class="empty-cart-recommendations">
