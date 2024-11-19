@@ -30,44 +30,90 @@ server.append(
  * @function
  * @memberof Page
  */
-server.append('Show', function (req, res, next) {
-    var ContentMgr = require('dw/content/ContentMgr');
-    var PageMgr = require('dw/experience/PageMgr');
-    var ContentModel = require('*/cartridge/models/content');
-    var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
-    var seoHelper = require('*/cartridge/scripts/helpers/seoHelper');
+server.replace(
+    'Show',
+    cache.applyDefaultCache,
+    consentTracking.consent,
+    function (req, res, next) {
+        var ContentMgr = require('dw/content/ContentMgr');
+        var Logger = require('dw/system/Logger');
+        var PageMgr = require('dw/experience/PageMgr');
+        var ContentModel = require('*/cartridge/models/content');
+        var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
+        var page = PageMgr.getPage(req.querystring.cid);
+        var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+        var seoHelper = require('*/cartridge/scripts/helpers/seoHelper');
 
-    var viewData = res.getViewData();
+        var viewData = res.getViewData();
 
-    var page = PageMgr.getPage(req.querystring.cid);
 
-    if (!(page !== null && page.isVisible())) {
-        var apiContent = ContentMgr.getContent(req.querystring.cid);
-        var canonicalUrl = seoHelper.getCanonicalUrl(
-            'Page-Show',
-            'cid',
-            req.querystring.cid
-        );
-        if (apiContent) {
-            viewData.canonicalUrl = canonicalUrl;
-            var content = new ContentModel(apiContent, 'content/contentAsset');
-            var breadcrumbs =
-                commonHelper.getBreadcrumbForContentAsset(apiContent);
-            if (
-                !empty(apiContent) &&
-                'image' in apiContent.custom &&
-                'absURL' in apiContent.custom.image
-            ) {
-                viewData.image = apiContent.custom.image.absURL;
+        if (page != null && page.isVisible()) {
+            if (!page.hasVisibilityRules()) {
+                res.cachePeriod = 168; // eslint-disable-line no-param-reassign
+                res.cachePeriodUnit = 'hours'; // eslint-disable-line no-param-reassign
+                res.personalized = true;
             }
-            if (content.template && breadcrumbs) {
-                viewData.breadcrumbs = breadcrumbs;
-                res.setViewData(viewData);
+
+            res.page(page.ID, {});
+            var apiContent = ContentMgr.getContent(req.querystring.cid);
+            var canonicalUrl = seoHelper.getCanonicalUrl(
+                'Page-Show',
+                'cid',
+                req.querystring.cid
+            );
+            if (apiContent) {
+                viewData.canonicalUrl = canonicalUrl;
+                var content = new ContentModel(
+                    apiContent,
+                    'content/contentAsset'
+                );
+                var breadcrumbs =
+                    commonHelper.getBreadcrumbForContentAsset(apiContent);
+                if (
+                    !empty(apiContent) &&
+                    'image' in apiContent.custom &&
+                    'absURL' in apiContent.custom.image
+                ) {
+                    viewData.image = apiContent.custom.image.absURL;
+                }
+                if (content.template && breadcrumbs) {
+                    viewData.breadcrumbs = breadcrumbs;
+                    res.setViewData(viewData);
+                }
+            }
+        } else {
+            var apiContent = ContentMgr.getContent(req.querystring.cid);
+
+            if (apiContent) {
+                var content = new ContentModel(
+                    apiContent,
+                    'content/contentAsset'
+                );
+
+                pageMetaHelper.setPageMetaData(req.pageMetaData, content);
+                pageMetaHelper.setPageMetaTags(req.pageMetaData, content);
+
+                if (content.template) {
+                    res.render(content.template, { content: content });
+                } else {
+                    Logger.warn(
+                        'Content asset with ID {0} is offline',
+                        req.querystring.cid
+                    );
+                    res.render('/components/content/offlineContent');
+                }
+            } else {
+                Logger.warn(
+                    'Content asset with ID {0} was included but not found',
+                    req.querystring.cid
+                );
             }
         }
-    }
-    next();
-});
+
+        next();
+    },
+    pageMetaData.computedPageMetaData
+);
 
 /**
  * Page-Locale : The Page-Locale endpoint is used as a remote include that renders the country selector ISML template
