@@ -152,7 +152,7 @@ server.replace('ShowBonusProducts', function (req, res, next) {
             return item.UUID === duuid;
         });
 
-        if (bonusDiscountLineItem && bonusDiscountLineItem.bonusProductLineItems.length) {
+        if (bonusDiscountLineItem && (bonusDiscountLineItem.bonusProductLineItems.length || (bonusDiscountLineItem.promotion && 'custom' in bonusDiscountLineItem.promotion && bonusDiscountLineItem.promotion.custom.isPWP))) {
             selectedBonusProducts = collections.map(bonusDiscountLineItem.bonusProductLineItems, function (bonusProductLineItem) {
                 var option = {
                     optionid: '',

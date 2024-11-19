@@ -643,9 +643,9 @@ module.exports = function () {
                 success: function (response) {
                     if (response.loosingBonus && response.bonusUUID) {
                         stopExecution = true;
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal-' +response.bonusUUID).modal('show');
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal-' + response.bonusUUID + ' .cart-delete-confirmation-btn').data('uuid', uuid);
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal-' + response.bonusUUID + ' .cart-delete-confirmation-btn').data('pid', productID);
+                        $('#removeBonusModal-' +response.bonusUUID).modal('show');
+                        $('#removeBonusModal-' + response.bonusUUID + ' .cart-delete-confirmation-btn').data('uuid', uuid);
+                        $('#removeBonusModal-' + response.bonusUUID + ' .cart-delete-confirmation-btn').data('pid', productID);
                     }
                 }
             });
@@ -926,12 +926,12 @@ module.exports = function () {
                 success: function (response) {
                     if (response.loosingBonus && response.bonusUUID) {
                         stopExecution = true;
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal-' +response.bonusUUID).modal('show');
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').data('uuid', uuid);
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').data('pid', productID);
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').data('quantity', quantity);
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').addClass('loosing-bonus-quantity-update');
-                        $('.uuid-'+response.bonusUUID).find('#removeBonusModal' +response.bonusUUID + '.cart-delete-confirmation-btn').removeClass('cart-delete-confirmation-btn');
+                        $('#removeBonusModal-' +response.bonusUUID).modal('show');
+                        $('#removeBonusModal-' +response.bonusUUID + ' .cart-delete-confirmation-btn').data('uuid', uuid);
+                        $('#removeBonusModal-' +response.bonusUUID + ' .cart-delete-confirmation-btn').data('pid', productID);
+                        $('#removeBonusModal-' +response.bonusUUID + ' .cart-delete-confirmation-btn').data('quantity', quantity);
+                        $('#removeBonusModal-' +response.bonusUUID + ' .cart-delete-confirmation-btn').addClass('loosing-bonus-quantity-update');
+                        $('#removeBonusModal-' +response.bonusUUID + ' .loosing-bonus-quantity-update').removeClass('cart-delete-confirmation-btn');
                     }
                 }
             });
