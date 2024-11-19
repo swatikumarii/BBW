@@ -391,7 +391,7 @@ function CartModel(basket) {
         )
     };
     this.availableBonusProducts = getAvailableBonusProducts(basket);
-    this.bonusDiscountLineItems = basket.bonusDiscountLineItems;
+    this.bonusDiscountLineItems = basket ? basket.bonusDiscountLineItems : null;
     this.hasBonusProducts = basket ? basket.bonusDiscountLineItems.length > 0 : false;
     this.CheckLoosingBonusURL = URLUtils.url('Cart-CheckLoosingBonus');
 }
