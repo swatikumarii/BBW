@@ -246,9 +246,8 @@ $(document).ready(function () {
             });
             if (!stateShipExists) {
                 shippingState = $('.shippingState');
-                shippingState.empty();
                 shippingState
-                    .prepend(
+                    .append(
                         $('<option>', {
                             value: selectedState,
                             text: selectedState
@@ -335,9 +334,8 @@ $(document).ready(function () {
             });
             if (!stateBillExists) {
                 billingState = $('.billingState');
-                billingState.empty();
                 billingState
-                    .prepend(
+                    .append(
                         $('<option>', {
                             value: selectedBillingState,
                             text: selectedBillingState
