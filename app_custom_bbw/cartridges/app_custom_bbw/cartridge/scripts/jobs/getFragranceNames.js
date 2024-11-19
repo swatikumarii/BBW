@@ -82,7 +82,8 @@ function getFragranceNames() {
                             if (countFragranceEnabled) {
                                 // Increment the count for each fragrance
                                 fragranceCountMap[fragrance] = (fragranceCountMap[fragrance] || 0) + 1;
-                            } else if (!fragranceNamesArray.includes(fragrance)) {
+                            }
+                            if (!fragranceNamesArray.includes(fragrance)) {
                                 // Add fragrance to the array if it doesn't exist
                                 fragranceNamesArray.push(fragrance);
                             }
@@ -106,8 +107,7 @@ function getFragranceNames() {
         if (fragranceNamesArray.length > 0) {
             if(countFragranceEnabled) {
                 saveFragranceCounts(fragranceCountMap);
-            }
-            else {
+            } else {
                 saveFragranceNames(fragranceNamesArray);
             }
         } else {

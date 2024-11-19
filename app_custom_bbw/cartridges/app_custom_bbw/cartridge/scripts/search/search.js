@@ -48,11 +48,12 @@ function setProductProperties(productSearch, httpParams, selectedCategory, sorti
     if (sortingRule) {
         productSearch.setSortingRule(sortingRule);
     }
-    if (selectedCategory && 'custom' in selectedCategory && selectedCategory.custom && 'isEGiftCategory' in selectedCategory.custom && selectedCategory.custom.isEGiftCategory) {
-        productSearch.setRefinementValues('isEgiftCard', 'true');
-    } else {
-        productSearch.setRefinementValues('isEgiftCard', 'false');
-    }
+    // if (selectedCategory && 'custom' in selectedCategory && selectedCategory.custom && 'isEGiftCategory' in selectedCategory.custom && selectedCategory.custom.isEGiftCategory) {
+    //     productSearch.setRefinementValues('isEgiftCard', 'true');
+    // } else {
+    //     productSearch.setRefinementValues('isEgiftCard', 'false');
+    // }
+    productSearch.setRefinementValues('isProductSearchable', 'true');
     productSearch.setRecursiveCategorySearch(true);
 }
 
