@@ -48,7 +48,7 @@
                 <div class="h-100">
                     <div class="list h-dsp--flex suggestions__product-list">
                         <isloop items="${pdict.suggestions.product.products}" var="product" status="listindex">
-                            <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.id, 'isSearchSuggestion', true)}" />
+                            <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.id)}" />
                         </isloop>
                     </div>
                 </div>

@@ -78,7 +78,7 @@
                                     </div>
                                 </isif>
                                 <isif condition="${'greetingCardMessage' in lineItem && lineItem.greetingCardMessage}">
-                                    <span class="greeting-card-message">
+                                    <span class="d-block mt-1">
                                         ${lineItem.greetingCardMessage}
                                     </span>
                                 </isif>
