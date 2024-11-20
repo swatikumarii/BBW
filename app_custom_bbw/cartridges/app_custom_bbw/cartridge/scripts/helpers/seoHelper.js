@@ -55,7 +55,7 @@ function getHreflang(
             ),
         hreflang: isDefault
             ? 'x-default'
-            : hrefLang
+            : hreflang
     };
 }
 
