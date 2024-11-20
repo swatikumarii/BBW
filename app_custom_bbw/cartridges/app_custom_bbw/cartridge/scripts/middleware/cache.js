@@ -8,9 +8,8 @@
  * @returns {void}
  */
 function applyDefaultCache(req, res, next) {
-    res.cachePeriod = 24; // eslint-disable-line no-param-reassign
+    res.cachePeriod = 0; // eslint-disable-line no-param-reassign
     res.cachePeriodUnit = 'hours'; // eslint-disable-line no-param-reassign
-    res.personalized = true; // eslint-disable-line no-param-reassign
     next();
 }
 
@@ -22,7 +21,7 @@ function applyDefaultCache(req, res, next) {
  * @returns {void}
  */
 function applyPromotionSensitiveCache(req, res, next) {
-    res.cachePeriod = 24; // eslint-disable-line no-param-reassign
+    res.cachePeriod = 0; // eslint-disable-line no-param-reassign
     res.cachePeriodUnit = 'hours'; // eslint-disable-line no-param-reassign
     res.personalized = true; // eslint-disable-line no-param-reassign
     next();
@@ -36,7 +35,7 @@ function applyPromotionSensitiveCache(req, res, next) {
  * @returns {void}
  */
 function applyShortPromotionSensitiveCache(req, res, next) {
-    res.cachePeriod = 1; // eslint-disable-line no-param-reassign
+    res.cachePeriod = 0; // eslint-disable-line no-param-reassign
     res.cachePeriodUnit = 'hours'; // eslint-disable-line no-param-reassign
     res.personalized = true; // eslint-disable-line no-param-reassign
     next();
@@ -50,7 +49,7 @@ function applyShortPromotionSensitiveCache(req, res, next) {
  * @returns {void}
  */
 function applyInventorySensitiveCache(req, res, next) {
-    res.cachePeriod = 30; // eslint-disable-line no-param-reassign
+    res.cachePeriod = 0; // eslint-disable-line no-param-reassign
     res.cachePeriodUnit = 'minutes'; // eslint-disable-line no-param-reassign
     next();
 }
