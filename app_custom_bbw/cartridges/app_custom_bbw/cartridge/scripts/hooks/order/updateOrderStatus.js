@@ -111,6 +111,7 @@ exports.afterPATCH = function (order, orderInput) {
             }
         });
 
+        orderModel = new OrderModel(order, { containerView: 'order' });
         var shippedEmailMarkup = '';
         var shippedEmailFooterMarkup = '';
         var shippedemailContent = ContentMgr.getContent('email-good-to-konw-shipped-block'); // Shipped Order Email Content Asset Id
