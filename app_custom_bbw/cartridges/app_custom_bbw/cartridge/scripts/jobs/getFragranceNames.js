@@ -3,6 +3,48 @@
 var Site = require('dw/system/Site');
 var Logger = require('dw/system/Logger');
 var ProductMgr = require('dw/catalog/ProductMgr');
+var HashMap = require('dw/util/HashMap');
+var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
+
+/**
+ * performs a search
+ * @returns {object} - an object with relevant search information
+ */
+function search(fragrance) {
+    var CatalogMgr = require('dw/catalog/CatalogMgr');
+    var ProductSearchModel = require('dw/catalog/ProductSearchModel');
+    var ProductSearch = require('*/cartridge/models/search/productSearch');
+
+    var apiProductSearch = new ProductSearchModel();
+    var productSearch;
+    var httpParameterMap = new HashMap();
+    httpParameterMap.put('prefn1', 'fragranceName');
+    httpParameterMap.put('prefv1', fragrance);
+    httpParameterMap.put('cgid', 's-fragrance');
+    var querystring = {
+        cgid: 's-fragrance',
+        preferences: {
+            'fragranceName': fragrance
+        }
+    }
+
+    apiProductSearch = searchHelper.setupSearch(apiProductSearch, querystring, httpParameterMap);
+    apiProductSearch.search();
+
+    if (apiProductSearch.getPromotionIDs()) {
+        apiProductSearch.getPromotionIDs().remove('oos-products');
+    }
+
+    productSearch = new ProductSearch(
+        apiProductSearch,
+        querystring,
+        querystring.srule,
+        CatalogMgr.getSortingOptions(),
+        CatalogMgr.getSiteCatalog().getRoot()
+    );
+
+    return productSearch;
+}
 
 /**
  * @param {Array}  fragranceNamesArray fragrance name array
@@ -79,13 +121,15 @@ function getFragranceNames() {
                         allFragrances = product.custom.fragranceName.split(',');
                         for (var position = 0; position < allFragrances.length; position++) {
                             var fragrance = allFragrances[position].trim();
-                            if (countFragranceEnabled) {
-                                // Increment the count for each fragrance
-                                fragranceCountMap[fragrance] = (fragranceCountMap[fragrance] || 0) + 1;
-                            }
                             if (!fragranceNamesArray.includes(fragrance)) {
-                                // Add fragrance to the array if it doesn't exist
                                 fragranceNamesArray.push(fragrance);
+                                var result = search(fragrance);
+                                if (result.count > 0) {
+                                    fragranceCountMap[fragrance] = result.count;
+                                } else {
+                                    fragranceNamesArray.pop();
+                                }
+                                // Add fragrance to the array if it doesn't exist
                             }
                         }
                     }
@@ -100,6 +144,8 @@ function getFragranceNames() {
             for (var i = 0; i < essentialFragrance.length; i++) {
                 if (!fragranceNamesArray.includes(essentialFragrance[i].trim())) {
                     fragranceNamesArray.push(essentialFragrance[i].trim());
+                    var result = search(essentialFragrance[i].trim());
+                    fragranceCountMap[essentialFragrance[i].trim()] = result.count;
                 }
             }
         }
