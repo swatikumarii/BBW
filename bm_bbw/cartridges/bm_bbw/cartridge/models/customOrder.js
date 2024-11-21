@@ -13,17 +13,12 @@ function getInvoice(orderNo, locale) {
   var encodedOrderNumber = encodeURIComponent(
     encryptionHelper.encryptPin(orderNo)
   );
-  var rrr = URLUtils.https(
-      new URLAction("Order-InvoiceDownload", Site.current.ID, locale),
-      new URLParameter("orderReference", encodedOrderNumber)
-    ).toString();
   var data = contentApi.callAPI(
     URLUtils.https(
       new URLAction("Order-InvoiceDownload", Site.current.ID, locale),
       new URLParameter("orderReference", encodedOrderNumber)
     ).toString()
   );
-  var tt = data;
   return data;
 }
 
