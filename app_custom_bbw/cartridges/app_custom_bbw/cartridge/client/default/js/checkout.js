@@ -227,40 +227,79 @@ $(document).ready(function () {
             .find('.shippingState')
             .attr('data-selected');
         if (selectedState !== 'null') {
+            var stateShipExists = false;
             $('.shippingState option').each(function () {
                 if ($(this).val() === selectedState) {
                     $('.shippingState option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingState').trigger('change');
+                    stateShipExists = true;
                     return false;
                 }
             });
+            if (!stateShipExists) {
+                var shippingState = $('.shippingState');
+                shippingState
+                    .append(
+                        $('<option>', {
+                            value: selectedState,
+                            text: selectedState
+                        })
+                    )
+                    .attr('selected', 'selected');
+            }
+            $('.shippingState').trigger('change');
         }
         var selectedCity = $('body')
             .find('.shippingAddressCity')
             .attr('data-selected');
         if (selectedCity !== 'null') {
+            var cityShipExists = false;
             $('.shippingAddressCity option').each(function () {
                 if ($(this).val() === selectedCity) {
+                    cityShipExists = true;
                     $('.shippingAddressCity option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingAddressCity').trigger('change');
                     return false;
                 }
             });
+            if (!cityShipExists) {
+                var shippingAddressCity = $('.shippingAddressCity');
+                shippingAddressCity.append(
+                    $('<option>', {
+                        value: selectedCity,
+                        text: selectedCity
+                    }).attr('selected', 'selected')
+                );
+                $('.shippingAddressCity').removeClass('is-invalid');
+            }
+            $('body').find('.shippingAddressCity').trigger('change');
         }
         var selectedPostalCode = $('body')
             .find('.shippingZipCode')
             .attr('data-selected');
         if (selectedPostalCode !== 'null') {
+            var zipcodeShipExists = false;
             $('.shippingZipCode option').each(function () {
                 if ($(this).val() === selectedPostalCode) {
                     $('.shippingZipCode option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingZipCode').trigger('change');
+                    zipcodeShipExists = true;
                     return false;
                 }
             });
+            if (!zipcodeShipExists) {
+                var zipCodeShipDropdown = $('.shippingZipCode');
+                zipCodeShipDropdown.append(
+                    $('<option>', {
+                        value: selectedPostalCode,
+                        text: selectedPostalCode
+                    }).attr('selected', 'selected')
+                );
+                $('.shippingZipCode').removeClass('is-invalid');
+            }
         }
     }
 
@@ -269,6 +308,7 @@ $(document).ready(function () {
             .find('.billingState')
             .attr('data-selected');
         if (selectedBillingState !== 'null') {
+            var stateBillExists = false;
             $('.billingState option').each(function () {
                 if ($(this).val() === selectedBillingState) {
                     $('.billingState option').removeAttr('selected');
@@ -277,32 +317,69 @@ $(document).ready(function () {
                     return false;
                 }
             });
+            if (!stateBillExists) {
+                var billingState = $('.billingState');
+                billingState
+                    .append(
+                        $('<option>', {
+                            value: selectedBillingState,
+                            text: selectedBillingState
+                        })
+                    )
+                    .attr('selected', 'selected');
+                $('.billingState').removeClass('is-invalid');
+            }
+            $('.billingState').trigger('change');
         }
         var selectedBillingCity = $('body')
             .find('.billingAddressCity')
             .attr('data-selected');
         if (selectedBillingCity !== 'null') {
+            var cityExists = false;
             $('.billingAddressCity option').each(function () {
                 if ($(this).val() === selectedBillingCity) {
+                    cityExists = true;
                     $('.billingAddressCity option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingAddressCity').trigger('change');
                     return false;
                 }
             });
+            if (!cityExists) {
+                var suburbDropdown = $('.billingAddressCity');
+                suburbDropdown.append(
+                    $('<option>', {
+                        value: selectedBillingCity,
+                        text: selectedBillingCity
+                    }).attr('selected', 'selected')
+                );
+                $('.billingAddressCity').removeClass('is-invalid');
+            }
         }
         var selectedBillingPostalCode = $('body')
             .find('.billingZipCode')
             .attr('data-selected');
         if (selectedBillingPostalCode !== 'null') {
+            var postalCodeExists = false;
             $('.billingZipCode option').each(function () {
                 if ($(this).val() === selectedBillingPostalCode) {
                     $('.billingZipCode option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingZipCode').trigger('change');
+                    postalCodeExists = true;
                     return false;
                 }
             });
+            if (!postalCodeExists) {
+                var zipCodeDropdown = $('.billingZipCode');
+                zipCodeDropdown.append(
+                    $('<option>', {
+                        value: selectedBillingPostalCode,
+                        text: selectedBillingPostalCode
+                    }).attr('selected', 'selected')
+                );
+                $('.billingZipCode').removeClass('is-invalid');
+            }
         }
     }
     $.spinner().stop();
@@ -451,7 +528,6 @@ $('.shippingState').change(function () {
     var selectedState = $(this).val();
     var suburbDropdown = $('.shippingAddressCity');
     var zipDropdown = $('.shippingZipCode');
-    console.log('default');
     suburbDropdown.empty(); // clear existing options
     if (addressData[selectedState]) {
         suburbDropdown.prepend(

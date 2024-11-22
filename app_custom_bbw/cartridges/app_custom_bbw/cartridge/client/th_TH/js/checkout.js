@@ -291,7 +291,7 @@ $(document).ready(function () {
             });
             if (!stateShipExists) {
                 shippingState
-                    .prepend(
+                    .append(
                         $('<option>', {
                             value: selectedState,
                             text: selectedState
@@ -316,7 +316,7 @@ $(document).ready(function () {
                 }
             });
             if (!cityShipExists) {
-                shippingAddressCity.prepend(
+                shippingAddressCity.append(
                     $('<option>', {
                         value: selectedCity,
                         text: selectedCity
@@ -344,7 +344,7 @@ $(document).ready(function () {
             });
             if (!subDistrictShipExits) {
                 var subDistricShiptDropdown = $('.shippingAddressSubdistrict');
-                subDistricShiptDropdown.prepend(
+                subDistricShiptDropdown.append(
                     $('<option>', {
                         value: selectedSubDistrict,
                         text: selectedSubDistrict
@@ -379,7 +379,7 @@ $(document).ready(function () {
             if (!stateBillExists) {
                 billingState = $('.billingState');
                 billingState
-                    .prepend(
+                    .append(
                         $('<option>', {
                             value: selectedBillingState,
                             text: selectedBillingState
@@ -406,7 +406,7 @@ $(document).ready(function () {
             });
             if (!cityExists) {
                 var suburbDropdown = $('.billingAddressCity');
-                suburbDropdown.prepend(
+                suburbDropdown.append(
                     $('<option>', {
                         value: selectedBillingCity,
                         text: selectedBillingCity
@@ -436,7 +436,7 @@ $(document).ready(function () {
             });
             if (!subDistrictExists) {
                 var subDistrictDropdown = $('.billingAddressSubdistrict');
-                subDistrictDropdown.prepend(
+                subDistrictDropdown.append(
                     $('<option>', {
                         value: selectedBillingSubDistrict,
                         text: selectedBillingSubDistrict
@@ -464,7 +464,7 @@ $(document).ready(function () {
             if (!postalCodeExists) {
                 // setting city as per place API response
                 var zipCodeDropdown = $('.billingZipCode');
-                zipCodeDropdown.prepend(
+                zipCodeDropdown.append(
                     $('<option>', {
                         value: selectedBillingPostalCode,
                         text: selectedBillingPostalCode

@@ -280,8 +280,7 @@ $(document).ready(function () {
             });
             if(!stateShipExists){
                 var shippingState = $('.shippingState');
-                shippingState.empty();
-                shippingState.prepend(
+                shippingState.append(
                     $('<option>', {
                         value: selectedState,
                         text: selectedState
@@ -305,9 +304,8 @@ $(document).ready(function () {
             });
             if(!cityShipExists){
                 var shippingAddressCity = $('.shippingAddressCity');
-                shippingAddressCity.empty();
                 shippingAddressCity
-                    .prepend(
+                    .append(
                         $('<option>', {
                             value: selectedCity,
                             text: selectedCity
@@ -334,8 +332,7 @@ $(document).ready(function () {
             });
             if(!districtShipExists){
                 var districtShipDropdown = $('.shippingAddressDistrict');
-                districtShipDropdown.empty();
-                districtShipDropdown.prepend(
+                districtShipDropdown.append(
                     $('<option>', {
                         value: selectedDistrict,
                         text: selectedDistrict
@@ -362,8 +359,7 @@ $(document).ready(function () {
             });
             if(!zipcodeShipExists){
                 var zipCodeShipDropdown = $('.shippingZipCode');
-                zipCodeShipDropdown.empty();
-                zipCodeShipDropdown.prepend(
+                zipCodeShipDropdown.append(
                     $('<option>', {
                         value: selectedPostalCode,
                         text: selectedPostalCode
@@ -391,8 +387,7 @@ $(document).ready(function () {
             });
             if(!stateBillExists){
                 var billingState = $('.billingState');
-                billingState.empty();
-                billingState.prepend(
+                billingState.append(
                     $('<option>', {
                         value: selectedBillingState,
                         text: selectedBillingState
@@ -417,9 +412,8 @@ $(document).ready(function () {
             });
             if (!cityExists) {
                 var billingAddressCity = $('.billingAddressCity');
-                billingAddressCity.empty();
                 billingAddressCity
-                    .prepend(
+                    .append(
                         $('<option>', {
                             value: selectedBillingCity,
                             text: selectedBillingCity
@@ -447,8 +441,7 @@ $(document).ready(function () {
             if (!districtExists) {
                 // setting city as per place API response
                 var districtDropdown = $('.billingAddressDistrict');
-                districtDropdown.empty();
-                districtDropdown.prepend(
+                districtDropdown.append(
                     $('<option>', {
                         value: selectedBillingDistrict,
                         text: selectedBillingDistrict
@@ -476,8 +469,7 @@ $(document).ready(function () {
             if (!postalCodeExists) {
                 // setting city as per place API response
                 var zipCodeDropdown = $('.billingZipCode');
-                zipCodeDropdown.empty();
-                zipCodeDropdown.prepend(
+                zipCodeDropdown.append(
                     $('<option>', {
                         value: selectedBillingPostalCode,
                         text: selectedBillingPostalCode
