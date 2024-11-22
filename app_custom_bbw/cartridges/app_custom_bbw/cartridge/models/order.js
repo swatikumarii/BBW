@@ -74,7 +74,7 @@ function OrderModel(lineItemContainer, options) {
     if (lineItemContainer) {
         var encrptedOrderNumber = encodeURIComponent( encryptionHelper.encryptPin(this.orderNumber));
         this.exportStatus = 'exportStatus' in lineItemContainer ? lineItemContainer.exportStatus : 0;
-        this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'token', encrptedOrderNumber).toString();
+        this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'orderReference', encrptedOrderNumber).toString();
         this.trackingUrl = trackingUrl;
         this.trackOrderShippingUrl = '';
         var currentSite = Site.getCurrent();

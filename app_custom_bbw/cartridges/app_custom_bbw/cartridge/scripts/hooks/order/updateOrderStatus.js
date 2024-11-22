@@ -27,7 +27,7 @@ exports.afterPATCH = function (order, orderInput) {
         order: orderModel,
         invoiceUrl: URLUtils.https(
             'Order-InvoiceDownload',
-            'token',
+            'orderReference',
             encodedOrderNumber
         ).toString(),
         content: emailContentHelpers.getEmailContent('normal-footer', 'email-header')
@@ -220,7 +220,7 @@ exports.afterPATCH = function (order, orderInput) {
             order: orderModel,
             invoiceUrl: URLUtils.https(
                 'Order-InvoiceDownload',
-                'token',
+                'orderReference',
                 encodedOrderNumber
             ).toString(),
             content: emailContentHelpers.getEmailContent('normal-footer', 'email-header'),

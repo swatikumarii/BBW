@@ -231,7 +231,7 @@ server.get('CancelledEmailContent', function (req, res, next) {
         order: orderModel,
         invoiceUrl: URLUtils.https(
             'Order-InvoiceDownload',
-            'token',
+            'orderReference',
             encodedOrderNumber
         ).toString(),
         content: emailContentHelpers.getEmailContent(
