@@ -11574,7 +11574,7 @@ module.exports = {
             ]
         },
         'Ho Chi Minh': {
-            1: [
+            'District 1': [
                 'Ben Nghe Ward',
                 'Ben Thanh Ward',
                 'Cau Kho Ward',
@@ -11586,7 +11586,7 @@ module.exports = {
                 'Pham Ngu Lao Ward',
                 'Tan Dinh Ward'
             ],
-            3: [
+            'District 3': [
                 'Vo Thi Sau Ward',
                 'Ward 01',
                 'Ward 02',
@@ -11600,7 +11600,7 @@ module.exports = {
                 'Ward 13',
                 'Ward 14'
             ],
-            4: [
+            'District 4': [
                 'Ward 01',
                 'Ward 02',
                 'Ward 03',
@@ -11615,7 +11615,7 @@ module.exports = {
                 'Ward 16',
                 'Ward 18'
             ],
-            5: [
+            'District 5': [
                 'Ward 01',
                 'Ward 02',
                 'Ward 03',
@@ -11631,7 +11631,7 @@ module.exports = {
                 'Ward 13',
                 'Ward 14'
             ],
-            6: [
+            'District 6': [
                 'Ward 01',
                 'Ward 02',
                 'Ward 03',
@@ -11647,7 +11647,7 @@ module.exports = {
                 'Ward 13',
                 'Ward 14'
             ],
-            7: [
+            'District 7': [
                 'Binh Thuan Ward',
                 'Phu My Ward',
                 'Phu Thuan Ward',
@@ -11659,7 +11659,7 @@ module.exports = {
                 'Tan Thuan Dong Ward',
                 'Tan Thuan Tay Ward'
             ],
-            8: [
+            'District 8': [
                 'Ward 01',
                 'Ward 02',
                 'Ward 03',
@@ -11677,7 +11677,7 @@ module.exports = {
                 'Ward 15',
                 'Ward 16'
             ],
-            10: [
+            'District 10': [
                 'Ward 01',
                 'Ward 02',
                 'Ward 04',
@@ -11693,7 +11693,7 @@ module.exports = {
                 'Ward 14',
                 'Ward 15'
             ],
-            11: [
+            'District 11': [
                 'Ward 01',
                 'Ward 02',
                 'Ward 03',
@@ -11711,7 +11711,7 @@ module.exports = {
                 'Ward 15',
                 'Ward 16'
             ],
-            12: [
+            'District 12': [
                 'An Phu Dong Ward',
                 'Dong Hung Thuan Ward',
                 'Hiep Thanh Ward',
