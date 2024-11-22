@@ -5,7 +5,7 @@
     assets.addJs('/js/productDetail.js');
     assets.addCss('/css/notifyMe.css');
     assets.addCss('/css/vendors/swiperSlider/swiper-bundle.min.css');
-    assets.addJs('/js/thirdParty/swiper-bundle.min.js');
+    //assets.addJs('/js/thirdParty/swiper-bundle.min.js');
 </isscript>
 <div class="h-dsp-md--grid cmp-category-carousel ${pdict.sectionCustomClass ? pdict.sectionCustomClass : ''}">
     <isprint value="${pdict.regions.leftContent.setClassName('cmp-category-carousel__leftContent ' + pdict.leftContentCustomClass).render()}"
