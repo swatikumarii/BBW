@@ -7,8 +7,8 @@ module.exports = function () {
         var invoiceUrl = $(this).data('action');
         var thisData = this;
         $(thisData).spinner().start();
-        var printArea = window.open('', '', 'height=1000, width=1000');
-
+        var printArea = window.open(invoiceUrl, '_blank', 'noopener,noreferrer');
+        $(thisData).spinner().stop();
         if (printArea) {
             $.ajax({
                 url: invoiceUrl,
