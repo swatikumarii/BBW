@@ -5,8 +5,11 @@ var addressHelpers = require('base/checkout/address');
 var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
-var scrollAnimate = require('base/components/scrollAnimate');
 var formHelpers = require('./formErrors');
+var scrollAnimate = require('base/components/scrollAnimate');
+// ### Custom Adyen cartridge start ###
+var adyenCheckout = require('adyen/adyenCheckout');
+// ### Custom Adyen cartridge end ###
 var location = window.location;
 var history = window.history;
 
@@ -97,15 +100,6 @@ $(document).on('blur', '#email', function () {
 });
 
 /**
- *
- * @param {string} orderID - Order ID
- */
-function ovoStart(orderID) {
-    $('.ovoPayPopup').removeClass('d-none');
-    $('.ovoPayPopup .ovo-popup span').text(orderID);
-}
-
-/**
  * Create the jQuery Checkout Plugin.
  *
  * This jQuery plugin will be registered on the dom element in checkout.isml with the
@@ -147,7 +141,9 @@ function ovoStart(orderID) {
         var checkoutStages = [
             'customer',
             'shipping',
-            'payment'
+            'payment',
+            'placeOrder',
+            'submitted'
         ];
 
         /**
@@ -389,26 +385,34 @@ function ovoStart(orderID) {
                     });
 
                     var paymentForm = billingAddressForm + '&' + contactInfoForm + '&' + paymentInfoForm;
-                    var isovo = false;
-                    isovo = $(paymentInfoSelector).each(function () {
-                        if ($(this).val() === 'ovo') {
-                            return true;
-                        }
-                    });
-                    if (isovo) {
-                        var ovoID = $('#dwfrm_billing #ovoID').serialize();
-                        $('body').trigger('checkout:serializeBilling', {
-                            form: $('#dwfrm_billing #ovoID'),
-                            data: ovoID,
-                            callback: function (data) {
-                                if (data) {
-                                    ovoID = data;
-                                }
-                            }
-                        });
-                        paymentForm = billingAddressForm + '&' + contactInfoForm + '&' + paymentInfoForm + '&' + ovoID;
-                    }
 
+                    if ($('.data-checkout-stage').data('customer-type') === 'registered') {
+                        // if payment method is credit card
+                        if ($('.payment-information').data('payment-method-id') === 'CREDIT_CARD') {
+                            if (!($('.payment-information').data('is-new-payment'))) {
+                                var cvvCode = $('.saved-payment-instrument.'
+                                    + 'selected-payment .saved-payment-security-code').val();
+
+                                if (cvvCode === '') {
+                                    var cvvElement = $('.saved-payment-instrument.'
+                                        + 'selected-payment '
+                                        + '.form-control');
+                                    cvvElement.addClass('is-invalid');
+                                    scrollAnimate(cvvElement);
+                                    defer.reject();
+                                    return defer;
+                                }
+
+                                var $savedPaymentInstrument = $('.saved-payment-instrument'
+                                    + '.selected-payment');
+
+                                paymentForm += '&storedPaymentUUID='
+                                    + $savedPaymentInstrument.data('uuid');
+
+                                paymentForm += '&securityCode=' + cvvCode;
+                            }
+                        }
+                    }
                     // disable the next:Place Order button here
                     $('body').trigger('checkout:disableButton', '.next-step-button button');
                     $.spinner().start();
@@ -419,7 +423,7 @@ function ovoStart(orderID) {
                         success: function (data) {
                             $.spinner().stop();
                             // enable the next:Place Order button here
-                            // $('body').trigger('checkout:enableButton', '.next-step-button button');
+                            $('body').trigger('checkout:enableButton', '.next-step-button button');
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
@@ -455,9 +459,7 @@ function ovoStart(orderID) {
                                 defer.reject();
                             } else {
 
-                                if ('continueUrl' in data && 'isDoku' in data && data.isDoku) {
-                                    window.location.href = data.continueUrl;
-                                } else if (data.isEgiftCardPayment && data.isThankYouPage) {
+                                if (data.isEgiftCardPayment && data.isThankYouPage) {
                                     var redirect = $('<form>').appendTo(document.body).attr({
                                         method: 'POST',
                                         action: data.continueUrl
@@ -472,42 +474,32 @@ function ovoStart(orderID) {
                                     });
                                     redirect.submit();
                                     defer.resolve(data);
-                                } else if ('continueUrl' in data && 'isEgiftCardPayment' in data && data.isEgiftCardPayment) {
-                                    var continueUrl = data.continueUrl;
-                                    var urlParams = {
-                                        ID: data.orderID,
-                                        token: data.orderToken
-                                    };
-
-                                    continueUrl += (continueUrl.indexOf('?') !== -1 ? '&' : '?') +
-                                         Object.keys(urlParams).map(function (key) {
-                                             return key + '=' + encodeURIComponent(urlParams[key]);
-                                         }).join('&');
-
-                                    window.location.href = continueUrl;
-                                    defer.resolve(data);
-                                } else if ('continueUrl' in data && 'isovo' in data && data.isovo) {
-                                    var reqOrder = data.reqOrder;
-                                    ovoStart(reqOrder.invoice_number);
-                                    $.spinner().stop();
-                                    $.ajax({
-                                        url: data.continueUrl,
-                                        method: 'POST',
-                                        data: reqOrder,
-                                        success: function (dataOvo) {
-                                            window.location.href = dataOvo.continue;
-                                        },
-                                        error: function (err) {
-                                            // enable the next:Place Order button here
-                                            $('body').trigger('checkout:enableButton', '.next-step-button button');
-                                            // ovoStop();
-                                            if (err.responseJSON && err.responseJSON.redirectUrl) {
-                                                window.location.href = err.responseJSON.redirectUrl;
-                                            }
-                                        }
-                                        // timeout: 70000
-                                    });
+                                } else {
+                                    var reviewURL = $('input[name="review-url"]').val();
+                                    window.location.href = reviewURL;
                                 }
+
+                                //
+                                // Populate the Address Summary
+                                //
+                                // $('body').trigger(
+                                //     'checkout:updateCheckoutView',
+                                //     { order: data.order, customer: data.customer }
+                                // );
+
+                                // if (data.renderedPaymentInstruments) {
+                                //     $('.stored-payments').empty().html(
+                                //         data.renderedPaymentInstruments
+                                //     );
+                                // }
+
+                                // if (data.customer.registeredUser
+                                //     && data.customer.customerPaymentInstruments.length
+                                // ) {
+                                //     $('.cancel-new-payment').removeClass('checkout-hidden');
+                                // }
+
+                                // scrollAnimate();
                                 defer.resolve(data);
                             }
                         },
@@ -517,6 +509,7 @@ function ovoStart(orderID) {
                             if (err.responseJSON && err.responseJSON.redirectUrl) {
                                 window.location.href = err.responseJSON.redirectUrl;
                             }
+                            $.spinner().stop();
                         }
                     });
 
@@ -547,6 +540,11 @@ function ovoStart(orderID) {
                                     }, 500);
                                 },500);
                                 $.spinner().stop();
+                                // ### Custom Adyen cartridge start ###
+                            } else if (data.adyenAction) {
+                                window.orderToken = data.orderToken;
+                                adyenCheckout.actionHandler(data.adyenAction);
+                                // ### Custom Adyen cartridge end ###
                             } else {
                                 var redirect = $('<form>')
                                     .appendTo(document.body)
@@ -778,6 +776,10 @@ var exports = {
                     data.options
                 );
             });
+            var currentStage = window.location.search.substring(window.location.search.indexOf('=') + 1);
+            if (currentStage === ('shipping' || 'payment')) {
+                adyenCheckout.renderGenericComponent();
+            }
             billingHelpers.methods.updateBillingInformation(
                 data.order,
                 data.customer,
