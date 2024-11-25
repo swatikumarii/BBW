@@ -75,6 +75,7 @@
     },
     "dependencies": {
         "@devmobiliza/videojs-vimeo": "^0.6.0",
+        "dompurify": "^3.2.1",
         "intl-tel-input": "^21.1.4",
         "modal-video": "^2.4.8",
         "popper.js": "^1.16.1",

@@ -2,6 +2,7 @@
 
 var base = require('../product/base');
 var focusHelper = require('base/components/focus');
+var DOMPurify = require('dompurify');
 
 /**
  * appends params to a url
@@ -1114,6 +1115,8 @@ module.exports = function () {
             $.spinner().stop();
             return false;
         }
+        var sanitizedCouponCode = DOMPurify.sanitize($('.coupon-code-field').val(), {ALLOWED_TAGS: []});
+        $('.coupon-code-field').val(sanitizedCouponCode);
         var $form = $('.promo-code-form');
         $('.promo-code-form .form-control').removeClass('is-invalid');
         $('.coupon-error-message').empty();
