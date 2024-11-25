@@ -3,6 +3,7 @@
 var processInclude = require('base/util');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
+var adyenCheckout = require('adyen/adyenCheckout');
 var addressAutocomplete = require('./checkout/addressAutocomplete');
 /* eslint-disable prefer-regex-literals */
 var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
@@ -121,6 +122,7 @@ $(document).ready(function () {
             $('.error-message').show();
             $('.error-message-text').empty().text(decodeURIComponent(error[1]));
         }
+        adyenCheckout.renderGenericComponent();
     }
     $('#selectedPaymentOption').val(
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
@@ -520,6 +522,62 @@ $('.promo-details-tooltip .close').on('click', function () {
     }, 300);
 });
 
+$(document).on(
+    'click',
+    '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab',
+    function (event) {
+        var paymentMethod = $(this)
+            .closest('.payment-method-options')
+            .data('payment-method-id');
+        $('.credit-card-selection-new .tab-pane').removeClass('active');
+        $(
+            '.credit-card-selection-new [data-payment-method-id="' +
+                paymentMethod +
+                '"] .tab-pane'
+        ).addClass('active');
+        $('.payment-options .nav-item .nav-link').removeClass('active');
+        $(
+            '.payment-options .nav-item.nav-item[data-method-id="' +
+                paymentMethod +
+                '"] .nav-link'
+        ).addClass('active');
+        $('#selectedPaymentOption').val(paymentMethod);
+        $('.payment-method-options')
+            .find('[type="radio"]')
+            .prop('checked', false);
+        $('.additionalFields').css('display', 'none');
+        $(event.target)
+            .closest('.paymentMethod, .afterpay-tab')
+            .find('[type="radio"]')
+            .prop('checked', true)
+            .trigger('change');
+        $(event.target)
+            .closest('.paymentMethod, .afterpay-tab')
+            .find('.additionalFields')
+            .css('display', 'block');
+        if (
+            $(
+                '#paymentMethodsList .paymentMethod [type="radio"]:checked'
+            ).val() === 'applepay' &&
+            (!($('#contactEmail').val() || '').length ||
+                !$('#contactEmail').attr('pattern') ||
+                !(new RegExp($('#contactEmail').attr('pattern') || '').test(
+                    $('#contactEmail').val() || ''
+                )))
+        ) {
+            $('#component_applepay button').attr('disabled', 'disabled');
+            $('#contactEmail').trigger('change');
+            var element = $('#contactEmail');
+            var position = element && element.length ? element.offset().top : 0;
+            $('html, body').animate(
+                {
+                    scrollTop: position - 250
+                },
+                500
+            );
+        }
+    }
+);
 $(document).on('input', '#contactEmail', function () {
     if (
         ($('#contactEmail').val() || '').length &&
@@ -537,6 +595,28 @@ $(document).on('input', '#contactEmail', function () {
     }
 });
 
+$('button.submit-payment').on('click', function () {
+    if ($('#selectedPaymentOption').val() === 'AdyenComponent') {
+        if (
+            [
+                'paypal',
+                'paywithgoogle',
+                'googlepay',
+                'amazonpay',
+                'applepay',
+                'cashapp'
+            ].indexOf(
+                $(
+                    '#paymentMethodsList .paymentMethod [type="radio"]:checked'
+                ).val()
+            ) === -1
+        ) {
+            $('#paymentMethodsList .paymentMethod [type="radio"]:checked')
+                .closest('.paymentMethod')
+                .trigger('click');
+        }
+    }
+});
 
 $('.shippingState').change(function () {
     var selectedState = $(this).val();
