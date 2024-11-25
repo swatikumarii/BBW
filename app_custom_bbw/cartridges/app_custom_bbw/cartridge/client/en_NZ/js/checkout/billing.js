@@ -1,6 +1,7 @@
 'use strict';
 
 var addressHelpers = require('./address');
+var cleave = require('base/components/cleave');
 
 /**
  * updates the billing address selector within billing forms
@@ -486,6 +487,18 @@ module.exports = {
                     }
                 }
             });
+        });
+    },
+
+    handleCreditCardNumber: function () {
+        cleave.handleCreditCardNumber('.cardNumber', '#cardType');
+    },
+
+    santitizeForm: function () {
+        $('body').on('checkout:serializeBilling', function (e, data) {
+            var serializedForm = cleave.serializeData(data.form);
+
+            data.callback(serializedForm);
         });
     },
 
