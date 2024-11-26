@@ -77,6 +77,7 @@
         "@devmobiliza/videojs-vimeo": "^0.6.0",
         "dompurify": "^3.2.1",
         "intl-tel-input": "^21.1.4",
+        "mobx": "^6.13.3",
         "modal-video": "^2.4.8",
         "popper.js": "^1.16.1",
         "slick-carousel": "^1.8.1",
@@ -84,7 +85,6 @@
         "vanilla-lazyload": "^12.2.0",
         "video.js": "^7.10.2",
         "videojs-vimeo": "^2.0.2",
-        "videojs-youtube": "^2.6.1",
-        "mobx": "^6.13.3"
+        "videojs-youtube": "^2.6.1"
     }
 }

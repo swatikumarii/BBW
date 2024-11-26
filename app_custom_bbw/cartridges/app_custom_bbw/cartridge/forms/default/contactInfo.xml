@@ -7,5 +7,5 @@
            regexp="^(?!0)[0-9\s-]{8,13}$" parse-error="error.message.pattern.phone" />
     <field formid="email" label="profile.email" description="address.email.example" type="string" mandatory="true"
            binding="email" regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$" parse-error="error.message.parse.email.profile.form" missing-error="error.card.info.missing.email" />
-
+    <field formid="tnc" type="string" mandatory="true" binding="tnc" missing-error="error.message.checkbox.required" />
 </form>
