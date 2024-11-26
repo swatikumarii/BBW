@@ -4,7 +4,7 @@
     assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
     assets.addCss('/css/pages/shopbyingredient/b-shopbyingredient.css');
     assets.addCss('/css/vendors/swiperSlider/swiper-bundle.min.css');
-    assets.addJs('/js/thirdParty/swiper-bundle.min.js');
+    //assets.addJs('/js/thirdParty/swiper-bundle.min.js');
 </isscript>
 <isinclude template="/components/modules" sf-toolkit="off" />
 <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">

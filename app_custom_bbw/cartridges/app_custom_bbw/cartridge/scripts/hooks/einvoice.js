@@ -57,7 +57,7 @@ exports.sendEmail = function (order) {
         orderId: order.orderNo,
         invoiceUrl: URLUtils.https(
             'Order-InvoiceDownload',
-            'token',
+            'orderReference',
             encodedOrderNumber
         ).toString(),
         content: emailContentHelpers.getEmailContent(

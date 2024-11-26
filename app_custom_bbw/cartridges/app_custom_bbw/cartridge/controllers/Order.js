@@ -124,7 +124,7 @@ server.get('InvoiceDownload', function (req, res, next) {
     var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
     var TaxMgr = require('dw/order/TaxMgr');
     var orderID = encryptionHelper.decryptPin(
-        decodeURIComponent(req.querystring.token)
+        decodeURIComponent(req.querystring.orderReference)
     );
     try {
         var order = OrderMgr.getOrder(orderID);

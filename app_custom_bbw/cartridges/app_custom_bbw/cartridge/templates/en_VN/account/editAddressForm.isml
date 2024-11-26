@@ -72,7 +72,7 @@
             <isprint value="${Resource.msg('field.address.auto', 'address', null)}" encoding="htmlcontent" />
         </label>
     </div>
-    <input id="accountAddressAutoComplete" type="text" size="50" disabled='disabled'>
+    <input id="accountAddressAutoComplete" type="text" size="50" >
 </div>
 
 <!-- Address 1 -->

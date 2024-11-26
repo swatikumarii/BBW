@@ -1,0 +1,45 @@
+<div class="modal fade" id="removeBonusModal-${bonusDiscountLineItem.UUID}" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <div class="text-center w-100 pt-4">
+                    <h5 class="h-font-size--34 h-clr--black-1 h-fw--semibold h-line-height--30"
+                        id="removeBonusModalLabel">${Resource.msg('demotivator.title.1', 'cart', null)}</h5>
+                    <p class="h-font-size--16 h-clr--gray-10">${Resource.msg('demotivator.title.2', 'cart', null)}</p>
+                </div>
+                <button type="button" class="close position-absolute" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <isloop items="${bonusDiscountLineItem.bonusProductLineItems}" var="lineItem" status="loopstatus">
+                    <div class="d-flex align-items-center">
+                        <img class="product-image mr-2" src="${lineItem.product.getImage('large', 0).url}"
+                            alt="${lineItem.product.getImage('large', 0).alt}" title="${lineItem.product.getImage('large', 0).title}"
+                            height="125px" />
+                        <div class="line-item-header">
+                            <div class="line-item-name">
+                                ${lineItem.product.custom.fragranceName && lineItem.product.custom.fragranceName !== '' ? lineItem.product.custom.fragranceName : lineItem.product.custom.productName}
+                            </div>
+                            <div class="line-item-name-partB text-capitalize">
+                                ${lineItem.product.custom.titlePartB ? lineItem.product.custom.titlePartB : ''}
+                            </div>
+                        </div>
+                    </div>
+                </isloop>
+            </div>
+            <div class="modal-footer justify-content-center py-4">
+                <button type="button"
+                    class="btn btn-primary text-uppercase cart-delete-confirmation-btn w-25 h-fw--semibold"
+                    data-pid="${lineItem.id}" data-name="${lineItem.productName}"
+                    data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}"
+                    data-dismiss="modal">${Resource.msg('remove.label', 'common', null)}</button>
+                <button type="button" class="btn btn-secondary text-uppercase w-25 h-fw--semibold"
+                    data-dismiss="modal">${Resource.msg('cancel.label', 'common', null)}</button>
+            </div>
+        </div>
+    </div>
+</div>

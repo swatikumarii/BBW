@@ -153,8 +153,7 @@ function getFragranceNames() {
         if (fragranceNamesArray.length > 0) {
             if(countFragranceEnabled) {
                 saveFragranceCounts(fragranceCountMap);
-            }
-            else {
+            } else {
                 saveFragranceNames(fragranceNamesArray);
             }
         } else {

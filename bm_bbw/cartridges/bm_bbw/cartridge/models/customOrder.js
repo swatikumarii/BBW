@@ -16,7 +16,7 @@ function getInvoice(orderNo, locale) {
   var data = contentApi.callAPI(
     URLUtils.https(
       new URLAction("Order-InvoiceDownload", Site.current.ID, locale),
-      new URLParameter("token", encodedOrderNumber)
+      new URLParameter("orderReference", encodedOrderNumber)
     ).toString()
   );
   return data;

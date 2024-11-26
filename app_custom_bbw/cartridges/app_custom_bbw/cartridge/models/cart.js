@@ -258,7 +258,7 @@ function getAvailableBonusProducts(basket) {
                 url: URLUtils.url('Product-ShowBonusProducts', 'DUUID', bonusDiscountLineItem.UUID, 'pagesize', cartHelper.BONUS_PRODUCTS_PAGE_SIZE, 'pagestart', 0, 'maxpids', bonusDiscountLineItem.maxBonusItems, 'pids', pids).toString()
             };
             product.availableDiscountObject = {
-                addToCartUrl: URLUtils.url('Cart-AddBonusProduct').toString(),
+                addToCartUrl: URLUtils.url('Cart-AddBonusProducts').toString(),
                 bonusChoiceRuleBased: bonusDiscountLineItem.bonusChoiceRuleBased,
                 labels: {
                     close: Resource.msg('link.choiceofbonus.close', 'product', null),
@@ -391,6 +391,7 @@ function CartModel(basket) {
         )
     };
     this.availableBonusProducts = getAvailableBonusProducts(basket);
+    this.bonusDiscountLineItems = basket ? basket.bonusDiscountLineItems : null;
     this.hasBonusProducts = basket ? basket.bonusDiscountLineItems.length > 0 : false;
     this.CheckLoosingBonusURL = URLUtils.url('Cart-CheckLoosingBonus');
 }
