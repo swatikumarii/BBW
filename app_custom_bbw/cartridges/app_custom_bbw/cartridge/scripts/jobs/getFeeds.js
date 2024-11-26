@@ -233,10 +233,10 @@ function getGoogleFeeds() {
                         xmlStreamWriter.writeEndElement();
 
                         xmlStreamWriter.writeStartElement('g:google_product_category');
-                        xmlStreamWriter.writeCData(
-                            ' Health & Beauty > Personal Care > Cosmetics > Bath & Body > ' +
-                                category
-                        );
+                        // xmlStreamWriter.writeCData(
+                        //     ' Health & Beauty > Personal Care > Cosmetics > Bath & Body > ' +
+                        //         category
+                        // );
                         xmlStreamWriter.writeEndElement();
 
                         // item end
