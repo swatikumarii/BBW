@@ -316,6 +316,7 @@ server.post('AddProduct', function (req, res, next) {
                     null
                 )
             };
+            var removedNonBundleProducts = bundlingHelpers.removeNonBundleProducts(currentBasket);
 
             pidsObj.forEach(function (PIDObj) {
                 quantity = parseInt(PIDObj.qty, 10);
@@ -337,6 +338,7 @@ server.post('AddProduct', function (req, res, next) {
                     result.message = PIDObjResult.message;
                 }
             });
+            bundlingHelpers.reAddNonBundleProducts(currentBasket,removedNonBundleProducts);
             if (!result.error) {
                 cartHelper.ensureAllShipmentsHaveMethods(currentBasket);
                 basketCalculationHelpers.calculateTotals(currentBasket);

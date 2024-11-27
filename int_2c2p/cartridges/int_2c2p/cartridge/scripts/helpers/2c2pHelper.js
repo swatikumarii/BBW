@@ -81,7 +81,7 @@ function createRequestBody(order, basket, paymentForm, req, payoo) {
       return_page: URLUtils.abs(_2c2pPreferences.hsbcMerchantCallBackUrl, 'order', order.currentOrderNo).toString()
     }
     var page_setting = {
-      payment_option: ['card','installment','wallet'],
+      payment_option: _2c2pPreferences.hsbcPaymentChannel.split(','),
       expiry: parseInt((Date.now() + 86400) / 1000, 10)
     }
     var customer = {

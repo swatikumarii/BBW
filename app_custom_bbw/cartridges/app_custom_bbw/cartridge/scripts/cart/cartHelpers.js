@@ -7,6 +7,7 @@ var Transaction = require('dw/system/Transaction');
 var BasketMgr = require('dw/order/BasketMgr');
 var collections = require('*/cartridge/scripts/util/collections');
 var BONUS_PRODUCTS_PAGE_SIZE = 6;
+var ArrayList = require('dw/util/ArrayList');
 var URLUtils = require('dw/web/URLUtils');
 
 /**
@@ -390,7 +391,14 @@ function createFreeLineItem(lineItemContainer) {
                 }
             }
         }
-        var allLineItemsForProduct = lineItemContainer.getProductLineItems(productLineItem.productID);
+        var allLineItemWithBundle = lineItemContainer.getProductLineItems(productLineItem.productID);
+        var allLineItemsForProduct = new ArrayList();
+        // eslint-disable-next-line no-loop-func
+        collections.forEach(allLineItemWithBundle, function (lineItemForProduct) {
+            if (!('custom' in lineItemForProduct && 'customBundle' in lineItemForProduct.custom && lineItemForProduct.custom.customBundle) && !lineItemForProduct.bonusProductLineItem) {
+                allLineItemsForProduct.push(lineItemForProduct);
+            }
+        });
         if (isFreeItem) {
             var indexOfMainItem;
             var mergeQty;
