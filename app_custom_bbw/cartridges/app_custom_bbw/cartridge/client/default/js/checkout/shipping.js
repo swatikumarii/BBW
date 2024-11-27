@@ -857,8 +857,6 @@ module.exports = {
                 $('.shippingZipCode').val('');
             };
             if (city) {
-                $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
-                $('.shippingZipCode').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
                 $('.shippingAddressCity option').each(function () {
                     if ($(this).val() === city) {
                         $('.shippingAddressCity option').removeAttr('selected');
