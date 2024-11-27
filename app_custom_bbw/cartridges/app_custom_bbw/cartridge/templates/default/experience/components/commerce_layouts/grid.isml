@@ -3,7 +3,8 @@
     assets.addCss('/css/experience/components/commerceLayouts/grid.css');
 </isscript>
 <div class="grid-layout__container ${pdict.gridSectionClass}"
-    style="--desktop-bg-image: url(${pdict.girdBgDesktop.src.desktop},'null');--mobile-bg-image:url(${pdict.girdBgMobile.src.mobile},'null');--tablet-bg-image:url(${pdict.girdBgTablet.src.tablet},'null');">
+    style="${pdict.girdBgDesktop && pdict.girdBgDesktop.src.desktop ? '--desktop-bg-image : url(' + pdict.girdBgDesktop.src.desktop + ');' : ''} ${pdict.girdBgMobile && pdict.girdBgMobile.src.mobile ? '--mobile-bg-image : url(' + pdict.girdBgMobile.src.mobile + ');' : ''} ${pdict.girdBgTablet && pdict.girdBgTablet.src.tablet ? '--tablet-bg-image : url(' + pdict.girdBgTablet.src.tablet + ');' : ''}">
+
     <div class="grid-layout__row">
         <isif condition="${pdict.title}">
             <isprint value="${pdict.title}" encoding="off" />
