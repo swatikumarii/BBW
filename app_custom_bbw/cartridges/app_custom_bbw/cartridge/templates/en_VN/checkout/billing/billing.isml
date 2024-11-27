@@ -132,7 +132,7 @@
         <!-------------------------------------------------------------------------->
         <fieldset>
             <div class="contact-info-block row no-gutters checkout-btn-row">
-                <div class="col-lg-12 col-md-12">
+                <div class="col-lg-12 col-md-12 custom-checkbox">
                     <div class="form-group ${pdict.forms.billingForm.contactInfoFields.tnc.htmlName}">
                         <input type="hidden" class="form-control tnc" id="tnc-checkout-value"
                             data-missing-error="${Resource.msg('error.message.checkbox.required', 'forms', null)}" value=""
