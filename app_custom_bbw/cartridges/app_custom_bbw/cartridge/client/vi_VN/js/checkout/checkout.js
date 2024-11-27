@@ -96,6 +96,16 @@ $(document).on('blur', '#email', function () {
     validateEmail();
 });
 
+$(document.body).on('click', '.checkbox-tnc-add-list', function () {
+        var cb = $('.checkbox-tnc-add-list');
+        cb.val(cb.prop('checked'));
+        if(cb.val() === 'true'){
+            $('#tnc-checkout-error').empty();
+            $('#tnc-checkout-value').val('true');
+        }else{
+           $('#tnc-checkout-value').val(''); 
+        }
+    });
 /**
  *
  * @param {string} orderID - Order ID
