@@ -1049,7 +1049,7 @@ module.exports = $.extend({}, base, {
             });
             var checkbox = $(this).find('.select-bonus-product');
             var $choiceOfBonusProduct = $(this);
-            if (selectedQty > 1 && checkbox.is(':checked')) {
+            if ((selectedQty > 1 || maxBonusItems === 1) && checkbox.is(':checked')) {
                 var pidToRemove = $(this).data('pid');
                 checkbox.prop('checked', false);
                 $(this).removeClass('selected');

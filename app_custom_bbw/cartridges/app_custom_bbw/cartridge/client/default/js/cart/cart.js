@@ -626,6 +626,7 @@ module.exports = function () {
     $('body').on('click', '.cart-delete-confirmation-btn', function (e) {
         e.preventDefault();
         clearErrorNotification();
+        var removingBonusProductRefresh = $(this).parents('.modal').length > 0 && $('.bonus-product-title').nextAll('.card').length <= 1;
         var productID = $(this).data('pid');
         var url = $(this).data('action');
         var uuid = $(this).data('uuid');
@@ -676,12 +677,9 @@ module.exports = function () {
             type: 'get',
             dataType: 'json',
             success: function (data) {
-                if (data.basket.items.length === 0) {
+                if (data.basket.items.length === 0 || removingBonusProductRefresh || data.basket.loosingBonus) {
                     window.location.reload();
                 } else {
-                    if (data.basket.loosingBonus) {
-                        window.location.reload();
-                    }
                     if (
                         data.toBeDeletedUUIDs &&
                         data.toBeDeletedUUIDs.length > 0
