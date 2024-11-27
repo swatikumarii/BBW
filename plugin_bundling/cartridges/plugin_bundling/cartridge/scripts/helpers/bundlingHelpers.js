@@ -4,6 +4,7 @@ var Resource = require('dw/web/Resource');
 var ProductMgr = require('dw/catalog/ProductMgr');
 var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
+var Transaction = require('dw/system/Transaction');
 
 /**
  * Adds a product to the cart. If the product is already in the cart it increases the quantity of
@@ -152,8 +153,48 @@ function getExistingNonBundleProductLineItemsInCart(productId, productLineItems)
     return productLineItemsInCart;
 }
 
+/**
+ *
+ * @param basket
+ */
+function removeNonBundleProducts(basket) {
+    var collections = require('*/cartridge/scripts/util/collections');
+    var allLineItems = basket.getProductLineItems();
+    var removedProducts = [];
+    // eslint-disable-next-line no-loop-func
+    collections.forEach(allLineItems, function (lineItemForProduct) {
+        if (!('custom' in lineItemForProduct && 'customBundle' in lineItemForProduct.custom && lineItemForProduct.custom.customBundle)) {
+            removedProducts.push({
+                pid:lineItemForProduct.productID,
+                qty:lineItemForProduct.quantityValue
+            });
+            Transaction.wrap(function () {
+                basket.removeProductLineItem(lineItemForProduct);
+            });
+        }
+    });
+    return removedProducts;
+}
+
+/**
+ *
+ * @param currentBasket
+ * @param productIdsObj
+ */
+function reAddNonBundleProducts(currentBasket, productIdsObj) {
+    productIdsObj.forEach(function (product) {
+        cartHelper.addProductToCart(
+            currentBasket,
+            product.pid,
+            product.qty
+        );
+    });
+}
+
 module.exports = {
     addProductToCart: addProductToCart,
     getExistingNonBundleProductLineItemsInCart:
-        getExistingNonBundleProductLineItemsInCart
+        getExistingNonBundleProductLineItemsInCart,
+    removeNonBundleProducts: removeNonBundleProducts,
+    reAddNonBundleProducts: reAddNonBundleProducts
 };

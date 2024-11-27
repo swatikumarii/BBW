@@ -2,7 +2,8 @@
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addCss('/css/experience/components/commerceLayouts/grid.css');
 </isscript>
-<div class="grid-layout__container ${pdict.gridSectionClass}" style="--desktop-bg-image: url(${pdict.girdBgDesktop.src.desktop});--mobile-bg-image:url(${pdict.girdBgMobile.src.mobile});--tablet-bg-image:url(${pdict.girdBgTablet.src.tablet});">
+<div class="grid-layout__container ${pdict.gridSectionClass}"
+    style="--desktop-bg-image: url(${pdict.girdBgDesktop.src.desktop},'null');--mobile-bg-image:url(${pdict.girdBgMobile.src.mobile},'null');--tablet-bg-image:url(${pdict.girdBgTablet.src.tablet},'null');">
     <div class="grid-layout__row">
         <isif condition="${pdict.title}">
             <isprint value="${pdict.title}" encoding="off" />
