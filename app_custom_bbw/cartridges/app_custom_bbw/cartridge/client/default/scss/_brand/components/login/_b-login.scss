@@ -41,12 +41,12 @@
         .login-para {
             line-height: 1.5rem;
             letter-spacing: 0.01em;
-            margin-top: 16px;
-            margin-bottom: 16px;
+            margin-bottom: 30px;
+            margin-top: 20px;
         }
 
         .form-group {
-            margin-bottom: 35px;
+            margin-bottom: 20px;
         }
 
         .modal-password {
@@ -66,8 +66,8 @@
         }
 
         .invalid-feedback {
-            margin-bottom: -35px;
-            margin-top: 4px;
+            margin-bottom: -21px;
+            margin-top: 11px;
             letter-spacing: 0.21px;
         }
 
@@ -1111,7 +1111,7 @@
     }
 }
 
-.pw-requirements .pw-requirement > span {
+.pw-requirements .pw-requirement>span {
     line-height: 1.375rem;
     padding-left: 30px;
 }

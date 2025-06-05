@@ -16,7 +16,7 @@
                 <div class="col-12 pb-0">
                     <h4 class="h-font-size--18 h-clr--black-1 h-fw--bold">${Resource.msg('login.label', 'login', null)}
                     </h4>
-                    <p class="h-font-size--16 login-para h-clr--gray d-none">
+                    <p class="h-font-size--16 login-para h-clr--gray">
                         ${Resource.msg('login.para', 'login', null)}
                     </p>
                     <isinclude template="account/components/loginModalForm" />
